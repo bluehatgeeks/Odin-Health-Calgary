@@ -15,17 +15,12 @@
     });
   }
 
-  /* Create nav placeholder as first child of body */
+  /* Create nav placeholder as first child of body — runs immediately */
   var navRoot = document.createElement('div');
   navRoot.id = 'odin-nav-root';
   document.body.insertBefore(navRoot, document.body.firstChild);
 
-  /* Create footer placeholder as last child of body */
-  var footerRoot = document.createElement('div');
-  footerRoot.id = 'odin-footer-root';
-  document.body.appendChild(footerRoot);
-
-  /* Fetch and inject nav */
+  /* Fetch and inject nav immediately */
   fetch(CDN + '/odinnav.html')
     .then(function (r) { return r.text(); })
     .then(function (html) {
@@ -34,12 +29,18 @@
     })
     .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
 
-  /* Fetch and inject footer */
-  fetch(CDN + '/odinfooter.html')
-    .then(function (r) { return r.text(); })
-    .then(function (html) {
-      footerRoot.innerHTML = html;
-      execScripts(footerRoot);
-    })
-    .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  /* Footer must be appended after the full DOM is parsed */
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+
+    fetch(CDN + '/odinfooter.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        execScripts(footerRoot);
+      })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
 })();
