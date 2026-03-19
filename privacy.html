@@ -8,42 +8,30 @@
   <meta property="og:title" content="Privacy Policy | Odin Health Labs">
   <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOYSURBVHgBtVdRUtswEF0pUgh/uUHTG8AMlPLVhCm0fy0nwJyg6QlwTgCcgHAC8tkhdJJ+MQNMkyPkBs0faaxY3XXsxJEt2+nAzoSxZWnf8/rtkwDIiIfpoUM/eMUQtgeP3tEZgHbD2/ZA16vqr3A0Z+N35W4bcuL+uV4ryXKPaWjvytuWbR7LB9ctIdSFUrKHN1s04vu6tbdx55qAQsgrulbKOxVC1DB9L4RxbST4uuBBOsaq5roQvE4/KWVPKTWi9WEeF/OeQx6BIuAYQyk9N5lKjxdXGmohiXaMRPNJHV5ZCRQFF8JrbLP+2EyklPiuGRtlkcAxxyTBXgI8ivvnzyg8H4WnawsABiPP8xqoCQfvzsKx9o7ongYVmLdZMfDJBKqQEfubP0YzjzfWqQRnTONkPcwDn802zikRqR2sFcDWK+kvRUn81gdvWHwxKvnGBq6178RLur/ZHyXAEQT7vkZtpxS/FmK2ki9aWyrJOt2Tn7DkYju4mSgikb6euUJML5MtvLo2cELOhZMGThc+6LrpVlFJEbhRqcDYmyXI0yx3OhWsXPYacRK0Nqz0doBNf/C7DU1wUjv9zO9pkiBhouqvIRljNKwO5QhfZriswtLIAgI74mcHUzYw6anZamnKNkmsGs4cHJ818BsHoBEJHLvW+Al8Xy3mpu4FaZHW48s3Wun1b3HwvChMoCgJgEpQNSgYHNaISmWSqwmACawThQlQq6HaB0L4J3kksszKSoAOHI/ex7oNfNnn2v1fErTnPHqHPbT/pS9EACigAd5Se6xsOhaTgsjt8jQRGc6T+nQVd1PcjN4uKjC3xkVvbpFxUEXs4MG7NvM0wXnZMcHnz9iizQMCeMDoGEkCEuRyaIW/kuDzPqcq2XyCen5v49Y1wdGERli54xUCFscLSCC5JiUzweN9bpKg+fjcSQP3cB7uurVII/xJHX1F8f2xCMskMbaZTESCgX+ZBS6l/4EOq7gfDGhcKOXjHk7fP1A3KJxkCCsigQeSiptlMuGzZha41rodjMG8qvx95e5iWWJri4WamFiPY1EUASe8HdlthkTmgb3ZxvY4CZfZWizzXFgUnD5RNGdhRDRYsBI3aeB07l8XfIXAGiTqD9MDJ0nBr60LniBQlARjfGSuQ3NphYfbPoGXSrNqBI5jnTTwIBdYIq6JXdlltBVzrhzOob8r7/qQE+T3eOKmoxjqRh1n/T+RlcQhn4BXjH9Uw1CcbjMdogAAAABJRU5ErkJggg==" type="image/x-icon">
   <style>
-    :root {
-      --lime: #c4ff49;
-      --lime-green: #c4ff49;
-      --dark-green: #1a3a1a;
-      --charleston-green: #1a3a1a;
-      --white: #ffffff;
-      --white-800: rgba(255,255,255,0.8);
-      --white-500: rgba(255,255,255,0.5);
-      --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    /* ── All visual rules scoped to wrapper — nothing below affects the nav or GHL ── */
+    /* Variables come from odinbase.html which must be loaded first on the GHL page */
+    .odin-privacy-page *,
+    .odin-privacy-page *::before,
+    .odin-privacy-page *::after {
+      box-sizing: border-box;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { -webkit-text-size-adjust: 100%; }
-
-    body {
-      min-height: 100vh;
+    .odin-privacy-page {
       background-color: #1a3a1a;
       color: #ffffff;
       font-family: var(--font-family);
       font-size: 16px;
       line-height: 1.7;
-      display: flex;
-      flex-direction: column;
     }
 
-    main { flex: 1; }
-
     /* ── Page header ── */
-    .page-header {
+    .odin-privacy-page .page-header {
       padding: 80px 20px 60px;
       text-align: center;
       border-bottom: 1px solid rgba(196,255,73,0.15);
     }
 
-    .page-header .eyebrow {
+    .odin-privacy-page .page-header .eyebrow {
       display: inline-block;
       background-color: rgba(196,255,73,0.12);
       color: var(--lime);
@@ -56,7 +44,7 @@
       margin-bottom: 24px;
     }
 
-    .page-header h1 {
+    .odin-privacy-page .page-header h1 {
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 700;
       color: var(--white);
@@ -65,7 +53,7 @@
       line-height: 1.2;
     }
 
-    .page-header .subtitle {
+    .odin-privacy-page .page-header .subtitle {
       color: var(--white-800);
       font-size: 1rem;
       max-width: 520px;
@@ -73,17 +61,17 @@
     }
 
     /* ── Content ── */
-    .privacy-content {
+    .odin-privacy-page .privacy-content {
       max-width: 780px;
       margin: 0 auto;
       padding: 64px 20px 80px;
     }
 
-    .privacy-content section {
+    .odin-privacy-page .privacy-content section {
       margin-bottom: 48px;
     }
 
-    .privacy-content h2 {
+    .odin-privacy-page .privacy-content h2 {
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--lime);
@@ -92,7 +80,7 @@
       border-bottom: 1px solid rgba(196,255,73,0.15);
     }
 
-    .privacy-content h3 {
+    .odin-privacy-page .privacy-content h3 {
       font-size: 1rem;
       font-weight: 600;
       color: var(--white);
@@ -100,31 +88,31 @@
       margin-bottom: 8px;
     }
 
-    .privacy-content p {
+    .odin-privacy-page .privacy-content p {
       color: var(--white-800);
       margin-bottom: 12px;
     }
 
-    .privacy-content ul {
+    .odin-privacy-page .privacy-content ul {
       color: var(--white-800);
       padding-left: 20px;
       margin-bottom: 12px;
     }
 
-    .privacy-content ul li {
+    .odin-privacy-page .privacy-content ul li {
       margin-bottom: 6px;
     }
 
-    .privacy-content a {
+    .odin-privacy-page .privacy-content a {
       color: var(--lime);
       text-decoration: none;
     }
 
-    .privacy-content a:hover {
+    .odin-privacy-page .privacy-content a:hover {
       text-decoration: underline;
     }
 
-    .effective-date {
+    .odin-privacy-page .effective-date {
       display: inline-block;
       background: rgba(196,255,73,0.08);
       border: 1px solid rgba(196,255,73,0.2);
@@ -135,13 +123,16 @@
       margin-bottom: 48px;
     }
 
-    .effective-date strong {
+    .odin-privacy-page .effective-date strong {
       color: var(--lime);
     }
   </style>
 
 </head>
 <body>
+
+
+<div class="odin-privacy-page">
 
   <!-- Page Header -->
   <header class="page-header">
@@ -317,7 +308,7 @@
     </div>
   </main>
 
-
+</div><!-- /.odin-privacy-page -->
 
 </body>
 </html>

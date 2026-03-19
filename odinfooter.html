@@ -1,79 +1,77 @@
 <!-- Odin Health Labs — Footer Component -->
-<!-- Include the <style> block in your page's <head>, and the <footer> in your <body> -->
-
+<!-- ADD odinbase.html to the page before this block -->
 <style>
-/* ── Footer ── */
-    footer {
-      padding: 60px 0 40px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
-      border-top: 1px solid rgba(196,255,73,0.15);
-    }
+  /* ── Footer component styles (variables come from odinbase.html) ── */
+  .odin-footer {
+    padding: 60px 0 40px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+    border-top: 1px solid rgba(196,255,73,0.15);
+  }
 
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      text-align: center;
-    }
+  .odin-footer .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+  }
 
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-    }
+  .odin-footer .footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
 
-    .footer-logo img {
-      height: 56px;
-      width: auto;
-      opacity: 0.95;
-    }
+  .odin-footer .footer-logo img {
+    height: 56px;
+    width: auto;
+    opacity: 0.95;
+  }
 
-    .footer-brand {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--white);
-      margin: 0 0 24px 0;
-      letter-spacing: 0.02em;
-    }
+  .odin-footer .footer-brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 24px 0;
+    letter-spacing: 0.02em;
+  }
 
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 8px 32px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
+  .odin-footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 8px 32px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
 
-    .footer-links a {
-      color: var(--lime-green);
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: color 0.2s ease, background-color 0.2s ease;
-    }
+  .odin-footer .footer-links a {
+    color: var(--lime-green);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
 
-    .footer-links a:hover {
-      color: var(--dark-green);
-      background-color: rgba(196,255,73,0.2);
-    }
+  .odin-footer .footer-links a:hover {
+    color: var(--dark-green);
+    background-color: rgba(196,255,73,0.2);
+  }
 
-    .footer-copyright {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.7);
-      margin: 0;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
+  .odin-footer .footer-copyright {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
 </style>
 
-<!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <svg aria-label="OdinLab Logo" role="img" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<div class="odin-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg aria-label="OdinLab Logo" role="img" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 640 175" style="display:block;height:56px;width:auto;" xml:space="preserve">
 
 <g>
@@ -119,16 +117,16 @@
 	</g>
 </g>
 </svg>
-      </div>
-      <p class="footer-brand">Odin Labs Health Coaching Calgary</p>
-      <div class="footer-links">
-        <a href="#" data-c="dGVsOisxNTg3MzI0ODcxMA==" class="footer-contact">Phone</a>
-        <a href="#" data-c="bWFpbHRvOm9mZmljZUBvZGluaGVhbHRoY29hY2hpbmcuY29t" class="footer-contact">Email</a>
-        <a href="privacy.html">Privacy</a>
-      </div>
-      <p class="footer-copyright">Copyright 2026 &middot; Made with &hearts; in Calgary</p>
     </div>
-  </footer>
+    <p class="footer-brand">Odin Labs Health Coaching Calgary</p>
+    <div class="footer-links">
+      <a href="#" data-c="dGVsOisxNTg3MzI0ODcxMA==" class="footer-contact">Phone</a>
+      <a href="#" data-c="bWFpbHRvOm9mZmljZUBvZGluaGVhbHRoY29hY2hpbmcuY29t" class="footer-contact">Email</a>
+      <a href="/privacy">Privacy</a>
+    </div>
+    <p class="footer-copyright">Copyright 2026 &middot; Made with &hearts; in Calgary</p>
+  </div>
+</div>
 <script>
   document.querySelectorAll('a.footer-contact').forEach(function(a) {
     a.addEventListener('click', function(e) {
