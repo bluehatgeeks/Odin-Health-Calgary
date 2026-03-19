@@ -1,7 +1,7 @@
 /* ── Odin Health Labs — Component Loader ── */
 /* Fetches nav and footer HTML from CDN and injects into the page */
 (function () {
-  var CDN = 'https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@main';
+  var CDN = 'https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master';
 
   /* Re-execute <script> tags after innerHTML injection */
   function execScripts(container) {
