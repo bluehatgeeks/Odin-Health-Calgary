@@ -1,0 +1,19 @@
+/* ── Odin Health Labs — Therapies Page Custom Styles ── */
+/* Custom Odin CSS for the therapies template page */
+
+/* ── Banner marquee animation ── */
+@keyframes odin-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.banner-div {
+  width: max-content;
+  flex-shrink: 0;
+  animation: odin-marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.banner-box:hover .banner-div {
+  animation-play-state: paused;
+}

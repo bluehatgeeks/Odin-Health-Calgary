@@ -1,0 +1,119 @@
+/* ── Odin Health Labs — Privacy Page Styles ── */
+/* All rules scoped under .odin-privacy-page — safe to combine with any other page */
+
+.odin-privacy-page *,
+.odin-privacy-page *::before,
+.odin-privacy-page *::after {
+  box-sizing: border-box;
+}
+
+.odin-privacy-page {
+  background-color: #1a3a1a;
+  color: #ffffff;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ── Page header ── */
+.odin-privacy-page .page-header {
+  padding: 80px 20px 60px;
+  text-align: center;
+  border-bottom: 1px solid rgba(196,255,73,0.15);
+}
+
+.odin-privacy-page .page-header .eyebrow {
+  display: inline-block;
+  background-color: rgba(196,255,73,0.12);
+  color: var(--lime);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.odin-privacy-page .page-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.odin-privacy-page .page-header .subtitle {
+  color: var(--white-800);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── Content ── */
+.odin-privacy-page .privacy-content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px 20px 80px;
+}
+
+.odin-privacy-page .privacy-content section {
+  margin-bottom: 48px;
+}
+
+.odin-privacy-page .privacy-content h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--lime);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(196,255,73,0.15);
+}
+
+.odin-privacy-page .privacy-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.odin-privacy-page .privacy-content p {
+  color: var(--white-800);
+  margin-bottom: 12px;
+}
+
+.odin-privacy-page .privacy-content ul {
+  color: var(--white-800);
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.odin-privacy-page .privacy-content ul li {
+  margin-bottom: 6px;
+}
+
+.odin-privacy-page .privacy-content a {
+  color: var(--lime);
+  text-decoration: none;
+}
+
+.odin-privacy-page .privacy-content a:hover {
+  text-decoration: underline;
+}
+
+.odin-privacy-page .effective-date {
+  display: inline-block;
+  background: rgba(196,255,73,0.08);
+  border: 1px solid rgba(196,255,73,0.2);
+  border-radius: 8px;
+  padding: 12px 20px;
+  color: var(--white-800);
+  font-size: 0.9rem;
+  margin-bottom: 48px;
+}
+
+.odin-privacy-page .effective-date strong {
+  color: var(--lime);
+}
