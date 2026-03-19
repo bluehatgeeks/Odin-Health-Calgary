@@ -28,7 +28,36 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-loader.js"></script>
+<script>
+/* ── Odin Health Labs — Component Loader (inline) ── */
+(function () {
+  var CDN = 'https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master';
+  function execScripts(container) {
+    container.querySelectorAll('script').forEach(function (oldScript) {
+      var newScript = document.createElement('script');
+      Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+      newScript.textContent = oldScript.textContent;
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+  }
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch(CDN + '/odinnav.html')
+    .then(function (r) { return r.text(); })
+    .then(function (html) { navRoot.innerHTML = html; execScripts(navRoot); })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch(CDN + '/odinfooter.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) { footerRoot.innerHTML = html; execScripts(footerRoot); })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
 <main style="padding-top: 80px;">
 <section class="section" style="padding-top: 30px;">
 <div class="content-wrapper">
