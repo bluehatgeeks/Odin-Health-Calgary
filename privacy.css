@@ -1,6 +1,10 @@
 /* ── Odin Health Labs — Privacy Page Styles ── */
 /* All rules scoped under .odin-privacy-page — safe to combine with any other page */
 
+body {
+  background-color: #1a3a1a;
+}
+
 .odin-privacy-page *,
 .odin-privacy-page *::before,
 .odin-privacy-page *::after {
