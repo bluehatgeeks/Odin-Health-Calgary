@@ -51,13 +51,13 @@ body {
 .odin-privacy-page .page-header .subtitle {
   color: var(--white-800);
   font-size: 1rem;
-  max-width: 520px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
 /* ── Content ── */
 .odin-privacy-page .privacy-content {
-  max-width: 780px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 64px 20px 80px;
 }
