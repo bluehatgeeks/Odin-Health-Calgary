@@ -16,7 +16,7 @@
   var navRoot = document.createElement('div');
   navRoot.id = 'odin-nav-root';
   document.body.insertBefore(navRoot, document.body.firstChild);
-  fetch(CDN + '/odinnav.html')
+  fetch(CDN + '/odinnav.html?v=2')
     .then(function (r) { return r.text(); })
     .then(function (html) { navRoot.innerHTML = html; execScripts(navRoot); })
     .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
