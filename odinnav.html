@@ -12,7 +12,7 @@
 <a class="nav-link" href="https://odinhealthlab.ca/">Home</a>
 <a class="nav-link" href="#metabolic-assessment-trigger">Take The Assessment</a>
 <a class="nav-link" href="#about-us-section">About Us</a>
-<a class="nav-link" href="tel:5873248710" style="font-weight: 600;">Call Us: 587.324.8710</a>
+<a class="nav-link nav-contact" href="#" data-c="dGVsOisxNTg3MzI0ODcxMA==" style="font-weight: 600;">Call Us</a>
 <a class="btn-primary booking-trigger" href="#" style="font-size: 1rem; padding: 12px 24px;">Book Online</a>
 </nav>
 </div>
@@ -43,5 +43,16 @@
   });
   overlay.addEventListener('click', closeNav);
   nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeNav); });
+})();
+(function () {
+  var a = document.querySelector('.nav-contact');
+  if (!a || !a.dataset.c) return;
+  var decoded = atob(a.dataset.c); // e.g. "tel:+15873248710"
+  var num = decoded.replace('tel:+1', '').replace(/(\d{3})(\d{3})(\d{4})/, '$1.$2.$3');
+  a.textContent = 'Call Us: ' + num;
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.location.href = decoded;
+  });
 })();
 </script>
