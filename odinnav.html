@@ -9,15 +9,60 @@
 </button>
 <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 <nav class="header-nav" id="header-nav" style="display: flex; align-items: center; gap: 20px;">
-<a class="nav-link" href="https://odinhealthlab.ca/">Home</a>
-<a class="nav-link" href="#metabolic-assessment-trigger">Take The Assessment</a>
-<a class="nav-link" href="#about-us-section">About Us</a>
-<a class="nav-link nav-contact" href="#" data-c="dGVsOisxNTg3MzI0ODcxMA==" style="font-weight: 600;">Call Us</a>
-<a class="btn-primary booking-trigger" href="#" style="font-size: 1rem; padding: 12px 24px;">Book Online</a>
+  <a class="nav-link" href="https://odinhealthlab.ca/">Home</a>
+
+  <!-- Our Therapies mega trigger -->
+  <div class="nav-mega-wrap">
+    <button class="nav-link mega-trigger" id="mega-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="mega-menu" type="button">
+      Our Therapies <span class="mega-chevron">
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </button>
+    <!-- Mobile sub-list (visible inside slide-out panel) -->
+    <div class="mega-mobile-sub" id="mega-mobile-sub" aria-hidden="true">
+      <a class="mega-mobile-item" href="https://odinhealthlab.ca/pemf">
+        <span class="mega-mobile-item-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,12 6,12 7,6 9,18 11,6 13,18 15,6 17,18 18,12 22,12"/></svg>
+        </span>
+        PEMF <span class="mega-mobile-item-sub">Pulsed Electromagnetic Field</span>
+      </a>
+    </div>
+  </div>
+
+  <a class="nav-link" href="#metabolic-assessment-trigger">Take The Assessment</a>
+  <a class="nav-link" href="#about-us-section">About Us</a>
+  <a class="nav-link nav-contact" href="#" data-c="dGVsOisxNTg3MzI0ODcxMA==" style="font-weight: 600;">Call Us</a>
+  <a class="btn-primary booking-trigger" href="#" style="font-size: 1rem; padding: 12px 24px;">Book Online</a>
 </nav>
+</div>
+
+<!-- Mega Menu Panel — desktop only, slides down from header -->
+<div class="mega-menu" id="mega-menu" role="region" aria-label="Our Therapies navigation" aria-hidden="true">
+  <div style="max-width:1300px;margin:0 auto;padding:28px 20px 32px;">
+    <div class="mega-col">
+      <div class="mega-col-heading">Our Therapies</div>
+      <div class="mega-items-row">
+
+        <a href="https://odinhealthlab.ca/pemf" class="mega-item">
+          <div class="mega-item-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c4ff49" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,12 6,12 7,6 9,18 11,6 13,18 15,6 17,18 18,12 22,12"/></svg>
+          </div>
+          <div class="mega-item-body">
+            <span class="mega-item-title">PEMF</span>
+            <span class="mega-item-sub">Pulsed Electromagnetic Field</span>
+          </div>
+          <div class="mega-item-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
 </div>
 </header>
 <script>
+/* ── Mobile nav toggle ── */
 (function () {
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('header-nav');
@@ -42,17 +87,84 @@
     else openNav();
   });
   overlay.addEventListener('click', closeNav);
-  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeNav); });
+  nav.querySelectorAll('a:not(.mega-mobile-item)').forEach(function (a) { a.addEventListener('click', closeNav); });
+  nav.querySelectorAll('.mega-mobile-item').forEach(function (a) { a.addEventListener('click', closeNav); });
 })();
+
+/* ── Phone obfuscation ── */
 (function () {
   var a = document.querySelector('.nav-contact');
   if (!a || !a.dataset.c) return;
-  var decoded = atob(a.dataset.c); // e.g. "tel:+15873248710"
+  var decoded = atob(a.dataset.c);
   var num = decoded.replace('tel:+1', '').replace(/(\d{3})(\d{3})(\d{4})/, '$1.$2.$3');
   a.textContent = 'Call Us: ' + num;
   a.addEventListener('click', function (e) {
     e.preventDefault();
     window.location.href = decoded;
+  });
+})();
+
+/* ── Mega menu (desktop hover + click, mobile accordion) ── */
+(function () {
+  var trigger = document.getElementById('mega-trigger');
+  var menu    = document.getElementById('mega-menu');
+  var mobileSub = document.getElementById('mega-mobile-sub');
+  if (!trigger || !menu) return;
+
+  var leaveTimer = null;
+
+  function openMega() {
+    trigger.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+    menu.classList.add('is-open');
+  }
+  function closeMega() {
+    trigger.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+    menu.classList.remove('is-open');
+  }
+  function isMobile() { return window.innerWidth <= 900; }
+
+  /* Desktop: hover intent with small delay to allow cursor travel */
+  trigger.addEventListener('mouseenter', function () {
+    if (isMobile()) return;
+    clearTimeout(leaveTimer);
+    openMega();
+  });
+  menu.addEventListener('mouseenter', function () {
+    clearTimeout(leaveTimer);
+  });
+  trigger.addEventListener('mouseleave', function () {
+    if (isMobile()) return;
+    leaveTimer = setTimeout(closeMega, 180);
+  });
+  menu.addEventListener('mouseleave', function () {
+    leaveTimer = setTimeout(closeMega, 180);
+  });
+
+  /* Click: toggle (handles both touch/mobile accordion and desktop click) */
+  trigger.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (isMobile()) {
+      /* Mobile: accordion toggle */
+      var isOpen = mobileSub && mobileSub.getAttribute('aria-hidden') === 'false';
+      if (mobileSub) {
+        mobileSub.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+        mobileSub.classList.toggle('is-open', !isOpen);
+      }
+      trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    } else {
+      if (trigger.getAttribute('aria-expanded') === 'true') closeMega();
+      else openMega();
+    }
+  });
+
+  /* Close on outside click / Escape */
+  document.addEventListener('click', function (e) {
+    if (!trigger.contains(e.target) && !menu.contains(e.target)) closeMega();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeMega(); trigger.focus(); }
   });
 })();
 </script>
