@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html lang=en class="w-mod-js w-mod-ix wf-poppins-n2-active wf-poppins-n3-active wf-poppins-n4-active wf-poppins-n5-active wf-poppins-n6-active wf-poppins-n7-active wf-plusjakartasans-n2-active wf-plusjakartasans-n3-active wf-plusjakartasans-n4-active wf-plusjakartasans-n5-active wf-plusjakartasans-n6-active wf-plusjakartasans-n7-active wf-plusjakartasans-n8-active wf-active" style><meta charset=utf-8><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=5">
+<!DOCTYPE html> <html lang=en class="w-mod-js w-mod-ix wf-poppins-n2-active wf-poppins-n3-active wf-poppins-n4-active wf-poppins-n5-active wf-poppins-n6-active wf-poppins-n7-active wf-plusjakartasans-n2-active wf-plusjakartasans-n3-active wf-plusjakartasans-n4-active wf-plusjakartasans-n5-active wf-plusjakartasans-n6-active wf-plusjakartasans-n7-active wf-plusjakartasans-n8-active wf-active" style><meta charset=utf-8><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odintherapiestemplate.css?v=4"><style>.booking-modal-overlay{display:none!important;}.booking-modal-overlay.is-visible{display:flex!important;}
 .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:0 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
 @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}.hero-main-section{padding-top:90px!important;padding-bottom:60px!important;}section.banner-section{padding-bottom:0!important;}section.section{padding-top:60px!important;padding-bottom:60px!important;}</style>
@@ -18,7 +18,7 @@
   var navRoot = document.createElement('div');
   navRoot.id = 'odin-nav-root';
   document.body.insertBefore(navRoot, document.body.firstChild);
-  fetch(CDN + '/odinnav.html?v=2')
+  fetch(CDN + '/odinnav.html?v=3')
     .then(function (r) { return r.text(); })
     .then(function (html) { navRoot.innerHTML = html; execScripts(navRoot); })
     .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });

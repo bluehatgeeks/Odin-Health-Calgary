@@ -7,7 +7,7 @@
   <meta name="description" content="Privacy Policy for Odin Health Labs — Calgary, AB. Learn how we collect, use, and protect your personal information.">
   <meta property="og:title" content="Privacy Policy | Odin Health Labs">
   <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOYSURBVHgBtVdRUtswEF0pUgh/uUHTG8AMlPLVhCm0fy0nwJyg6QlwTgCcgHAC8tkhdJJ+MQNMkyPkBs0faaxY3XXsxJEt2+nAzoSxZWnf8/rtkwDIiIfpoUM/eMUQtgeP3tEZgHbD2/ZA16vqr3A0Z+N35W4bcuL+uV4ryXKPaWjvytuWbR7LB9ctIdSFUrKHN1s04vu6tbdx55qAQsgrulbKOxVC1DB9L4RxbST4uuBBOsaq5roQvE4/KWVPKTWi9WEeF/OeQx6BIuAYQyk9N5lKjxdXGmohiXaMRPNJHV5ZCRQFF8JrbLP+2EyklPiuGRtlkcAxxyTBXgI8ivvnzyg8H4WnawsABiPP8xqoCQfvzsKx9o7ongYVmLdZMfDJBKqQEfubP0YzjzfWqQRnTONkPcwDn802zikRqR2sFcDWK+kvRUn81gdvWHwxKvnGBq6178RLur/ZHyXAEQT7vkZtpxS/FmK2ki9aWyrJOt2Tn7DkYju4mSgikb6euUJML5MtvLo2cELOhZMGThc+6LrpVlFJEbhRqcDYmyXI0yx3OhWsXPYacRK0Nqz0doBNf/C7DU1wUjv9zO9pkiBhouqvIRljNKwO5QhfZriswtLIAgI74mcHUzYw6anZamnKNkmsGs4cHJ818BsHoBEJHLvW+Al8Xy3mpu4FaZHW48s3Wun1b3HwvChMoCgJgEpQNSgYHNaISmWSqwmACawThQlQq6HaB0L4J3kksszKSoAOHI/ex7oNfNnn2v1fErTnPHqHPbT/pS9EACigAd5Se6xsOhaTgsjt8jQRGc6T+nQVd1PcjN4uKjC3xkVvbpFxUEXs4MG7NvM0wXnZMcHnz9iizQMCeMDoGEkCEuRyaIW/kuDzPqcq2XyCen5v49Y1wdGERli54xUCFscLSCC5JiUzweN9bpKg+fjcSQP3cB7uurVII/xJHX1F8f2xCMskMbaZTESCgX+ZBS6l/4EOq7gfDGhcKOXjHk7fP1A3KJxkCCsigQeSiptlMuGzZha41rodjMG8qvx95e5iWWJri4WamFiPY1EUASe8HdlthkTmgb3ZxvY4CZfZWizzXFgUnD5RNGdhRDRYsBI3aeB07l8XfIXAGiTqD9MDJ0nBr60LniBQlARjfGSuQ3NphYfbPoGXSrNqBI5jnTTwIBdYIq6JXdlltBVzrhzOob8r7/qQE+T3eOKmoxjqRh1n/T+RlcQhn4BXjH9Uw1CcbjMdogAAAABJRU5ErkJggg==" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=5">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/privacy.css?v=3">
   <style>
   /* Inline override: prevents Chrome extensions from narrowing containers */
@@ -30,7 +30,7 @@
   var navRoot = document.createElement('div');
   navRoot.id = 'odin-nav-root';
   document.body.insertBefore(navRoot, document.body.firstChild);
-  fetch(CDN + '/odinnav.html?v=2')
+  fetch(CDN + '/odinnav.html?v=3')
     .then(function (r) { return r.text(); })
     .then(function (html) { navRoot.innerHTML = html; execScripts(navRoot); })
     .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
