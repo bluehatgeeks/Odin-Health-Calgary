@@ -18,7 +18,7 @@
   var navRoot = document.createElement('div');
   navRoot.id = 'odin-nav-root';
   document.body.insertBefore(navRoot, document.body.firstChild);
-  fetch(CDN + '/odinnav.html?v=3')
+  fetch('https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@3c920a4/odinnav.html')
     .then(function (r) { return r.text(); })
     .then(function (html) { navRoot.innerHTML = html; execScripts(navRoot); })
     .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
