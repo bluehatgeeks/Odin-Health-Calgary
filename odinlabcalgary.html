@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Metabolic Optimisation in Calgary | Odin Lab</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=3">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=4">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odinlabcalgary.css?v=3">
 <style>
 /* Inline override: prevents Chrome extensions from narrowing layout wrappers */
@@ -558,7 +558,6 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
 (function() {
     var bookingOverlay = document.getElementById('booking-modal-overlay');
     var bookingClose = document.getElementById('booking-modal-close');
-    var bookingTriggers = document.querySelectorAll('.booking-trigger');
     function openBookingModal() {
         if (bookingOverlay) {
             var surveyPanel = document.getElementById('metabolic-survey-panel');
@@ -590,11 +589,9 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
             document.body.style.overflow = '';
         }
     }
-    bookingTriggers.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            openBookingModal();
-        });
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.booking-trigger');
+        if (btn) { e.preventDefault(); openBookingModal(); }
     });
     if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
     if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) {

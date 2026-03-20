@@ -7,7 +7,7 @@
   <meta name="description" content="Privacy Policy for Odin Health Labs — Calgary, AB. Learn how we collect, use, and protect your personal information.">
   <meta property="og:title" content="Privacy Policy | Odin Health Labs">
   <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOYSURBVHgBtVdRUtswEF0pUgh/uUHTG8AMlPLVhCm0fy0nwJyg6QlwTgCcgHAC8tkhdJJ+MQNMkyPkBs0faaxY3XXsxJEt2+nAzoSxZWnf8/rtkwDIiIfpoUM/eMUQtgeP3tEZgHbD2/ZA16vqr3A0Z+N35W4bcuL+uV4ryXKPaWjvytuWbR7LB9ctIdSFUrKHN1s04vu6tbdx55qAQsgrulbKOxVC1DB9L4RxbST4uuBBOsaq5roQvE4/KWVPKTWi9WEeF/OeQx6BIuAYQyk9N5lKjxdXGmohiXaMRPNJHV5ZCRQFF8JrbLP+2EyklPiuGRtlkcAxxyTBXgI8ivvnzyg8H4WnawsABiPP8xqoCQfvzsKx9o7ongYVmLdZMfDJBKqQEfubP0YzjzfWqQRnTONkPcwDn802zikRqR2sFcDWK+kvRUn81gdvWHwxKvnGBq6178RLur/ZHyXAEQT7vkZtpxS/FmK2ki9aWyrJOt2Tn7DkYju4mSgikb6euUJML5MtvLo2cELOhZMGThc+6LrpVlFJEbhRqcDYmyXI0yx3OhWsXPYacRK0Nqz0doBNf/C7DU1wUjv9zO9pkiBhouqvIRljNKwO5QhfZriswtLIAgI74mcHUzYw6anZamnKNkmsGs4cHJ818BsHoBEJHLvW+Al8Xy3mpu4FaZHW48s3Wun1b3HwvChMoCgJgEpQNSgYHNaISmWSqwmACawThQlQq6HaB0L4J3kksszKSoAOHI/ex7oNfNnn2v1fErTnPHqHPbT/pS9EACigAd5Se6xsOhaTgsjt8jQRGc6T+nQVd1PcjN4uKjC3xkVvbpFxUEXs4MG7NvM0wXnZMcHnz9iizQMCeMDoGEkCEuRyaIW/kuDzPqcq2XyCen5v49Y1wdGERli54xUCFscLSCC5JiUzweN9bpKg+fjcSQP3cB7uurVII/xJHX1F8f2xCMskMbaZTESCgX+ZBS6l/4EOq7gfDGhcKOXjHk7fP1A3KJxkCCsigQeSiptlMuGzZha41rodjMG8qvx95e5iWWJri4WamFiPY1EUASe8HdlthkTmgb3ZxvY4CZfZWizzXFgUnD5RNGdhRDRYsBI3aeB07l8XfIXAGiTqD9MDJ0nBr60LniBQlARjfGSuQ3NphYfbPoGXSrNqBI5jnTTwIBdYIq6JXdlltBVzrhzOob8r7/qQE+T3eOKmoxjqRh1n/T+RlcQhn4BXjH9Uw1CcbjMdogAAAABJRU5ErkJggg==" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=3">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=4">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/privacy.css?v=3">
   <style>
   /* Inline override: prevents Chrome extensions from narrowing containers */
@@ -226,3 +226,53 @@
 
 </body>
 </html>
+
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true">
+  <div class="booking-modal" role="dialog" aria-labelledby="booking-modal-title">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time" target="_blank" rel="noopener noreferrer" class="btn-first-time">Book Free First Time Intake</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" target="_blank" rel="noopener noreferrer" class="btn-follow-up">Book A Follow Up Appointment</a>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+    var bookingOverlay = document.getElementById('booking-modal-overlay');
+    var bookingClose = document.getElementById('booking-modal-close');
+    function openBookingModal() {
+        if (bookingOverlay) {
+            var nav = document.getElementById('header-nav');
+            if (nav && nav.classList.contains('is-open')) {
+                var navToggle = document.querySelector('.nav-toggle');
+                if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+                nav.classList.remove('is-open');
+                var navOverlay = document.getElementById('nav-overlay');
+                if (navOverlay) { navOverlay.classList.remove('is-visible'); navOverlay.setAttribute('aria-hidden', 'true'); }
+            }
+            bookingOverlay.classList.add('is-visible');
+            bookingOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    function closeBookingModal() {
+        if (bookingOverlay) {
+            bookingOverlay.classList.remove('is-visible');
+            bookingOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    }
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.booking-trigger');
+        if (btn) { e.preventDefault(); openBookingModal(); }
+    });
+    if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
+    if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) {
+        if (e.target === bookingOverlay) closeBookingModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal();
+    });
+})();
+</script>
