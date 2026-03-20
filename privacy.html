@@ -30,7 +30,7 @@
   var navRoot = document.createElement('div');
   navRoot.id = 'odin-nav-root';
   document.body.insertBefore(navRoot, document.body.firstChild);
-  fetch('https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odinnav.html', { cache: 'no-store' })
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
     .then(function (r) { return r.text(); })
     .then(function (html) { navRoot.innerHTML = html; execScripts(navRoot); })
     .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
@@ -38,7 +38,7 @@
     var footerRoot = document.createElement('div');
     footerRoot.id = 'odin-footer-root';
     document.body.appendChild(footerRoot);
-    fetch('https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odinfooter.html', { cache: 'no-store' })
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', { cache: 'no-store' })
       .then(function (r) { return r.text(); })
       .then(function (html) { footerRoot.innerHTML = html; execScripts(footerRoot); })
       .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
