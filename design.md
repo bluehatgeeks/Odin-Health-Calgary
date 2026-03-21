@@ -264,6 +264,8 @@ Class pattern: `.hero-image-wrapper` containing two `<img>` tags:
 
 The dual-image pattern enables a **B&W → colour gradual slide reveal** on hover using a CSS mask-position animation — **not a simple opacity toggle**.
 
+> **CRITICAL:** Both `<img>` tags must point to the **same colour source file**. The BW layer uses `filter: grayscale(100%)` applied in CSS — it is NOT a separately generated grayscale image. Using two different files causes a pixel mismatch at the mask wipe boundary, making the gradient edge look harsh instead of a seamless blend. Only one image file is needed.
+
 **Canonical implementation (must match `odinlabcalgary.html`):**
 ```css
 .hero-image-color {

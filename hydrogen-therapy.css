@@ -133,6 +133,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ht-hero-image-bw {
+  /* Same source image as the colour layer — grayscale applied in CSS so both
+     layers are pixel-identical. This ensures a clean gradient wipe edge with
+     no colour mismatch at the mask boundary (matches odinlabcalgary.html). */
   filter: grayscale(100%);
 }
 
