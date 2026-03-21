@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydrogen Inhalation Therapy | Odin Lab Calgary</title>
+  <meta name="description" content="Molecular hydrogen is one of the most selectively targeted antioxidants identified in clinical research. At Odin Lab Calgary, we use hydrogen inhalation as a foundational tool in oxidative load reduction protocols.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+  <link rel="stylesheet" href="hydrogen-therapy.css?v=1">
+  <style>
+    .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
+    @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
+    .booking-modal-overlay{display:none!important;}
+    .booking-modal-overlay.is-visible{display:flex!important;}
+    main{padding-top:80px;}
+  </style>
+</head>
+<body>
+<script>
+(function () {
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      navRoot.innerHTML = html;
+      navRoot.querySelectorAll('script').forEach(function (oldScript) {
+        var newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+
+<main>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — HERO
+  ═══════════════════════════════════════════ -->
+  <section class="ht-hero ht-section">
+    <div class="ht-container">
+
+      <p class="hero-slogan">We Do Not Practice Medicine. We Practice Health.</p>
+
+      <h1>Breathe Into Recovery: Precision Antioxidant Therapy at the Cellular Level</h1>
+
+      <p class="ht-sub-text">
+        Molecular hydrogen is one of the most selectively targeted antioxidants identified in clinical research — neutralizing the most damaging free radicals without disrupting the body's own signaling chemistry. At Odin Lab, we use hydrogen inhalation as a foundational tool in oxidative load reduction protocols for individuals dealing with chronic inflammation, systemic fatigue, and performance recovery.
+      </p>
+
+      <a href="#" class="ht-hero-cta booking-trigger">Book a Consultation</a>
+
+      <div class="ht-hero-image-wrapper">
+        <img
+          class="ht-hero-image-bw"
+          src="img/hydrogen-hero-bw.jpg"
+          alt="Hydrogen inhalation therapy session at Odin Lab Calgary — client receiving molecular hydrogen treatment"
+        >
+        <img
+          class="ht-hero-image-color"
+          src="img/hydrogen-hero-color.jpg"
+          alt=""
+          aria-hidden="true"
+        >
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — STATS STRIP
+  ═══════════════════════════════════════════ -->
+  <div class="ht-stats-strip">
+    <div class="ht-stats-inner">
+
+      <div class="ht-stat">
+        <span class="ht-stat__value">2,000+</span>
+        <span class="ht-stat__label">Peer-Reviewed Publications</span>
+        <p class="ht-stat__desc">Over 2,000 studies have examined molecular hydrogen's therapeutic properties across human, animal, and in vitro models as of 2022.</p>
+      </div>
+
+      <div class="ht-stat">
+        <span class="ht-stat__value">81</span>
+        <span class="ht-stat__label">Clinical Trials Reviewed</span>
+        <p class="ht-stat__desc">A 2023 systematic review assessed outcomes from 81 registered clinical trials evaluating hydrogen therapy across major disease categories.</p>
+      </div>
+
+      <div class="ht-stat">
+        <span class="ht-stat__value">Selective</span>
+        <span class="ht-stat__label">Targets Only Cytotoxic Radicals</span>
+        <p class="ht-stat__desc">Unlike broad-spectrum antioxidants, H₂ reacts specifically with hydroxyl radicals and peroxynitrite — without interfering with beneficial ROS signaling.</p>
+      </div>
+
+      <div class="ht-stat">
+        <span class="ht-stat__value">~1 Min</span>
+        <span class="ht-stat__label">Time to Reach Mitochondria</span>
+        <p class="ht-stat__desc">Due to its molecular size and neutral charge, inhaled hydrogen diffuses across cell membranes and into mitochondria within approximately one minute of inhalation.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — BENEFITS
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-benefits-section">
+    <div class="ht-container">
+
+      <div class="ht-badge">
+        <span class="ht-badge-text">Clinical Evidence · 8 Therapeutic Domains</span>
+      </div>
+      <h2 class="ht-section-heading">Why Hydrogen Therapy Works</h2>
+      <p class="ht-section-sub">Molecular hydrogen produces measurable outcomes across multiple physiological systems — not because it does one thing powerfully, but because its mechanism of action touches the root of how cells generate and manage oxidative burden.</p>
+
+      <div class="ht-benefits-grid">
+
+        <div class="ht-benefit-card">
+          <h3 class="ht-benefit-card__title">Selective Neutralization of Cytotoxic Free Radicals</h3>
+          <p class="ht-benefit-card__body">Molecular hydrogen targets only the most destructive reactive oxygen species — specifically the hydroxyl radical (•OH) and peroxynitrite (ONOO⁻) — without indiscriminately quenching ROS that serve legitimate physiological roles in immune signaling and cellular communication. This selectivity, first documented by Ohsawa et al. in <em>Nature Medicine</em> (2007), is the core mechanism that separates H₂ from conventional antioxidant supplementation.</p>
+        </div>
+
+        <div class="ht-benefit-card">
+          <h3 class="ht-benefit-card__title">Mitochondrial Protection and Energy System Support</h3>
+          <p class="ht-benefit-card__body">H₂ molecules are uniquely capable of penetrating the mitochondrial membrane and scavenging radicals at their source. Research published in <em>Frontiers in Cell and Developmental Biology</em> (2023) identifies mitochondria as a central hub for hydrogen's protective effects, including activation of the Keap1-Nrf2 antioxidant system, which upregulates endogenous enzymes such as superoxide dismutase and glutathione peroxidase.</p>
+        </div>
+
+        <div class="ht-benefit-card">
+          <h3 class="ht-benefit-card__title">Systemic Anti-Inflammatory Action</h3>
+          <p class="ht-benefit-card__body">Hydrogen therapy suppresses the NF-κB signaling pathway — one of the master regulators of the body's inflammatory response — leading to measurable reductions in pro-inflammatory cytokines including TNF-α, IL-1β, and IL-6. In a 2020 clinical study, patients with asthma and COPD who inhaled a 2.4% H₂-containing gas mixture for 45 minutes showed significant decreases in MCP-1, IL-4, and IL-6.</p>
+        </div>
+
+        <div class="ht-benefit-card">
+          <h3 class="ht-benefit-card__title">Athletic Recovery and Reduction of Exercise-Induced Oxidative Stress</h3>
+          <p class="ht-benefit-card__body">Hydrogen inhalation has been shown in multiple studies to reduce post-exercise blood lactate, attenuate oxidative stress markers, and help preserve nitric oxide bioavailability after training. A 2022 study in <em>Journal of Thoracic Disease</em> demonstrated that H₂ inhalation in athletes reduced exercise-induced injury by targeting inflammatory and oxidative pathways without blunting the adaptive stimulus of training.</p>
+        </div>
+
+        <div class="ht-benefit-card">
+          <h3 class="ht-benefit-card__title">Support for Neurological Health and Brain Resilience</h3>
+          <p class="ht-benefit-card__body">Because of its small molecular size, hydrogen gas crosses the blood-brain barrier — an access point most antioxidant compounds cannot reliably achieve. Research in neurodegenerative conditions, including Parkinson's disease and ischemic stroke, has shown that hydrogen therapy can reduce infarct size, attenuate neuroinflammation, and slow the progression of oxidative damage to dopaminergic neurons.</p>
+        </div>
+
+        <div class="ht-benefit-card">
+          <h3 class="ht-benefit-card__title">Cardiovascular and Blood Pressure Support</h3>
+          <p class="ht-benefit-card__body">A 2024 retrospective observational study in <em>Frontiers in Cardiovascular Medicine</em> evaluated hydrogen inhalation as an adjunct treatment in adults with hypertension over 24 weeks, finding improvements in blood pressure management alongside favorable shifts in inflammatory markers. Prior animal research demonstrated direct blood pressure-lowering effects, likely mediated through reduced vascular oxidative stress and improved endothelial function.</p>
+        </div>
+
+        <div class="ht-benefit-card">
+          <h3 class="ht-benefit-card__title">Respiratory Function and Lung Tissue Protection</h3>
+          <p class="ht-benefit-card__body">Hydrogen's anti-inflammatory and antioxidant properties make it particularly relevant for respiratory conditions marked by airway inflammation and oxidative damage. Clinical data on COPD patients receiving hydrogen inhalation three times daily for 30 days showed improvements in CAT scores, dyspnea scales, and inflammatory biomarkers. A 2024 meta-analysis in <em>Frontiers in Immunology</em> confirmed hydrogen's anti-inflammatory activity in lung disease.</p>
+        </div>
+
+        <div class="ht-benefit-card">
+          <h3 class="ht-benefit-card__title">Quality of Life Support in Oncology Contexts</h3>
+          <p class="ht-benefit-card__body">A 2020 clinical study found that advanced non-small cell lung cancer patients who added H₂ inhalation to their treatment protocols experienced reductions in drug-associated adverse events and improved progression-free survival compared to controls. Improvements were most pronounced in fatigue, sleep quality, appetite, and pain — the domains most frequently compromised by conventional oncology treatments.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — MECHANISM
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-mechanism-section">
+    <div class="ht-container">
+
+      <div class="ht-badge">
+        <span class="ht-badge-text">Pharmacodynamics · Cellular Biology</span>
+      </div>
+      <h2 class="ht-section-heading">How Hydrogen Works at the Cellular Level</h2>
+      <p class="ht-section-sub">Four converging mechanisms — not a single action — explain why hydrogen therapy produces clinical signal across such a diverse range of conditions.</p>
+
+      <div class="ht-mechanism-steps">
+
+        <div class="ht-mechanism-step">
+          <div class="ht-mechanism-step__number">1</div>
+          <div class="ht-mechanism-step__content">
+            <h3 class="ht-mechanism-step__title">Rapid Systemic Distribution via Inhalation</h3>
+            <p class="ht-mechanism-step__desc">Molecular hydrogen (H₂) is the smallest molecule in existence — lighter and more diffusible than any other therapeutic compound used in clinical contexts. When inhaled, H₂ enters the bloodstream through the lungs within seconds and rapidly permeates cell membranes, reaching subcellular compartments — including the mitochondria — within approximately one minute. No carrier is needed, no receptor required. It distributes to tissues precisely where oxidative burden is highest.</p>
+          </div>
+        </div>
+
+        <div class="ht-mechanism-step">
+          <div class="ht-mechanism-step__number">2</div>
+          <div class="ht-mechanism-step__content">
+            <h3 class="ht-mechanism-step__title">Selective Free Radical Scavenging at the Source</h3>
+            <p class="ht-mechanism-step__desc">The body generates reactive oxygen species (ROS) continuously as a byproduct of metabolism — many of which serve important signaling functions and should not be suppressed. However, during physiological stress, illness, intense exercise, or aging, production of the hydroxyl radical (•OH) and peroxynitrite (ONOO⁻) increases beyond what endogenous antioxidant systems can neutralize. Molecular hydrogen reacts preferentially with these two cytotoxic species, converting them to water — without interfering with hydrogen peroxide or superoxide, which retain their roles in immune response and intracellular signaling.</p>
+          </div>
+        </div>
+
+        <div class="ht-mechanism-step">
+          <div class="ht-mechanism-step__number">3</div>
+          <div class="ht-mechanism-step__content">
+            <h3 class="ht-mechanism-step__title">Nrf2 Pathway Activation and Endogenous Defense Upregulation</h3>
+            <p class="ht-mechanism-step__desc">Beyond direct scavenging, hydrogen activates the Nrf2 pathway — the body's master regulator of endogenous antioxidant defense. When H₂ interacts with the Keap1-Nrf2 complex, it triggers nuclear translocation of Nrf2, which upregulates the expression of protective enzymes including superoxide dismutase (SOD), catalase, glutathione peroxidase (GPx), and heme oxygenase-1. This means hydrogen does not just act as an antioxidant itself — it primes your own cellular defense machinery to respond more robustly.</p>
+          </div>
+        </div>
+
+        <div class="ht-mechanism-step">
+          <div class="ht-mechanism-step__number">4</div>
+          <div class="ht-mechanism-step__content">
+            <h3 class="ht-mechanism-step__title">Mitochondrial Access and Coordinated Anti-Inflammatory Response</h3>
+            <p class="ht-mechanism-step__desc">Mitochondria are the primary site of both ATP synthesis and ROS generation. Because H₂ reaches mitochondria directly, it targets ROS at their site of production rather than attempting to intercept them downstream. The activation of Nrf2 also simultaneously suppresses the NF-κB inflammatory pathway, creating a coordinated anti-inflammatory and cytoprotective response at the gene expression level. This convergence of mechanisms — not any single action — explains why hydrogen therapy shows clinical signal across such a diverse range of conditions.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5 — SECONDARY IMAGE BANNER
+  ═══════════════════════════════════════════ -->
+  <div class="ht-image-banner">
+    <img
+      src="img/hydrogen-section.jpg"
+      alt="Clinical-grade hydrogen inhalation equipment at Odin Lab Calgary"
+    >
+    <div class="ht-image-banner__overlay">
+      <p class="ht-image-banner__text"><em>Clinical-grade hydrogen inhalation</em> at Odin Lab Calgary</p>
+    </div>
+  </div>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 6 — SESSION WALKTHROUGH
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-walkthrough-section">
+    <div class="ht-container">
+
+      <div class="ht-badge">
+        <span class="ht-badge-text">30–60 Minute Sessions · Non-Invasive</span>
+      </div>
+      <h2 class="ht-section-heading">What to Expect</h2>
+      <p class="ht-section-sub">Hydrogen inhalation is a passive, non-invasive protocol. The molecular work happens below the level of perception — what you experience is stillness.</p>
+
+      <div class="ht-walkthrough-steps">
+
+        <div class="ht-walkthrough-card">
+          <div class="ht-walkthrough-card__number">01</div>
+          <div>
+            <h3 class="ht-walkthrough-card__title">Intake and Goal Review</h3>
+            <p class="ht-walkthrough-card__desc">Before your first session, a practitioner reviews your health history, current symptoms, and wellness goals. Hydrogen inhalation is positioned within your broader functional health protocol at Odin Lab — not administered in isolation. This ensures the session is targeted, not generic.</p>
+          </div>
+        </div>
+
+        <div class="ht-walkthrough-card">
+          <div class="ht-walkthrough-card__number">02</div>
+          <div>
+            <h3 class="ht-walkthrough-card__title">Setup</h3>
+            <p class="ht-walkthrough-card__desc">You are seated comfortably in a reclined or upright position. A nasal cannula — the same lightweight delivery device used in clinical oxygen therapy — is placed under your nose. The hydrogen generator produces a steady, low-flow stream of pure molecular hydrogen gas. There is no mask, no confinement, no discomfort.</p>
+          </div>
+        </div>
+
+        <div class="ht-walkthrough-card">
+          <div class="ht-walkthrough-card__number">03</div>
+          <div>
+            <h3 class="ht-walkthrough-card__title">The Session Itself</h3>
+            <p class="ht-walkthrough-card__desc">Over 30 to 60 minutes, you breathe normally. Hydrogen has no taste and no odor. Many clients use the time to read, listen to audio, or simply rest. The session is quiet and passive — the molecular work is happening at a level below perception. Some clients notice a subtle sense of ease or warmth; most report the primary experience is one of stillness.</p>
+          </div>
+        </div>
+
+        <div class="ht-walkthrough-card">
+          <div class="ht-walkthrough-card__number">04</div>
+          <div>
+            <h3 class="ht-walkthrough-card__title">Monitoring and Adjustment</h3>
+            <p class="ht-walkthrough-card__desc">Practitioners remain available throughout the session. Concentration levels and delivery are monitored to maintain consistent output within therapeutic parameters. If this is your first session, timing and exposure are calibrated conservatively before building up.</p>
+          </div>
+        </div>
+
+        <div class="ht-walkthrough-card">
+          <div class="ht-walkthrough-card__number">05</div>
+          <div>
+            <h3 class="ht-walkthrough-card__title">Post-Session Integration</h3>
+            <p class="ht-walkthrough-card__desc">After the session concludes, you are encouraged to hydrate and allow a short rest period before returning to high-intensity activity. Many clients report improved mental clarity, reduced physical tension, or a grounded sense of recovery in the hours following treatment. Results accumulate with consistent use — hydrogen inhalation is most effective as part of a regular protocol rather than a single intervention.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 7 — CONDITIONS
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-conditions-section">
+    <div class="ht-container" style="text-align:center;">
+
+      <div class="ht-badge">
+        <span class="ht-badge-text">10 Therapeutic Applications</span>
+      </div>
+      <h2 class="ht-section-heading" style="margin-left:auto;margin-right:auto;max-width:700px;">Conditions We Address With Hydrogen Therapy</h2>
+      <p class="ht-section-sub" style="margin-left:auto;margin-right:auto;text-align:center;">Hydrogen's multi-mechanism action makes it clinically relevant across a broad spectrum of conditions driven by oxidative stress, inflammation, and energy system dysfunction.</p>
+
+      <div class="ht-conditions-grid">
+        <span class="ht-condition-pill">Chronic systemic inflammation</span>
+        <span class="ht-condition-pill">Oxidative stress-related fatigue &amp; burnout</span>
+        <span class="ht-condition-pill">COPD and asthma</span>
+        <span class="ht-condition-pill">Cardiovascular disease risk &amp; hypertension</span>
+        <span class="ht-condition-pill">Neurodegenerative conditions (Parkinson's, cognitive decline)</span>
+        <span class="ht-condition-pill">Ischemic stroke recovery &amp; neuroprotection</span>
+        <span class="ht-condition-pill">Exercise-induced muscle damage &amp; delayed recovery</span>
+        <span class="ht-condition-pill">Metabolic syndrome</span>
+        <span class="ht-condition-pill">Cancer treatment support &amp; quality of life</span>
+        <span class="ht-condition-pill">Chronic fatigue &amp; post-viral recovery</span>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 8 — CITATIONS
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-citations-section">
+    <div class="ht-container">
+
+      <div class="ht-badge">
+        <span class="ht-badge-text">Peer-Reviewed Literature</span>
+      </div>
+      <h2 class="ht-section-heading">The Research Behind Hydrogen Therapy</h2>
+      <p class="ht-section-sub">Our protocols are informed by a growing body of peer-reviewed research spanning two decades of hydrogen medicine.</p>
+
+      <div class="ht-citations-grid">
+
+        <div class="ht-citation-block">
+          <div class="ht-citation-block__dot"></div>
+          <div class="ht-citation-block__body">
+            <p class="ht-citation-block__authors">Ohsawa I, Ishikawa M, Takahashi K, et al.</p>
+            <p class="ht-citation-block__journal">Nature Medicine, 2007; 13(6): 688–694. DOI: 10.1038/nm1577</p>
+            <p class="ht-citation-block__finding">The landmark study establishing molecular hydrogen as a selective antioxidant: H₂ neutralized hydroxyl radicals and peroxynitrite in a rat brain ischemia-reperfusion model while leaving physiologically beneficial ROS intact, demonstrating significant reduction in brain injury and opening the field of hydrogen medicine.</p>
+          </div>
+        </div>
+
+        <div class="ht-citation-block">
+          <div class="ht-citation-block__dot"></div>
+          <div class="ht-citation-block__body">
+            <p class="ht-citation-block__authors">Tamura T, Hayashida K, Sano M, et al.</p>
+            <p class="ht-citation-block__journal">Circulation Journal, 2016; 80(8): 1870–1873. DOI: 10.1253/circj.CJ-16-0127</p>
+            <p class="ht-citation-block__finding">A first-in-human pilot study in post-cardiac arrest patients found that inhaled 2% hydrogen gas was feasible and safe, with measurable arterial hydrogen concentrations and early signals of reduced oxidative stress and cytokine elevation compared to historical controls.</p>
+          </div>
+        </div>
+
+        <div class="ht-citation-block">
+          <div class="ht-citation-block__dot"></div>
+          <div class="ht-citation-block__body">
+            <p class="ht-citation-block__authors">Chen JB, Lu YY, Xu KC.</p>
+            <p class="ht-citation-block__journal">Medical Gas Research, 2020; 10(2): 75–80. DOI: 10.4103/2045-9912.285560</p>
+            <p class="ht-citation-block__finding">In a clinical study of advanced NSCLC patients, hydrogen inhalation (4–5 hours/day) alongside conventional therapies reduced drug-associated adverse events, improved quality of life metrics including fatigue and pain, and extended progression-free survival compared to controls receiving no hydrogen treatment.</p>
+          </div>
+        </div>
+
+        <div class="ht-citation-block">
+          <div class="ht-citation-block__dot"></div>
+          <div class="ht-citation-block__body">
+            <p class="ht-citation-block__authors">Diao M et al. (Reviewing Fang J, Islam W, Bharat T, et al.)</p>
+            <p class="ht-citation-block__journal">Molecules, 2023; 28(23): 7785. DOI: 10.3390/molecules28237785</p>
+            <p class="ht-citation-block__finding">A comprehensive 2023 systematic review assessing 81 clinical trials and 64 human study publications across hydrogen therapy applications. Found positive outcomes across cardiovascular, respiratory, neurological, oncological, and metabolic disease categories, with a consistently favorable safety profile across administration methods including inhalation.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-booking-cta">
+    <div class="ht-container">
+
+      <h2>Start Your First Hydrogen Session</h2>
+      <p class="ht-booking-cta__sub">Hydrogen inhalation is available at Odin Lab as part of a structured functional health protocol. Book a discovery session and we will assess whether it belongs in your plan.</p>
+      <a href="#" class="ht-booking-btn booking-trigger">Book a Consultation</a>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- BOOKING MODAL -->
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="booking-modal-title">
+  <div class="booking-modal">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-new-client" class="btn-first-time" target="_blank" rel="noopener">First Time Client</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" class="btn-follow-up" target="_blank" rel="noopener">Follow-Up Appointment</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var bookingOverlay = document.getElementById('booking-modal-overlay');
+  var bookingClose = document.getElementById('booking-modal-close');
+  function openBookingModal() {
+    if (bookingOverlay) { bookingOverlay.classList.add('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+  }
+  function closeBookingModal() {
+    if (bookingOverlay) { bookingOverlay.classList.remove('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('click', function(e) { var btn = e.target.closest('.booking-trigger'); if (btn) { e.preventDefault(); openBookingModal(); } });
+  if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
+  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) { if (e.target === bookingOverlay) closeBookingModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal(); });
+})();
+</script>
+</body>
+</html>

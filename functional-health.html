@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functional Health &amp; Medicine | Odin Lab Calgary</title>
+  <meta name="description" content="Functional medicine applies systems biology to identify and address the underlying drivers of chronic illness — not just its symptoms. At Odin Lab Calgary, we pair advanced diagnostics with personalized protocols to produce measurable, lasting change.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+  <link rel="stylesheet" href="functional-health.css?v=1">
+  <style>
+    .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
+    @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
+    .booking-modal-overlay{display:none!important;}
+    .booking-modal-overlay.is-visible{display:flex!important;}
+    main{padding-top:80px;}
+  </style>
+</head>
+<body>
+<script>
+(function () {
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      navRoot.innerHTML = html;
+      navRoot.querySelectorAll('script').forEach(function (oldScript) {
+        var newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+<main>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 1 — HERO
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-hero">
+    <div class="fh-container">
+      <p class="hero-slogan">We Do Not Practice Medicine. We Practice Health.</p>
+      <h1>Find the Root. Restore the System. Reclaim Your Health.</h1>
+      <p class="fh-hero-sub">Functional medicine applies systems biology to identify and address the underlying drivers of chronic illness — not just its symptoms. At Odin Lab, we pair advanced diagnostics with personalized protocols to produce measurable, lasting change.</p>
+      <div class="fh-hero-cta">
+        <a href="#" class="booking-trigger btn-primary">Book a Consultation</a>
+      </div>
+      <div class="fh-hero-image-wrapper">
+        <img
+          src="img/functional-health-hero-bw.jpg"
+          alt="Functional medicine practitioner reviewing advanced lab results with a patient at Odin Lab Calgary"
+          class="fh-hero-img"
+        />
+        <img
+          src="img/functional-health-hero-color.jpg"
+          alt=""
+          aria-hidden="true"
+          class="fh-hero-img fh-hero-img-color"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 2 — CORE PRINCIPLES (5 numbered cards, 3+2 grid)
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-principles-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">The Framework</span>
+        <h2 class="fh-section-heading">The Five Foundations of Functional Medicine</h2>
+        <p class="fh-section-sub">A coherent philosophy that reframes how illness is understood, investigated, and resolved — not merely managed.</p>
+      </div>
+
+      <!-- Row 1: 3 cards -->
+      <div class="fh-principles-row-1">
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">01</span>
+          <h3 class="fh-principle-title">Root Cause Over Symptom Management</h3>
+          <p class="fh-principle-body">Functional medicine does not ask "what drug matches this symptom?" It asks why the symptom exists. Every symptom is a signal — a downstream expression of upstream dysfunction in biochemistry, gut integrity, hormones, or environmental load. Treatment targets the source.</p>
+        </div>
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">02</span>
+          <h3 class="fh-principle-title">Systems Biology — The Body as an Interconnected Network</h3>
+          <p class="fh-principle-body">The body is not a collection of isolated organs. Gut health influences hormone metabolism. Hormone dysregulation alters immune signaling. Immune activation drives neurological and metabolic consequences. Functional medicine maps these interconnections and treats the network, not individual nodes.</p>
+        </div>
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">03</span>
+          <h3 class="fh-principle-title">Biochemical Individuality</h3>
+          <p class="fh-principle-body">Genetic makeup, environmental exposures, stress history, and nutritional status combine uniquely in each person. Standard reference ranges reflect population averages — not optimal function for you. Functional medicine interprets labs through optimal, not merely "normal," ranges and builds protocols calibrated to the individual.</p>
+        </div>
+
+      </div>
+
+      <!-- Row 2: 2 cards, centered -->
+      <div class="fh-principles-row-2">
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">04</span>
+          <h3 class="fh-principle-title">Patient-Centered Partnership</h3>
+          <p class="fh-principle-body">Patients are not passive recipients of prescriptions. Functional medicine requires understanding a person's history, environment, lifestyle, and health goals in full. Decisions are made collaboratively. Education is built into care. The patient becomes a participant in their own recovery.</p>
+        </div>
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">05</span>
+          <h3 class="fh-principle-title">Health as a Positive State — Not the Absence of Disease</h3>
+          <p class="fh-principle-body">Conventional medicine defines health as the absence of diagnosable pathology. Functional medicine defines health as active vitality, organ resilience, and optimized physiological function. The goal is not to avoid a diagnosis — it is to build a body that functions at a genuinely high level.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 3 — COMPARISON TABLE
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-comparison-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">Two Different Models</span>
+        <h2 class="fh-section-heading">Functional Medicine vs. Conventional Medicine</h2>
+        <p class="fh-section-sub">Same body. Radically different questions. Radically different outcomes.</p>
+      </div>
+
+      <div class="fh-table-scroll" role="region" aria-label="Comparison table: functional medicine versus conventional medicine">
+        <table class="fh-table">
+          <thead>
+            <tr>
+              <th scope="col">Dimension</th>
+              <th scope="col">Conventional Medicine</th>
+              <th scope="col">Functional Medicine</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Approach</td>
+              <td>Symptom identification and suppression</td>
+              <td>Root cause discovery and resolution</td>
+            </tr>
+            <tr>
+              <td>Focus</td>
+              <td>Disease diagnosis and management</td>
+              <td>Health optimization and chronic illness reversal</td>
+            </tr>
+            <tr>
+              <td>Timeline</td>
+              <td>Optimized for acute and emergency care</td>
+              <td>Designed for chronic, complex, multi-system conditions</td>
+            </tr>
+            <tr>
+              <td>Diagnostic Tools</td>
+              <td>Standard blood panels, imaging, anatomical assessment</td>
+              <td>Advanced biomarkers, functional lab ranges, hormone panels, microbiome analysis, organic acids</td>
+            </tr>
+            <tr>
+              <td>Outcome Goal</td>
+              <td>Manage the condition; maintain stability</td>
+              <td>Resolve the underlying drivers; reduce or eliminate dependency on symptom-suppressing medications</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 4 — SECTION IMAGE BANNER
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-banner-section">
+    <div class="fh-container">
+      <div class="fh-banner-wrapper">
+        <img
+          src="img/functional-health-section.jpg"
+          alt="Systems biology — interconnected biological pathways applied to personalized functional health"
+          class="fh-banner-img"
+        />
+        <div class="fh-banner-overlay" aria-hidden="true">
+          <div class="fh-banner-callout">
+            <span class="fh-banner-eyebrow">Our Approach</span>
+            <p class="fh-banner-quote">Systems biology applied to your health — not population averages</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 5 — DIAGNOSTIC TOOLS (6 cards, 2-column)
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-diagnostics-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">Advanced Testing</span>
+        <h2 class="fh-section-heading">Advanced Diagnostics We Use</h2>
+        <p class="fh-section-sub">Standard panels surface pathology. Functional panels surface early dysfunction — years before disease is established. These are the tools we use to find what's driving your symptoms.</p>
+      </div>
+
+      <div class="fh-diagnostics-grid">
+
+        <!-- Tool 1 -->
+        <div class="fh-tool-card">
+          <div class="fh-tool-badge" aria-hidden="true">01</div>
+          <div class="fh-tool-content">
+            <h3 class="fh-tool-title">Advanced Comprehensive Blood Panel (Functional Ranges)</h3>
+            <p class="fh-tool-body">Standard blood panels are read against population reference ranges that flag only frank pathology. Functional medicine interprets the same markers — glucose, TSH, liver enzymes, lipids, CBC — against tighter optimal ranges that surface early dysfunction before disease is established. For example, a TSH of 1.0–2.5 mIU/L is the functional target, versus the conventional threshold of up to 4.5 mIU/L.</p>
+          </div>
+        </div>
+
+        <!-- Tool 2 -->
+        <div class="fh-tool-card">
+          <div class="fh-tool-badge" aria-hidden="true">02</div>
+          <div class="fh-tool-content">
+            <h3 class="fh-tool-title">DUTCH Complete Hormone Panel</h3>
+            <p class="fh-tool-body">The Dried Urine Test for Comprehensive Hormones (DUTCH) analyzes 35+ hormones and their metabolites, including estrogen, progesterone, testosterone, DHEA-S, and cortisol. It captures the diurnal cortisol pattern, the cortisol awakening response (CAR), and estrogen detoxification pathways — data that a standard serum draw cannot provide.</p>
+          </div>
+        </div>
+
+        <!-- Tool 3 -->
+        <div class="fh-tool-card">
+          <div class="fh-tool-badge" aria-hidden="true">03</div>
+          <div class="fh-tool-content">
+            <h3 class="fh-tool-title">GI-MAP Stool Test (Gut Microbiome Analysis)</h3>
+            <p class="fh-tool-body">Uses quantitative PCR (qPCR) technology to identify and quantify bacterial, fungal, viral, and parasitic organisms in the gut. Measures markers of digestion and absorption, intestinal inflammation (calprotectin), secretory IgA immune response, and zonulin as an indicator of intestinal permeability (leaky gut).</p>
+          </div>
+        </div>
+
+        <!-- Tool 4 -->
+        <div class="fh-tool-card">
+          <div class="fh-tool-badge" aria-hidden="true">04</div>
+          <div class="fh-tool-content">
+            <h3 class="fh-tool-title">Organic Acids Test (OAT)</h3>
+            <p class="fh-tool-body">A urine-based panel measuring 76+ metabolic byproducts to assess mitochondrial function, neurotransmitter metabolism, nutrient status, detoxification capacity, oxidative stress markers, and gut dysbiosis markers. Captures systemic metabolic function in a way standard blood panels cannot. Particularly useful in chronic fatigue, mood disorders, and unexplained multi-system symptoms.</p>
+          </div>
+        </div>
+
+        <!-- Tool 5 -->
+        <div class="fh-tool-card">
+          <div class="fh-tool-badge" aria-hidden="true">05</div>
+          <div class="fh-tool-content">
+            <h3 class="fh-tool-title">Comprehensive Micronutrient Panel</h3>
+            <p class="fh-tool-body">Evaluates intracellular levels of vitamins (B12, D, folate), minerals (magnesium, zinc, selenium), fatty acids, antioxidants, and amino acids. Standard serum levels often miss functional deficiencies that exist at the cellular level. Deficiencies in magnesium, B vitamins, and omega-3 fatty acids are consistently implicated in metabolic, neurological, and inflammatory conditions.</p>
+          </div>
+        </div>
+
+        <!-- Tool 6 -->
+        <div class="fh-tool-card">
+          <div class="fh-tool-badge" aria-hidden="true">06</div>
+          <div class="fh-tool-content">
+            <h3 class="fh-tool-title">Cardiometabolic &amp; Inflammatory Biomarkers</h3>
+            <p class="fh-tool-body">Goes beyond standard cholesterol panels to include LDL particle number and size (NMR LipoProfile), lipoprotein(a), high-sensitivity CRP (hsCRP), homocysteine, fasting insulin, HOMA-IR, and fibrinogen. These markers provide an accurate cardiovascular and inflammatory risk picture years before standard panels would flag any concern.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 6 — CONDITIONS GRID (pill cloud)
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-conditions-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">Clinical Relevance</span>
+        <h2 class="fh-section-heading">Conditions Addressed by Functional Medicine</h2>
+        <p class="fh-section-sub">Functional medicine has demonstrated clinical relevance and outcome improvements across a wide range of chronic conditions.</p>
+      </div>
+
+      <div class="fh-conditions-cloud" role="list" aria-label="Conditions addressed by functional medicine">
+        <span class="fh-condition-pill" role="listitem">IBS &amp; SIBO</span>
+        <span class="fh-condition-pill" role="listitem">Inflammatory Bowel Disease</span>
+        <span class="fh-condition-pill" role="listitem">Hashimoto's Thyroiditis</span>
+        <span class="fh-condition-pill" role="listitem">Hypothyroidism</span>
+        <span class="fh-condition-pill" role="listitem">Type 2 Diabetes</span>
+        <span class="fh-condition-pill" role="listitem">Insulin Resistance</span>
+        <span class="fh-condition-pill" role="listitem">Metabolic Syndrome</span>
+        <span class="fh-condition-pill" role="listitem">Hormonal Imbalances</span>
+        <span class="fh-condition-pill" role="listitem">Adrenal Dysfunction</span>
+        <span class="fh-condition-pill" role="listitem">Chronic Fatigue Syndrome</span>
+        <span class="fh-condition-pill" role="listitem">PCOS</span>
+        <span class="fh-condition-pill" role="listitem">Rheumatoid &amp; Psoriatic Arthritis</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 7 — FAQ ACCORDION
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-faq-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">Common Questions</span>
+        <h2 class="fh-section-heading">Common Questions</h2>
+        <p class="fh-section-sub">Straight answers to the questions we hear most often.</p>
+      </div>
+
+      <div class="fh-faq-list">
+
+        <details class="fh-faq-item">
+          <summary class="fh-faq-question">Is functional medicine the same as naturopathy?</summary>
+          <p class="fh-faq-answer">No — though both share a root-cause philosophy, they differ meaningfully in training, tools, and clinical framework. Functional medicine is grounded in systems biology and Western biomedical science, using advanced laboratory diagnostics and evidence-based protocols to identify biochemical and physiological dysfunction. Naturopathic medicine draws on a broader range of traditional therapies — including botanical medicine, homeopathy, and hydrotherapy — with a philosophy rooted in the body's innate healing capacity. Functional medicine is more laboratory-driven and mechanistically focused; naturopathy is broader in therapeutic scope.</p>
+        </details>
+
+        <details class="fh-faq-item">
+          <summary class="fh-faq-question">How is this different from seeing my family doctor?</summary>
+          <p class="fh-faq-answer">A family physician is trained to diagnose and manage acute illness and recognized disease states within a 10–15-minute appointment. Functional medicine practitioners spend significantly more time — often 60–90 minutes at intake — taking a comprehensive history of systems, environment, exposures, and lifestyle. Where a family doctor may rule out disease and report your labs as "normal," a functional medicine practitioner interprets those same results through optimal ranges and looks for patterns of early dysfunction. The goal is different: not to manage a diagnosis, but to understand what is driving your symptoms and address it directly.</p>
+        </details>
+
+        <details class="fh-faq-item">
+          <summary class="fh-faq-question">How long does it take to see results?</summary>
+          <p class="fh-faq-answer">This depends on the complexity, duration, and nature of your condition. Most patients begin noticing meaningful improvements — in energy, sleep, digestion, or pain — within four to eight weeks of implementing an initial protocol. Deeper systemic changes, such as hormonal rebalancing, gut microbiome restoration, or autoimmune stabilization, typically require three to six months of consistent work. Chronic conditions that have developed over years do not resolve in weeks. Functional medicine is a structured, data-guided process — not a quick fix — and progress is tracked through repeat testing at defined intervals.</p>
+        </details>
+
+        <details class="fh-faq-item">
+          <summary class="fh-faq-question">Do I need to stop my current medications or leave my doctor?</summary>
+          <p class="fh-faq-answer">No. Functional medicine is designed to work alongside your existing medical care, not replace it. Many patients work with a functional health coach or practitioner in addition to their GP, specialist, or prescribing physician. Protocol changes — including any adjustments to medications — are always made in coordination with your prescribing provider. The goal is to reduce dependency on symptom-suppressing medications over time by addressing root causes, but this is a gradual, supervised process, never abrupt.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 8 — CITATIONS
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-citations-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">Peer-Reviewed Evidence</span>
+        <h2 class="fh-section-heading">Clinical Evidence</h2>
+        <p class="fh-section-sub">Every protocol at Odin Lab is grounded in published clinical and mechanistic research. The following represent key findings from the functional medicine literature.</p>
+      </div>
+
+      <div class="fh-citations-list">
+
+        <div class="fh-citation-block">
+          <div class="fh-citation-dot" aria-hidden="true"></div>
+          <div class="fh-citation-content">
+            <span class="fh-citation-authors">Beidelschies M, Alejandro-Rodriguez M, Ji X, Bhowmik S, Nageeb F, Gonzalez E, Hanaway P.</span>
+            <span class="fh-citation-journal">JAMA Network Open, 2019; 2(10):e1914017</span>
+            <p class="fh-citation-finding">In a retrospective cohort study of 7,252 patients, those treated at Cleveland Clinic's Center for Functional Medicine showed significantly greater improvements in PROMIS Global Physical Health scores at 6 months compared to primary care controls (mean change 1.59 vs. 0.33, P = .004). 31% of functional medicine patients achieved a clinically meaningful 5-point improvement versus 22% in primary care.</p>
+          </div>
+        </div>
+
+        <div class="fh-citation-block">
+          <div class="fh-citation-dot" aria-hidden="true"></div>
+          <div class="fh-citation-content">
+            <span class="fh-citation-authors">Droz N, Hanaway P, Hyman M, Jin Y, Beidelschies M, Husni ME.</span>
+            <span class="fh-citation-journal">PLOS ONE, 2020; 15(10):e0240416</span>
+            <p class="fh-citation-finding">In a 12-week retrospective study, patients with rheumatoid arthritis or psoriatic arthritis who received a functional medicine program adjunctive to standard of care showed a statistically significant improvement in pain scores (−0.92 vs. control) and PROMIS physical health T-scores (+2.84 vs. control), both exceeding established minimally clinically significant differences.</p>
+          </div>
+        </div>
+
+        <div class="fh-citation-block">
+          <div class="fh-citation-dot" aria-hidden="true"></div>
+          <div class="fh-citation-content">
+            <span class="fh-citation-authors">Bredesen DE, Sharlin K, Jenkins D, Okuno M, Youngberg W, Cohen S, Stefani A, Brown RL, Conger S, Tanio C.</span>
+            <span class="fh-citation-journal">Journal of Alzheimer's Disease &amp; Parkinsonism, 2018; 8(5)</span>
+            <p class="fh-citation-finding">A multisite case series using a personalized, systems-based therapeutic protocol — addressing metabolic, inflammatory, hormonal, and nutritional drivers — demonstrated reversal of documented cognitive decline in the majority of patients, with improvements validated by quantitative neuropsychological testing and neuroimaging.</p>
+          </div>
+        </div>
+
+        <div class="fh-citation-block">
+          <div class="fh-citation-dot" aria-hidden="true"></div>
+          <div class="fh-citation-content">
+            <span class="fh-citation-authors">Trivedi MV et al.</span>
+            <span class="fh-citation-journal">Alternative Therapies in Health and Medicine, 2022; PMID 35687707</span>
+            <p class="fh-citation-finding">A retrospective interventional study found that a personalized functional medicine approach for type 2 diabetes patients who had not responded adequately to standard treatment resulted in 6 patients completely discontinuing diabetes medications, 5 patients reducing doses by 50%, and an average HbA1c reduction of 2.71% alongside a mean fasting glucose decrease of 78.36 mg/dL.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-cta-section">
+    <div class="fh-container">
+      <span class="fh-section-tag">Ready to Begin?</span>
+      <h2 class="fh-cta-heading">Start With a Conversation, Not a Prescription</h2>
+      <p class="fh-cta-sub">Book a free discovery call to discuss your health history, current symptoms, and whether a functional medicine approach is the right fit for you. No commitment required.</p>
+      <a href="#" class="btn-primary booking-trigger">Book a Free Discovery Call</a>
+    </div>
+  </section>
+
+</main>
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="booking-modal-title">
+  <div class="booking-modal">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-new-client" class="btn-first-time" target="_blank" rel="noopener">First Time Client</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" class="btn-follow-up" target="_blank" rel="noopener">Follow-Up Appointment</a>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var bookingOverlay = document.getElementById('booking-modal-overlay');
+  var bookingClose = document.getElementById('booking-modal-close');
+  function openBookingModal() { if (bookingOverlay) { bookingOverlay.classList.add('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; } }
+  function closeBookingModal() { if (bookingOverlay) { bookingOverlay.classList.remove('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; } }
+  document.addEventListener('click', function(e) { var btn = e.target.closest('.booking-trigger'); if (btn) { e.preventDefault(); openBookingModal(); } });
+  if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
+  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) { if (e.target === bookingOverlay) closeBookingModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal(); });
+
+  /* FAQ: close others on open (one open at a time) */
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.fh-faq-item').forEach(function(item) {
+      item.addEventListener('toggle', function() {
+        if (item.open) {
+          document.querySelectorAll('.fh-faq-item').forEach(function(other) {
+            if (other !== item) other.removeAttribute('open');
+          });
+        }
+      });
+    });
+  });
+
+  /* Hero image B&W → color reveal on scroll */
+  var heroColor = document.querySelector('.fh-hero-img-color');
+  if (heroColor) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { heroColor.style.opacity = '1'; io.disconnect(); }
+      });
+    }, { threshold: 0.25 });
+    io.observe(heroColor.parentElement);
+  }
+})();
+</script>
+</body>
+</html>

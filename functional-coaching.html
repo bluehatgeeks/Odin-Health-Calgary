@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functional Health Coaching | Odin Lab Calgary</title>
+  <meta name="description" content="Functional health coaching applies systems-level thinking and data-informed protocols to resolve the root causes of chronic symptoms, metabolic dysfunction, and performance decline. Odin Lab Calgary." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+  <link rel="stylesheet" href="functional-coaching.css?v=1">
+  <style>
+    .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
+    @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
+    .booking-modal-overlay{display:none!important;}
+    .booking-modal-overlay.is-visible{display:flex!important;}
+    main{padding-top:80px;}
+  </style>
+</head>
+<body>
+<script>
+(function () {
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      navRoot.innerHTML = html;
+      navRoot.querySelectorAll('script').forEach(function (oldScript) {
+        var newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+<main>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1 — HERO
+       ══════════════════════════════════════════ -->
+  <section class="fc-hero">
+    <div class="fc-hero-container">
+
+      <p class="hero-slogan">We Do Not Practice Medicine. We Practice Health.</p>
+
+      <h1>Your Biology Is Specific. Your Protocol Should Be Too.</h1>
+
+      <p class="fc-hero-sub">Functional health coaching applies systems-level thinking and data-informed protocols to resolve the root causes of chronic symptoms, metabolic dysfunction, and performance decline. We work alongside your body's biology — not against it — to build the conditions for lasting change.</p>
+
+      <div>
+        <a href="#" class="fc-hero-cta booking-trigger">Book a Discovery Call</a>
+      </div>
+
+      <div class="fc-hero-image-wrapper">
+        <img
+          src="img/functional-coaching-hero-bw.jpg"
+          alt="Functional health coaching consultation at Odin Lab Calgary"
+          class="fc-hero-img-bw"
+        />
+        <img
+          src="img/functional-coaching-hero-color.jpg"
+          alt=""
+          class="fc-hero-img-color"
+          aria-hidden="true"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2 — DEFINITION & EVIDENCE BANNER
+       ══════════════════════════════════════════ -->
+  <section class="fc-definition">
+    <div class="fc-definition-container">
+
+      <div class="fc-label-row">
+        <span class="fc-chip">Evidence-Based Practice</span>
+      </div>
+      <h2 class="fc-section-heading">What Is Functional Health Coaching?</h2>
+
+      <div class="fc-definition-grid">
+
+        <!-- Left: pull-quote + body -->
+        <div class="fc-definition-left">
+          <span class="fc-definition-label">Definition</span>
+          <p class="fc-pull-quote">A structured, client-centered practice that identifies and addresses the upstream drivers of chronic symptoms, metabolic dysfunction, and lifestyle disease — rather than managing symptoms in isolation.</p>
+          <p class="fc-definition-body">Functional health coaching integrates root-cause analysis, advanced lab interpretation, and evidence-based behavior change science within a personalized protocol. It is distinct from general wellness coaching in scope, clinical grounding, and depth: where wellness coaching focuses on empowerment and general habit building, functional health coaching applies systems biology and functional medicine principles to each client's specific physiology. The evidence base is substantial: a 2023 systematic review and meta-analysis published in <em>Patient Education and Counseling</em> found that health and wellness coaching significantly improves self-efficacy, quality of life, and depression outcomes in people with chronic illness — with 25 of 28 studies in a 2023 rapid systematic review demonstrating sustained or improved outcomes after the active coaching period ended.</p>
+        </div>
+
+        <!-- Right: two key stat callouts -->
+        <div class="fc-definition-right">
+
+          <div class="fc-stat-callout">
+            <span class="fc-stat-number">104</span>
+            <span class="fc-stat-label">Randomized Trials Analyzed</span>
+            <p class="fc-stat-note">A 2023 meta-analysis in <em>Patient Education and Counseling</em> analyzed 104 randomized trials covering over 168,000 study participants — finding coaching significantly improved self-efficacy, quality of life, and depression in chronic illness.</p>
+          </div>
+
+          <div class="fc-stat-callout">
+            <span class="fc-stat-number">168K+</span>
+            <span class="fc-stat-label">Study Participants Covered</span>
+            <p class="fc-stat-note">Clinically meaningful reductions in HbA1c, blood pressure, fasting glucose, LDL cholesterol, BMI, and waist circumference have been documented across the coaching intervention literature.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3 — 6 COACHING PILLARS
+       ══════════════════════════════════════════ -->
+  <section class="fc-pillars fc-section">
+    <div class="fc-container">
+
+      <div class="fc-label-row">
+        <span class="fc-chip">Your Protocol</span>
+      </div>
+      <h2 class="fc-section-heading">The Six Pillars of Your Protocol</h2>
+      <p class="fc-section-sub">Every functional health protocol is built around the same six foundational domains. The application is always specific to you.</p>
+
+      <div class="fc-pillars-grid">
+
+        <!-- Pillar 1: Nutrition -->
+        <div class="fc-pillar-card">
+          <div class="fc-pillar-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Plate with fork: circle for plate, fork lines on left -->
+              <circle cx="13" cy="13" r="8"/>
+              <path d="M5 3v4"/>
+              <path d="M3 5h4"/>
+              <path d="M5 7v10"/>
+              <!-- magnifier overlay -->
+              <circle cx="13" cy="13" r="4"/>
+              <path d="M19 19l-2.5-2.5"/>
+            </svg>
+          </div>
+          <h3 class="fc-pillar-title">Nutrition &amp; Diet</h3>
+          <p class="fc-pillar-body">Nutrition in functional health coaching is not a calorie-restriction plan or a trending elimination protocol. It is a personalized, data-informed approach to fueling metabolic function, stabilizing blood glucose, reducing systemic inflammation, and supporting the gut-liver-brain axis. Dietary strategy is built around each client's lab markers, food sensitivities, circadian biology, and real-world schedule — not a one-size prescription. Adjustments are made iteratively as biomarkers and symptoms respond.</p>
+        </div>
+
+        <!-- Pillar 2: Sleep -->
+        <div class="fc-pillar-card">
+          <div class="fc-pillar-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Crescent moon -->
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              <!-- Sleep wave beneath -->
+              <path d="M5 20 Q7 18 9 20 Q11 22 13 20 Q15 18 17 20" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="fc-pillar-title">Sleep Optimization</h3>
+          <p class="fc-pillar-body">Sleep is not passive recovery. It is the primary window during which the body clears inflammatory byproducts, consolidates metabolic hormones, and restores HPA axis equilibrium. Poor or inconsistent sleep dysregulates cortisol rhythms, impairs insulin sensitivity, suppresses immune competence, and accelerates cognitive decline. Functional coaching addresses the structural, behavioral, and biochemical drivers of poor sleep — including circadian misalignment, cortisol timing, magnesium insufficiency, and sleep architecture disruption — rather than simply recommending "better sleep hygiene."</p>
+        </div>
+
+        <!-- Pillar 3: Stress / HPA -->
+        <div class="fc-pillar-card">
+          <div class="fc-pillar-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Three connected nodes (HPA cascade) -->
+              <circle cx="12" cy="4" r="2.5"/>
+              <circle cx="5" cy="16" r="2.5"/>
+              <circle cx="19" cy="16" r="2.5"/>
+              <line x1="12" y1="6.5" x2="6.5" y2="13.8"/>
+              <line x1="12" y1="6.5" x2="17.5" y2="13.8"/>
+              <line x1="7.5" y1="16" x2="16.5" y2="16"/>
+              <!-- downward arrow -->
+              <path d="M12 19v3M10 20.5l2 1.5 2-1.5"/>
+            </svg>
+          </div>
+          <h3 class="fc-pillar-title">Stress &amp; HPA Axis</h3>
+          <p class="fc-pillar-body">The hypothalamic-pituitary-adrenal (HPA) axis is the body's primary stress regulation system. Chronic psychological, physiological, or environmental stress drives sustained cortisol dysregulation, which disrupts blood sugar stability, hormonal signaling, immune modulation, and gut barrier integrity. Functional coaching maps each client's cortisol rhythm using objective testing such as DUTCH dried urine panels, identifies the specific drivers of HPA dysregulation, and implements a layered recovery protocol — combining targeted nutritional support, adaptogenic herbs where indicated, breathwork, and stress load reduction strategies.</p>
+        </div>
+
+        <!-- Pillar 4: Movement -->
+        <div class="fc-pillar-card">
+          <div class="fc-pillar-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Running figure: head, torso, arm, leg -->
+              <circle cx="14" cy="4" r="1.8"/>
+              <path d="M12 7l-2 5 3 2-1 5"/>
+              <path d="M10 12l-3 2"/>
+              <path d="M14 14l3 3"/>
+              <!-- EKG pulse line -->
+              <path d="M2 19h3l1.5-3 2 5 1.5-3.5 1 2H22" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="fc-pillar-title">Movement &amp; Exercise</h3>
+          <p class="fc-pillar-body">Movement in functional health coaching is prescribed as medicine — dosed, sequenced, and timed relative to each client's hormonal status, recovery capacity, and metabolic markers. High-intensity training chronically applied to a dysregulated, cortisol-elevated system can worsen inflammation and suppress recovery. The functional coaching approach calibrates exercise type, intensity, duration, and timing to support — not stress — the client's current physiology, with progressive adjustments as capacity improves.</p>
+        </div>
+
+        <!-- Pillar 5: Mindset -->
+        <div class="fc-pillar-card">
+          <div class="fc-pillar-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Two overlapping circles (Venn) with bridge -->
+              <circle cx="9" cy="12" r="6"/>
+              <circle cx="15" cy="12" r="6"/>
+            </svg>
+          </div>
+          <h3 class="fc-pillar-title">Mindset &amp; Behavior Change</h3>
+          <p class="fc-pillar-body">Sustained health change is a behavioral and psychological process as much as a physiological one. Functional coaching applies evidence-based frameworks — including motivational interviewing, Self-Determination Theory, the Transtheoretical Model, and positive psychology — to identify the client's intrinsic drivers, resolve ambivalence, and build self-efficacy over time. The goal is not compliance with a protocol; it is the development of durable health behaviors the client owns and can sustain independently after the engagement ends.</p>
+        </div>
+
+        <!-- Pillar 6: Lab -->
+        <div class="fc-pillar-card">
+          <div class="fc-pillar-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Test tube -->
+              <path d="M9 3h6l2 6-5 11a1 1 0 0 1-2 0L5 9z"/>
+              <line x1="9" y1="3" x2="15" y2="3"/>
+              <!-- Bar chart (right side) -->
+              <rect x="17" y="14" width="2.5" height="6" rx="0.5"/>
+              <rect x="20.5" y="10" width="2.5" height="10" rx="0.5"/>
+            </svg>
+          </div>
+          <h3 class="fc-pillar-title">Lab-Guided Personalization</h3>
+          <p class="fc-pillar-body">Functional health coaching does not operate on assumption. Where appropriate, targeted functional labs are used to create an objective baseline and track progress: comprehensive metabolic panels, thyroid markers (TSH, Free T3, Free T4, reverse T3), fasting insulin and HOMA-IR, inflammatory markers (hs-CRP, homocysteine), cortisol rhythm testing, micronutrient panels, and gastrointestinal assessments. Lab selection is always targeted — ordered to answer a specific clinical question, not to run an exhaustive and expensive battery.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 4 — CLIENT PROFILES
+       ══════════════════════════════════════════ -->
+  <section class="fc-profiles fc-section">
+    <div class="fc-container">
+
+      <div class="fc-label-row">
+        <span class="fc-chip">Client Profiles</span>
+      </div>
+      <h2 class="fc-section-heading">Who We Work With</h2>
+      <p class="fc-section-sub">Functional health coaching is not a general wellness service. It is for people who have tried conventional approaches and found them insufficient — and who are ready to work from data.</p>
+
+      <div class="fc-profiles-grid">
+
+        <!-- Profile 1: Executives -->
+        <div class="fc-profile-card">
+          <h3 class="fc-profile-type">Executives &amp; High Performers</h3>
+          <p class="fc-profile-desc">High-performing professionals — entrepreneurs, senior leaders, and executives — operate under conditions of chronic cognitive and physiological load: sustained decision-making pressure, compressed recovery windows, international travel, irregular nutrition, and high-stakes accountability. Their output often masks the degree of physiological depletion occurring beneath the surface until a threshold event forces attention. Functional coaching for this group focuses on sustainable performance optimization: building the metabolic, hormonal, and recovery foundations that allow elite output to be maintained without accelerating biological aging.</p>
+          <span class="fc-profile-concerns-label">Common concerns</span>
+          <ul class="fc-profile-concerns" aria-label="Common concerns for executives and high performers">
+            <li>Declining mental sharpness, word retrieval difficulty, or afternoon cognitive fog</li>
+            <li>Disrupted sleep despite physical exhaustion; reliance on alcohol or sleep aids to downregulate</li>
+            <li>Elevated stress markers, early-stage metabolic risk (high fasting glucose, visceral fat accumulation), or frequent illness</li>
+          </ul>
+        </div>
+
+        <!-- Profile 2: Shift Workers -->
+        <div class="fc-profile-card">
+          <h3 class="fc-profile-type">Shift Workers &amp; Irregular Schedule Workers</h3>
+          <p class="fc-profile-desc">Healthcare professionals, emergency responders, tradespeople, and others working rotating or overnight schedules face a structural misalignment between their work patterns and their circadian biology. Chronic circadian disruption dysregulates cortisol and melatonin rhythms, impairs glucose metabolism, increases inflammatory load, and elevates long-term cardiovascular and metabolic risk. Functional coaching for shift workers builds practical, schedule-adapted protocols for sleep, nutrition timing, and stress recovery that work within — not against — the realities of irregular work patterns.</p>
+          <span class="fc-profile-concerns-label">Common concerns</span>
+          <ul class="fc-profile-concerns" aria-label="Common concerns for shift workers">
+            <li>Persistent fatigue that does not resolve with time off</li>
+            <li>GI dysfunction, appetite dysregulation, or unexplained weight gain</li>
+            <li>Mood instability, anxiety, or difficulty "switching off" when off shift</li>
+          </ul>
+        </div>
+
+        <!-- Profile 3: Chronic Fatigue / Burnout -->
+        <div class="fc-profile-card">
+          <h3 class="fc-profile-type">Chronic Fatigue, Burnout, or Unexplained Symptoms</h3>
+          <p class="fc-profile-desc">Many clients arrive having cycled through multiple conventional medical appointments without a satisfying explanation for symptoms that are real, consistent, and significantly impairing: debilitating fatigue, brain fog, post-exertional crashes, hormonal irregularities, or a vague but persistent sense that their body is not functioning as it should. Functional coaching approaches these presentations with structured curiosity — mapping symptom chronology, identifying likely system-level contributors, and using targeted assessments to generate a working hypothesis. Progress is measured in objective data and functional milestones, not in patients being told their labs are "normal."</p>
+          <span class="fc-profile-concerns-label">Common concerns</span>
+          <ul class="fc-profile-concerns" aria-label="Common concerns for people with chronic fatigue or burnout">
+            <li>Fatigue unresponsive to rest; post-exertional malaise or energy crashes</li>
+            <li>Cognitive impairment ("brain fog"), poor memory, or difficulty concentrating</li>
+            <li>Hormonal irregularities, disrupted menstrual cycles, temperature dysregulation, or persistent low-grade inflammation</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 5 — SECTION IMAGE
+       ══════════════════════════════════════════ -->
+  <div class="fc-section-image-block">
+    <div class="fc-section-image-inner">
+      <img
+        src="img/functional-coaching-section.jpg"
+        alt="Functional health coaching session at Odin Lab Calgary"
+      />
+      <div class="fc-section-image-overlay" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 6 — 4-PHASE JOURNEY (vertical stepper)
+       ══════════════════════════════════════════ -->
+  <section class="fc-journey fc-section">
+    <div class="fc-journey-container">
+
+      <div class="fc-label-row">
+        <span class="fc-chip">The Process</span>
+      </div>
+      <h2 class="fc-section-heading">Your Coaching Journey</h2>
+      <p class="fc-section-sub">A structured engagement designed to move from data to insight to action — in sequence, with intention, and at a pace your biology can absorb.</p>
+
+      <div class="fc-journey-steps">
+
+        <!-- Phase 1 -->
+        <div class="fc-journey-step">
+          <div class="fc-step-left">
+            <div class="fc-step-number-circle">
+              <span class="fc-step-num-text">01</span>
+            </div>
+          </div>
+          <div class="fc-step-right">
+            <h3 class="fc-step-title">Discovery &amp; Intake</h3>
+            <span class="fc-step-duration">1–2 Weeks</span>
+            <p class="fc-step-body">The engagement begins with a comprehensive intake process: a detailed health history questionnaire, a structured symptom chronology mapping antecedents and triggers, review of any existing lab work or medical records, and a 90-minute discovery consultation. The coach and client build a shared understanding of the client's health narrative — not just current symptoms, but the environmental, lifestyle, and physiological trajectory that produced them. By the end of Phase 1, the client has a clear picture of the working framework for the engagement, and the coach has sufficient context to determine whether targeted lab assessment is indicated.</p>
+            <p class="fc-step-outcome">By the end of this phase, you have a clear working framework — and so do we.</p>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="fc-journey-step">
+          <div class="fc-step-left">
+            <div class="fc-step-number-circle">
+              <span class="fc-step-num-text">02</span>
+            </div>
+          </div>
+          <div class="fc-step-right">
+            <h3 class="fc-step-title">Assessment &amp; Lab Review</h3>
+            <span class="fc-step-duration">2–4 Weeks</span>
+            <p class="fc-step-body">Based on the intake findings, targeted functional assessments are ordered where indicated. Results are reviewed in a dedicated lab interpretation session — with plain-language explanation of what the data reveals, what it does not, and how it shapes the protocol. The client receives a written summary of their current physiological status: key deficiencies, dysregulations, or risk patterns identified, and the prioritized intervention sequence that follows. This phase produces the objective baseline against which all progress will be measured.</p>
+            <p class="fc-step-outcome">You leave this phase with a written summary of your physiology and a clear intervention sequence — not a stack of confusing results.</p>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="fc-journey-step">
+          <div class="fc-step-left">
+            <div class="fc-step-number-circle">
+              <span class="fc-step-num-text">03</span>
+            </div>
+          </div>
+          <div class="fc-step-right">
+            <h3 class="fc-step-title">Protocol Implementation</h3>
+            <span class="fc-step-duration">8–12 Weeks</span>
+            <p class="fc-step-body">The active coaching phase. Based on discovery and assessment findings, the client receives a structured, sequenced protocol addressing their highest-priority areas: nutrition adjustments, sleep and recovery protocols, stress and HPA axis support, movement prescription, and targeted supplementation where evidence supports it. Bi-weekly coaching sessions provide accountability, course correction, and progressive adjustment as the client adapts. The protocol is built to integrate with real-world constraints — travel schedules, family demands, existing routines — rather than demanding a life redesign. By the end of this phase, most clients report measurable improvements in energy, cognitive clarity, sleep quality, and physical resilience.</p>
+            <p class="fc-step-outcome">Most clients report measurable improvements in energy, cognitive clarity, sleep quality, and physical resilience by the end of this phase.</p>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="fc-journey-step">
+          <div class="fc-step-left">
+            <div class="fc-step-number-circle">
+              <span class="fc-step-num-text">04</span>
+            </div>
+          </div>
+          <div class="fc-step-right">
+            <h3 class="fc-step-title">Optimization &amp; Maintenance</h3>
+            <span class="fc-step-duration">Ongoing — Monthly or Quarterly</span>
+            <p class="fc-step-body">Protocol refinement based on outcomes data and client feedback. Retesting of key biomarkers to document objective change and identify any remaining gaps. The focus shifts from intervention to consolidation: building the client's independent competence in reading their own signals, maintaining the habits that drove results, and preventing regression. Clients who continue into maintenance typically move to monthly or quarterly touchpoints, with intensive re-engagement available if life circumstances shift or new symptoms emerge.</p>
+            <p class="fc-step-outcome">The goal of this phase is a client who no longer needs a coach to maintain their health.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 7 — OUTCOME STATEMENTS
+       ══════════════════════════════════════════ -->
+  <section class="fc-outcomes">
+    <div class="fc-container">
+
+      <div class="fc-label-row">
+        <span class="fc-chip">Measurable Results</span>
+      </div>
+      <h2 class="fc-section-heading">Measurable Results</h2>
+      <p class="fc-section-sub">Outcomes documented with objective biomarker data — not self-reported impressions.</p>
+
+      <div class="fc-outcomes-grid">
+
+        <div class="fc-outcome-card">
+          <span class="fc-outcome-quotemark" aria-hidden="true">&ldquo;</span>
+          <p class="fc-outcome-text">Resolved an 8-year pattern of afternoon energy crashes and daily reliance on stimulants through targeted blood sugar stabilization, cortisol rhythm support, and adjusted meal timing — confirmed by follow-up fasting insulin and HOMA-IR normalization within 14 weeks.</p>
+          <span class="fc-outcome-attribution">— Odin Lab Client</span>
+        </div>
+
+        <div class="fc-outcome-card">
+          <span class="fc-outcome-quotemark" aria-hidden="true">&ldquo;</span>
+          <p class="fc-outcome-text">Eliminated persistent post-exertional fatigue and brain fog that had been present for three years following a viral illness, through a structured protocol addressing mitochondrial support, gut mucosal integrity, and progressive exercise reintroduction calibrated to tolerance — with objective improvement in HRV and subjective energy scores at weeks 8 and 16.</p>
+          <span class="fc-outcome-attribution">— Odin Lab Client</span>
+        </div>
+
+        <div class="fc-outcome-card">
+          <span class="fc-outcome-quotemark" aria-hidden="true">&ldquo;</span>
+          <p class="fc-outcome-text">Reduced visceral adiposity, normalized fasting glucose from pre-diabetic to optimal range, and restored consistent restorative sleep within 12 weeks — in an executive client who had been told for two years that their labs were "not quite bad enough to treat," through precision nutrition timing, circadian-aligned sleep protocol, and targeted magnesium and omega-3 supplementation.</p>
+          <span class="fc-outcome-attribution">— Odin Lab Client</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 8 — CITATIONS / EVIDENCE BASE
+       ══════════════════════════════════════════ -->
+  <section class="fc-citations fc-section">
+    <div class="fc-container">
+
+      <div class="fc-label-row">
+        <span class="fc-chip">Peer-Reviewed Evidence</span>
+      </div>
+      <h2 class="fc-section-heading">Evidence Base</h2>
+      <p class="fc-section-sub">Functional health coaching at Odin Lab is grounded in published clinical research — not trends, testimonials, or tradition.</p>
+
+      <div class="fc-citations-grid">
+
+        <div class="fc-citation-card">
+          <span class="fc-citation-author">Boehmer KR, Álvarez-Villalobos NA, et al.</span>
+          <span class="fc-citation-journal">Patient Education and Counseling, 2023; 116:107975. doi:10.1016/j.pec.2023.107975</span>
+          <p class="fc-citation-finding">Among 104 randomized trials (168,888+ citations screened), health and wellness coaching significantly improved self-efficacy, quality of life, and depression in patients with chronic conditions. A systematic review and meta-analysis representing the largest synthesis of coaching outcomes in chronic illness to date.</p>
+        </div>
+
+        <div class="fc-citation-card">
+          <span class="fc-citation-author">Willard-Grace R, Chen EH, Hessler D, et al.</span>
+          <span class="fc-citation-journal">Annals of Family Medicine, 2015; 13(2):130–138. doi:10.1370/afm.1768</span>
+          <p class="fc-citation-finding">12-month randomized controlled trial of 441 patients found coaching participants were significantly more likely to achieve at least one clinical goal (46.4% vs. 34.3%, P=.02) for glycemic and cardiovascular risk factor control — demonstrating real-world clinical impact of structured health coaching.</p>
+        </div>
+
+        <div class="fc-citation-card">
+          <span class="fc-citation-author">Kwok ZC, Tao A, Chan HY.</span>
+          <span class="fc-citation-journal">American Journal of Health Promotion, 2023; 37(4):555–565. doi:10.1177/08901171221137332</span>
+          <p class="fc-citation-finding">Systematic review and meta-analysis of randomized and controlled trials found health coaching significantly increased physical activity in middle-aged adults and produced beneficial effects across behavioral and physiological cardiometabolic outcomes — including reductions in HbA1c, blood pressure, and body composition measures.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+       ══════════════════════════════════════════ -->
+  <section class="fc-cta">
+    <div class="fc-container">
+      <h2 class="fc-cta-heading">Start With What Your Data Actually Says</h2>
+      <p class="fc-cta-sub">Book a complimentary discovery call to discuss your health history, your goals, and whether functional health coaching is the right fit. No obligation. No generic advice.</p>
+      <a href="#" class="fc-cta-btn btn-primary booking-trigger">Book a Discovery Call</a>
+      <p class="fc-cta-disclaimer">Complimentary 30-minute call &mdash; no commitment required</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════
+     BOOKING MODAL
+     ══════════════════════════════════════════ -->
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="booking-modal-title">
+  <div class="booking-modal">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-new-client" class="btn-first-time" target="_blank" rel="noopener">First Time Client</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" class="btn-follow-up" target="_blank" rel="noopener">Follow-Up Appointment</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var bookingOverlay = document.getElementById('booking-modal-overlay');
+  var bookingClose = document.getElementById('booking-modal-close');
+  function openBookingModal() { if (bookingOverlay) { bookingOverlay.classList.add('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; } }
+  function closeBookingModal() { if (bookingOverlay) { bookingOverlay.classList.remove('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; } }
+  document.addEventListener('click', function(e) { var btn = e.target.closest('.booking-trigger'); if (btn) { e.preventDefault(); openBookingModal(); } });
+  if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
+  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) { if (e.target === bookingOverlay) closeBookingModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal(); });
+})();
+</script>
+</body>
+</html>

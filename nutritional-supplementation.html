@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutritional Supplementation &amp; Herbology | Odin Lab Calgary</title>
+  <meta name="description" content="Your biology is not average, and your supplementation shouldn't be either. We assess your actual deficiencies, metabolic markers, and physiological demands — then build a targeted protocol grounded in clinical evidence, not marketing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+  <link rel="stylesheet" href="nutritional-supplementation.css?v=1">
+  <style>
+    .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
+    @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
+    .booking-modal-overlay{display:none!important;}
+    .booking-modal-overlay.is-visible{display:flex!important;}
+    main{padding-top:80px;}
+  </style>
+</head>
+<body>
+<script>
+(function () {
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      navRoot.innerHTML = html;
+      navRoot.querySelectorAll('script').forEach(function (oldScript) {
+        var newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+<main>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1 — HERO
+       ══════════════════════════════════════ -->
+  <section class="ns-hero">
+    <div class="ns-hero-inner">
+      <p class="hero-slogan">We Do Not Practice Medicine. We Practice Health.</p>
+      <h1 class="ns-hero-h1">Precision Nutrition. Evidence-Based Supplementation.</h1>
+      <p class="ns-hero-sub">Your biology is not average, and your supplementation shouldn't be either. We assess your actual deficiencies, metabolic markers, and physiological demands — then build a targeted protocol grounded in clinical evidence, not marketing.</p>
+      <div class="ns-hero-cta">
+        <a href="#" class="btn-primary booking-trigger">Book a Consultation</a>
+      </div>
+      <div class="ns-hero-image-wrapper">
+        <img
+          src="img/nutritional-hero-bw.jpg"
+          alt="Medicinal herbs and nutritional supplements arranged for a precision health protocol at Odin Lab Calgary"
+          class="ns-hero-img-bw"
+        >
+        <img
+          src="img/nutritional-hero-color.jpg"
+          alt=""
+          class="ns-hero-img-color"
+          aria-hidden="true"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 2 — COMPOUND BADGES STRIP
+       ══════════════════════════════════════ -->
+  <div class="ns-badges-section">
+    <div class="ns-badges-inner">
+      <span class="ns-badges-label">What We Work With</span>
+      <div class="ns-badges-row" role="list" aria-label="Key compounds used at Odin Lab">
+        <span class="ns-badge" role="listitem">Omega-3 EPA/DHA</span>
+        <span class="ns-badge" role="listitem">Magnesium Glycinate</span>
+        <span class="ns-badge" role="listitem">Vitamin D3/K2</span>
+        <span class="ns-badge" role="listitem">Methylfolate (5-MTHF)</span>
+        <span class="ns-badge" role="listitem">Methylcobalamin (B12)</span>
+        <span class="ns-badge" role="listitem">Zinc Bisglycinate</span>
+        <span class="ns-badge" role="listitem">Multi-Strain Probiotics</span>
+        <span class="ns-badge" role="listitem">KSM-66 Ashwagandha</span>
+        <span class="ns-badge" role="listitem">Rhodiola Rosea</span>
+        <span class="ns-badge" role="listitem">Berberine HCl</span>
+        <span class="ns-badge" role="listitem">Lion's Mane</span>
+        <span class="ns-badge" role="listitem">CoQ10 Ubiquinol</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 3 — SUPPLEMENT CATEGORIES
+       ══════════════════════════════════════ -->
+  <section class="ns-categories-section ns-section">
+    <div class="ns-container">
+      <div class="ns-section-header">
+        <span class="ns-section-label">Core Protocols</span>
+        <h2 class="ns-section-heading ns-centered">Core Supplement Categories</h2>
+        <p class="ns-section-sub ns-centered">Six foundational supplement classes — each with characterized mechanisms and peer-reviewed clinical evidence supporting targeted therapeutic use.</p>
+      </div>
+      <div class="ns-categories-grid">
+
+        <!-- Card 1: Omega-3 -->
+        <div class="ns-cat-card">
+          <h3 class="ns-cat-title">Omega-3 Fatty Acids (EPA/DHA)</h3>
+          <span class="ns-cat-subheading">Mechanism</span>
+          <p class="ns-cat-body">EPA and DHA integrate into cell membranes, modulate prostaglandin and cytokine synthesis, and activate anti-inflammatory transcription pathways (NF-κB suppression, SPM production). DHA additionally supports mitochondrial biogenesis and fatty acid oxidation, while EPA inhibits neuroinflammation via microglial polarization.</p>
+          <span class="ns-cat-subheading">Conditions Supported</span>
+          <p class="ns-cat-body">Cardiovascular disease risk reduction, systemic inflammation, metabolic syndrome, neuroinflammation, mood dysregulation, and cognitive decline prevention.</p>
+          <p class="ns-cat-citation">Sherratt SCR et al. "N-3 Fatty Acids (EPA and DHA) and Cardiovascular Health — Updated Review of Mechanisms and Clinical Outcomes." <em>Cardiovascular Research</em>, 2023. Meta-analysis of 14 RCTs (n=135,291) found significant reductions in MACE, cardiovascular death, and myocardial infarction.</p>
+        </div>
+
+        <!-- Card 2: Magnesium -->
+        <div class="ns-cat-card">
+          <h3 class="ns-cat-title">Magnesium Glycinate</h3>
+          <span class="ns-cat-subheading">Mechanism</span>
+          <p class="ns-cat-body">Magnesium is a required cofactor in over 600 enzymatic reactions, including ATP synthesis, DNA replication, and neuromuscular signaling. It functions as a physiological calcium channel antagonist, supports nitric oxide bioavailability, and regulates insulin receptor tyrosine kinase activity. Deficiency is common and frequently undetected because serum levels do not reflect intracellular status.</p>
+          <span class="ns-cat-subheading">Conditions Supported</span>
+          <p class="ns-cat-body">Hypertension, insulin resistance and type 2 diabetes, migraine frequency, sleep quality, depression, osteoporosis, and stress-related adrenal dysregulation.</p>
+          <p class="ns-cat-citation">Barbagallo M et al. "Magnesium: Health Effects, Deficiency Burden, and Future Public Health Directions." <em>Nutrients</em>, 2025. Hypomagnesemia reported in 14–48% of type 2 diabetes patients; supplementation at 250–400 mg/day shows efficacy across metabolic and neurological domains.</p>
+        </div>
+
+        <!-- Card 3: Vitamin D3 -->
+        <div class="ns-cat-card">
+          <h3 class="ns-cat-title">Vitamin D3 / K2</h3>
+          <span class="ns-cat-subheading">Mechanism</span>
+          <p class="ns-cat-body">1,25-dihydroxyvitamin D3 (calcitriol) binds vitamin D receptors (VDR) expressed on immune cells, regulating both innate and adaptive immunity. It shifts immune response toward regulatory phenotypes — increasing T-regulatory cells, suppressing Th17 — and modulates cytokine production, gut barrier integrity, and microbiota composition through VDR signaling.</p>
+          <span class="ns-cat-subheading">Conditions Supported</span>
+          <p class="ns-cat-body">Immune dysregulation, autoimmune conditions (SLE, multiple sclerosis, type 1 diabetes, Crohn's disease), recurrent infections, seasonal mood disruption, and bone density loss.</p>
+          <p class="ns-cat-citation">Sîrbe C et al. "An Update on the Effects of Vitamin D on the Immune System and Autoimmune Diseases." <em>Int J Mol Sciences</em>, 2022. VITAL trial demonstrated lower incidence of new-onset autoimmune disease with 2,000 IU/day vitamin D3.</p>
+        </div>
+
+        <!-- Card 4: B-Complex -->
+        <div class="ns-cat-card">
+          <h3 class="ns-cat-title">B-Complex (Methylated Forms)</h3>
+          <span class="ns-cat-subheading">Mechanism</span>
+          <p class="ns-cat-body">B vitamins — particularly methylfolate (5-MTHF), methylcobalamin (B12), and pyridoxal-5-phosphate (B6) — serve as essential cofactors in one-carbon metabolism: a network of reactions critical for DNA synthesis, methylation, neurotransmitter production, and homocysteine recycling. Methylated forms bypass conversion steps impaired by the common MTHFR gene variant (C677T, A1298C), ensuring cellular delivery of active nutrients.</p>
+          <span class="ns-cat-subheading">Conditions Supported</span>
+          <p class="ns-cat-body">Fatigue and low energy, elevated homocysteine, cognitive fog, mood disorders, MTHFR-related methylation impairment, and cardiovascular risk reduction.</p>
+          <p class="ns-cat-citation">Carboni L. "Active Folate Versus Folic Acid: The Role of 5-MTHF in Human Health." <em>Integrative Medicine (Encinitas)</em>, 2022;21(3):36–41. Methylfolate (400 µg Quatrefolic) combined with B6 and B12 reduced homocysteine more effectively than 5 mg/day folic acid in a 104-patient trial.</p>
+        </div>
+
+        <!-- Card 5: Zinc -->
+        <div class="ns-cat-card">
+          <h3 class="ns-cat-title">Zinc Bisglycinate</h3>
+          <span class="ns-cat-subheading">Mechanism</span>
+          <p class="ns-cat-body">Zinc is an essential cofactor for immune cell development (T cells, B cells, NK cells, neutrophils, and macrophages), cytokine regulation, and collagen synthesis. It modulates macrophage polarization between pro-inflammatory (M1) and tissue-repair (M2) phenotypes, supports T-regulatory cell proliferation, and is required for thyroid hormone synthesis.</p>
+          <span class="ns-cat-subheading">Conditions Supported</span>
+          <p class="ns-cat-body">Immune deficiency, wound healing impairment, recurrent infection, skin conditions, thyroid dysfunction, and testosterone regulation.</p>
+          <p class="ns-cat-citation">Lin P-H et al. "Zinc in Wound Healing Modulation." <em>Nutrients</em>, 2018. Meta-analysis of five clinical trials found zinc treatment significantly associated with improved ulcer healing outcomes (MD: 1.41; 95% CI 1.04–1.92; p=0.03).</p>
+        </div>
+
+        <!-- Card 6: Probiotics -->
+        <div class="ns-cat-card">
+          <h3 class="ns-cat-title">Multi-Strain Probiotics</h3>
+          <span class="ns-cat-subheading">Mechanism</span>
+          <p class="ns-cat-body">Probiotics restore microbial diversity, produce short-chain fatty acids (SCFAs) that support colonocyte metabolism and epithelial barrier integrity, modulate immune tone via gut-associated lymphoid tissue (GALT), and communicate with the central nervous system through the gut-brain axis (vagal signaling, serotonin precursor production).</p>
+          <span class="ns-cat-subheading">Conditions Supported</span>
+          <p class="ns-cat-body">Irritable bowel syndrome, antibiotic-associated diarrhea, inflammatory bowel disease (especially ulcerative colitis), mood disorders, cognitive performance, and immune dysregulation.</p>
+          <p class="ns-cat-citation">Huang F et al. "Exploring the gut microbiome: probiotics, prebiotics, synbiotics, and postbiotics as key players in human health." <em>PMC</em>, 2024. 8-week double-blind RCT of a multi-strain probiotic significantly alleviated core GI symptoms and improved psychosocial wellbeing in adults with functional bowel disorders.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 4 — BOTANICAL SPOTLIGHTS
+       ══════════════════════════════════════ -->
+  <section class="ns-botanicals-section ns-section">
+    <div class="ns-container">
+      <div class="ns-section-header">
+        <span class="ns-section-label">Herbal Medicine</span>
+        <h2 class="ns-section-heading ns-centered">Botanical Spotlights</h2>
+        <p class="ns-section-sub ns-centered">Four botanicals with robust clinical trial evidence, well-characterized bioactive mechanisms, and a safety profile that supports long-term practitioner-supervised use.</p>
+      </div>
+      <div class="ns-botanicals-grid">
+
+        <!-- Herb 1: Ashwagandha -->
+        <div class="ns-herb-card">
+          <h3 class="ns-herb-name">Ashwagandha</h3>
+          <span class="ns-herb-latin">Withania somnifera</span>
+          <p class="ns-herb-mechanism">Ashwagandha's withanolides modulate the hypothalamic-pituitary-adrenal (HPA) axis, suppressing stress-driven cortisol overproduction while supporting thyroid receptor sensitivity. It acts as an adaptogen — normalizing physiological stress response rather than simply sedating it. It also exhibits anti-inflammatory effects through NF-κB pathway inhibition and supports mitochondrial function.</p>
+          <span class="ns-herb-uses-label">Top Evidence-Backed Uses</span>
+          <ol class="ns-herb-uses">
+            <li>
+              <span class="ns-herb-use-num">01</span>
+              <span><strong>Stress and anxiety reduction</strong> — Multiple double-blind RCTs demonstrate significant reductions in PSS, DASS, and GHQ-28 stress scores vs. placebo over 6–8 weeks</span>
+            </li>
+            <li>
+              <span class="ns-herb-use-num">02</span>
+              <span><strong>Cortisol normalization</strong> — KSM-66 extract (600 mg/day) demonstrated a 27.9% reduction in serum cortisol in a placebo-controlled trial of stressed adults</span>
+            </li>
+            <li>
+              <span class="ns-herb-use-num">03</span>
+              <span><strong>Thyroid support</strong> — A randomized placebo-controlled trial found significant reductions in TSH and increases in fT3 and fT4 at 600 mg/day; monitored use recommended in pre-existing thyroid conditions</span>
+            </li>
+          </ol>
+          <p class="ns-herb-citation">Chandrasekhar K et al. <em>Indian J Psychological Medicine</em>, 2012. PMC3573577. KSM-66 cortisol/stress trial, n=64. Verma N et al. <em>Phytotherapy Research</em>, 2025. 12-month safety confirmation, no adverse organ effects.</p>
+        </div>
+
+        <!-- Herb 2: Rhodiola -->
+        <div class="ns-herb-card">
+          <h3 class="ns-herb-name">Rhodiola Rosea</h3>
+          <span class="ns-herb-latin">Rhodiola rosea</span>
+          <p class="ns-herb-mechanism">Rhodiola's primary bioactives — salidroside and rosavins — inhibit monoamine oxidase (MAO-A and MAO-B), prolonging the activity of dopamine, serotonin, norepinephrine, and acetylcholine in the CNS. This preserves cognitive function under stress, supports prefrontal cortex activity, and reduces the neurochemical depletion associated with sustained mental effort.</p>
+          <span class="ns-herb-uses-label">Top Evidence-Backed Uses</span>
+          <ol class="ns-herb-uses">
+            <li>
+              <span class="ns-herb-use-num">01</span>
+              <span><strong>Mental fatigue reduction</strong> — Double-blind, placebo-controlled crossover trial in 56 physicians showed statistically significant improvement in mental performance (Fatigue Index) during night duty</span>
+            </li>
+            <li>
+              <span class="ns-herb-use-num">02</span>
+              <span><strong>Cognitive performance under stress</strong> — RCT of 161 cadets demonstrated a pronounced antifatigue effect (AFI score) after a single dose of standardized SHR-5 vs. placebo</span>
+            </li>
+            <li>
+              <span class="ns-herb-use-num">03</span>
+              <span><strong>Burnout and stress-induced exhaustion</strong> — Multiple clinical trials support reduced burnout scores in individuals with stress-related fatigue syndrome; favorable safety profile at 200–600 mg/day</span>
+            </li>
+          </ol>
+          <p class="ns-herb-citation">Darbinyan V et al. <em>Phytomedicine</em>, 2000;7(5):365–371. Shevtsov VA et al. <em>Phytomedicine</em>, 2003;10(2–3):95–105. Two foundational SHR-5 standardized extract RCTs establishing anti-fatigue evidence.</p>
+        </div>
+
+        <!-- Herb 3: Berberine -->
+        <div class="ns-herb-card">
+          <h3 class="ns-herb-name">Berberine</h3>
+          <span class="ns-herb-latin">Berberis aristata / Coptis chinensis</span>
+          <p class="ns-herb-mechanism">Berberine activates AMP-activated protein kinase (AMPK), the cellular energy-sensing enzyme, increasing glucose uptake in skeletal muscle, suppressing hepatic gluconeogenesis, and promoting lipid oxidation. It also upregulates insulin receptor expression, reduces reactive oxygen species contributing to insulin resistance, and modulates the gut microbiome toward SCFA-producing species associated with improved glycemic control.</p>
+          <span class="ns-herb-uses-label">Top Evidence-Backed Uses</span>
+          <ol class="ns-herb-uses">
+            <li>
+              <span class="ns-herb-use-num">01</span>
+              <span><strong>Blood glucose reduction</strong> — Meta-analysis of 37 RCTs (n=3,048) found berberine significantly reduced fasting plasma glucose (WMD: −0.82 mmol/L), HbA1c (WMD: −0.63%), and 2-hour postprandial glucose</span>
+            </li>
+            <li>
+              <span class="ns-herb-use-num">02</span>
+              <span><strong>Insulin resistance improvement</strong> — Fasting insulin and HOMA-IR reduced by 28.1% and 44.7% respectively (p&lt;0.001) in clinical studies; no hypoglycemia risk as effect is conditional on hyperglycemia</span>
+            </li>
+            <li>
+              <span class="ns-herb-use-num">03</span>
+              <span><strong>Dyslipidemia and metabolic syndrome</strong> — Meta-analyses confirm improvements in LDL cholesterol, triglycerides, and blood pressure across 12+ randomized placebo-controlled trials</span>
+            </li>
+          </ol>
+          <p class="ns-herb-citation">Liang Y et al. <em>Clinical Therapeutics</em>, 2023. PMID: 38016844. Umbrella meta-analysis. Yin J et al. <em>Metabolism</em>, 2008. PMC2410097. Foundational 3-month RCT establishing berberine comparable to metformin for glycemic endpoints.</p>
+        </div>
+
+        <!-- Herb 4: Lion's Mane -->
+        <div class="ns-herb-card">
+          <h3 class="ns-herb-name">Lion's Mane</h3>
+          <span class="ns-herb-latin">Hericium erinaceus</span>
+          <p class="ns-herb-mechanism">Lion's Mane contains hericenones (fruiting body) and erinacines (mycelium), both of which stimulate endogenous synthesis of Nerve Growth Factor (NGF) and brain-derived neurotrophic factor (BDNF). Erinacines cross the blood-brain barrier and have been shown to promote hippocampal neurogenesis, reduce amyloid-β plaque deposition in animal models, and attenuate neuroinflammatory markers (IL-6, TGFβ1, GFAP).</p>
+          <span class="ns-herb-uses-label">Top Evidence-Backed Uses</span>
+          <ol class="ns-herb-uses">
+            <li>
+              <span class="ns-herb-use-num">01</span>
+              <span><strong>Mild cognitive impairment</strong> — 16-week randomized placebo-controlled trial in 30 individuals with MCI demonstrated significant improvement in cognitive test performance vs. placebo (improvement reversed after discontinuation)</span>
+            </li>
+            <li>
+              <span class="ns-herb-use-num">02</span>
+              <span><strong>Cognitive processing speed</strong> — 2023 double-blind pilot RCT (n=41, healthy adults aged 18–45) showed significantly faster Stroop task performance at 60 minutes post-dose; 28-day use showed trend toward reduced stress</span>
+            </li>
+            <li>
+              <span class="ns-herb-use-num">03</span>
+              <span><strong>Neuroprotection and neuroinflammation</strong> — Animal studies show reduced dopaminergic cell loss in Parkinson's models and prevention of age-related cognitive decline with 8-month supplementation in aged mice</span>
+            </li>
+          </ol>
+          <p class="ns-herb-citation">Mori K et al. <em>Biomedical Research</em>, 2019. PMID: 31413233. 16-week RCT in MCI patients. Docherty S et al. <em>Nutrients</em>, 2023;15(22):4842. PMC10675414. Double-blind pilot RCT, healthy adults.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 5 — SECTION IMAGE
+       ══════════════════════════════════════ -->
+  <div class="ns-section-image-wrap">
+    <div class="ns-section-image-inner">
+      <img
+        src="img/nutritional-section.jpg"
+        alt="Precision supplement protocol preparation at Odin Lab Calgary"
+      >
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 6 — 3-PHASE PROTOCOL
+       ══════════════════════════════════════ -->
+  <section class="ns-protocol-section ns-section">
+    <div class="ns-container">
+      <div class="ns-section-header">
+        <span class="ns-section-label">How We Work</span>
+        <h2 class="ns-section-heading ns-centered">Your Supplementation Protocol</h2>
+        <p class="ns-section-sub ns-centered">A structured three-phase approach: assess your actual status, restore identified deficiencies, then optimize for performance and longevity — with objective retesting throughout.</p>
+      </div>
+      <div class="ns-phases-row">
+
+        <!-- Phase 1 -->
+        <div class="ns-phase-panel">
+          <div class="ns-phase-circle" aria-hidden="true">
+            <span class="ns-phase-num">1</span>
+          </div>
+          <h3 class="ns-phase-name">Assess</h3>
+          <ul class="ns-phase-list">
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Comprehensive biomarker panel: 25-OH vitamin D, RBC magnesium, ferritin, B12, zinc, omega-3 index, hsCRP, homocysteine, fasting glucose, HbA1c, insulin, lipid panel</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Detailed health history intake: symptoms, diet, stress load, sleep quality, medications, and prior supplementation</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Identification of functional deficiencies — suboptimal nutrients within conventional lab ranges that functional thresholds distinguish</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Genetic context review where relevant: MTHFR status, COMT variants, and methylation-related polymorphisms affecting nutrient metabolism</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Gut health and digestive function assessment: absorption capacity, microbiome balance indicators, and bowel function history</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="ns-phase-panel">
+          <div class="ns-phase-circle" aria-hidden="true">
+            <span class="ns-phase-num">2</span>
+          </div>
+          <h3 class="ns-phase-name">Restore</h3>
+          <ul class="ns-phase-list">
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Targeted repletion of identified deficiencies using bioavailable, practitioner-grade forms: magnesium glycinate, methylfolate, methylcobalamin, cholecalciferol D3</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Gut repair protocol where indicated: mucosal support (L-glutamine, zinc carnosine), probiotic reseeding, and removal of inflammatory dietary triggers</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Foundational support established: omega-3 repletion, B-complex methylation support, and adrenal adaptogen introduction</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Retesting at 8–12 weeks to confirm repletion and adjust dosing based on objective biomarker response</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Symptom tracking alongside lab data to correlate subjective improvement with physiological change</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="ns-phase-panel">
+          <div class="ns-phase-circle" aria-hidden="true">
+            <span class="ns-phase-num">3</span>
+          </div>
+          <h3 class="ns-phase-name">Optimize</h3>
+          <ul class="ns-phase-list">
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Shift from deficiency correction to performance, resilience, and longevity enhancement</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Introduction of targeted botanicals and nootropics aligned with individual goals: cognitive performance (Lion's Mane, Rhodiola), hormonal balance (Ashwagandha), or metabolic optimization (Berberine, Chromium, ALA)</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Mitochondrial support protocols for sustained energy: CoQ10 (ubiquinol form), NMN/NR, PQQ</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Maintenance dosing calibrated to sustained biomarker targets, not fixed product regimens</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Ongoing monitoring cadence: quarterly or semi-annual panels to ensure optimization is maintained and protocol adjusted as physiology changes</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 7 — QUALITY STANDARDS
+       ══════════════════════════════════════ -->
+  <section class="ns-quality-section ns-section">
+    <div class="ns-container">
+      <div class="ns-section-header">
+        <span class="ns-section-label">Our Standards</span>
+        <h2 class="ns-section-heading ns-centered">Quality Standards We Require</h2>
+        <p class="ns-section-sub ns-centered">The supplement industry is largely unregulated. We apply three non-negotiable criteria to every compound we recommend — because the difference in what your body actually receives is material.</p>
+      </div>
+      <div class="ns-quality-grid">
+
+        <!-- Card 1: Third-Party Testing -->
+        <div class="ns-quality-card">
+          <div class="ns-quality-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="ns-quality-title">Third-Party Testing (NSF, USP, Informed Sport)</h3>
+          <p class="ns-quality-body">Dietary supplements are not FDA-approved before reaching the market, meaning manufacturer claims are self-reported and unverified unless independently tested. Third-party certification programs — NSF Certified for Sport, USP Verified, and Informed Sport — test finished products for label accuracy, contaminant absence, and freedom from 270+ substances banned by major sports anti-doping agencies. Certified products undergo batch-level testing, not just formulation approval, providing assurance that what is on the label is in the bottle at the stated dose.</p>
+        </div>
+
+        <!-- Card 2: Bioavailable Forms -->
+        <div class="ns-quality-card">
+          <div class="ns-quality-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <h3 class="ns-quality-title">Bioavailable Forms</h3>
+          <p class="ns-quality-body">Not all nutrient forms are equally usable by the body. Synthetic forms — such as folic acid (B9), cyanocobalamin (B12), and magnesium oxide — require enzymatic conversion steps that are impaired in significant portions of the population due to genetic variants like MTHFR, or are poorly absorbed compared to active alternatives. Practitioner-grade protocols prioritize bioavailable forms: methylfolate (5-MTHF) over folic acid, methylcobalamin over cyanocobalamin, magnesium glycinate or citrate over oxide, and ubiquinol CoQ10 over ubiquinone. This distinction determines whether a supplement actually reaches target tissues in functional concentrations.</p>
+        </div>
+
+        <!-- Card 3: Practitioner-Grade -->
+        <div class="ns-quality-card">
+          <div class="ns-quality-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0110 0v4"/>
+            </svg>
+          </div>
+          <h3 class="ns-quality-title">Practitioner-Grade vs. Retail</h3>
+          <p class="ns-quality-body">Retail supplements sold through mass-market channels are formulated to price points, not clinical outcomes — often using lower-cost synthetic forms, inadequate doses, and minimal quality oversight beyond GMP labeling requirements. Practitioner-grade supplements are produced by manufacturers that supply licensed clinicians, are subject to stricter quality controls, use clinically validated doses drawn from peer-reviewed research, and typically undergo third-party verification. The difference is not branding — it is a material distinction in what your body actually receives and can use.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 8 — CITATIONS
+       ══════════════════════════════════════ -->
+  <section class="ns-citations-section ns-section">
+    <div class="ns-container">
+      <div class="ns-section-header">
+        <span class="ns-section-label">Peer-Reviewed Research</span>
+        <h2 class="ns-section-heading ns-centered">Clinical Citations</h2>
+        <p class="ns-section-sub ns-centered">Every protocol recommendation at Odin Lab is grounded in published peer-reviewed evidence. The following citations represent key studies across the supplement categories used in our protocols.</p>
+      </div>
+      <div class="ns-citations-grid">
+
+        <div class="ns-citation-card">
+          <span class="ns-citation-num">Citation 01</span>
+          <span class="ns-citation-author">Sherratt SCR, Mason RP.</span>
+          <span class="ns-citation-journal">"N-3 Fatty Acids (EPA and DHA) and Cardiovascular Health — Updated Review of Mechanisms and Clinical Outcomes." Cardiovascular Research, 2023.</span>
+          <p class="ns-citation-finding">Meta-analysis of 14 RCTs (n=135,291) demonstrated significant reductions in MACE, cardiovascular death, and myocardial infarction with omega-3 supplementation; EPA-only formulations showed the most robust cardiovascular event reduction.</p>
+        </div>
+
+        <div class="ns-citation-card">
+          <span class="ns-citation-num">Citation 02</span>
+          <span class="ns-citation-author">Sîrbe C et al.</span>
+          <span class="ns-citation-journal">"An Update on the Effects of Vitamin D on the Immune System and Autoimmune Diseases." International Journal of Molecular Sciences, 2022;23(17):9784.</span>
+          <p class="ns-citation-finding">The VITAL trial confirmed lower incidence of new-onset autoimmune disease with 2,000 IU/day vitamin D3; mechanistic review confirmed VDR-dependent immunomodulation across innate and adaptive immune compartments.</p>
+        </div>
+
+        <div class="ns-citation-card">
+          <span class="ns-citation-num">Citation 03</span>
+          <span class="ns-citation-author">Liang Y et al.</span>
+          <span class="ns-citation-journal">"The Effect of Berberine Supplementation on Glycemic Control and Inflammatory Biomarkers in Metabolic Disorders: An Umbrella Meta-analysis of Randomized Controlled Trials." Clinical Therapeutics, 2023. PMID: 38016844.</span>
+          <p class="ns-citation-finding">Berberine supplementation significantly reduced fasting blood glucose, HbA1c, HOMA-IR, serum insulin, IL-6, TNF-α, and CRP across multiple meta-analyses of RCTs in metabolic disorder populations.</p>
+        </div>
+
+        <div class="ns-citation-card">
+          <span class="ns-citation-num">Citation 04</span>
+          <span class="ns-citation-author">Docherty S et al.</span>
+          <span class="ns-citation-journal">"The Acute and Chronic Effects of Lion's Mane Mushroom Supplementation on Cognitive Function, Stress and Mood in Young Adults: A Double-Blind, Parallel Groups, Pilot Study." Nutrients, 2023;15(22):4842. PMC10675414.</span>
+          <p class="ns-citation-finding">A 28-day double-blind RCT found significantly faster Stroop task performance at 60 minutes post-dose and a trend toward reduced subjective stress with chronic Lion's Mane supplementation in healthy adults aged 18–45.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+       ══════════════════════════════════════ -->
+  <section class="ns-cta-section">
+    <div class="ns-cta-inner">
+      <span class="ns-cta-label">Ready to Begin</span>
+      <h2 class="ns-cta-heading">Your Protocol Starts With Your Data</h2>
+      <p class="ns-cta-sub">Book a functional health assessment and we'll map your actual deficiencies, metabolic markers, and physiological demands to a supplementation protocol that's built for your biology — not the general population.</p>
+      <div class="ns-cta-btn-wrap">
+        <a href="#" class="btn-primary booking-trigger">Book a Functional Assessment</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="booking-modal-title">
+  <div class="booking-modal">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-new-client" class="btn-first-time" target="_blank" rel="noopener">First Time Client</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" class="btn-follow-up" target="_blank" rel="noopener">Follow-Up Appointment</a>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var bookingOverlay = document.getElementById('booking-modal-overlay');
+  var bookingClose = document.getElementById('booking-modal-close');
+  function openBookingModal() { if (bookingOverlay) { bookingOverlay.classList.add('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; } }
+  function closeBookingModal() { if (bookingOverlay) { bookingOverlay.classList.remove('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; } }
+  document.addEventListener('click', function(e) { var btn = e.target.closest('.booking-trigger'); if (btn) { e.preventDefault(); openBookingModal(); } });
+  if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
+  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) { if (e.target === bookingOverlay) closeBookingModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal(); });
+})();
+</script>
+</body>
+</html>

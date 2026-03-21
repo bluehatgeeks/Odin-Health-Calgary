@@ -1,0 +1,877 @@
+/* ── Odin Lab — Functional Health Coaching Page Styles ── */
+/* Page-scoped styles only. Prefix: .fc- */
+/* v=1 */
+
+/* ────────────────────────────────────────────
+   SHARED SECTION SCAFFOLD
+   ──────────────────────────────────────────── */
+.fc-section {
+  padding: 60px 0;
+  position: relative;
+}
+
+.fc-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fc-label-row {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.fc-section-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.fc-section-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--white-800);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ────────────────────────────────────────────
+   UTILITY — Sub-heading pill chip
+   ──────────────────────────────────────────── */
+.fc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(196, 255, 73, 0.1);
+  border: 1px solid rgba(196, 255, 73, 0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lime-green);
+}
+
+/* ────────────────────────────────────────────
+   SECTION 1 — HERO
+   ──────────────────────────────────────────── */
+.fc-hero {
+  padding-top: 90px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.fc-hero-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fc-hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  max-width: 820px;
+  margin: 0 auto 24px auto;
+}
+
+.fc-hero-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 400;
+  color: var(--white-800);
+  max-width: 680px;
+  margin: 0 auto 36px auto;
+  line-height: 1.7;
+}
+
+.fc-hero-cta {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
+  color: var(--dark-green);
+  padding: 16px 36px;
+  border-radius: 15px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 48px;
+  cursor: pointer;
+  border: none;
+}
+
+.fc-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(196, 255, 73, 0.25);
+}
+
+/* Dual hero image wrapper */
+.fc-hero-image-wrapper {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.fc-hero-image-wrapper .fc-hero-img-bw {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+}
+
+.fc-hero-image-wrapper .fc-hero-img-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.fc-hero-image-wrapper:hover .fc-hero-img-color {
+  opacity: 1;
+}
+
+/* ────────────────────────────────────────────
+   SECTION 2 — DEFINITION & EVIDENCE BANNER
+   ──────────────────────────────────────────── */
+.fc-definition {
+  background: rgba(196, 255, 73, 0.06);
+  border-top: 1px solid rgba(196, 255, 73, 0.12);
+  border-bottom: 1px solid rgba(196, 255, 73, 0.12);
+  padding: 72px 0;
+}
+
+.fc-definition-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fc-definition-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 64px;
+  align-items: start;
+  margin-top: 44px;
+}
+
+.fc-definition-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lime-green);
+  opacity: 0.7;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.fc-pull-quote {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.55;
+  border-left: 3px solid var(--lime-green);
+  padding-left: 28px;
+  margin: 0 0 28px 0;
+}
+
+.fc-definition-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--white-800);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.fc-definition-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fc-stat-callout {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(196, 255, 73, 0.2);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.fc-stat-callout:hover {
+  transform: translateY(-2px);
+  border-color: rgba(196, 255, 73, 0.4);
+}
+
+.fc-stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 700;
+  color: var(--lime-green);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.fc-stat-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  display: block;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.fc-stat-note {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--white-500);
+  line-height: 1.45;
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .fc-definition-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .fc-definition-right {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .fc-stat-callout {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .fc-definition-right {
+    flex-direction: column;
+  }
+}
+
+/* ────────────────────────────────────────────
+   SECTION 3 — 6 COACHING PILLARS (2-column icon cards)
+   ──────────────────────────────────────────── */
+.fc-pillars {
+  padding: 60px 0;
+}
+
+.fc-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.fc-pillar-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.fc-pillar-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(196, 255, 73, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.fc-pillar-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(196, 255, 73, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lime-green);
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+.fc-pillar-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.fc-pillar-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 400;
+  color: var(--white-800);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .fc-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ────────────────────────────────────────────
+   SECTION 4 — CLIENT PROFILES (3 large profile cards)
+   ──────────────────────────────────────────── */
+.fc-profiles {
+  padding: 60px 0;
+}
+
+.fc-profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.fc-profile-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.fc-profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--lime-green);
+  border-radius: 16px 16px 0 0;
+}
+
+.fc-profile-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.fc-profile-type {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 16px 0 16px 0;
+  line-height: 1.25;
+}
+
+.fc-profile-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 400;
+  color: var(--white-800);
+  line-height: 1.65;
+  margin: 0 0 24px 0;
+  flex: 1;
+}
+
+.fc-profile-concerns-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lime-green);
+  opacity: 0.7;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.fc-profile-concerns {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fc-profile-concerns li {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--white-800);
+  line-height: 1.5;
+  padding-left: 18px;
+  position: relative;
+}
+
+.fc-profile-concerns li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lime-green);
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .fc-profiles-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .fc-profiles-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}
+
+/* ────────────────────────────────────────────
+   SECTION 5 — SECTION IMAGE
+   ──────────────────────────────────────────── */
+.fc-section-image-block {
+  padding: 60px 0;
+}
+
+.fc-section-image-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.fc-section-image-inner img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  max-height: 520px;
+  object-fit: cover;
+  filter: brightness(0.88);
+  transition: filter 0.3s ease;
+}
+
+.fc-section-image-inner:hover img {
+  filter: brightness(0.95);
+}
+
+.fc-section-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 58, 26, 0.65) 0%, transparent 55%);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* ────────────────────────────────────────────
+   SECTION 6 — 4-PHASE JOURNEY (vertical stepper)
+   ──────────────────────────────────────────── */
+.fc-journey {
+  padding: 60px 0;
+}
+
+.fc-journey-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fc-journey-steps {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fc-journey-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  position: relative;
+  padding-bottom: 48px;
+}
+
+.fc-journey-step:last-child {
+  padding-bottom: 0;
+}
+
+/* Vertical dashed lime connecting line */
+.fc-step-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.fc-journey-step:not(:last-child) .fc-step-left::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 76px;
+  bottom: -8px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(196, 255, 73, 0.5) 0px,
+    rgba(196, 255, 73, 0.5) 6px,
+    transparent 6px,
+    transparent 14px
+  );
+}
+
+.fc-step-number-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(196, 255, 73, 0.1);
+  border: 2px solid rgba(196, 255, 73, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fc-step-num-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.fc-step-right {}
+
+.fc-step-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+  padding-top: 16px;
+}
+
+.fc-step-duration {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark-green);
+  background: var(--lime-green);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.fc-step-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: var(--white-800);
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+
+.fc-step-outcome {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--lime-green);
+  opacity: 0.85;
+  line-height: 1.55;
+  margin: 0;
+  padding-left: 16px;
+  border-left: 2px solid rgba(196, 255, 73, 0.35);
+}
+
+@media (max-width: 768px) {
+  .fc-journey-step {
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+  }
+
+  .fc-step-number-circle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .fc-step-num-text {
+    font-size: 1.05rem;
+  }
+
+  .fc-journey-step:not(:last-child) .fc-step-left::after {
+    top: 58px;
+  }
+
+  .fc-step-title {
+    padding-top: 10px;
+    font-size: 1.15rem;
+  }
+}
+
+/* ────────────────────────────────────────────
+   SECTION 7 — OUTCOME STATEMENTS (large pull-quote blocks)
+   ──────────────────────────────────────────── */
+.fc-outcomes {
+  padding: 60px 0;
+  background: rgba(196, 255, 73, 0.03);
+  border-top: 1px solid rgba(196, 255, 73, 0.08);
+  border-bottom: 1px solid rgba(196, 255, 73, 0.08);
+}
+
+.fc-outcomes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 48px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fc-outcome-card {
+  background: rgba(196, 255, 73, 0.06);
+  border-left: 4px solid var(--lime-green);
+  padding: 28px 32px;
+  border-radius: 0 12px 12px 0;
+  transition: background 0.2s ease;
+}
+
+.fc-outcome-card:hover {
+  background: rgba(196, 255, 73, 0.09);
+}
+
+.fc-outcome-quotemark {
+  font-family: 'Poppins', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  opacity: 0.35;
+  line-height: 1;
+  display: block;
+  margin-bottom: -4px;
+}
+
+.fc-outcome-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+
+.fc-outcome-attribution {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--lime-green);
+  opacity: 0.8;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .fc-outcome-card {
+    padding: 22px 22px 22px 24px;
+  }
+}
+
+/* ────────────────────────────────────────────
+   SECTION 8 — CITATIONS / EVIDENCE BASE
+   ──────────────────────────────────────────── */
+.fc-citations {
+  padding: 60px 0;
+}
+
+.fc-citations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.fc-citation-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 3px solid rgba(196, 255, 73, 0.45);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.fc-citation-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.fc-citation-author {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  display: block;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.fc-citation-journal {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--white-500);
+  display: block;
+  font-style: italic;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.fc-citation-finding {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.93rem;
+  font-weight: 400;
+  color: var(--white-800);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .fc-citations-grid {
+    grid-template-columns: 1fr;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .fc-citations-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}
+
+/* ────────────────────────────────────────────
+   SECTION 9 — BOOKING CTA
+   ──────────────────────────────────────────── */
+.fc-cta {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.fc-cta-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fc-cta-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--white-800);
+  line-height: 1.65;
+  max-width: 560px;
+  margin: 0 auto 40px auto;
+}
+
+.fc-cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
+  color: var(--dark-green);
+  padding: 18px 44px;
+  border-radius: 15px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.fc-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(196, 255, 73, 0.3);
+}
+
+.fc-cta-disclaimer {
+  margin-top: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--white-500);
+}
+
+/* ────────────────────────────────────────────
+   GLOBAL RESPONSIVE HELPERS
+   ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .fc-section {
+    padding: 48px 0;
+  }
+
+  .fc-hero {
+    padding-top: 56px;
+    padding-bottom: 48px;
+  }
+
+  .fc-definition {
+    padding: 56px 0;
+  }
+
+  .fc-cta {
+    padding: 56px 0;
+  }
+
+  .fc-section-heading {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+}

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayurveda | Odin Lab Calgary</title>
+  <meta name="description" content="Ayurveda is a 5,000-year-old clinical system that identifies your unique physiological constitution and uses diet, lifestyle, and targeted protocols to restore balance at the root. Book an Ayurvedic health assessment at Odin Lab Calgary.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+  <link rel="stylesheet" href="ayurveda.css?v=1">
+  <style>
+    .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
+    @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
+    .booking-modal-overlay{display:none!important;}
+    .booking-modal-overlay.is-visible{display:flex!important;}
+    main{padding-top:80px;}
+  </style>
+</head>
+<body>
+
+<script>
+(function () {
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      navRoot.innerHTML = html;
+      navRoot.querySelectorAll('script').forEach(function (oldScript) {
+        var newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+
+<main>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 1 — HERO
+       ══════════════════════════════════════════════════════════ -->
+  <section class="ay-hero">
+    <div class="ay-container">
+
+      <p class="hero-slogan">We Do Not Practice Medicine. We Practice Health.</p>
+
+      <h1 class="ay-hero-h1">Ancient Intelligence. Individual Precision. Lasting Health.</h1>
+
+      <p class="ay-hero-sub">
+        Ayurveda is a 5,000-year-old clinical system that identifies your unique physiological constitution and uses diet, lifestyle, and targeted protocols to restore balance at the root. At Odin Lab, we integrate Ayurvedic principles with functional health coaching to build interventions that fit your biology — not a generic template.
+      </p>
+
+      <div class="ay-hero-cta">
+        <a href="#" class="ay-btn booking-trigger">Book an Ayurvedic Assessment</a>
+      </div>
+
+      <div class="ay-hero-image-wrapper">
+        <img
+          src="img/ayurveda-hero-bw.jpg"
+          alt="Ayurveda consultation at Odin Lab Calgary"
+          class="ay-hero-img-bw"
+        />
+        <img
+          src="img/ayurveda-hero-color.jpg"
+          alt=""
+          class="ay-hero-img-color"
+          aria-hidden="true"
+        />
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 2 — OVERVIEW: 5,000 Years of Clinical Precision
+       ══════════════════════════════════════════════════════════ -->
+  <section class="ay-overview">
+    <div class="ay-container">
+
+      <div class="ay-section-header">
+        <span class="ay-section-label">Overview</span>
+        <h2 class="ay-section-heading">5,000 Years of Clinical Precision</h2>
+      </div>
+
+      <div class="ay-overview-grid">
+
+        <!-- Left col: 4 overview paragraphs -->
+        <div class="ay-overview-text">
+          <p>
+            Ayurveda — from the Sanskrit <em>ayur</em> (life) and <em>veda</em> (knowledge) — is one of the world's oldest continuously practiced systems of medicine, with documented roots in the Indian subcontinent stretching back over 5,000 years. Its foundational texts, the Charaka Samhita and Sushruta Samhita, codified a comprehensive framework for understanding human physiology, disease causation, and therapeutic intervention. Unlike symptom-suppression models, Ayurveda operates on a systems-level premise: disease is the downstream consequence of chronic imbalance, and lasting health is achieved by correcting the upstream conditions that allow imbalance to persist.
+          </p>
+          <p>
+            The philosophical backbone of Ayurveda rests on the concept of Prakriti — an individual's inherent constitutional type, determined by the dominant ratio of three bioenergies (doshas) present at birth. Prakriti governs how a person metabolizes food, responds to stress, maintains immune function, and experiences emotion. It is not a personality label; it is a functional map of how a specific physiology works. Alongside Prakriti, Ayurveda identifies Vikriti — the current state of imbalance relative to that baseline. The gap between Prakriti and Vikriti is where pathology begins, and where clinical intervention is directed.
+          </p>
+          <p>
+            Central to Ayurvedic theory is the Tridosha framework: three fundamental bioenergies — Vata, Pitta, and Kapha — each composed of two of the five classical elements (space, air, fire, water, earth). Every physiological and psychological function is governed by the interplay of these three doshas. Catabolism is regulated by Vata, metabolism by Pitta, and anabolism by Kapha. Health is the state in which all three are in equilibrium relative to one's Prakriti; disease emerges when any dosha accumulates beyond its baseline threshold or is depleted below it.
+          </p>
+          <p>
+            Modern research is beginning to validate what Ayurveda systematized millennia ago. The emerging field of Ayurgenomics has identified correlations between Prakriti types and distinct metabolic pathways, microbiome compositions, and genetic expression patterns. Studies published in peer-reviewed journals have found that Vata, Pitta, and Kapha individuals exhibit measurably different gut microbial profiles, cardiovascular risk markers, and inflammatory baselines. Ayurveda did not guess at individual variation — it built a clinical system around it.
+          </p>
+        </div>
+
+        <!-- Right col: 3 stat/fact callout boxes -->
+        <div class="ay-stat-callouts">
+
+          <div class="ay-stat-callout">
+            <span class="ay-callout-value">5,000+ Years</span>
+            <span class="ay-callout-label">Documented Clinical Tradition</span>
+            <p class="ay-callout-desc">
+              The Charaka Samhita and Sushruta Samhita codified comprehensive frameworks for physiology, disease causation, and therapeutic intervention — making Ayurveda one of the oldest continuously practiced medical systems in human history.
+            </p>
+          </div>
+
+          <div class="ay-stat-callout">
+            <span class="ay-callout-value">Prakriti &amp; Vikriti</span>
+            <span class="ay-callout-label">Constitutional Mapping</span>
+            <p class="ay-callout-desc">
+              Prakriti is your inherent constitutional type — a functional map of how your specific physiology works. Vikriti is your current state of imbalance. The clinical gap between them defines where intervention is directed.
+            </p>
+          </div>
+
+          <div class="ay-stat-callout">
+            <span class="ay-callout-value">Ayurgenomics</span>
+            <span class="ay-callout-label">Modern Validation</span>
+            <p class="ay-callout-desc">
+              The emerging field of Ayurgenomics has identified measurable correlations between Prakriti types and distinct gut microbiome compositions, metabolic pathways, and genetic expression patterns — validating what Ayurveda systematized millennia ago.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 3 — THE THREE DOSHAS
+       ══════════════════════════════════════════════════════════ -->
+  <section class="ay-doshas ay-section">
+    <div class="ay-container">
+
+      <div class="ay-section-header">
+        <span class="ay-section-label">The Tridosha System</span>
+        <h2 class="ay-section-heading">The Tridosha System</h2>
+        <p class="ay-section-sub">
+          Three fundamental bioenergies govern every physiological and psychological function. Understanding your dominant dosha — and its current state of balance — is the starting point for all Ayurvedic intervention.
+        </p>
+      </div>
+
+      <div class="ay-doshas-grid">
+
+        <!-- VATA -->
+        <div class="ay-dosha-card ay-vata">
+          <span class="ay-dosha-symbol-badge">Air &amp; Space</span>
+          <div class="ay-dosha-name">Vata</div>
+          <div class="ay-dosha-elements">Air + Space — The Dosha of Movement</div>
+
+          <p class="ay-dosha-desc">
+            Vata is the dosha of movement. Its qualities are dry, light, cold, rough, subtle, and mobile. It governs all forms of motion in the body and mind — breathing, muscle contraction, nerve impulse transmission, circulation, and the movement of thoughts. Vata is considered the most influential of the three doshas, as it energizes and directs Pitta and Kapha.
+          </p>
+
+          <span class="ay-dosha-sub-label">Physical Traits</span>
+          <ul class="ay-dosha-traits">
+            <li>Slender frame</li>
+            <li>Dry or rough skin</li>
+            <li>Variable appetite</li>
+            <li>Cold extremities</li>
+            <li>Light, disrupted sleep</li>
+            <li>Prominent joints</li>
+          </ul>
+
+          <p class="ay-dosha-balanced">
+            When balanced: creativity, mental agility, enthusiasm, adaptability, and an animated, perceptive quality of mind. Vata types learn quickly, think laterally, and bring an energizing quality to their environment.
+          </p>
+
+          <span class="ay-dosha-sub-label">Signs of Imbalance</span>
+          <ul class="ay-dosha-imbalance">
+            <li>Anxiety, worry, and mental restlessness</li>
+            <li>Dry, flaky, or rough skin and brittle hair and nails</li>
+            <li>Chronic constipation, bloating, or irregular digestion</li>
+            <li>Insomnia or fragmented, non-restorative sleep</li>
+            <li>Joint pain, stiffness, or cracking in the joints</li>
+            <li>Fatigue and physical weakness not explained by exertion</li>
+            <li>Scattered concentration, forgetfulness, and mental overload</li>
+            <li>Cold intolerance and chronically cold hands and feet</li>
+          </ul>
+
+          <div class="ay-dosha-protocol">
+            <span class="ay-dosha-protocol-title">Odin Protocol for Vata Imbalance</span>
+            Odin addresses Vata imbalance through a grounding, rhythmic approach. Protocols center on establishing consistent daily structure (Dinacharya), warm and nourishing dietary recommendations, and sleep hygiene optimization. Adaptogenic herbal support — including Ashwagandha for nervous system regulation — may be incorporated. Breath-based stress reduction and gentle movement practices are recommended to regulate the nervous system and rebuild Ojas (physiological resilience).
+          </div>
+        </div>
+
+        <!-- PITTA -->
+        <div class="ay-dosha-card ay-pitta">
+          <span class="ay-dosha-symbol-badge">Fire &amp; Water</span>
+          <div class="ay-dosha-name">Pitta</div>
+          <div class="ay-dosha-elements">Fire + Water — The Dosha of Transformation</div>
+
+          <p class="ay-dosha-desc">
+            Pitta is the dosha of transformation. Its qualities are hot, sharp, oily, light, mobile, and penetrating. It governs all metabolic and transformative processes — digestion, liver function, hormone production, skin integrity, and the processing of perception into understanding. Pitta represents the body's digestive fire (Agni) in its most concentrated form.
+          </p>
+
+          <span class="ay-dosha-sub-label">Physical Traits</span>
+          <ul class="ay-dosha-traits">
+            <li>Medium, muscled build</li>
+            <li>Warm body temperature</li>
+            <li>Oily or combination skin</li>
+            <li>Sharp appetite</li>
+            <li>Early greying or thinning</li>
+            <li>Prone to redness</li>
+          </ul>
+
+          <p class="ay-dosha-balanced">
+            When balanced: sharp intellect, focused ambition, confident leadership, courage, and strong decision-making. Pitta types are organized, precise, and capable of sustained, high-quality output.
+          </p>
+
+          <span class="ay-dosha-sub-label">Signs of Imbalance</span>
+          <ul class="ay-dosha-imbalance">
+            <li>Acid reflux, heartburn, gastritis, or peptic ulcers</li>
+            <li>Inflammatory skin conditions: acne, rosacea, eczema, boils</li>
+            <li>Persistent heat sensations, night sweats, or hot flashes</li>
+            <li>Irritability, impatience, and a short temper</li>
+            <li>Excessive perfectionism and hypercritical thinking</li>
+            <li>Loose stools, diarrhea, or hypersensitive digestion</li>
+            <li>Inflammatory joint conditions or eye inflammation</li>
+            <li>Intense hunger and strong negative mood response to missed meals</li>
+          </ul>
+
+          <div class="ay-dosha-protocol">
+            <span class="ay-dosha-protocol-title">Odin Protocol for Pitta Imbalance</span>
+            Odin addresses Pitta imbalance with cooling, anti-inflammatory strategies. Dietary guidance emphasizes reducing heat-aggravating foods and introducing cooling, bitter, and astringent foods. Herbal support may include Triphala for gut inflammation and Amla for antioxidant protection. Lifestyle protocols focus on reducing competitive overload, building genuine recovery, and introducing cooling breathwork. Inflammatory biomarker tracking provides an objective baseline and progress measure.
+          </div>
+        </div>
+
+        <!-- KAPHA -->
+        <div class="ay-dosha-card ay-kapha">
+          <span class="ay-dosha-symbol-badge">Earth &amp; Water</span>
+          <div class="ay-dosha-name">Kapha</div>
+          <div class="ay-dosha-elements">Earth + Water — The Dosha of Structure</div>
+
+          <p class="ay-dosha-desc">
+            Kapha is the dosha of structure. Its qualities are heavy, slow, cool, oily, smooth, dense, and stable. It governs all structural and cohesive functions — building and maintaining tissues, lubricating joints, supporting immune defense, and providing the physiological substrate for endurance and stamina. Kapha is the anabolic force: it constructs, nourishes, and protects.
+          </p>
+
+          <span class="ay-dosha-sub-label">Physical Traits</span>
+          <ul class="ay-dosha-traits">
+            <li>Larger, sturdier frame</li>
+            <li>Well-lubricated skin</li>
+            <li>Thick hair</li>
+            <li>Strong endurance</li>
+            <li>Weight accumulation</li>
+            <li>Slow recovery</li>
+          </ul>
+
+          <p class="ay-dosha-balanced">
+            When balanced: deep loyalty, emotional stability, patience, compassion, consistent follow-through, and the ability to sustain effort over time. Kapha types are grounded, dependable, and naturally soothing to those around them.
+          </p>
+
+          <span class="ay-dosha-sub-label">Signs of Imbalance</span>
+          <ul class="ay-dosha-imbalance">
+            <li>Unexplained weight gain and difficulty losing weight</li>
+            <li>Persistent fatigue, lethargy, and low motivation</li>
+            <li>Sinus congestion, excess mucus, or frequent respiratory infections</li>
+            <li>Fluid retention and puffiness, particularly in the face</li>
+            <li>Mental fog, dullness of thinking, and difficulty initiating tasks</li>
+            <li>Depression, emotional withdrawal, or excessive attachment</li>
+            <li>Oversleeping without feeling rested</li>
+            <li>High cholesterol, sluggish thyroid, or blood sugar dysregulation</li>
+          </ul>
+
+          <div class="ay-dosha-protocol">
+            <span class="ay-dosha-protocol-title">Odin Protocol for Kapha Imbalance</span>
+            Odin addresses Kapha imbalance through stimulation, heat, and metabolic activation. Dietary guidance reduces heavy, sweet, and oily foods and emphasizes bitter, pungent, and astringent tastes that stimulate digestive Agni. Movement protocols are an essential component. Herbal support may include Trikatu (black pepper, long pepper, and ginger) to stimulate digestion and metabolism. Structured metabolic resets may be incorporated where appropriate.
+          </div>
+        </div>
+
+      </div><!-- /.ay-doshas-grid -->
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 4 — ANCIENT VS MODERN: 4 split-panel comparisons
+       ══════════════════════════════════════════════════════════ -->
+  <section class="ay-comparison">
+    <div class="ay-container">
+
+      <div class="ay-section-header">
+        <span class="ay-section-label">Evidence</span>
+        <h2 class="ay-section-heading">Traditional Wisdom. Modern Evidence.</h2>
+        <p class="ay-section-sub">
+          Ayurveda did not hypothesize about individual variation — it built a clinical system around it. Peer-reviewed research is now confirming what these protocols have practiced for millennia.
+        </p>
+      </div>
+
+      <div class="ay-comparison-stack">
+
+        <!-- Pair 1: Ashwagandha -->
+        <div class="ay-comp-card">
+          <div class="ay-comp-traditional">
+            <span class="ay-comp-panel-label">Traditional</span>
+            <p class="ay-comp-text">
+              Ayurveda classified Ashwagandha (<em>Withania somnifera</em>) as a Rasayana — a rejuvenating adaptogen that strengthens resilience to physical and mental stress. It was systematically prescribed for nervous system depletion, fatigue, and anxiety for over two millennia.
+            </p>
+          </div>
+          <div class="ay-comp-divider" aria-hidden="true"></div>
+          <div class="ay-comp-modern">
+            <span class="ay-comp-panel-label">Modern Science</span>
+            <p class="ay-comp-text">
+              Multiple double-blind, placebo-controlled RCTs confirm that standardized Ashwagandha root extract significantly reduces serum cortisol, perceived stress, and anxiety. A 2023 RCT found ARE-500mg reduced morning salivary cortisol and increased urinary serotonin compared to placebo after 60 days. A 2024 systematic review and meta-analysis of 9 RCTs (558 patients) confirmed significant reductions in Perceived Stress Scale scores across trials.
+            </p>
+            <span class="ay-comp-citation">Majeed M et al. (2023). <em>Medicine (Baltimore)</em>; Meta-analysis, PubMed 2024.</span>
+          </div>
+        </div>
+
+        <!-- Pair 2: Agni / Gut Microbiome -->
+        <div class="ay-comp-card">
+          <div class="ay-comp-traditional">
+            <span class="ay-comp-panel-label">Traditional</span>
+            <p class="ay-comp-text">
+              Ayurveda identified Agni (digestive fire) as the foundation of health, teaching that most disease originates from impaired digestion and the accumulation of Ama — undigested metabolic residue that obstructs physiological channels. Virtually every Ayurvedic intervention begins by restoring Agni.
+            </p>
+          </div>
+          <div class="ay-comp-divider" aria-hidden="true"></div>
+          <div class="ay-comp-modern">
+            <span class="ay-comp-panel-label">Modern Science</span>
+            <p class="ay-comp-text">
+              Microbiome science now identifies gut permeability, dysbiosis, and impaired mucosal immunity as upstream drivers of systemic inflammation, autoimmunity, metabolic disease, and mood disorders. Published research confirms that Prakriti types exhibit distinct gut microbial compositions — Pitta types showing higher butyrate-producing species, Kapha types showing elevated <em>Prevotella copri</em> associated with insulin resistance.
+            </p>
+            <span class="ay-comp-citation">Dey S et al. <em>MDPI Medicine</em> 2020, 56(9):462; Gut Microbiota Prakriti study, <em>ScienceDirect</em> 2025.</span>
+          </div>
+        </div>
+
+        <!-- Pair 3: Triphala -->
+        <div class="ay-comp-card">
+          <div class="ay-comp-traditional">
+            <span class="ay-comp-panel-label">Traditional</span>
+            <p class="ay-comp-text">
+              Triphala — a combination of three Ayurvedic fruits (Amalaki, Bibhitaki, Haritaki) — has been used for over 2,000 years as a gastrointestinal tonic, anti-inflammatory agent, and rejuvenating formula. It is one of the most widely prescribed compounds in classical Ayurveda.
+            </p>
+          </div>
+          <div class="ay-comp-divider" aria-hidden="true"></div>
+          <div class="ay-comp-modern">
+            <span class="ay-comp-panel-label">Modern Science</span>
+            <p class="ay-comp-text">
+              A 2021 systematic review of 12 controlled trials found Triphala reduced LDL cholesterol, total cholesterol, and triglycerides in 5 of 9 trials reporting lipid outcomes. Laboratory research confirms Triphala polyphenols modulate the gut microbiome, promoting growth of <em>Bifidobacteria</em> and <em>Lactobacillus</em> while inhibiting pathogenic species.
+            </p>
+            <span class="ay-comp-citation">Phimarn W, Sungthong B, Itabe H. (2021). <em>Integrative Medicine Research</em>, SAGE Journals. DOI: 10.1177/2515690X211011038.</span>
+          </div>
+        </div>
+
+        <!-- Pair 4: Turmeric -->
+        <div class="ay-comp-card">
+          <div class="ay-comp-traditional">
+            <span class="ay-comp-panel-label">Traditional</span>
+            <p class="ay-comp-text">
+              Turmeric (<em>Curcuma longa</em>) has been used in Ayurveda for millennia as a primary anti-inflammatory, wound-healing, and digestive agent — classified as having hot, bitter, and astringent qualities that reduce Ama and pacify Pitta and Kapha. It was prescribed for inflammatory conditions, skin disease, and liver support.
+            </p>
+          </div>
+          <div class="ay-comp-divider" aria-hidden="true"></div>
+          <div class="ay-comp-modern">
+            <span class="ay-comp-panel-label">Modern Science</span>
+            <p class="ay-comp-text">
+              A 2022 systematic review and meta-analysis confirmed that curcumin and <em>Curcuma longa</em> extract significantly reduced joint pain, stiffness, and inflammatory markers (CRP, TNF-α, IL-6, IL-1β) in patients with osteoarthritis and rheumatoid arthritis across multiple RCTs.
+            </p>
+            <span class="ay-comp-citation">Zeng L et al. (2022). <em>Frontiers in Immunology</em>, 13: 891822. DOI: 10.3389/fimmu.2022.891822.</span>
+          </div>
+        </div>
+
+      </div><!-- /.ay-comparison-stack -->
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 5 — FIVE PILLARS: horizontal numbered timeline
+       ══════════════════════════════════════════════════════════ -->
+  <section class="ay-timeline ay-section">
+    <div class="ay-container">
+
+      <div class="ay-section-header">
+        <span class="ay-section-label">Framework</span>
+        <h2 class="ay-section-heading">The Five Pillars of Ayurvedic Practice</h2>
+        <p class="ay-section-sub">
+          Ayurveda is not a collection of remedies — it is a complete system for living. These five pillars structure every clinical protocol at Odin Lab.
+        </p>
+      </div>
+
+      <div class="ay-timeline-nodes">
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">1</div>
+          <div class="ay-timeline-principle">Dinacharya</div>
+          <span class="ay-timeline-sanskrit">Daily Routine</span>
+          <p class="ay-timeline-desc">
+            Structuring daily activities in alignment with the body's natural circadian rhythms and doshic cycles. A physiological strategy for reducing allostatic load through biological alignment — not a wellness ritual.
+          </p>
+        </div>
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">2</div>
+          <div class="ay-timeline-principle">Ritucharya</div>
+          <span class="ay-timeline-sanskrit">Seasonal Routine</span>
+          <p class="ay-timeline-desc">
+            Adapting diet, lifestyle, and detoxification practices to the changing qualities of each season. As external conditions shift, the doshas shift accordingly — and the body's needs change with them.
+          </p>
+        </div>
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">3</div>
+          <div class="ay-timeline-principle">Ahara</div>
+          <span class="ay-timeline-sanskrit">Diet and Nutrition</span>
+          <p class="ay-timeline-desc">
+            The systematic use of food as medicine based on individual constitution, digestive capacity, season, and disease state. Food is classified not merely by macronutrient composition but by its inherent qualities and potency.
+          </p>
+        </div>
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">4</div>
+          <div class="ay-timeline-principle">Vihara</div>
+          <span class="ay-timeline-sanskrit">Lifestyle and Conduct</span>
+          <p class="ay-timeline-desc">
+            The full spectrum of lifestyle practices beyond diet: sleep hygiene, movement, emotional regulation, and the quality of sensory input. Disease arises not only from what is consumed but from how one lives.
+          </p>
+        </div>
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">5</div>
+          <div class="ay-timeline-principle">Panchakarma</div>
+          <span class="ay-timeline-sanskrit">Detoxification and Renewal</span>
+          <p class="ay-timeline-desc">
+            Ayurveda's systematic purification protocol, designed to eliminate accumulated Ama and excess doshas from deep tissues. A 2024 clinical study found structured Panchakarma produced measurable shifts in gut microbial populations and reductions in systemic inflammation.
+          </p>
+        </div>
+
+      </div><!-- /.ay-timeline-nodes -->
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 6 — SECTION IMAGE
+       ══════════════════════════════════════════════════════════ -->
+  <div class="ay-section-image">
+    <div class="ay-container">
+      <img
+        src="img/ayurveda-section.jpg"
+        alt="Ayurvedic practice and consultation at Odin Lab Calgary"
+        class="ay-section-img"
+      />
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 7 — TREATMENTS: 3-column card grid
+       ══════════════════════════════════════════════════════════ -->
+  <section class="ay-treatments ay-section">
+    <div class="ay-container">
+
+      <div class="ay-section-header">
+        <span class="ay-section-label">Our Services</span>
+        <h2 class="ay-section-heading">What We Offer at Odin Lab</h2>
+        <p class="ay-section-sub">
+          Every Ayurvedic protocol at Odin Lab is individualized, evidence-informed, and integrated with your broader functional health picture.
+        </p>
+      </div>
+
+      <div class="ay-treatments-grid">
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-name">Pulse Diagnosis (Nadi Pariksha)</div>
+          <p class="ay-treatment-desc">
+            Nadi Pariksha is the Ayurvedic diagnostic technique of reading the radial pulse at three positions — corresponding to Vata, Pitta, and Kapha — to assess dosha balance, digestive fire (Agni), tissue health, and the presence of accumulated Ama. At Odin, pulse assessment is one component of an integrated intake process that informs the construction of individualized protocols.
+          </p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-name">Herbal Formulations</div>
+          <p class="ay-treatment-desc">
+            Ayurvedic herbal medicine employs single herbs and classical poly-herbal formulations — Triphala, Ashwagandha, Trikatu, Chyawanprash, and Brahmi — matched to the individual's constitution, current imbalance, and therapeutic objective. Herbs are not prescribed generically; their selection, dose, timing, and delivery method are individualized.
+          </p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-name">Dietary Guidance (Ahara Chikitsa)</div>
+          <p class="ay-treatment-desc">
+            Ahara Chikitsa is Ayurvedic dietary therapy: the systematic use of food qualities, meal timing, food combinations, and seasonal adjustments to support Agni, reduce Ama, and restore doshic balance. Recommendations are built around your Prakriti and Vikriti, not a generic template. Food is prescribed with the same precision as herbs.
+          </p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-name">Lifestyle Protocols (Dinacharya &amp; Vihara)</div>
+          <p class="ay-treatment-desc">
+            Lifestyle restructuring is among the most clinically impactful interventions Ayurveda offers. Odin builds structured Dinacharya frameworks — morning routines, sleep optimization, movement scheduling, sensory hygiene — that reduce allostatic load and establish the consistent biological rhythm the body requires for self-regulation.
+          </p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-name">Seasonal Cleansing (Ritucharya &amp; Panchakarma-Informed)</div>
+          <p class="ay-treatment-desc">
+            Each seasonal transition creates a natural window for metabolic reset and elimination support. Odin offers guided seasonal cleansing protocols that may include elimination diet phases, targeted herbal support for Agni and Ama clearance, movement prescriptions, and sleep restructuring — calibrated to the season and the individual.
+          </p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-name">Stress and Mind Therapies</div>
+          <p class="ay-treatment-desc">
+            Ayurveda has an extensive tradition of mind-directed therapy — including breath practices (pranayama), meditation, and Rasayana (rejuvenating herbal tonics). At Odin, stress protocols integrate breath-based nervous system regulation, adaptogenic herbal support (Ashwagandha, Brahmi, Shankhpushpi), sleep optimization, and structured cognitive boundaries for reducing HPA axis dysregulation.
+          </p>
+        </div>
+
+      </div><!-- /.ay-treatments-grid -->
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 8 — BENEFITS: 2-column checklist
+       ══════════════════════════════════════════════════════════ -->
+  <section class="ay-benefits">
+    <div class="ay-container">
+
+      <div class="ay-section-header">
+        <span class="ay-section-label">Outcomes</span>
+        <h2 class="ay-section-heading">What Ayurveda Can Address</h2>
+        <p class="ay-section-sub">
+          Ayurveda treats constitutions in imbalance — not diagnoses. These are the functional domains where Ayurvedic intervention has demonstrated measurable clinical impact.
+        </p>
+      </div>
+
+      <div class="ay-benefits-grid">
+
+        <div class="ay-benefit-item">
+          <span class="ay-benefit-check">✓</span>
+          <div>
+            <div class="ay-benefit-title">Individualized Root-Cause Analysis</div>
+            <p class="ay-benefit-desc">By identifying the specific doshic pattern underlying a set of symptoms, Ayurvedic assessment identifies the functional root — not just what is wrong, but why it is wrong in this individual. This precision makes interventions more effective than population-averaged protocols.</p>
+          </div>
+        </div>
+
+        <div class="ay-benefit-item">
+          <span class="ay-benefit-check">✓</span>
+          <div>
+            <div class="ay-benefit-title">Systemic Inflammation Reduction</div>
+            <p class="ay-benefit-desc">Multiple peer-reviewed trials confirm the anti-inflammatory properties of core Ayurvedic herbs — including curcumin, Triphala, Amla, and Boswellia. Chronically elevated inflammation underlies cardiovascular disease, metabolic syndrome, autoimmune conditions, and accelerated aging.</p>
+          </div>
+        </div>
+
+        <div class="ay-benefit-item">
+          <span class="ay-benefit-check">✓</span>
+          <div>
+            <div class="ay-benefit-title">Digestive Restoration and Gut Integrity</div>
+            <p class="ay-benefit-desc">Ahara Chikitsa, herbal support for Agni, and Ama-clearing protocols collectively improve gut motility, mucosal integrity, nutrient absorption, and microbiome composition — reducing systemic inflammation and improving mood, immune function, and nutrient utilization.</p>
+          </div>
+        </div>
+
+        <div class="ay-benefit-item">
+          <span class="ay-benefit-check">✓</span>
+          <div>
+            <div class="ay-benefit-title">Stress Resilience and Nervous System Regulation</div>
+            <p class="ay-benefit-desc">Ayurvedic adaptogenic herbs — particularly Ashwagandha — have demonstrated in multiple RCTs the capacity to reduce serum cortisol, lower perceived stress, improve sleep quality, and attenuate anxiety. Combined with Dinacharya and breathwork, these protocols address HPA axis dysfunction directly.</p>
+          </div>
+        </div>
+
+        <div class="ay-benefit-item">
+          <span class="ay-benefit-check">✓</span>
+          <div>
+            <div class="ay-benefit-title">Metabolic Health and Weight Regulation</div>
+            <p class="ay-benefit-desc">Ayurvedic interventions targeting Kapha imbalance address the metabolic underpinnings of weight dysregulation, insulin sensitivity decline, lipid abnormalities, and thyroid sluggishness. A 2021 systematic review found Triphala produced significant reductions in LDL cholesterol and triglycerides across multiple controlled trials.</p>
+          </div>
+        </div>
+
+        <div class="ay-benefit-item">
+          <span class="ay-benefit-check">✓</span>
+          <div>
+            <div class="ay-benefit-title">Sleep Quality and Circadian Alignment</div>
+            <p class="ay-benefit-desc">Dinacharya protocols establish a consistent biological rhythm that stabilizes the circadian clock, reduces cortisol at night, and improves sleep architecture. Improved sleep quality has measurable downstream effects on metabolic health, immune function, mood regulation, and cognitive performance.</p>
+          </div>
+        </div>
+
+        <div class="ay-benefit-item">
+          <span class="ay-benefit-check">✓</span>
+          <div>
+            <div class="ay-benefit-title">Preventive Health and Longevity</div>
+            <p class="ay-benefit-desc">Ayurveda is fundamentally a preventive system — its goal is to maintain the health of the healthy before disease manifests. Regular assessment of Prakriti and Vikriti, seasonal cleansing, and adaptive lifestyle protocols create a framework for early detection and correction of imbalances before they consolidate into pathology.</p>
+          </div>
+        </div>
+
+        <div class="ay-benefit-item">
+          <span class="ay-benefit-check">✓</span>
+          <div>
+            <div class="ay-benefit-title">Mind-Body Integration</div>
+            <p class="ay-benefit-desc">Ayurveda recognizes that psychological stress, emotional patterns, and mental habits are not separate from physiology — they directly shape dosha balance, Agni function, immune activity, and tissue health. Protocols addressing the psychological dimension produce physiological effects that diet and exercise alone cannot replicate.</p>
+          </div>
+        </div>
+
+      </div><!-- /.ay-benefits-grid -->
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 9 — CITATIONS
+       ══════════════════════════════════════════════════════════ -->
+  <section class="ay-citations ay-section">
+    <div class="ay-container">
+
+      <div class="ay-section-header">
+        <span class="ay-section-label">Peer-Reviewed Research</span>
+        <h2 class="ay-section-heading">The Science Behind Ayurveda</h2>
+        <p class="ay-section-sub">
+          Every protocol at Odin Lab is grounded in published clinical and mechanistic research. The following citations represent key findings from the Ayurvedic medicine literature.
+        </p>
+      </div>
+
+      <div class="ay-citations-grid">
+
+        <div class="ay-citation-card">
+          <span class="ay-citation-num">Citation 01</span>
+          <span class="ay-citation-author">Zeng L, Yu G, Hao W, Yang K, Chen H.</span>
+          <span class="ay-citation-journal">(2022). Frontiers in Immunology, 13: 891822. DOI: 10.3389/fimmu.2022.891822.</span>
+          <p class="ay-citation-finding">
+            "Efficacy and Safety of Curcumin and Curcuma longa Extract in the Treatment of Arthritis: A Systematic Review and Meta-Analysis of Randomized Controlled Trial." Found curcumin and Curcuma longa extract significantly reduced joint pain, stiffness, and inflammatory markers (CRP, TNF-α, IL-6) compared to placebo across multiple RCTs in osteoarthritis and rheumatoid arthritis patients.
+          </p>
+        </div>
+
+        <div class="ay-citation-card">
+          <span class="ay-citation-num">Citation 02</span>
+          <span class="ay-citation-author">Majeed M, Nagabhushanam K, Mundkur L.</span>
+          <span class="ay-citation-journal">(2023). Medicine (Baltimore), Oct 2023. PMID: 37832082.</span>
+          <p class="ay-citation-finding">
+            "A standardized Ashwagandha root extract alleviates stress, anxiety, and improves quality of life in healthy adults by modulating stress hormones." ARE-500mg significantly reduced morning salivary cortisol and increased urinary serotonin compared to placebo after 60 days. Cognitive performance (multitasking, concentration, decision-making) also improved significantly.
+          </p>
+        </div>
+
+        <div class="ay-citation-card">
+          <span class="ay-citation-num">Citation 03</span>
+          <span class="ay-citation-author">Phimarn W, Sungthong B, Itabe H.</span>
+          <span class="ay-citation-journal">(2021). Integrative Medicine Research (SAGE Journals). DOI: 10.1177/2515690X211011038.</span>
+          <p class="ay-citation-finding">
+            "Effects of Triphala on Lipid and Glucose Profiles and Anthropometric Parameters: A Systematic Review." Systematic review of 12 controlled trials found Triphala produced reductions in LDL cholesterol, total cholesterol, and triglycerides in 5 of 9 reporting trials. 8 of 12 studies were rated high methodological quality.
+          </p>
+        </div>
+
+        <div class="ay-citation-card">
+          <span class="ay-citation-num">Citation 04</span>
+          <span class="ay-citation-author">Dey S, Pahwa P.</span>
+          <span class="ay-citation-journal">(2020). Medicine (MDPI), 56(9): 462. DOI: 10.3390/medicina56090462.</span>
+          <p class="ay-citation-finding">
+            "The Microbiome in Health and Disease from the Perspective of Modern Medicine and Ayurveda." Found that Vata, Pitta, and Kapha Prakriti types show measurably distinct gut microbiome compositions. Pitta types had higher butyrate-producing microbes protective against inflammatory disease; Kapha types showed elevated Prevotella copri associated with insulin resistance and rheumatoid arthritis — consistent with Ayurvedic disease susceptibility predictions.
+          </p>
+        </div>
+
+      </div><!-- /.ay-citations-grid -->
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 10 — BOOKING CTA
+       ══════════════════════════════════════════════════════════ -->
+  <section class="ay-cta">
+    <div class="ay-cta-inner">
+      <span class="ay-section-label">Ready to Begin?</span>
+      <h2 class="ay-cta-heading">Your Constitution Is Not a Category. It Is a Clinical Starting Point.</h2>
+      <p class="ay-cta-sub">
+        Book an Ayurvedic health assessment at Odin Lab and receive a detailed constitutional profile, personalized dietary and lifestyle protocols, and a clear framework for addressing your specific imbalances — built around your biology, not a population average.
+      </p>
+      <a href="#" class="ay-btn btn-primary booking-trigger">Book Your Ayurvedic Assessment</a>
+    </div>
+  </section>
+
+
+</main>
+
+<!-- ══ BOOKING MODAL ══ -->
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="booking-modal-title">
+  <div class="booking-modal">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-new-client" class="btn-first-time" target="_blank" rel="noopener">First Time Client</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" class="btn-follow-up" target="_blank" rel="noopener">Follow-Up Appointment</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var bookingOverlay = document.getElementById('booking-modal-overlay');
+  var bookingClose = document.getElementById('booking-modal-close');
+  function openBookingModal() { if (bookingOverlay) { bookingOverlay.classList.add('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; } }
+  function closeBookingModal() { if (bookingOverlay) { bookingOverlay.classList.remove('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; } }
+  document.addEventListener('click', function(e) { var btn = e.target.closest('.booking-trigger'); if (btn) { e.preventDefault(); openBookingModal(); } });
+  if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
+  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) { if (e.target === bookingOverlay) closeBookingModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal(); });
+})();
+</script>
+
+</body>
+</html>
