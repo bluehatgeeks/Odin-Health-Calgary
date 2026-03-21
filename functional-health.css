@@ -1,3 +1,4 @@
+:root { --dark-green-rgb: 26, 58, 26; }
 /* ── Odin Lab — Functional Health & Medicine Page Styles ── */
 /* Page-scoped styles only. Prefix: .fh- where possible.    */
 /* No global overrides. No hardcoded hex values.            */
@@ -390,8 +391,8 @@
   inset: 0;
   background: linear-gradient(
     130deg,
-    rgba(26, 58, 26, 0.88) 0%,
-    rgba(26, 58, 26, 0.5) 50%,
+    rgba(var(--dark-green-rgb),0.88) 0%,
+    rgba(var(--dark-green-rgb),0.5) 50%,
     rgba(0, 0, 0, 0.15) 100%
   );
   display: flex;
@@ -430,8 +431,8 @@
     align-items: flex-end;
     background: linear-gradient(
       to top,
-      rgba(26, 58, 26, 0.92) 0%,
-      rgba(26, 58, 26, 0.6) 50%,
+      rgba(var(--dark-green-rgb),0.92) 0%,
+      rgba(var(--dark-green-rgb),0.6) 50%,
       rgba(0, 0, 0, 0.1) 100%
     );
   }

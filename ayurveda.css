@@ -1,3 +1,4 @@
+:root { --dark-green-rgb: 26, 58, 26; }
 /* ── Odin Lab — Ayurveda Page Styles ─────────────────────── */
 /* ayurveda.css ?v=1 | Page-scoped only. Prefix: .ay-        */
 
@@ -452,7 +453,7 @@ body {
 }
 
 .ay-comp-traditional {
-  background: rgba(26, 58, 26, 0.45);
+  background: rgba(var(--dark-green-rgb),0.45);
 }
 
 .ay-comp-modern {

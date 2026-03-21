@@ -446,16 +446,7 @@
     });
   });
 
-  /* Hero image B&W → color reveal on scroll */
-  var heroColor = document.querySelector('.fh-hero-img-color');
-  if (heroColor) {
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) { heroColor.style.opacity = '1'; io.disconnect(); }
-      });
-    }, { threshold: 0.25 });
-    io.observe(heroColor.parentElement);
-  }
+
 })();
 </script>
 </body>
