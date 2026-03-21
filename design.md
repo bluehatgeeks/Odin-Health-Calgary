@@ -259,10 +259,37 @@ Class `.faq-item` uses native `<details>/<summary>`. Hover triggers open; mousel
 ### 5.10 Hero Image
 
 Class pattern: `.hero-image-wrapper` containing two `<img>` tags:
-1. `.hero-image.hero-image-bw` — grayscale base image
+1. `.hero-image.hero-image-bw` — grayscale base image (`filter: grayscale(100%)`)
 2. `.hero-image.hero-image-color` — color overlay, `aria-hidden="true"`
 
-The dual-image pattern enables a B&W → colour reveal effect via CSS/JS. Do not use a single image in the hero.
+The dual-image pattern enables a **B&W → colour gradual slide reveal** on hover using a CSS mask-position animation — **not a simple opacity toggle**.
+
+**Canonical implementation (must match `odinlabcalgary.html`):**
+```css
+.hero-image-color {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
+  mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
+  -webkit-mask-size: 200% 100%;
+  mask-size: 200% 100%;
+  -webkit-mask-position: -100% 0;
+  mask-position: -100% 0;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  transition: mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+              -webkit-mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-image-wrapper:hover .hero-image-color {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+```
+
+Do not use a single image in the hero. Do not implement the reveal as `opacity: 0 → 1`.
 
 ---
 
