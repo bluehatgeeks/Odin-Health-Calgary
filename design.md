@@ -264,7 +264,10 @@ Class pattern: `.hero-image-wrapper` containing two `<img>` tags:
 
 The dual-image pattern enables a **B&W → colour gradual slide reveal** on hover using a CSS mask-position animation — **not a simple opacity toggle**.
 
-> **CRITICAL:** Both `<img>` tags must point to the **same colour source file**. The BW layer uses `filter: grayscale(100%)` applied in CSS — it is NOT a separately generated grayscale image. Using two different files causes a pixel mismatch at the mask wipe boundary, making the gradient edge look harsh instead of a seamless blend. Only one image file is needed.
+> **CRITICAL — Three rules that must all be followed:**
+> 1. **Same source file for both layers.** Both `<img>` tags point to the same colour image. The BW layer uses `filter: grayscale(100%)` in CSS — never a separately generated grayscale file. Different files cause pixel mismatch at the mask boundary.
+> 2. **No `border-radius` on the colour overlay image.** The wrapper's `overflow: hidden` handles corner clipping. Adding `border-radius` to the absolutely-positioned colour image creates independent clipping that interferes with the mask gradient edge.
+> 3. **No `max-width` constraint on the wrapper.** The image must stretch to the full container width (matching `odinlabcalgary.html`'s ~1256px). Constraining the wrapper (e.g. `max-width: 1000px`) makes the mask gradient stops appear proportionally earlier in the wipe — the colour bleeds in too fast and the transition character differs from the main lander. Always let the wrapper fill the container naturally.
 
 **Canonical implementation (must match `odinlabcalgary.html`):**
 ```css

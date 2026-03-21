@@ -120,22 +120,25 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Hero dual image — mask-position slide reveal (matches odinlabcalgary.html) ── */
 .ht-hero-image-wrapper {
   position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  border-radius: 20px;
+  /* No max-width cap — stretch to full container width so mask sweep speed
+     matches the main lander. Capped images make the colour appear sooner
+     in the transition because the gradient stops are % of mask panel width. */
   overflow: hidden;
+  border-radius: 12px;
+  margin: 0 0 25px 0;
 }
 
+/* Both images share this base rule — no border-radius here, wrapper overflow:hidden handles clipping */
 .ht-hero-image-wrapper img {
-  width: 100%;
   display: block;
-  border-radius: 20px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .ht-hero-image-bw {
-  /* Same source image as the colour layer — grayscale applied in CSS so both
-     layers are pixel-identical. This ensures a clean gradient wipe edge with
-     no colour mismatch at the mask boundary (matches odinlabcalgary.html). */
+  /* Same source file as colour layer — grayscale via CSS filter so both layers
+     are pixel-identical, giving a clean seamless gradient wipe edge. */
   filter: grayscale(100%);
 }
 
