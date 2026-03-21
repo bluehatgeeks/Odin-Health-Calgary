@@ -1,5 +1,11 @@
 :root { --dark-green-rgb: 26, 58, 26; }
 /* ── Odin Lab — Functional Health Coaching Page Styles ── */
+/* Page-level base */
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--dark-green);
+  color: var(--white);
+}
 /* Page-scoped styles only. Prefix: .fc- */
 /* v=1 */
 

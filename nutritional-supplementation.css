@@ -1,6 +1,13 @@
 /* ── Odin Lab — Nutritional Supplementation & Herbology Page Styles ── */
 /* Page-scoped styles only. Prefix: .ns-  No global overrides. v=1 */
 
+/* Page-level base */
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
 /* ════════════════════════════════════════════
    SHARED SECTION UTILITIES
    ════════════════════════════════════════════ */
