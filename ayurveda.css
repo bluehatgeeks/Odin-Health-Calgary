@@ -423,6 +423,12 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
+.ay-timeline-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .ay-timeline-circle {
   width: 46px;
   height: 46px;
@@ -478,7 +484,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: row;
     align-items: flex-start;
     gap: 20px;
-    padding: 0 0 28px 0;
+    padding: 0 0 32px 0;
     position: relative;
     text-align: left;
   }
@@ -490,6 +496,9 @@ h1, h2, h3, h4, h5, h6 {
     background: repeating-linear-gradient(to bottom, rgba(196,255,73,0.3) 0, rgba(196,255,73,0.3) 6px, transparent 6px, transparent 14px);
   }
   .ay-timeline-circle { margin-bottom: 0; flex-shrink: 0; }
+  .ay-timeline-text { flex: 1; align-items: flex-start; text-align: left; }
+  .ay-timeline-principle { margin-bottom: 2px; }
+  .ay-timeline-sanskrit { margin-bottom: 8px; }
   .ay-timeline-desc { max-width: none; margin: 0; }
 }
 
