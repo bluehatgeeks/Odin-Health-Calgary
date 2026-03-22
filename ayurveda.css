@@ -56,6 +56,17 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50px;
   padding: 8px 20px;
   margin-bottom: 20px;
+  /* Center badge within text-center containers */
+}
+/* Ensure section headings are centered */
+.ay-section .ay-badge,
+.ay-section .ay-section-heading,
+.ay-section .ay-section-sub {
+  display: block;
+  text-align: center;
+}
+.ay-section .ay-badge {
+  display: inline-block;
 }
 
 .ay-badge-text {
@@ -127,6 +138,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   border-radius: 12px;
   margin: 0 0 25px 0;
+  /* NO max-width — must stretch to full container width */
 }
 
 .ay-hero-image-wrapper img {
@@ -166,9 +178,9 @@ h1, h2, h3, h4, h5, h6 {
    STATS STRIP
 ═══════════════════════════════════════════ */
 .ay-stats-strip {
-  background: rgba(196,255,73,0.04);
-  border-top: 1px solid rgba(196,255,73,0.12);
-  border-bottom: 1px solid rgba(196,255,73,0.12);
+  background: rgba(196,255,73,0.06);
+  border-top: 1px solid rgba(196,255,73,0.18);
+  border-bottom: 1px solid rgba(196,255,73,0.18);
   padding: 52px 20px;
 }
 
@@ -223,6 +235,20 @@ h1, h2, h3, h4, h5, h6 {
    DOSHAS — 3-col cards with top accent strip
 ═══════════════════════════════════════════ */
 .ay-doshas-section { background: var(--dark-green); }
+.ay-doshas-section .ay-container,
+.ay-pillars-section .ay-container,
+.ay-treatments-section .ay-container,
+.ay-conditions-section .ay-container,
+.ay-citations-section .ay-container,
+.ay-comparison-section .ay-container {
+  text-align: center;
+}
+.ay-doshas-grid,
+.ay-treatments-grid,
+.ay-comparison-stack,
+.ay-citations-grid {
+  text-align: left;
+}
 
 .ay-doshas-grid {
   display: grid;
@@ -371,9 +397,9 @@ h1, h2, h3, h4, h5, h6 {
 .ay-timeline-nodes::before {
   content: '';
   position: absolute;
-  top: 23px;
-  left: calc(10% + 20px);
-  right: calc(10% + 20px);
+  top: 22px;
+  left: 10%;
+  right: 10%;
   height: 2px;
   background: repeating-linear-gradient(
     to right,
@@ -383,6 +409,7 @@ h1, h2, h3, h4, h5, h6 {
     transparent 18px
   );
   pointer-events: none;
+  z-index: 0;
 }
 
 .ay-timeline-item {
