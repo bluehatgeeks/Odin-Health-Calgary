@@ -804,3 +804,66 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 540px;
   margin: 0 auto 36px;
 }
+
+/* ═══════════════════════════════════════════
+   MOBILE — ≤480px overrides
+═══════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* Hero */
+  .ay-hero { padding-top: 30px; padding-bottom: 40px; }
+  .ay-hero-h1 {
+    font-size: clamp(1.6rem, 7vw, 2rem);
+    line-height: 1.2;
+  }
+  .ay-hero-sub { font-size: 0.95rem; }
+  .ay-hero-cta { margin-bottom: 28px; }
+  .ay-btn { font-size: 0.95rem; padding: 14px 28px; }
+
+  /* Stats strip */
+  .ay-stats-strip { padding: 36px 16px; }
+  .ay-stat { padding: 0 16px; }
+  .ay-stat__value { font-size: clamp(1.4rem, 6vw, 2rem); }
+
+  /* Section headings */
+  .ay-section-heading { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+  .ay-section-sub { font-size: 0.95rem; }
+  .ay-section { padding: 44px 0; }
+
+  /* Badge overflow fix — prevent badge text wrapping badly */
+  .ay-badge { max-width: 90%; word-break: break-word; }
+  .ay-badge-text { font-size: 0.72rem; letter-spacing: 0.06em; }
+
+  /* Dosha cards */
+  .ay-dosha-name { font-size: 1.6rem; }
+  .ay-dosha-desc { font-size: 0.9rem; }
+  .ay-dosha-card { padding: 24px 20px; }
+
+  /* Timeline — mobile vertical layout already set at 900px,
+     but fine-tune for small screens */
+  .ay-timeline-item { gap: 14px; }
+  .ay-timeline-principle { font-size: 0.9rem; }
+  .ay-timeline-desc { font-size: 0.82rem; }
+
+  /* Comparison cards */
+  .ay-comp-traditional, .ay-comp-modern { padding: 16px 18px; }
+  .ay-comp-text { font-size: 0.9rem; }
+
+  /* Treatment cards */
+  .ay-treatment-card { padding: 20px; }
+  .ay-treatment-name { font-size: 0.95rem; }
+  .ay-treatment-desc { font-size: 0.85rem; }
+  .ay-treatment-icon { width: 40px; height: 40px; }
+
+  /* Conditions pills */
+  .ay-condition-pill { font-size: 0.82rem; padding: 8px 14px; }
+
+  /* Citations */
+  .ay-citation-block { padding: 18px; gap: 14px; }
+  .ay-citation-block__year { font-size: 1rem; min-width: 36px; }
+  .ay-citation-block__finding { font-size: 0.82rem; }
+
+  /* CTA */
+  .ay-cta-heading { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+  .ay-cta-sub { font-size: 0.95rem; }
+}
