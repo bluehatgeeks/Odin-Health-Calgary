@@ -1,75 +1,77 @@
-:root { --dark-green-rgb: 26, 58, 26; }
-/* ── Odin Lab — Ayurveda Page Styles ─────────────────────── */
-/* ayurveda.css ?v=1 | Page-scoped only. Prefix: .ay-        */
+/* ── Odin Lab — Ayurveda Page Styles ── */
+/* v=2 | Prefix: .ay- */
 
-/* ────────────────────────────────────────────────────────────
-   FONT INHERITANCE
-   ──────────────────────────────────────────────────────────── */
+:root { --dark-green-rgb: 26, 58, 26; }
+
 body {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--dark-green);
   color: var(--white);
 }
 
-/* ────────────────────────────────────────────────────────────
-   SHARED LAYOUT HELPERS
-   ──────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════ */
+.ay-section { padding: 60px 0; }
+
 .ay-container {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.ay-section {
-  padding: 60px 0;
-}
-
-.ay-section-label {
-  display: inline-block;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--lime-green);
-  background: rgba(196, 255, 73, 0.08);
-  border: 1px solid rgba(196, 255, 73, 0.2);
-  border-radius: 20px;
-  padding: 5px 14px;
-  margin-bottom: 14px;
+.ay-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(196,255,73,0.2) 30%, rgba(196,255,73,0.2) 70%, transparent 100%);
 }
 
 .ay-section-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-  font-weight: 700;
   color: var(--white);
-  text-align: center;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
   line-height: 1.2;
   margin: 0 0 16px 0;
+  text-align: center;
 }
 
 .ay-section-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 400;
   color: var(--white-800);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 620px;
   text-align: center;
-  max-width: 680px;
-  margin: 0 auto;
-  line-height: 1.65;
+  margin: 0 auto 40px;
 }
 
-.ay-section-header {
-  text-align: center;
-  margin-bottom: 48px;
+.ay-badge {
+  display: inline-block;
+  background: rgba(196,255,73,0.1);
+  border: 1px solid rgba(196,255,73,0.25);
+  border-radius: 50px;
+  padding: 8px 20px;
+  margin-bottom: 20px;
 }
 
-/* ────────────────────────────────────────────────────────────
-   SECTION 1 — HERO
-   ──────────────────────────────────────────────────────────── */
+.ay-badge-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--lime-green);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
 .ay-hero {
-  padding-top: 90px;
+  padding-top: 50px;
   padding-bottom: 60px;
   text-align: center;
 }
@@ -80,207 +82,189 @@ body {
   font-weight: 700;
   color: var(--white);
   line-height: 1.15;
-  max-width: 800px;
-  margin: 0 auto 20px auto;
+  max-width: 840px;
+  margin: 0 auto 20px;
 }
 
 .ay-hero-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
-  font-weight: 400;
   color: var(--white-800);
-  max-width: 680px;
-  margin: 0 auto 30px auto;
-  line-height: 1.7;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.75;
+  max-width: 640px;
+  margin: 0 auto 36px;
 }
 
-.ay-hero-cta {
-  margin-bottom: 48px;
+.ay-hero-sub em {
+  font-style: normal;
+  color: var(--lime-green);
 }
 
+.ay-hero-cta { margin-bottom: 48px; }
+
+.ay-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
+  color: var(--dark-green);
+  padding: 16px 36px;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.ay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196,255,73,0.25);
+}
+
+/* Hero dual-image — mask-position slide reveal (matches odinlabcalgary.html) */
 .ay-hero-image-wrapper {
   position: relative;
-  max-width: 960px;
-  margin: 0 auto;
-  border-radius: 20px;
   overflow: hidden;
+  border-radius: 12px;
+  margin: 0 0 25px 0;
 }
 
-.ay-hero-image-wrapper .ay-hero-img-bw {
-  width: 100%;
+.ay-hero-image-wrapper img {
   display: block;
-  border-radius: 20px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
-.ay-hero-image-wrapper .ay-hero-img-color {
-  width: 100%;
-  display: block;
-  border-radius: 20px;
+.ay-hero-img-bw {
+  filter: grayscale(100%);
+}
+
+.ay-hero-img-color {
   position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.7s ease;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
+  mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
+  -webkit-mask-size: 200% 100%;
+  mask-size: 200% 100%;
+  -webkit-mask-position: -100% 0;
+  mask-position: -100% 0;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  transition: mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1), -webkit-mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ay-hero-image-wrapper:hover .ay-hero-img-color {
-  opacity: 1;
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
 }
 
-/* ────────────────────────────────────────────────────────────
-   SECTION 2 — OVERVIEW: 2-col text + stat callouts
-   ──────────────────────────────────────────────────────────── */
-.ay-overview {
-  padding: 60px 0;
-  background: rgba(196, 255, 73, 0.025);
-  border-top: 1px solid rgba(196, 255, 73, 0.08);
-  border-bottom: 1px solid rgba(196, 255, 73, 0.08);
+/* ═══════════════════════════════════════════
+   STATS STRIP
+═══════════════════════════════════════════ */
+.ay-stats-strip {
+  background: rgba(196,255,73,0.04);
+  border-top: 1px solid rgba(196,255,73,0.12);
+  border-bottom: 1px solid rgba(196,255,73,0.12);
+  padding: 52px 20px;
 }
 
-.ay-overview-grid {
+.ay-stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 60px;
-  margin-top: 16px;
-  align-items: start;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.ay-overview-text p {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--white-800);
-  line-height: 1.78;
-  margin-bottom: 18px;
+.ay-stat {
+  text-align: center;
+  padding: 0 32px;
+  position: relative;
 }
 
-.ay-overview-text p:last-child {
-  margin-bottom: 0;
+.ay-stat + .ay-stat::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 15%; height: 70%; width: 1px;
+  background: rgba(196,255,73,0.15);
 }
 
-.ay-stat-callouts {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.ay-stat-callout {
-  background: rgba(196, 255, 73, 0.07);
-  border: 1px solid rgba(196, 255, 73, 0.2);
-  border-radius: 12px;
-  padding: 20px 24px;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.ay-stat-callout:hover {
-  background: rgba(196, 255, 73, 0.11);
-  border-color: rgba(196, 255, 73, 0.38);
-  transform: translateY(-2px);
-}
-
-.ay-callout-value {
+.ay-stat__value {
+  display: block;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.65rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
   color: var(--lime-green);
   line-height: 1.1;
-  display: block;
-  margin-bottom: 3px;
-}
-
-.ay-callout-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--white);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  display: block;
   margin-bottom: 8px;
 }
 
-.ay-callout-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.86rem;
-  font-weight: 400;
-  color: var(--white-500);
-  line-height: 1.55;
-  margin: 0;
+.ay-stat__label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white-800);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-/* ────────────────────────────────────────────────────────────
-   SECTION 3 — THE THREE DOSHAS: 3 full-height cards
-   ──────────────────────────────────────────────────────────── */
-.ay-doshas {
-  padding: 60px 0;
+@media (max-width: 900px) {
+  .ay-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
+  .ay-stat + .ay-stat::before { display: none; }
+  .ay-stat:nth-child(odd) { border-right: 1px solid rgba(196,255,73,0.12); }
+  .ay-stat:nth-child(n+3) { border-top: 1px solid rgba(196,255,73,0.12); padding-top: 40px; }
 }
+
+/* ═══════════════════════════════════════════
+   DOSHAS — 3-col cards with top accent strip
+═══════════════════════════════════════════ */
+.ay-doshas-section { background: var(--dark-green); }
 
 .ay-doshas-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  align-items: start;
+  margin-top: 8px;
 }
 
 .ay-dosha-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   padding: 32px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, border-color 0.2s ease;
   position: relative;
   overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Dosha-specific accent top strip */
 .ay-dosha-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 3px;
   border-radius: 16px 16px 0 0;
 }
 
-.ay-dosha-card.ay-vata::before {
-  background: linear-gradient(90deg, rgba(196, 255, 73, 0.6), rgba(196, 255, 73, 0.1));
-}
-
-.ay-dosha-card.ay-pitta::before {
-  background: linear-gradient(90deg, rgba(196, 255, 73, 0.4), rgba(255, 255, 255, 0.1));
-}
-
-.ay-dosha-card.ay-kapha::before {
-  background: linear-gradient(90deg, rgba(196, 255, 73, 0.2), rgba(196, 255, 73, 0.05));
-}
-
-.ay-dosha-card.ay-vata {
-  border-color: rgba(196, 255, 73, 0.14);
-}
-
-.ay-dosha-card.ay-pitta {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.ay-dosha-card.ay-kapha {
-  border-color: rgba(196, 255, 73, 0.07);
-}
-
-.ay-dosha-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(196, 255, 73, 0.28);
-}
+.ay-dosha-card.ay-vata::before { background: linear-gradient(90deg, rgba(196,255,73,0.8), rgba(196,255,73,0.1)); }
+.ay-dosha-card.ay-pitta::before { background: linear-gradient(90deg, rgba(196,255,73,0.5), rgba(255,255,255,0.1)); }
+.ay-dosha-card.ay-kapha::before { background: linear-gradient(90deg, rgba(196,255,73,0.25), rgba(196,255,73,0.04)); }
+.ay-dosha-card.ay-vata { border-color: rgba(196,255,73,0.14); }
+.ay-dosha-card.ay-pitta { border-color: rgba(255,255,255,0.1); }
+.ay-dosha-card.ay-kapha { border-color: rgba(196,255,73,0.07); }
+.ay-dosha-card:hover { transform: translateY(-3px); border-color: rgba(196,255,73,0.28); }
 
 .ay-dosha-symbol-badge {
   display: inline-block;
-  background: rgba(196, 255, 73, 0.1);
-  border: 1px solid rgba(196, 255, 73, 0.22);
+  background: rgba(196,255,73,0.1);
+  border: 1px solid rgba(196,255,73,0.22);
   border-radius: 8px;
   padding: 4px 12px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--lime-green);
@@ -300,7 +284,6 @@ body {
 }
 
 .ay-dosha-elements {
-  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--white-500);
@@ -310,16 +293,13 @@ body {
 }
 
 .ay-dosha-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.93rem;
-  font-weight: 400;
   color: var(--white-800);
   line-height: 1.65;
   margin-bottom: 18px;
 }
 
 .ay-dosha-sub-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
   color: var(--white-500);
@@ -339,74 +319,28 @@ body {
 }
 
 .ay-dosha-traits li {
-  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--white-800);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 6px;
   padding: 3px 9px;
 }
 
-.ay-dosha-balanced {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 400;
-  color: var(--white-800);
-  line-height: 1.62;
-  font-style: italic;
-  margin-bottom: 18px;
-  padding: 11px 15px;
-  background: rgba(196, 255, 73, 0.04);
-  border-left: 2px solid rgba(196, 255, 73, 0.28);
-  border-radius: 0 8px 8px 0;
-}
-
-.ay-dosha-imbalance {
-  list-style: none;
-  margin: 0 0 22px 0;
-  padding: 0;
-}
-
-.ay-dosha-imbalance li {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.86rem;
-  font-weight: 400;
-  color: var(--white-800);
-  line-height: 1.5;
-  padding: 5px 0 5px 18px;
-  position: relative;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.ay-dosha-imbalance li:last-child {
-  border-bottom: none;
-}
-
-.ay-dosha-imbalance li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--white-500);
-}
-
 .ay-dosha-protocol {
   margin-top: auto;
-  background: rgba(196, 255, 73, 0.06);
-  border: 1px solid rgba(196, 255, 73, 0.14);
+  background: rgba(196,255,73,0.06);
+  border: 1px solid rgba(196,255,73,0.14);
   border-radius: 10px;
   padding: 15px 17px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.86rem;
-  font-weight: 400;
   color: var(--white-800);
   line-height: 1.62;
 }
 
 .ay-dosha-protocol-title {
   display: block;
-  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
   color: var(--lime-green);
@@ -415,123 +349,40 @@ body {
   margin-bottom: 7px;
 }
 
-/* ────────────────────────────────────────────────────────────
-   SECTION 4 — ANCIENT VS MODERN: 4 split-panel comparison cards
-   ──────────────────────────────────────────────────────────── */
-.ay-comparison {
-  padding: 60px 0;
-  background: rgba(196, 255, 73, 0.02);
-  border-top: 1px solid rgba(196, 255, 73, 0.07);
-  border-bottom: 1px solid rgba(196, 255, 73, 0.07);
-}
+@media (max-width: 960px) { .ay-doshas-grid { grid-template-columns: 1fr; } }
 
-.ay-comparison-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.ay-comp-card {
-  display: grid;
-  grid-template-columns: 1fr 3px 1fr;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.ay-comp-card:hover {
-  border-color: rgba(196, 255, 73, 0.22);
-  transform: translateY(-1px);
-}
-
-.ay-comp-divider {
-  background: linear-gradient(to bottom, transparent, rgba(196, 255, 73, 0.45), transparent);
-}
-
-.ay-comp-traditional,
-.ay-comp-modern {
-  padding: 26px 30px;
-}
-
-.ay-comp-traditional {
-  background: rgba(var(--dark-green-rgb),0.45);
-}
-
-.ay-comp-modern {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.ay-comp-panel-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  display: block;
-  margin-bottom: 12px;
-}
-
-.ay-comp-traditional .ay-comp-panel-label {
-  color: var(--white-500);
-}
-
-.ay-comp-modern .ay-comp-panel-label {
-  color: var(--lime-green);
-}
-
-.ay-comp-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--white-800);
-  line-height: 1.7;
-  margin: 0 0 10px 0;
-}
-
-.ay-comp-citation {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.76rem;
-  font-weight: 400;
-  color: var(--white-500);
-  font-style: italic;
-  display: block;
-  margin-top: 0;
-}
-
-/* ────────────────────────────────────────────────────────────
-   SECTION 5 — FIVE PILLARS: horizontal numbered timeline
-   ──────────────────────────────────────────────────────────── */
-.ay-timeline {
-  padding: 60px 0;
+/* ═══════════════════════════════════════════
+   FIVE PILLARS — Horizontal timeline
+═══════════════════════════════════════════ */
+.ay-pillars-section {
+  background: rgba(196,255,73,0.025);
+  border-top: 1px solid rgba(196,255,73,0.08);
+  border-bottom: 1px solid rgba(196,255,73,0.08);
 }
 
 .ay-timeline-nodes {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 52px;
   position: relative;
-  margin-top: 16px;
-  gap: 8px;
 }
 
-/* Horizontal connecting line */
 .ay-timeline-nodes::before {
   content: '';
   position: absolute;
-  top: 23px; /* center of circle */
+  top: 23px;
   left: calc(10% + 20px);
   right: calc(10% + 20px);
   height: 2px;
-  background: linear-gradient(
+  background: repeating-linear-gradient(
     to right,
-    rgba(196, 255, 73, 0.08),
-    rgba(196, 255, 73, 0.45) 25%,
-    rgba(196, 255, 73, 0.45) 75%,
-    rgba(196, 255, 73, 0.08)
+    rgba(196,255,73,0.3) 0px,
+    rgba(196,255,73,0.3) 8px,
+    transparent 8px,
+    transparent 18px
   );
   pointer-events: none;
-  z-index: 0;
 }
 
 .ay-timeline-item {
@@ -539,8 +390,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  flex: 1;
-  padding: 0 10px;
+  padding: 0 12px;
   position: relative;
   z-index: 1;
 }
@@ -549,23 +399,23 @@ body {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: rgba(196, 255, 73, 0.1);
-  border: 2px solid var(--lime-green);
+  background: rgba(196,255,73,0.1);
+  border: 2px solid rgba(196,255,73,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--lime-green);
   flex-shrink: 0;
   margin-bottom: 20px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ay-timeline-item:hover .ay-timeline-circle {
-  background: rgba(196, 255, 73, 0.22);
-  transform: scale(1.08);
+  background: rgba(196,255,73,0.25);
+  box-shadow: 0 0 16px rgba(196,255,73,0.3);
 }
 
 .ay-timeline-principle {
@@ -573,405 +423,357 @@ body {
   font-size: 0.97rem;
   font-weight: 700;
   color: var(--lime-green);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   line-height: 1.25;
 }
 
 .ay-timeline-sanskrit {
-  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.75rem;
-  font-weight: 400;
   color: var(--white-500);
   font-style: italic;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: block;
 }
 
 .ay-timeline-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.86rem;
-  font-weight: 400;
+  font-size: 0.84rem;
   color: var(--white-800);
   line-height: 1.6;
-  max-width: 190px;
+  max-width: 180px;
   margin: 0 auto;
 }
 
-/* ────────────────────────────────────────────────────────────
-   SECTION 6 — SECTION IMAGE
-   ──────────────────────────────────────────────────────────── */
-.ay-section-image {
-  margin: 0;
-  padding: 0 0 60px 0;
+@media (max-width: 900px) {
+  .ay-timeline-nodes { grid-template-columns: 1fr; gap: 0; }
+  .ay-timeline-nodes::before { display: none; }
+  .ay-timeline-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0 0 28px 0;
+    position: relative;
+    text-align: left;
+  }
+  .ay-timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 22px; top: 46px; bottom: 0;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, rgba(196,255,73,0.3) 0, rgba(196,255,73,0.3) 6px, transparent 6px, transparent 14px);
+  }
+  .ay-timeline-circle { margin-bottom: 0; flex-shrink: 0; }
+  .ay-timeline-desc { max-width: none; margin: 0; }
 }
 
-.ay-section-img {
+/* ═══════════════════════════════════════════
+   SECTION IMAGE BANNER
+═══════════════════════════════════════════ */
+.ay-image-banner {
+  position: relative;
   width: 100%;
-  border-radius: 20px;
-  display: block;
-  max-height: 540px;
-  object-fit: cover;
+  overflow: hidden;
+  max-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ────────────────────────────────────────────────────────────
-   SECTION 7 — TREATMENTS: 3-column card grid with hover
-   ──────────────────────────────────────────────────────────── */
-.ay-treatments {
-  padding: 60px 0;
+.ay-image-banner img {
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+  filter: brightness(0.55);
 }
+
+.ay-image-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(var(--dark-green-rgb),0.4) 0%, rgba(var(--dark-green-rgb),0.15) 40%, rgba(var(--dark-green-rgb),0.65) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ay-image-banner__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--white);
+  text-align: center;
+  padding: 0 24px;
+  max-width: 800px;
+  line-height: 1.4;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+
+.ay-image-banner__text em {
+  font-style: normal;
+  color: var(--lime-green);
+}
+
+/* ═══════════════════════════════════════════
+   ANCIENT VS MODERN COMPARISON
+═══════════════════════════════════════════ */
+.ay-comparison-section {
+  background: rgba(196,255,73,0.02);
+  border-top: 1px solid rgba(196,255,73,0.07);
+  border-bottom: 1px solid rgba(196,255,73,0.07);
+}
+
+.ay-comparison-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.ay-comp-card {
+  display: grid;
+  grid-template-columns: 1fr 3px 1fr;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ay-comp-card:hover {
+  border-color: rgba(196,255,73,0.22);
+  transform: translateY(-1px);
+}
+
+.ay-comp-divider {
+  background: linear-gradient(to bottom, transparent, rgba(196,255,73,0.45), transparent);
+}
+
+.ay-comp-traditional { background: rgba(var(--dark-green-rgb),0.45); padding: 26px 30px; }
+.ay-comp-modern { background: rgba(255,255,255,0.03); padding: 26px 30px; }
+
+.ay-comp-panel-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ay-comp-traditional .ay-comp-panel-label { color: var(--white-500); }
+.ay-comp-modern .ay-comp-panel-label { color: var(--lime-green); }
+
+.ay-comp-text {
+  font-size: 0.95rem;
+  color: var(--white-800);
+  line-height: 1.7;
+  margin: 0 0 8px 0;
+}
+
+.ay-comp-citation {
+  font-size: 0.76rem;
+  color: var(--white-500);
+  font-style: italic;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .ay-comp-card { grid-template-columns: 1fr; grid-template-rows: auto 3px auto; }
+  .ay-comp-divider { background: linear-gradient(to right, transparent, rgba(196,255,73,0.45), transparent); height: 3px; }
+  .ay-comp-traditional, .ay-comp-modern { padding: 20px 22px; }
+}
+
+/* ═══════════════════════════════════════════
+   TREATMENTS — 3-col with icon
+═══════════════════════════════════════════ */
+.ay-treatments-section { background: var(--dark-green); }
 
 .ay-treatments-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
+  margin-top: 8px;
 }
 
 .ay-treatment-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
   padding: 24px;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .ay-treatment-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(196, 255, 73, 0.4);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(196,255,73,0.3);
+  background: rgba(255,255,255,0.06);
 }
+
+.ay-treatment-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(196,255,73,0.1);
+  border: 1px solid rgba(196,255,73,0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lime-green);
+  margin-bottom: 16px;
+}
+
+.ay-treatment-icon svg { width: 22px; height: 22px; }
 
 .ay-treatment-name {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.97rem;
   font-weight: 700;
   color: var(--lime-green);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   line-height: 1.3;
 }
 
 .ay-treatment-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.93rem;
-  font-weight: 400;
+  font-size: 0.88rem;
   color: var(--white-800);
   line-height: 1.65;
   margin: 0;
 }
 
-/* ────────────────────────────────────────────────────────────
-   SECTION 8 — BENEFITS: 2-column checklist with lime ✓
-   ──────────────────────────────────────────────────────────── */
-.ay-benefits {
-  padding: 60px 0;
-  background: rgba(196, 255, 73, 0.025);
-  border-top: 1px solid rgba(196, 255, 73, 0.07);
-  border-bottom: 1px solid rgba(196, 255, 73, 0.07);
+@media (max-width: 960px) { .ay-treatments-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .ay-treatments-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════
+   CONDITIONS PILL GRID
+═══════════════════════════════════════════ */
+.ay-conditions-section {
+  background: rgba(196,255,73,0.025);
+  border-top: 1px solid rgba(196,255,73,0.07);
+  border-bottom: 1px solid rgba(196,255,73,0.07);
 }
 
-.ay-benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.ay-benefit-item {
+.ay-conditions-grid {
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 18px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
-.ay-benefit-item:hover {
-  border-color: rgba(196, 255, 73, 0.2);
-  transform: translateY(-1px);
-}
-
-.ay-benefit-check {
-  font-size: 1.1rem;
-  color: var(--lime-green);
-  flex-shrink: 0;
-  font-weight: 700;
-  line-height: 1.5;
-  margin-top: 1px;
-}
-
-.ay-benefit-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.97rem;
-  font-weight: 700;
+.ay-condition-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(196,255,73,0.07);
+  border: 1px solid rgba(196,255,73,0.22);
+  border-radius: 50px;
+  padding: 9px 18px;
+  font-size: 0.86rem;
+  font-weight: 500;
   color: var(--white);
-  margin-bottom: 4px;
-  line-height: 1.3;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.ay-benefit-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 400;
-  color: var(--white-800);
-  line-height: 1.6;
-  margin: 0;
+.ay-condition-pill:hover {
+  background: rgba(196,255,73,0.13);
+  border-color: rgba(196,255,73,0.45);
 }
 
-/* ────────────────────────────────────────────────────────────
-   SECTION 9 — CITATIONS: 4 citation blocks in 2-col grid
-   ──────────────────────────────────────────────────────────── */
-.ay-citations {
-  padding: 60px 0;
+.ay-condition-pill::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--lime-green);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   CITATIONS — Year-first compact layout
+═══════════════════════════════════════════ */
+.ay-citations-section {
+  background: rgba(255,255,255,0.015);
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .ay-citations-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 16px;
+  margin-top: 40px;
 }
 
-.ay-citation-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-left: 3px solid var(--lime-green);
-  border-radius: 0 12px 12px 0;
-  padding: 22px 26px;
-  transition: transform 0.2s ease, background 0.2s ease;
+.ay-citation-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 24px;
+  transition: background 0.2s ease;
 }
 
-.ay-citation-card:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.06);
-}
+.ay-citation-block:hover { background: rgba(255,255,255,0.06); }
 
-.ay-citation-num {
+.ay-citation-block__year {
+  flex-shrink: 0;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.68rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
   color: var(--lime-green);
-  display: block;
-  margin-bottom: 6px;
+  line-height: 1;
+  padding-top: 2px;
+  min-width: 44px;
 }
 
-.ay-citation-author {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.93rem;
+.ay-citation-block__body { flex: 1; }
+
+.ay-citation-block__authors {
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 3px;
-  display: block;
-  line-height: 1.4;
+  margin: 0 0 3px 0;
 }
 
-.ay-citation-journal {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 400;
+.ay-citation-block__journal {
+  font-size: 0.76rem;
   color: var(--white-500);
   font-style: italic;
-  margin-bottom: 10px;
-  display: block;
+  margin: 0 0 10px 0;
   line-height: 1.4;
 }
 
-.ay-citation-finding {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
+.ay-citation-block__finding {
+  font-size: 0.86rem;
   color: var(--white-800);
   line-height: 1.65;
   margin: 0;
 }
 
-/* ────────────────────────────────────────────────────────────
-   SECTION 10 — BOOKING CTA
-   ──────────────────────────────────────────────────────────── */
-.ay-cta {
-  padding: 80px 0;
-  text-align: center;
-}
+@media (max-width: 768px) { .ay-citations-grid { grid-template-columns: 1fr; } }
 
-.ay-cta-inner {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* ═══════════════════════════════════════════
+   BOOKING CTA
+═══════════════════════════════════════════ */
+.ay-cta-section {
+  background: linear-gradient(135deg, rgba(196,255,73,0.07) 0%, rgba(var(--dark-green-rgb),0.4) 60%, rgba(0,0,0,0.2) 100%);
+  border-top: 1px solid rgba(196,255,73,0.15);
+  border-bottom: 1px solid rgba(196,255,73,0.08);
+  text-align: center;
 }
 
 .ay-cta-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.55rem, 3.5vw, 2.3rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 700;
-  color: var(--white);
+  color: var(--lime-green);
+  margin: 0 auto 20px;
   line-height: 1.2;
-  margin-bottom: 18px;
+  max-width: 700px;
 }
 
 .ay-cta-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 400;
   color: var(--white-800);
-  line-height: 1.7;
-  margin-bottom: 36px;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ────────────────────────────────────────────────────────────
-   BUTTON — primary CTA (matching shared pattern)
-   ──────────────────────────────────────────────────────────── */
-.ay-btn {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
-  color: var(--dark-green);
-  padding: 15px 36px;
-  border-radius: 15px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
   font-size: 1.05rem;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-  border: none;
-  line-height: 1.4;
-}
-
-.ay-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(196, 255, 73, 0.25);
-}
-
-/* ────────────────────────────────────────────────────────────
-   RESPONSIVE
-   ──────────────────────────────────────────────────────────── */
-
-/* Tablet breakpoint */
-@media (max-width: 960px) {
-  .ay-overview-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .ay-stat-callouts {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .ay-stat-callout {
-    flex: 1 1 calc(50% - 7px);
-    min-width: 200px;
-  }
-
-  .ay-doshas-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ay-dosha-card {
-    max-width: 580px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
-
-  .ay-treatments-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile breakpoint */
-@media (max-width: 768px) {
-  .ay-hero {
-    padding-top: 60px;
-    padding-bottom: 40px;
-  }
-
-  .ay-comp-card {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 3px auto;
-  }
-
-  .ay-comp-divider {
-    background: linear-gradient(to right, transparent, rgba(196, 255, 73, 0.45), transparent);
-    height: 3px;
-  }
-
-  .ay-comp-traditional,
-  .ay-comp-modern {
-    padding: 20px 22px;
-  }
-
-  /* Timeline: vertical stack on mobile */
-  .ay-timeline-nodes {
-    flex-direction: column;
-    gap: 28px;
-    align-items: stretch;
-  }
-
-  .ay-timeline-nodes::before {
-    top: 0;
-    left: 22px;
-    right: auto;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(196, 255, 73, 0.08),
-      rgba(196, 255, 73, 0.4) 30%,
-      rgba(196, 255, 73, 0.4) 70%,
-      rgba(196, 255, 73, 0.08)
-    );
-  }
-
-  .ay-timeline-item {
-    flex-direction: row;
-    text-align: left;
-    gap: 20px;
-    align-items: flex-start;
-  }
-
-  .ay-timeline-circle {
-    margin-bottom: 0;
-    flex-shrink: 0;
-  }
-
-  .ay-timeline-desc {
-    max-width: none;
-    margin: 0;
-  }
-
-  .ay-benefits-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ay-citations-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ay-treatments-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ay-cta {
-    padding: 60px 0;
-  }
-
-  .ay-dosha-card {
-    max-width: none;
-    padding: 24px;
-  }
-}
-
-/* Small mobile */
-@media (max-width: 479px) {
-  .ay-stat-callout {
-    flex: 1 1 100%;
-  }
-
-  .ay-comp-traditional,
-  .ay-comp-modern {
-    padding: 18px 18px;
-  }
+  line-height: 1.75;
+  max-width: 540px;
+  margin: 0 auto 36px;
 }
