@@ -138,8 +138,8 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   border-radius: 12px;
   margin: 0 0 25px 0;
+  background: var(--dark-green);
   /* NO max-width — must stretch to full container width */
-  /* NO background — transparent PNG shows through to page body */
 }
 
 .ay-hero-image-wrapper img {
