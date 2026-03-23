@@ -1,5 +1,5 @@
 /* ── Odin Lab — Ayurveda Page Styles ── */
-/* v=2 | Prefix: .ay- */
+/* v=4 | Prefix: .ay- */
 
 :root { --dark-green-rgb: 26, 58, 26; }
 
@@ -376,7 +376,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 7px;
 }
 
-@media (max-width: 960px) { .ay-doshas-grid { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .ay-doshas-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .ay-doshas-grid { grid-template-columns: 1fr; } }
 
 /* ═══════════════════════════════════════════
    FIVE PILLARS — Horizontal timeline
@@ -677,7 +678,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 960px) { .ay-treatments-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .ay-treatments-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .ay-treatments-grid { grid-template-columns: 1fr; } }
 
 /* ═══════════════════════════════════════════
    CONDITIONS PILL GRID
