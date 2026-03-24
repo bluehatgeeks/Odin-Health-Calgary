@@ -54,9 +54,9 @@ body {
   position: relative;
   /* NO max-width — .fh-container (1300px) acts as natural constraint per design.md */
   margin: 0 auto;
-  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+  background: var(--dark-green);
+  /* No border-radius, no box-shadow — transparent PNG blends into bg */
 }
 
 .fh-hero-image-wrapper .fh-hero-img-bw {
