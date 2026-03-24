@@ -136,14 +136,16 @@ h1, h2, h3, h4, h5, h6 {
   height: auto;
 }
 
-.ht-hero-image-bw {
-  display: none;
-}
-
 .ht-hero-image-color {
   display: block;
   width: 100%;
   height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ht-hero-image-wrapper:hover .ht-hero-image-color {
+  filter: grayscale(0%);
 }
 
 /* ═══════════════════════════════════════════
