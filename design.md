@@ -395,3 +395,35 @@ odin lab landers/
 8. **Responsive:** All multi-column layouts must collapse gracefully at `≤768px`.
 9. **Typography:** Add no new font families. Use system stack or Poppins/Plus Jakarta Sans as appropriate to the page.
 10. **Icons:** Use inline SVG, stroke-based, `currentColor`, 24×24 viewport.
+
+---
+
+## 12. GoHighLevel (GHL) Deployment — CSS & Custom Code
+
+**The live site is hosted on GoHighLevel (HighLevel).** GHL does not serve static files — it cannot resolve relative CSS paths like `functional-health.css?v=1`. All stylesheets and scripts must use **full absolute jsDelivr CDN URLs**.
+
+### How page-specific CSS gets onto the live page
+
+Each therapy/lander page uses a GHL **Custom Code element** (in the page head) to load its CSS. The element must contain:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/functional-health.css?v=N">
+```
+
+Replace `functional-health` with the page slug and increment `?v=N` on every CSS update to bust the CDN cache.
+
+### Workflow for updating live page styles
+
+1. Edit the local `.css` file (e.g. `functional-health.css`)
+2. Commit and push to `bluehatgeeks/Odin-Health-Calgary` on GitHub (`master` branch)
+3. Purge jsDelivr cache: `https://purge.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/functional-health.css`
+4. In GHL page editor → Custom Code (head) → bump the `?v=N` query string by 1
+5. Save + Publish the GHL page
+
+### Important: relative paths always 404 on GHL
+
+GHL serves pages from `highlevel-backend.appspot.com` internally. Any relative path (`href="functional-health.css"`) resolves against that domain and returns a 404. **Always use the full `https://cdn.jsdelivr.net/...` URL.**
+
+### Shared CSS (`odin-shared.css`)
+
+`odin-shared.css` is already loaded via full CDN URL on all pages. Do not change this pattern. Current version: `?v=6`.
