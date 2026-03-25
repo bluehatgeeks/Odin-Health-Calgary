@@ -819,7 +819,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 700;
-  color: var(--white);
+  color: var(--lime-green);
   line-height: 1.2;
   margin-bottom: 20px;
   max-width: 720px;
