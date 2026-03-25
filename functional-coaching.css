@@ -164,6 +164,69 @@ body {
   mask-position: 0 0;
 }
 
+/* ════════════════════════════════════════════════════════
+   STATS STRIP
+   ════════════════════════════════════════════════════════ */
+.fc-stats-strip {
+  background: rgba(196, 255, 73, 0.06);
+  border-top: 1px solid rgba(196, 255, 73, 0.18);
+  border-bottom: 1px solid rgba(196, 255, 73, 0.18);
+  padding: 52px 20px;
+}
+
+.fc-stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.fc-stat {
+  text-align: center;
+  padding: 0 32px;
+  position: relative;
+}
+
+.fc-stat + .fc-stat::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 15%; height: 70%; width: 1px;
+  background: rgba(196, 255, 73, 0.15);
+}
+
+.fc-stat__value {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--lime-green);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.fc-stat__label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white-800);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .fc-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
+  .fc-stat + .fc-stat::before { display: none; }
+  .fc-stat:nth-child(odd) { border-right: 1px solid rgba(196,255,73,0.12); }
+  .fc-stat:nth-child(n+3) { border-top: 1px solid rgba(196,255,73,0.12); padding-top: 40px; }
+}
+
+@media (max-width: 480px) {
+  .fc-stats-strip { padding: 36px 16px; }
+  .fc-stat { padding: 0 16px; }
+  .fc-stat__value { font-size: clamp(1.4rem, 6vw, 2rem); }
+}
+
 /* ────────────────────────────────────────────
    SECTION 2 — DEFINITION & EVIDENCE BANNER
    ──────────────────────────────────────────── */
