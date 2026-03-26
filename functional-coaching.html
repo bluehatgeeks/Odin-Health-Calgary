@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
-  <link rel="stylesheet" href="functional-coaching.css?v=1">
+  <link rel="stylesheet" href="functional-coaching.css?v=6">
   <style>
     .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
     @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
@@ -67,27 +67,212 @@
 
       <h1>Your Biology Is Specific. Your Protocol Should Be Too.</h1>
 
-      <p class="fc-hero-sub">Functional health coaching applies systems-level thinking and data-informed protocols to resolve the root causes of chronic symptoms, metabolic dysfunction, and performance decline. We work alongside your body's biology — not against it — to build the conditions for lasting change.</p>
+      <p class="fc-hero-sub">We find the root cause of what's not working — then build a plan around your specific biology to fix it. No guessing. No generic advice. Just a clear path forward.</p>
 
       <div>
         <a href="#" class="fc-hero-cta booking-trigger">Book a Discovery Call</a>
       </div>
 
-      <div class="fc-hero-image-wrapper">
-        <img
-          src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/functional-coaching-hero-color.jpg?v=2"
-          alt="Functional health coaching consultation at Odin Lab Calgary"
-          class="fc-hero-img-bw"
-        />
-        <img
-          src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/functional-coaching-hero-color.jpg?v=2"
-          alt=""
-          class="fc-hero-img-color"
-          aria-hidden="true"
-        />
-      </div>
 
     </div>
+  <div class="fc-hero-canvas-wrapper">
+    <canvas id="fc-particle-canvas" aria-label="Animated particle network — representing the convergence of fragmented health signals into coherent, organized wellbeing" role="img"></canvas>
+  </div>
+  <script>
+(function () {
+  var canvas = document.getElementById('fc-particle-canvas');
+  var ctx = canvas.getContext('2d');
+  var W, H, dpr;
+  var particles = [];
+
+  var LIME_A  = function (a) { return 'rgba(196,255,73,' + a + ')'; };
+  var WHITE_A = function (a) { return 'rgba(255,255,255,' + a + ')'; };
+
+  var N = 72;
+  var PHASE_SCATTER  = 240;
+  var PHASE_CONVERGE = 170;
+  var PHASE_STABLE   = 220;
+  var TOTAL_CYCLE    = PHASE_SCATTER + PHASE_CONVERGE + PHASE_STABLE;
+
+  var CENTRES = [];
+
+  function buildCentres() {
+    CENTRES = [
+      { x: W * 0.50, y: H * 0.50 },
+      { x: W * 0.20, y: H * 0.28 },
+      { x: W * 0.80, y: H * 0.28 },
+      { x: W * 0.20, y: H * 0.72 },
+      { x: W * 0.80, y: H * 0.72 },
+      { x: W * 0.50, y: H * 0.14 },
+      { x: W * 0.50, y: H * 0.86 },
+      { x: W * 0.08, y: H * 0.50 },
+      { x: W * 0.92, y: H * 0.50 },
+    ];
+  }
+
+  function initParticles() {
+    buildCentres();
+    particles = [];
+    for (var i = 0; i < N; i++) {
+      var cIdx = i % CENTRES.length;
+      var c = CENTRES[cIdx];
+      var homeAngle = Math.random() * Math.PI * 2;
+      var homeR = 16 + Math.random() * 30;
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        sx: 0, sy: 0,
+        svx: (Math.random() - 0.5) * 0.65,
+        svy: (Math.random() - 0.5) * 0.55,
+        hx: c.x + Math.cos(homeAngle) * homeR,
+        hy: c.y + Math.sin(homeAngle) * homeR,
+        orbitAngle: Math.random() * Math.PI * 2,
+        orbitSpeed: (Math.random() - 0.5) * 0.009,
+        orbitR: 2 + Math.random() * 5,
+        r: 1.2 + Math.random() * 2.0,
+        lime: Math.random() > 0.58,
+        alpha: 0.45 + Math.random() * 0.55,
+        cluster: cIdx
+      });
+    }
+    // seed scatter positions
+    for (var i = 0; i < particles.length; i++) {
+      particles[i].sx = particles[i].x;
+      particles[i].sy = particles[i].y;
+    }
+  }
+
+  function easeInOut(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    var wrap = canvas.parentElement;
+    W = wrap.clientWidth;
+    H = Math.round(W * 0.22);
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    initParticles();
+  }
+
+  function drawBg() {
+    ctx.clearRect(0, 0, W, H);
+    // Solid base so particles have contrast against the page background
+    ctx.fillStyle = '#0d1f0d';
+    ctx.fillRect(0, 0, W, H);
+    // Subtle lime-green glow at centre
+    var g2 = ctx.createRadialGradient(W*0.5, H*0.5, 0, W*0.5, H*0.5, W*0.45);
+    g2.addColorStop(0, 'rgba(196,255,73,0.07)');
+    g2.addColorStop(1, 'rgba(196,255,73,0)');
+    ctx.fillStyle = g2; ctx.fillRect(0, 0, W, H);
+  }
+
+  function drawConnections(blend) {
+    if (blend < 0.08) return;
+    var maxDist = 75 + blend * 45;
+    for (var i = 0; i < particles.length; i++) {
+      for (var j = i + 1; j < particles.length; j++) {
+        var a = particles[i], b = particles[j];
+        if (a.cluster !== b.cluster) continue;
+        var dx = a.x - b.x, dy = a.y - b.y;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < maxDist) {
+          var str = (1 - dist/maxDist) * blend * 0.28;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = LIME_A(str.toFixed(3));
+          ctx.lineWidth = 0.75;
+          ctx.stroke();
+        }
+      }
+    }
+    // sparse cross-cluster threads from centre cluster
+    if (blend > 0.55) {
+      for (var i = 0; i < particles.length; i++) {
+        if (particles[i].cluster !== 0) continue;
+        for (var j = 0; j < particles.length; j++) {
+          if (particles[j].cluster === 0 || Math.random() > 0.004) continue;
+          var dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < W * 0.42) {
+            var str = (blend - 0.55) * 0.12;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = WHITE_A(str.toFixed(3));
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+  }
+
+  function update(frame) {
+    var t = frame % TOTAL_CYCLE;
+    var blend = 0;
+    if (t < PHASE_SCATTER) {
+      blend = 0;
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.sx += p.svx; p.sy += p.svy;
+        if (p.sx < 0 || p.sx > W) p.svx *= -1;
+        if (p.sy < 0 || p.sy > H) p.svy *= -1;
+        p.x = p.sx; p.y = p.sy;
+      }
+    } else if (t < PHASE_SCATTER + PHASE_CONVERGE) {
+      blend = easeInOut((t - PHASE_SCATTER) / PHASE_CONVERGE);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.sx += p.svx; p.sy += p.svy;
+        if (p.sx < 0 || p.sx > W) p.svx *= -1;
+        if (p.sy < 0 || p.sy > H) p.svy *= -1;
+        p.orbitAngle += p.orbitSpeed;
+        var ox = p.hx + Math.cos(p.orbitAngle) * p.orbitR;
+        var oy = p.hy + Math.sin(p.orbitAngle) * p.orbitR;
+        p.x = p.sx * (1 - blend) + ox * blend;
+        p.y = p.sy * (1 - blend) + oy * blend;
+      }
+    } else {
+      blend = 1;
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.orbitAngle += p.orbitSpeed;
+        p.x = p.hx + Math.cos(p.orbitAngle) * p.orbitR;
+        p.y = p.hy + Math.sin(p.orbitAngle) * p.orbitR;
+      }
+    }
+    return blend;
+  }
+
+  var frame = 0;
+  function loop() {
+    requestAnimationFrame(loop);
+    drawBg();
+    var blend = update(frame++);
+    drawConnections(blend);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      var haloR = p.r * (2.8 + blend * 2.2);
+      var baseA = p.alpha * (0.28 + blend * 0.38);
+      var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, haloR * 2.5);
+      g.addColorStop(0, p.lime ? LIME_A(baseA.toFixed(3)) : WHITE_A((baseA*0.7).toFixed(3)));
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath(); ctx.arc(p.x, p.y, haloR * 2.5, 0, Math.PI*2);
+      ctx.fillStyle = g; ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * (0.45 + blend * 0.55), 0, Math.PI*2);
+      ctx.fillStyle = p.lime ? LIME_A((0.5 + blend*0.5).toFixed(2)) : WHITE_A((0.45 + blend*0.35).toFixed(2));
+      ctx.fill();
+    }
+  }
+
+  resize();
+  window.addEventListener('resize', function () { resize(); });
+  loop();
+})();
+      </script>
   </section>
 
   <!-- ══════════════════════════════════════════════════════
@@ -131,8 +316,8 @@
         <!-- Left: pull-quote + body -->
         <div class="fc-definition-left">
           <span class="fc-definition-label">Definition</span>
-          <p class="fc-pull-quote">A structured, client-centered practice that identifies and addresses the upstream drivers of chronic symptoms, metabolic dysfunction, and lifestyle disease — rather than managing symptoms in isolation.</p>
-          <p class="fc-definition-body">Functional health coaching integrates root-cause analysis, advanced lab interpretation, and evidence-based behavior change science within a personalized protocol. It is distinct from general wellness coaching in scope, clinical grounding, and depth: where wellness coaching focuses on empowerment and general habit building, functional health coaching applies systems biology and functional medicine principles to each client's specific physiology. The evidence base is substantial: a 2023 systematic review and meta-analysis published in <em>Patient Education and Counseling</em> found that health and wellness coaching significantly improves self-efficacy, quality of life, and depression outcomes in people with chronic illness — with 25 of 28 studies in a 2023 rapid systematic review demonstrating sustained or improved outcomes after the active coaching period ended.</p>
+          <p class="fc-pull-quote">We look for the reasons behind your symptoms — not just ways to manage them.</p>
+          <p class="fc-definition-body">Functional health coaching is different from general wellness advice. We use your lab data, health history, and lifestyle to build a personal protocol targeting the actual drivers of your symptoms. A 2023 analysis of 104 clinical trials found that this kind of structured coaching produces lasting improvements in energy, quality of life, and chronic illness outcomes — even after the coaching period ends.</p>
         </div>
 
         <!-- Right: two key stat callouts -->
@@ -141,7 +326,7 @@
           <div class="fc-stat-callout">
             <span class="fc-stat-number">104</span>
             <span class="fc-stat-label">Randomized Trials Analyzed</span>
-            <p class="fc-stat-note">A 2023 meta-analysis in <em>Patient Education and Counseling</em> analyzed 104 randomized trials covering over 168,000 study participants — finding coaching significantly improved self-efficacy, quality of life, and depression in chronic illness.</p>
+            <p class="fc-stat-note">The largest ever analysis of health coaching outcomes — covering over 168,000 participants — found significant improvements in quality of life and chronic illness management.</p>
           </div>
 
           <div class="fc-stat-callout">
@@ -185,7 +370,7 @@
             </svg>
           </div>
           <h3 class="fc-pillar-title">Nutrition &amp; Diet</h3>
-          <p class="fc-pillar-body">Nutrition in functional health coaching is not a calorie-restriction plan or a trending elimination protocol. It is a personalized, data-informed approach to fueling metabolic function, stabilizing blood glucose, reducing systemic inflammation, and supporting the gut-liver-brain axis. Dietary strategy is built around each client's lab markers, food sensitivities, circadian biology, and real-world schedule — not a one-size prescription. Adjustments are made iteratively as biomarkers and symptoms respond.</p>
+          <p class="fc-pillar-body">Not a diet plan — a personalized food strategy built around your lab markers, blood sugar patterns, and real schedule. We adjust it as your body responds.</p>
         </div>
 
         <!-- Pillar 2: Sleep -->
@@ -199,7 +384,7 @@
             </svg>
           </div>
           <h3 class="fc-pillar-title">Sleep Optimization</h3>
-          <p class="fc-pillar-body">Sleep is not passive recovery. It is the primary window during which the body clears inflammatory byproducts, consolidates metabolic hormones, and restores HPA axis equilibrium. Poor or inconsistent sleep dysregulates cortisol rhythms, impairs insulin sensitivity, suppresses immune competence, and accelerates cognitive decline. Functional coaching addresses the structural, behavioral, and biochemical drivers of poor sleep — including circadian misalignment, cortisol timing, magnesium insufficiency, and sleep architecture disruption — rather than simply recommending "better sleep hygiene."</p>
+          <p class="fc-pillar-body">Poor sleep disrupts every other system in your body. We identify the actual drivers — cortisol timing, circadian misalignment, nutrient gaps — and fix them. Not just "sleep hygiene tips."</p>
         </div>
 
         <!-- Pillar 3: Stress / HPA -->
@@ -218,7 +403,7 @@
             </svg>
           </div>
           <h3 class="fc-pillar-title">Stress &amp; HPA Axis</h3>
-          <p class="fc-pillar-body">The hypothalamic-pituitary-adrenal (HPA) axis is the body's primary stress regulation system. Chronic psychological, physiological, or environmental stress drives sustained cortisol dysregulation, which disrupts blood sugar stability, hormonal signaling, immune modulation, and gut barrier integrity. Functional coaching maps each client's cortisol rhythm using objective testing such as DUTCH dried urine panels, identifies the specific drivers of HPA dysregulation, and implements a layered recovery protocol — combining targeted nutritional support, adaptogenic herbs where indicated, breathwork, and stress load reduction strategies.</p>
+          <p class="fc-pillar-body">Chronic stress rewires your cortisol rhythm, which breaks everything else. We test your actual cortisol pattern and build a recovery plan around what your data shows — not assumptions.</p>
         </div>
 
         <!-- Pillar 4: Movement -->
@@ -235,7 +420,7 @@
             </svg>
           </div>
           <h3 class="fc-pillar-title">Movement &amp; Exercise</h3>
-          <p class="fc-pillar-body">Movement in functional health coaching is prescribed as medicine — dosed, sequenced, and timed relative to each client's hormonal status, recovery capacity, and metabolic markers. High-intensity training chronically applied to a dysregulated, cortisol-elevated system can worsen inflammation and suppress recovery. The functional coaching approach calibrates exercise type, intensity, duration, and timing to support — not stress — the client's current physiology, with progressive adjustments as capacity improves.</p>
+          <p class="fc-pillar-body">The wrong exercise at the wrong time makes things worse, not better. We match your movement plan to your current hormonal state and recovery capacity, then adjust as you improve.</p>
         </div>
 
         <!-- Pillar 5: Mindset -->
@@ -248,7 +433,7 @@
             </svg>
           </div>
           <h3 class="fc-pillar-title">Mindset &amp; Behavior Change</h3>
-          <p class="fc-pillar-body">Sustained health change is a behavioral and psychological process as much as a physiological one. Functional coaching applies evidence-based frameworks — including motivational interviewing, Self-Determination Theory, the Transtheoretical Model, and positive psychology — to identify the client's intrinsic drivers, resolve ambivalence, and build self-efficacy over time. The goal is not compliance with a protocol; it is the development of durable health behaviors the client owns and can sustain independently after the engagement ends.</p>
+          <p class="fc-pillar-body">Knowing what to do isn't the hard part — doing it consistently is. We work with your real motivations and obstacles so that the changes you make actually stick long after coaching ends.</p>
         </div>
 
         <!-- Pillar 6: Lab -->
@@ -264,7 +449,7 @@
             </svg>
           </div>
           <h3 class="fc-pillar-title">Lab-Guided Personalization</h3>
-          <p class="fc-pillar-body">Functional health coaching does not operate on assumption. Where appropriate, targeted functional labs are used to create an objective baseline and track progress: comprehensive metabolic panels, thyroid markers (TSH, Free T3, Free T4, reverse T3), fasting insulin and HOMA-IR, inflammatory markers (hs-CRP, homocysteine), cortisol rhythm testing, micronutrient panels, and gastrointestinal assessments. Lab selection is always targeted — ordered to answer a specific clinical question, not to run an exhaustive and expensive battery.</p>
+          <p class="fc-pillar-body">We use targeted lab testing to create an objective baseline and measure your progress. Every test ordered answers a specific question — we don't run expensive panels for the sake of it.</p>
         </div>
 
       </div>
@@ -289,7 +474,7 @@
         <!-- Profile 1: Executives -->
         <div class="fc-profile-card">
           <h3 class="fc-profile-type">Executives &amp; High Performers</h3>
-          <p class="fc-profile-desc">High-performing professionals — entrepreneurs, senior leaders, and executives — operate under conditions of chronic cognitive and physiological load: sustained decision-making pressure, compressed recovery windows, international travel, irregular nutrition, and high-stakes accountability. Their output often masks the degree of physiological depletion occurring beneath the surface until a threshold event forces attention. Functional coaching for this group focuses on sustainable performance optimization: building the metabolic, hormonal, and recovery foundations that allow elite output to be maintained without accelerating biological aging.</p>
+          <p class="fc-profile-desc">You're still performing — but you can feel the gap between where you are and where you used to be. Energy is managed rather than felt. Recovery takes longer. We build the metabolic and hormonal foundation for output that's actually sustainable.</p>
           <span class="fc-profile-concerns-label">Common concerns</span>
           <ul class="fc-profile-concerns" aria-label="Common concerns for executives and high performers">
             <li>Declining mental sharpness, word retrieval difficulty, or afternoon cognitive fog</li>
@@ -301,7 +486,7 @@
         <!-- Profile 2: Shift Workers -->
         <div class="fc-profile-card">
           <h3 class="fc-profile-type">Shift Workers &amp; Irregular Schedule Workers</h3>
-          <p class="fc-profile-desc">Healthcare professionals, emergency responders, tradespeople, and others working rotating or overnight schedules face a structural misalignment between their work patterns and their circadian biology. Chronic circadian disruption dysregulates cortisol and melatonin rhythms, impairs glucose metabolism, increases inflammatory load, and elevates long-term cardiovascular and metabolic risk. Functional coaching for shift workers builds practical, schedule-adapted protocols for sleep, nutrition timing, and stress recovery that work within — not against — the realities of irregular work patterns.</p>
+          <p class="fc-profile-desc">Irregular schedules put your body in constant conflict with its own rhythms. We build nutrition, sleep, and recovery protocols designed around how your schedule actually works — not how it's supposed to work.</p>
           <span class="fc-profile-concerns-label">Common concerns</span>
           <ul class="fc-profile-concerns" aria-label="Common concerns for shift workers">
             <li>Persistent fatigue that does not resolve with time off</li>
@@ -313,7 +498,7 @@
         <!-- Profile 3: Chronic Fatigue / Burnout -->
         <div class="fc-profile-card">
           <h3 class="fc-profile-type">Chronic Fatigue, Burnout, or Unexplained Symptoms</h3>
-          <p class="fc-profile-desc">Many clients arrive having cycled through multiple conventional medical appointments without a satisfying explanation for symptoms that are real, consistent, and significantly impairing: debilitating fatigue, brain fog, post-exertional crashes, hormonal irregularities, or a vague but persistent sense that their body is not functioning as it should. Functional coaching approaches these presentations with structured curiosity — mapping symptom chronology, identifying likely system-level contributors, and using targeted assessments to generate a working hypothesis. Progress is measured in objective data and functional milestones, not in patients being told their labs are "normal."</p>
+          <p class="fc-profile-desc">You've been told your labs are normal. You've tried the standard advice. And you still feel terrible. We start where your last appointment ended — and actually look for what's driving it.</p>
           <span class="fc-profile-concerns-label">Common concerns</span>
           <ul class="fc-profile-concerns" aria-label="Common concerns for people with chronic fatigue or burnout">
             <li>Fatigue unresponsive to rest; post-exertional malaise or energy crashes</li>
@@ -328,15 +513,109 @@
   <hr class="fc-divider">
 
   <!-- ══════════════════════════════════════════
-       SECTION 5 — SECTION IMAGE
+       SECTION 5 — SYMPTOMS / CONCERNS CLOUD
+       ══════════════════════════════════════════ -->
+  <section class="fc-symptoms fc-section">
+    <div class="fc-container">
+
+      <div class="fc-label-row">
+        <span class="fc-chip">Sound Familiar?</span>
+      </div>
+      <h2 class="fc-section-heading">What Coaching Addresses</h2>
+      <p class="fc-section-sub">If any of these sound like you, functional health coaching may be the missing piece.</p>
+
+      <div class="fc-symptoms-cloud" role="list" aria-label="Symptoms and concerns addressed by functional health coaching">
+        <span class="fc-symptom-pill" role="listitem">Persistent Fatigue</span>
+        <span class="fc-symptom-pill" role="listitem">Brain Fog</span>
+        <span class="fc-symptom-pill" role="listitem">Poor Sleep</span>
+        <span class="fc-symptom-pill" role="listitem">Unexplained Weight Gain</span>
+        <span class="fc-symptom-pill" role="listitem">Afternoon Energy Crashes</span>
+        <span class="fc-symptom-pill" role="listitem">HPA Axis Dysregulation</span>
+        <span class="fc-symptom-pill" role="listitem">Hormonal Imbalances</span>
+        <span class="fc-symptom-pill" role="listitem">Anxiety &amp; Mood Instability</span>
+        <span class="fc-symptom-pill" role="listitem">Digestive Issues</span>
+        <span class="fc-symptom-pill" role="listitem">Blood Sugar Dysregulation</span>
+        <span class="fc-symptom-pill" role="listitem">Thyroid Dysfunction</span>
+        <span class="fc-symptom-pill" role="listitem">Chronic Stress</span>
+        <span class="fc-symptom-pill" role="listitem">Post-Viral Fatigue</span>
+        <span class="fc-symptom-pill" role="listitem">Low Libido</span>
+        <span class="fc-symptom-pill" role="listitem">Burnout</span>
+        <span class="fc-symptom-pill" role="listitem">Metabolic Syndrome</span>
+        <span class="fc-symptom-pill" role="listitem">Inflammation</span>
+        <span class="fc-symptom-pill" role="listitem">Poor Recovery</span>
+      </div>
+
+    </div>
+  </section>
+  <hr class="fc-divider">
+
+  <!-- ══════════════════════════════════════════
+       SECTION 6 — SECTION IMAGE
        ══════════════════════════════════════════ -->
   <div class="fc-section-image-block">
     <div class="fc-section-image-inner">
-      <img
-        src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/functional-coaching-section.jpg?v=2"
-        alt="Functional health coaching session at Odin Lab Calgary"
-      />
-      <div class="fc-section-image-overlay" aria-hidden="true"></div>
+      <svg
+        width="100%"
+        height="480"
+        viewBox="0 0 1920 480"
+        preserveAspectRatio="xMidYMid slice"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Abstract genomic waveform visualization representing biological data mapping"
+      >
+        <defs>
+          <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#091409"/>
+            <stop offset="50%" stop-color="#0d1f0d"/>
+            <stop offset="100%" stop-color="#091409"/>
+          </linearGradient>
+          <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#c4ff49" stop-opacity="0"/>
+            <stop offset="15%" stop-color="#c4ff49" stop-opacity="0.7"/>
+            <stop offset="85%" stop-color="#c4ff49" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#c4ff49" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#c4ff49" stop-opacity="0"/>
+            <stop offset="15%" stop-color="#c4ff49" stop-opacity="0.3"/>
+            <stop offset="85%" stop-color="#c4ff49" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#c4ff49" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- Background -->
+        <rect width="1920" height="480" fill="url(#bgGrad)"/>
+
+        <!-- Subtle horizontal grid lines -->
+        <line x1="0" y1="120" x2="1920" y2="120" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <line x1="0" y1="240" x2="1920" y2="240" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="360" x2="1920" y2="360" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+        <!-- Genomic tick bars at bottom -->
+        <line x1="0" y1="460" x2="0" y2="452" stroke="rgba(196,255,73,0.06)" stroke-width="1.5"/><line x1="48" y1="460" x2="48" y2="425" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="96" y1="460" x2="96" y2="412" stroke="rgba(196,255,73,0.08)" stroke-width="1.5"/><line x1="144" y1="460" x2="144" y2="420" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="192" y1="460" x2="192" y2="445" stroke="rgba(196,255,73,0.09)" stroke-width="1.5"/><line x1="240" y1="460" x2="240" y2="431" stroke="rgba(196,255,73,0.11)" stroke-width="1.5"/><line x1="288" y1="460" x2="288" y2="413" stroke="rgba(196,255,73,0.10)" stroke-width="1.5"/><line x1="336" y1="460" x2="336" y2="416" stroke="rgba(196,255,73,0.10)" stroke-width="1.5"/><line x1="384" y1="460" x2="384" y2="438" stroke="rgba(196,255,73,0.11)" stroke-width="1.5"/><line x1="432" y1="460" x2="432" y2="437" stroke="rgba(196,255,73,0.08)" stroke-width="1.5"/><line x1="480" y1="460" x2="480" y2="416" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="528" y1="460" x2="528" y2="414" stroke="rgba(196,255,73,0.07)" stroke-width="1.5"/><line x1="576" y1="460" x2="576" y2="432" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="624" y1="460" x2="624" y2="443" stroke="rgba(196,255,73,0.07)" stroke-width="1.5"/><line x1="672" y1="460" x2="672" y2="419" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="720" y1="460" x2="720" y2="412" stroke="rgba(196,255,73,0.08)" stroke-width="1.5"/><line x1="768" y1="460" x2="768" y2="426" stroke="rgba(196,255,73,0.11)" stroke-width="1.5"/><line x1="816" y1="460" x2="816" y2="450" stroke="rgba(196,255,73,0.10)" stroke-width="1.5"/><line x1="864" y1="460" x2="864" y2="424" stroke="rgba(196,255,73,0.10)" stroke-width="1.5"/><line x1="912" y1="460" x2="912" y2="412" stroke="rgba(196,255,73,0.11)" stroke-width="1.5"/><line x1="960" y1="460" x2="960" y2="421" stroke="rgba(196,255,73,0.09)" stroke-width="1.5"/><line x1="1008" y1="460" x2="1008" y2="447" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="1056" y1="460" x2="1056" y2="429" stroke="rgba(196,255,73,0.08)" stroke-width="1.5"/><line x1="1104" y1="460" x2="1104" y2="413" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="1152" y1="460" x2="1152" y2="417" stroke="rgba(196,255,73,0.06)" stroke-width="1.5"/><line x1="1200" y1="460" x2="1200" y2="440" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="1248" y1="460" x2="1248" y2="435" stroke="rgba(196,255,73,0.08)" stroke-width="1.5"/><line x1="1296" y1="460" x2="1296" y2="415" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="1344" y1="460" x2="1344" y2="414" stroke="rgba(196,255,73,0.09)" stroke-width="1.5"/><line x1="1392" y1="460" x2="1392" y2="433" stroke="rgba(196,255,73,0.11)" stroke-width="1.5"/><line x1="1440" y1="460" x2="1440" y2="442" stroke="rgba(196,255,73,0.10)" stroke-width="1.5"/><line x1="1488" y1="460" x2="1488" y2="418" stroke="rgba(196,255,73,0.10)" stroke-width="1.5"/><line x1="1536" y1="460" x2="1536" y2="413" stroke="rgba(196,255,73,0.11)" stroke-width="1.5"/><line x1="1584" y1="460" x2="1584" y2="427" stroke="rgba(196,255,73,0.08)" stroke-width="1.5"/><line x1="1632" y1="460" x2="1632" y2="449" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="1680" y1="460" x2="1680" y2="423" stroke="rgba(196,255,73,0.07)" stroke-width="1.5"/><line x1="1728" y1="460" x2="1728" y2="412" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="1776" y1="460" x2="1776" y2="422" stroke="rgba(196,255,73,0.07)" stroke-width="1.5"/><line x1="1824" y1="460" x2="1824" y2="448" stroke="rgba(196,255,73,0.12)" stroke-width="1.5"/><line x1="1872" y1="460" x2="1872" y2="428" stroke="rgba(196,255,73,0.08)" stroke-width="1.5"/>
+
+        <!-- Wave 4 — deep background, wide -->
+        <polyline points="0.0,235.3 9.6,229.9 19.2,224.7 28.8,219.8 38.4,215.2 48.0,211.0 57.6,207.1 67.2,203.6 76.8,200.5 86.4,197.7 96.0,195.4 105.6,193.5 115.2,191.9 124.8,190.9 134.4,190.2 144.0,190.0 153.6,190.2 163.2,190.9 172.8,191.9 182.4,193.5 192.0,195.4 201.6,197.7 211.2,200.5 220.8,203.6 230.4,207.1 240.0,211.0 249.6,215.2 259.2,219.8 268.8,224.7 278.4,229.9 288.0,235.3 297.6,241.1 307.2,247.0 316.8,253.2 326.4,259.5 336.0,266.0 345.6,272.6 355.2,279.4 364.8,286.2 374.4,293.1 384.0,300.0 393.6,306.9 403.2,313.8 412.8,320.6 422.4,327.4 432.0,334.0 441.6,340.5 451.2,346.8 460.8,353.0 470.4,358.9 480.0,364.7 489.6,370.1 499.2,375.3 508.8,380.2 518.4,384.8 528.0,389.0 537.6,392.9 547.2,396.4 556.8,399.5 566.4,402.3 576.0,404.6 585.6,406.5 595.2,408.1 604.8,409.1 614.4,409.8 624.0,410.0 633.6,409.8 643.2,409.1 652.8,408.1 662.4,406.5 672.0,404.6 681.6,402.3 691.2,399.5 700.8,396.4 710.4,392.9 720.0,389.0 729.6,384.8 739.2,380.2 748.8,375.3 758.4,370.1 768.0,364.7 777.6,358.9 787.2,353.0 796.8,346.8 806.4,340.5 816.0,334.0 825.6,327.4 835.2,320.6 844.8,313.8 854.4,306.9 864.0,300.0 873.6,293.1 883.2,286.2 892.8,279.4 902.4,272.6 912.0,266.0 921.6,259.5 931.2,253.2 940.8,247.0 950.4,241.1 960.0,235.3 969.6,229.9 979.2,224.7 988.8,219.8 998.4,215.2 1008.0,211.0 1017.6,207.1 1027.2,203.6 1036.8,200.5 1046.4,197.7 1056.0,195.4 1065.6,193.5 1075.2,191.9 1084.8,190.9 1094.4,190.2 1104.0,190.0 1113.6,190.2 1123.2,190.9 1132.8,191.9 1142.4,193.5 1152.0,195.4 1161.6,197.7 1171.2,200.5 1180.8,203.6 1190.4,207.1 1200.0,211.0 1209.6,215.2 1219.2,219.8 1228.8,224.7 1238.4,229.9 1248.0,235.3 1257.6,241.1 1267.2,247.0 1276.8,253.2 1286.4,259.5 1296.0,266.0 1305.6,272.6 1315.2,279.4 1324.8,286.2 1334.4,293.1 1344.0,300.0 1353.6,306.9 1363.2,313.8 1372.8,320.6 1382.4,327.4 1392.0,334.0 1401.6,340.5 1411.2,346.8 1420.8,353.0 1430.4,358.9 1440.0,364.7 1449.6,370.1 1459.2,375.3 1468.8,380.2 1478.4,384.8 1488.0,389.0 1497.6,392.9 1507.2,396.4 1516.8,399.5 1526.4,402.3 1536.0,404.6 1545.6,406.5 1555.2,408.1 1564.8,409.1 1574.4,409.8 1584.0,410.0 1593.6,409.8 1603.2,409.1 1612.8,408.1 1622.4,406.5 1632.0,404.6 1641.6,402.3 1651.2,399.5 1660.8,396.4 1670.4,392.9 1680.0,389.0 1689.6,384.8 1699.2,380.2 1708.8,375.3 1718.4,370.1 1728.0,364.7 1737.6,358.9 1747.2,353.0 1756.8,346.8 1766.4,340.5 1776.0,334.0 1785.6,327.4 1795.2,320.6 1804.8,313.8 1814.4,306.9 1824.0,300.0 1833.6,293.1 1843.2,286.2 1852.8,279.4 1862.4,272.6 1872.0,266.0 1881.6,259.5 1891.2,253.2 1900.8,247.0 1910.4,241.1 1920.0,235.3" fill="none" stroke="rgba(196,255,73,0.06)" stroke-width="1.5"/>
+
+        <!-- Wave 3 — mid frequency -->
+        <polyline points="0.0,208.3 9.6,211.7 19.2,213.9 28.8,214.9 38.4,214.7 48.0,213.3 57.6,210.7 67.2,207.0 76.8,202.3 86.4,196.9 96.0,190.8 105.6,184.4 115.2,177.8 124.8,171.3 134.4,165.1 144.0,159.4 153.6,154.5 163.2,150.4 172.8,147.5 182.4,145.6 192.0,145.0 201.6,145.6 211.2,147.5 220.8,150.4 230.4,154.5 240.0,159.4 249.6,165.1 259.2,171.3 268.8,177.8 278.4,184.4 288.0,190.8 297.6,196.9 307.2,202.3 316.8,207.0 326.4,210.7 336.0,213.3 345.6,214.7 355.2,214.9 364.8,213.9 374.4,211.7 384.0,208.3 393.6,204.0 403.2,198.8 412.8,192.9 422.4,186.6 432.0,180.0 441.6,173.4 451.2,167.1 460.8,161.2 470.4,156.0 480.0,151.7 489.6,148.3 499.2,146.1 508.8,145.1 518.4,145.3 528.0,146.7 537.6,149.3 547.2,153.0 556.8,157.7 566.4,163.1 576.0,169.2 585.6,175.6 595.2,182.2 604.8,188.7 614.4,194.9 624.0,200.6 633.6,205.5 643.2,209.6 652.8,212.5 662.4,214.4 672.0,215.0 681.6,214.4 691.2,212.5 700.8,209.6 710.4,205.5 720.0,200.6 729.6,194.9 739.2,188.7 748.8,182.2 758.4,175.6 768.0,169.2 777.6,163.1 787.2,157.7 796.8,153.0 806.4,149.3 816.0,146.7 825.6,145.3 835.2,145.1 844.8,146.1 854.4,148.3 864.0,151.7 873.6,156.0 883.2,161.2 892.8,167.1 902.4,173.4 912.0,180.0 921.6,186.6 931.2,192.9 940.8,198.8 950.4,204.0 960.0,208.3 969.6,211.7 979.2,213.9 988.8,214.9 998.4,214.7 1008.0,213.3 1017.6,210.7 1027.2,207.0 1036.8,202.3 1046.4,196.9 1056.0,190.8 1065.6,184.4 1075.2,177.8 1084.8,171.3 1094.4,165.1 1104.0,159.4 1113.6,154.5 1123.2,150.4 1132.8,147.5 1142.4,145.6 1152.0,145.0 1161.6,145.6 1171.2,147.5 1180.8,150.4 1190.4,154.5 1200.0,159.4 1209.6,165.1 1219.2,171.3 1228.8,177.8 1238.4,184.4 1248.0,190.8 1257.6,196.9 1267.2,202.3 1276.8,207.0 1286.4,210.7 1296.0,213.3 1305.6,214.7 1315.2,214.9 1324.8,213.9 1334.4,211.7 1344.0,208.3 1353.6,204.0 1363.2,198.8 1372.8,192.9 1382.4,186.6 1392.0,180.0 1401.6,173.4 1411.2,167.1 1420.8,161.2 1430.4,156.0 1440.0,151.7 1449.6,148.3 1459.2,146.1 1468.8,145.1 1478.4,145.3 1488.0,146.7 1497.6,149.3 1507.2,153.0 1516.8,157.7 1526.4,163.1 1536.0,169.2 1545.6,175.6 1555.2,182.2 1564.8,188.7 1574.4,194.9 1584.0,200.6 1593.6,205.5 1603.2,209.6 1612.8,212.5 1622.4,214.4 1632.0,215.0 1641.6,214.4 1651.2,212.5 1660.8,209.6 1670.4,205.5 1680.0,200.6 1689.6,194.9 1699.2,188.7 1708.8,182.2 1718.4,175.6 1728.0,169.2 1737.6,163.1 1747.2,157.7 1756.8,153.0 1766.4,149.3 1776.0,146.7 1785.6,145.3 1795.2,145.1 1804.8,146.1 1814.4,148.3 1824.0,151.7 1833.6,156.0 1843.2,161.2 1852.8,167.1 1862.4,173.4 1872.0,180.0 1881.6,186.6 1891.2,192.9 1900.8,198.8 1910.4,204.0 1920.0,208.3" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+        <!-- Wave 2 — secondary signal -->
+        <polyline points="0.0,288.5 9.6,285.0 19.2,281.1 28.8,276.8 38.4,272.1 48.0,267.2 57.6,262.1 67.2,256.7 76.8,251.2 86.4,245.6 96.0,240.0 105.6,234.4 115.2,228.8 124.8,223.3 134.4,217.9 144.0,212.8 153.6,207.9 163.2,203.2 172.8,198.9 182.4,195.0 192.0,191.5 201.6,188.4 211.2,185.7 220.8,183.5 230.4,181.9 240.0,180.7 249.6,180.1 259.2,180.0 268.8,180.5 278.4,181.4 288.0,182.9 297.6,184.9 307.2,187.4 316.8,190.4 326.4,193.8 336.0,197.6 345.6,201.8 355.2,206.3 364.8,211.1 374.4,216.2 384.0,221.5 393.6,226.9 403.2,232.5 412.8,238.1 422.4,243.8 432.0,249.4 441.6,254.9 451.2,260.3 460.8,265.5 470.4,270.5 480.0,275.3 489.6,279.7 499.2,283.7 508.8,287.4 518.4,290.7 528.0,293.5 537.6,295.8 547.2,297.6 556.8,298.9 566.4,299.7 576.0,300.0 585.6,299.7 595.2,298.9 604.8,297.6 614.4,295.8 624.0,293.5 633.6,290.7 643.2,287.4 652.8,283.7 662.4,279.7 672.0,275.3 681.6,270.5 691.2,265.5 700.8,260.3 710.4,254.9 720.0,249.4 729.6,243.8 739.2,238.1 748.8,232.5 758.4,226.9 768.0,221.5 777.6,216.2 787.2,211.1 796.8,206.3 806.4,201.8 816.0,197.6 825.6,193.8 835.2,190.4 844.8,187.4 854.4,184.9 864.0,182.9 873.6,181.4 883.2,180.5 892.8,180.0 902.4,180.1 912.0,180.7 921.6,181.9 931.2,183.5 940.8,185.7 950.4,188.4 960.0,191.5 969.6,195.0 979.2,198.9 988.8,203.2 998.4,207.9 1008.0,212.8 1017.6,217.9 1027.2,223.3 1036.8,228.8 1046.4,234.4 1056.0,240.0 1065.6,245.6 1075.2,251.2 1084.8,256.7 1094.4,262.1 1104.0,267.2 1113.6,272.1 1123.2,276.8 1132.8,281.1 1142.4,285.0 1152.0,288.5 1161.6,291.6 1171.2,294.3 1180.8,296.5 1190.4,298.1 1200.0,299.3 1209.6,299.9 1219.2,300.0 1228.8,299.5 1238.4,298.6 1248.0,297.1 1257.6,295.1 1267.2,292.6 1276.8,289.6 1286.4,286.2 1296.0,282.4 1305.6,278.2 1315.2,273.7 1324.8,268.9 1334.4,263.8 1344.0,258.5 1353.6,253.1 1363.2,247.5 1372.8,241.9 1382.4,236.2 1392.0,230.6 1401.6,225.1 1411.2,219.7 1420.8,214.5 1430.4,209.5 1440.0,204.7 1449.6,200.3 1459.2,196.3 1468.8,192.6 1478.4,189.3 1488.0,186.5 1497.6,184.2 1507.2,182.4 1516.8,181.1 1526.4,180.3 1536.0,180.0 1545.6,180.3 1555.2,181.1 1564.8,182.4 1574.4,184.2 1584.0,186.5 1593.6,189.3 1603.2,192.6 1612.8,196.3 1622.4,200.3 1632.0,204.7 1641.6,209.5 1651.2,214.5 1660.8,219.7 1670.4,225.1 1680.0,230.6 1689.6,236.2 1699.2,241.9 1708.8,247.5 1718.4,253.1 1728.0,258.5 1737.6,263.8 1747.2,268.9 1756.8,273.7 1766.4,278.2 1776.0,282.4 1785.6,286.2 1795.2,289.6 1804.8,292.6 1814.4,295.1 1824.0,297.1 1833.6,298.6 1843.2,299.5 1852.8,300.0 1862.4,299.9 1872.0,299.3 1881.6,298.1 1891.2,296.5 1900.8,294.3 1910.4,291.6 1920.0,288.5" fill="none" stroke="url(#waveGrad2)" stroke-width="1.5"/>
+
+        <!-- Wave 1 — primary signal, glowing -->
+        <polyline points="0.0,200.0 9.6,208.5 19.2,216.9 28.8,225.1 38.4,233.1 48.0,240.9 57.6,248.2 67.2,255.2 76.8,261.6 86.4,267.5 96.0,272.8 105.6,277.5 115.2,281.4 124.8,284.7 134.4,287.2 144.0,288.9 153.6,289.8 163.2,290.0 172.8,289.3 182.4,287.8 192.0,285.6 201.6,282.6 211.2,278.9 220.8,274.4 230.4,269.3 240.0,263.6 249.6,257.4 259.2,250.6 268.8,243.4 278.4,235.7 288.0,227.8 297.6,219.6 307.2,211.3 316.8,202.8 326.4,194.3 336.0,185.9 345.6,177.6 355.2,169.5 364.8,161.7 374.4,154.2 384.0,147.1 393.6,140.5 403.2,134.4 412.8,128.9 422.4,124.0 432.0,119.8 441.6,116.3 451.2,113.6 460.8,111.6 470.4,110.4 480.0,110.0 489.6,110.4 499.2,111.6 508.8,113.6 518.4,116.3 528.0,119.8 537.6,124.0 547.2,128.9 556.8,134.4 566.4,140.5 576.0,147.1 585.6,154.2 595.2,161.7 604.8,169.5 614.4,177.6 624.0,185.9 633.6,194.3 643.2,202.8 652.8,211.3 662.4,219.6 672.0,227.8 681.6,235.7 691.2,243.4 700.8,250.6 710.4,257.4 720.0,263.6 729.6,269.3 739.2,274.4 748.8,278.9 758.4,282.6 768.0,285.6 777.6,287.8 787.2,289.3 796.8,290.0 806.4,289.8 816.0,288.9 825.6,287.2 835.2,284.7 844.8,281.4 854.4,277.5 864.0,272.8 873.6,267.5 883.2,261.6 892.8,255.2 902.4,248.2 912.0,240.9 921.6,233.1 931.2,225.1 940.8,216.9 950.4,208.5 960.0,200.0 969.6,191.5 979.2,183.1 988.8,174.9 998.4,166.9 1008.0,159.1 1017.6,151.8 1027.2,144.8 1036.8,138.4 1046.4,132.5 1056.0,127.2 1065.6,122.5 1075.2,118.6 1084.8,115.3 1094.4,112.8 1104.0,111.1 1113.6,110.2 1123.2,110.0 1132.8,110.7 1142.4,112.2 1152.0,114.4 1161.6,117.4 1171.2,121.1 1180.8,125.6 1190.4,130.7 1200.0,136.4 1209.6,142.6 1219.2,149.4 1228.8,156.6 1238.4,164.3 1248.0,172.2 1257.6,180.4 1267.2,188.7 1276.8,197.2 1286.4,205.7 1296.0,214.1 1305.6,222.4 1315.2,230.5 1324.8,238.3 1334.4,245.8 1344.0,252.9 1353.6,259.5 1363.2,265.6 1372.8,271.1 1382.4,276.0 1392.0,280.2 1401.6,283.7 1411.2,286.4 1420.8,288.4 1430.4,289.6 1440.0,290.0 1449.6,289.6 1459.2,288.4 1468.8,286.4 1478.4,283.7 1488.0,280.2 1497.6,276.0 1507.2,271.1 1516.8,265.6 1526.4,259.5 1536.0,252.9 1545.6,245.8 1555.2,238.3 1564.8,230.5 1574.4,222.4 1584.0,214.1 1593.6,205.7 1603.2,197.2 1612.8,188.7 1622.4,180.4 1632.0,172.2 1641.6,164.3 1651.2,156.6 1660.8,149.4 1670.4,142.6 1680.0,136.4 1689.6,130.7 1699.2,125.6 1708.8,121.1 1718.4,117.4 1728.0,114.4 1737.6,112.2 1747.2,110.7 1756.8,110.0 1766.4,110.2 1776.0,111.1 1785.6,112.8 1795.2,115.3 1804.8,118.6 1814.4,122.5 1824.0,127.2 1833.6,132.5 1843.2,138.4 1852.8,144.8 1862.4,151.8 1872.0,159.1 1881.6,166.9 1891.2,174.9 1900.8,183.1 1910.4,191.5 1920.0,200.0" fill="none" stroke="url(#waveGrad1)" stroke-width="2.5" filter="url(#glow)"/>
+
+        <!-- Data pulse nodes on wave 1 -->
+        <circle cx="80.0" cy="263.6" r="5" fill="#c4ff49" opacity="0.9"/><circle cx="225.0" cy="272.3" r="3" fill="#c4ff49" opacity="0.55"/><circle cx="370.0" cy="157.6" r="3" fill="#c4ff49" opacity="0.55"/><circle cx="515.0" cy="115.3" r="5" fill="#c4ff49" opacity="0.9"/><circle cx="660.0" cy="217.6" r="3" fill="#c4ff49" opacity="0.55"/><circle cx="805.0" cy="289.9" r="3" fill="#c4ff49" opacity="0.55"/><circle cx="950.0" cy="208.8" r="5" fill="#c4ff49" opacity="0.9"/><circle cx="1095.0" cy="112.7" r="3" fill="#c4ff49" opacity="0.55"/><circle cx="1240.0" cy="165.6" r="3" fill="#c4ff49" opacity="0.55"/><circle cx="1385.0" cy="277.2" r="5" fill="#c4ff49" opacity="0.9"/><circle cx="1530.0" cy="257.1" r="3" fill="#c4ff49" opacity="0.55"/><circle cx="1675.0" cy="139.6" r="3" fill="#c4ff49" opacity="0.55"/><circle cx="1820.0" cy="125.2" r="5" fill="#c4ff49" opacity="0.9"/>
+
+        <!-- Horizontal centre baseline -->
+        <line x1="0" y1="240" x2="1920" y2="240" stroke="rgba(196,255,73,0.08)" stroke-width="0.5" stroke-dasharray="8 12"/>
+      </svg>
     </div>
   </div>
 
@@ -363,8 +642,7 @@
           </div>
           <div class="fc-step-right">
             <h3 class="fc-step-title">Discovery &amp; Intake</h3>
-            <span class="fc-step-duration">1–2 Weeks</span>
-            <p class="fc-step-body">The engagement begins with a comprehensive intake process: a detailed health history questionnaire, a structured symptom chronology mapping antecedents and triggers, review of any existing lab work or medical records, and a 90-minute discovery consultation. The coach and client build a shared understanding of the client's health narrative — not just current symptoms, but the environmental, lifestyle, and physiological trajectory that produced them. By the end of Phase 1, the client has a clear picture of the working framework for the engagement, and the coach has sufficient context to determine whether targeted lab assessment is indicated.</p>
+            <p class="fc-step-body">We start with a detailed health history and a 90-minute consultation. We want to understand not just what's wrong now, but the full picture of how you got here — your environment, lifestyle, and symptom timeline.</p>
             <p class="fc-step-outcome">By the end of this phase, you have a clear working framework — and so do we.</p>
           </div>
         </div>
@@ -378,8 +656,7 @@
           </div>
           <div class="fc-step-right">
             <h3 class="fc-step-title">Assessment &amp; Lab Review</h3>
-            <span class="fc-step-duration">2–4 Weeks</span>
-            <p class="fc-step-body">Based on the intake findings, targeted functional assessments are ordered where indicated. Results are reviewed in a dedicated lab interpretation session — with plain-language explanation of what the data reveals, what it does not, and how it shapes the protocol. The client receives a written summary of their current physiological status: key deficiencies, dysregulations, or risk patterns identified, and the prioritized intervention sequence that follows. This phase produces the objective baseline against which all progress will be measured.</p>
+            <p class="fc-step-body">Where needed, we run targeted lab tests and walk through every result with you in plain language. You get a written summary of what your data shows and a clear priority order for what to address first.</p>
             <p class="fc-step-outcome">You leave this phase with a written summary of your physiology and a clear intervention sequence — not a stack of confusing results.</p>
           </div>
         </div>
@@ -393,8 +670,7 @@
           </div>
           <div class="fc-step-right">
             <h3 class="fc-step-title">Protocol Implementation</h3>
-            <span class="fc-step-duration">8–12 Weeks</span>
-            <p class="fc-step-body">The active coaching phase. Based on discovery and assessment findings, the client receives a structured, sequenced protocol addressing their highest-priority areas: nutrition adjustments, sleep and recovery protocols, stress and HPA axis support, movement prescription, and targeted supplementation where evidence supports it. Bi-weekly coaching sessions provide accountability, course correction, and progressive adjustment as the client adapts. The protocol is built to integrate with real-world constraints — travel schedules, family demands, existing routines — rather than demanding a life redesign. By the end of this phase, most clients report measurable improvements in energy, cognitive clarity, sleep quality, and physical resilience.</p>
+            <p class="fc-step-body">Your protocol covers the highest-priority areas — nutrition, sleep, stress, movement, and supplementation where evidence supports it. Bi-weekly sessions keep things on track. The plan fits your real life — travel, family, existing routines — not a theoretical ideal.</p>
             <p class="fc-step-outcome">Most clients report measurable improvements in energy, cognitive clarity, sleep quality, and physical resilience by the end of this phase.</p>
           </div>
         </div>
@@ -408,8 +684,7 @@
           </div>
           <div class="fc-step-right">
             <h3 class="fc-step-title">Optimization &amp; Maintenance</h3>
-            <span class="fc-step-duration">Ongoing — Monthly or Quarterly</span>
-            <p class="fc-step-body">Protocol refinement based on outcomes data and client feedback. Retesting of key biomarkers to document objective change and identify any remaining gaps. The focus shifts from intervention to consolidation: building the client's independent competence in reading their own signals, maintaining the habits that drove results, and preventing regression. Clients who continue into maintenance typically move to monthly or quarterly touchpoints, with intensive re-engagement available if life circumstances shift or new symptoms emerge.</p>
+            <p class="fc-step-body">We retest key markers to document what changed, refine what needs adjusting, and shift focus to independence. Most clients move to monthly or quarterly check-ins — with deeper re-engagement available whenever life changes.</p>
             <p class="fc-step-outcome">The goal of this phase is a client who no longer needs a coach to maintain their health.</p>
           </div>
         </div>
@@ -435,19 +710,19 @@
 
         <div class="fc-outcome-card">
           <span class="fc-outcome-quotemark" aria-hidden="true">&ldquo;</span>
-          <p class="fc-outcome-text">Resolved an 8-year pattern of afternoon energy crashes and daily reliance on stimulants through targeted blood sugar stabilization, cortisol rhythm support, and adjusted meal timing — confirmed by follow-up fasting insulin and HOMA-IR normalization within 14 weeks.</p>
+          <p class="fc-outcome-text">8 years of afternoon energy crashes — gone within 14 weeks. Blood sugar stabilization, cortisol support, and adjusted meal timing. Confirmed by follow-up fasting insulin and HOMA-IR results.</p>
           <span class="fc-outcome-attribution">— Odin Lab Client</span>
         </div>
 
         <div class="fc-outcome-card">
           <span class="fc-outcome-quotemark" aria-hidden="true">&ldquo;</span>
-          <p class="fc-outcome-text">Eliminated persistent post-exertional fatigue and brain fog that had been present for three years following a viral illness, through a structured protocol addressing mitochondrial support, gut mucosal integrity, and progressive exercise reintroduction calibrated to tolerance — with objective improvement in HRV and subjective energy scores at weeks 8 and 16.</p>
+          <p class="fc-outcome-text">Three years of post-viral fatigue and brain fog — resolved through gut support, mitochondrial nutrition, and a carefully paced return to exercise. Measurable HRV and energy improvements at weeks 8 and 16.</p>
           <span class="fc-outcome-attribution">— Odin Lab Client</span>
         </div>
 
         <div class="fc-outcome-card">
           <span class="fc-outcome-quotemark" aria-hidden="true">&ldquo;</span>
-          <p class="fc-outcome-text">Reduced visceral adiposity, normalized fasting glucose from pre-diabetic to optimal range, and restored consistent restorative sleep within 12 weeks — in an executive client who had been told for two years that their labs were "not quite bad enough to treat," through precision nutrition timing, circadian-aligned sleep protocol, and targeted magnesium and omega-3 supplementation.</p>
+          <p class="fc-outcome-text">Pre-diabetic fasting glucose normalized, visceral fat reduced, and sleep restored in 12 weeks — for a client told for two years their labs were "not quite bad enough to treat."</p>
           <span class="fc-outcome-attribution">— Odin Lab Client</span>
         </div>
 

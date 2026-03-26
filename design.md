@@ -424,6 +424,16 @@ Replace `functional-health` with the page slug and increment `?v=N` on every CSS
 
 GHL serves pages from `highlevel-backend.appspot.com` internally. Any relative path (`href="functional-health.css"`) resolves against that domain and returns a 404. **Always use the full `https://cdn.jsdelivr.net/...` URL.**
 
+### CSS version tracking — current versions
+
+| File | Current `?v=` | Last updated |
+|---|---|---|
+| `odin-shared.css` | `?v=6` | — |
+| `functional-health.css` | `?v=3` | 2026-03-25 |
+| `ayurveda.css` | `?v=4` | — |
+
+**When you bump `?v=N`:** update BOTH the local `.html` file `<link>` tag AND the GHL Custom Code element. They must stay in sync.
+
 ### Shared CSS (`odin-shared.css`)
 
 `odin-shared.css` is already loaded via full CDN URL on all pages. Do not change this pattern. Current version: `?v=6`.

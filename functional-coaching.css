@@ -74,7 +74,7 @@ body {
    ──────────────────────────────────────────── */
 .fc-hero {
   padding-top: 90px;
-  padding-bottom: 60px;
+  padding-bottom: 0;
   text-align: center;
 }
 
@@ -125,43 +125,17 @@ body {
   box-shadow: 0 8px 32px rgba(196, 255, 73, 0.25);
 }
 
-/* Hero dual-image — mask-position slide reveal (matches design.md section 5.10) */
-.fc-hero-image-wrapper {
+/* Hero canvas — particle convergence animation */
+.fc-hero-canvas-wrapper {
   position: relative;
-  /* NO max-width — .fc-hero-container (1300px) acts as natural constraint per design.md */
-  margin: 0 auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
-}
-
-.fc-hero-image-wrapper .fc-hero-img-bw {
   width: 100%;
+  margin: 48px 0 0 0;
+  overflow: hidden;
+}
+
+.fc-hero-canvas-wrapper canvas {
   display: block;
-  filter: grayscale(100%);
-}
-
-.fc-hero-image-wrapper .fc-hero-img-color {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  /* NO border-radius — wrapper overflow:hidden handles clipping */
-  -webkit-mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
-  mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
-  -webkit-mask-size: 200% 100%;
-  mask-size: 200% 100%;
-  -webkit-mask-position: -100% 0;
-  mask-position: -100% 0;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  transition: mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1),
-              -webkit-mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.fc-hero-image-wrapper:hover .fc-hero-img-color {
-  -webkit-mask-position: 0 0;
-  mask-position: 0 0;
+  width: 100%;
 }
 
 /* ════════════════════════════════════════════════════════
@@ -545,38 +519,19 @@ body {
    SECTION 5 — SECTION IMAGE
    ──────────────────────────────────────────── */
 .fc-section-image-block {
-  padding: 60px 0;
+  width: 100%;
+  padding: 0;
 }
 
 .fc-section-image-inner {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 20px;
+  width: 100%;
   position: relative;
-  border-radius: 20px;
   overflow: hidden;
 }
 
-.fc-section-image-inner img {
-  width: 100%;
+.fc-section-image-inner svg {
   display: block;
-  border-radius: 20px;
-  max-height: 520px;
-  object-fit: cover;
-  filter: brightness(0.88);
-  transition: filter 0.3s ease;
-}
-
-.fc-section-image-inner:hover img {
-  filter: brightness(0.95);
-}
-
-.fc-section-image-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(var(--dark-green-rgb),0.65) 0%, transparent 55%);
-  border-radius: 20px;
-  pointer-events: none;
+  width: 100%;
 }
 
 /* ────────────────────────────────────────────
@@ -926,6 +881,37 @@ body {
   font-size: 0.85rem;
   font-weight: 400;
   color: var(--white-500);
+}
+
+/* ════════════════════════════════════════════════════════
+   SYMPTOMS PILL CLOUD
+   ════════════════════════════════════════════════════════ */
+.fc-symptoms {
+  padding: 80px 0;
+}
+
+.fc-symptoms-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.fc-symptom-pill {
+  background: var(--dark-green);
+  color: var(--white);
+  border: 1px solid var(--lime-green);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  padding: 0.45rem 1rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  cursor: default;
+}
+
+.fc-symptom-pill:hover {
+  background: var(--lime-green);
+  color: var(--dark-green);
+  transform: scale(1.04);
 }
 
 /* ════════════════════════════════════════════════════════
