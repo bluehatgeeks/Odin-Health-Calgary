@@ -115,14 +115,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Hero dual-image — mask-position slide reveal (matches design.md §5.10) */
-/* NOTE: border-radius + box-shadow are provisional; removed in Task 6 if transparent PNG is used */
 .mt-hero-image-wrapper {
   position: relative;
-  /* NO max-width — .mt-container (1300px) acts as natural constraint per design.md */
   margin: 0 auto;
-  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+  background: var(--dark-green);
+  /* No border-radius, no box-shadow — transparent PNG blends into bg */
 }
 
 .mt-hero-image-wrapper .mt-hero-image-bw {
