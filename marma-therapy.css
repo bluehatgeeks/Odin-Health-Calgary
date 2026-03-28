@@ -155,6 +155,69 @@ h1, h2, h3, h4, h5, h6 {
   mask-position: 0 0;
 }
 
+/* ════════════════════════════════════════════════════════
+   STATS STRIP
+   ════════════════════════════════════════════════════════ */
+.mt-stats-strip {
+  background: rgba(196, 255, 73, 0.06);
+  border-top: 1px solid rgba(196, 255, 73, 0.18);
+  border-bottom: 1px solid rgba(196, 255, 73, 0.18);
+  padding: 52px 20px;
+}
+
+.mt-stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.mt-stat {
+  text-align: center;
+  padding: 0 32px;
+  position: relative;
+}
+
+.mt-stat + .mt-stat::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 15%; height: 70%; width: 1px;
+  background: rgba(196, 255, 73, 0.15);
+}
+
+.mt-stat__value {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--lime-green);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.mt-stat__label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white-800);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .mt-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
+  .mt-stat + .mt-stat::before { display: none; }
+  .mt-stat:nth-child(odd) { border-right: 1px solid rgba(196,255,73,0.12); }
+  .mt-stat:nth-child(n+3) { border-top: 1px solid rgba(196,255,73,0.12); padding-top: 40px; }
+}
+
+@media (max-width: 480px) {
+  .mt-stats-strip { padding: 36px 16px; }
+  .mt-stat { padding: 0 16px; }
+  .mt-stat__value { font-size: clamp(1.4rem, 6vw, 2rem); }
+}
+
 /* ────────────────────────────────────────────
    SECTION 2: WHAT IS MARMA — 2-column split
    ──────────────────────────────────────────── */
