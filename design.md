@@ -298,6 +298,33 @@ Do not use a single image in the hero. Do not implement the reveal as `opacity: 
 
 ---
 
+### 5.11 Marma-Therapy Page Components (.mt- prefix)
+
+These components are used on the marma-therapy lander and follow the standard design system conventions.
+
+#### Zone Card (.mt-zone-card)
+Five-column flex grid on desktop, collapses to single column at ≤768px. Semi-transparent white surface (`rgba(255,255,255,0.04)`), lime-green top border accent, hover lift effect. Used to present body zones with Sanskrit point names, functions, and therapeutic applications.
+
+#### Frequency Block (.mt-freq-block)
+Three-column grid on desktop, single column at ≤900px. Centered content with large lime-green frequency value, title, and description. Used to present clinically studied vibroacoustic frequencies.
+
+#### Metaphor Block (.mt-metaphor-block)
+Two-column grid. Icon container (60×60px, lime-tinted background), tag label, title, and description. Used to present the "Map + Signal" combination rationale.
+
+#### Citation Card (.mt-citation-card)
+Three-column grid, collapses to single column at ≤900px. Lime-green left border accent (3px), semi-transparent surface, hover lift. Text hierarchy: author → journal → finding. Used for peer-reviewed research citations.
+
+#### Fit Card (.mt-fit-card)
+Three-column grid, collapses to single column at ≤900px. Differentiated by top border color: lime-green (well-suited), white-40 (info), orange-60 (caution). Used in "Is This Right For You?" section.
+
+#### Credibility Strip (.mt-credibility-strip)
+Full-width strip with lime-green tinted background and border. Used to surface research credibility signal early in the page flow.
+
+#### Mid-Page CTA (.mt-mid-cta)
+Full-width centered block with subtle lime-green border top/bottom. Contains italic teaser text + booking-trigger button. Placed after high-engagement sections to capture mid-funnel conversions.
+
+---
+
 ## 6. Sections — Page Anatomy
 
 ### odinlabcalgary.html (Main Calgary Lander)

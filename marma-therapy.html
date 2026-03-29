@@ -11,8 +11,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/marma-therapy.css?v=5">
   <style>
-    .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
-    @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
     .booking-modal-overlay{display:none!important;}
     .booking-modal-overlay.is-visible{display:flex!important;}
     main{padding-top:80px;}
@@ -24,32 +22,43 @@
   var navRoot = document.createElement('div');
   navRoot.id = 'odin-nav-root';
   document.body.insertBefore(navRoot, document.body.firstChild);
-  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+
+  function execScripts(root) {
+    root.querySelectorAll('script').forEach(function (oldScript) {
+      var newScript = document.createElement('script');
+      Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+      newScript.textContent = oldScript.textContent;
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+  }
+
+  function fetchWithTimeout(url, ms) {
+    var controller = new AbortController();
+    var timer = setTimeout(function() { controller.abort(); }, ms);
+    return fetch(url, { cache: 'no-store', signal: controller.signal })
+      .finally(function() { clearTimeout(timer); });
+  }
+
+  fetchWithTimeout('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', 8000)
     .then(function (r) { return r.text(); })
     .then(function (html) {
       navRoot.innerHTML = html;
-      navRoot.querySelectorAll('script').forEach(function (oldScript) {
-        var newScript = document.createElement('script');
-        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
-        newScript.textContent = oldScript.textContent;
-        oldScript.parentNode.replaceChild(newScript, oldScript);
-      });
+      execScripts(navRoot);
     })
-    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+    .catch(function (err) {
+      console.error('[odin-loader] Nav fetch failed:', err);
+      navRoot.innerHTML = '<header style="position:fixed;top:0;left:0;right:0;background:#1a3a1a;z-index:1000;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;"><a href="/" style="color:#c4ff49;font-weight:700;font-size:1.1rem;text-decoration:none;">Odin Lab</a><a href="#" class="booking-trigger" style="background:#c4ff49;color:#1a3a1a;padding:10px 20px;border-radius:12px;font-weight:700;text-decoration:none;">Book Online</a></header>';
+    });
+
   document.addEventListener('DOMContentLoaded', function () {
     var footerRoot = document.createElement('div');
     footerRoot.id = 'odin-footer-root';
     document.body.appendChild(footerRoot);
-    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', { cache: 'no-store' })
+    fetchWithTimeout('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', 8000)
       .then(function (r) { return r.text(); })
       .then(function (html) {
         footerRoot.innerHTML = html;
-        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
-          var newScript = document.createElement('script');
-          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
-          newScript.textContent = oldScript.textContent;
-          oldScript.parentNode.replaceChild(newScript, oldScript);
-        });
+        execScripts(footerRoot);
       })
       .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
   });
@@ -99,7 +108,7 @@
       </div>
       <div class="mt-stat">
         <span class="mt-stat__value">40 Hz</span>
-        <span class="mt-stat__label">Clinically Studied Therapeutic Frequency</span>
+        <span class="mt-stat__label">Pain Reduction in 20+ Peer-Reviewed Studies</span>
       </div>
       <div class="mt-stat">
         <span class="mt-stat__value">74%</span>
@@ -113,6 +122,15 @@
   </div>
 
   <div class="mt-divider"></div>
+
+  <!-- ══════════════════════════════════════════════════
+       CREDIBILITY STRIP — Research grounding signal
+  ══════════════════════════════════════════════════ -->
+  <div class="mt-credibility-strip">
+    <div class="mt-container">
+      <p class="mt-credibility-text">Grounded in peer-reviewed vibroacoustic therapy research — 20+ clinical studies. <a href="#citations" class="mt-credibility-link">See citations below.</a></p>
+    </div>
+  </div>
 
   <!-- ══════════════════════════════════════════════════
        SECTION 2 — WHAT IS MARMA THERAPY (2-column split)
@@ -215,8 +233,8 @@
           <ul class="mt-zone-list">
             <li>Cardiac rhythm &amp; autonomic HRV</li>
             <li>Pulmonary function</li>
-            <li>Vyana vayu — circulation</li>
-            <li>Ojas — constitutional resilience</li>
+            <li>Vyana vayu (circulatory flow) — circulation</li>
+            <li>Ojas (vital essence) — constitutional resilience</li>
           </ul>
           <span class="mt-zone-list-label">Applications</span>
           <ul class="mt-zone-list mt-zone-list--therapeutic">
@@ -237,7 +255,7 @@
           </div>
           <span class="mt-zone-list-label">Functions</span>
           <ul class="mt-zone-list">
-            <li>Root of all body channels (srotas)</li>
+            <li>Root of all body channels (srotas — circulatory pathways)</li>
             <li>Enteric nervous system function</li>
             <li>Bowel motility &amp; digestion</li>
             <li>Gut–brain hormonal axis</li>
@@ -285,7 +303,7 @@
           </div>
           <span class="mt-zone-list-label">Functions</span>
           <ul class="mt-zone-list">
-            <li>Vata grounding &amp; nervous system</li>
+            <li>Vata (nervous system energy) grounding &amp; regulation</li>
             <li>Lower extremity circulation</li>
             <li>Hip girdle &amp; femoral nerve</li>
             <li>Structural load-bearing</li>
@@ -319,7 +337,7 @@
       <div class="mt-science-body">
         <p>When a struck tuning fork contacts the body, it transmits mechanical vibration at its calibrated frequency. Biological tissues — bone, fascia, fluid, nervous tissue — each carry characteristic vibrational properties, and precise mechanical input at the right frequency can influence their state and function through sympathetic resonance.</p>
 
-        <p>128 Hz is the established clinical standard for vibration sense testing. In therapeutic contexts it is associated with nitric oxide release, mechanoreceptor activation, and gate-control modulation of pain signaling. 432 Hz supports nervous system downregulation and alpha brainwave states; 528 Hz is studied in relation to stress biomarker reduction.</p>
+        <p>128 Hz is the established clinical standard for vibration sense testing. In therapeutic contexts it is associated with nitric oxide release, mechanoreceptor activation, and gate-control modulation of pain signaling. 432 Hz is used in therapeutic practice for nervous system downregulation, associated in preliminary research with alpha brainwave support; 528 Hz has been studied in preliminary research in relation to stress biomarker reduction.</p>
 
         <p>Peer-reviewed vibroacoustic therapy research demonstrates measurable autonomic effects: increased parasympathetic activity, reduced cortisol-pattern EEG arousal (Fooks et al., 2024), and consistent pain score reductions at 40 Hz across 20 clinical studies (Kantor et al., 2022). The vagus nerve is the primary mechanism — sustained low-frequency vibration produces measurable increases in heart rate variability.</p>
       </div>
@@ -406,7 +424,7 @@
     <div class="mt-container">
 
       <div class="mt-section-label-row">
-        <span class="mt-section-badge">Clinical Applications</span>
+        <span class="mt-section-badge">Documented Outcomes</span>
       </div>
       <h2 class="mt-section-heading">What Marma + Tuning Fork Therapy Addresses</h2>
       <p class="mt-section-sub">Each of the following areas represents a documented mechanism of action, not a generic wellness claim. Session design targets the specific pathways relevant to your intake.</p>
@@ -532,6 +550,14 @@
     </div>
   </section>
 
+  <!-- Mid-page CTA -->
+  <div class="mt-mid-cta">
+    <div class="mt-container">
+      <p class="mt-mid-cta-text">Ready to address the root — not the symptom?</p>
+      <a href="#" class="booking-trigger common-button">Book a Consultation</a>
+    </div>
+  </div>
+
   <div class="mt-divider"></div>
 
   <!-- ══════════════════════════════════════════════════
@@ -541,10 +567,62 @@
     <div class="mt-section-image-wrap">
       <img
         src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/marma-section.jpg?v=2"
-        alt="Marma therapy treatment in progress at Odin Lab Calgary — tuning fork applied to body"
+        alt="Marma therapy treatment in progress at Odin Lab Calgary — tuning fork applied to marma points"
+        loading="lazy"
       />
     </div>
   </div>
+
+  <!-- ══════════════════════════════════════════════════
+       SECTION 6B — IS THIS RIGHT FOR YOU?
+  ══════════════════════════════════════════════════ -->
+  <section class="mt-fit-section">
+    <div class="mt-container">
+      <div class="mt-section-label-row">
+        <span class="mt-section-badge">Before You Book</span>
+      </div>
+      <h2 class="mt-section-heading">Is This Right For You?</h2>
+      <p class="mt-section-sub">Marma therapy with tuning fork enhancement is non-invasive, drug-free, and gentle. Here is what to know before booking.</p>
+
+      <div class="mt-fit-grid">
+
+        <div class="mt-fit-card mt-fit-card--yes">
+          <span class="mt-fit-card-title">Well-Suited For</span>
+          <ul class="mt-fit-list">
+            <li>Chronic stress, anxiety, or nervous system dysregulation</li>
+            <li>Persistent pain not resolved by conventional approaches</li>
+            <li>Sleep disruption or fatigue with no clear medical cause</li>
+            <li>Digestive issues driven by stress or autonomic imbalance</li>
+            <li>Individuals seeking a non-pharmaceutical, non-invasive intervention</li>
+          </ul>
+        </div>
+
+        <div class="mt-fit-card mt-fit-card--info">
+          <span class="mt-fit-card-title">What to Expect</span>
+          <ul class="mt-fit-list">
+            <li>No needles, no manipulation, no discomfort</li>
+            <li>75-minute session — intake-driven, not a generic sequence</li>
+            <li>Most clients notice a shift within 1–3 sessions</li>
+            <li>Sessions are clothed; comfortable, loose-fitting clothing recommended</li>
+            <li>A 10-minute integration rest period follows all active treatment</li>
+          </ul>
+        </div>
+
+        <div class="mt-fit-card mt-fit-card--caution">
+          <span class="mt-fit-card-title">Discuss With Us First</span>
+          <ul class="mt-fit-list">
+            <li>Active fracture, open wound, or acute post-surgical recovery</li>
+            <li>Pacemaker or implanted electronic device</li>
+            <li>Pregnancy (first trimester)</li>
+            <li>Severe acute illness or fever</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="mt-divider"></div>
 
   <!-- ══════════════════════════════════════════════════
        SECTION 8 — SESSION WALKTHROUGH (4 horizontal steps)
@@ -556,7 +634,7 @@
         <span class="mt-section-badge">Your Appointment</span>
       </div>
       <h2 class="mt-section-heading">What Happens in a Session</h2>
-      <p class="mt-section-sub">Every session is built from your health intake, not a generic sequence. Here is what to expect from first contact to post-session integration.</p>
+      <p class="mt-section-sub">Every session is built from your health intake, not a generic sequence. Your practitioner is trained in both classical Ayurvedic marma therapy and vibroacoustic technique. Here is what to expect from first contact to post-session integration.</p>
 
       <div class="mt-steps-row">
 
@@ -569,7 +647,7 @@
         <div class="mt-step">
           <span class="mt-step-number">02</span>
           <span class="mt-step-title">Tuning &amp; Body Assessment</span>
-          <p class="mt-step-desc">A brief physical and energetic assessment identifies areas of tension or restricted movement. Tuning forks scan the biofield for resonance disruption before contact work begins, informing the sequencing and depth of marma engagement.</p>
+          <p class="mt-step-desc">A brief physical and energetic assessment identifies areas of tension or restricted movement. Tuning forks are used to assess the tissue and energy field surrounding the body, detecting areas of tension or disruption before contact work begins — informing the sequencing and depth of marma engagement.</p>
         </div>
 
         <div class="mt-step">
@@ -588,12 +666,20 @@
     </div>
   </section>
 
+  <!-- Mid-page CTA -->
+  <div class="mt-mid-cta">
+    <div class="mt-container">
+      <p class="mt-mid-cta-text">Your session is built from your intake — not a generic sequence.</p>
+      <a href="#" class="booking-trigger common-button">Book Your First Session</a>
+    </div>
+  </div>
+
   <div class="mt-divider"></div>
 
   <!-- ══════════════════════════════════════════════════
        SECTION 9 — CITATIONS
   ══════════════════════════════════════════════════ -->
-  <section class="mt-citations-section">
+  <section class="mt-citations-section" id="citations">
     <div class="mt-container">
 
       <div class="mt-section-label-row">
@@ -658,12 +744,59 @@
 (function() {
   var bookingOverlay = document.getElementById('booking-modal-overlay');
   var bookingClose = document.getElementById('booking-modal-close');
-  function openBookingModal() { if (bookingOverlay) { bookingOverlay.classList.add('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; } }
-  function closeBookingModal() { if (bookingOverlay) { bookingOverlay.classList.remove('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; } }
-  document.addEventListener('click', function(e) { var btn = e.target.closest('.booking-trigger'); if (btn) { e.preventDefault(); openBookingModal(); } });
+
+  function getFocusableElements() {
+    if (!bookingOverlay) return [];
+    return Array.from(bookingOverlay.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )).filter(function(el) { return !el.disabled && el.offsetParent !== null; });
+  }
+
+  function openBookingModal() {
+    if (!bookingOverlay) return;
+    bookingOverlay.classList.add('is-visible');
+    bookingOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    var main = document.querySelector('main');
+    if (main) main.setAttribute('inert', '');
+    // Move focus to close button
+    if (bookingClose) setTimeout(function() { bookingClose.focus(); }, 50);
+  }
+
+  function closeBookingModal() {
+    if (!bookingOverlay) return;
+    bookingOverlay.classList.remove('is-visible');
+    bookingOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    var main = document.querySelector('main');
+    if (main) main.removeAttribute('inert');
+  }
+
+  // Focus trap
+  document.addEventListener('keydown', function(e) {
+    if (!bookingOverlay || !bookingOverlay.classList.contains('is-visible')) return;
+    if (e.key === 'Escape') { closeBookingModal(); return; }
+    if (e.key !== 'Tab') return;
+    var focusable = getFocusableElements();
+    if (focusable.length === 0) return;
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.booking-trigger');
+    if (btn) { e.preventDefault(); openBookingModal(); }
+  });
+
   if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
-  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) { if (e.target === bookingOverlay) closeBookingModal(); });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal(); });
+  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) {
+    if (e.target === bookingOverlay) closeBookingModal();
+  });
 })();
 </script>
 </body>
