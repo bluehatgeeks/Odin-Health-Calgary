@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6 {
    SECTION 1: HERO
    ──────────────────────────────────────────── */
 .mt-hero {
-  padding: 60px 0;
+  padding: 40px 0 40px 0;
   text-align: center;
 }
 
@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(196, 255, 73, 0.06);
   border-top: 1px solid rgba(196, 255, 73, 0.18);
   border-bottom: 1px solid rgba(196, 255, 73, 0.18);
-  padding: 52px 20px;
+  padding: 36px 20px;
 }
 
 .mt-stats-inner {
@@ -243,11 +243,13 @@ h1, h2, h3, h4, h5, h6 {
    SECTION 2: WHAT IS MARMA — 2-column split
    ──────────────────────────────────────────── */
 .mt-what-is-grid {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 56px;
-  align-items: start;
+  display: block;
   margin-top: 40px;
+}
+
+.mt-what-is-text {
+  max-width: 820px;
+  margin: 0 auto;
 }
 
 .mt-what-is-text p {
@@ -268,131 +270,26 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
 }
 
-/* Sticky callout right column */
-.mt-origin-callout {
-  background: rgba(196, 255, 73, 0.06);
-  border: 1px solid rgba(196, 255, 73, 0.18);
-  border-top: 3px solid var(--lime-green);
-  border-radius: 0 0 16px 16px;
-  padding: 32px 28px;
-  position: sticky;
-  top: 100px;
-}
-
-.mt-origin-callout-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--lime-green);
-  opacity: 0.7;
-  margin-bottom: 24px;
-  display: block;
-}
-
-.mt-origin-stat {
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(196, 255, 73, 0.1);
-}
-
-.mt-origin-stat:last-of-type {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.mt-origin-stat-value {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 700;
-  color: var(--lime-green);
-  line-height: 1;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.mt-origin-stat-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.93rem;
-  font-weight: 600;
-  color: var(--white);
-  line-height: 1.4;
-  display: block;
-  margin-bottom: 3px;
-}
-
-.mt-origin-stat-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--white-500);
-  line-height: 1.4;
-  display: block;
-}
 
 @media (max-width: 768px) {
   .mt-what-is-grid {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 
 @media (max-width: 1024px) {
   .mt-what-is-grid {
-    grid-template-columns: 1fr;
+    display: block;
   }
 
-  .mt-origin-callout {
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 3px solid var(--lime-green);
-  }
-
-  .mt-origin-callout-title {
-    grid-column: 1 / -1;
-    margin-bottom: 16px;
-  }
-
-  .mt-origin-stat {
-    border-bottom: none;
-    border-right: 1px solid rgba(196, 255, 73, 0.1);
-    padding: 0 24px;
-    text-align: center;
-  }
-
-  .mt-origin-stat:last-of-type {
-    border-right: none;
-  }
 }
 
-@media (max-width: 600px) {
-  .mt-origin-callout {
-    grid-template-columns: 1fr;
-  }
-
-  .mt-origin-callout-title {
-    grid-column: auto;
-  }
-
-  .mt-origin-stat {
-    border-right: none;
-    border-bottom: 1px solid rgba(196, 255, 73, 0.1);
-    padding: 16px 0;
-    text-align: left;
-  }
-
-  .mt-origin-stat:last-of-type {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-}
 
 /* ────────────────────────────────────────────
    SECTION 3: BODY ZONE CARDS — horizontal 5-card flex row
    ──────────────────────────────────────────── */
 .mt-zones-section {
-  padding: 60px 0;
+  padding: 48px 0;
 }
 
 .mt-zones-row {
@@ -408,7 +305,7 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 255, 255, 0.04);
   border-top: 3px solid rgba(196, 255, 73, 0.4);
   border-radius: 0 0 12px 12px;
-  padding: 24px;
+  padding: 18px 16px;
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease, background 0.2s ease, border-top-color 0.2s ease;
@@ -541,7 +438,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   color: var(--white-800);
   line-height: 1.78;
-  margin: 0 0 22px 0;
+  margin: 0 0 16px 0;
 }
 
 .mt-science-body p:last-child {
@@ -613,109 +510,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ────────────────────────────────────────────
-   SECTION 5: WHY COMBINE — full-width highlight
-   ──────────────────────────────────────────── */
-.mt-combine-section {
-  background: rgba(196, 255, 73, 0.05);
-  border-top: 1px solid rgba(196, 255, 73, 0.15);
-  border-bottom: 1px solid rgba(196, 255, 73, 0.15);
-  padding: 60px 0;
-}
-
-.mt-combine-body {
-  max-width: 820px;
-  margin: 24px auto 0 auto;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.08rem;
-  font-weight: 400;
-  color: var(--white-800);
-  line-height: 1.82;
-  text-align: center;
-}
-
-.mt-combine-metaphors {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 48px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mt-metaphor-block {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(196, 255, 73, 0.2);
-  border-radius: 16px;
-  padding: 36px 32px;
-  text-align: center;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.mt-metaphor-block:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.mt-metaphor-icon {
-  width: 60px;
-  height: 60px;
-  background: rgba(196, 255, 73, 0.1);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px auto;
-  color: var(--lime-green);
-}
-
-.mt-metaphor-tag {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--lime-green);
-  opacity: 0.65;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.mt-metaphor-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 12px;
-  display: block;
-}
-
-.mt-metaphor-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.93rem;
-  font-weight: 400;
-  color: var(--white-800);
-  line-height: 1.65;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  .mt-combine-metaphors {
-    grid-template-columns: 1fr;
-  }
-
-  .mt-combine-body {
-    font-size: 1rem;
-    text-align: left;
-  }
-}
 
 /* ────────────────────────────────────────────
    SECTION 6: BENEFITS — alternating icon rows
    ──────────────────────────────────────────── */
 .mt-benefits-section {
-  padding: 60px 0;
+  padding: 48px 0;
 }
 
 .mt-benefits-list {
@@ -727,7 +527,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: flex-start;
   gap: 28px;
-  padding: 28px 0;
+  padding: 20px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -784,27 +584,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ────────────────────────────────────────────
-   SECTION 7: SECTION IMAGE
-   ──────────────────────────────────────────── */
-.mt-section-image {
-  padding: 0 0 60px 0;
-}
-
-.mt-section-image-wrap {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 20px;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.mt-section-image-wrap img {
-  width: 100%;
-  border-radius: 20px;
-  display: block;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-}
 
 /* ────────────────────────────────────────────
    SECTION 8: SESSION WALKTHROUGH — 4 horizontal steps
@@ -969,7 +748,7 @@ h1, h2, h3, h4, h5, h6 {
    SECTION 10: BOOKING CTA
    ──────────────────────────────────────────── */
 .mt-cta-section {
-  padding: 80px 0;
+  padding: 60px 0;
   text-align: center;
   background: rgba(196, 255, 73, 0.04);
   border-top: 1px solid rgba(196, 255, 73, 0.15);
@@ -1075,7 +854,7 @@ h1, h2, h3, h4, h5, h6 {
 .mt-fit-card {
   background: rgba(255, 255, 255, 0.04);
   border-radius: 16px;
-  padding: 28px 24px;
+  padding: 20px 20px;
   border-top: 3px solid transparent;
 }
 .mt-fit-card--yes {
@@ -1108,7 +887,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 .mt-fit-list li {
   font-size: 0.88rem;
@@ -1138,7 +917,7 @@ h1, h2, h3, h4, h5, h6 {
    MID-PAGE CTA BLOCKS
    ──────────────────────────────────────────── */
 .mt-mid-cta {
-  padding: 48px 0;
+  padding: 32px 0;
   text-align: center;
   background: rgba(196, 255, 73, 0.03);
   border-top: 1px solid rgba(196, 255, 73, 0.1);
