@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/marma-therapy.css?v=5">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/marma-therapy.css?v=6">
   <style>
     .booking-modal-overlay{display:none!important;}
     .booking-modal-overlay.is-visible{display:flex!important;}
@@ -81,22 +81,268 @@
       <a href="#" class="booking-trigger common-button">Book a Consultation</a>
     </div>
 
-    <div class="mt-hero-image-wrapper">
-      <img
-        src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/marma-hero-color.jpg?v=2"
-        alt="Marma therapy session with tuning fork application at Odin Lab Calgary"
-        class="mt-hero-image-bw"
-      />
-      <img
-        src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/marma-hero-color.jpg?v=2"
-        alt=""
-        class="mt-hero-image-color"
-        aria-hidden="true"
-      />
+    <div class="mt-hero-canvas-wrapper" role="img" aria-label="Animated diagram of marma points on a reclining human figure">
+      <svg id="marmaSVG" class="mt-marma-canvas" viewBox="0 0 1200 340" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Noise filter removed for performance -->
+          <!-- Glow filter for marma points -->
+          <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-strong" x="-150%" y="-150%" width="400%" height="400%">
+            <feGaussianBlur stdDeviation="7" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <!-- Vignette gradient -->
+          <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+            <stop offset="30%" stop-color="transparent"/>
+            <stop offset="100%" stop-color="rgba(10,26,10,0.6)"/>
+          </radialGradient>
+          <!-- Path marker for particles -->
+          <marker id="dot" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="3" markerHeight="3">
+            <circle cx="3" cy="3" r="3" fill="rgba(196,255,73,0.9)"/>
+          </marker>
+        </defs>
+
+        <!-- Background -->
+        <rect width="1200" height="340" fill="#142e14"/>
+        <!-- Subtle grain via semi-transparent overlay -->
+        <rect width="1200" height="340" fill="rgba(255,255,255,0.012)"/>
+        <!-- Vignette -->
+        <rect width="1200" height="340" fill="url(#vignette)"/>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             RECLINING FIGURE — drawn in SVG viewBox 1200×340
+             Body centreline Y = 155
+             Head: left side, centre (68, 155), radius 52
+             Feet: right side, foot at X ≈ 1155
+
+             Proportions (8-head body canon, horizontal):
+               Head width   = 104px  (52r × 2)
+               Total length = 1090px (≈ 10.5 heads)
+             ═══════════════════════════════════════════════════════════ -->
+
+        <!-- Figure group — all body strokes -->
+        <g class="marma-figure" fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+          <!-- HEAD — circle, anatomically proportioned -->
+          <ellipse cx="68" cy="155" rx="52" ry="56" stroke="rgba(255,255,255,0.40)" stroke-width="1.8"/>
+          <!-- Facial feature lines — jaw, brow suggestion -->
+          <path d="M 30,132 Q 68,118 106,132" stroke="rgba(255,255,255,0.16)" stroke-width="1.2"/>
+
+          <!-- NECK — two converging lines from head to shoulder -->
+          <path d="M 110,135 L 158,128" stroke="rgba(255,255,255,0.34)" stroke-width="1.6"/>
+          <path d="M 110,175 L 158,182" stroke="rgba(255,255,255,0.34)" stroke-width="1.6"/>
+          <!-- Clavicle suggestion -->
+          <path d="M 158,128 Q 195,122 230,125" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/>
+
+          <!-- SHOULDER CAP -->
+          <line x1="158" y1="128" x2="158" y2="182" stroke="rgba(255,255,255,0.34)" stroke-width="1.6"/>
+
+          <!-- TORSO — top edge: shoulder → waist → hip crest
+               Slight hourglass: widest at chest (~245px from shoulder cap),
+               narrows at waist, widens at hip -->
+          <path d="M 158,128
+                   C 210,118 290,112 355,114
+                   C 420,116 468,118 505,122
+                   C 530,125 548,128 555,135"
+                stroke="rgba(255,255,255,0.40)" stroke-width="1.8"/>
+
+          <!-- TORSO — bottom edge (mirror with belly curve) -->
+          <path d="M 158,182
+                   C 210,194 290,200 355,198
+                   C 420,196 468,194 505,190
+                   C 530,187 548,184 555,178"
+                stroke="rgba(255,255,255,0.40)" stroke-width="1.8"/>
+
+          <!-- HIP / PELVIS — wider than torso, rounded block -->
+          <path d="M 555,135
+                   C 572,128 590,126 598,130
+                   L 598,182
+                   C 590,186 572,184 555,178"
+                stroke="rgba(255,255,255,0.40)" stroke-width="1.8"/>
+
+          <!-- UPPER LEG (thigh) — hip to knee, tapers
+               Hip at X=598 Y=130–182, knee at X=790 Y=142–172 (centre 157) -->
+          <path d="M 598,130 C 660,122 740,130 790,142"
+                stroke="rgba(255,255,255,0.37)" stroke-width="1.8"/>
+          <path d="M 598,182 C 660,190 740,178 790,172"
+                stroke="rgba(255,255,255,0.37)" stroke-width="1.8"/>
+
+          <!-- KNEE — slightly bulbous circle -->
+          <ellipse cx="800" cy="157" rx="26" ry="30" stroke="rgba(255,255,255,0.37)" stroke-width="1.8"/>
+
+          <!-- LOWER LEG (calf) — knee to ankle, slightly curved, narrows -->
+          <path d="M 800,128 C 840,120 900,124 945,132"
+                stroke="rgba(255,255,255,0.34)" stroke-width="1.7"/>
+          <path d="M 800,186 C 840,194 900,190 945,182"
+                stroke="rgba(255,255,255,0.34)" stroke-width="1.7"/>
+
+          <!-- ANKLE — narrow cap -->
+          <line x1="945" y1="132" x2="945" y2="182" stroke="rgba(255,255,255,0.30)" stroke-width="1.5"/>
+
+          <!-- FOOT — realistic oval + slight toe suggestion -->
+          <ellipse cx="978" cy="157" rx="34" ry="26" stroke="rgba(255,255,255,0.30)" stroke-width="1.5"/>
+          <!-- Toe bump -->
+          <path d="M 1000,148 Q 1012,142 1018,150 Q 1012,158 1000,157" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+
+          <!-- ARM — upper arm from shoulder/axilla, forearm, resting along body
+               Shoulder origin ~(160,178), elbow at ~(370,208), wrist at ~(560,212) -->
+          <g stroke="rgba(255,255,255,0.25)" stroke-width="1.5">
+            <!-- Upper arm top -->
+            <path d="M 162,180 C 240,196 310,206 368,208"/>
+            <!-- Upper arm bottom -->
+            <path d="M 162,196 C 240,212 310,222 368,224"/>
+            <!-- Elbow cap -->
+            <ellipse cx="372" cy="216" rx="10" ry="16" stroke="rgba(255,255,255,0.20)" stroke-width="1.3"/>
+            <!-- Forearm top -->
+            <path d="M 372,200 C 440,198 510,200 558,202"/>
+            <!-- Forearm bottom -->
+            <path d="M 372,232 C 440,230 510,232 558,234"/>
+            <!-- Wrist cap -->
+            <line x1="558" y1="202" x2="558" y2="234"/>
+          </g>
+
+          <!-- SCAPULA suggestion (subtle, lateral view) -->
+          <path d="M 175,132 Q 210,138 220,160 Q 210,182 175,185" stroke="rgba(255,255,255,0.12)" stroke-width="1.2" fill="none"/>
+
+          <!-- RIB CAGE subtle lines (anterior, inside torso) -->
+          <path d="M 200,128 Q 270,148 200,182" stroke="rgba(255,255,255,0.07)" stroke-width="1" fill="none"/>
+          <path d="M 230,121 Q 310,148 230,185" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none"/>
+          <path d="M 260,117 Q 345,148 260,188" stroke="rgba(255,255,255,0.05)" stroke-width="1" fill="none"/>
+
+        </g>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             ENERGY PATHWAYS — connecting marma points
+             Rendered as faint lime lines behind the points
+             ═══════════════════════════════════════════════════════════ -->
+        <g class="marma-paths" stroke="rgba(196,255,73,0.18)" stroke-width="1" fill="none" stroke-dasharray="3,5">
+          <!-- Head chain -->
+          <line x1="42" y1="120" x2="55" y2="148"/>
+          <line x1="55" y1="148" x2="88" y2="136"/>
+          <line x1="55" y1="148" x2="148" y2="152"/>
+          <!-- Neck to chest -->
+          <line x1="148" y1="152" x2="158" y2="130"/>
+          <line x1="148" y1="152" x2="220" y2="130"/>
+          <line x1="220" y1="130" x2="278" y2="130"/>
+          <line x1="278" y1="130" x2="320" y2="155"/>
+          <!-- Chest to abdomen -->
+          <line x1="320" y1="155" x2="440" y2="155"/>
+          <line x1="440" y1="155" x2="510" y2="155"/>
+          <!-- Abdomen to hip -->
+          <line x1="510" y1="155" x2="570" y2="130"/>
+          <line x1="510" y1="155" x2="570" y2="178"/>
+          <line x1="510" y1="155" x2="596" y2="155"/>
+          <!-- Hip to leg -->
+          <line x1="570" y1="178" x2="650" y2="157"/>
+          <line x1="650" y1="157" x2="720" y2="157"/>
+          <line x1="720" y1="157" x2="800" y2="157"/>
+          <line x1="800" y1="157" x2="870" y2="157"/>
+          <line x1="870" y1="157" x2="945" y2="157"/>
+          <line x1="945" y1="157" x2="978" y2="157"/>
+          <!-- Arm chain -->
+          <line x1="158" y1="130" x2="195" y2="208"/>
+          <line x1="195" y1="208" x2="372" y2="216"/>
+          <line x1="372" y1="216" x2="555" y2="218"/>
+          <!-- Cross -->
+          <line x1="320" y1="155" x2="195" y2="208"/>
+          <line x1="570" y1="178" x2="720" y2="157"/>
+        </g>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             MARMA POINTS — anatomically placed
+             Each is a pulsing circle with glow, labelled on hover
+             ═══════════════════════════════════════════════════════════ -->
+        <g class="marma-points" filter="url(#glow)">
+
+          <!-- HEAD -->
+          <!-- Adhipati — crown (top of head) -->
+          <circle class="mp mp-head" cx="42" cy="112" r="4.5" data-label="Adhipati" style="animation-delay:0s"/>
+          <!-- Sthapani — third eye / between brows -->
+          <circle class="mp mp-head" cx="26" cy="155" r="4.5" data-label="Sthapani" style="animation-delay:0.4s"/>
+          <!-- Apanga — outer corner of eye -->
+          <circle class="mp mp-head" cx="72" cy="132" r="4" data-label="Apanga" style="animation-delay:0.8s"/>
+
+          <!-- NECK -->
+          <!-- Nila — lateral neck / carotid -->
+          <circle class="mp mp-neck" cx="140" cy="152" r="4.5" data-label="Nila" style="animation-delay:1.1s"/>
+
+          <!-- SHOULDER / CHEST -->
+          <!-- Ansa — acromion / shoulder top -->
+          <circle class="mp mp-chest" cx="158" cy="127" r="4.5" data-label="Ansa" style="animation-delay:1.4s"/>
+          <!-- Stanarohita — sub-clavicular upper chest -->
+          <circle class="mp mp-chest" cx="218" cy="128" r="4" data-label="Stanarohita" style="animation-delay:1.7s"/>
+          <!-- Hridaya — sternum / heart centre -->
+          <circle class="mp mp-chest" cx="318" cy="155" r="5" data-label="Hridaya" style="animation-delay:2.0s"/>
+
+          <!-- ABDOMEN -->
+          <!-- Nabhi — navel -->
+          <circle class="mp mp-abdomen" cx="440" cy="155" r="5" data-label="Nabhi" style="animation-delay:2.3s"/>
+          <!-- Basti — lower abdomen -->
+          <circle class="mp mp-abdomen" cx="510" cy="155" r="4.5" data-label="Basti" style="animation-delay:2.6s"/>
+
+          <!-- HIP -->
+          <!-- Katikataruna — posterior iliac / sacral -->
+          <circle class="mp mp-hip" cx="570" cy="128" r="4.5" data-label="Katikataruna" style="animation-delay:2.9s"/>
+          <!-- Kukundara — lateral hip / greater trochanter -->
+          <circle class="mp mp-hip" cx="570" cy="180" r="4.5" data-label="Kukundara" style="animation-delay:3.1s"/>
+          <!-- Vitapa — groin / inguinal -->
+          <circle class="mp mp-hip" cx="598" cy="155" r="4" data-label="Vitapa" style="animation-delay:3.3s"/>
+
+          <!-- THIGH -->
+          <!-- Urvi — mid thigh -->
+          <circle class="mp mp-leg" cx="694" cy="157" r="4.5" data-label="Urvi" style="animation-delay:3.5s"/>
+
+          <!-- KNEE -->
+          <!-- Janu — knee joint -->
+          <circle class="mp mp-knee" cx="800" cy="157" r="5" data-label="Janu" style="animation-delay:3.8s"/>
+
+          <!-- CALF -->
+          <!-- Indrabasti — mid calf -->
+          <circle class="mp mp-leg" cx="872" cy="157" r="4.5" data-label="Indrabasti" style="animation-delay:4.0s"/>
+
+          <!-- ANKLE / FOOT -->
+          <!-- Gulpha — ankle -->
+          <circle class="mp mp-foot" cx="945" cy="157" r="4.5" data-label="Gulpha" style="animation-delay:4.2s"/>
+          <!-- Talhridaya — sole of foot -->
+          <circle class="mp mp-foot" cx="978" cy="157" r="4.5" data-label="Talhridaya" style="animation-delay:4.5s"/>
+
+          <!-- ARM -->
+          <!-- Lohitaksha — axilla / armpit -->
+          <circle class="mp mp-arm" cx="195" cy="208" r="4" data-label="Lohitaksha" style="animation-delay:1.6s"/>
+          <!-- Kurpara — elbow -->
+          <circle class="mp mp-arm" cx="372" cy="216" r="4.5" data-label="Kurpara" style="animation-delay:1.9s"/>
+          <!-- Manibandha — wrist -->
+          <circle class="mp mp-arm" cx="555" cy="218" r="4.5" data-label="Manibandha" style="animation-delay:2.2s"/>
+
+        </g>
+
+        <!-- Animated particles — SVG animateMotion along paths -->
+        <g class="marma-particles" fill="rgba(196,255,73,0.85)">
+          <circle r="2.2"><animateMotion dur="4.5s" repeatCount="indefinite" begin="0s"><mpath href="#p-vagal"/></animateMotion></circle>
+          <circle r="1.8"><animateMotion dur="6s" repeatCount="indefinite" begin="1.2s"><mpath href="#p-chest"/></animateMotion></circle>
+          <circle r="2"><animateMotion dur="5.2s" repeatCount="indefinite" begin="2.1s"><mpath href="#p-leg"/></animateMotion></circle>
+          <circle r="1.6"><animateMotion dur="7s" repeatCount="indefinite" begin="0.7s"><mpath href="#p-arm"/></animateMotion></circle>
+          <circle r="2.2"><animateMotion dur="5.8s" repeatCount="indefinite" begin="3s"><mpath href="#p-vagal"/></animateMotion></circle>
+          <circle r="1.8"><animateMotion dur="4.2s" repeatCount="indefinite" begin="1.8s"><mpath href="#p-leg"/></animateMotion></circle>
+        </g>
+
+        <!-- Hidden paths for animateMotion particles -->
+        <defs>
+          <path id="p-vagal" d="M 42,112 L 26,155 L 140,152 L 158,127 L 220,128 L 278,130 L 318,155"/>
+          <path id="p-chest" d="M 318,155 L 440,155 L 510,155 L 570,128"/>
+          <path id="p-leg"   d="M 570,178 L 598,155 L 694,157 L 800,157 L 872,157 L 945,157 L 978,157"/>
+          <path id="p-arm"   d="M 158,127 L 195,208 L 372,216 L 555,218"/>
+        </defs>
+
+        <!-- Vignette overlay on top -->
+        <rect width="1200" height="340" fill="url(#vignette)" pointer-events="none"/>
+      </svg>
     </div>
 
   </div>
-
   <!-- ══════════════════════════════════════════════════════
        STATS STRIP — Authority signal
        ══════════════════════════════════════════════════════ -->
@@ -346,7 +592,7 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════
-       SECTION 6 — BENEFITS (alternating icon rows)
+       SECTION 6 — BENEFITS (2×2 numbered card grid)
   ══════════════════════════════════════════════════ -->
   <section class="mt-benefits-section">
     <div class="mt-container">
@@ -355,69 +601,45 @@
         <span class="mt-section-badge">Documented Outcomes</span>
       </div>
       <h2 class="mt-section-heading">What Marma + Tuning Fork Therapy Addresses</h2>
-      <p class="mt-section-sub">Each of the following areas represents a documented mechanism of action, not a generic wellness claim. Session design targets the specific pathways relevant to your intake.</p>
+      <p class="mt-section-sub">Each area represents a documented mechanism of action — not a generic wellness claim. Session design targets the specific pathways relevant to your intake.</p>
 
-      <div class="mt-benefits-list">
+      <div class="mt-benefits-grid">
 
-        <!-- Benefit 1 — Normal -->
-        <div class="mt-benefit-row">
-          <div class="mt-benefit-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-          </div>
-          <div class="mt-benefit-content">
-            <span class="mt-benefit-title">Nervous System Downregulation</span>
-            <p class="mt-benefit-desc">Marma points along the neck, chest, and abdomen directly engage the vagus nerve and parasympathetic pathways. Tuning fork frequencies applied at these sites measurably increase heart rate variability — the physiological signature of parasympathetic dominance.</p>
+        <div class="mt-benefit-card">
+          <span class="mt-benefit-num" aria-hidden="true">01</span>
+          <div class="mt-benefit-card-body">
+            <h3 class="mt-benefit-card-title">Nervous System Downregulation</h3>
+            <p class="mt-benefit-card-desc">Marma points along the neck, chest, and abdomen directly engage the vagus nerve and parasympathetic pathways. Tuning fork frequencies applied at these sites measurably increase heart rate variability — the physiological signature of parasympathetic dominance.</p>
+            <span class="mt-benefit-card-tag">Vagal tone · HRV · Parasympathetic activation</span>
           </div>
         </div>
 
-        <!-- Benefit 3 — Normal -->
-        <div class="mt-benefit-row">
-          <div class="mt-benefit-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 20V10"/>
-              <path d="M12 20V4"/>
-              <path d="M6 20v-6"/>
-            </svg>
-          </div>
-          <div class="mt-benefit-content">
-            <span class="mt-benefit-title">Chronic Pain and Musculoskeletal Tension</span>
-            <p class="mt-benefit-desc">Marma points at joint confluences — wrist, knee, shoulder, hip — map to sites of neurovascular concentration. 128 Hz activates mechanoreceptors that compete with nociceptive signals in the spinal cord, reducing pain intensity at the site and through referred pathways without masking the underlying signal.</p>
+        <div class="mt-benefit-card">
+          <span class="mt-benefit-num" aria-hidden="true">02</span>
+          <div class="mt-benefit-card-body">
+            <h3 class="mt-benefit-card-title">Chronic Pain &amp; Musculoskeletal Tension</h3>
+            <p class="mt-benefit-card-desc">Marma points at joint confluences map to sites of neurovascular concentration. 128 Hz activates mechanoreceptors that compete with nociceptive signals in the spinal cord, reducing pain intensity without masking the underlying signal.</p>
+            <span class="mt-benefit-card-tag">Gate control · 128 Hz · Neurovascular pathways</span>
           </div>
         </div>
 
-        <!-- Benefit 4 — Reverse -->
-        <div class="mt-benefit-row mt-benefit-row--reverse">
-          <div class="mt-benefit-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <div class="mt-benefit-content">
-            <span class="mt-benefit-title">Sleep Quality and Recovery</span>
-            <p class="mt-benefit-desc">Sleep disruption is frequently downstream of autonomic dysregulation. Grounding marma points such as Talhridaya combined with lower-frequency tuning fork application support the shift into parasympathetic dominance that precedes restorative sleep. Clinical fibromyalgia studies documented large improvements in sleep quality alongside pain reduction.</p>
+        <div class="mt-benefit-card">
+          <span class="mt-benefit-num" aria-hidden="true">03</span>
+          <div class="mt-benefit-card-body">
+            <h3 class="mt-benefit-card-title">Sleep Quality &amp; Recovery</h3>
+            <p class="mt-benefit-card-desc">Sleep disruption is frequently downstream of autonomic dysregulation. Grounding marma points such as Talhridaya combined with lower-frequency tuning forks support the parasympathetic shift that precedes restorative sleep, with documented large improvements in clinical fibromyalgia studies.</p>
+            <span class="mt-benefit-card-tag">Autonomic balance · Sleep architecture · Cortisol regulation</span>
           </div>
         </div>
 
-        <!-- Benefit 7 — Normal -->
-        <div class="mt-benefit-row">
-          <div class="mt-benefit-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/>
-              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
-          </div>
-          <div class="mt-benefit-content">
-            <span class="mt-benefit-title">Digestive and Visceral Function</span>
-            <p class="mt-benefit-desc">The enteric nervous system is directly regulated by vagal tone. Abdominal marma points, particularly Nabhi, map to the root of digestive function. Mechanical and vibrational stimulation supports parasympathetic dominance in the gut — improving motility and addressing stress-driven dysfunction at its autonomic root.</p>
+        <div class="mt-benefit-card">
+          <span class="mt-benefit-num" aria-hidden="true">04</span>
+          <div class="mt-benefit-card-body">
+            <h3 class="mt-benefit-card-title">Digestive &amp; Visceral Function</h3>
+            <p class="mt-benefit-card-desc">The enteric nervous system is directly regulated by vagal tone. Abdominal marma points — particularly Nabhi — map to the root of digestive function. Vibrational stimulation supports parasympathetic dominance in the gut, improving motility and addressing stress-driven dysfunction at its autonomic root.</p>
+            <span class="mt-benefit-card-tag">Enteric nervous system · Nabhi point · Gut motility</span>
           </div>
         </div>
-
 
       </div>
     </div>

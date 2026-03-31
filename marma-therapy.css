@@ -135,45 +135,59 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 48px;
 }
 
-/* Hero dual-image — mask-position slide reveal (matches design.md §5.10) */
-/* NOTE: border-radius + box-shadow retained for photographic JPEG hero */
-.mt-hero-image-wrapper {
+/* Hero canvas — marma point animation */
+.mt-hero-canvas-wrapper {
   position: relative;
-  /* NO max-width — .mt-container (1300px) acts as natural constraint per design.md */
   margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(196, 255, 73, 0.1);
+  line-height: 0; /* remove inline-block gap */
 }
 
-.mt-hero-image-wrapper .mt-hero-image-bw {
-  width: 100%;
+.mt-marma-canvas {
   display: block;
-  filter: grayscale(100%);
-  /* NO border-radius — wrapper overflow:hidden handles clipping */
+  width: 100%;
+  height: auto;
 }
 
-.mt-hero-image-wrapper .mt-hero-image-color {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  /* NO border-radius — wrapper overflow:hidden handles clipping */
-  -webkit-mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
-  mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
-  -webkit-mask-size: 200% 100%;
-  mask-size: 200% 100%;
-  -webkit-mask-position: -100% 0;
-  mask-position: -100% 0;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  transition: mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1),
-              -webkit-mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+/* ── SVG Marma Point Animations ── */
+.marma-figure path,
+.marma-figure ellipse,
+.marma-figure line {
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.mt-hero-image-wrapper:hover .mt-hero-image-color {
-  -webkit-mask-position: 0 0;
-  mask-position: 0 0;
+.mp {
+  fill: rgba(196, 255, 73, 0.85);
+  animation: marma-pulse 3s ease-in-out infinite;
+}
+
+.mp-head   { animation-duration: 2.8s; }
+.mp-neck   { animation-duration: 3.1s; }
+.mp-chest  { animation-duration: 3.4s; }
+.mp-abdomen{ animation-duration: 3.2s; }
+.mp-hip    { animation-duration: 2.9s; }
+.mp-leg    { animation-duration: 3.6s; }
+.mp-knee   { animation-duration: 2.7s; }
+.mp-foot   { animation-duration: 3.8s; }
+.mp-arm    { animation-duration: 3.0s; }
+
+@keyframes marma-pulse {
+  0%, 100% {
+    opacity: 0.55;
+    fill: rgba(196, 255, 73, 0.75);
+  }
+  50% {
+    opacity: 1;
+    fill: rgba(220, 255, 120, 1);
+  }
+}
+
+.marma-particles circle {
+  opacity: 0.85;
 }
 
 /* ════════════════════════════════════════════════════════
@@ -512,75 +526,92 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ────────────────────────────────────────────
-   SECTION 6: BENEFITS — alternating icon rows
+   SECTION 6: BENEFITS — 2×2 numbered card grid
    ──────────────────────────────────────────── */
 .mt-benefits-section {
   padding: 48px 0;
 }
 
-.mt-benefits-list {
-  max-width: 900px;
-  margin: 48px auto 0 auto;
+.mt-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
 }
 
-.mt-benefit-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 28px;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+.mt-benefit-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 2px solid var(--lime-green);
+  border-radius: 16px;
+  padding: 32px 28px 24px 28px;
+  overflow: hidden;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-.mt-benefit-row:first-child {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+.mt-benefit-card:hover {
+  background: rgba(196, 255, 73, 0.04);
+  transform: translateY(-3px);
 }
 
-.mt-benefit-row--reverse {
-  flex-direction: row-reverse;
-}
-
-.mt-benefit-icon-wrap {
-  flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  background: rgba(196, 255, 73, 0.1);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--lime-green);
-  margin-top: 4px;
-}
-
-.mt-benefit-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.mt-benefit-title {
+.mt-benefit-num {
+  position: absolute;
+  top: 12px;
+  right: 20px;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.12rem;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(196, 255, 73, 0.07);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+
+.mt-benefit-card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.mt-benefit-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.08rem;
   font-weight: 700;
-  color: var(--lime-green);
-  margin-bottom: 8px;
-  display: block;
+  color: var(--white);
+  margin: 0 0 12px 0;
   line-height: 1.3;
 }
 
-.mt-benefit-desc {
+.mt-benefit-card-desc {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.97rem;
+  font-size: 0.93rem;
   font-weight: 400;
   color: var(--white-800);
-  line-height: 1.72;
-  margin: 0;
+  line-height: 1.7;
+  margin: 0 0 18px 0;
+}
+
+.mt-benefit-card-tag {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--lime-green);
+  opacity: 0.8;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(196, 255, 73, 0.12);
+  padding-top: 12px;
 }
 
 @media (max-width: 768px) {
-  .mt-benefit-row,
-  .mt-benefit-row--reverse {
-    flex-direction: column;
-    gap: 14px;
+  .mt-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mt-benefit-num {
+    font-size: 3.5rem;
   }
 }
 
@@ -806,12 +837,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ────────────────────────────────────────────
-   HERO IMAGE WRAPPER — mobile max-height
+   HERO CANVAS WRAPPER — mobile
    ──────────────────────────────────────────── */
 @media (max-width: 480px) {
-  .mt-hero-image-wrapper {
-    max-height: 400px;
-    overflow: hidden;
+  .mt-hero-canvas-wrapper {
+    border-radius: 14px;
   }
 }
 
