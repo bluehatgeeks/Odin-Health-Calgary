@@ -139,10 +139,6 @@ h1, h2, h3, h4, h5, h6 {
 .mt-hero-canvas-wrapper {
   position: relative;
   margin: 0 auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(196, 255, 73, 0.1);
   line-height: 0; /* remove inline-block gap */
 }
 
@@ -839,11 +835,6 @@ h1, h2, h3, h4, h5, h6 {
 /* ────────────────────────────────────────────
    HERO CANVAS WRAPPER — mobile
    ──────────────────────────────────────────── */
-@media (max-width: 480px) {
-  .mt-hero-canvas-wrapper {
-    border-radius: 14px;
-  }
-}
 
 /* ────────────────────────────────────────────
    CREDIBILITY STRIP
