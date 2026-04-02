@@ -1,6 +1,11 @@
 /* ── Odin Lab — Nutritional Supplementation & Herbology Page Styles ── */
 /* Page-scoped styles only. Prefix: .ns-  No global overrides. v=1 */
 
+/* Hero slogan — scoped override using design token (not hardcoded hex) */
+.ns-hero .hero-slogan {
+  color: var(--lime-green) !important;
+}
+
 /* Page-level base */
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
