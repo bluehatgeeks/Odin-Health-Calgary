@@ -86,11 +86,11 @@ body {
 
 .ns-hero-h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   color: var(--white);
   line-height: 1.15;
-  max-width: 820px;
+  max-width: 1050px;
   margin: 0 auto 20px auto;
 }
 
@@ -210,6 +210,63 @@ body {
   .ns-stats-strip { padding: 36px 16px; }
   .ns-stat { padding: 0 16px; }
   .ns-stat__value { font-size: clamp(1.4rem, 6vw, 2rem); }
+}
+
+/* ════════════════════════════════════════════
+   ARSENAL GRID
+   ════════════════════════════════════════════ */
+.ns-arsenal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.ns-arsenal-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(196, 255, 73, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ns-arsenal-card:hover {
+  border-color: var(--lime-green);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(196, 255, 73, 0.1);
+}
+
+.ns-arsenal-card h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--lime-green);
+  font-size: 1.25rem;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.ns-arsenal-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ns-arsenal-pill {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--white);
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+
+.ns-arsenal-pill:hover {
+  background: var(--lime-green);
+  color: var(--dark-green);
+  border-color: var(--lime-green);
 }
 
 /* ════════════════════════════════════════════
