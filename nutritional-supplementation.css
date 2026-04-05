@@ -1,9 +1,19 @@
 /* ── Odin Lab — Nutritional Supplementation & Herbology Page Styles ── */
-/* Page-scoped styles only. Prefix: .ns-  No global overrides. v=1 */
+/* Page-scoped styles only. Prefix: .ns-  No global overrides. v=8 */
 
-/* Hero slogan — scoped override using design token (not hardcoded hex) */
+/* Hero slogan — design tokens; readable contrast on dark hero */
 .ns-hero .hero-slogan {
   color: var(--lime-green) !important;
+  opacity: 1 !important;
+  font-size: clamp(1.1rem, 2.5vw, 1.85rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  margin: 28px 0 18px 0 !important;
+  text-align: center !important;
+  max-width: 100% !important;
+  white-space: normal !important;
 }
 
 /* Page-level base */
@@ -66,15 +76,23 @@ body {
 
 .ns-section-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
+}
+
+.ns-citations-section .ns-section-header {
+  margin-bottom: 0;
+}
+
+.ns-citations-section .ns-section-sub {
+  max-width: 720px;
 }
 
 /* ════════════════════════════════════════════
    SECTION 1 — HERO
    ════════════════════════════════════════════ */
 .ns-hero {
-  padding-top: 30px;
-  padding-bottom: 60px;
+  padding-top: 28px;
+  padding-bottom: 64px;
   text-align: center;
 }
 
@@ -90,8 +108,8 @@ body {
   font-weight: 700;
   color: var(--white);
   line-height: 1.15;
-  max-width: 1050px;
-  margin: 0 auto 20px auto;
+  max-width: 980px;
+  margin: 0 auto 24px auto;
 }
 
 .ns-hero-sub {
@@ -99,13 +117,13 @@ body {
   font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 400;
   color: var(--white-800);
-  line-height: 1.7;
-  max-width: 680px;
-  margin: 0 auto 32px auto;
+  line-height: 1.72;
+  max-width: 640px;
+  margin: 0 auto 28px auto;
 }
 
 .ns-hero-cta {
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
 
 /* Hero dual-layer image — mask-position slide reveal (matches design.md section 5.10) */
@@ -156,19 +174,21 @@ body {
   background: rgba(196, 255, 73, 0.06);
   border-top: 1px solid rgba(196, 255, 73, 0.18);
   border-bottom: 1px solid rgba(196, 255, 73, 0.18);
-  padding: 52px 20px;
+  padding: 56px 20px 48px;
 }
 
 .ns-stats-inner {
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+  gap: 0 16px;
 }
 
 .ns-stat {
   text-align: center;
-  padding: 0 32px;
+  padding: 0 20px;
   position: relative;
 }
 
@@ -182,34 +202,55 @@ body {
 .ns-stat__value {
   display: block;
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
   font-weight: 700;
   color: var(--lime-green);
-  line-height: 1.1;
-  margin-bottom: 8px;
+  line-height: 1.08;
+  margin-bottom: 12px;
 }
 
 .ns-stat__label {
   display: block;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 500;
   color: var(--white-800);
-  line-height: 1.4;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 900px) {
-  .ns-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
+  .ns-stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 12px;
+  }
   .ns-stat + .ns-stat::before { display: none; }
   .ns-stat:nth-child(odd) { border-right: 1px solid rgba(196,255,73,0.12); }
-  .ns-stat:nth-child(n+3) { border-top: 1px solid rgba(196,255,73,0.12); padding-top: 40px; }
+  .ns-stat:nth-child(n+3) {
+    border-top: 1px solid rgba(196,255,73,0.12);
+    padding-top: 36px;
+    margin-top: 4px;
+  }
 }
 
 @media (max-width: 480px) {
   .ns-stats-strip { padding: 36px 16px; }
   .ns-stat { padding: 0 16px; }
   .ns-stat__value { font-size: clamp(1.4rem, 6vw, 2rem); }
+}
+
+.ns-stats-footnote {
+  color: var(--white-500);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 36px auto 0;
+  padding: 24px 20px 0;
+  text-align: center;
+  font-weight: 400;
+  border-top: 1px solid rgba(196, 255, 73, 0.14);
 }
 
 /* ════════════════════════════════════════════════════════
@@ -219,14 +260,14 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2px;
-  margin: 32px 0 20px 0;
+  margin: 28px 0 0 0;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(196, 255, 73, 0.2);
 }
 
 .ns-contrast-col {
-  padding: 32px 28px;
+  padding: 34px 30px 32px;
 }
 
 .ns-contrast-col--random {
@@ -264,11 +305,11 @@ body {
 
 .ns-contrast-list {
   list-style: none;
-  margin: 0 0 20px 0;
+  margin: 0 0 22px 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .ns-contrast-list li {
@@ -330,8 +371,8 @@ body {
   text-transform: uppercase;
   color: var(--lime-green);
   text-align: center;
-  margin: 28px 0 4px 0;
-  opacity: 0.8;
+  margin: 40px 0 6px 0;
+  opacity: 0.85;
 }
 
 @media (max-width: 768px) {
@@ -354,16 +395,17 @@ body {
    ════════════════════════════════════════════ */
 .ns-arsenal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  margin-top: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 26px;
 }
 
 .ns-arsenal-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(196, 255, 73, 0.2);
   border-radius: 16px;
-  padding: 30px;
+  padding: 26px 26px 28px;
+  min-height: 0;
   transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -371,16 +413,26 @@ body {
 
 .ns-arsenal-card:hover {
   border-color: var(--lime-green);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(196, 255, 73, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(196, 255, 73, 0.12);
 }
 
 .ns-arsenal-card h3 {
   font-family: 'Poppins', sans-serif;
   color: var(--lime-green);
-  font-size: 1.25rem;
-  margin: 0 0 20px 0;
+  font-size: 1.12rem;
+  margin: 0 0 10px 0;
   font-weight: 600;
+  line-height: 1.25;
+}
+
+.ns-arsenal-card .ns-pillar-copy {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--white-800);
+  line-height: 1.62;
+  margin: 0;
 }
 
 .ns-arsenal-pills {
@@ -410,7 +462,7 @@ body {
    SECTION 2 — COMPOUND BADGES STRIP
    ════════════════════════════════════════════ */
 .ns-badges-section {
-  padding: 48px 0;
+  padding: 56px 0 60px;
   background: rgba(196, 255, 73, 0.04);
   border-top: 1px solid rgba(196, 255, 73, 0.12);
   border-bottom: 1px solid rgba(196, 255, 73, 0.12);
@@ -430,7 +482,7 @@ body {
   text-transform: uppercase;
   color: var(--lime-green);
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   display: block;
 }
 
@@ -678,15 +730,15 @@ body {
 .ns-section-image-wrap {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 20px 60px;
+  padding: 20px 20px 56px;
 }
 
 .ns-section-image-inner {
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.03);
-  padding: 10px;
+  padding: 12px;
 }
 
 .ns-section-image-inner img {
@@ -701,21 +753,21 @@ body {
    SECTION 6 — 3-PHASE PROTOCOL
    ════════════════════════════════════════════ */
 .ns-protocol-section {
-  padding: 60px 0;
+  padding: 64px 0 60px;
 }
 
 .ns-phases-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  margin-top: 48px;
+  margin-top: 40px;
   border: 1px solid rgba(196, 255, 73, 0.15);
   border-radius: 20px;
   overflow: hidden;
 }
 
 .ns-phase-panel {
-  padding: 40px 32px;
+  padding: 38px 28px 40px;
   background: rgba(255, 255, 255, 0.03);
   position: relative;
   transition: background 0.2s ease;
@@ -890,7 +942,7 @@ body {
    SECTION 8 — CITATIONS
    ════════════════════════════════════════════ */
 .ns-citations-section {
-  padding: 60px 0;
+  padding: 56px 0 64px;
 }
 
 .ns-citations-grid {
@@ -981,14 +1033,14 @@ body {
    SECTION 9 — BOOKING CTA
    ════════════════════════════════════════════ */
 .ns-cta-section {
-  padding: 80px 0;
+  padding: 72px 0 88px;
   text-align: center;
 }
 
 .ns-cta-inner {
-  max-width: 700px;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .ns-cta-label {
@@ -1004,11 +1056,11 @@ body {
 
 .ns-cta-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.75rem, 3.8vw, 2.5rem);
   font-weight: 700;
   color: var(--lime-green);
   line-height: 1.2;
-  margin: 0 0 20px 0;
+  margin: 0 0 18px 0;
 }
 
 .ns-cta-sub {
@@ -1016,8 +1068,8 @@ body {
   font-size: 1.05rem;
   font-weight: 400;
   color: var(--white-800);
-  line-height: 1.7;
-  margin: 0 0 36px 0;
+  line-height: 1.68;
+  margin: 0 0 32px 0;
 }
 
 .ns-cta-btn-wrap {
@@ -1028,9 +1080,16 @@ body {
 /* ════════════════════════════════════════════
    RESPONSIVE OVERRIDES
    ════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .ns-arsenal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .ns-hero {
-    padding-bottom: 48px;
+    padding-bottom: 52px;
   }
 
   .ns-section {
@@ -1045,11 +1104,29 @@ body {
     padding: 48px 0;
   }
 
+  .ns-citations-section {
+    padding-bottom: 56px;
+  }
+
   .ns-cta-section {
-    padding: 60px 0;
+    padding: 56px 0 72px;
   }
 
   .ns-badges-section {
-    padding: 36px 0;
+    padding: 44px 0 48px;
+  }
+
+  .ns-arsenal-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 22px;
+  }
+
+  .ns-stats-strip {
+    padding: 44px 16px 40px;
+  }
+
+  .ns-section-image-wrap {
+    padding: 12px 16px 44px;
   }
 }
