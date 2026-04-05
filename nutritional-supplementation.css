@@ -212,6 +212,143 @@ body {
   .ns-stat__value { font-size: clamp(1.4rem, 6vw, 2rem); }
 }
 
+/* ════════════════════════════════════════════════════════
+   RANDOM VS. PRECISION CONTRAST BLOCK
+   ════════════════════════════════════════════════════════ */
+.ns-contrast-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 32px 0 20px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(196, 255, 73, 0.2);
+}
+
+.ns-contrast-col {
+  padding: 32px 28px;
+}
+
+.ns-contrast-col--random {
+  background: rgba(255, 255, 255, 0.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.ns-contrast-col--precision {
+  background: rgba(196, 255, 73, 0.05);
+}
+
+.ns-contrast-tag {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.ns-contrast-col--random .ns-contrast-tag {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--white-500);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ns-contrast-col--precision .ns-contrast-tag {
+  background: rgba(196, 255, 73, 0.15);
+  color: var(--lime-green);
+  border: 1px solid rgba(196, 255, 73, 0.35);
+}
+
+.ns-contrast-list {
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ns-contrast-list li {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-left: 18px;
+  position: relative;
+}
+
+.ns-contrast-col--random .ns-contrast-list li {
+  color: var(--white-500);
+}
+
+.ns-contrast-col--random .ns-contrast-list li::before {
+  content: '×';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 100, 100, 0.6);
+  font-weight: 700;
+}
+
+.ns-contrast-col--precision .ns-contrast-list li {
+  color: var(--white-800);
+}
+
+.ns-contrast-col--precision .ns-contrast-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--lime-green);
+  font-weight: 700;
+}
+
+.ns-contrast-verdict {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-style: italic;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.ns-contrast-col--random .ns-contrast-verdict {
+  color: var(--white-500);
+}
+
+.ns-contrast-col--precision .ns-contrast-verdict {
+  color: var(--lime-green);
+}
+
+.ns-contrast-divider-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lime-green);
+  text-align: center;
+  margin: 28px 0 4px 0;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .ns-contrast-block {
+    grid-template-columns: 1fr;
+  }
+
+  .ns-contrast-col--random {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .ns-contrast-col {
+    padding: 24px 20px;
+  }
+}
+
 /* ════════════════════════════════════════════
    ARSENAL GRID
    ════════════════════════════════════════════ */
