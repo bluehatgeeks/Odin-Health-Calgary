@@ -458,7 +458,7 @@ GHL serves pages from `highlevel-backend.appspot.com` internally. Any relative p
 | `odin-shared.css` | `?v=6` | — |
 | `functional-health.css` | `?v=3` | 2026-03-25 |
 | `ayurveda.css` | `?v=4` | — |
-| `nutritional-supplementation.css` | `?v=8` | 2026-04-05 |
+| `nutritional-supplementation.css` | `?v=9` | 2026-04-07 |
 
 **Nutritional lander:** Stats-strip disclaimer `.ns-stats-footnote`; pillar blurbs under contrast block use `.ns-pillar-copy` inside `.ns-arsenal-card` (no product-name pills).
 
