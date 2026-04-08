@@ -137,6 +137,8 @@ Loaded dynamically via `odinnav.html` from `raw.githubusercontent.com` with `cac
 
 Loaded dynamically via `odinfooter.html` from `raw.githubusercontent.com` with `cache: 'no-store'`.
 
+Append `?v=N` to the footer URL and **increment N whenever `odinfooter.html` changes** (GitHub Raw and edge caches may otherwise serve an older file for several minutes even with `no-store`).
+
 **Do not recreate footer inline.** Always use the shared component loader pattern.
 
 ---
@@ -383,11 +385,11 @@ Full-width centered block with subtle lime-green border top/bottom. Contains ita
 | Shared CSS | `https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=N` |
 | Page CSS | `https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/{page}.css?v=N` |
 | Nav component | `https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html` |
-| Footer component | `https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html` |
+| Footer component | `https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html?v=N` (increment `N` on footer edits) |
 | Media / Images | `https://assets.cdn.filesafe.space/Q6uTvwNHOg3F0JyLXiUV/media/` |
 | Booking system | `https://api.leadconnectorhq.com/widget/bookings/odin-labs-*` |
 
-Nav and footer fetches use `cache: 'no-store'` for immediate CDN propagation.
+Nav and footer fetches use `cache: 'no-store'`. Still increment **`odinfooter.html?v=N`** on every footer edit so clients bypass stale cached responses.
 
 Version query strings (`?v=N`) must be incremented when CSS files are updated.
 

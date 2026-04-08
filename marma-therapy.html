@@ -54,7 +54,7 @@
     var footerRoot = document.createElement('div');
     footerRoot.id = 'odin-footer-root';
     document.body.appendChild(footerRoot);
-    fetchWithTimeout('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', 8000)
+    fetchWithTimeout('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html?v=2', 8000)
       .then(function (r) { return r.text(); })
       .then(function (html) {
         footerRoot.innerHTML = html;

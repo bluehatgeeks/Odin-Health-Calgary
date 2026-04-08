@@ -35,7 +35,7 @@
     footerRoot.id = 'odin-footer-root';
     document.body.appendChild(footerRoot);
 
-    fetch(CDN + '/odinfooter.html')
+    fetch(CDN + '/odinfooter.html?v=2')
       .then(function (r) { return r.text(); })
       .then(function (html) {
         footerRoot.innerHTML = html;

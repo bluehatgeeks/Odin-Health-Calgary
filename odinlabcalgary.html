@@ -61,7 +61,7 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
     var footerRoot = document.createElement('div');
     footerRoot.id = 'odin-footer-root';
     document.body.appendChild(footerRoot);
-    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html', { cache: 'no-store' })
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html?v=2', { cache: 'no-store' })
       .then(function (r) { return r.text(); })
       .then(function (html) { footerRoot.innerHTML = html; execScripts(footerRoot); })
       .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
