@@ -275,4 +275,25 @@
     if (e.key === 'Escape') { closeMega(); trigger.focus(); }
   });
 })();
+
+/* ── About Us: same-document href when main lander is current page ──
+   Hardcoded odinhealthlab.ca links skip odinlabcalgary in-page hash handler on
+   localhost or embedded funnels. If #about-us-section exists, point nav to
+   current origin + path + hash so reveal/scroll JS runs. Therapy pages omit
+   that node, so links stay absolute to production home. */
+(function () {
+  function normalizeAboutUsNavHrefs() {
+    if (!document.getElementById('about-us-section')) return;
+    var root = document.getElementById('odin-nav-root');
+    if (!root) return;
+    var base = window.location.origin + (window.location.pathname || '/') + (window.location.search || '');
+    root.querySelectorAll('a[href*="#about-us-section"]').forEach(function (a) {
+      a.setAttribute('href', base + '#about-us-section');
+    });
+  }
+  normalizeAboutUsNavHrefs();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', normalizeAboutUsNavHrefs);
+  }
+})();
 </script>
