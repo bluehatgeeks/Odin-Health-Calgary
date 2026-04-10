@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Metabolic Optimisation in Calgary | Odin Lab</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odinlabcalgary.css?v=3">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odinlabcalgary.css?v=4">
 <style>
 /* Inline override: prevents Chrome extensions from narrowing layout wrappers */
 body .container { max-width: 1300px !important; margin: 0 auto !important; padding: 0 20px !important; }
@@ -544,25 +544,36 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         return (hostname || '').replace(/^www\./i, '').toLowerCase();
     }
     function isCurrentPageHome() {
-        var p = (window.location.pathname || '/').replace(/\/$/, '') || '/';
-        return p === '/' || /\/index\.html?$/i.test(window.location.pathname) ||
-            /odinlabcalgary\.html$/i.test(window.location.pathname);
+        if (aboutSection) return true;
+        var pathname = window.location.pathname || '/';
+        var p = pathname.replace(/\/$/, '') || '/';
+        return p === '/' || /\/index\.html?$/i.test(pathname) ||
+            /\/odinlabcalgary(\.html)?$/i.test(pathname);
     }
     function linkTargetsHomeAbout(anchor) {
         var href = anchor.getAttribute('href');
         if (!href || href.indexOf('#about-us-section') === -1) return false;
-        var u = new URL(href, window.location.href);
+        var u;
+        try {
+            u = new URL(href, window.location.href);
+        } catch (err) {
+            return false;
+        }
         if (u.hash !== '#about-us-section') return false;
         if (normalizedHost(u.hostname) !== normalizedHost(window.location.hostname)) return false;
         var linkPath = (u.pathname || '/').replace(/\/$/, '') || '/';
+        var curPath = (window.location.pathname || '/').replace(/\/$/, '') || '/';
+        if (linkPath === curPath) return true;
         return linkPath === '/' || /\/index\.html?$/i.test(u.pathname);
     }
-    function scrollAboutSectionIntoView(behavior) {
+    function scrollAboutSectionIntoView(behavior, alignToFounder) {
         if (!aboutSection) return;
+        var founderCard = aboutSection.querySelector('.about-us-founder-card');
+        var target = (alignToFounder && founderCard) ? founderCard : aboutSection;
         var b = behavior === 'smooth' ? 'smooth' : 'auto';
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
-                aboutSection.scrollIntoView({ behavior: b, block: 'start' });
+                target.scrollIntoView({ behavior: b, block: 'start' });
             });
         });
     }
@@ -570,14 +581,14 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         if (!aboutSection) return;
         aboutSection.classList.remove('about-us-section--hidden');
         closeMobileNavIfOpen();
-        scrollAboutSectionIntoView('smooth');
+        scrollAboutSectionIntoView('smooth', true);
     }
     function toggleAboutUs() {
         if (!aboutSection) return;
         var isHidden = aboutSection.classList.contains('about-us-section--hidden');
         if (isHidden) {
             aboutSection.classList.remove('about-us-section--hidden');
-            scrollAboutSectionIntoView('smooth');
+            scrollAboutSectionIntoView('smooth', false);
         } else {
             aboutSection.classList.add('about-us-section--hidden');
         }
@@ -586,10 +597,10 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
     function revealAboutFromHash() {
         if (!aboutSection || window.location.hash !== '#about-us-section') return;
         aboutSection.classList.remove('about-us-section--hidden');
-        scrollAboutSectionIntoView('auto');
+        scrollAboutSectionIntoView('auto', true);
     }
     document.body.addEventListener('click', function(e) {
-        var trigger = e.target.closest && e.target.closest('a[href$="#about-us-section"]');
+        var trigger = e.target.closest && e.target.closest('a[href*="#about-us-section"]');
         if (!trigger) return;
         if (!aboutSection || !linkTargetsHomeAbout(trigger) || !isCurrentPageHome()) return;
         e.preventDefault();
