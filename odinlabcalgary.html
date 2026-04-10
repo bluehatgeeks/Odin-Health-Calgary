@@ -540,6 +540,9 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
             document.body.style.overflow = '';
         }
     }
+    function normalizedHost(hostname) {
+        return (hostname || '').replace(/^www\./i, '').toLowerCase();
+    }
     function isCurrentPageHome() {
         var p = (window.location.pathname || '/').replace(/\/$/, '') || '/';
         return p === '/' || /\/index\.html?$/i.test(window.location.pathname) ||
@@ -549,22 +552,32 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         var href = anchor.getAttribute('href');
         if (!href || href.indexOf('#about-us-section') === -1) return false;
         var u = new URL(href, window.location.href);
-        if (u.hash !== '#about-us-section' || u.origin !== window.location.origin) return false;
+        if (u.hash !== '#about-us-section') return false;
+        if (normalizedHost(u.hostname) !== normalizedHost(window.location.hostname)) return false;
         var linkPath = (u.pathname || '/').replace(/\/$/, '') || '/';
         return linkPath === '/' || /\/index\.html?$/i.test(u.pathname);
+    }
+    function scrollAboutSectionIntoView(behavior) {
+        if (!aboutSection) return;
+        var b = behavior === 'smooth' ? 'smooth' : 'auto';
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                aboutSection.scrollIntoView({ behavior: b, block: 'start' });
+            });
+        });
     }
     function openAboutUs() {
         if (!aboutSection) return;
         aboutSection.classList.remove('about-us-section--hidden');
-        aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         closeMobileNavIfOpen();
+        scrollAboutSectionIntoView('smooth');
     }
     function toggleAboutUs() {
         if (!aboutSection) return;
         var isHidden = aboutSection.classList.contains('about-us-section--hidden');
         if (isHidden) {
             aboutSection.classList.remove('about-us-section--hidden');
-            aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            scrollAboutSectionIntoView('smooth');
         } else {
             aboutSection.classList.add('about-us-section--hidden');
         }
@@ -573,9 +586,7 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
     function revealAboutFromHash() {
         if (!aboutSection || window.location.hash !== '#about-us-section') return;
         aboutSection.classList.remove('about-us-section--hidden');
-        requestAnimationFrame(function() {
-            aboutSection.scrollIntoView({ behavior: 'auto', block: 'start' });
-        });
+        scrollAboutSectionIntoView('auto');
     }
     document.body.addEventListener('click', function(e) {
         var trigger = e.target.closest && e.target.closest('a[href$="#about-us-section"]');
