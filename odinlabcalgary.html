@@ -525,7 +525,9 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
 </div>
 <script>
 (function() {
-    var aboutSection = document.getElementById('about-us-section');
+    function getAboutSection() {
+        return document.getElementById('about-us-section');
+    }
     function closeMobileNavIfOpen() {
         var nav = document.getElementById('header-nav');
         if (nav && nav.classList.contains('is-open')) {
@@ -544,7 +546,7 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         return (hostname || '').replace(/^www\./i, '').toLowerCase();
     }
     function isCurrentPageHome() {
-        if (aboutSection) return true;
+        if (getAboutSection()) return true;
         var pathname = window.location.pathname || '/';
         var p = pathname.replace(/\/$/, '') || '/';
         return p === '/' || /\/index\.html?$/i.test(pathname) ||
@@ -566,43 +568,105 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         if (linkPath === curPath) return true;
         return linkPath === '/' || /\/index\.html?$/i.test(u.pathname);
     }
+    /**
+     * Funnel hosts (e.g. Go High Level) often use overflow:auto wrappers; the window
+     * does not scroll. Walk ancestors and adjust scrollTop, then fall back to window.
+     */
+    function scrollPastNestedScrollers(target, headerPad, useSmoothWindow) {
+        if (!target) return;
+        var pad = headerPad != null ? headerPad : 100;
+        var winBehavior = useSmoothWindow ? 'smooth' : 'auto';
+        var iter;
+        for (iter = 0; iter < 12; iter++) {
+            var rect = target.getBoundingClientRect();
+            if (rect.top >= pad - 8 && rect.width > 0 && rect.height > 0) {
+                return;
+            }
+            var parent = target.parentElement;
+            var scrolledElement = false;
+            while (parent && parent !== document.documentElement) {
+                var cs = window.getComputedStyle(parent);
+                var oy = cs.overflowY;
+                var scrollable = (oy === 'auto' || oy === 'scroll' || oy === 'overlay') &&
+                    parent.scrollHeight > parent.clientHeight + 2;
+                if (scrollable) {
+                    var pr = parent.getBoundingClientRect();
+                    var tr = target.getBoundingClientRect();
+                    var delta = tr.top - pr.top - pad;
+                    if (Math.abs(delta) > 2) {
+                        var next = parent.scrollTop + delta;
+                        var max = Math.max(0, parent.scrollHeight - parent.clientHeight);
+                        parent.scrollTop = Math.max(0, Math.min(next, max));
+                    }
+                    scrolledElement = true;
+                    break;
+                }
+                parent = parent.parentElement;
+            }
+            if (!scrolledElement) {
+                var tr2 = target.getBoundingClientRect();
+                var y = (window.scrollY || window.pageYOffset || 0) + tr2.top - pad;
+                window.scrollTo({ top: Math.max(0, y), behavior: winBehavior });
+                var se = document.scrollingElement;
+                if (se && se !== document.documentElement && se.scrollHeight > se.clientHeight + 2) {
+                    var tr3 = target.getBoundingClientRect();
+                    se.scrollTop += tr3.top - pad;
+                }
+                break;
+            }
+        }
+    }
     function scrollAboutSectionIntoView(behavior, alignToFounder) {
-        if (!aboutSection) return;
-        var founderCard = aboutSection.querySelector('.about-us-founder-card');
-        var target = (alignToFounder && founderCard) ? founderCard : aboutSection;
-        var b = behavior === 'smooth' ? 'smooth' : 'auto';
+        var section = getAboutSection();
+        if (!section) return;
+        var founderCard = section.querySelector('.about-us-founder-card');
+        var target = (alignToFounder && founderCard) ? founderCard : section;
+        var useSmooth = behavior === 'smooth';
+        function runScroll() {
+            var b = useSmooth ? 'smooth' : 'auto';
+            try {
+                target.scrollIntoView({ behavior: b, block: 'start', inline: 'nearest' });
+            } catch (err) { /* ignore */ }
+            scrollPastNestedScrollers(target, 100, useSmooth);
+        }
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
-                target.scrollIntoView({ behavior: b, block: 'start' });
+                runScroll();
+                setTimeout(function() {
+                    scrollPastNestedScrollers(target, 100, false);
+                }, useSmooth ? 280 : 80);
             });
         });
     }
     function openAboutUs() {
-        if (!aboutSection) return;
-        aboutSection.classList.remove('about-us-section--hidden');
+        var section = getAboutSection();
+        if (!section) return;
+        section.classList.remove('about-us-section--hidden');
         closeMobileNavIfOpen();
         scrollAboutSectionIntoView('smooth', true);
     }
     function toggleAboutUs() {
-        if (!aboutSection) return;
-        var isHidden = aboutSection.classList.contains('about-us-section--hidden');
+        var section = getAboutSection();
+        if (!section) return;
+        var isHidden = section.classList.contains('about-us-section--hidden');
         if (isHidden) {
-            aboutSection.classList.remove('about-us-section--hidden');
+            section.classList.remove('about-us-section--hidden');
             scrollAboutSectionIntoView('smooth', false);
         } else {
-            aboutSection.classList.add('about-us-section--hidden');
+            section.classList.add('about-us-section--hidden');
         }
         closeMobileNavIfOpen();
     }
     function revealAboutFromHash() {
-        if (!aboutSection || window.location.hash !== '#about-us-section') return;
-        aboutSection.classList.remove('about-us-section--hidden');
+        var section = getAboutSection();
+        if (!section || window.location.hash !== '#about-us-section') return;
+        section.classList.remove('about-us-section--hidden');
         scrollAboutSectionIntoView('auto', true);
     }
     document.body.addEventListener('click', function(e) {
         var trigger = e.target.closest && e.target.closest('a[href*="#about-us-section"]');
         if (!trigger) return;
-        if (!aboutSection || !linkTargetsHomeAbout(trigger) || !isCurrentPageHome()) return;
+        if (!getAboutSection() || !linkTargetsHomeAbout(trigger) || !isCurrentPageHome()) return;
         e.preventDefault();
         if (trigger.classList.contains('about-us-trigger')) {
             toggleAboutUs();

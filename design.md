@@ -128,7 +128,7 @@ Loaded dynamically via `odinnav.html` from `raw.githubusercontent.com` with `cac
 - **Mega menu** (`.mega-menu`): drops below header, `--dark-green` bg, lime border-top `2px rgba(196,255,73,0.25)`, animated opacity + translateY
   - `.mega-item`: `border-radius: 12px`, hover lifts `translateY(-2px)`, lime tint on hover
   - `.mega-item-icon`: 42×42px, lime tinted background, `border-radius: 10px`
-- **About Us (`#about-us-section`):** `odinnav.html` includes a small script that, when the current document contains `#about-us-section` (main lander only), rewrites those nav `href`s to `location.origin + pathname + search + #about-us-section` so the in-page reveal/scroll handler matches the host (localhost, www vs apex, embedded funnel paths). Pages without that section keep the canonical `https://odinhealthlab.ca/#about-us-section` link for a full navigation home.
+- **About Us (`#about-us-section`):** `odinnav.html` includes a small script that, when the current document contains `#about-us-section` (main lander only), rewrites those nav `href`s to `location.origin + pathname + search + #about-us-section` so the in-page reveal/scroll handler matches the host (localhost, www vs apex, embedded funnel paths). Pages without that section keep the canonical `https://odinhealthlab.ca/#about-us-section` link for a full navigation home. On the main lander, `odinlabcalgary.html` scroll logic walks `overflow:auto|scroll` ancestors (not only `window`) so embedded funnels (e.g. Go High Level) still scroll to the founder block after the section is revealed.
 
 **Do not recreate nav inline.** Always use the shared component loader pattern.
 
