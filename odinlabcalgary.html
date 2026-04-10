@@ -526,19 +526,11 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
 <script>
 (function() {
     var aboutSection = document.getElementById('about-us-section');
-    var aboutTriggers = document.querySelectorAll('a[href="#about-us-section"], .about-us-trigger');
-    function toggleAboutUs() {
-        if (!aboutSection) return;
-        var isHidden = aboutSection.classList.contains('about-us-section--hidden');
-        if (isHidden) {
-            aboutSection.classList.remove('about-us-section--hidden');
-            aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            aboutSection.classList.add('about-us-section--hidden');
-        }
+    function closeMobileNavIfOpen() {
         var nav = document.getElementById('header-nav');
         if (nav && nav.classList.contains('is-open')) {
-            document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+            var toggle = document.querySelector('.nav-toggle');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
             nav.classList.remove('is-open');
             var overlay = document.getElementById('nav-overlay');
             if (overlay) {
@@ -548,12 +540,65 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
             document.body.style.overflow = '';
         }
     }
-    aboutTriggers.forEach(function(trigger) {
-        trigger.addEventListener('click', function(e) {
-            e.preventDefault();
-            toggleAboutUs();
+    function isCurrentPageHome() {
+        var p = (window.location.pathname || '/').replace(/\/$/, '') || '/';
+        return p === '/' || /\/index\.html?$/i.test(window.location.pathname) ||
+            /odinlabcalgary\.html$/i.test(window.location.pathname);
+    }
+    function linkTargetsHomeAbout(anchor) {
+        var href = anchor.getAttribute('href');
+        if (!href || href.indexOf('#about-us-section') === -1) return false;
+        var u = new URL(href, window.location.href);
+        if (u.hash !== '#about-us-section' || u.origin !== window.location.origin) return false;
+        var linkPath = (u.pathname || '/').replace(/\/$/, '') || '/';
+        return linkPath === '/' || /\/index\.html?$/i.test(u.pathname);
+    }
+    function openAboutUs() {
+        if (!aboutSection) return;
+        aboutSection.classList.remove('about-us-section--hidden');
+        aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        closeMobileNavIfOpen();
+    }
+    function toggleAboutUs() {
+        if (!aboutSection) return;
+        var isHidden = aboutSection.classList.contains('about-us-section--hidden');
+        if (isHidden) {
+            aboutSection.classList.remove('about-us-section--hidden');
+            aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            aboutSection.classList.add('about-us-section--hidden');
+        }
+        closeMobileNavIfOpen();
+    }
+    function revealAboutFromHash() {
+        if (!aboutSection || window.location.hash !== '#about-us-section') return;
+        aboutSection.classList.remove('about-us-section--hidden');
+        requestAnimationFrame(function() {
+            aboutSection.scrollIntoView({ behavior: 'auto', block: 'start' });
         });
-    });
+    }
+    document.body.addEventListener('click', function(e) {
+        var trigger = e.target.closest && e.target.closest('a[href$="#about-us-section"]');
+        if (!trigger) return;
+        if (!aboutSection || !linkTargetsHomeAbout(trigger) || !isCurrentPageHome()) return;
+        e.preventDefault();
+        if (trigger.classList.contains('about-us-trigger')) {
+            toggleAboutUs();
+            return;
+        }
+        if (history.pushState) {
+            history.pushState(null, '', '#about-us-section');
+        } else {
+            window.location.hash = '#about-us-section';
+        }
+        openAboutUs();
+    }, true);
+    window.addEventListener('hashchange', revealAboutFromHash);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', revealAboutFromHash);
+    } else {
+        revealAboutFromHash();
+    }
 })();
 (function() {
     var bookingOverlay = document.getElementById('booking-modal-overlay');
