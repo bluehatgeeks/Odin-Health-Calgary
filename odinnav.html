@@ -296,4 +296,42 @@
     document.addEventListener('DOMContentLoaded', normalizeAboutUsNavHrefs);
   }
 })();
+
+/* ── Forward lander query string to outbound links (nav, modal, body CTAs) ──
+   Captures window.location.search once; merges into each link’s URL with
+   lander params overriding same keys on the target. Skips #, mailto, tel,
+   javascript, and fragment-only hrefs. Idempotent if run twice. */
+(function () {
+  var landerSearch = window.location.search;
+  if (!landerSearch || landerSearch === '?') return;
+
+  function forwardLanderQueryToLinks() {
+    var landerParams = new URLSearchParams(landerSearch);
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      var raw = a.getAttribute('href');
+      if (raw == null) return;
+      var t = raw.trim();
+      if (!t || t === '#' || t.startsWith('javascript:') || t.startsWith('mailto:') || t.startsWith('tel:'))
+        return;
+      if (/^#[^:]*$/.test(t)) return;
+      try {
+        var u = new URL(a.href);
+        var merged = new URLSearchParams(u.search);
+        landerParams.forEach(function (value, key) {
+          merged.set(key, value);
+        });
+        u.search = merged.toString();
+        a.setAttribute('href', u.toString());
+      } catch (err) {
+        /* ignore unparseable href */
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', forwardLanderQueryToLinks);
+  } else {
+    forwardLanderQueryToLinks();
+  }
+})();
 </script>
