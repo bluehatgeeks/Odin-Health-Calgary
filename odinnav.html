@@ -299,14 +299,29 @@
 
 /* ── Forward lander query string to outbound links (nav, modal, body CTAs) ──
    Captures window.location.search once; merges into each link’s URL with
-   lander params overriding same keys on the target. Skips #, mailto, tel,
-   javascript, and fragment-only hrefs. Idempotent if run twice. */
+   lander params overriding same keys on the target. Adds ref= from
+   document.referrer (host without www + path + query) when the lander did not
+   already pass ref=. Skips #, mailto, tel, javascript, and fragment-only hrefs.
+   Idempotent if run twice. */
 (function () {
-  var landerSearch = window.location.search;
-  if (!landerSearch || landerSearch === '?') return;
+  var landerSearch = window.location.search || '';
+  var landerHasQuery = landerSearch.length > 1;
+
+  var referrerRef = '';
+  try {
+    if (document.referrer) {
+      var refUrl = new URL(document.referrer);
+      referrerRef =
+        refUrl.hostname.replace(/^www\./i, '') + refUrl.pathname + refUrl.search;
+    }
+  } catch (ignore) { /* malformed referrer */ }
+
+  if (!landerHasQuery && !referrerRef) return;
 
   function forwardLanderQueryToLinks() {
-    var landerParams = new URLSearchParams(landerSearch);
+    var landerParams = new URLSearchParams(landerHasQuery ? landerSearch : '');
+    var landerSetRef = landerParams.has('ref');
+
     document.querySelectorAll('a[href]').forEach(function (a) {
       var raw = a.getAttribute('href');
       if (raw == null) return;
@@ -320,6 +335,9 @@
         landerParams.forEach(function (value, key) {
           merged.set(key, value);
         });
+        if (referrerRef && !landerSetRef) {
+          merged.set('ref', referrerRef);
+        }
         u.search = merged.toString();
         a.setAttribute('href', u.toString());
       } catch (err) {
