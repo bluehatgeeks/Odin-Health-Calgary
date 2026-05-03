@@ -1,0 +1,464 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/.*#metabolic-assessment-trigger",
+      "name": "Metabolic Stability Assessment (URL changed to #metabolic-assessment-trigger)",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/.*#about-us-section",
+      "name": "Viewed Home page — About us / clinic section (#about-us-section)",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/book-now",
+      "name": "Viewed Book Now scheduling page",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/consultation",
+      "name": "Viewed Consultation page",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/pricing",
+      "name": "Viewed Pricing page",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/supplements",
+      "name": "Viewed Supplements & herbology page",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/ayurveda",
+      "name": "Viewed Ayurveda page",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/marma-therapy",
+      "name": "Viewed Marma therapy & tuning fork page",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/?([?#].*)?$",
+      "name": "Viewed Home page",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://(www\\.)?odinhealthlab\\.ca/[A-Za-z0-9/_-]+(?:[?#].*)?$",
+      "name": "Viewed a page on odinhealthlab.ca (path not covered by a named route)",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://[^/]*leadconnectorhq\\.com/widget/bookings",
+      "name": "Viewed appointment booking widget (GoHighLevel / Lead Connector)",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "url_regex",
+      "pattern": "https?://[^/]*leadconnectorhq\\.com",
+      "name": "Viewed Lead Connector / GoHighLevel hosted page",
+      "forEvents": ["$mp_web_page_view", "Page View"]
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "Book Your Free 30-Minute Intake"
+      },
+      "name": "Clicked: Book Your Free 30-Minute Intake"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "Take the Metabolic Stability Assessment"
+      },
+      "name": "Clicked: Take the Metabolic Stability Assessment"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "Learn About Our Clinic"
+      },
+      "name": "Clicked: Learn About Our Clinic"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "Book a Consultation"
+      },
+      "name": "Clicked: Book a Consultation (supplements / CTA)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "Book a Functional Assessment"
+      },
+      "name": "Clicked: Book a Functional Assessment"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "Book an assessment"
+      },
+      "name": "Clicked: Book an assessment (supplements CTA)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "Limited client spots per month"
+      },
+      "name": "Clicked: Limited client spots (footer CTA area)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "Do you practice medicine\\?"
+      },
+      "name": "FAQ: opened / clicked “Do you practice medicine?”"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "How quickly will I see changes\\?"
+      },
+      "name": "FAQ: opened / clicked “How quickly will I see changes?”"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "Is this personalised\\?"
+      },
+      "name": "FAQ: opened / clicked “Is this personalised?”"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_text": "What if I am not a fit\\?"
+      },
+      "name": "FAQ: opened / clicked “What if I am not a fit?”"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_attr__href": "book-now"
+      },
+      "name": "Clicked link or button targeting Book Now"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_attr__href": "consultation"
+      },
+      "name": "Clicked link or button targeting Consultation"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_attr__href": "pricing"
+      },
+      "name": "Clicked link or button targeting Pricing"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_attr__href": "supplements"
+      },
+      "name": "Clicked link or button targeting Supplements page"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_attr__href": "ayurveda"
+      },
+      "name": "Clicked link or button targeting Ayurveda page"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_attr__href": "marma-therapy"
+      },
+      "name": "Clicked link or button targeting Marma therapy page"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_attr__href": "#about-us-section|about-us-section"
+      },
+      "name": "Clicked link or anchor to About us section (#about-us-section)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$el_attr__href": "metabolic-assessment|metabolic-assessment-trigger"
+      },
+      "name": "Clicked link or button for Metabolic Assessment"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "odinhealthlab\\.ca/consultation"
+      },
+      "name": "Clicked while on Consultation page"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "odinhealthlab\\.ca/pricing"
+      },
+      "name": "Clicked while on Pricing page"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "odinhealthlab\\.ca/supplements"
+      },
+      "name": "Clicked while on Supplements page"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "odinhealthlab\\.ca/ayurveda"
+      },
+      "name": "Clicked while on Ayurveda page"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "odinhealthlab\\.ca/marma-therapy"
+      },
+      "name": "Clicked while on Marma therapy page"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "#about-us-section"
+      },
+      "name": "Clicked while About us section is open in URL (#about-us-section)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "#metabolic-assessment-trigger"
+      },
+      "name": "Clicked while metabolic assessment anchor is active"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_scroll",
+      "matchRegex": {
+        "$scroll_checkpoint": "^100$"
+      },
+      "name": "Scrolled: reached bottom of page (~100%)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_scroll",
+      "matchRegex": {
+        "$scroll_checkpoint": "^75$"
+      },
+      "name": "Scrolled: 75% page depth"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_scroll",
+      "matchRegex": {
+        "$scroll_checkpoint": "^50$"
+      },
+      "name": "Scrolled: 50% page depth"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_scroll",
+      "matchRegex": {
+        "$scroll_checkpoint": "^25$"
+      },
+      "name": "Scrolled: 25% page depth"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_scroll",
+      "name": "Scrolled page (autocapture)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_input_change",
+      "matchRegex": {
+        "$pathname": "book-now"
+      },
+      "name": "Booking page: changed an input field"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_submit",
+      "matchRegex": {
+        "$pathname": "book-now"
+      },
+      "name": "Booking page: submitted a form"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_input_change",
+      "matchRegex": {
+        "$current_url": "leadconnectorhq\\.com/widget/bookings"
+      },
+      "name": "Booking widget: changed an input field"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_submit",
+      "matchRegex": {
+        "$current_url": "leadconnectorhq\\.com/widget/bookings"
+      },
+      "name": "Booking widget: submitted a form"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_input_change",
+      "matchRegex": {
+        "$current_url": "leadconnectorhq\\.com"
+      },
+      "name": "Lead Connector embed: changed an input field"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_submit",
+      "matchRegex": {
+        "$current_url": "leadconnectorhq\\.com"
+      },
+      "name": "Lead Connector embed: submitted a form"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_input_change",
+      "matchRegex": {
+        "$pathname": "supplements"
+      },
+      "name": "Supplements page: changed an input field"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_submit",
+      "matchRegex": {
+        "$pathname": "supplements"
+      },
+      "name": "Supplements page: submitted a form"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_input_change",
+      "name": "Changed an input field (autocapture)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_submit",
+      "name": "Submitted a form (autocapture)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$pathname": "book-now"
+      },
+      "name": "Clicked on Book Now scheduling UI (date, time, timezone, or control)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$pathname": "supplements"
+      },
+      "name": "Clicked on Supplements page UI (section, link, or control)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "leadconnectorhq\\.com/widget/bookings"
+      },
+      "name": "Clicked inside appointment booking widget (calendar, time, timezone, or control)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "leadconnectorhq\\.com"
+      },
+      "name": "Clicked inside Lead Connector / GoHighLevel embed"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "^https?://(www\\.)?odinhealthlab\\.ca/?(\\?[^#]*)?$"
+      },
+      "name": "Clicked on Home page (root URL, no hash — non-CTA control)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_click",
+      "matchRegex": {
+        "$current_url": "odinhealthlab\\.ca"
+      },
+      "name": "Clicked on odinhealthlab.ca (unmatched control — refine mapping if this is common)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_dead_click",
+      "name": "Dead click (no visible response within timeout)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_rage_click",
+      "name": "Rage click (rapid repeated clicks)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_page_leave",
+      "name": "Left page (tab close or navigate away)"
+    },
+    {
+      "type": "properties",
+      "event": "$mp_session_record",
+      "name": "Session replay metadata (Mixpanel session recording batch)"
+    }
+  ]
+}

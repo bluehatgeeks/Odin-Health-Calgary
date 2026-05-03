@@ -1,0 +1,6 @@
+{"event":"$mp_web_page_view","properties":{"time":1735600000,"distinct_id":"sample-user","$insert_id":"sample-1","$current_url":"https://odinhealthlab.ca/?utm=test"}}
+{"event":"$mp_web_page_view","properties":{"time":1735600100,"distinct_id":"sample-user","$insert_id":"sample-2","$current_url":"https://odinhealthlab.ca/book-now"}}
+{"event":"$mp_web_page_view","properties":{"time":1735600200,"distinct_id":"sample-user","$insert_id":"sample-3","$current_url":"https://odinhealthlab.ca/#metabolic-assessment-trigger"}}
+{"event":"$mp_click","properties":{"time":1735600300,"distinct_id":"sample-user","$insert_id":"sample-4","$current_url":"https://odinhealthlab.ca/","$pathname":"/","$el_attr__href":"/book-now"}}
+{"event":"$mp_click","properties":{"time":1735600400,"distinct_id":"sample-user","$insert_id":"sample-5","$current_url":"https://odinhealthlab.ca/","$el_text":"Take the Metabolic Stability Assessment"}}
+{"event":"$mp_scroll","properties":{"time":1735600500,"distinct_id":"sample-user","$insert_id":"sample-6","$current_url":"https://odinhealthlab.ca/pricing","$scroll_checkpoint":50}}

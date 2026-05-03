@@ -1,0 +1,164 @@
+[
+    {
+        "keyword": "Ayurveda Calgary",
+        "organic_count": 9,
+        "has_related": true,
+        "related_queries": [
+            "Ayurvedic doctor Calgary",
+            "Ayurvedic massage Calgary",
+            "Ayurvedic store Calgary",
+            "Ayurkulam Ayurveda Calgary",
+            "Healwell Ayurveda",
+            "Shirodhara Calgary",
+            "Panchkarma in calgary",
+            "Healwell Ayurveda Reviews"
+        ],
+        "has_paa": true,
+        "paa_questions": [
+            "Which disease is best treated by Ayurveda?",
+            "Is Ayurveda legal in Canada?",
+            "Which country is no. 1 in Ayurveda?",
+            "What is the 80 20 rule in Ayurveda?"
+        ]
+    },
+    {
+        "keyword": "Ayurvedic Doctor Calgary",
+        "organic_count": 9,
+        "has_related": true,
+        "related_queries": [
+            "Ayurvedic store Calgary",
+            "Ayurvedic massage Calgary",
+            "Ayurkulam Ayurveda Calgary",
+            "Healwell Ayurveda",
+            "Healwell Ayurveda Reviews",
+            "Shirodhara Calgary",
+            "Ayurvedic medicine",
+            "Ayurvedic Practitioner near me"
+        ],
+        "has_paa": true,
+        "paa_questions": [
+            "Who is the most famous Ayurvedic doctor?",
+            "Is Ayurveda legal in Canada?",
+            "Which disease is best treated by Ayurveda?",
+            "What is the 80/20 rule in Ayurveda?"
+        ]
+    },
+    {
+        "keyword": "Panchkarma Treatment Calgary",
+        "organic_count": 9,
+        "has_related": true,
+        "related_queries": [
+            "Ayurvedic massage Calgary",
+            "Panchkarma in calgary",
+            "Ayurvedic store Calgary",
+            "Ayurvedic doctor Calgary",
+            "Ayurkulam Ayurveda Calgary",
+            "Shirodhara Calgary",
+            "Panchakarma treatment",
+            "Healwell Ayurveda"
+        ],
+        "has_paa": true,
+        "paa_questions": [
+            "Does Panchakarma really work?",
+            "How much is a Panchakarma cleanse?",
+            "What is done in Panchakarma treatment?",
+            "Is Panchakarma good for back pain?"
+        ]
+    },
+    {
+        "keyword": "Holistic Gut Health Calgary",
+        "organic_count": 9,
+        "has_related": true,
+        "related_queries": [
+            "Best naturopath Calgary",
+            "Naturopath Calgary gut health",
+            "Naturopath Calgary women's health",
+            "Naturopath NW Calgary",
+            "Gut health Clinic Calgary",
+            "Naturopath Calgary SE",
+            "Naturopath Calgary SW",
+            "Naturopath clinic Calgary"
+        ],
+        "has_paa": true,
+        "paa_questions": [
+            "How do I holistically heal my gut?",
+            "What are the 7 signs of an unhealthy gut?",
+            "What is the 7 day gut reset?",
+            "What are the three super foods for your gut?"
+        ]
+    },
+    {
+        "keyword": "Natural Inflammation Relief Calgary",
+        "organic_count": 10,
+        "has_related": true,
+        "related_queries": [
+            "Best naturopath Calgary",
+            "Naturopath Calgary women's health",
+            "EBOO treatment calgary cost",
+            "Best functional medicine doctor Calgary",
+            "Naturopath Calgary hormones",
+            "Naturopath Calgary NW",
+            "Naturopath Calgary SW",
+            "Hyperbaric chamber Calgary cost"
+        ],
+        "has_paa": false,
+        "paa_questions": []
+    },
+    {
+        "keyword": "Ayurvedic Detox Calgary",
+        "organic_count": 9,
+        "has_related": false,
+        "related_queries": [],
+        "has_paa": true,
+        "paa_questions": [
+            "How to detox full body by Ayurveda?",
+            "What is the 80/20 rule in Ayurveda?",
+            "What is the 5 day detox in Ayurveda?",
+            "Is Ayurveda legal in Canada?"
+        ]
+    },
+    {
+        "keyword": "Integrative Medicine Calgary",
+        "organic_count": 7,
+        "has_related": true,
+        "related_queries": [
+            "Best functional medicine doctor Calgary",
+            "Functional Medicine Calgary",
+            "Best naturopathic doctor Calgary",
+            "Naturopath Calgary",
+            "Functional Medicine Calgary cost",
+            "Naturopath Calgary women's health",
+            "Naturopath Calgary SW",
+            "Calgary naturopathic clinic"
+        ],
+        "has_paa": true,
+        "paa_questions": [
+            "What's the difference between integrative medicine and functional medicine?",
+            "Is functional medicine covered by Alberta health Care?",
+            "Is integrative medicine the same as naturopath?",
+            "What does integrative medicine treat?"
+        ]
+    },
+    {
+        "keyword": "Holistic Health Clinic Calgary",
+        "organic_count": 9,
+        "has_related": true,
+        "related_queries": [
+            "Holistic fertility clinic Calgary",
+            "Best naturopath Calgary",
+            "Best fertility clinic in Calgary",
+            "Private fertility clinic Calgary",
+            "Encompass Holistic Health",
+            "Holistic Institute of Health & fertility",
+            "Holistic Institute of Health Calgary",
+            "Naturopath Calgary women's health"
+        ],
+        "has_paa": true,
+        "paa_questions": [
+            "What is the difference between a naturopathic doctor and a holistic doctor?",
+            "What are the 4 areas of holistic health?",
+            "Can a naturopath prescribe progesterone?",
+            "What exactly is holistic health?"
+        ]
+    }
+]
