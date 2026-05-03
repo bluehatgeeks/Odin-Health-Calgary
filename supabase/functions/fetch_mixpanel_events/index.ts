@@ -286,10 +286,36 @@ Deno.serve(async (req) => {
     written += batch.length;
   }
 
+  const sessionGapMinutes = Math.max(
+    1,
+    parseInt(Deno.env.get("SESSION_GAP_MINUTES") ?? "30", 10) || 30,
+  );
+
+  let sessionStartRowsUpdated: number | null = null;
+  let sessionStartError: string | null = null;
+
+  if (written > 0) {
+    const { data: marked, error: rpcError } = await admin.rpc(
+      "mark_session_start_friendly_names",
+      { session_gap_minutes: sessionGapMinutes },
+    );
+    if (rpcError) {
+      sessionStartError = rpcError.message;
+    } else if (typeof marked === "number") {
+      sessionStartRowsUpdated = marked;
+    }
+  }
+
   return new Response(
     JSON.stringify({
       ok: true,
       authMode: auth.mode,
+      sessionStart: {
+        gapMinutes: sessionGapMinutes,
+        skipped: written === 0,
+        rowsUpdated: sessionStartRowsUpdated,
+        error: sessionStartError,
+      },
       incremental: {
         emptyTable,
         watermarkMixpanelTime: watermarkSec || null,
