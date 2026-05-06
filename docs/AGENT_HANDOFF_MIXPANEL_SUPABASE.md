@@ -29,6 +29,7 @@ This document summarizes work on importing Mixpanel exports into Supabase, deriv
 | Local / export analysis helpers | `scripts/local_mixpanel_friendly_preview.ts`, `scripts/analyze_mixpanel_export.mjs` |
 | Audits for unmapped paths / clicks | `scripts/list_unmapped_odin_paths.ts`, `scripts/list_unmatched_click_urls.ts` |
 | Sample JSONL fixture | `fixtures/mixpanel_sample.jsonl` |
+| Cursor: Mixpanel hosted MCP | `.cursor/mcp.json` |
 
 ---
 
@@ -98,6 +99,27 @@ Earlier work (mapping, resolver, audits, backfill, tests, fixture) may live in o
 - [ ] Edge Function deployed after changing `index.ts` or bundled assets
 - [ ] Secrets set: Mixpanel + `SESSION_GAP_MINUTES` if not using default 30
 - [ ] After mapping changes: run **`backfill_friendly_names`** then optional manual **`mark_session_start_friendly_names`** if you need consistency without a full import
+- [ ] **Mixpanel MCP:** Org admin enables MCP in Mixpanel; in Cursor, OAuth the **mixpanel** server (see `.cursor/mcp.json` and section below)
+
+---
+
+## Mixpanel MCP (Cursor and other AI clients)
+
+Mixpanel hosts an MCP server so assistants can run insights, funnels, list projects/events, manage dashboards/Lexicon, etc. Official reference: [Mixpanel MCP docs](https://docs.mixpanel.com/docs/mcp).
+
+**This repo** ships [`.cursor/mcp.json`](../.cursor/mcp.json) with the **US** endpoint:
+
+- `npx -y mcp-remote https://mcp.mixpanel.com/mcp`
+
+For **EU** or **IN** data residency, replace the URL with `https://mcp-eu.mixpanel.com/mcp` or `https://mcp-in.mixpanel.com/mcp` (see Mixpanel docs).
+
+**Org setup:** A Mixpanel org admin must enable MCP under **Settings → Org → Overview** (may take up to ~15 minutes). Each user connects with their own Mixpanel account; project permissions apply as in the Mixpanel UI.
+
+**Cursor:** Reload the window or restart Cursor after changing MCP config. Under **Settings → Tools & MCP**, confirm **mixpanel** appears and complete **OAuth** on first use. If your Cursor build only reads user-level MCP config, copy the `mixpanel` block from `.cursor/mcp.json` into your user `mcp.json` (same shape as in the Mixpanel doc).
+
+**Compliance / security:** Mixpanel states MCP is not HIPAA-eligible; connecting sends Mixpanel data to your AI provider. Review [their MCP security section](https://docs.mixpanel.com/docs/mcp#security-considerations) before enabling on PHI projects.
+
+This MCP complements—but does not replace—the **Supabase `events` warehouse**: use Mixpanel MCP for exploratory analytics and Lexicon; use Supabase for SQL, joins with other tables, and your `friendly_name` / session-start pipeline.
 
 ---
 
