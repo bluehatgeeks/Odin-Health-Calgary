@@ -6,7 +6,7 @@ For the full pipeline—`friendly_name` mapping, session-start RPC, Edge Functio
 
 **[`docs/AGENT_HANDOFF_MIXPANEL_SUPABASE.md`](docs/AGENT_HANDOFF_MIXPANEL_SUPABASE.md)**
 
-**Mixpanel MCP:** [`.cursor/mcp.json`](.cursor/mcp.json) registers Mixpanel’s hosted MCP ([docs](https://docs.mixpanel.com/docs/mcp)). Requires org-admin enablement in Mixpanel and OAuth in Cursor. EU/IN endpoints are documented in the handoff file.
+**Mixpanel MCP:** [`.cursor/mcp.json`](.cursor/mcp.json) uses Cursor **Streamable HTTP** (`url`) + OAuth — [Mixpanel MCP](https://docs.mixpanel.com/docs/mcp), [Cursor MCP](https://cursor.com/docs/context/mcp). Org-admin enablement required. EU/IN URLs are in the handoff doc.
 
 ## Secrets and local files
 

@@ -107,17 +107,21 @@ Earlier work (mapping, resolver, audits, backfill, tests, fixture) may live in o
 
 Mixpanel hosts an MCP server so assistants can run insights, funnels, list projects/events, manage dashboards/Lexicon, etc. Official reference: [Mixpanel MCP docs](https://docs.mixpanel.com/docs/mcp).
 
-**This repo** ships [`.cursor/mcp.json`](../.cursor/mcp.json) with the **US** endpoint:
+**This repo** ships [`.cursor/mcp.json`](../.cursor/mcp.json) with the **US** Streamable HTTP endpoint:
 
-- `npx -y mcp-remote https://mcp.mixpanel.com/mcp`
+```json
+"mixpanel": { "url": "https://mcp.mixpanel.com/mcp" }
+```
 
-For **EU** or **IN** data residency, replace the URL with `https://mcp-eu.mixpanel.com/mcp` or `https://mcp-in.mixpanel.com/mcp` (see Mixpanel docs).
+Use Cursor’s **native remote MCP + OAuth** (see [Cursor MCP docs](https://cursor.com/docs/context/mcp)) — not `npx mcp-remote`, which can conflict with Cursor’s host (separate localhost OAuth, protocol bridging issues).
+
+For **EU** or **IN** data residency, use `https://mcp-eu.mixpanel.com/mcp` or `https://mcp-in.mixpanel.com/mcp`.
 
 **Org setup:** A Mixpanel org admin must enable MCP under **Settings → Org → Overview** (may take up to ~15 minutes). Each user connects with their own Mixpanel account; project permissions apply as in the Mixpanel UI.
 
-**Cursor:** Reload the window or restart Cursor after changing MCP config. Under **Settings → Tools & MCP**, confirm **mixpanel** appears and complete **OAuth** on first use. If your Cursor build only reads user-level MCP config, copy the `mixpanel` block from `.cursor/mcp.json` into your user `mcp.json` (same shape as in the Mixpanel doc).
+**Cursor:** Reload the window or restart Cursor after changing MCP config. Under **Settings → Tools & MCP**, confirm **mixpanel** appears and complete **OAuth** (redirect `cursor://anysphere.cursor-mcp/oauth/callback`). Merge the `mixpanel` entry into **`~/.cursor/mcp.json`** if you need it in every workspace.
 
-**Compliance / security:** Mixpanel states MCP is not HIPAA-eligible; connecting sends Mixpanel data to your AI provider. Review [their MCP security section](https://docs.mixpanel.com/docs/mcp#security-considerations) before enabling on PHI projects.
+**If Mixpanel still errors after switching from `mcp-remote`:** Remove stale bridge tokens with `rm -rf ~/.mcp-auth`, then sign in again from Cursor. For **“Missing scope”** (Mixpanel), do the same, then complete OAuth in Cursor. Open **View → Output → MCP Logs** for the exact error.
 
 This MCP complements—but does not replace—the **Supabase `events` warehouse**: use Mixpanel MCP for exploratory analytics and Lexicon; use Supabase for SQL, joins with other tables, and your `friendly_name` / session-start pipeline.
 
