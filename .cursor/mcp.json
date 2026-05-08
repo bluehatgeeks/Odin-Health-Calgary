@@ -1,7 +1,8 @@
 {
   "mcpServers": {
     "mixpanel": {
-      "url": "https://mcp.mixpanel.com/mcp"
+      "command": "npx",
+      "args": ["-y", "mcp-remote@0.1.38", "https://mcp.mixpanel.com/mcp"]
     }
   }
 }
