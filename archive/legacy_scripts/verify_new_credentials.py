@@ -1,11 +1,12 @@
 import json
+import os
 import requests
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
 # NEW CLIENT ID and SECRET PROVIDED BY USER
-CLIENT_ID = '637011530953-a80m8p8p3qaaj0mbur47fk3it3m2su9q.apps.googleusercontent.com'
-CLIENT_SECRET = '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'
+CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID', '')
+CLIENT_SECRET = os.environ.get('GOOGLE_CLIENT_SECRET', '')
 TOKEN_FILE = '/Users/alexandertretjakov/.copaw/workspaces/default/odin-calgary/.oauth_tokens.json'
 
 def refresh_access_token():
