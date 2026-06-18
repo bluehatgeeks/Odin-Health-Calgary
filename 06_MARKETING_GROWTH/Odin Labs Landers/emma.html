@@ -1427,44 +1427,12 @@ document.addEventListener('click', function(e) {
   backBtn.addEventListener('click', goBack);
   if (restartBtn) restartBtn.addEventListener('click', restart);
 
-  function sha256(str) {
-    var buf = new TextEncoder().encode(str);
-    return crypto.subtle.digest('SHA-256', buf).then(function(hash) {
-      return Array.from(new Uint8Array(hash)).map(function(b) { return b.toString(16).padStart(2,'0'); }).join('');
-    });
-  }
-
-  var _clientIp = null;
-  var _clientIpPromise = fetch('https://api.ipify.org?format=json')
-    .then(function(r) { return r.json(); })
-    .then(function(d) { _clientIp = d.ip; })
-    .catch(function() {});
-
-  function sendCAPI(eventName, userData, customData) {
-    var fbp = (document.cookie.match(/_fbp=([^;]+)/) || [])[1] || undefined;
-    var fbclid = new URLSearchParams(window.location.search).get('fbclid');
-    var fbc = (document.cookie.match(/_fbc=([^;]+)/) || [])[1]
-            || (fbclid ? 'fb.1.' + Date.now() + '.' + fbclid : undefined);
-    var baseUserData = { client_user_agent: navigator.userAgent };
-    if (_clientIp) baseUserData.client_ip_address = _clientIp;
-    if (fbp) baseUserData.fbp = fbp;
-    if (fbc) baseUserData.fbc = fbc;
-    var payload = {
-      data: [{
-        event_name: eventName,
-        event_time: Math.floor(Date.now() / 1000),
-        action_source: 'website',
-        event_source_url: window.location.href.split('#')[0],
-        user_data: Object.assign(baseUserData, userData || {}),
-        custom_data: Object.assign({ content_name: 'emma-quiz' }, customData || {})
-      }],
-      access_token: 'EAAKbVBkj9d8BRpJfraAqyTYvKljqnkT2BcWf7iBdZAGg8mXHs8e74dq8GPlRg0kP5QZCbiHeiJWLocXodWDrAGA6pbn177KmOPEwtdSqFC9UmW337dXmIBGZCy5DzX19ePrZBdydLw0IeZBWhKojZAJopwtBC60ww4rsNJoekjGUKY7ONn1dvCTSviZAEq4ZBh4rpQZDZD'
-    };
-    fetch('https://graph.facebook.com/v20.0/705890611034328/events', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).catch(function() {});
+  // Reach the pixel on the parent GHL page when running inside a custom code block
+  function trackFbq(eventType, eventName, params) {
+    var _fbq = (window.parent && typeof window.parent.fbq === 'function')
+      ? window.parent.fbq
+      : (typeof fbq === 'function' ? fbq : null);
+    if (_fbq) _fbq(eventType, eventName, params);
   }
 
   panel.addEventListener('click', function(e) {
@@ -1484,8 +1452,7 @@ document.addEventListener('click', function(e) {
     state.answers[id] = val;
     if (state.currentIndex === 0 && !state._quizStartFired) {
       state._quizStartFired = true;
-      if (typeof fbq === 'function') { fbq('trackCustom', 'QuizStart', { content_name: 'emma-quiz' }); }
-      sendCAPI('ViewContent', {}, { custom_event_name: 'QuizStart' });
+      trackFbq('trackCustom', 'QuizStart', { content_name: 'emma-quiz' });
       window.location.hash = 'quiz-started';
     }
     updateNextButton();
@@ -1500,10 +1467,7 @@ document.addEventListener('click', function(e) {
       var email = document.getElementById('lead-email').value.trim();
       if (!name || !email || !email.includes('@')) return;
       state.leadCaptured = true;
-      if (typeof fbq === 'function') { fbq('trackCustom', 'LeadCaptured', { content_name: 'emma-quiz' }); }
-      sha256(email.toLowerCase().trim()).then(function(hashedEmail) {
-        sendCAPI('Lead', { em: [hashedEmail] }, { custom_event_name: 'LeadCaptured' });
-      });
+      trackFbq('trackCustom', 'LeadCaptured', { content_name: 'emma-quiz' });
       window.location.hash = 'lead-captured';
       state.leadName  = name;
       state.leadEmail = email;
@@ -1567,14 +1531,7 @@ document.addEventListener('click', function(e) {
           ctaBtn.rel = 'noopener noreferrer';
           ctaBtn.hidden = false;
           ctaBtn.style.animation = 'metabolicFadeIn 0.4s ease forwards';
-          if (typeof fbq === 'function') { fbq('trackCustom', 'QualifierPassed', { content_name: 'emma-quiz' }); }
-          if (state.leadEmail) {
-            sha256(state.leadEmail.toLowerCase().trim()).then(function(h) {
-              sendCAPI('AddToCart', { em: [h] }, { custom_event_name: 'QualifierPassed' });
-            });
-          } else {
-            sendCAPI('AddToCart', {}, { custom_event_name: 'QualifierPassed' });
-          }
+          trackFbq('trackCustom', 'QualifierPassed', { content_name: 'emma-quiz' });
           window.location.hash = 'qualifier-passed';
         }
       }, 250);
