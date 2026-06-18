@@ -1416,7 +1416,10 @@ document.addEventListener('click', function(e) {
     var _fbq = (window.parent && typeof window.parent.fbq === 'function')
       ? window.parent.fbq
       : (typeof fbq === 'function' ? fbq : null);
-    if (_fbq) _fbq(eventType, eventName, params);
+    if (!_fbq) return;
+    // Pass source URL explicitly so Meta sees the correct domain instead of null
+    var enriched = Object.assign({ source: window.location.href }, params || {});
+    _fbq(eventType, eventName, enriched);
   }
 
   panel.addEventListener('click', function(e) {
