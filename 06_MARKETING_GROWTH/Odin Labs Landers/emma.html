@@ -1452,7 +1452,7 @@ document.addEventListener('click', function(e) {
     state.answers[id] = val;
     if (state.currentIndex === 0 && !state._quizStartFired) {
       state._quizStartFired = true;
-      trackFbq('trackCustom', 'QuizStart', { content_name: 'emma-quiz' });
+      trackFbq('track', 'ViewContent', { content_name: 'emma-quiz' });
       window.location.hash = 'quiz-started';
     }
     updateNextButton();
@@ -1467,7 +1467,7 @@ document.addEventListener('click', function(e) {
       var email = document.getElementById('lead-email').value.trim();
       if (!name || !email || !email.includes('@')) return;
       state.leadCaptured = true;
-      trackFbq('trackCustom', 'LeadCaptured', { content_name: 'emma-quiz' });
+      trackFbq('track', 'Lead', { content_name: 'emma-quiz' });
       window.location.hash = 'lead-captured';
       state.leadName  = name;
       state.leadEmail = email;
@@ -1531,7 +1531,7 @@ document.addEventListener('click', function(e) {
           ctaBtn.rel = 'noopener noreferrer';
           ctaBtn.hidden = false;
           ctaBtn.style.animation = 'metabolicFadeIn 0.4s ease forwards';
-          trackFbq('trackCustom', 'QualifierPassed', { content_name: 'emma-quiz' });
+          trackFbq('track', 'AddToCart', { content_name: 'emma-quiz' });
           window.location.hash = 'qualifier-passed';
         }
       }, 250);
