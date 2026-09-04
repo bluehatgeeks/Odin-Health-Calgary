@@ -1,0 +1,881 @@
+/* ── Odin Lab — Ayurveda Page Styles ── */
+/* v=4 | Prefix: .ay- */
+
+:root { --dark-green-rgb: 26, 58, 26; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════ */
+.ay-section { padding: 60px 0; }
+
+.ay-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ay-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(196,255,73,0.2) 30%, rgba(196,255,73,0.2) 70%, transparent 100%);
+}
+
+.ay-section-heading {
+  font-family: 'Poppins', sans-serif;
+  color: var(--white);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.ay-section-sub {
+  color: var(--white-800);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 620px;
+  text-align: center;
+  margin: 0 auto 40px;
+}
+
+.ay-badge {
+  display: inline-block;
+  background: rgba(196,255,73,0.1);
+  border: 1px solid rgba(196,255,73,0.25);
+  border-radius: 50px;
+  padding: 8px 20px;
+  margin-bottom: 20px;
+  /* Center badge within text-center containers */
+}
+/* Ensure section headings are centered */
+.ay-section .ay-badge,
+.ay-section .ay-section-heading,
+.ay-section .ay-section-sub {
+  display: block;
+  text-align: center;
+}
+.ay-section .ay-badge {
+  display: inline-block;
+}
+
+.ay-badge-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--lime-green);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.ay-hero {
+  padding-top: 50px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.ay-hero-h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  max-width: 760px;
+  margin: 0 auto 20px;
+  text-wrap: balance;
+}
+
+.ay-hero-sub {
+  color: var(--white-800);
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.75;
+  max-width: 640px;
+  margin: 0 auto 36px;
+}
+
+.ay-hero-sub em {
+  font-style: normal;
+  color: var(--lime-green);
+}
+
+.ay-hero-cta { margin-bottom: 48px; }
+
+.ay-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
+  color: var(--dark-green);
+  padding: 16px 36px;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.ay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196,255,73,0.25);
+}
+
+/* Hero dual-image — mask-position slide reveal (matches odinlabcalgary.html) */
+.ay-hero-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 0 0 25px 0;
+  background: var(--dark-green);
+  /* NO max-width — must stretch to full container width */
+}
+
+.ay-hero-image-wrapper img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.ay-hero-img-bw {
+  filter: grayscale(100%);
+}
+
+.ay-hero-img-color {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
+  mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
+  -webkit-mask-size: 200% 100%;
+  mask-size: 200% 100%;
+  -webkit-mask-position: -100% 0;
+  mask-position: -100% 0;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  transition: mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1), -webkit-mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ay-hero-image-wrapper:hover .ay-hero-img-color {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+
+/* ═══════════════════════════════════════════
+   STATS STRIP
+═══════════════════════════════════════════ */
+.ay-stats-strip {
+  background: rgba(196,255,73,0.06);
+  border-top: 1px solid rgba(196,255,73,0.18);
+  border-bottom: 1px solid rgba(196,255,73,0.18);
+  padding: 52px 20px;
+}
+
+.ay-stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.ay-stat {
+  text-align: center;
+  padding: 0 32px;
+  position: relative;
+}
+
+.ay-stat + .ay-stat::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 15%; height: 70%; width: 1px;
+  background: rgba(196,255,73,0.15);
+}
+
+.ay-stat__value {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--lime-green);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.ay-stat__label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white-800);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .ay-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
+  .ay-stat + .ay-stat::before { display: none; }
+  .ay-stat:nth-child(odd) { border-right: 1px solid rgba(196,255,73,0.12); }
+  .ay-stat:nth-child(n+3) { border-top: 1px solid rgba(196,255,73,0.12); padding-top: 40px; }
+}
+
+/* ═══════════════════════════════════════════
+   DOSHAS — 3-col cards with top accent strip
+═══════════════════════════════════════════ */
+.ay-doshas-section { background: var(--dark-green); }
+.ay-doshas-section .ay-container,
+.ay-pillars-section .ay-container,
+.ay-treatments-section .ay-container,
+.ay-conditions-section .ay-container,
+.ay-citations-section .ay-container,
+.ay-comparison-section .ay-container {
+  text-align: center;
+}
+.ay-doshas-grid,
+.ay-treatments-grid,
+.ay-comparison-stack,
+.ay-citations-grid {
+  text-align: left;
+}
+
+.ay-doshas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.ay-dosha-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ay-dosha-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 16px 16px 0 0;
+}
+
+.ay-dosha-card.ay-vata::before { background: linear-gradient(90deg, rgba(196,255,73,0.8), rgba(196,255,73,0.1)); }
+.ay-dosha-card.ay-pitta::before { background: linear-gradient(90deg, rgba(196,255,73,0.5), rgba(255,255,255,0.1)); }
+.ay-dosha-card.ay-kapha::before { background: linear-gradient(90deg, rgba(196,255,73,0.25), rgba(196,255,73,0.04)); }
+.ay-dosha-card.ay-vata { border-color: rgba(196,255,73,0.14); }
+.ay-dosha-card.ay-pitta { border-color: rgba(255,255,255,0.1); }
+.ay-dosha-card.ay-kapha { border-color: rgba(196,255,73,0.07); }
+.ay-dosha-card:hover { transform: translateY(-3px); border-color: rgba(196,255,73,0.28); }
+
+.ay-dosha-symbol-badge {
+  display: inline-block;
+  background: rgba(196,255,73,0.1);
+  border: 1px solid rgba(196,255,73,0.22);
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.ay-dosha-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.ay-dosha-elements {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--white-500);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.ay-dosha-desc {
+  font-size: 0.93rem;
+  color: var(--white-800);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.ay-dosha-sub-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--white-500);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.ay-dosha-traits {
+  list-style: none;
+  margin: 0 0 18px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ay-dosha-traits li {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--white-800);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 3px 9px;
+}
+
+.ay-dosha-protocol {
+  margin-top: auto;
+  background: rgba(196,255,73,0.06);
+  border: 1px solid rgba(196,255,73,0.14);
+  border-radius: 10px;
+  padding: 15px 17px;
+  font-size: 0.86rem;
+  color: var(--white-800);
+  line-height: 1.62;
+}
+
+.ay-dosha-protocol-title {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 7px;
+}
+
+@media (max-width: 960px) { .ay-doshas-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .ay-doshas-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════
+   FIVE PILLARS — Horizontal timeline
+═══════════════════════════════════════════ */
+.ay-pillars-section {
+  background: rgba(196,255,73,0.025);
+  border-top: 1px solid rgba(196,255,73,0.08);
+  border-bottom: 1px solid rgba(196,255,73,0.08);
+}
+
+.ay-timeline-nodes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 52px;
+  position: relative;
+}
+
+.ay-timeline-nodes::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(196,255,73,0.3) 0px,
+    rgba(196,255,73,0.3) 8px,
+    transparent 8px,
+    transparent 18px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ay-timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.ay-timeline-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ay-timeline-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(196,255,73,0.1);
+  border: 2px solid rgba(196,255,73,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  flex-shrink: 0;
+  margin-bottom: 20px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ay-timeline-item:hover .ay-timeline-circle {
+  background: rgba(196,255,73,0.25);
+  box-shadow: 0 0 16px rgba(196,255,73,0.3);
+}
+
+.ay-timeline-principle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+
+.ay-timeline-sanskrit {
+  font-size: 0.75rem;
+  color: var(--white-500);
+  font-style: italic;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.ay-timeline-desc {
+  font-size: 0.84rem;
+  color: var(--white-800);
+  line-height: 1.6;
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .ay-timeline-nodes { grid-template-columns: 1fr; gap: 0; }
+  .ay-timeline-nodes::before { display: none; }
+  .ay-timeline-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0 0 32px 0;
+    position: relative;
+    text-align: left;
+  }
+  .ay-timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 22px; top: 46px; bottom: 0;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, rgba(196,255,73,0.3) 0, rgba(196,255,73,0.3) 6px, transparent 6px, transparent 14px);
+  }
+  .ay-timeline-circle { margin-bottom: 0; flex-shrink: 0; }
+  .ay-timeline-text { flex: 1; align-items: flex-start; text-align: left; }
+  .ay-timeline-principle { margin-bottom: 2px; }
+  .ay-timeline-sanskrit { margin-bottom: 8px; }
+  .ay-timeline-desc { max-width: none; margin: 0; }
+}
+
+/* ═══════════════════════════════════════════
+   SECTION IMAGE BANNER
+═══════════════════════════════════════════ */
+.ay-image-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  max-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ay-image-banner img {
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+  filter: brightness(0.55);
+}
+
+.ay-image-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(var(--dark-green-rgb),0.4) 0%, rgba(var(--dark-green-rgb),0.15) 40%, rgba(var(--dark-green-rgb),0.65) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ay-image-banner__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--white);
+  text-align: center;
+  padding: 0 24px;
+  max-width: 800px;
+  line-height: 1.4;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+
+.ay-image-banner__text em {
+  font-style: normal;
+  color: var(--lime-green);
+}
+
+/* ═══════════════════════════════════════════
+   ANCIENT VS MODERN COMPARISON
+═══════════════════════════════════════════ */
+.ay-comparison-section {
+  background: rgba(196,255,73,0.02);
+  border-top: 1px solid rgba(196,255,73,0.07);
+  border-bottom: 1px solid rgba(196,255,73,0.07);
+}
+
+.ay-comparison-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.ay-comp-card {
+  display: grid;
+  grid-template-columns: 1fr 3px 1fr;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ay-comp-card:hover {
+  border-color: rgba(196,255,73,0.22);
+  transform: translateY(-1px);
+}
+
+.ay-comp-divider {
+  background: linear-gradient(to bottom, transparent, rgba(196,255,73,0.45), transparent);
+}
+
+.ay-comp-traditional { background: rgba(var(--dark-green-rgb),0.45); padding: 26px 30px; }
+.ay-comp-modern { background: rgba(255,255,255,0.03); padding: 26px 30px; }
+
+.ay-comp-panel-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ay-comp-traditional .ay-comp-panel-label { color: var(--white-500); }
+.ay-comp-modern .ay-comp-panel-label { color: var(--lime-green); }
+
+.ay-comp-text {
+  font-size: 0.95rem;
+  color: var(--white-800);
+  line-height: 1.7;
+  margin: 0 0 8px 0;
+}
+
+.ay-comp-citation {
+  font-size: 0.76rem;
+  color: var(--white-500);
+  font-style: italic;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .ay-comp-card { grid-template-columns: 1fr; grid-template-rows: auto 3px auto; }
+  .ay-comp-divider { background: linear-gradient(to right, transparent, rgba(196,255,73,0.45), transparent); height: 3px; }
+  .ay-comp-traditional, .ay-comp-modern { padding: 20px 22px; }
+}
+
+/* ═══════════════════════════════════════════
+   TREATMENTS — 3-col with icon
+═══════════════════════════════════════════ */
+.ay-treatments-section { background: var(--dark-green); }
+
+.ay-treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.ay-treatment-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.ay-treatment-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(196,255,73,0.3);
+  background: rgba(255,255,255,0.06);
+}
+
+.ay-treatment-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(196,255,73,0.1);
+  border: 1px solid rgba(196,255,73,0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lime-green);
+  margin-bottom: 16px;
+}
+
+.ay-treatment-icon svg { width: 22px; height: 22px; }
+
+.ay-treatment-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.ay-treatment-desc {
+  font-size: 0.88rem;
+  color: var(--white-800);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 960px) { .ay-treatments-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .ay-treatments-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════
+   CONDITIONS PILL GRID
+═══════════════════════════════════════════ */
+.ay-conditions-section {
+  background: rgba(196,255,73,0.025);
+  border-top: 1px solid rgba(196,255,73,0.07);
+  border-bottom: 1px solid rgba(196,255,73,0.07);
+}
+
+.ay-conditions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.ay-condition-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(196,255,73,0.07);
+  border: 1px solid rgba(196,255,73,0.22);
+  border-radius: 50px;
+  padding: 9px 18px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--white);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ay-condition-pill:hover {
+  background: rgba(196,255,73,0.13);
+  border-color: rgba(196,255,73,0.45);
+}
+
+.ay-condition-pill::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--lime-green);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   CITATIONS — Year-first compact layout
+═══════════════════════════════════════════ */
+.ay-citations-section {
+  background: rgba(255,255,255,0.015);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.ay-citations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.ay-citation-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 24px;
+  transition: background 0.2s ease;
+}
+
+.ay-citation-block:hover { background: rgba(255,255,255,0.06); }
+
+.ay-citation-block__year {
+  flex-shrink: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  line-height: 1;
+  padding-top: 2px;
+  min-width: 44px;
+}
+
+.ay-citation-block__body { flex: 1; }
+
+.ay-citation-block__authors {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 3px 0;
+}
+
+.ay-citation-block__journal {
+  font-size: 0.76rem;
+  color: var(--white-500);
+  font-style: italic;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.ay-citation-block__finding {
+  font-size: 0.86rem;
+  color: var(--white-800);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 768px) { .ay-citations-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════
+   BOOKING CTA
+═══════════════════════════════════════════ */
+.ay-cta-section {
+  background: linear-gradient(135deg, rgba(196,255,73,0.07) 0%, rgba(var(--dark-green-rgb),0.4) 60%, rgba(0,0,0,0.2) 100%);
+  border-top: 1px solid rgba(196,255,73,0.15);
+  border-bottom: 1px solid rgba(196,255,73,0.08);
+  text-align: center;
+}
+
+.ay-cta-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--lime-green);
+  margin: 0 auto 20px;
+  line-height: 1.2;
+  max-width: 700px;
+}
+
+.ay-cta-sub {
+  color: var(--white-800);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 540px;
+  margin: 0 auto 36px;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE — ≤480px overrides
+═══════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* Hero */
+  .ay-hero { padding-top: 30px; padding-bottom: 40px; }
+  .ay-hero-h1 {
+    font-size: clamp(1.6rem, 7vw, 2rem);
+    line-height: 1.2;
+  }
+  .ay-hero-sub { font-size: 0.95rem; }
+  .ay-hero-cta { margin-bottom: 28px; }
+  .ay-btn { font-size: 0.95rem; padding: 14px 28px; }
+
+  /* Stats strip */
+  .ay-stats-strip { padding: 36px 16px; }
+  .ay-stat { padding: 0 16px; }
+  .ay-stat__value { font-size: clamp(1.4rem, 6vw, 2rem); }
+
+  /* Section headings */
+  .ay-section-heading { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+  .ay-section-sub { font-size: 0.95rem; }
+  .ay-section { padding: 44px 0; }
+
+  /* Badge overflow fix — prevent badge text wrapping badly */
+  .ay-badge { max-width: 90%; word-break: break-word; }
+  .ay-badge-text { font-size: 0.72rem; letter-spacing: 0.06em; }
+
+  /* Dosha cards */
+  .ay-dosha-name { font-size: 1.6rem; }
+  .ay-dosha-desc { font-size: 0.9rem; }
+  .ay-dosha-card { padding: 24px 20px; }
+
+  /* Timeline — mobile vertical layout already set at 900px,
+     but fine-tune for small screens */
+  .ay-timeline-item { gap: 14px; }
+  .ay-timeline-principle { font-size: 0.9rem; }
+  .ay-timeline-desc { font-size: 0.82rem; }
+
+  /* Comparison cards */
+  .ay-comp-traditional, .ay-comp-modern { padding: 16px 18px; }
+  .ay-comp-text { font-size: 0.9rem; }
+
+  /* Treatment cards */
+  .ay-treatment-card { padding: 20px; }
+  .ay-treatment-name { font-size: 0.95rem; }
+  .ay-treatment-desc { font-size: 0.85rem; }
+  .ay-treatment-icon { width: 40px; height: 40px; }
+
+  /* Conditions pills */
+  .ay-condition-pill { font-size: 0.82rem; padding: 8px 14px; }
+
+  /* Citations */
+  .ay-citation-block { padding: 18px; gap: 14px; }
+  .ay-citation-block__year { font-size: 1rem; min-width: 36px; }
+  .ay-citation-block__finding { font-size: 0.82rem; }
+
+  /* CTA */
+  .ay-cta-heading { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+  .ay-cta-sub { font-size: 0.95rem; }
+}

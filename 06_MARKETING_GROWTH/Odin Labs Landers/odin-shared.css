@@ -1,0 +1,474 @@
+/* ── Odin Health Labs — Shared Styles ── */
+/* Variables, nav, and footer CSS shared across all pages */
+
+/* ── CSS Variables ── */
+:root {
+  --dark-green:  #1a3a1a;
+  --lime-green:  #c4ff49;
+  --lime:        #c4ff49;
+  --white:       #ffffff;
+  --white-800:   rgba(255,255,255,0.8);
+  --white-500:   rgba(255,255,255,0.5);
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* ── Layout utility ── */
+/* Use body .container to beat Tailwind/extension responsive container overrides */
+body .container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Nav component styles ── */
+.nav-link {
+  color: var(--white);
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  color: var(--lime-green);
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
+  color: var(--dark-green);
+  padding: 15px 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+}
+
+.nav-overlay.is-open { display: block; }
+.nav-overlay.is-visible { display: block; }
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 85vw);
+    background: var(--dark-green);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 24px 24px;
+    gap: 0;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.3);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+
+  .header-nav.is-open { transform: translateX(0); }
+
+  .header-nav .nav-link {
+    margin: 0;
+    padding: 16px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .header-nav .btn-primary {
+    margin-top: 16px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-overlay { display: none !important; }
+
+  .header-nav {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+  }
+
+  .header-nav .nav-link {
+    padding: 0;
+    border-bottom: none;
+  }
+}
+
+/* ── Mega Menu ── */
+.nav-mega-wrap {
+  position: static; /* desktop panel is positioned on <header> */
+}
+
+/* The trigger button looks like a nav link */
+.mega-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  margin: 0 12px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.mega-trigger:hover,
+.mega-trigger[aria-expanded="true"] { color: var(--lime-green); }
+
+.mega-chevron {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.28s ease;
+}
+.mega-trigger[aria-expanded="true"] .mega-chevron { transform: rotate(180deg); }
+
+/* ── Desktop panel ── */
+.mega-menu {
+  position: absolute;   /* relative to the fixed <header> */
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--dark-green);
+  border-top: 2px solid rgba(196, 255, 73, 0.25);
+  border-bottom: 1px solid rgba(196, 255, 73, 0.1);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 1001;
+}
+.mega-menu.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Category column heading */
+.mega-col-heading {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(196, 255, 73, 0.65);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(196, 255, 73, 0.12);
+}
+
+/* Row that holds the therapy cards */
+.mega-items-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Individual therapy card */
+.mega-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--white);
+  min-width: 240px;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+.mega-item:hover {
+  background: rgba(196, 255, 73, 0.09);
+  border-color: rgba(196, 255, 73, 0.32);
+  transform: translateY(-2px);
+}
+.mega-item:hover .mega-item-arrow { opacity: 1; transform: translateX(0); }
+
+.mega-item-icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(196, 255, 73, 0.08);
+  border: 1px solid rgba(196, 255, 73, 0.18);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.22s ease;
+}
+.mega-item:hover .mega-item-icon {
+  background: rgba(196, 255, 73, 0.15);
+}
+
+.mega-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+.mega-item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+}
+.mega-item-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.48);
+  line-height: 1.3;
+}
+
+.mega-item-arrow {
+  color: var(--lime-green);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  flex-shrink: 0;
+}
+
+/* ── Mobile sub-list (inside slide-out panel) ── */
+.mega-mobile-sub {
+  display: none; /* shown only on mobile */
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+.mega-mobile-sub.is-open {
+  max-height: 200px;
+}
+.mega-mobile-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 0 12px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  text-decoration: none;
+  color: rgba(255,255,255,0.8);
+  font-size: 1rem;
+  flex-wrap: wrap;
+}
+.mega-mobile-item:hover { color: var(--lime-green); }
+.mega-mobile-item-icon {
+  color: var(--lime-green);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.mega-mobile-item-sub {
+  display: block;
+  width: 100%;
+  padding-left: 26px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  /* Hide the desktop panel on mobile */
+  .mega-menu { display: none !important; }
+
+  /* Show mobile sub-list */
+  .mega-mobile-sub { display: block; }
+
+  /* Trigger inside mobile nav looks like other nav links */
+  .mega-trigger {
+    margin: 0;
+    padding: 16px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    justify-content: space-between;
+  }
+  .mega-trigger[aria-expanded="true"] {
+    border-bottom-color: rgba(196,255,73,0.2);
+  }
+  .nav-mega-wrap { width: 100%; }
+}
+
+/* ── Footer component styles ── */
+.odin-footer {
+  padding: 60px 0 40px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+  border-top: 1px solid rgba(196,255,73,0.15);
+}
+
+.odin-footer .footer-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.odin-footer .footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.odin-footer .footer-logo img {
+  height: 56px;
+  width: auto;
+  opacity: 0.95;
+}
+
+.odin-footer .footer-brand {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 24px 0;
+  letter-spacing: 0.02em;
+}
+
+.odin-footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 8px 32px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.odin-footer .footer-links a {
+  color: var(--lime-green);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.odin-footer .footer-links a:hover {
+  color: var(--dark-green);
+  background-color: rgba(196,255,73,0.2);
+}
+
+.odin-footer .footer-copyright {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Booking Modal (shared) ── */
+.booking-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.booking-modal-overlay.is-visible {
+  display: flex;
+  opacity: 1;
+}
+.booking-modal {
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+  border: 1px solid rgba(196, 255, 73, 0.35);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.booking-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.booking-modal-close:hover { opacity: 1; }
+.booking-modal h3 {
+  margin: 0 0 24px 0;
+  font-size: 1.25rem;
+  color: var(--lime-green);
+  text-align: center;
+}
+.booking-modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.booking-modal-buttons a {
+  display: block;
+  text-align: center;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.booking-modal-buttons a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(196, 255, 73, 0.25);
+}
+.booking-modal-buttons .btn-first-time {
+  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
+  color: var(--dark-green);
+}
+.booking-modal-buttons .btn-follow-up {
+  background: transparent;
+  border: 2px solid var(--lime-green);
+  color: var(--lime-green);
+}

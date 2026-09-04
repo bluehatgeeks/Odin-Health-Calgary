@@ -36,7 +36,7 @@ body .container {
   align-items: center;
   justify-content: flex-start;
   padding: 80px 20px;
-  padding-top: 170px;
+  padding-top: 120px;
 }
 
 .quiz-intro {
@@ -72,6 +72,77 @@ body .container {
   line-height: 1.65;
   color: rgba(255,255,255,0.8);
   margin: 0;
+}
+
+.quiz-intro-process {
+  margin-top: 20px;
+  display: flex;
+  align-items: stretch;
+  background: rgba(196,255,73,0.06);
+  border: 1px solid rgba(196,255,73,0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.quiz-intro-process-step {
+  flex: 1;
+  display: flex;
+  gap: 12px;
+  padding: 16px 18px;
+}
+
+.quiz-intro-process-step + .quiz-intro-process-step {
+  border-left: 1px solid rgba(196,255,73,0.18);
+}
+
+.quiz-intro-process-num {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--lime-green);
+  color: #0e2410;
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-intro-process-body {
+  min-width: 0;
+}
+
+.quiz-intro-process-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--lime-green);
+  margin: 0 0 3px;
+  white-space: nowrap;
+}
+
+.quiz-intro-process-desc {
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .quiz-intro-process {
+    flex-direction: column;
+  }
+  .quiz-intro-process-step + .quiz-intro-process-step {
+    border-left: none;
+    border-top: 1px solid rgba(196,255,73,0.18);
+  }
+  .quiz-intro-process-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.04em;
+  }
 }
 
 .metabolic-survey-panel {
@@ -128,14 +199,15 @@ body .container {
   box-shadow: 0 0 12px rgba(196, 255, 73, 0.4);
 }
 
-.metabolic-survey-panel[data-progress="2"]  .metabolic-survey-progress-bar::before { width: 22.22%; }
-.metabolic-survey-panel[data-progress="3"]  .metabolic-survey-progress-bar::before { width: 33.33%; }
-.metabolic-survey-panel[data-progress="4"]  .metabolic-survey-progress-bar::before { width: 44.44%; }
-.metabolic-survey-panel[data-progress="5"]  .metabolic-survey-progress-bar::before { width: 55.56%; }
-.metabolic-survey-panel[data-progress="6"]  .metabolic-survey-progress-bar::before { width: 66.67%; }
-.metabolic-survey-panel[data-progress="7"]  .metabolic-survey-progress-bar::before { width: 77.78%; }
-.metabolic-survey-panel[data-progress="8"]  .metabolic-survey-progress-bar::before { width: 88.89%; }
-.metabolic-survey-panel[data-progress="9"]  .metabolic-survey-progress-bar::before { width: 100%; }
+.metabolic-survey-panel[data-progress="2"]  .metabolic-survey-progress-bar::before { width: 20%; }
+.metabolic-survey-panel[data-progress="3"]  .metabolic-survey-progress-bar::before { width: 30%; }
+.metabolic-survey-panel[data-progress="4"]  .metabolic-survey-progress-bar::before { width: 40%; }
+.metabolic-survey-panel[data-progress="5"]  .metabolic-survey-progress-bar::before { width: 50%; }
+.metabolic-survey-panel[data-progress="6"]  .metabolic-survey-progress-bar::before { width: 60%; }
+.metabolic-survey-panel[data-progress="7"]  .metabolic-survey-progress-bar::before { width: 70%; }
+.metabolic-survey-panel[data-progress="8"]  .metabolic-survey-progress-bar::before { width: 80%; }
+.metabolic-survey-panel[data-progress="9"]  .metabolic-survey-progress-bar::before { width: 90%; }
+.metabolic-survey-panel[data-progress="10"] .metabolic-survey-progress-bar::before { width: 100%; }
 
 .metabolic-survey-progress-text {
   font-size: 0.9rem;
@@ -458,6 +530,48 @@ body .container {
   color: rgba(255,255,255,0.9);
 }
 
+.metabolic-survey-outcome-teaser {
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.06) 0%, rgba(0,0,0,0.15) 100%);
+  border-left: 4px solid var(--lime-green);
+  border-radius: 0 10px 10px 0;
+  padding: 18px 20px;
+  margin: 0 0 28px;
+}
+
+.metabolic-survey-outcome-teaser-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--lime-green);
+  margin: 0 0 10px;
+}
+
+.metabolic-survey-outcome-teaser-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metabolic-survey-outcome-teaser-list li {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.92);
+  padding-left: 22px;
+  position: relative;
+}
+
+.metabolic-survey-outcome-teaser-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--lime-green);
+  font-weight: 700;
+}
+
 .metabolic-survey-outcome-cta-section {
   text-align: center;
   padding: 24px 0 0;
@@ -470,6 +584,128 @@ body .container {
   margin: 0 0 20px;
   color: var(--white);
   line-height: 1.5;
+}
+
+.metabolic-survey-outcome-cta-note {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  margin: 14px 0 0;
+  line-height: 1.5;
+}
+
+/* ── Step 1 (results) — collapsed by default, optional read ── */
+.outcome-step1-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 0 0 24px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.outcome-step1-toggle:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.outcome-step1-toggle-icon {
+  transition: transform 0.25s ease;
+  color: rgba(255,255,255,0.5);
+}
+
+.outcome-step1-toggle[aria-expanded="true"] .outcome-step1-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.outcome-step1-content {
+  margin: -8px 0 28px;
+  padding: 20px 4px 4px;
+  animation: metabolicFadeIn 0.3s ease;
+}
+
+/* ── Step 2 (booking) — expanded by default, the primary path ── */
+.outcome-step2 {
+  text-align: center;
+  padding: 28px 0 0;
+  border-top: 1px solid rgba(196,255,73,0.2);
+}
+
+.outcome-step2-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--lime-green);
+  margin: 0 0 10px;
+}
+
+/* Iframe height: GHL's calendar widget is cross-origin, so the parent page
+   can never read its real content height via the DOM (browser security
+   blocks that read entirely — confirmed, not assumed). Two-layer strategy:
+   1. Listen for a postMessage height update, in case GHL's widget sends one
+      (some embeddable calendar widgets do on step changes) — see JS below.
+   2. Fall back to a generous viewport-relative height so the calendar's
+      tallest state (date grid + time slots + timezone selector, or the
+      contact-details step) fits without an internal scrollbar on typical
+      screens, rather than a small fixed pixel guess. Sized off large
+      viewport units (lvh) with a min in case of a very short viewport. */
+.outcome-step2-iframe-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 720px;
+  height: 85lvh;
+  max-height: 900px;
+  margin: 20px 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: height 0.25s ease;
+}
+
+.outcome-step2-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.outcome-step2-iframe-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(14,36,16,0.95);
+}
+
+.outcome-step2-iframe-fallback p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.outcome-step2-iframe-wrap.iframe-failed .outcome-step2-iframe-fallback {
+  display: flex;
+}
+
+@media (max-width: 640px) {
+  .outcome-step2-iframe-wrap {
+    min-height: 780px;
+    height: 90lvh;
+    max-height: none;
+  }
 }
 
 /* ── Recovery timeline ── */
@@ -847,14 +1083,30 @@ body .container {
     <div class="quiz-intro">
       <span class="quiz-intro-tag">Free Assessment — 3 Minutes</span>
       <h1>You're not declining. You're under-optimised.<br>Find what's blocking you — 3 min quiz.</h1>
-      <p>Something shifted in the last 2–5 years. Energy, sharpness, body composition, drive — not catastrophically wrong, just not what they were. 9 questions to identify exactly what's limiting you.</p>
+      <p>Something shifted in the last 2–5 years. Energy, sharpness, body composition, drive — not catastrophically wrong, just not what they were. A few quick questions to identify exactly what's limiting you.</p>
+      <div class="quiz-intro-process">
+        <div class="quiz-intro-process-step">
+          <span class="quiz-intro-process-num">1</span>
+          <div class="quiz-intro-process-body">
+            <p class="quiz-intro-process-label">Step 1 — Assessment</p>
+            <p class="quiz-intro-process-desc">Take the quiz, get your pattern.</p>
+          </div>
+        </div>
+        <div class="quiz-intro-process-step">
+          <span class="quiz-intro-process-num">2</span>
+          <div class="quiz-intro-process-body">
+            <p class="quiz-intro-process-label">Step 2 — Clinician Call</p>
+            <p class="quiz-intro-process-desc">Free call to interpret your results and map next steps.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="metabolic-survey-panel" class="metabolic-survey-panel" role="region" aria-label="Metabolic Performance Assessment">
       <div class="metabolic-survey-inner">
 
         <div class="metabolic-survey-header">
-          <h2 id="metabolic-survey-title" class="metabolic-survey-title">Metabolic Performance Assessment</h2>
+          <h2 id="metabolic-survey-title" class="metabolic-survey-title">Currently Completing: Metabolic Performance Assessment (Step 1)</h2>
         </div>
 
         <div class="metabolic-survey-progress">
@@ -974,12 +1226,26 @@ body .container {
               </div>
             </div>
 
+            <!-- Q10: Investment history — diagnostic, not a commitment gate.
+                 Same style as Q9: reveals spending capacity and mindset via
+                 what he's already tried, not a yes/no ask against an unknown price. -->
+            <div class="metabolic-survey-question" data-question="10" data-id="q10_invested">
+              <h3>What have you already invested in trying to fix this?</h3>
+              <p class="metabolic-survey-sub">Pick the option that best fits:</p>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Prior investment">
+                <button type="button" class="metabolic-survey-option" data-value="nothing" role="radio" aria-checked="false">Nothing yet</button>
+                <button type="button" class="metabolic-survey-option" data-value="trainer" role="radio" aria-checked="false">A personal trainer or coach</button>
+                <button type="button" class="metabolic-survey-option" data-value="supplements" role="radio" aria-checked="false">Supplements or biohacking products</button>
+                <button type="button" class="metabolic-survey-option" data-value="doctor" role="radio" aria-checked="false">Doctor visits or bloodwork out of pocket</button>
+              </div>
+            </div>
+
           </div><!-- /.metabolic-survey-questions -->
 
           <!-- Lead capture gate -->
           <div id="lead-gate" class="lead-gate">
-            <h3 class="lead-gate-heading">Your bottleneck is identified.</h3>
-            <p class="lead-gate-sub">Enter your name and email to see your Metabolic Performance Profile — the specific system that's limiting your output and what it takes to fix it.</p>
+            <h3 class="lead-gate-heading">Step 1 complete — your bottleneck is identified.</h3>
+            <p class="lead-gate-sub">Enter your name and email to see your pattern, then move to Step 2 — a free call with a clinician to interpret your results.</p>
             <form class="lead-gate-form" id="lead-gate-form" novalidate>
               <input type="text" class="lead-gate-input" id="lead-first-name" placeholder="First name" autocomplete="given-name" required />
               <input type="email" class="lead-gate-input" id="lead-email" placeholder="Email address" autocomplete="email" required />
@@ -988,107 +1254,53 @@ body .container {
             <p class="lead-gate-privacy">Your information is private and will never be shared.</p>
           </div>
 
-          <!-- Outcome -->
+          <!-- Outcome: two-step layout. Step 1 (results) is collapsed by
+               default — available if wanted, not the primary path. Step 2
+               (booking) is expanded by default with the calendar embedded
+               directly on the page, since session-replay evidence showed
+               real leads landing on the old results page and going idle
+               before ever reaching a CTA. Removing the read-then-click
+               sequence and making the booking action the default view is
+               the fix being tested here. -->
           <div class="metabolic-survey-outcome" hidden>
             <div class="metabolic-survey-outcome-content">
-              <span class="metabolic-survey-outcome-badge">Performance Bottleneck</span>
+              <span class="metabolic-survey-outcome-badge">Performance Bottleneck Identified</span>
               <h3 class="metabolic-survey-outcome-title"></h3>
-              <p class="metabolic-survey-outcome-intro"></p>
-              <ul class="metabolic-survey-outcome-patterns"></ul>
-              <div class="metabolic-survey-outcome-blocks">
-                <div class="metabolic-survey-outcome-block">
-                  <p class="metabolic-survey-outcome-block-label">Why standard protocols miss this</p>
-                  <p class="metabolic-survey-outcome-meaning-text"></p>
+
+              <!-- Step 1: collapsed results toggle -->
+              <button type="button" class="outcome-step1-toggle" aria-expanded="false">
+                <span class="outcome-step1-toggle-label">Step 1 — View Your Results</span>
+                <span class="outcome-step1-toggle-icon">▾</span>
+              </button>
+              <div class="outcome-step1-content" hidden>
+                <p class="metabolic-survey-outcome-intro"></p>
+                <ul class="metabolic-survey-outcome-patterns"></ul>
+                <div class="metabolic-survey-outcome-teaser">
+                  <p class="metabolic-survey-outcome-teaser-label">This pattern needs a clinician to interpret it. On your call, we'll walk through:</p>
+                  <ul class="metabolic-survey-outcome-teaser-list">
+                    <li>Why standard bloodwork misses this pattern — and what to test instead</li>
+                    <li>The specific protocol progression we'd build for your case</li>
+                    <li>What changes first, and what a realistic timeline looks like</li>
+                  </ul>
                 </div>
-                <div class="metabolic-survey-outcome-block metabolic-survey-outcome-age-block" style="display:none;">
-                  <p class="metabolic-survey-outcome-block-label">What changes at your age</p>
-                  <ul class="metabolic-survey-outcome-age-list"></ul>
-                </div>
-                <div class="metabolic-survey-outcome-block">
-                  <p class="metabolic-survey-outcome-block-label">Where to start</p>
-                  <p class="metabolic-survey-outcome-next-text"></p>
-                </div>
-              </div>
-              <!-- Performance timeline -->
-              <div class="recovery-timeline">
-                <p class="recovery-timeline-heading">What the protocol progression looks like</p>
-                <p class="recovery-timeline-subhead">If your system responds well — which is typical for this pattern.</p>
-                <div class="rtl-track">
-                  <div class="rtl-phase rtl-active">
-                    <span class="rtl-week">Wk 1–3</span>
-                    <div class="rtl-dot-col"><div class="rtl-dot"></div></div>
-                    <div class="rtl-body">
-                      <p class="rtl-phase-name">Gut and digestion foundation</p>
-                      <ul class="rtl-bullets">
-                        <li>Gut function and liver clearance addressed first</li>
-                        <li>Nutrient absorption improves — downstream systems begin responding</li>
-                        <li>Digestive heaviness and irregularity typically reduce early</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="rtl-phase">
-                    <span class="rtl-week">Wk 4–7</span>
-                    <div class="rtl-dot-col"><div class="rtl-dot"></div></div>
-                    <div class="rtl-body">
-                      <p class="rtl-phase-name">Circadian rhythm and nervous system reset</p>
-                      <ul class="rtl-bullets">
-                        <li>Sleep quality and recovery depth improve noticeably</li>
-                        <li>Herbal and adaptogenic interventions regulate cortisol rhythm</li>
-                        <li>Midday energy dip reduces as the stress axis stabilises</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="rtl-phase">
-                    <span class="rtl-week">Wk 8–12</span>
-                    <div class="rtl-dot-col"><div class="rtl-dot"></div></div>
-                    <div class="rtl-body">
-                      <p class="rtl-phase-name">Hormonal and androgen recalibration</p>
-                      <ul class="rtl-bullets">
-                        <li>Drive, focus, and competitive edge sharpen as the hormonal floor rises</li>
-                        <li>Body composition begins responding to training again</li>
-                        <li>Upstream causes addressed before any supplementation</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="rtl-phase">
-                    <span class="rtl-week">Mo 4–6</span>
-                    <div class="rtl-dot-col"><div class="rtl-dot"></div></div>
-                    <div class="rtl-body">
-                      <p class="rtl-phase-name">Performance optimisation and maintenance</p>
-                      <ul class="rtl-bullets">
-                        <li>Output ceiling visibly higher than pre-protocol baseline</li>
-                        <li>Cognitive sharpness and decisiveness sustained across the day</li>
-                        <li>Protocol simplifies to quarterly maintenance as the system holds</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <p class="rtl-note">Timeline reflects good-response cases. Your intake confirms whether your pattern resolves faster or needs a longer correction window.</p>
               </div>
 
-              <div class="metabolic-survey-outcome-cta-section">
-                <p class="metabolic-survey-outcome-cta-text">Your profile identifies a specific bottleneck. Book a free call and we'll show you the protocol we'd build around it.</p>
-                <a href="#" class="btn-primary metabolic-survey-cta-btn">Book Your Full Intake</a>
-                <div class="qualifier-gate" hidden>
-                  <div class="qualifier-step" data-step="payment">
-                    <p class="qualifier-q">One thing to know — we're a private, cash-pay practice. We don't bill insurance.</p>
-                    <p class="qualifier-sub">Are you open to investing out-of-pocket for a precision protocol?</p>
-                    <div class="qualifier-options">
-                      <button type="button" class="qualifier-option" data-gate="payment" data-value="yes">Yes — I invest in what works</button>
-                      <button type="button" class="qualifier-option" data-gate="payment" data-value="maybe">I'd want to understand the investment first</button>
-                      <button type="button" class="qualifier-option" data-gate="payment" data-value="no">No — I need insurance to cover it</button>
-                    </div>
-                  </div>
-                  <div class="qualifier-step" data-step="philosophy" hidden>
-                    <p class="qualifier-q">One more — our approach is functional and root-cause, not prescription-based.</p>
-                    <p class="qualifier-sub">Are you open to evidence-based natural protocols over conventional treatment?</p>
-                    <div class="qualifier-options">
-                      <button type="button" class="qualifier-option" data-gate="philosophy" data-value="yes">Yes — I want to understand the mechanism, not just take a pill</button>
-                      <button type="button" class="qualifier-option" data-gate="philosophy" data-value="maybe">Open to it alongside what I'm already doing</button>
-                      <button type="button" class="qualifier-option" data-gate="philosophy" data-value="no">No — I prefer conventional medicine</button>
-                    </div>
+              <!-- Step 2: booking, expanded by default -->
+              <div class="outcome-step2">
+                <p class="outcome-step2-label">Step 2 — Book Your Free Clinician Interpretation of Results</p>
+                <p class="metabolic-survey-outcome-cta-text">Your assessment identifies a pattern — not a plan. Book your free 15-minute call and a clinician will walk you through what it actually means and the protocol we'd build around it.</p>
+                <div class="outcome-step2-iframe-wrap">
+                  <iframe
+                    class="outcome-step2-iframe"
+                    title="Book your free clinician interpretation call"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <div class="outcome-step2-iframe-fallback">
+                    <p>Calendar not loading?</p>
+                    <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time" target="_blank" rel="noopener noreferrer" class="btn-primary metabolic-survey-cta-btn">Book Your Free Intake Call →</a>
                   </div>
                 </div>
+                <p class="metabolic-survey-outcome-cta-note">We're a private, cash-pay functional health practice — we don't bill insurance. Pricing and fit are covered on the call, no obligation.</p>
               </div>
             </div>
           </div><!-- /.metabolic-survey-outcome -->
@@ -1125,27 +1337,59 @@ body .container {
 </main>
 
 <script>
+// Capture all URL params on page load (UTM, fbclid, gclid, ref, etc.) and
+// build the GHL booking URL from them. GHL renders custom-code blocks in an
+// iframe whose own URL has no query string, so fall back to the parent
+// frame, then to document.referrer. Shared (non-IIFE, page-global) so both
+// the nav "Book Online" trigger below and the quiz/outcome script further
+// down can forward the same attribution into the booking calendar.
+var URL_PARAMS = (function() {
+  var params = {};
+  function absorb(search) {
+    try {
+      new URLSearchParams(search).forEach(function(v, k) {
+        if (!(k in params)) params[k] = v;
+      });
+    } catch(e) {}
+  }
+  absorb(window.location.search);
+  if (!Object.keys(params).length) {
+    try { absorb(window.parent.location.search); } catch(e) { /* cross-origin */ }
+  }
+  if (!Object.keys(params).length && document.referrer) {
+    try { absorb(new URL(document.referrer).search); } catch(e) {}
+  }
+  return params;
+})();
+
+var BOOKING_BASE_URL = 'https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time';
+
+function buildBookingUrl() {
+  var qs = new URLSearchParams(URL_PARAMS).toString();
+  return qs ? BOOKING_BASE_URL + '?' + qs : BOOKING_BASE_URL;
+}
+
 // Wire nav "Book Online" button to booking URL on this page
 document.addEventListener('click', function(e) {
   var t = e.target.closest('.booking-trigger');
   if (!t) return;
   e.preventDefault();
-  window.open('https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time', '_blank', 'noopener,noreferrer');
+  window.open(buildBookingUrl(), '_blank', 'noopener,noreferrer');
 });
 </script>
 
 <script>
 (function() {
-  // Capture all URL params on page load (UTM, fbclid, gclid, ref, etc.)
-  var URL_PARAMS = (function() {
-    var params = {};
+  // Mixpanel custom events (runs at parent level — GHL iframes this block).
+  // After lead capture the user is email-identified, so these attach to them.
+  function trackMp(event, props) {
     try {
-      new URLSearchParams(window.location.search).forEach(function(v, k) { params[k] = v; });
-    } catch(e) {}
-    return params;
-  })();
+      var mp = window.mixpanel || window.parent.mixpanel;
+      if (mp && mp.track) mp.track(event, Object.assign({ quiz: 'owen' }, props || {}));
+    } catch(e) { /* cross-origin or mixpanel not loaded */ }
+  }
 
-  var TOTAL_QUESTIONS = 9;
+  var TOTAL_QUESTIONS = 10;
 
   var OUTCOMES = {
     hpa: {
@@ -1196,7 +1440,7 @@ document.addEventListener('click', function(e) {
   var panel       = document.getElementById('metabolic-survey-panel');
   if (!panel) return;
 
-  var state        = { currentIndex: 0, answers: {}, gateAnswers: {}, leadCaptured: false };
+  var state        = { currentIndex: 0, answers: {}, leadCaptured: false };
   var questionsEl  = panel.querySelector('.metabolic-survey-questions');
   var outcomeEl    = panel.querySelector('.metabolic-survey-outcome');
   var disqualEl    = panel.querySelector('.metabolic-survey-disqualified');
@@ -1206,12 +1450,15 @@ document.addEventListener('click', function(e) {
   var backBtn      = panel.querySelector('.metabolic-survey-back');
   var nextBtn      = panel.querySelector('.metabolic-survey-next');
   var ctaBtn       = panel.querySelector('.metabolic-survey-cta-btn');
-  var gateEl       = panel.querySelector('.qualifier-gate');
   var restartBtn   = panel.querySelector('.quiz-restart-btn');
   var leadGate     = document.getElementById('lead-gate');
   var leadForm     = document.getElementById('lead-gate-form');
 
-  var QUESTION_IDS = ['age', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9'];
+  // No hard qualifier gate in the quiz — real qualification (budget, fit)
+  // happens on the call, not here. Q10 is diagnostic like Q9: it reveals
+  // spending capacity/mindset without asking for a commitment to an unknown
+  // number, and there is no "wrong" answer that blocks lead capture.
+  var QUESTION_IDS = ['age', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10_invested'];
 
   function getCurrentId() { return QUESTION_IDS[state.currentIndex] || null; }
 
@@ -1293,38 +1540,75 @@ document.addEventListener('click', function(e) {
     outcomeEl.querySelector('.metabolic-survey-outcome-title').textContent = o.title;
     outcomeEl.querySelector('.metabolic-survey-outcome-intro').textContent = o.intro;
 
+    // Tease only 3 patterns — the rest of the picture is reserved for the call.
     var ul = outcomeEl.querySelector('.metabolic-survey-outcome-patterns');
     ul.innerHTML = '';
-    o.patterns.forEach(function(p) {
+    o.patterns.slice(0, 3).forEach(function(p) {
       var li = document.createElement('li');
       li.textContent = p;
       ul.appendChild(li);
     });
 
-    outcomeEl.querySelector('.metabolic-survey-outcome-meaning-text').textContent = o.meaning;
-    outcomeEl.querySelector('.metabolic-survey-outcome-next-text').textContent = o.next;
-
-    var ageBlock = outcomeEl.querySelector('.metabolic-survey-outcome-age-block');
-    var ageList  = outcomeEl.querySelector('.metabolic-survey-outcome-age-list');
-    if (o.ageAdjustments && ageBlock && ageList) {
-      ageList.innerHTML = '';
-      o.ageAdjustments.forEach(function(a) {
-        var li = document.createElement('li');
-        li.textContent = a;
-        ageList.appendChild(li);
-      });
-      ageBlock.style.display = 'block';
-    } else if (ageBlock) {
-      ageBlock.style.display = 'none';
-    }
-
     outcomeEl.hidden = false;
     outcomeEl.classList.add('visible');
     navEl.classList.add('hidden');
     panel.classList.add('is-outcome');
+
+    var titleEl = document.getElementById('metabolic-survey-title');
+    if (titleEl) titleEl.textContent = 'Step 2 — Book Your Free Clinician Call Now';
+
+    loadBookingIframe();
+    trackMp('Outcome Shown', { outcome: key, step2_default: 'expanded' });
+  }
+
+  // Step 2 booking iframe: load lazily (only once the outcome page actually
+  // renders, not blocking initial paint) and fall back to a direct link if
+  // it fails — GHL's calendar widget is a known risk area inside an iframe
+  // on mobile Safari / the Facebook in-app browser, which is most of this
+  // funnel's traffic. Never leave a visitor looking at a broken blank box
+  // with no way forward.
+  var bookingIframeLoaded = false;
+  function loadBookingIframe() {
+    if (bookingIframeLoaded) return;
+    bookingIframeLoaded = true;
+    var wrap = outcomeEl.querySelector('.outcome-step2-iframe-wrap');
+    var iframe = outcomeEl.querySelector('.outcome-step2-iframe');
+    if (!wrap || !iframe) return;
+    var bookingUrl = buildBookingUrl();
+    var fallbackLink = wrap.querySelector('.outcome-step2-iframe-fallback a');
+    if (fallbackLink) fallbackLink.href = bookingUrl;
+    var failTimer = setTimeout(function() {
+      wrap.classList.add('iframe-failed');
+      trackMp('Booking Iframe Failed');
+    }, 8000);
+    iframe.addEventListener('load', function() {
+      clearTimeout(failTimer);
+      trackMp('Booking Iframe Loaded');
+    });
+    iframe.addEventListener('error', function() {
+      clearTimeout(failTimer);
+      wrap.classList.add('iframe-failed');
+      trackMp('Booking Iframe Failed');
+    });
+    // Defensive: if the GHL widget ever starts sending its content height via
+    // postMessage (it doesn't appear to today — checked directly), honor it
+    // and stop fighting the viewport-relative CSS height for this session.
+    window.addEventListener('message', function(e) {
+      if (!e.data || typeof e.data !== 'object') return;
+      var h = e.data.height || e.data.frameHeight || (e.data.type === 'widget-size' && e.data.height);
+      if (h && typeof h === 'number' && h > 200) {
+        wrap.style.height = Math.min(h, 1400) + 'px';
+        wrap.style.maxHeight = 'none';
+      }
+    });
+    iframe.src = bookingUrl;
   }
 
   function showDisqualified() {
+    questionsEl.style.display = 'none';
+    if (progressEl) progressEl.style.display = 'none';
+    navEl.classList.add('hidden');
+    leadGate.classList.remove('visible');
     outcomeEl.hidden = true;
     outcomeEl.classList.remove('visible');
     disqualEl.hidden = false;
@@ -1334,6 +1618,14 @@ document.addEventListener('click', function(e) {
   function goNext() {
     var id = getCurrentId();
     if (!state.answers[id]) return;
+
+    // No hard gate here — q10_invested is diagnostic (like q9), tracked for
+    // signal but never blocks lead capture. Real qualification happens on
+    // the call, not in the quiz.
+    if (id === 'q10_invested') {
+      trackMp('Investment History Answer', { answer: state.answers[id] });
+    }
+
     if (state.currentIndex >= TOTAL_QUESTIONS - 1) {
       var currentActive = panel.querySelector('.metabolic-survey-question.active');
       if (currentActive) {
@@ -1359,7 +1651,6 @@ document.addEventListener('click', function(e) {
   function restart() {
     state.currentIndex = 0;
     state.answers = {};
-    state.gateAnswers = {};
     state.leadCaptured = false;
     panel.setAttribute('data-progress', '1');
     questionsEl.style.display = '';
@@ -1368,20 +1659,10 @@ document.addEventListener('click', function(e) {
     outcomeEl.classList.remove('visible');
     outcomeEl.hidden = true;
     if (disqualEl) { disqualEl.classList.remove('visible'); disqualEl.hidden = true; }
-    if (gateEl) {
-      gateEl.hidden = true;
-      gateEl.querySelectorAll('.qualifier-step').forEach(function(s, i) { s.hidden = i !== 0; });
-      gateEl.querySelectorAll('.qualifier-option').forEach(function(o) { o.classList.remove('selected'); });
-    }
-    if (ctaBtn) {
-      ctaBtn.hidden = false;
-      ctaBtn.href = '#';
-      ctaBtn.removeAttribute('target');
-      ctaBtn.removeAttribute('rel');
-      ctaBtn.removeAttribute('data-qualified');
-    }
     navEl.classList.remove('hidden');
     panel.classList.remove('is-outcome');
+    var titleEl = document.getElementById('metabolic-survey-title');
+    if (titleEl) titleEl.textContent = 'Currently Completing: Metabolic Performance Assessment (Step 1)';
     panel.querySelectorAll('.metabolic-survey-question').forEach(function(q) {
       q.classList.remove('active', 'leaving', 'leaving-back');
     });
@@ -1459,6 +1740,24 @@ document.addEventListener('click', function(e) {
       state.leadName  = name;
       state.leadEmail = email;
       var outcomeKey = computeOutcome();
+      // Mixpanel runs at the parent-page level (GHL iframes this block),
+      // so try own window first, then parent, for the distinct_id.
+      var mixpanelId = '';
+      try {
+        var mp = window.mixpanel || window.parent.mixpanel;
+        if (mp && mp.get_distinct_id) mixpanelId = mp.get_distinct_id();
+        // Identify AFTER capturing the device id so the webhook still gets it.
+        // Merges the anonymous session history into an email-keyed profile.
+        if (mp && mp.identify) {
+          mp.identify(email);
+          if (mp.people && mp.people.set) {
+            mp.people.set({ $name: name, $email: email, quiz: 'owen' });
+          }
+        }
+      } catch(e) { /* cross-origin or mixpanel not loaded */ }
+      // No AddToCart here — there's no quiz-side qualifier pass/fail anymore
+      // (real qualification happens on the call), so it would just duplicate
+      // the Lead event below with no additional meaning.
       // Submit to webhook (fire-and-forget — don't block on result)
       fetch('https://services.leadconnectorhq.com/hooks/Q6uTvwNHOg3F0JyLXiUV/webhook-trigger/c0d7ac7b-bd1e-48fc-97e5-d2aba87b9b2a', {
         method: 'POST',
@@ -1469,6 +1768,7 @@ document.addEventListener('click', function(e) {
           quiz: 'owen',
           outcome: outcomeKey,
           answers: state.answers,
+          mixpanel_id: mixpanelId,
           submittedAt: new Date().toISOString()
         }, URL_PARAMS))
       }).catch(function() {});
@@ -1476,52 +1776,20 @@ document.addEventListener('click', function(e) {
     });
   }
 
-  if (ctaBtn) ctaBtn.href = '#';
-
-  // Qualifier gate
   if (ctaBtn) {
-    ctaBtn.addEventListener('click', function(e) {
-      if (ctaBtn.dataset.qualified === 'true') return;
-      e.preventDefault();
-      ctaBtn.hidden = true;
-      gateEl.hidden = false;
-      var steps = gateEl.querySelectorAll('.qualifier-step');
-      steps.forEach(function(s) { s.hidden = true; });
-      steps[0].hidden = false;
-      gateEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
+    // Only rendered inside the iframe fallback now — a real click here means
+    // the embedded widget failed and they used the escape-hatch link.
+    ctaBtn.addEventListener('click', function() { trackMp('Booking Link Clicked', { via: 'iframe_fallback' }); });
   }
 
-  if (gateEl) {
-    gateEl.addEventListener('click', function(e) {
-      var opt = e.target.closest('.qualifier-option');
-      if (!opt) return;
-      var gate = opt.dataset.gate;
-      var val  = opt.dataset.value;
-      var group = opt.closest('.qualifier-options');
-      group.querySelectorAll('.qualifier-option').forEach(function(o) { o.classList.remove('selected'); });
-      opt.classList.add('selected');
-      state.gateAnswers[gate] = val;
-
-      setTimeout(function() {
-        if (gate === 'payment') {
-          if (val === 'no') { showDisqualified(); return; }
-          var steps = gateEl.querySelectorAll('.qualifier-step');
-          steps.forEach(function(s) { s.hidden = true; });
-          gateEl.querySelector('[data-step="philosophy"]').hidden = false;
-        } else if (gate === 'philosophy') {
-          if (val === 'no') { showDisqualified(); return; }
-          gateEl.hidden = true;
-          ctaBtn.dataset.qualified = 'true';
-          ctaBtn.href = 'https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time';
-          ctaBtn.target = '_blank';
-          ctaBtn.rel = 'noopener noreferrer';
-          ctaBtn.hidden = false;
-          ctaBtn.style.animation = 'metabolicFadeIn 0.4s ease forwards';
-          trackFbq('track', 'AddToCart', { content_name: 'owen-quiz' });
-          window.location.hash = 'qualifier-passed';
-        }
-      }, 250);
+  var step1Toggle  = outcomeEl.querySelector('.outcome-step1-toggle');
+  var step1Content = outcomeEl.querySelector('.outcome-step1-content');
+  if (step1Toggle && step1Content) {
+    step1Toggle.addEventListener('click', function() {
+      var expanded = step1Toggle.getAttribute('aria-expanded') === 'true';
+      step1Toggle.setAttribute('aria-expanded', String(!expanded));
+      step1Content.hidden = expanded;
+      if (!expanded) trackMp('Step1 Results Expanded');
     });
   }
 })();

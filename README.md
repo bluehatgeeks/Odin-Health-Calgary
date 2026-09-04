@@ -1,93 +1,62 @@
-# Odin Labs Calgary - Clinic Operations Hub
+# Odin Labs Calgary - Operations Hub
 
-**Last Updated:** 2026-05-03  
-**Status:** Execution Phase  
-**Website:** https://odinhealthlab.ca/  
-**Location:** Calgary, Alberta  
+**Last Updated:** 2026-09-04
+**Status:** Execution Phase — mid-pivot to telehealth-only (see [[2026-09-03-telehealth-only-pivot-decision.md]])
+**Website:** https://odinhealthlab.ca/
+**Business model:** Transitioning from a physical Calgary clinic to telehealth-only delivery, Canada + USA wide.
 
 ---
 
 ## 📋 Overview
 
-This is the central repository for Odin Labs Calgary clinic setup, operations, and growth. It contains clinical protocols, operational procedures, marketing strategies, and technical integrations.
+This is the central repository for Odin Labs Calgary's clinic history, ongoing telehealth pivot, and shared growth/technical infrastructure. As of 2026-09-04 the vault is organized around the business-model split described in [`Telehealth/2026-09-03-telehealth-only-pivot-decision.md`](Telehealth/2026-09-03-telehealth-only-pivot-decision.md): the physical Calgary clinic is closing, and marketing/delivery is moving to telehealth-only, Canada + USA wide.
+
+**Reorganized 2026-09-04.** Content is split three ways:
+- **`Calgary-Local/`** — everything specific to the physical clinic model (now winding down): procurement, staffing, in-person clinical protocols, patient-experience docs written for physical visits, the operations playbook, admin/meeting logs, and Calgary-only ad campaigns.
+- **`Telehealth/`** — everything specific to the new telehealth-only model: the pivot decision record and new funnels built under it (starting with the Owen Low-T/Andropause funnel).
+- **Shared root-level content** — infrastructure and strategy that serves both models regardless of which one is currently active (analytics pipeline, tech stack, avatar/growth strategy docs, the landers codebase). Kept as one shared layer rather than duplicated into both folders, to avoid the two copies drifting out of sync. Both `Calgary-Local/README.md`-equivalent context and `Telehealth/` docs link out to this shared layer where relevant.
+
+**Known deferred item:** the landers website code (`06_MARKETING_GROWTH/Odin Labs Landers/`) was *not* moved into a `/website/` folder in this pass. It's referenced by live, ad-spending campaigns via jsDelivr CDN URLs (`cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/<path>`) that are root-path-relative — moving it would 404 every CSS/JS/image reference on the running Owen quiz funnel until every reference was updated and the CDN cache cleared. Deliberately left in place; revisit as its own planned, verified step with a deploy window, not bundled into a docs reorg.
 
 ---
 
 ## 📁 Folder Structure
 
-### `00_ADMIN/` - Project Administration
-- `PROJECT_LOG.md` - Active changelog and project status
-- `STATE.json` - Current project state
-- `google_oauth_client_secret.json` - OAuth credentials (restricted access)
+### `Calgary-Local/` — Physical Clinic Model (winding down)
 
-### `01_BUSINESS_STRATEGY/` - Core Business Documents
-- `services_and_pricing.md` - Service menu and pricing
-- `patient_segments.md` - Target patient demographics and personas
+- **`00_ADMIN/`** — Project administration: `PROJECT_LOG.md` (changelog/status), `STATE.json` (machine-readable state), `google_oauth_client_secret.json` (restricted).
+- **`01_BUSINESS_STRATEGY/`** — `clinic_overview.md`, `services_and_pricing.md`, `patient_segments.md`.
+- **`02_MARKET_INTEL/`** — `research.md` (market/vendor research), `keyword_data/` (SEO/keyword JSON).
+- **`03_CLINICAL_OPERATIONS/`** — `protocols/` (Ayurveda roadmap, functional health blueprint, treatment log templates — written for in-person delivery), `consumables/` (sourcing, final SKU list — physical inventory).
+- **`04_PATIENT_EXPERIENCE/`** — `patient_intake_protocol.md`, `patient_journey_map.md`, `patient_feedback_loop.md` — written assuming physical visits.
+- **`05_STAFFING/`** — `roles_and_responsibilities.md`, `onboarding_guide.md`, `clinical_qa_framework.md` — for clinic staff.
+- **`08_OPERATIONS_PLAYBOOK/`** — daily clinic checklist, facility/vendor guide, equipment maintenance, emergency response, continuity plan, inventory management, lead intake form spec, modality integration guide. All physical-location operations.
+- **`09_MEETINGS_LOGS/`** — `session_log.md`.
+- **`marketing/`** — Calgary-only marketing content:
+  - `Odin Labs Calgary Meta Ads/` — Calgary-targeted video/image ad creative.
+  - `tests/` — the existing Owen quiz funnel test log (Calgary-only geo/lookalike, currently running per the pivot decision — not yet migrated).
+  - `local_vs_online_strategy_study.md` — pre-pivot strategy study; superseded (operating recommendation only, not the underlying research) by the pivot decision.
 
-### `02_MARKET_INTEL/` - Market Research
-- `research.md` - Market research findings
-- `keyword_data/` - SEO and keyword research data (JSON files)
+### `Telehealth/` — Telehealth-Only Model (active, Canada + USA wide)
 
-### `03_CLINICAL_OPERATIONS/` - Clinical Protocols & Standards
-#### `protocols/`
-- `ayurveda_roadmap_template.md` - Standard Ayurveda treatment pathway
-- `functional_health_blueprint_template.md` - Functional health assessment template
-- `treatment_protocol_log_template.md` - Treatment logging format
-- `min_browser_protocol.md` - Minimum browser requirements for digital tools
+- **`2026-09-03-telehealth-only-pivot-decision.md`** — the decision record: why the clinic is closing, what changes for marketing, and open items for migrating the existing Owen campaign.
+- **`Owen Low-T Funnel/`** — the first funnel built and targeted under this pivot: project outline, messaging/belief-shift copy, and dedicated Andropause/Low-T client-language and belief-shift reference entries.
 
-#### `consumables/`
-- `sourcing.md` - Vendor information and sourcing guide
-- `final_sku_list.md` - Approved consumables list
+### Shared / Root-Level (serves both models — not duplicated)
 
-### `04_PATIENT_EXPERIENCE/` - Patient Journey
-- `patient_intake_protocol.md` - Standard intake process
-- `patient_journey_map.md` - End-to-end patient experience map
-- `patient_feedback_loop.md` - Feedback collection and response system
-
-### `05_STAFFING/` - Human Resources
-- `roles_and_responsibilities.md` - Clinical and operational roles
-- `onboarding_guide.md` - New staff onboarding process
-- `clinical_qa_framework.md` - Quality assurance standards
-
-### `06_MARKETING_GROWTH/` - Marketing & Customer Acquisition
-#### `google_ads/`
-- `strategy.md` - Google Ads strategic approach
-- `paid_search_blueprint.md` - Paid search execution guide
-
-- `implementation_checklist.md` - Growth initiative checklist
-- `growth_strategy_package.md` - Comprehensive growth strategy
-
-### `07_TECH_STACK/` - Technology & Integrations
-#### `integrations/`
-- `ghl_sheets_webhook_blueprint.md` - GoHighLevel to Google Sheets automation
-
-#### `keyword_data/`
-- `serp_market_data.json` - SERP analysis data
-- `keyword_volume_matrix.json` - Keyword volume research
-- `keyword_demand_validation.json` - Demand validation metrics
-
-### `08_OPERATIONS_PLAYBOOK/` - Operational Procedures
-- `daily_clinic_checklist.md` - Daily opening/closing procedures
-- `facility_vendor_guide.md` - Vendor contacts and management
-- `modality_integration_guide.md` - Integrating treatment modalities
-- `equipment_maintenance.md` - Equipment maintenance schedules
-- `emergency_response_protocol.md` - Emergency procedures
-- `continuity_plan.md` - Business continuity planning
-- `lead_intake_form_spec.md` - Lead intake form specifications
-- `inventory_management_system.md` - Inventory tracking system
-
-### `09_MEETINGS_LOGS/` - Meeting Records
-- `session_log.md` - Session and meeting logs
-
-### `archive/` - Historical & Deprecated Files
-- `legacy_scripts/` - Archived automation scripts (15 files)
-
-### `supabase/` - Supabase project (CLI)
-- `config.toml` - Local Supabase config; `[functions.fetch_mixpanel_events] verify_jwt = false`
-- `functions/fetch_mixpanel_events/` - Edge Function that imports Mixpanel → `public.events`
-- `migrations/` - Database migrations (e.g. `mixpanel_insert_id` unique index for upserts)
-- `mixpanel_hourly_cron.sql` - Optional hosted-only SQL to schedule the function every hour (Vault + pg_cron)
-- `seed.sql` - Empty seed placeholder for `supabase db reset`
+- **`06_MARKETING_GROWTH/`** — shared marketing strategy and the landers codebase, since these serve both Calgary-Local and Telehealth funnels:
+  - `avatar.md` — Owen and Emma avatar definitions (used by both models' campaigns).
+  - `growth_strategy_package.md`, `implementation_checklist.md` — cross-model growth strategy.
+  - `google_ads/` — `strategy.md`, `paid_search_blueprint.md`.
+  - `ad production/` — image/voice-over ad production playbooks.
+  - `ghl-mixpanel-booking-webhook.md`, `google_search_evaluation_checklist.md`.
+  - `Odin Labs Landers/` — **the live website codebase** (all lander HTML/CSS/JS, deployed via jsDelivr from this exact repo path — see the deferred-move note above before touching paths here).
+- **`07_TECH_STACK/`** — `integrations/` (GHL↔Sheets webhook blueprint), `keyword_data/` (SERP/keyword JSON) — cross-model technical infrastructure.
+- **`operations/`** — cross-cutting forms (e.g. pricing agreement).
+- **`archive/`** — `legacy_scripts/` (15 archived automation scripts, historical).
+- **`supabase/`** — Supabase project (CLI): `config.toml`, `functions/fetch_mixpanel_events/` (Mixpanel → `public.events` Edge Function), `migrations/`, `mixpanel_hourly_cron.sql`, `seed.sql`. Serves the analytics pipeline for whichever campaigns are running.
+- **`scripts/`**, **`docs/`**, **`fixtures/`**, **`tmp/`** — analytics/dev scripts, agent handoff docs, sample data, scratch exports. Model-agnostic.
+- **Vault root** — `Odin Labs Calgary.md` (Obsidian hub note/entry point), `AGENTS.md`, `README.md` (this file), `.env` (secrets, never commit), `create_events_table.sql`, `reliable_sync.py`, `mixpanel_troubleshooting.md`, `marketing-research-analysis.txt`.
 
 ---
 
@@ -273,7 +242,7 @@ This uploads all local files to the Google Drive folder with the same structure.
 
 ### OAuth Credentials
 - **Token Location:** `~/.hermes/google_token.json` (auto-refreshing)
-- **Client Secret:** `00_ADMIN/google_oauth_client_secret.json` (restricted)
+- **Client Secret:** `Calgary-Local/00_ADMIN/google_oauth_client_secret.json` (restricted)
 - **Scopes:** Full Drive, Gmail (read/send/modify), Calendar, Sheets, Docs, Contacts
 
 ### Access Levels
@@ -365,4 +334,4 @@ python3 setup.py --auth-url
 
 ---
 
-*This repository is actively maintained. Check `00_ADMIN/PROJECT_LOG.md` for the latest updates.*
+*This repository is actively maintained. Check `Calgary-Local/00_ADMIN/PROJECT_LOG.md` for the latest updates.*

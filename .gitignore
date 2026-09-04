@@ -1,0 +1,24 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+**/google_oauth_client_secret.json
+**/*_client_secret.json
+
+# macOS
+.DS_Store
+
+# Dependencies / build artifacts
+**/node_modules/
+**/.venv/
+**/__pycache__/
+**/*.pyc
+
+# Scratch / temp exports
+tmp/*
+!tmp/.gitkeep
+
+# Large ad-creative video files — too large for a normal git push
+# (individual files exceed GitHub's 100MB hard limit). Kept on disk/in
+# the vault, not version-controlled. See README for where these live.
+Calgary-Local/marketing/Odin Labs Calgary Meta Ads/*.mp4

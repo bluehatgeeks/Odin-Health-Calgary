@@ -1,5 +1,13 @@
 # Agent notes (Odin Labs / Calgary)
 
+## Marketing test records
+
+Every meaningful marketing test (funnel changes, creative swaps, targeting/placement changes) gets logged as its own file — one hypothesis, one decision rule, one verdict. Full instructions, template, and naming convention:
+
+**[`Calgary-Local/marketing/tests/README.md`](Calgary-Local/marketing/tests/README.md)**
+
+Before starting a new marketing test, or when asked "what did we try before / why did we change X," check `Calgary-Local/marketing/tests/` first — flat folder, filenames sorted newest-last, each file cross-links to what it spawned and what prompted it. (Moved here 2026-09-04: this test log covers the existing Calgary-only Owen quiz funnel. New telehealth-model funnels, e.g. `Telehealth/Owen Low-T Funnel/`, will need their own test-log convention once launched.)
+
 ## Mixpanel ↔ Supabase `events`
 
 For the full pipeline—`friendly_name` mapping, session-start RPC, Edge Function behavior, migrations, scripts, deploy, and operational caveats—read:
@@ -10,7 +18,7 @@ For the full pipeline—`friendly_name` mapping, session-start RPC, Edge Functio
 
 ## Secrets and local files
 
-Do **not** stage or commit `.env`, Mixpanel exports under `tmp/`, or `00_ADMIN/google_oauth_client_secret.json`. Use `.gitignore` where appropriate.
+Do **not** stage or commit `.env`, Mixpanel exports under `tmp/`, or `Calgary-Local/00_ADMIN/google_oauth_client_secret.json`. Use `.gitignore` where appropriate.
 
 ## Supabase CLI
 

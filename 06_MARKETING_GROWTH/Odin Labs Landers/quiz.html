@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Metabolic Stability Assessment | Odin Lab</title>
+<meta content="Take the free Metabolic Stability Assessment from Odin Lab. Discover your metabolic pattern and get a personalised roadmap." name="description"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+<style>
+/* ── CSS Variables ── */
+:root {
+  --dark-green: #1a3a1a;
+  --lime-green: #c4ff49;
+  --white: #ffffff;
+  --white-800: rgba(255,255,255,0.8);
+  --white-500: rgba(255,255,255,0.5);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--dark-green);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+body .container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Quiz page layout ── */
+.quiz-page-wrapper {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px 20px;
+  padding-top: 170px;
+}
+
+.quiz-intro {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 20px;
+}
+
+.quiz-intro-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--lime-green);
+  background: rgba(196, 255, 73, 0.1);
+  border: 1px solid rgba(196, 255, 73, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.quiz-intro h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.quiz-intro p {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
+
+/* ── Survey panel — standalone (always open) ── */
+.metabolic-survey-panel {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.06) 0%, rgba(0, 0, 0, 0.2) 100%);
+  border: 1px solid rgba(196, 255, 73, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(196, 255, 73, 0.08);
+  overflow: hidden;
+}
+
+.metabolic-survey-inner {
+  padding: 28px 32px 32px;
+}
+
+.metabolic-survey-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.metabolic-survey-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  margin: 0;
+}
+
+/* No close button on standalone page */
+.metabolic-survey-close {
+  display: none;
+}
+
+/* Ensure hidden attribute always wins over display rules */
+[hidden] { display: none !important; }
+
+.metabolic-survey-progress {
+  margin-bottom: 24px;
+}
+
+.metabolic-survey-progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.metabolic-survey-progress-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--lime-green) 0%, #a8e64a 100%);
+  border-radius: 2px;
+  width: 16.67%;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 12px rgba(196, 255, 73, 0.4);
+}
+
+.metabolic-survey-panel[data-progress="2"] .metabolic-survey-progress-bar::before { width: 33.33%; }
+.metabolic-survey-panel[data-progress="3"] .metabolic-survey-progress-bar::before { width: 50%; }
+.metabolic-survey-panel[data-progress="4"] .metabolic-survey-progress-bar::before { width: 66.67%; }
+.metabolic-survey-panel[data-progress="5"] .metabolic-survey-progress-bar::before { width: 83.33%; }
+.metabolic-survey-panel[data-progress="6"] .metabolic-survey-progress-bar::before { width: 100%; }
+
+.metabolic-survey-progress-text {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+}
+
+.metabolic-survey-content {
+  min-height: 200px;
+  position: relative;
+}
+
+.metabolic-survey-questions {
+  position: relative;
+}
+
+.metabolic-survey-question {
+  display: none;
+  opacity: 0;
+}
+
+.metabolic-survey-question.active {
+  display: block;
+  animation: metabolicQuestionIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.metabolic-survey-question.leaving {
+  animation: metabolicQuestionOut 0.35s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+}
+
+.metabolic-survey-question.leaving-back {
+  animation: metabolicQuestionOutBack 0.35s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+}
+
+@keyframes metabolicQuestionIn {
+  from { opacity: 0; transform: translateX(30px) scale(0.98); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes metabolicQuestionOut {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to   { opacity: 0; transform: translateX(-30px) scale(0.98); }
+}
+
+@keyframes metabolicQuestionOutBack {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to   { opacity: 0; transform: translateX(30px) scale(0.98); }
+}
+
+.metabolic-survey-question h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+.metabolic-survey-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  margin: 0 0 16px;
+}
+
+.metabolic-survey-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.metabolic-survey-question.active .metabolic-survey-option {
+  animation: metabolicOptionIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(1) { animation-delay: 0.10s; }
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(2) { animation-delay: 0.12s; }
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(3) { animation-delay: 0.14s; }
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(4) { animation-delay: 0.16s; }
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(5) { animation-delay: 0.18s; }
+
+@keyframes metabolicOptionIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.metabolic-survey-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(196, 255, 73, 0.2);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+.metabolic-survey-option:hover {
+  background: rgba(196, 255, 73, 0.08);
+  border-color: rgba(196, 255, 73, 0.4);
+  transform: translateX(4px);
+}
+
+.metabolic-survey-option.selected,
+.metabolic-survey-option[aria-checked="true"] {
+  background: rgba(196, 255, 73, 0.15);
+  border-color: var(--lime-green);
+  color: var(--lime-green);
+  box-shadow: 0 0 20px rgba(196, 255, 73, 0.2);
+}
+
+/* ── Outcome ── */
+.metabolic-survey-outcome {
+  display: none;
+}
+
+.metabolic-survey-outcome.visible {
+  display: block;
+  animation: metabolicOutcomeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes metabolicOutcomeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-badge { animation: metabolicFadeIn 0.4s ease 0.10s backwards; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-title { animation: metabolicFadeIn 0.4s ease 0.15s backwards; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-intro { animation: metabolicFadeIn 0.4s ease 0.20s backwards; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li { animation: metabolicFadeIn 0.4s ease backwards; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(1) { animation-delay: 0.25s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(2) { animation-delay: 0.30s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(3) { animation-delay: 0.35s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(4) { animation-delay: 0.40s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(5) { animation-delay: 0.45s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-blocks .metabolic-survey-outcome-block:nth-child(1) { animation: metabolicFadeIn 0.4s ease 0.35s backwards; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-blocks .metabolic-survey-outcome-block:nth-child(2) { animation: metabolicFadeIn 0.4s ease 0.40s backwards; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-blocks .metabolic-survey-outcome-block:nth-child(3) { animation: metabolicFadeIn 0.4s ease 0.45s backwards; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-cta-section { animation: metabolicFadeIn 0.5s ease 0.50s backwards; }
+
+@keyframes metabolicFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.metabolic-survey-outcome-content {
+  padding: 0;
+}
+
+.metabolic-survey-outcome-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--lime-green);
+  background: rgba(196, 255, 73, 0.12);
+  border: 1px solid rgba(196, 255, 73, 0.35);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.metabolic-survey-outcome-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 16px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.metabolic-survey-outcome-intro {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  margin: 0 0 20px;
+  color: rgba(255,255,255,0.9);
+}
+
+.metabolic-survey-outcome-patterns {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  gap: 8px;
+}
+
+.metabolic-survey-outcome-patterns li {
+  padding: 12px 16px 12px 44px;
+  position: relative;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(196, 255, 73, 0.15);
+  border-radius: 8px;
+}
+
+.metabolic-survey-outcome-patterns li::before {
+  content: '✓';
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--lime-green);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.metabolic-survey-outcome-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.metabolic-survey-outcome-block {
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.06) 0%, rgba(0,0,0,0.15) 100%);
+  border-left: 4px solid var(--lime-green);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+}
+
+.metabolic-survey-outcome-block-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--lime-green);
+  margin: 0 0 6px;
+}
+
+.metabolic-survey-outcome-age-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.metabolic-survey-outcome-age-list li {
+  padding: 4px 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+}
+
+.metabolic-survey-outcome-meaning-text,
+.metabolic-survey-outcome-next-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0;
+  color: rgba(255,255,255,0.9);
+}
+
+.metabolic-survey-outcome-cta-section {
+  text-align: center;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.metabolic-survey-outcome-cta-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 20px;
+  color: var(--white);
+  line-height: 1.5;
+}
+
+/* ── Qualifier gate (post-result) ── */
+.qualifier-gate {
+  margin-top: 20px;
+  animation: metabolicFadeIn 0.4s ease forwards;
+}
+
+.qualifier-step {
+  text-align: left;
+}
+
+.qualifier-q {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+
+.qualifier-sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.qualifier-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.qualifier-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 13px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(196, 255, 73, 0.2);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-sizing: border-box;
+}
+
+.qualifier-option:hover {
+  background: rgba(196, 255, 73, 0.08);
+  border-color: rgba(196, 255, 73, 0.4);
+  transform: translateX(3px);
+}
+
+.qualifier-option.selected {
+  background: rgba(196, 255, 73, 0.15);
+  border-color: var(--lime-green);
+  color: var(--lime-green);
+}
+
+/* ── Disqualified outcome ── */
+.metabolic-survey-disqualified {
+  display: none;
+  animation: metabolicOutcomeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.metabolic-survey-disqualified.visible {
+  display: block;
+}
+
+.disqualified-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.disqualified-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 14px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.disqualified-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.8);
+  margin: 0 0 24px;
+}
+
+.disqualified-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 24px 0;
+}
+
+.disqualified-resources-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.45);
+  margin: 0 0 12px;
+}
+
+.disqualified-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.disqualified-link {
+  display: block;
+  padding: 13px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.disqualified-link:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--white);
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── Restart button ── */
+.quiz-restart-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 16px;
+  font-family: inherit;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.quiz-restart-btn:hover {
+  border-color: var(--lime-green);
+  color: var(--lime-green);
+}
+
+.is-outcome .quiz-restart-btn {
+  display: inline-block;
+}
+
+/* ── Nav / footer ── */
+.metabolic-survey-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.metabolic-survey-nav.hidden {
+  display: none;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
+  color: var(--dark-green);
+  padding: 15px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(196, 255, 73, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(196, 255, 73, 0.35);
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn-outline {
+  border: 2px solid var(--white);
+  color: var(--white);
+  background: transparent;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background-color: var(--white);
+  color: var(--dark-green);
+}
+
+.btn-outline:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.metabolic-survey-back,
+.metabolic-survey-next {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+}
+
+.metabolic-survey-back:hover:not(:disabled),
+.metabolic-survey-next:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .quiz-page-wrapper {
+    padding: 100px 16px 60px;
+  }
+
+  .metabolic-survey-inner {
+    padding: 20px 18px 24px;
+  }
+
+  .quiz-intro h1 {
+    font-size: 2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav loaded dynamically -->
+<script>
+(function () {
+  var CDN = 'https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master';
+  function execScripts(container) {
+    container.querySelectorAll('script').forEach(function (oldScript) {
+      var newScript = document.createElement('script');
+      Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+      newScript.textContent = oldScript.textContent;
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+  }
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) { navRoot.innerHTML = html; execScripts(navRoot); })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html?v=2', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) { footerRoot.innerHTML = html; execScripts(footerRoot); })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+
+<main>
+  <div class="quiz-page-wrapper">
+
+    <div class="quiz-intro">
+      <span class="quiz-intro-tag">Free Assessment</span>
+      <h1>Metabolic Stability<br>Assessment</h1>
+      <p>Answer 6 quick questions and discover your primary metabolic pattern — plus a personalised next step for your health journey.</p>
+    </div>
+
+    <!-- Survey panel — always open on this page -->
+    <div id="metabolic-survey-panel" class="metabolic-survey-panel" role="region" aria-label="Metabolic Stability Assessment">
+      <div class="metabolic-survey-inner">
+
+        <div class="metabolic-survey-header">
+          <h2 id="metabolic-survey-title" class="metabolic-survey-title">Metabolic Stability Assessment</h2>
+          <!-- No close button on standalone page -->
+        </div>
+
+        <div class="metabolic-survey-progress">
+          <div class="metabolic-survey-progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="6"></div>
+          <span class="metabolic-survey-progress-text">Question 1 of 6</span>
+        </div>
+
+        <div class="metabolic-survey-content">
+          <div class="metabolic-survey-questions">
+
+            <div class="metabolic-survey-question active" data-question="1" data-id="sex">
+              <h3>Biological Sex</h3>
+              <p class="metabolic-survey-sub">Select one:</p>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Biological Sex">
+                <button type="button" class="metabolic-survey-option" data-value="male" role="radio" aria-checked="false">Male</button>
+                <button type="button" class="metabolic-survey-option" data-value="female" role="radio" aria-checked="false">Female</button>
+              </div>
+            </div>
+
+            <div class="metabolic-survey-question" data-question="2" data-id="age">
+              <h3>Age Range</h3>
+              <p class="metabolic-survey-sub">Select one:</p>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Age Range">
+                <button type="button" class="metabolic-survey-option" data-value="18-29" role="radio" aria-checked="false">18–29</button>
+                <button type="button" class="metabolic-survey-option" data-value="30-39" role="radio" aria-checked="false">30–39</button>
+                <button type="button" class="metabolic-survey-option" data-value="40-49" role="radio" aria-checked="false">40–49</button>
+                <button type="button" class="metabolic-survey-option" data-value="50-59" role="radio" aria-checked="false">50–59</button>
+                <button type="button" class="metabolic-survey-option" data-value="60+" role="radio" aria-checked="false">60+</button>
+              </div>
+            </div>
+
+            <!-- Male questions -->
+            <div class="metabolic-survey-question" data-question="3" data-id="q3m">
+              <h3>What best describes your current state?</h3>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Current state">
+                <button type="button" class="metabolic-survey-option" data-value="A" role="radio" aria-checked="false">A. Burnt out, wired but tired</button>
+                <button type="button" class="metabolic-survey-option" data-value="B" role="radio" aria-checked="false">B. Belly fat and hard to lose weight</button>
+                <button type="button" class="metabolic-survey-option" data-value="C" role="radio" aria-checked="false">C. Low drive, low libido</button>
+                <button type="button" class="metabolic-survey-option" data-value="D" role="radio" aria-checked="false">D. Sluggish, inflamed, low stamina</button>
+                <button type="button" class="metabolic-survey-option" data-value="E" role="radio" aria-checked="false">E. Strong, stable, and consistent overall</button>
+              </div>
+            </div>
+
+            <div class="metabolic-survey-question" data-question="3" data-id="q4m">
+              <h3>How is your strength and recovery?</h3>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Strength and recovery">
+                <button type="button" class="metabolic-survey-option" data-value="A" role="radio" aria-checked="false">A. Overtraining makes me crash</button>
+                <button type="button" class="metabolic-survey-option" data-value="B" role="radio" aria-checked="false">B. I gain fat easily</button>
+                <button type="button" class="metabolic-survey-option" data-value="C" role="radio" aria-checked="false">C. Harder to build or maintain muscle</button>
+                <button type="button" class="metabolic-survey-option" data-value="D" role="radio" aria-checked="false">D. Slow recovery, low endurance</button>
+                <button type="button" class="metabolic-survey-option" data-value="E" role="radio" aria-checked="false">E. I recover well and build strength normally</button>
+              </div>
+            </div>
+
+            <div class="metabolic-survey-question" data-question="3" data-id="q5m">
+              <h3>How is your sleep and energy rhythm?</h3>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Sleep and energy">
+                <button type="button" class="metabolic-survey-option" data-value="A" role="radio" aria-checked="false">A. Light sleep, wake at 3am</button>
+                <button type="button" class="metabolic-survey-option" data-value="B" role="radio" aria-checked="false">B. Crash after meals</button>
+                <button type="button" class="metabolic-survey-option" data-value="C" role="radio" aria-checked="false">C. Sleep but still feel unmotivated</button>
+                <button type="button" class="metabolic-survey-option" data-value="D" role="radio" aria-checked="false">D. Wake unrefreshed and achy</button>
+                <button type="button" class="metabolic-survey-option" data-value="E" role="radio" aria-checked="false">E. Deep, restorative sleep most nights</button>
+              </div>
+            </div>
+
+            <div class="metabolic-survey-question" data-question="3" data-id="q6m">
+              <h3>Which pattern feels most accurate?</h3>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Pattern">
+                <button type="button" class="metabolic-survey-option" data-value="A" role="radio" aria-checked="false">A. High stress lifestyle</button>
+                <button type="button" class="metabolic-survey-option" data-value="B" role="radio" aria-checked="false">B. Cravings and energy dips</button>
+                <button type="button" class="metabolic-survey-option" data-value="C" role="radio" aria-checked="false">C. I don&apos;t feel like myself hormonally</button>
+                <button type="button" class="metabolic-survey-option" data-value="D" role="radio" aria-checked="false">D. Low stamina and endurance</button>
+                <button type="button" class="metabolic-survey-option" data-value="E" role="radio" aria-checked="false">E. No major metabolic complaints</button>
+              </div>
+            </div>
+
+            <!-- Female questions -->
+            <div class="metabolic-survey-question" data-question="3" data-id="q3f">
+              <h3>What best describes your biggest frustration?</h3>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Biggest frustration">
+                <button type="button" class="metabolic-survey-option" data-value="A" role="radio" aria-checked="false">A. Burnt out and anxious</button>
+                <button type="button" class="metabolic-survey-option" data-value="B" role="radio" aria-checked="false">B. Weight gain around abdomen</button>
+                <button type="button" class="metabolic-survey-option" data-value="C" role="radio" aria-checked="false">C. PMS, heavy cycles, mood swings</button>
+                <button type="button" class="metabolic-survey-option" data-value="D" role="radio" aria-checked="false">D. Low libido and low motivation</button>
+                <button type="button" class="metabolic-survey-option" data-value="E" role="radio" aria-checked="false">E. Stable, balanced, energized overall</button>
+              </div>
+            </div>
+
+            <div class="metabolic-survey-question" data-question="3" data-id="q4f">
+              <h3>How is your cycle?</h3>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Cycle">
+                <button type="button" class="metabolic-survey-option" data-value="A" role="radio" aria-checked="false">A. Irregular with stress</button>
+                <button type="button" class="metabolic-survey-option" data-value="B" role="radio" aria-checked="false">B. Strong cravings before period</button>
+                <button type="button" class="metabolic-survey-option" data-value="C" role="radio" aria-checked="false">C. Heavy, painful, or bloated</button>
+                <button type="button" class="metabolic-survey-option" data-value="D" role="radio" aria-checked="false">D. Lighter or disappearing</button>
+                <button type="button" class="metabolic-survey-option" data-value="E" role="radio" aria-checked="false">E. Regular, predictable, minimal PMS</button>
+              </div>
+            </div>
+
+            <div class="metabolic-survey-question" data-question="3" data-id="q5f">
+              <h3>Energy pattern?</h3>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Energy pattern">
+                <button type="button" class="metabolic-survey-option" data-value="A" role="radio" aria-checked="false">A. Wired at night, tired in morning</button>
+                <button type="button" class="metabolic-survey-option" data-value="B" role="radio" aria-checked="false">B. Crash after carbs</button>
+                <button type="button" class="metabolic-survey-option" data-value="C" role="radio" aria-checked="false">C. Energy shifts with cycle</button>
+                <button type="button" class="metabolic-survey-option" data-value="D" role="radio" aria-checked="false">D. Low and flat most days</button>
+                <button type="button" class="metabolic-survey-option" data-value="E" role="radio" aria-checked="false">E. Stable energy throughout the day</button>
+              </div>
+            </div>
+
+            <div class="metabolic-survey-question" data-question="3" data-id="q6f">
+              <h3>Which cluster feels most accurate?</h3>
+              <div class="metabolic-survey-options" role="radiogroup" aria-label="Cluster">
+                <button type="button" class="metabolic-survey-option" data-value="A" role="radio" aria-checked="false">A. Stress overload</button>
+                <button type="button" class="metabolic-survey-option" data-value="B" role="radio" aria-checked="false">B. Blood sugar swings</button>
+                <button type="button" class="metabolic-survey-option" data-value="C" role="radio" aria-checked="false">C. Hormones feel dominant or intense</button>
+                <button type="button" class="metabolic-survey-option" data-value="D" role="radio" aria-checked="false">D. I don&apos;t feel strong or resilient</button>
+                <button type="button" class="metabolic-survey-option" data-value="E" role="radio" aria-checked="false">E. No significant metabolic concerns</button>
+              </div>
+            </div>
+
+          </div><!-- /.metabolic-survey-questions -->
+
+          <!-- Outcome -->
+          <div class="metabolic-survey-outcome" hidden>
+            <div class="metabolic-survey-outcome-content">
+              <span class="metabolic-survey-outcome-badge">Your Result</span>
+              <h3 class="metabolic-survey-outcome-title"></h3>
+              <p class="metabolic-survey-outcome-intro"></p>
+              <ul class="metabolic-survey-outcome-patterns"></ul>
+              <div class="metabolic-survey-outcome-blocks">
+                <div class="metabolic-survey-outcome-block">
+                  <p class="metabolic-survey-outcome-block-label">What this means</p>
+                  <p class="metabolic-survey-outcome-meaning-text"></p>
+                </div>
+                <div class="metabolic-survey-outcome-block metabolic-survey-outcome-age-block" style="display:none;">
+                  <p class="metabolic-survey-outcome-block-label">Age adjustments</p>
+                  <ul class="metabolic-survey-outcome-age-list"></ul>
+                </div>
+                <div class="metabolic-survey-outcome-block">
+                  <p class="metabolic-survey-outcome-block-label">Next step</p>
+                  <p class="metabolic-survey-outcome-next-text"></p>
+                </div>
+              </div>
+              <div class="metabolic-survey-outcome-cta-section">
+                <p class="metabolic-survey-outcome-cta-text">Your metabolism has a primary driver. Let&apos;s build your personalised strategy.</p>
+                <!-- Booking CTA shown immediately; clicking it reveals qualifier questions -->
+                <a href="#" class="btn-primary metabolic-survey-cta-btn">Book Your Free Intake Now</a>
+                <!-- Qualifier mini-flow: hidden until CTA is clicked -->
+                <div class="qualifier-gate" hidden>
+                  <div class="qualifier-step" data-step="payment">
+                    <p class="qualifier-q">One quick thing — we're a private, cash-pay clinic. We don't bill insurance.</p>
+                    <p class="qualifier-sub">Are you open to investing out-of-pocket for the right results?</p>
+                    <div class="qualifier-options">
+                      <button type="button" class="qualifier-option" data-gate="payment" data-value="yes">Yes — results matter more than cost</button>
+                      <button type="button" class="qualifier-option" data-gate="payment" data-value="maybe">I'd need to know the cost first</button>
+                      <button type="button" class="qualifier-option" data-gate="payment" data-value="no">No — I need insurance coverage</button>
+                    </div>
+                  </div>
+                  <div class="qualifier-step" data-step="philosophy" hidden>
+                    <p class="qualifier-q">And one more — our approach is functional and natural, not prescription-based.</p>
+                    <p class="qualifier-sub">Are you open to natural, root-cause protocols over conventional medicine?</p>
+                    <div class="qualifier-options">
+                      <button type="button" class="qualifier-option" data-gate="philosophy" data-value="yes">Yes — I want root-cause solutions</button>
+                      <button type="button" class="qualifier-option" data-gate="philosophy" data-value="maybe">I'm open to exploring it</button>
+                      <button type="button" class="qualifier-option" data-gate="philosophy" data-value="no">No — I prefer conventional medicine</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.metabolic-survey-outcome -->
+
+          <!-- Disqualified outcome -->
+          <div class="metabolic-survey-disqualified" hidden>
+            <span class="disqualified-icon">🤝</span>
+            <h3 class="disqualified-title">We may not be the right fit — but we want to point you in the right direction.</h3>
+            <p class="disqualified-body">Based on your answers, Odin Lab may not be the best match for where you are right now. We're a private, cash-pay functional health clinic — we don't bill insurance, and our protocols are rooted in natural, root-cause approaches rather than conventional medicine.<br><br>That doesn't mean you can't find the support you need. Below are some directions that may be a better fit.</p>
+            <hr class="disqualified-divider">
+            <p class="disqualified-resources-label">Explore these options</p>
+            <div class="disqualified-links">
+              <a href="https://www.albertahealthservices.ca/" target="_blank" rel="noopener" class="disqualified-link">→ Alberta Health Services — publicly funded care</a>
+              <a href="https://www.canada.ca/en/health-canada.html" target="_blank" rel="noopener" class="disqualified-link">→ Health Canada — conventional medicine resources</a>
+              <a href="https://odinhealthlab.ca/" target="_blank" rel="noopener" class="disqualified-link">→ Learn more about our approach at Odin Lab</a>
+            </div>
+          </div><!-- /.metabolic-survey-disqualified -->
+
+        </div><!-- /.metabolic-survey-content -->
+
+        <div class="metabolic-survey-nav">
+          <button type="button" class="btn btn-outline metabolic-survey-back" disabled>Back</button>
+          <button type="button" class="btn-primary metabolic-survey-next" disabled>Next</button>
+        </div>
+
+        <div style="text-align:center;">
+          <button type="button" class="quiz-restart-btn">↺ Start over</button>
+        </div>
+
+      </div><!-- /.metabolic-survey-inner -->
+    </div><!-- /.metabolic-survey-panel -->
+
+  </div><!-- /.quiz-page-wrapper -->
+</main>
+
+<script>
+(function() {
+  var METABOLIC_OUTCOMES = {
+    hpa: {
+      title: 'HPA Axis Dysregulation',
+      intro: 'Your symptoms indicate stress-system imbalance.',
+      patterns: ['Wired but tired', 'Light sleep', 'Anxiety or internal tension', 'Burnout cycles'],
+      meaning: 'Chronic stress disrupts cortisol rhythm, impairs recovery, and suppresses sex hormones.',
+      ageAdjustments: ['Under 40: Often reversible with stress correction.', '40+: More likely affecting hormone output and metabolic rate.'],
+      next: 'Restore circadian rhythm, improve resilience, then layer metabolic optimization.'
+    },
+    insulin: {
+      title: 'Insulin Resistance',
+      intro: 'Your symptoms indicate blood sugar instability.',
+      patterns: ['Belly fat storage', 'Cravings and crashes', 'Difficulty losing weight'],
+      meaning: 'Impaired insulin signaling drives fat storage and hormone disruption.',
+      ageAdjustments: ['Under 40: Often lifestyle-driven.', '40+: Strong driver of hormone decline and inflammation.'],
+      next: 'Improve metabolic flexibility, muscle sensitivity, and inflammation control.'
+    },
+    'low-testosterone': {
+      title: 'Low Testosterone (Male)',
+      intro: 'Your symptoms indicate reduced androgen activity.',
+      patterns: ['Low libido', 'Reduced motivation', 'Muscle loss', 'Lower drive'],
+      meaning: 'Testosterone influences muscle, metabolism, dopamine, and recovery. Stress and insulin resistance often suppress it.',
+      ageAdjustments: ['Under 40: Often stress or insulin driven.', '40+: Natural decline may compound suppression.'],
+      next: 'Address sleep, insulin, stress load, and micronutrients before hormonal intervention.'
+    },
+    'estrogen-dominance': {
+      title: 'Estrogen Dominance / Detox Burden (Female)',
+      intro: 'Your symptoms indicate estrogen imbalance or impaired clearance.',
+      patterns: ['PMS', 'Bloating', 'Heavy cycles', 'Cycle-related inflammation'],
+      meaning: 'Estrogen metabolism and detox pathways may be overloaded or inefficient.',
+      ageAdjustments: ['Under 40: Often detox and insulin driven.', '40+: Perimenopausal shifts may amplify symptoms.'],
+      next: 'Support liver detox pathways, improve progesterone balance, and stabilize blood sugar.'
+    },
+    'low-androgens': {
+      title: 'Low Androgens (Female)',
+      intro: 'Your symptoms indicate lower androgen activity.',
+      patterns: ['Low libido', 'Low motivation', 'Reduced strength', 'Flat energy'],
+      meaning: 'Women require optimal testosterone and DHEA for metabolic resilience, muscle tone, and mental drive.',
+      ageAdjustments: ['Under 40: Often adrenal-related.', '40+: Decline may be ovarian and adrenal.'],
+      next: 'Evaluate adrenal output, protein intake, insulin signaling, and micronutrient status.'
+    },
+    mitochondrial: {
+      title: 'Mitochondrial Dysfunction / Inflammatory Load',
+      intro: 'Your symptoms indicate reduced cellular energy production.',
+      patterns: ['Low endurance', 'Slow recovery', 'Inflammation', 'Persistent fatigue'],
+      meaning: 'Mitochondria convert nutrients into energy. When impaired, fatigue, inflammation, and weight resistance occur.',
+      ageAdjustments: ['Under 40: Often stress and nutrient driven.', '40+: Oxidative load accumulates.'],
+      next: 'Prioritize mitochondrial support, oxidative stress reduction, and muscle conditioning.'
+    },
+    healthy: {
+      title: 'Metabolically Healthy',
+      intro: 'Your symptoms indicate strong metabolic resilience.',
+      patterns: ['Stable energy', 'Restorative sleep', 'Minimal cravings', 'Good body composition', 'Strong recovery'],
+      meaning: 'Your metabolism is adaptable and responsive.',
+      ageAdjustments: ['Under 40: Maintain muscle and stress resilience.', '40–59: Preserve insulin sensitivity and hormones.', '60+: Focus on muscle retention and recovery.'],
+      next: 'Move from correction to optimization and longevity strategy.'
+    }
+  };
+
+  var MALE_MAP       = { A: 'hpa', B: 'insulin', C: 'low-testosterone', D: 'mitochondrial', E: 'healthy' };
+  var FEMALE_MAP     = { A: 'hpa', B: 'insulin', C: 'estrogen-dominance', D: 'low-androgens', E: 'healthy' };
+  var MALE_QUESTIONS   = ['sex', 'age', 'q3m', 'q4m', 'q5m', 'q6m'];
+  var FEMALE_QUESTIONS = ['sex', 'age', 'q3f', 'q4f', 'q5f', 'q6f'];
+
+  var panel       = document.getElementById('metabolic-survey-panel');
+  if (!panel) return;
+
+  var state        = { currentIndex: 0, sex: null, answers: {}, gateAnswers: {} };
+  var questionsEl  = panel.querySelector('.metabolic-survey-questions');
+  var outcomeEl    = panel.querySelector('.metabolic-survey-outcome');
+  var disqualEl    = panel.querySelector('.metabolic-survey-disqualified');
+  var navEl        = panel.querySelector('.metabolic-survey-nav');
+  var progressEl   = panel.querySelector('.metabolic-survey-progress');
+  var progressText = panel.querySelector('.metabolic-survey-progress-text');
+  var backBtn      = panel.querySelector('.metabolic-survey-back');
+  var nextBtn      = panel.querySelector('.metabolic-survey-next');
+  var ctaBtn       = panel.querySelector('.metabolic-survey-cta-btn');
+  var gateEl       = panel.querySelector('.qualifier-gate');
+  var restartBtn   = panel.querySelector('.quiz-restart-btn');
+
+  function getQuestionIds() {
+    return state.sex === 'male' ? MALE_QUESTIONS : FEMALE_QUESTIONS;
+  }
+
+  function getCurrentQuestionId() {
+    return getQuestionIds()[state.currentIndex] || null;
+  }
+
+  function showQuestion(id, direction) {
+    direction = direction || 'next';
+    var currentActive = panel.querySelector('.metabolic-survey-question.active');
+    var targetQ = panel.querySelector('.metabolic-survey-question[data-id="' + id + '"]');
+    if (!targetQ) return;
+
+    function doShow() {
+      panel.querySelectorAll('.metabolic-survey-question').forEach(function(q) {
+        q.classList.remove('active', 'leaving', 'leaving-back');
+        if (q.dataset.id === id) q.classList.add('active');
+      });
+      panel.querySelectorAll('.metabolic-survey-option').forEach(function(o) {
+        o.classList.remove('selected');
+        o.setAttribute('aria-checked', 'false');
+      });
+      var currentQ = panel.querySelector('.metabolic-survey-question[data-id="' + id + '"]');
+      if (currentQ && state.answers[id]) {
+        var sel = currentQ.querySelector('[data-value="' + state.answers[id] + '"]');
+        if (sel) { sel.classList.add('selected'); sel.setAttribute('aria-checked', 'true'); }
+      }
+      updateNextButton();
+    }
+
+    if (currentActive && currentActive !== targetQ) {
+      currentActive.classList.add(direction === 'next' ? 'leaving' : 'leaving-back');
+      setTimeout(doShow, 350);
+    } else {
+      doShow();
+    }
+  }
+
+  function updateNextButton() {
+    var id = getCurrentQuestionId();
+    var hasAnswer = id === 'sex' ? state.sex : state.answers[id];
+    nextBtn.disabled = !hasAnswer;
+  }
+
+  function updateProgress() {
+    var step = Math.min(state.currentIndex + 1, 6);
+    panel.setAttribute('data-progress', step);
+    progressText.textContent = 'Question ' + step + ' of 6';
+    backBtn.disabled = state.currentIndex === 0;
+  }
+
+  function showOutcome(key) {
+    var o = METABOLIC_OUTCOMES[key];
+    if (!o) return;
+
+    questionsEl.style.display = 'none';
+    if (progressEl) progressEl.style.display = 'none';
+
+    outcomeEl.querySelector('.metabolic-survey-outcome-title').textContent = o.title;
+    outcomeEl.querySelector('.metabolic-survey-outcome-intro').textContent = o.intro;
+
+    var ul = outcomeEl.querySelector('.metabolic-survey-outcome-patterns');
+    ul.innerHTML = '';
+    o.patterns.forEach(function(p) {
+      var li = document.createElement('li');
+      li.textContent = p;
+      ul.appendChild(li);
+    });
+
+    outcomeEl.querySelector('.metabolic-survey-outcome-meaning-text').textContent = o.meaning;
+    outcomeEl.querySelector('.metabolic-survey-outcome-next-text').textContent = o.next;
+
+    var ageBlock = outcomeEl.querySelector('.metabolic-survey-outcome-age-block');
+    var ageList  = outcomeEl.querySelector('.metabolic-survey-outcome-age-list');
+    if (o.ageAdjustments && ageBlock && ageList) {
+      ageList.innerHTML = '';
+      o.ageAdjustments.forEach(function(a) {
+        var li = document.createElement('li');
+        li.textContent = a;
+        ageList.appendChild(li);
+      });
+      ageBlock.style.display = 'block';
+    } else if (ageBlock) {
+      ageBlock.style.display = 'none';
+    }
+
+    outcomeEl.hidden = false;
+    outcomeEl.classList.add('visible');
+    navEl.classList.add('hidden');
+    panel.classList.add('is-outcome');
+  }
+
+  function showDisqualified() {
+    // Swap outcome content for disqualified screen
+    outcomeEl.hidden = true;
+    outcomeEl.classList.remove('visible');
+    disqualEl.hidden = false;
+    disqualEl.classList.add('visible');
+  }
+
+  function computeOutcome() {
+    var ids = getQuestionIds();
+    var letters = [];
+    ids.forEach(function(id) {
+      if (id !== 'sex' && id !== 'age' && state.answers[id]) letters.push(state.answers[id]);
+    });
+    var counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    letters.forEach(function(l) { counts[l] = (counts[l] || 0) + 1; });
+    if ((counts.E || 0) >= 3) return 'healthy';
+    var ageVal   = state.answers.age || '';
+    var isUnder40 = ageVal === '18-29' || ageVal === '30-39';
+    var order  = ['A', 'B', 'C', 'D', 'E'];
+    var sorted = order.map(function(k) { return [k, counts[k] || 0]; }).sort(function(a, b) {
+      return b[1] !== a[1] ? b[1] - a[1] : order.indexOf(a[0]) - order.indexOf(b[0]);
+    });
+    var winner      = sorted[0][0];
+    var winnerCount = sorted[0][1];
+    var second      = sorted[1];
+    if (second && second[1] === winnerCount && (winner === 'E' || second[0] === 'E')) {
+      if (isUnder40) return 'healthy';
+      winner = winner === 'E' ? second[0] : winner;
+    }
+    if (winner === 'E') return 'healthy';
+    var map = state.sex === 'male' ? MALE_MAP : FEMALE_MAP;
+    return map[winner] || 'hpa';
+  }
+
+  function goNext() {
+    var id = getCurrentQuestionId();
+    if (id === 'sex') {
+      if (!state.sex) return;
+      state.currentIndex = 1;
+      showQuestion(getCurrentQuestionId(), 'next');
+    } else if (id === 'age') {
+      if (!state.answers['age']) return;
+      state.currentIndex = 2;
+      showQuestion(getCurrentQuestionId(), 'next');
+    } else {
+      if (!state.answers[id]) return;
+      if (state.currentIndex >= 5) {
+        var outcomeKey    = computeOutcome();
+        var currentActive = panel.querySelector('.metabolic-survey-question.active');
+        if (currentActive) {
+          currentActive.classList.add('leaving');
+          setTimeout(function() { showOutcome(outcomeKey); }, 350);
+        } else {
+          showOutcome(outcomeKey);
+        }
+        return;
+      }
+      state.currentIndex++;
+      showQuestion(getCurrentQuestionId(), 'next');
+    }
+    updateProgress();
+  }
+
+  function goBack() {
+    if (state.currentIndex <= 0) return;
+    state.currentIndex--;
+    showQuestion(getCurrentQuestionId(), 'back');
+    updateProgress();
+  }
+
+  function restart() {
+    state.currentIndex = 0;
+    state.sex = null;
+    state.answers = {};
+    panel.setAttribute('data-progress', '1');
+    questionsEl.style.display = '';
+    if (progressEl) progressEl.style.display = '';
+    outcomeEl.classList.remove('visible');
+    outcomeEl.hidden = true;
+    if (disqualEl) { disqualEl.classList.remove('visible'); disqualEl.hidden = true; }
+    // Reset gate
+    state.gateAnswers = {};
+    if (gateEl) {
+      gateEl.hidden = true;
+      gateEl.querySelectorAll('.qualifier-step').forEach(function(s, i) { s.hidden = i !== 0; });
+      gateEl.querySelectorAll('.qualifier-option').forEach(function(o) { o.classList.remove('selected'); });
+    }
+    if (ctaBtn) {
+      ctaBtn.hidden = false;
+      ctaBtn.href = '#';
+      ctaBtn.removeAttribute('target');
+      ctaBtn.removeAttribute('rel');
+      ctaBtn.removeAttribute('data-qualified');
+    }
+    navEl.classList.remove('hidden');
+    panel.classList.remove('is-outcome');
+    panel.querySelectorAll('.metabolic-survey-question').forEach(function(q) {
+      q.classList.remove('active', 'leaving', 'leaving-back');
+    });
+    panel.querySelectorAll('.metabolic-survey-option').forEach(function(o) {
+      o.classList.remove('selected');
+      o.setAttribute('aria-checked', 'false');
+    });
+    showQuestion('sex');
+    updateProgress();
+    updateNextButton();
+  }
+
+  // Init
+  showQuestion('sex');
+  updateProgress();
+  updateNextButton();
+
+  nextBtn.addEventListener('click', goNext);
+  backBtn.addEventListener('click', goBack);
+  if (restartBtn) restartBtn.addEventListener('click', restart);
+
+  panel.addEventListener('click', function(e) {
+    var opt = e.target.closest('.metabolic-survey-option');
+    if (!opt) return;
+    var q   = opt.closest('.metabolic-survey-question');
+    if (!q)  return;
+    var id  = q.dataset.id;
+    var val = opt.dataset.value;
+    var group = q.querySelector('.metabolic-survey-options');
+    group.querySelectorAll('.metabolic-survey-option').forEach(function(o) {
+      o.classList.remove('selected');
+      o.setAttribute('aria-checked', 'false');
+    });
+    opt.classList.add('selected');
+    opt.setAttribute('aria-checked', 'true');
+    state.answers[id] = val;
+    if (id === 'sex') state.sex = val;
+    if (id === 'age') state.age = val;
+    updateNextButton();
+    setTimeout(function() { goNext(); }, 200);
+  });
+
+  if (ctaBtn) ctaBtn.href = '#';
+
+  // ── Qualifier gate logic ──
+  // CTA click: if not yet qualified, open qualifier; if already qualified, proceed to booking
+  if (ctaBtn) {
+    ctaBtn.addEventListener('click', function(e) {
+      if (ctaBtn.dataset.qualified === 'true') return; // already qualified — link navigates normally
+      e.preventDefault();
+      // Open qualifier gate below the button
+      ctaBtn.hidden = true;
+      gateEl.hidden = false;
+      var steps = gateEl.querySelectorAll('.qualifier-step');
+      steps.forEach(function(s) { s.hidden = true; });
+      steps[0].hidden = false;
+      gateEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+
+  if (gateEl) {
+    gateEl.addEventListener('click', function(e) {
+      var opt = e.target.closest('.qualifier-option');
+      if (!opt) return;
+      var gate = opt.dataset.gate;
+      var val  = opt.dataset.value;
+
+      // Highlight selection
+      var group = opt.closest('.qualifier-options');
+      group.querySelectorAll('.qualifier-option').forEach(function(o) { o.classList.remove('selected'); });
+      opt.classList.add('selected');
+      state.gateAnswers[gate] = val;
+
+      setTimeout(function() {
+        if (gate === 'payment') {
+          if (val === 'no') {
+            showDisqualified();
+            return;
+          }
+          // Advance to philosophy step
+          var steps = gateEl.querySelectorAll('.qualifier-step');
+          steps.forEach(function(s) { s.hidden = true; });
+          gateEl.querySelector('[data-step="philosophy"]').hidden = false;
+
+        } else if (gate === 'philosophy') {
+          if (val === 'no') {
+            showDisqualified();
+            return;
+          }
+          // Passed both — restore CTA as a direct booking link
+          gateEl.hidden = true;
+          ctaBtn.dataset.qualified = 'true';
+          ctaBtn.href = 'https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time';
+          ctaBtn.target = '_blank';
+          ctaBtn.rel = 'noopener noreferrer';
+          ctaBtn.hidden = false;
+          ctaBtn.style.animation = 'metabolicFadeIn 0.4s ease forwards';
+        }
+      }, 250);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1145,13 +1145,35 @@ document.addEventListener('click', function(e) {
 <script>
 (function() {
   // Capture all URL params on page load (UTM, fbclid, gclid, ref, etc.)
+  // GHL renders custom-code blocks in an iframe whose own URL has no query
+  // string, so fall back to the parent frame, then to document.referrer.
   var URL_PARAMS = (function() {
     var params = {};
-    try {
-      new URLSearchParams(window.location.search).forEach(function(v, k) { params[k] = v; });
-    } catch(e) {}
+    function absorb(search) {
+      try {
+        new URLSearchParams(search).forEach(function(v, k) {
+          if (!(k in params)) params[k] = v;
+        });
+      } catch(e) {}
+    }
+    absorb(window.location.search);
+    if (!Object.keys(params).length) {
+      try { absorb(window.parent.location.search); } catch(e) { /* cross-origin */ }
+    }
+    if (!Object.keys(params).length && document.referrer) {
+      try { absorb(new URL(document.referrer).search); } catch(e) {}
+    }
     return params;
   })();
+
+  // Mixpanel custom events (runs at parent level — GHL iframes this block).
+  // After lead capture the user is email-identified, so these attach to them.
+  function trackMp(event, props) {
+    try {
+      var mp = window.mixpanel || window.parent.mixpanel;
+      if (mp && mp.track) mp.track(event, Object.assign({ quiz: 'emma' }, props || {}));
+    } catch(e) { /* cross-origin or mixpanel not loaded */ }
+  }
 
   var TOTAL_QUESTIONS = 9;
 
@@ -1459,6 +1481,21 @@ document.addEventListener('click', function(e) {
       state.leadName  = name;
       state.leadEmail = email;
       var outcomeKey = computeOutcome();
+      // Mixpanel runs at the parent-page level (GHL iframes this block),
+      // so try own window first, then parent, for the distinct_id.
+      var mixpanelId = '';
+      try {
+        var mp = window.mixpanel || window.parent.mixpanel;
+        if (mp && mp.get_distinct_id) mixpanelId = mp.get_distinct_id();
+        // Identify AFTER capturing the device id so the webhook still gets it.
+        // Merges the anonymous session history into an email-keyed profile.
+        if (mp && mp.identify) {
+          mp.identify(email);
+          if (mp.people && mp.people.set) {
+            mp.people.set({ $name: name, $email: email, quiz: 'emma' });
+          }
+        }
+      } catch(e) { /* cross-origin or mixpanel not loaded */ }
       // Submit to webhook (fire-and-forget — don't block on result)
       fetch('https://services.leadconnectorhq.com/hooks/Q6uTvwNHOg3F0JyLXiUV/webhook-trigger/c0d7ac7b-bd1e-48fc-97e5-d2aba87b9b2a', {
         method: 'POST',
@@ -1469,6 +1506,7 @@ document.addEventListener('click', function(e) {
           quiz: 'emma',
           outcome: outcomeKey,
           answers: state.answers,
+          mixpanel_id: mixpanelId,
           submittedAt: new Date().toISOString()
         }, URL_PARAMS))
       }).catch(function() {});
@@ -1481,8 +1519,9 @@ document.addEventListener('click', function(e) {
   // Qualifier gate
   if (ctaBtn) {
     ctaBtn.addEventListener('click', function(e) {
-      if (ctaBtn.dataset.qualified === 'true') return;
+      if (ctaBtn.dataset.qualified === 'true') { trackMp('Booking Link Clicked'); return; }
       e.preventDefault();
+      trackMp('Results CTA Clicked');
       ctaBtn.hidden = true;
       gateEl.hidden = false;
       var steps = gateEl.querySelectorAll('.qualifier-step');
@@ -1502,6 +1541,7 @@ document.addEventListener('click', function(e) {
       group.querySelectorAll('.qualifier-option').forEach(function(o) { o.classList.remove('selected'); });
       opt.classList.add('selected');
       state.gateAnswers[gate] = val;
+      trackMp('Qualifier Answer', { gate: gate, answer: val });
 
       setTimeout(function() {
         if (gate === 'payment') {
@@ -1519,6 +1559,10 @@ document.addEventListener('click', function(e) {
           ctaBtn.hidden = false;
           ctaBtn.style.animation = 'metabolicFadeIn 0.4s ease forwards';
           trackFbq('track', 'AddToCart', { content_name: 'emma-quiz' });
+          trackMp('Qualifier Passed', {
+            payment: state.gateAnswers.payment,
+            philosophy: state.gateAnswers.philosophy
+          });
           window.location.hash = 'qualifier-passed';
         }
       }, 250);

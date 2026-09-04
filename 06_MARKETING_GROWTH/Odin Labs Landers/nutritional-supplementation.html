@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutritional Supplementation &amp; Herbology | Odin Lab Calgary</title>
+  <meta name="description" content="Most supplements fail from wrong dose, wrong combinations, or the wrong protocol—not because nutrients never matter. Odin Lab Calgary builds evidence-informed supplementation with diet: minerals and vitamins, energy pathways, symptom patterns, botanicals, and detox phases—sequenced for real intervention.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/nutritional-supplementation.css?v=9">
+  <style>
+    .booking-modal-overlay{display:none!important;}
+    .booking-modal-overlay.is-visible{display:flex!important;}
+    main{padding-top:80px;}
+  </style>
+</head>
+<body>
+<script>
+(function () {
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      navRoot.innerHTML = html;
+      navRoot.querySelectorAll('script').forEach(function (oldScript) {
+        var newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html?v=2', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+<main>
+  <!-- Page thesis: Self-directed stacks usually fail on dose, combination, sequencing, and lack of diet integration; practitioner-built protocols align foundations, energy pathways, symptom patterns, botanicals, detox phases, and meals. -->
+
+  <!-- ══════════════════════════════════════
+       SECTION 1 — HERO
+       ══════════════════════════════════════ -->
+  <section class="ns-hero">
+    <div class="ns-hero-inner">
+      <p class="hero-slogan">We Do Not Practice Medicine. We Practice Health.</p>
+      <h1 class="ns-hero-h1">Most supplements don&rsquo;t work.<br>Yours probably don&rsquo;t either.</h1>
+      <p class="ns-hero-sub">Wrong dose, sloppy stacks, no sequence, meal timing, food strategy, or course corrections when you stall—the mass-market norm that fits almost no one well.</p>
+      <div class="ns-hero-cta">
+        <a href="#" class="btn-primary booking-trigger">Book a Consultation</a>
+      </div>
+      <div class="ns-hero-image-wrapper">
+        <img
+          src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/nutritional-hero-color.jpg?v=2"
+          alt="Medicinal herbs and nutritional supplements arranged for an individualized health protocol at Odin Lab Calgary"
+          class="ns-hero-img-bw"
+        >
+        <img
+          src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/nutritional-hero-color.jpg?v=2"
+          alt=""
+          class="ns-hero-img-color"
+          aria-hidden="true"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       STATS STRIP — Authority signal
+       ══════════════════════════════════════════════════════ -->
+  <div class="ns-stats-strip">
+    <div class="ns-stats-inner">
+      <div class="ns-stat">
+        <span class="ns-stat__value">Dose</span>
+        <span class="ns-stat__label">Same dose as the label—or double—wrong form, no sense of need or absorption</span>
+      </div>
+      <div class="ns-stat">
+        <span class="ns-stat__value">Stack</span>
+        <span class="ns-stat__label">Overlapping pathways and clashing products that blunt or overstimulate without a map</span>
+      </div>
+      <div class="ns-stat">
+        <span class="ns-stat__value">Plan</span>
+        <span class="ns-stat__label">Everything starts day one: no sequence, meal timing, or phased herbs, detox, or foundations</span>
+      </div>
+      <div class="ns-stat">
+        <span class="ns-stat__value">Diet</span>
+        <span class="ns-stat__label">Capsules without a food plan rarely match the pace of diet plus targeted support together</span>
+      </div>
+    </div>
+    <p class="ns-stats-footnote">Fix these four and &ldquo;nothing worked&rdquo; usually becomes a plan you can actually run.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 2 — COMPOUND BADGES STRIP
+       ══════════════════════════════════════ -->
+  <div class="ns-badges-section">
+    <div class="ns-badges-inner">
+      <span class="ns-badges-label">Two ways to supplement. One works.</span>
+      <div class="ns-contrast-block">
+        <div class="ns-contrast-col ns-contrast-col--random">
+          <span class="ns-contrast-tag">Random Supplementation</span>
+          <ul class="ns-contrast-list">
+            <li>Copy a trend stack from social or a friend</li>
+            <li>Guess dose—label, double it, or whatever is loudest</li>
+            <li>Mix products nobody checked for overlap</li>
+            <li>Start it all the same week, no phases</li>
+            <li>Ignore food and stress; expect pills to carry everything</li>
+            <li>Quit months later sure that &ldquo;supplements don&rsquo;t work&rdquo;</li>
+          </ul>
+          <p class="ns-contrast-verdict">Result: clutter, bad interactions, and blame on pills—not the design.</p>
+        </div>
+        <div class="ns-contrast-col ns-contrast-col--precision">
+          <span class="ns-contrast-tag">Structured Supplementation</span>
+          <ul class="ns-contrast-list">
+            <li>Intake: history, diet, sleep, stress, meds, what failed before</li>
+            <li>Foundations first—minerals and vitamins—then add-ons</li>
+            <li>Written order: what starts when, with or away from food</li>
+            <li>Combinations checked so pathways are not at war</li>
+            <li>Herbs and detox only when your story supports them</li>
+            <li>Diet and supplements planned as one intervention</li>
+          </ul>
+          <p class="ns-contrast-verdict">Result: dose, sequence, food, and botanicals aligned to you—not a template.</p>
+        </div>
+      </div>
+      <p class="ns-contrast-divider-label">What a serious plan includes</p>
+      <div class="ns-arsenal-grid">
+        <div class="ns-arsenal-card">
+          <h3>Base minerals &amp; vitamins</h3>
+          <p class="ns-pillar-copy">Rebuild basics before fancy add-ons—skip this and the rest often stalls.</p>
+        </div>
+        <div class="ns-arsenal-card">
+          <h3>Energy pathways</h3>
+          <p class="ns-pillar-copy">ATP support in order—no stimulation on empty reserves or wrong cofactors.</p>
+        </div>
+        <div class="ns-arsenal-card">
+          <h3>Your symptom pattern</h3>
+          <p class="ns-pillar-copy">Built around fatigue, gut, mood, sleep, or metabolic load—not trends.</p>
+        </div>
+        <div class="ns-arsenal-card">
+          <h3>Herbs for specific conditions</h3>
+          <p class="ns-pillar-copy">Herbs when the picture fits, with duration—not a forever kitchen-sink blend.</p>
+        </div>
+        <div class="ns-arsenal-card">
+          <h3>Detox protocols</h3>
+          <p class="ns-pillar-copy">Phased clearance with food and pacing—not boxed &ldquo;cleanse&rdquo; chaos.</p>
+        </div>
+        <div class="ns-arsenal-card">
+          <h3>Diet + supplementation</h3>
+          <p class="ns-pillar-copy">Meals and capsules aligned—together they usually beat either alone.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 5 — SECTION IMAGE
+       ══════════════════════════════════════ -->
+  <div class="ns-section-image-wrap">
+    <div class="ns-section-image-inner">
+      <img
+        src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/atp.png?v=1"
+        alt="Diagram of cellular energy pathways: glycolysis, fatty acid inputs, mitochondrial cycle, electron transport, and ATP on a dark green background"
+      >
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 6 — 3-PHASE PROTOCOL
+       ══════════════════════════════════════ -->
+  <section class="ns-protocol-section ns-section">
+    <div class="ns-container">
+      <div class="ns-section-header">
+        <span class="ns-section-label">How we build protocols</span>
+        <h2 class="ns-section-heading ns-centered">From intake to intervention</h2>
+        <p class="ns-section-sub ns-centered">Foundations first, clean combinations, food with your capsules, herbs and detox only when your story fits. The three phases below replace guesswork with a plan you can run.</p>
+      </div>
+      <div class="ns-phases-row">
+
+        <!-- Phase 1 -->
+        <div class="ns-phase-panel">
+          <div class="ns-phase-circle" aria-hidden="true">
+            <span class="ns-phase-num">1</span>
+          </div>
+          <h3 class="ns-phase-name">Understand</h3>
+          <ul class="ns-phase-list">
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>History: symptoms, what helped or hurt, past diets, everything you take now</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Diet: timing, protein, triggers, alcohol and caffeine tolerance</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Gut, sleep, stress, meds—what shifts absorption or tolerance</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>One clear target: energy, gut, mood, metabolism, or sleep</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="ns-phase-panel">
+          <div class="ns-phase-circle" aria-hidden="true">
+            <span class="ns-phase-num">2</span>
+          </div>
+          <h3 class="ns-phase-name">Found &amp; sequence</h3>
+          <ul class="ns-phase-list">
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Minerals and vitamins in place before narrow or aggressive tools</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Dose, form, timing tuned; combinations that do not fight</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Food moves that make capsules work—meals first</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Symptom check-ins; the plan evolves with you</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="ns-phase-panel">
+          <div class="ns-phase-circle" aria-hidden="true">
+            <span class="ns-phase-num">3</span>
+          </div>
+          <h3 class="ns-phase-name">Target &amp; refine</h3>
+          <ul class="ns-phase-list">
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Herbs for clear indications—not a default hedge blend</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Detox-style phases when fit: paced, fed, not panic cleanses</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>Energy support once bases are stable—no stim on depletion</span>
+            </li>
+            <li>
+              <span class="ns-phase-bullet" aria-hidden="true"></span>
+              <span>New layer only with a reason, duration, and how you&rsquo;ll judge it</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 7 — QUALITY STANDARDS
+       ══════════════════════════════════════ -->
+  <section class="ns-quality-section ns-section">
+    <div class="ns-container">
+      <div class="ns-section-header">
+        <span class="ns-section-label">Our Standards</span>
+        <h2 class="ns-section-heading ns-centered">Quality Standards We Require</h2>
+        <p class="ns-section-sub ns-centered">Bad dose and stacking hurt—but so does a product that is not what the label claims. The category is loosely regulated; we hold three lines on anything we suggest.</p>
+      </div>
+      <div class="ns-quality-grid">
+
+        <!-- Card 1: Third-Party Testing -->
+        <div class="ns-quality-card">
+          <div class="ns-quality-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="ns-quality-title">Third-party verification</h3>
+          <p class="ns-quality-body">Not FDA-approved before sale—claims are often self-reported. NSF, USP, and Informed Sport check label against bottle, contaminants, and banned substances where relevant, at batch level—not just paperwork.</p>
+        </div>
+
+        <!-- Card 2: Bioavailable Forms -->
+        <div class="ns-quality-card">
+          <div class="ns-quality-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <h3 class="ns-quality-title">Bioavailable Forms</h3>
+          <p class="ns-quality-body">Many forms need conversion you may not run well; others absorb poorly. We pick active, tolerable forms tied to your context—not whatever is cheapest on the rack.</p>
+        </div>
+
+        <!-- Card 3: Practitioner-Grade -->
+        <div class="ns-quality-card">
+          <div class="ns-quality-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0110 0v4"/>
+            </svg>
+          </div>
+          <h3 class="ns-quality-title">Practitioner-Grade vs. Retail</h3>
+          <p class="ns-quality-body">Retail lines often optimize price over outcome—weak forms, light doses, thin oversight. Practitioner channels face tighter QC, research-leaning doses, and more verification. That is uptake in the body, not packaging.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 8 — EVIDENCE-INFORMED PRACTICE
+       ══════════════════════════════════════ -->
+  <section class="ns-citations-section ns-section">
+    <div class="ns-container">
+      <div class="ns-section-header">
+        <span class="ns-section-label">Evidence-informed practice</span>
+        <h2 class="ns-section-heading ns-centered">Literature shapes the toolbox—not your shopping impulse</h2>
+        <p class="ns-section-sub ns-centered">Research and tradition inform the menu; your history, diet, symptoms, and tolerance pick what belongs now—not the reverse.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+       ══════════════════════════════════════ -->
+  <section class="ns-cta-section">
+    <div class="ns-cta-inner">
+      <span class="ns-cta-label">Ready to Begin</span>
+      <h2 class="ns-cta-heading">Stop running an accidental stack</h2>
+      <p class="ns-cta-sub">Book an assessment—we&rsquo;ll align dose, combinations, timing, diet, herbs, and detox into one protocol for how you present, not a shelf average.</p>
+      <div class="ns-cta-btn-wrap">
+        <a href="#" class="btn-primary booking-trigger">Book a Functional Assessment</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="booking-modal-title">
+  <div class="booking-modal">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time" class="btn-first-time" target="_blank" rel="noopener">First Time Client</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" class="btn-follow-up" target="_blank" rel="noopener">Follow-Up Appointment</a>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var bookingOverlay = document.getElementById('booking-modal-overlay');
+  var bookingClose = document.getElementById('booking-modal-close');
+  function openBookingModal() { if (bookingOverlay) { bookingOverlay.classList.add('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; } }
+  function closeBookingModal() { if (bookingOverlay) { bookingOverlay.classList.remove('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; } }
+  document.addEventListener('click', function(e) { var btn = e.target.closest('.booking-trigger'); if (btn) { e.preventDefault(); openBookingModal(); } });
+  if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
+  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) { if (e.target === bookingOverlay) closeBookingModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal(); });
+})();
+</script>
+</body>
+</html>

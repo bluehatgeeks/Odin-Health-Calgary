@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OdinLab</title>
+
+    <style>
+
+
+        :root {
+            --dark-green: #1a3a1a;
+            --lime-green: #c4ff49;
+            --white: #ffffff;
+            --black: #000000;
+            --light-grey: #f0f0f0;
+            --dark-grey-text: #333;
+            --faq-bg: #111;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--dark-green);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .highlight {
+            color: var(--lime-green);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--dark-green);
+        }
+        
+        .btn-light {
+            background-color: var(--light-grey);
+            color: var(--dark-grey-text);
+            border: 1px solid #ccc;
+        }
+
+        .btn-dark {
+            background-color: var(--dark-green);
+            color: var(--white);
+            border: 1px solid var(--white);
+        }
+        
+        .btn-dark-outline {
+             background-color: transparent;
+             color: var(--white);
+             border: 1px solid var(--white);
+             border-radius: 8px;
+        }
+
+        .large-heading {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin: 0;
+            text-align: center;
+        }
+
+        .medium-heading {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+
+        .small-heading {
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+        
+        .sub-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 100%;
+            margin: 20px auto 0;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 25px auto;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .check-list li {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .check-list li i, .check-list li span.emoji {
+            color: #32cd32;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .white-box {
+            background-color: var(--white);
+            color: var(--dark-grey-text);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 12px auto;
+            max-width: 100%;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .large-heading {
+                font-size: 4rem;
+                text-align: center;
+            }
+            .medium-heading {
+                font-size: 2.5rem;
+            }
+            .small-heading {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 30px 0;
+            }
+        }
+        
+        /* Marquee styles */
+        .marquee {
+            background-color: var(--lime-green);
+            color: var(--dark-green);
+            padding: 15px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 40s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee-content span {
+            margin: 0 15px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <header style="padding: 15px 0; position: fixed; top: 0; left: 0; right: 0; background-color: var(--dark-green); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="logo" style="display: flex; align-items: center;">
+                <img src="odinlablogo.svg" alt="OdinLab Logo" style="height: 40px; width: auto;">
+            </div>
+            <nav style="display: flex; align-items: center; gap: 20px;">
+                <a href="https://odinhealthcoaching.com/vip-store" style="color: var(--white); text-decoration: none; font-weight: bold;">Next Paradigm VIP Community</a>
+                <a href="https://odinhealthcoaching.com/vip-store" class="btn btn-outline">Join Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 80px;">
+        <section class="section" style="padding-top: 30px;">
+            <div class="container">
+                <div style="max-width: 100%; margin: 0 auto;">
+                    <h1 class="large-heading" style="width: 100%; max-width: 100%;">
+                        Struggling with<br>Unexplained Health Issues?<br>
+                        <span class="highlight">Even After Doing</span><br>  <span class="highlight">Everything</span>  <span class="highlight">'Right'?</span>
+                    </h1>
+                    <p class="sub-text" style="font-size: 1.5rem; max-width: 100%; margin-top: 25px;">
+                        It's Not Just You – It's the Way You've Been Taught About Health. <a href="https://odinhealthcoaching.com/vip-store" style="color: var(--white); text-decoration: underline;">Next Paradigm VIP Community</a> is a way to take control over your healing. And finally follow a plan that works with your body, not against it.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 30px 0;">
+            <div class="container">
+                <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/iwnh37b70r.js" async type="module"></script><style>wistia-player[media-id='iwnh37b70r']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/iwnh37b70r/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="iwnh37b70r" aspect="1.7777777777777777"></wistia-player>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 30px;">
+            <div class="container">
+                <div style="max-width: 100%; margin: 0 auto;">
+                    <h3 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 20px; color: var(--lime-green);">What You'll Unlock When You Join 🎯</h3>
+                    <h4 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 25px; color: var(--white);">Real Tools. Real Coaching. Real Results</h4>
+                    <div style="background-color: rgba(196, 255, 73, 0.1); border: 2px solid var(--lime-green); border-radius: 15px; padding: 20px; margin-bottom: 25px;">
+                        <p style="font-size: 1.4rem; font-weight: bold; color: var(--lime-green); margin-bottom: 20px; text-align: center;">Total Value: <span style="font-size: 2rem;">$1,088/mo</span></p>
+                        <ul class="check-list" style="margin: 0;">
+                            <li style="font-size: 1.3rem; margin-bottom: 12px;"><span style="color: #32cd32; margin-right: 15px; font-size: 1.4rem;">✓</span> Monthly 1-on-1 Health Coaching Call <span style="color: var(--lime-green); font-weight: bold;">($297/mo value)</span></li>
+                            <li style="font-size: 1.3rem; margin-bottom: 12px;"><span style="color: #32cd32; margin-right: 15px; font-size: 1.4rem;">✓</span> Health And Longevity Protocol Library <span style="color: var(--lime-green); font-weight: bold;">($497 value)</span></li>
+                            <li style="font-size: 1.3rem; margin-bottom: 12px;"><span style="color: #32cd32; margin-right: 15px; font-size: 1.4rem;">✓</span> Bioenergetic Course Vault <span style="color: var(--lime-green); font-weight: bold;">($197 value)</span></li>
+                            <li style="font-size: 1.3rem; margin-bottom: 12px;"><span style="color: #32cd32; margin-right: 15px; font-size: 1.4rem;">✓</span> Private Health Coaching Community <span style="color: var(--lime-green); font-weight: bold;">($97/mo value)</span></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://odinhealthcoaching.com/vip-store" style="text-decoration: none;">
+                        <div style="background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%); color: var(--dark-green); padding: 15px; border-radius: 15px; margin: 20px 0; text-align: center; max-width: 100%; cursor: pointer; transition: transform 0.2s ease;">
+                            <p style="font-size: 1.4rem; font-weight: bold; margin: 0;">🔥 You get everything for just <span style="font-size: 2.5rem; font-weight: 900; text-decoration: underline;">$97/month</span> — cancel anytime</p>
+                        </div>
+                    </a>
+                    
+                    <div style="background-color: rgba(196, 255, 73, 0.1); border: 2px solid var(--lime-green); border-radius: 15px; padding: 15px; margin-bottom: 15px;">
+                        <ul class="check-list" style="margin: 0;">
+                            <li style="font-size: 1.3rem; margin-bottom: 12px;"><span class="emoji" style="color: orange; font-size: 1.5rem;">🔥</span> Join Today — Get Instant Access to Our Gut Rebuild Toolkit + Sleep Optimization Protocol</li>
+                            <li style="font-size: 1.3rem; margin-bottom: 12px;"><span style="color: #32cd32; margin-right: 15px; font-size: 1.4rem;">✓</span> Get the Gut Reset Toolkit, Coaching, and Biohacker Support Team — All In One Place</li>
+                            <li style="font-size: 1.3rem; margin-bottom: 12px;"><span class="emoji" style="color: orange; font-size: 1.5rem;">🔥</span> Join before bonus protocols expire this week</li>
+                            <li style="font-size: 1.3rem; margin-bottom: 7px;"><span class="emoji" style="color: white; font-size: 1.5rem;">⚪</span> Limited-time access bonus ends this week</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; margin: 25px 0;">
+                    <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zJaxLUStVkljpkn9qddd/media/674241acbac6c219da8c6241.webp" alt="Decorative element" style="max-width: 100%; height: auto; max-height: 9rem;">
+                </div>
+                                    <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zJaxLUStVkljpkn9qddd/media/684c62b1107fb07709b6086b.png" alt="A laptop displaying the OdinLab VIP community dashboard interface." style="max-width: 50%; width: 50%; margin: 25px auto; display: block;">
+                
+                <a href="https://odinhealthcoaching.com/vip-store" style="text-decoration: none;">
+                    <div style="background-color: var(--lime-green); color: var(--dark-green); padding: 15px; border-radius: 10px; max-width: 100%; margin: 15px auto; cursor: pointer; transition: transform 0.2s ease;">
+                        <h3 style="font-size: 1.5rem; font-weight: bold; margin: 0 0 7px 0;">🔶 Yes – I'm Ready To Start Healing Today</h3>
+                        <p style="margin: 0;">✍️ Join today for just $97/month — cancel anytime, keep the bonuses.</p>
+                    </div>
+                </a>
+
+
+
+                <p style="max-width: 600px; margin: 15px auto; line-height: 1.6;">
+                    Price will increase soon—lock in this deal before it's gone! We offer 🛡️ 100% Risk-Free Guarantee. We're confident this guide will help you, but if you don't find it valuable, just email us within 14 days, and we'll make it right.
+                </p>
+
+                <div style="margin-top: 25px;">
+                    <h3 style="font-size: 1.5rem; font-weight: bold;">✅ 14-Day Money Back Guarantee</h3>
+                    <p style="max-width: 500px; margin: 7px auto; font-size: 1.2rem; line-height: 1.6;">If it's not the right fit, just email us within 14 days and we'll refund you. No questions asked.</p>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <p class="sub-text" style="max-width: 100%; font-size: 1.8rem; font-weight: 700;">You've done everything "right." You've followed the rules — the diets, the doctors, the protocols. And yet, nothing has worked. You're not broken. You just need a system that actually works for your biology.</p>
+                <h2 class="medium-heading" style="margin-top: 25px;">Sound Familiar?</h2>
+                <div style="max-width: 100%; margin: 0 auto;">
+                    <div style="background-color: rgba(196, 255, 73, 0.1); border-radius: 15px; padding: 20px;">
+                        <ul class="check-list" style="margin: 0;">
+                            <li style="font-size: 1.4rem; margin-bottom: 15px; padding: 10px; background-color: rgba(255, 255, 255, 0.05); border-radius: 10px; border-left: 4px solid var(--lime-green);"><span style="font-size: 1.5rem; color: var(--lime-green); margin-right: 10px;">✓</span> "I've done keto, fasting, vegan, paleo... and I'm still not better."</li>
+                            <li style="font-size: 1.4rem; margin-bottom: 15px; padding: 10px; background-color: rgba(255, 255, 255, 0.05); border-radius: 10px; border-left: 4px solid var(--lime-green);"><span style="font-size: 1.5rem; color: var(--lime-green); margin-right: 10px;">✓</span> "My energy crashes by 2 PM and I don't know why."</li>
+                            <li style="font-size: 1.4rem; margin-bottom: 15px; padding: 10px; background-color: rgba(255, 255, 255, 0.05); border-radius: 10px; border-left: 4px solid var(--lime-green);"><span style="font-size: 1.5rem; color: var(--lime-green); margin-right: 10px;">✓</span> "I've taken all the supplements — but nothing really sticks."</li>
+                            <li style="font-size: 1.4rem; margin-bottom: 15px; padding: 10px; background-color: rgba(255, 255, 255, 0.05); border-radius: 10px; border-left: 4px solid var(--lime-green);"><span style="font-size: 1.5rem; color: var(--lime-green); margin-right: 10px;">✓</span> "My gut still flares up even when I eat healthy."</li>
+                            <li style="font-size: 1.4rem; margin-bottom: 15px; padding: 10px; background-color: rgba(255, 255, 255, 0.05); border-radius: 10px; border-left: 4px solid var(--lime-green);"><span style="font-size: 1.5rem; color: var(--lime-green); margin-right: 10px;">✓</span> "My doctor said everything looks fine — but I feel awful."</li>
+                            <li style="font-size: 1.4rem; margin-bottom: 0; padding: 10px; background-color: rgba(255, 255, 255, 0.05); border-radius: 10px; border-left: 4px solid var(--lime-green);"><span style="font-size: 1.5rem; color: var(--lime-green); margin-right: 10px;">✓</span> "I've cut gluten, dairy, sugar — and now I'm cutting my social life too."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div style="max-width: 100%; margin: 0 auto;">
+                    <h1 class="large-heading">
+                        <span style="border-bottom: 5px solid white; padding-bottom: 5px;">What If</span> <span class="highlight">Everything</span><br>
+                        <span class="highlight">You've Been Told</span><br>
+                        <span class="highlight">About Health Is</span><br>
+                        <span class="highlight">Backward?</span>
+                    </h1>
+                    <p class="sub-text">Conventional approaches tell you to restrict more, stress more, and fight your body. But healing doesn't happen in stress.</p>
+                    <p class="sub-text">The real answer lies in restoring your energy production — the bioenergetic foundation of health — and giving your body the signal that it's finally safe to heal.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="medium-heading">💡 WHAT'S INSIDE THE MEMBERSHIP</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; text-align: left; max-width: 100%; margin: auto;">
+                    <div style="background-color: #142e14; padding: 15px; border-radius: 10px;">
+                        <h4 style="font-size: 1.2rem; margin: 0 0 7px 0;">🧬 Monthly Health Coaching</h4>
+                        <p style="margin: 0; color: #ccc; line-height: 1.6;">Live one-on-one call every month, where you can get personal questions answered and customise your protocol</p>
+                    </div>
+                    <div style="background-color: #142e14; padding: 15px; border-radius: 10px;">
+                        <h4 style="font-size: 1.2rem; margin: 0 0 7px 0;">📚 Protocol Library</h4>
+                        <p style="margin: 0; color: #ccc; line-height: 1.6;">Bioenergetic blueprints for gut repair, hormones, inflammation, sleep, methylation, and more</p>
+                    </div>
+                    <div style="background-color: #142e14; padding: 15px; border-radius: 10px;">
+                        <h4 style="font-size: 1.2rem; margin: 0 0 7px 0;">🎧 Podcast Feed</h4>
+                        <p style="margin: 0; color: #ccc; line-height: 1.6;">Access to a library of podcast episodes diving deep into functional healing and real-world case studies</p>
+                    </div>
+                    <div style="background-color: #142e14; padding: 15px; border-radius: 10px;">
+                        <h4 style="font-size: 1.2rem; margin: 0 0 7px 0;">💬 Private Community</h4>
+                        <p style="margin: 0; color: #ccc; line-height: 1.6;">Connect with fellow members and practitioners — ask questions, share insights, and get support</p>
+                    </div>
+                    <div style="background-color: #142e14; padding: 15px; border-radius: 10px;">
+                        <h4 style="font-size: 1.2rem; margin: 0 0 7px 0;">📘 Course Vault Access</h4>
+                        <p style="margin: 0; color: #ccc; line-height: 1.6;">Ongoing trainings and resources to guide your transformation step by step</p>
+                    </div>
+                    <div style="background-color: #142e14; padding: 15px; border-radius: 10px;">
+                        <h4 style="font-size: 1.2rem; margin: 0 0 7px 0;">🧠 Mind-Body Tools</h4>
+                        <p style="margin: 0; color: #ccc; line-height: 1.6;">Learn how to calm your body and rewire chronic patterns for healing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="medium-heading" style="margin-bottom: 30px;">Why This Works</h2>
+                <div style="max-width: 100%; margin: 0 auto;">
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="display: flex; align-items: flex-start; gap: 15px; background-color: rgba(196, 255, 73, 0.1); border: 2px solid var(--lime-green); border-radius: 15px; padding: 15px;">
+                            <div style="font-size: 2.5rem; color: var(--lime-green); min-width: 60px; text-align: center;">🎯</div>
+                            <div style="text-align: left;">
+                                <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 7px; color: var(--white);">Expert Education</h4>
+                                <p style="font-size: 1.3rem; line-height: 1.6; color: var(--white); margin: 0;">Most health advice is confusing, we specialize in educating you to empower your healing</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: flex-start; gap: 15px; background-color: rgba(196, 255, 73, 0.1); border: 2px solid var(--lime-green); border-radius: 15px; padding: 15px;">
+                            <div style="font-size: 2.5rem; color: var(--lime-green); min-width: 60px; text-align: center;">🧬</div>
+                            <div style="text-align: left;">
+                                <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 7px; color: var(--white);">Science-Based Approach</h4>
+                                <p style="font-size: 1.3rem; line-height: 1.6; color: var(--white); margin: 0;">No crazy diets—just a simple science-backed method to restore your health naturally.</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: flex-start; gap: 15px; background-color: rgba(196, 255, 73, 0.1); border: 2px solid var(--lime-green); border-radius: 15px; padding: 15px;">
+                            <div style="font-size: 2.5rem; color: var(--lime-green); min-width: 60px; text-align: center;">🔍</div>
+                            <div style="text-align: left;">
+                                <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 7px; color: var(--white);">Root Cause Focus</h4>
+                                <p style="font-size: 1.3rem; line-height: 1.6; color: var(--white); margin: 0;">Learn the TRUTH about root cause of illness—and why doctors miss it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="medium-heading">Who Is This For?</h2>
+                <div class="white-box">People who've been told 'your tests are normal' but still feel awful</div>
+                <div class="white-box">Anyone dealing with bloating, IBS, food sensitivities, low energy, and mystery symptoms</div>
+                <div class="white-box">Those tired of restrictive diets and confusing health advice</div>
+                <div class="white-box">People ready to fix their stomach issues once and for all—without the nonsense</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="medium-heading">What You Get?</h2>
+                <div class="white-box">1-on-1 Monthly Coaching Call to tailor your healing roadmap</div>
+                <div class="white-box">Downloadable protocols for gut health, metabolism, hormones, and more</div>
+                <div class="white-box">A step-by-step system that teaches you how to stop guessing and start healing</div>
+                <div class="white-box">Access to our private community for daily support, feedback, and momentum</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="medium-heading">🚫 This is NOT for you if...</h2>
+                <div class="white-box">You're looking for a quick fix instead of lasting root-cause healing</div>
+                <div class="white-box">You want someone else to fix you instead of being guided step-by-step</div>
+                <div class="white-box">You're not willing to commit even 1-2 hours a week to your health</div>
+            </div>
+        </section>
+        
+        <section class="section" style="padding-bottom: 30px;">
+            <div class="container">
+                <h2 class="small-heading">⏳ Enrollment is closing soon — don't miss your chance to join with full bonuses</h2>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h4 style="color: #aaa; font-weight: normal; text-transform: uppercase;">Still not sure?</h4>
+                <h2 class="medium-heading" style="margin-top: 10px;">Frequently Asked Questions</h2>
+                
+                <div class="faq-item" style="margin-bottom: 10px;">
+                    <div class="faq-question" style="background-color: var(--black); padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; text-align: left; cursor: pointer; transition: background-color 0.3s ease;">
+                        <span>Can I cancel anytime?</span>
+                        <span class="faq-icon" style="transition: transform 0.3s ease; font-size: 1.2rem;">▼</span>
+                    </div>
+                    <div class="faq-answer" style="background-color: #142e14; padding: 0; border-radius: 0 0 8px 8px; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                        <div style="padding: 20px; color: var(--white); line-height: 1.6;">
+                            Yes, absolutely! You can cancel your membership at any time. There are no long-term contracts or commitments. Simply email us and we'll cancel your subscription immediately. You'll continue to have access until the end of your current billing period.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="margin-bottom: 10px;">
+                    <div class="faq-question" style="background-color: var(--black); padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; text-align: left; cursor: pointer; transition: background-color 0.3s ease;">
+                        <span>Is this for beginners or advanced biohackers?</span>
+                        <span class="faq-icon" style="transition: transform 0.3s ease; font-size: 1.2rem;">▼</span>
+                    </div>
+                    <div class="faq-answer" style="background-color: #142e14; padding: 0; border-radius: 0 0 8px 8px; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                        <div style="padding: 20px; color: var(--white); line-height: 1.6;">
+                            Our community is designed for everyone! Whether you're just starting your health journey or you're an experienced biohacker, our protocols and coaching adapt to your level. Beginners get step-by-step guidance, while advanced members dive deeper into complex bioenergetic principles.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="margin-bottom: 10px;">
+                    <div class="faq-question" style="background-color: var(--black); padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; text-align: left; cursor: pointer; transition: background-color 0.3s ease;">
+                        <span>Do I get access to everything right away?</span>
+                        <span class="faq-icon" style="transition: transform 0.3s ease; font-size: 1.2rem;">▼</span>
+                    </div>
+                    <div class="faq-answer" style="background-color: #142e14; padding: 0; border-radius: 0 0 8px 8px; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                        <div style="padding: 20px; color: var(--white); line-height: 1.6;">
+                            Yes! You get immediate access to our entire library of protocols, courses, and resources. Plus, you'll instantly receive our Gut Rebuild Toolkit and Sleep Optimization Protocol as welcome bonuses. No waiting - start your healing journey today.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="margin-bottom: 10px;">
+                    <div class="faq-question" style="background-color: var(--black); padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; text-align: left; cursor: pointer; transition: background-color 0.3s ease;">
+                        <span>Will I get personal guidance?</span>
+                        <span class="faq-icon" style="transition: transform 0.3s ease; font-size: 1.2rem;">▼</span>
+                    </div>
+                    <div class="faq-answer" style="background-color: #142e14; padding: 0; border-radius: 0 0 8px 8px; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                        <div style="padding: 20px; color: var(--white); line-height: 1.6;">
+                            Absolutely! You get a monthly 1-on-1 coaching call where you can ask personal questions and get customized guidance for your specific health challenges. Plus, our private community provides daily support and answers from both practitioners and fellow members.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="margin-bottom: 10px;">
+                    <div class="faq-question" style="background-color: var(--black); padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; text-align: left; cursor: pointer; transition: background-color 0.3s ease;">
+                        <span>What if it doesn't work for me?</span>
+                        <span class="faq-icon" style="transition: transform 0.3s ease; font-size: 1.2rem;">▼</span>
+                    </div>
+                    <div class="faq-answer" style="background-color: #142e14; padding: 0; border-radius: 0 0 8px 8px; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                        <div style="padding: 20px; color: var(--white); line-height: 1.6;">
+                            We offer a 14-day money-back guarantee. If you're not completely satisfied with your results, simply email us within 14 days and we'll refund your payment, no questions asked. We're confident this approach will work for you, but we want you to feel completely secure in your decision.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="margin-bottom: 10px;">
+                    <div class="faq-question" style="background-color: var(--black); padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; text-align: left; cursor: pointer; transition: background-color 0.3s ease;">
+                        <span>Do I really get personalised support?</span>
+                        <span class="faq-icon" style="transition: transform 0.3s ease; font-size: 1.2rem;">▼</span>
+                    </div>
+                    <div class="faq-answer" style="background-color: #142e14; padding: 0; border-radius: 0 0 8px 8px; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                        <div style="padding: 20px; color: var(--white); line-height: 1.6;">
+                            Yes! Every member gets personalized attention. Your monthly coaching calls are tailored to your specific health challenges, and our community moderators respond to individual questions within 24 hours. We're not a faceless program - we're here to support your unique healing journey.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * 
+                <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * 
+                <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * 
+                <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * 
+                <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * 
+                <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * 
+                <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * 
+                <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * <span>Health Coaching</span> * <span>Courses</span> * <span>Healing Interventions</span> * <span>Products</span> * 
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Real people. Real results. Here's what happens when you finally find the right approach to gut health.</p>
+                <h2 class="medium-heading highlight" style="margin-top: 10px;">What Readers Say</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; text-align: center; margin-top: 30px;">
+                    <div>
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Profile picture of Jennifer K." style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--white); margin-bottom: 12px;">
+                        <p style="line-height: 1.6; font-style: italic;">"For 3 years, I felt like a prisoner in my own body—bloated, exhausted, and hopeless. Doctors told me everything was 'normal.' The Belly Blueprint gave me answers no one else could. I finally feel like myself again!"</p>
+                        <p style="font-weight: bold;">- Jennifer K. (Recovered IBS Patient)</p>
+                        <div style="color: #FFD700;">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div>
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile picture of Michael T." style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--white); margin-bottom: 12px;">
+                        <p style="line-height: 1.6; font-style: italic;">"I've tried every diet under the sun—keto, carnivore, vegan, you name it. Each one helped briefly then made things worse. This book explained WHY and gave me a sustainable approach that actually works. Game changer."</p>
+                        <p style="font-weight: bold;">- Michael T. (Former Diet Hopper)</p>
+                        <div style="color: #FFD700;">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div>
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile picture of Sarah L." style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--white); margin-bottom: 12px;">
+                        <p style="line-height: 1.6; font-style: italic;">"As someone who works with clients with gut issues, this book is now my go-to recommendation. The science is solid, the approach is practical, and it doesn't force people into restrictive eating patterns. My clients are seeing amazing results."</p>
+                        <p style="font-weight: bold;">- Sarah L. (Health Coach)</p>
+                        <div style="color: #FFD700;">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 30px 0;">
+            <div class="container">
+                <a href="https://odinhealthcoaching.com/vip-store" style="display: block; background-color: var(--lime-green); color: var(--dark-green); padding: 20px; border-radius: 15px; text-decoration: none; max-width: 100%; margin: auto; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: bold; margin: 0 0 7px 0;">🚀 Yes – I'm Ready to Join the Community</h3>
+                    <p style="margin: 0; font-size: 1.1rem;">Join today and unlock $1,000+ in healing tools — for just $97/month</p>
+                </a>
+            </div>
+        </section>
+        
+
+    </main>
+
+    <footer style="padding: 50px 0;">
+        <div class="container" style="display: flex; justify-content: center; align-items: center;">
+            <div class="logo" style="display: flex; align-items: center;">
+                <img src="odinlablogo.svg" alt="OdinLab Logo" style="height: 60px; width: auto;">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon');
+                
+                question.addEventListener('click', function() {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            const otherIcon = otherItem.querySelector('.faq-icon');
+                            otherAnswer.style.maxHeight = '0';
+                            otherIcon.style.transform = 'rotate(0deg)';
+                            otherItem.querySelector('.faq-question').style.backgroundColor = 'var(--black)';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    const isOpen = answer.style.maxHeight !== '0px' && answer.style.maxHeight !== '';
+                    
+                    if (isOpen) {
+                        answer.style.maxHeight = '0';
+                        icon.style.transform = 'rotate(0deg)';
+                        question.style.backgroundColor = 'var(--black)';
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                        question.style.backgroundColor = '#142e14';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

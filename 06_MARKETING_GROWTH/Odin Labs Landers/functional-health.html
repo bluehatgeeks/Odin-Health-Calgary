@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functional Health &amp; Medicine | Odin Lab Calgary</title>
+  <meta name="description" content="Functional medicine applies systems biology to identify and address the underlying drivers of chronic illness — not just its symptoms. At Odin Lab Calgary, we pair advanced diagnostics with personalized protocols to produce measurable, lasting change.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/functional-health.css?v=3">
+  <style>
+    .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
+    @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
+    .booking-modal-overlay{display:none!important;}
+    .booking-modal-overlay.is-visible{display:flex!important;}
+    main{padding-top:80px;}
+  </style>
+</head>
+<body>
+<script>
+(function () {
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      navRoot.innerHTML = html;
+      navRoot.querySelectorAll('script').forEach(function (oldScript) {
+        var newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html?v=2', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+<main>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 1 — HERO
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-hero fh-section">
+    <div class="fh-container">
+      <p class="hero-slogan">We Do Not Practice Medicine. We Practice Health.</p>
+      <h1>Find the Root. Restore the System. Reclaim Your Health.</h1>
+      <p class="fh-hero-sub">Functional medicine applies systems biology to identify and address the underlying drivers of chronic illness — not just its symptoms. At Odin Lab, we pair advanced diagnostics with personalized protocols to produce measurable, lasting change.</p>
+      <div class="fh-hero-cta">
+        <a href="#" class="btn-primary booking-trigger">Book a Consultation</a>
+      </div>
+      <div class="fh-hero-image-wrapper">
+        <canvas id="fh-bio-canvas" aria-label="Animated systems biology network diagram — interconnected biological pathways" role="img"></canvas>
+      </div>
+
+      <script>
+(function () {
+  var canvas = document.getElementById('fh-bio-canvas');
+  var ctx = canvas.getContext('2d');
+  var W, H, dpr;
+  var RAF;
+
+  // ── Palette ──────────────────────────────────────────────
+  var LIME      = '#c4ff49';
+  var LIME_GL   = 'rgba(196,255,73,';
+  var WHITE_GL  = 'rgba(255,255,255,';
+
+  // ── DNA helix config ─────────────────────────────────────
+  // helix geometry (in canvas-space, recomputed on resize)
+  var RUNGS     = 22;       // base-pair rungs
+  var TURNS     = 2.2;      // full rotations along helix length
+  var PARTICLES = [];
+
+  // ── Helix geometry (computed on resize) ──────────────────
+  // The helix runs horizontally across the canvas.
+  // 3D perspective: helix axis = horizontal, viewed slightly above.
+  // Each rung is a base pair; strands are sine curves offset by π.
+  // Perspective tilt: z-depth makes rear strand dimmer + narrower.
+
+  var TILT      = 0.14;    // perspective foreshortening (0=flat, 1=edge-on)
+  var BREATH    = 0.025;   // gentle radius breathing amplitude
+  var ROT_SPEED = 0.06;    // rotations per second (slow, cinematic)
+
+  // Floating ambient particles (not on helix)
+  var AMBIENT   = [];
+  var AMB_COUNT = 55;
+
+  // Helix strand particles
+  var STRAND_P  = [];      // {strand:0|1, t:0-1, speed, bright}
+  var SP_COUNT  = 38;
+
+  function buildParticles() {
+    AMBIENT = [];
+    for (var i = 0; i < AMB_COUNT; i++) {
+      AMBIENT.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: 0.6 + Math.random() * 2.0,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.10,
+        alpha: 0.08 + Math.random() * 0.22,
+        lime: Math.random() > 0.55
+      });
+    }
+    STRAND_P = [];
+    for (var i = 0; i < SP_COUNT; i++) {
+      STRAND_P.push({
+        strand: i % 2,
+        t: Math.random(),
+        speed: 0.0004 + Math.random() * 0.0008,
+        bright: Math.random() > 0.75
+      });
+    }
+  }
+
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    var wrapper = canvas.parentElement;
+    W = wrapper.clientWidth;
+    H = Math.round(W * 0.48);
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    buildParticles();
+  }
+
+  // ── Helix math ────────────────────────────────────────────
+  // t ∈ [0,1] along helix axis (left→right)
+  // returns {x, y, z} in canvas coords, z ∈ [-1,1]
+  function helixPoint(t, strand, rotOffset) {
+    var cx   = W * 0.50;          // horizontal centre
+    var cy   = H * 0.50;          // vertical centre
+    var halfL = W * 0.46;         // half-length of helix axis
+    var rx   = W * 0.07;          // horizontal radius (perspective squash)
+    var ry   = H * 0.40;          // vertical radius — tall helix
+    var breathScale = 1 + BREATH * Math.sin(rotOffset * 0.7);
+
+    var angle = (t * TURNS * Math.PI * 2) + (strand === 1 ? Math.PI : 0) + rotOffset;
+    var z = Math.sin(angle);       // depth: +1 = front, -1 = back
+    var xPos = cx + (t - 0.5) * halfL * 2;
+    var yPos = cy + Math.cos(angle) * ry * breathScale;
+    // perspective: z shifts x slightly
+    var xPers = xPos + z * rx * TILT;
+
+    return { x: xPers, y: yPos, z: z };
+  }
+
+  // ── Background radial glow ────────────────────────────────
+  function drawBackground() {
+    // Deep central glow
+    var grd = ctx.createRadialGradient(W*0.5, H*0.5, 0, W*0.5, H*0.5, W*0.55);
+    grd.addColorStop(0,   'rgba(22,55,22,0.70)');
+    grd.addColorStop(0.5, 'rgba(18,42,18,0.30)');
+    grd.addColorStop(1,   'rgba(18,42,18,0)');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, W, H);
+
+    // Lime accent glow at centre
+    var grd2 = ctx.createRadialGradient(W*0.5, H*0.5, 0, W*0.5, H*0.5, W*0.28);
+    grd2.addColorStop(0,   'rgba(196,255,73,0.05)');
+    grd2.addColorStop(1,   'rgba(196,255,73,0)');
+    ctx.fillStyle = grd2;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  // ── Ambient floating particles ────────────────────────────
+  function updateAmbient() {
+    for (var i = 0; i < AMBIENT.length; i++) {
+      var p = AMBIENT[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < -4)  p.x = W + 4;
+      if (p.x > W+4) p.x = -4;
+      if (p.y < -4)  p.y = H + 4;
+      if (p.y > H+4) p.y = -4;
+      var grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+      if (p.lime) {
+        grd.addColorStop(0, LIME_GL + p.alpha.toFixed(2) + ')');
+      } else {
+        grd.addColorStop(0, WHITE_GL + (p.alpha * 0.6).toFixed(2) + ')');
+      }
+      grd.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI*2);
+      ctx.fillStyle = grd; ctx.fill();
+    }
+  }
+
+  // ── Draw helix strands ────────────────────────────────────
+  function drawStrands(rot) {
+    var STEPS = 180;   // smoothness of strand curves
+
+    // We draw back-strand first, then front-strand (painter's order)
+    // Determine which strand is "front" at t=0.5 (midpoint)
+    var midAngle0 = (0.5 * TURNS * Math.PI * 2) + rot;
+    var midAngle1 = midAngle0 + Math.PI;
+    var strand0Front = Math.sin(midAngle0) >= Math.sin(midAngle1);
+
+    function drawStrand(sIdx, lineW, baseAlpha) {
+      // Split the strand into segments; each segment gets alpha based on z
+      for (var i = 0; i < STEPS; i++) {
+        var t0 = i / STEPS, t1 = (i + 1) / STEPS;
+        var p0 = helixPoint(t0, sIdx, rot);
+        var p1 = helixPoint(t1, sIdx, rot);
+        var z  = (p0.z + p1.z) * 0.5;        // average depth of segment
+        var depthAlpha = baseAlpha * (0.35 + 0.65 * ((z + 1) * 0.5));
+        ctx.beginPath();
+        ctx.moveTo(p0.x, p0.y);
+        ctx.lineTo(p1.x, p1.y);
+        ctx.strokeStyle = sIdx === 0
+          ? WHITE_GL + depthAlpha.toFixed(3) + ')'
+          : LIME_GL  + depthAlpha.toFixed(3) + ')';
+        ctx.lineWidth = lineW * (0.6 + 0.4 * ((z + 1) * 0.5));
+        ctx.stroke();
+      }
+    }
+
+    if (strand0Front) {
+      drawStrand(1, 2.2, 0.75);   // back: lime
+      drawStrand(0, 2.8, 0.95);   // front: white
+    } else {
+      drawStrand(0, 2.2, 0.75);   // back: white
+      drawStrand(1, 2.8, 0.95);   // front: lime
+    }
+  }
+
+  // ── Draw rungs (base pairs) ───────────────────────────────
+  function drawRungs(rot) {
+    for (var i = 0; i <= RUNGS; i++) {
+      var t = i / RUNGS;
+      var p0 = helixPoint(t, 0, rot);
+      var p1 = helixPoint(t, 1, rot);
+
+      // z depth of rung = average z of both endpoints
+      var z = (p0.z + p1.z) * 0.5;
+      var depthFactor = (z + 1) * 0.5;  // 0=back, 1=front
+      var alpha = 0.12 + 0.45 * depthFactor;
+
+      // Rung line
+      ctx.beginPath();
+      ctx.moveTo(p0.x, p0.y);
+      ctx.lineTo(p1.x, p1.y);
+      ctx.strokeStyle = WHITE_GL + alpha.toFixed(3) + ')';
+      ctx.lineWidth = 0.7 + 0.6 * depthFactor;
+      ctx.stroke();
+
+      // Node dots at each strand end of rung
+      var dotR0 = 2.5 + 2.0 * depthFactor;
+      var dotR1 = 2.0 + 1.8 * depthFactor;
+
+      // Strand 0 node (white)
+      var grd0 = ctx.createRadialGradient(p0.x, p0.y, 0, p0.x, p0.y, dotR0 * 2.5);
+      grd0.addColorStop(0, WHITE_GL + (0.7 * depthFactor + 0.15).toFixed(3) + ')');
+      grd0.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath(); ctx.arc(p0.x, p0.y, dotR0 * 2.5, 0, Math.PI*2);
+      ctx.fillStyle = grd0; ctx.fill();
+      ctx.beginPath(); ctx.arc(p0.x, p0.y, dotR0 * 0.55, 0, Math.PI*2);
+      ctx.fillStyle = WHITE_GL + (0.6 + 0.4 * depthFactor).toFixed(3) + ')'; ctx.fill();
+
+      // Strand 1 node (lime)
+      var grd1 = ctx.createRadialGradient(p1.x, p1.y, 0, p1.x, p1.y, dotR1 * 2.5);
+      grd1.addColorStop(0, LIME_GL + (0.6 * depthFactor + 0.12).toFixed(3) + ')');
+      grd1.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath(); ctx.arc(p1.x, p1.y, dotR1 * 2.5, 0, Math.PI*2);
+      ctx.fillStyle = grd1; ctx.fill();
+      ctx.beginPath(); ctx.arc(p1.x, p1.y, dotR1 * 0.55, 0, Math.PI*2);
+      ctx.fillStyle = LIME_GL + (0.7 + 0.3 * depthFactor).toFixed(3) + ')'; ctx.fill();
+    }
+  }
+
+  // ── Draw strand particles ─────────────────────────────────
+  function drawStrandParticles(rot) {
+    for (var i = 0; i < STRAND_P.length; i++) {
+      var sp = STRAND_P[i];
+      sp.t += sp.speed;
+      if (sp.t > 1) sp.t = 0;
+
+      var pt = helixPoint(sp.t, sp.strand, rot);
+      var depthF = (pt.z + 1) * 0.5;
+      var alpha  = (sp.bright ? 0.95 : 0.60) * (0.4 + 0.6 * depthF);
+      var r      = (sp.bright ? 3.5 : 2.0) * (0.5 + 0.5 * depthF);
+
+      // Halo
+      var grd = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, r * 4);
+      if (sp.strand === 0) {
+        grd.addColorStop(0, WHITE_GL + alpha.toFixed(3) + ')');
+      } else {
+        grd.addColorStop(0, LIME_GL + alpha.toFixed(3) + ')');
+      }
+      grd.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, r * 4, 0, Math.PI*2);
+      ctx.fillStyle = grd; ctx.fill();
+
+      // Core
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, r * 0.5, 0, Math.PI*2);
+      ctx.fillStyle = sp.strand === 0
+        ? WHITE_GL + Math.min(1, alpha * 1.4).toFixed(3) + ')'
+        : LIME_GL  + Math.min(1, alpha * 1.4).toFixed(3) + ')';
+      ctx.fill();
+
+      // Bright trail (4 ghost points back)
+      for (var k = 1; k <= 4; k++) {
+        var tt = Math.max(0, sp.t - k * 0.015);
+        var ghost = helixPoint(tt, sp.strand, rot);
+        var ga = alpha * (0.22 - k * 0.04);
+        if (ga <= 0) break;
+        ctx.beginPath(); ctx.arc(ghost.x, ghost.y, r * 0.35, 0, Math.PI*2);
+        ctx.fillStyle = sp.strand === 0
+          ? WHITE_GL + ga.toFixed(3) + ')'
+          : LIME_GL  + ga.toFixed(3) + ')';
+        ctx.fill();
+      }
+    }
+  }
+
+  // ── Main draw loop ────────────────────────────────────────
+  var t = 0;
+  function draw(ts) {
+    RAF = requestAnimationFrame(draw);
+    t = ts * 0.001;
+    ctx.clearRect(0, 0, W, H);
+
+    var rot = t * ROT_SPEED * Math.PI * 2;
+
+    drawBackground();
+    updateAmbient();
+    drawStrands(rot);
+    drawRungs(rot);
+    drawStrandParticles(rot);
+  }
+
+  function init() {
+    resize();
+    var ro = new ResizeObserver(function() { resize(); });
+    ro.observe(canvas.parentElement);
+    requestAnimationFrame(draw);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    setTimeout(init, 0);
+  }
+})();
+      </script>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       STATS STRIP — Authority signal
+       ══════════════════════════════════════════════════════ -->
+  <div class="fh-stats-strip">
+    <div class="fh-stats-inner">
+      <div class="fh-stat">
+        <span class="fh-stat__value">7,252</span>
+        <span class="fh-stat__label">Patients — Cleveland Clinic FM Study</span>
+      </div>
+      <div class="fh-stat">
+        <span class="fh-stat__value">31%</span>
+        <span class="fh-stat__label">Clinically Meaningful Health Improvement</span>
+      </div>
+      <div class="fh-stat">
+        <span class="fh-stat__value">6</span>
+        <span class="fh-stat__label">Advanced Diagnostic Panels</span>
+      </div>
+      <div class="fh-stat">
+        <span class="fh-stat__value">Root</span>
+        <span class="fh-stat__label">Cause — Not Symptom — Focused</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="fh-divider"></div>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 2 — CORE PRINCIPLES (5 numbered cards, 3+2 grid)
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-principles-section fh-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">The Framework</span>
+        <h2 class="fh-section-heading">The Five Foundations of Functional Medicine</h2>
+        <p class="fh-section-sub">A coherent philosophy that reframes how illness is understood, investigated, and resolved — not merely managed.</p>
+      </div>
+
+      <!-- Row 1: 3 cards -->
+      <div class="fh-principles-row-1">
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">01</span>
+          <h3 class="fh-principle-title">Root Cause Over Symptom Management</h3>
+          <p class="fh-principle-body">Functional medicine does not ask "what drug matches this symptom?" It asks why the symptom exists. Every symptom is a signal — a downstream expression of upstream dysfunction in biochemistry, gut integrity, hormones, or environmental load. Treatment targets the source.</p>
+        </div>
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">02</span>
+          <h3 class="fh-principle-title">Systems Biology — The Body as an Interconnected Network</h3>
+          <p class="fh-principle-body">The body is not a collection of isolated organs. Gut health influences hormone metabolism. Hormone dysregulation alters immune signaling. Immune activation drives neurological and metabolic consequences. Functional medicine maps these interconnections and treats the network, not individual nodes.</p>
+        </div>
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">03</span>
+          <h3 class="fh-principle-title">Biochemical Individuality</h3>
+          <p class="fh-principle-body">Genetic makeup, environmental exposures, stress history, and nutritional status combine uniquely in each person. Standard reference ranges reflect population averages — not optimal function for you. Functional medicine interprets labs through optimal, not merely "normal," ranges and builds protocols calibrated to the individual.</p>
+        </div>
+
+      </div>
+
+      <!-- Row 2: 2 cards, centered -->
+      <div class="fh-principles-row-2">
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">04</span>
+          <h3 class="fh-principle-title">Patient-Centered Partnership</h3>
+          <p class="fh-principle-body">Patients are not passive recipients of prescriptions. Functional medicine requires understanding a person's history, environment, lifestyle, and health goals in full. Decisions are made collaboratively. Education is built into care. The patient becomes a participant in their own recovery.</p>
+        </div>
+
+        <div class="fh-principle-card">
+          <span class="fh-principle-numeral">05</span>
+          <h3 class="fh-principle-title">Health as a Positive State — Not the Absence of Disease</h3>
+          <p class="fh-principle-body">Conventional medicine defines health as the absence of diagnosable pathology. Functional medicine defines health as active vitality, organ resilience, and optimized physiological function. The goal is not to avoid a diagnosis — it is to build a body that functions at a genuinely high level.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="fh-divider"></div>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 3 — COMPARISON TABLE
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-comparison-section fh-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">Two Different Models</span>
+        <h2 class="fh-section-heading">Functional Medicine vs. Conventional Medicine</h2>
+        <p class="fh-section-sub">Same body. Radically different questions. Radically different outcomes.</p>
+      </div>
+
+      <div class="fh-table-scroll" role="region" aria-label="Comparison table: functional medicine versus conventional medicine">
+        <table class="fh-table">
+          <thead>
+            <tr>
+              <th scope="col">Dimension</th>
+              <th scope="col">Conventional Medicine</th>
+              <th scope="col">Functional Medicine</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Approach</td>
+              <td>Symptom identification and suppression</td>
+              <td>Root cause discovery and resolution</td>
+            </tr>
+            <tr>
+              <td>Focus</td>
+              <td>Disease diagnosis and management</td>
+              <td>Health optimization and chronic illness reversal</td>
+            </tr>
+            <tr>
+              <td>Timeline</td>
+              <td>Optimized for acute and emergency care</td>
+              <td>Designed for chronic, complex, multi-system conditions</td>
+            </tr>
+            <tr>
+              <td>Diagnostic Tools</td>
+              <td>Standard blood panels, imaging, anatomical assessment</td>
+              <td>Advanced biomarkers, functional lab ranges, hormone panels, microbiome analysis, organic acids</td>
+            </tr>
+            <tr>
+              <td>Outcome Goal</td>
+              <td>Manage the condition; maintain stability</td>
+              <td>Resolve the underlying drivers; reduce or eliminate dependency on symptom-suppressing medications</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 4 — SECTION IMAGE BANNER
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-banner-section">
+    <div class="fh-container">
+      <div class="fh-banner-wrapper">
+        <img
+          src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/functional-health-section.jpg?v=2"
+          alt="Systems biology — interconnected biological pathways applied to personalized functional health"
+          class="fh-banner-img"
+        />
+        <div class="fh-banner-overlay" aria-hidden="true">
+          <div class="fh-banner-callout">
+            <span class="fh-banner-eyebrow">Our Approach</span>
+            <p class="fh-banner-quote">Systems biology applied to your health — not population averages</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 6 — CONDITIONS GRID (pill cloud)
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-conditions-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">Clinical Relevance</span>
+        <h2 class="fh-section-heading">Conditions Addressed by Functional Medicine</h2>
+        <p class="fh-section-sub">Functional medicine has demonstrated clinical relevance and outcome improvements across a wide range of chronic conditions.</p>
+      </div>
+
+      <div class="fh-conditions-cloud" role="list" aria-label="Conditions addressed by functional medicine">
+        <span class="fh-condition-pill" role="listitem">IBS &amp; SIBO</span>
+        <span class="fh-condition-pill" role="listitem">Inflammatory Bowel Disease</span>
+        <span class="fh-condition-pill" role="listitem">Hashimoto's Thyroiditis</span>
+        <span class="fh-condition-pill" role="listitem">Hypothyroidism</span>
+        <span class="fh-condition-pill" role="listitem">Type 2 Diabetes</span>
+        <span class="fh-condition-pill" role="listitem">Insulin Resistance</span>
+        <span class="fh-condition-pill" role="listitem">Metabolic Syndrome</span>
+        <span class="fh-condition-pill" role="listitem">Hormonal Imbalances</span>
+        <span class="fh-condition-pill" role="listitem">Adrenal Dysfunction</span>
+        <span class="fh-condition-pill" role="listitem">Chronic Fatigue Syndrome</span>
+        <span class="fh-condition-pill" role="listitem">PCOS</span>
+        <span class="fh-condition-pill" role="listitem">Rheumatoid &amp; Psoriatic Arthritis</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 7 — FAQ ACCORDION
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-faq-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">Common Questions</span>
+        <h2 class="fh-section-heading">Common Questions</h2>
+        <p class="fh-section-sub">Straight answers to the questions we hear most often.</p>
+      </div>
+
+      <div class="fh-faq-list">
+
+        <details class="fh-faq-item">
+          <summary class="fh-faq-question">Is functional medicine the same as naturopathy?</summary>
+          <p class="fh-faq-answer">No — though both share a root-cause philosophy, they differ meaningfully in training, tools, and clinical framework. Functional medicine is grounded in systems biology and Western biomedical science, using advanced laboratory diagnostics and evidence-based protocols to identify biochemical and physiological dysfunction. Naturopathic medicine draws on a broader range of traditional therapies — including botanical medicine, homeopathy, and hydrotherapy — with a philosophy rooted in the body's innate healing capacity. Functional medicine is more laboratory-driven and mechanistically focused; naturopathy is broader in therapeutic scope.</p>
+        </details>
+
+        <details class="fh-faq-item">
+          <summary class="fh-faq-question">How is this different from seeing my family doctor?</summary>
+          <p class="fh-faq-answer">A family physician is trained to diagnose and manage acute illness and recognized disease states within a 10–15-minute appointment. Functional medicine practitioners spend significantly more time — often 60–90 minutes at intake — taking a comprehensive history of systems, environment, exposures, and lifestyle. Where a family doctor may rule out disease and report your labs as "normal," a functional medicine practitioner interprets those same results through optimal ranges and looks for patterns of early dysfunction. The goal is different: not to manage a diagnosis, but to understand what is driving your symptoms and address it directly.</p>
+        </details>
+
+        <details class="fh-faq-item">
+          <summary class="fh-faq-question">How long does it take to see results?</summary>
+          <p class="fh-faq-answer">This depends on the complexity, duration, and nature of your condition. Most patients begin noticing meaningful improvements — in energy, sleep, digestion, or pain — within four to eight weeks of implementing an initial protocol. Deeper systemic changes, such as hormonal rebalancing, gut microbiome restoration, or autoimmune stabilization, typically require three to six months of consistent work. Chronic conditions that have developed over years do not resolve in weeks. Functional medicine is a structured, data-guided process — not a quick fix — and progress is tracked through repeat testing at defined intervals.</p>
+        </details>
+
+        <details class="fh-faq-item">
+          <summary class="fh-faq-question">Do I need to stop my current medications or leave my doctor?</summary>
+          <p class="fh-faq-answer">No. Functional medicine is designed to work alongside your existing medical care, not replace it. Many patients work with a functional health coach or practitioner in addition to their GP, specialist, or prescribing physician. Protocol changes — including any adjustments to medications — are always made in coordination with your prescribing provider. The goal is to reduce dependency on symptom-suppressing medications over time by addressing root causes, but this is a gradual, supervised process, never abrupt.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 8 — CITATIONS
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-citations-section">
+    <div class="fh-container">
+      <div class="fh-header-block">
+        <span class="fh-section-tag">Peer-Reviewed Evidence</span>
+        <h2 class="fh-section-heading">Clinical Evidence</h2>
+        <p class="fh-section-sub">Every protocol at Odin Lab is grounded in published clinical and mechanistic research. The following represent key findings from the functional medicine literature.</p>
+      </div>
+
+      <div class="fh-citations-list">
+
+        <div class="fh-citation-block">
+          <div class="fh-citation-dot" aria-hidden="true"></div>
+          <div class="fh-citation-content">
+            <span class="fh-citation-authors">Beidelschies M, Alejandro-Rodriguez M, Ji X, Bhowmik S, Nageeb F, Gonzalez E, Hanaway P.</span>
+            <span class="fh-citation-journal">JAMA Network Open, 2019; 2(10):e1914017</span>
+            <p class="fh-citation-finding">In a retrospective cohort study of 7,252 patients, those treated at Cleveland Clinic's Center for Functional Medicine showed significantly greater improvements in PROMIS Global Physical Health scores at 6 months compared to primary care controls (mean change 1.59 vs. 0.33, P = .004). 31% of functional medicine patients achieved a clinically meaningful 5-point improvement versus 22% in primary care.</p>
+          </div>
+        </div>
+
+        <div class="fh-citation-block">
+          <div class="fh-citation-dot" aria-hidden="true"></div>
+          <div class="fh-citation-content">
+            <span class="fh-citation-authors">Droz N, Hanaway P, Hyman M, Jin Y, Beidelschies M, Husni ME.</span>
+            <span class="fh-citation-journal">PLOS ONE, 2020; 15(10):e0240416</span>
+            <p class="fh-citation-finding">In a 12-week retrospective study, patients with rheumatoid arthritis or psoriatic arthritis who received a functional medicine program adjunctive to standard of care showed a statistically significant improvement in pain scores (−0.92 vs. control) and PROMIS physical health T-scores (+2.84 vs. control), both exceeding established minimally clinically significant differences.</p>
+          </div>
+        </div>
+
+        <div class="fh-citation-block">
+          <div class="fh-citation-dot" aria-hidden="true"></div>
+          <div class="fh-citation-content">
+            <span class="fh-citation-authors">Bredesen DE, Sharlin K, Jenkins D, Okuno M, Youngberg W, Cohen S, Stefani A, Brown RL, Conger S, Tanio C.</span>
+            <span class="fh-citation-journal">Journal of Alzheimer's Disease &amp; Parkinsonism, 2018; 8(5)</span>
+            <p class="fh-citation-finding">A multisite case series using a personalized, systems-based therapeutic protocol — addressing metabolic, inflammatory, hormonal, and nutritional drivers — demonstrated reversal of documented cognitive decline in the majority of patients, with improvements validated by quantitative neuropsychological testing and neuroimaging.</p>
+          </div>
+        </div>
+
+        <div class="fh-citation-block">
+          <div class="fh-citation-dot" aria-hidden="true"></div>
+          <div class="fh-citation-content">
+            <span class="fh-citation-authors">Trivedi MV et al.</span>
+            <span class="fh-citation-journal">Alternative Therapies in Health and Medicine, 2022; PMID 35687707</span>
+            <p class="fh-citation-finding">A retrospective interventional study found that a personalized functional medicine approach for type 2 diabetes patients who had not responded adequately to standard treatment resulted in 6 patients completely discontinuing diabetes medications, 5 patients reducing doses by 50%, and an average HbA1c reduction of 2.71% alongside a mean fasting glucose decrease of 78.36 mg/dL.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+       ══════════════════════════════════════════════════════ -->
+  <section class="fh-cta-section">
+    <div class="fh-container">
+      <span class="fh-section-tag">Ready to Begin?</span>
+      <h2 class="fh-cta-heading">Start With a Conversation, Not a Prescription</h2>
+      <p class="fh-cta-sub">Book a free discovery call to discuss your health history, current symptoms, and whether a functional medicine approach is the right fit for you. No commitment required.</p>
+      <a href="#" class="btn-primary booking-trigger">Book a Free Discovery Call</a>
+    </div>
+  </section>
+
+</main>
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="booking-modal-title">
+  <div class="booking-modal">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time" class="btn-first-time" target="_blank" rel="noopener">First Time Client</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" class="btn-follow-up" target="_blank" rel="noopener">Follow-Up Appointment</a>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var bookingOverlay = document.getElementById('booking-modal-overlay');
+  var bookingClose = document.getElementById('booking-modal-close');
+  function openBookingModal() { if (bookingOverlay) { bookingOverlay.classList.add('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; } }
+  function closeBookingModal() { if (bookingOverlay) { bookingOverlay.classList.remove('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; } }
+  document.addEventListener('click', function(e) { var btn = e.target.closest('.booking-trigger'); if (btn) { e.preventDefault(); openBookingModal(); } });
+  if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
+  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) { if (e.target === bookingOverlay) closeBookingModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal(); });
+
+  /* FAQ: close others on open (one open at a time) */
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.fh-faq-item').forEach(function(item) {
+      item.addEventListener('toggle', function() {
+        if (item.open) {
+          document.querySelectorAll('.fh-faq-item').forEach(function(other) {
+            if (other !== item) other.removeAttribute('open');
+          });
+        }
+      });
+    });
+  });
+
+
+})();
+</script>
+</body>
+</html>

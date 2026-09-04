@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayurveda | Odin Lab Calgary</title>
+  <meta name="description" content="Ayurveda identifies your unique physiological constitution and uses diet, lifestyle, and targeted protocols to restore balance at the root. Book an Ayurvedic health assessment at Odin Lab Calgary.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/ayurveda.css?v=4">
+  <style>
+    .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
+    @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
+    .booking-modal-overlay{display:none!important;}
+    .booking-modal-overlay.is-visible{display:flex!important;}
+    main{padding-top:80px;}
+  </style>
+</head>
+<body>
+<script>
+(function () {
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      navRoot.innerHTML = html;
+      navRoot.querySelectorAll('script').forEach(function (oldScript) {
+        var newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html?v=2', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      });
+  });
+})();
+</script>
+
+<main>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — HERO
+  ═══════════════════════════════════════════ -->
+  <section class="ay-hero ay-section">
+    <div class="ay-container">
+
+      <p class="hero-slogan">We Do Not Practice Medicine. We Practice Health.</p>
+
+      <h1 class="ay-hero-h1">5,000 Years of Personalised Medicine. Now Applied with Functional Precision.</h1>
+
+      <p class="ay-hero-sub">Ayurveda identifies your unique physiological constitution — your <em>Prakriti</em> — and maps the root patterns driving imbalance. Diet, lifestyle, and targeted protocols restore function from the inside out.</p>
+
+      <div class="ay-hero-cta">
+        <a href="#" class="ay-btn booking-trigger">Book an Ayurvedic Assessment</a>
+      </div>
+
+      <div class="ay-hero-image-wrapper">
+        <img class="ay-hero-img-bw"
+          src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/ay-transparent_darkgreen.png?v=1"
+          alt="Ayurveda three doshas infographic — Vata, Pitta, Kapha elemental flow diagram">
+        <img class="ay-hero-img-color"
+          src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/ay-transparent_darkgreen.png?v=1"
+          alt="" aria-hidden="true">
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ay-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — STATS STRIP
+  ═══════════════════════════════════════════ -->
+  <div class="ay-stats-strip">
+    <div class="ay-stats-inner">
+      <div class="ay-stat">
+        <span class="ay-stat__value">5,000+</span>
+        <span class="ay-stat__label">Years of Clinical Tradition</span>
+      </div>
+      <div class="ay-stat">
+        <span class="ay-stat__value">3</span>
+        <span class="ay-stat__label">Constitutional Types (Doshas)</span>
+      </div>
+      <div class="ay-stat">
+        <span class="ay-stat__value">Root</span>
+        <span class="ay-stat__label">Cause — Not Symptom — Focused</span>
+      </div>
+      <div class="ay-stat">
+        <span class="ay-stat__value">Whole</span>
+        <span class="ay-stat__label">System Body, Mind, Digestion</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ay-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+       SECTION 4 — FIVE PILLARS (horizontal timeline)
+  ═══════════════════════════════════════════ -->
+  <section class="ay-section ay-pillars-section">
+    <div class="ay-container">
+
+      <div class="ay-badge"><span class="ay-badge-text">The Ayurvedic Framework · 5 Pillars</span></div>
+      <h2 class="ay-section-heading">How Ayurveda Restores Balance</h2>
+      <p class="ay-section-sub">Five interconnected pillars — each calibrated to your constitution and current state of imbalance.</p>
+
+      <div class="ay-timeline-nodes">
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">01</div>
+          <div class="ay-timeline-text">
+            <h3 class="ay-timeline-principle">What You Eat</h3>
+            <span class="ay-timeline-sanskrit">Personalised Nutrition</span>
+            <p class="ay-timeline-desc">Foods chosen specifically for your body type, the season, and how well your digestion is currently working.</p>
+          </div>
+        </div>
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">02</div>
+          <div class="ay-timeline-text">
+            <h3 class="ay-timeline-principle">How You Live</h3>
+            <span class="ay-timeline-sanskrit">Daily Routine &amp; Habits</span>
+            <p class="ay-timeline-desc">Simple changes to your sleep schedule, movement, and daily habits that work with your body's natural rhythms.</p>
+          </div>
+        </div>
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">03</div>
+          <div class="ay-timeline-text">
+            <h3 class="ay-timeline-principle">Herbal Support</h3>
+            <span class="ay-timeline-sanskrit">Natural Remedies</span>
+            <p class="ay-timeline-desc">Specific herbs and plant-based supplements chosen to address your particular symptoms and root imbalances.</p>
+          </div>
+        </div>
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">04</div>
+          <div class="ay-timeline-text">
+            <h3 class="ay-timeline-principle">Body Reset</h3>
+            <span class="ay-timeline-sanskrit">Guided Detox Protocol</span>
+            <p class="ay-timeline-desc">A structured cleansing process to clear built-up waste and inflammation, restoring your body to its natural baseline.</p>
+          </div>
+        </div>
+
+        <div class="ay-timeline-item">
+          <div class="ay-timeline-circle">05</div>
+          <div class="ay-timeline-text">
+            <h3 class="ay-timeline-principle">Breathwork &amp; Movement</h3>
+            <span class="ay-timeline-sanskrit">Nervous System Regulation</span>
+            <p class="ay-timeline-desc">Breathing exercises and gentle movement tailored to calm your nervous system and improve energy and focus.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5 — SECTION IMAGE BANNER
+  ═══════════════════════════════════════════ -->
+  <div class="ay-image-banner">
+    <img src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/ayurveda-section.jpg?v=3"
+      alt="Ayurvedic consultation at Odin Lab Calgary">
+    <div class="ay-image-banner__overlay"></div>
+  </div>
+
+  <div class="ay-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 6 — ANCIENT VS MODERN
+  ═══════════════════════════════════════════ -->
+  <section class="ay-section ay-comparison-section">
+    <div class="ay-container">
+
+      <div class="ay-badge"><span class="ay-badge-text">Traditional Wisdom · Modern Validation</span></div>
+      <h2 class="ay-section-heading">Ancient Framework, Modern Evidence</h2>
+      <p class="ay-section-sub">Ayurvedic concepts confirmed by contemporary research — not despite science, but alongside it.</p>
+
+      <div class="ay-comparison-stack">
+
+        <div class="ay-comp-card">
+          <div class="ay-comp-traditional">
+            <span class="ay-comp-panel-label">Traditional Insight</span>
+            <p class="ay-comp-text">Digestive strength is the foundation of all health. When digestion is weak, waste accumulates in the body and blocks normal function.</p>
+          </div>
+          <div class="ay-comp-divider"></div>
+          <div class="ay-comp-modern">
+            <span class="ay-comp-panel-label">Modern Validation</span>
+            <p class="ay-comp-text">Gut microbiome dysbiosis correlates with systemic inflammation, metabolic dysfunction, and neurological conditions.</p>
+            <span class="ay-comp-citation">Turnbaugh et al., Nature, 2006</span>
+          </div>
+        </div>
+
+        <div class="ay-comp-card">
+          <div class="ay-comp-traditional">
+            <span class="ay-comp-panel-label">Traditional Insight</span>
+            <p class="ay-comp-text">Each person has a unique body type that determines how they react to food, stress, and illness — and what treatments will work best for them.</p>
+          </div>
+          <div class="ay-comp-divider"></div>
+          <div class="ay-comp-modern">
+            <span class="ay-comp-panel-label">Modern Validation</span>
+            <p class="ay-comp-text">Individual body types show distinct gene expression profiles, metabolic markers, and microbiome compositions confirmed by genomic studies.</p>
+            <span class="ay-comp-citation">Govindaraj et al., Scientific Reports, 2015</span>
+          </div>
+        </div>
+
+        <div class="ay-comp-card">
+          <div class="ay-comp-traditional">
+            <span class="ay-comp-panel-label">Traditional Insight</span>
+            <p class="ay-comp-text">Ashwagandha root calms the nervous system, rebuilds depleted energy, and reduces anxiety and fatigue.</p>
+          </div>
+          <div class="ay-comp-divider"></div>
+          <div class="ay-comp-modern">
+            <span class="ay-comp-panel-label">Modern Validation</span>
+            <p class="ay-comp-text">Clinical trials confirm Ashwagandha reduces cortisol by 27.9%, improves VO₂ max, and reduces anxiety scores vs placebo.</p>
+            <span class="ay-comp-citation">Chandrasekhar et al., Indian J Psychol Med, 2012</span>
+          </div>
+        </div>
+
+        <div class="ay-comp-card">
+          <div class="ay-comp-traditional">
+            <span class="ay-comp-panel-label">Traditional Insight</span>
+            <p class="ay-comp-text">A three-herb blend called Triphala cleanses the digestive tract, restores regular elimination, and supports whole-body detoxification.</p>
+          </div>
+          <div class="ay-comp-divider"></div>
+          <div class="ay-comp-modern">
+            <span class="ay-comp-panel-label">Modern Validation</span>
+            <p class="ay-comp-text">Triphala demonstrates broad-spectrum antioxidant, anti-inflammatory, and prebiotic activity across multiple clinical studies.</p>
+            <span class="ay-comp-citation">Peterson et al., J Altern Complement Med, 2017</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ay-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 7 — TREATMENTS (3-col with icon)
+  ═══════════════════════════════════════════ -->
+  <section class="ay-section ay-treatments-section">
+    <div class="ay-container">
+
+      <div class="ay-badge"><span class="ay-badge-text">6 Therapeutic Modalities</span></div>
+      <h2 class="ay-section-heading">Ayurvedic Treatments at Odin Lab</h2>
+      <p class="ay-section-sub">Each modality selected based on your constitution and current imbalance — not applied generically.</p>
+
+      <div class="ay-treatments-grid">
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-icon">
+            <!-- Person/constitutional assessment icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/><path d="M12 14v2m-2 0h4"/></svg>
+          </div>
+          <h3 class="ay-treatment-name">Your Body Type Assessment</h3>
+          <p class="ay-treatment-desc">A full analysis of your unique physical and mental makeup — understanding how your body naturally functions and where it's currently out of balance. This shapes everything that follows.</p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-icon">
+            <!-- Search/magnify root cause icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/><path d="M11 8v3m0 0v3m0-3h3m-3 0H8"/></svg>
+          </div>
+          <h3 class="ay-treatment-name">Root Cause Discovery</h3>
+          <p class="ay-treatment-desc">We identify the underlying drivers of your symptoms — not just what hurts, but why. Chronic issues like fatigue, bloating, or inflammation are traced back to their origin so we can fix the source, not just manage the problem.</p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-icon">
+            <!-- Leaf/botanical icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <h3 class="ay-treatment-name">Personalised Herbal Plan</h3>
+          <p class="ay-treatment-desc">A custom selection of herbs and plant-based supplements chosen to address your specific symptoms — such as stress, poor digestion, low energy, or inflammation.</p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-icon">
+            <!-- Bowl/food icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M20 12c0 5.52-3.58 10-8 10S4 17.52 4 12"/><path d="M15 5c0 1.1-.9 2-2 2H11c-1.1 0-2-.9-2-2a4 4 0 0 1 6 0z"/><path d="M8 5H6a2 2 0 0 0-2 2v5"/><path d="M16 5h2a2 2 0 0 1 2 2v5"/></svg>
+          </div>
+          <h3 class="ay-treatment-name">Food as Medicine</h3>
+          <p class="ay-treatment-desc">Practical food recommendations based on your body type, how strong your digestion is right now, and the current season. No generic meal plans — tailored to you.</p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-icon">
+            <!-- Sun/daily rhythm icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M18.66 5.34l1.41-1.41"/></svg>
+          </div>
+          <h3 class="ay-treatment-name">Daily Routine Design</h3>
+          <p class="ay-treatment-desc">Simple daily and seasonal habits — when to eat, sleep, move, and rest — structured to bring your nervous system, digestion, and hormones back into sync.</p>
+        </div>
+
+        <div class="ay-treatment-card">
+          <div class="ay-treatment-icon">
+            <!-- Flame/cleanse/fire icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <h3 class="ay-treatment-name">Guided Detox Program</h3>
+          <p class="ay-treatment-desc">A structured cleanse using herbal oils, steam therapy, and elimination support to clear built-up waste and inflammation — resetting your metabolism from the inside out.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ay-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 8 — CONDITIONS (pill cloud)
+  ═══════════════════════════════════════════ -->
+  <section class="ay-section ay-conditions-section">
+    <div class="ay-container" style="text-align:center;">
+      <div class="ay-badge"><span class="ay-badge-text">12 Conditions Addressed</span></div>
+      <h2 class="ay-section-heading">What Ayurveda Addresses</h2>
+      <p class="ay-section-sub" style="margin:0 auto 36px;">Conditions rooted in constitutional imbalance, poor Agni, or Ama accumulation respond well to Ayurvedic intervention.</p>
+      <div class="ay-conditions-grid">
+        <span class="ay-condition-pill">Chronic Fatigue</span>
+        <span class="ay-condition-pill">Digestive Disorders</span>
+        <span class="ay-condition-pill">Hormonal Imbalance</span>
+        <span class="ay-condition-pill">Anxiety &amp; Stress</span>
+        <span class="ay-condition-pill">Skin Conditions</span>
+        <span class="ay-condition-pill">Insomnia</span>
+        <span class="ay-condition-pill">Weight Dysregulation</span>
+        <span class="ay-condition-pill">Autoimmune Patterns</span>
+        <span class="ay-condition-pill">Joint Pain &amp; Inflammation</span>
+        <span class="ay-condition-pill">Brain Fog</span>
+        <span class="ay-condition-pill">Thyroid Dysfunction</span>
+        <span class="ay-condition-pill">Post-Viral Recovery</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="ay-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 9 — CITATIONS
+  ═══════════════════════════════════════════ -->
+  <section class="ay-section ay-citations-section">
+    <div class="ay-container">
+      <div class="ay-badge"><span class="ay-badge-text">Peer-Reviewed Literature</span></div>
+      <h2 class="ay-section-heading">The Research</h2>
+      <p class="ay-section-sub">Ancient practice confirmed by modern science.</p>
+
+      <div class="ay-citations-grid">
+
+        <div class="ay-citation-block">
+          <div class="ay-citation-block__year">2015</div>
+          <div class="ay-citation-block__body">
+            <p class="ay-citation-block__authors">Govindaraj et al.</p>
+            <p class="ay-citation-block__journal">Scientific Reports, 5: 15786</p>
+            <p class="ay-citation-block__finding">Prakriti types show distinct genomic signatures — Vata, Pitta, and Kapha constitutions differ in gene expression and metabolic markers.</p>
+          </div>
+        </div>
+
+        <div class="ay-citation-block">
+          <div class="ay-citation-block__year">2012</div>
+          <div class="ay-citation-block__body">
+            <p class="ay-citation-block__authors">Chandrasekhar et al.</p>
+            <p class="ay-citation-block__journal">Indian J Psychol Med, 34(3): 255–262</p>
+            <p class="ay-citation-block__finding">Ashwagandha root extract reduced cortisol by 27.9% and significantly improved stress, anxiety, and sleep quality vs placebo.</p>
+          </div>
+        </div>
+
+        <div class="ay-citation-block">
+          <div class="ay-citation-block__year">2017</div>
+          <div class="ay-citation-block__body">
+            <p class="ay-citation-block__authors">Peterson et al.</p>
+            <p class="ay-citation-block__journal">J Altern Complement Med, 23(8): 607–614</p>
+            <p class="ay-citation-block__finding">Triphala demonstrated significant antioxidant, anti-inflammatory, and prebiotic activity — supporting its role in Ayurvedic detoxification.</p>
+          </div>
+        </div>
+
+        <div class="ay-citation-block">
+          <div class="ay-citation-block__year">2022</div>
+          <div class="ay-citation-block__body">
+            <p class="ay-citation-block__authors">Gowda et al.</p>
+            <p class="ay-citation-block__journal">Front Pharmacol, 13: 903656</p>
+            <p class="ay-citation-block__finding">Ayurvedic herbal interventions show measurable effects on inflammatory markers, microbiome composition, and metabolic parameters.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ay-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 10 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="ay-section ay-cta-section">
+    <div class="ay-container">
+      <h2 class="ay-cta-heading">Begin with a Body Type Assessment</h2>
+      <p class="ay-cta-sub">Your constitution is the starting point. One session to identify your dosha pattern, current imbalances, and a personalised protocol direction.</p>
+      <a href="#" class="ay-btn booking-trigger">Book an Ayurvedic Assessment</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- BOOKING MODAL -->
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="booking-modal-title">
+  <div class="booking-modal">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time" class="btn-first-time" target="_blank" rel="noopener">First Time Client</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" class="btn-follow-up" target="_blank" rel="noopener">Follow-Up Appointment</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var overlay = document.getElementById('booking-modal-overlay');
+  var closeBtn = document.getElementById('booking-modal-close');
+  function open() { overlay.classList.add('is-visible'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function close() { overlay.classList.remove('is-visible'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  document.addEventListener('click', function(e) { if (e.target.closest('.booking-trigger')) { e.preventDefault(); open(); } });
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  if (overlay) overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && overlay.classList.contains('is-visible')) close(); });
+})();
+</script>
+</body>
+</html>

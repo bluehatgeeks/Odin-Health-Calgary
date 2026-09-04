@@ -77,7 +77,7 @@ npx supabase functions deploy fetch_mixpanel_events
 3. **Out-of-order events:** Late-arriving rows with older `event_time` can change which row is the session start until the next RPC run.
 4. **Manual RPC (SQL):**  
    `select public.mark_session_start_friendly_names(30);`
-5. **Git hygiene:** Do **not** commit `.env`, `tmp/` exports, or `00_ADMIN/google_oauth_client_secret.json`. Prefer `.gitignore` updates if these paths keep appearing.
+5. **Git hygiene:** Do **not** commit `.env`, `tmp/` exports, or `Calgary-Local/00_ADMIN/google_oauth_client_secret.json`. Prefer `.gitignore` updates if these paths keep appearing.
 
 ---
 

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydrogen Inhalation Therapy | Odin Lab Calgary</title>
+  <meta name="description" content="Molecular hydrogen is one of the most selectively targeted antioxidants in clinical research. At Odin Lab Calgary, we use hydrogen inhalation for oxidative load reduction, inflammation, and recovery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@5f717d790675d6627d67c35301392c27eda1fac6/hydrogen-therapy.css">
+  <style>
+    .hero-slogan{color:#c4ff49!important;opacity:0.5!important;font-size:clamp(1.25rem,3vw,2.2rem)!important;font-weight:900!important;line-height:1.1!important;letter-spacing:0.02em!important;margin:25px 0 15px 0!important;text-align:center!important;width:100%!important;white-space:nowrap!important;max-width:100%!important;}
+    @media(max-width:768px){.hero-slogan{white-space:normal!important;font-size:clamp(1rem,4vw,2rem)!important;}}
+    .booking-modal-overlay{display:none!important;}
+    .booking-modal-overlay.is-visible{display:flex!important;}
+    main{padding-top:80px;}
+  </style>
+</head>
+<body>
+<script>
+(function () {
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      navRoot.innerHTML = html;
+      navRoot.querySelectorAll('script').forEach(function (oldScript) {
+        var newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html?v=2', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        footerRoot.innerHTML = html;
+        footerRoot.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+
+<main>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — HERO
+  ═══════════════════════════════════════════ -->
+  <section class="ht-hero ht-section">
+    <div class="ht-container">
+
+      <p class="hero-slogan">We Do Not Practice Medicine. We Practice Health.</p>
+
+      <h1>Precision Antioxidant Therapy at the Cellular Level</h1>
+
+      <p class="ht-sub-text">
+        Molecular hydrogen selectively neutralizes only the most destructive free radicals — without disrupting your body's own signaling chemistry. Clinical-grade H₂ inhalation for inflammation, fatigue, and performance recovery.
+      </p>
+
+      <a href="#" class="ht-hero-cta booking-trigger">Book a Consultation</a>
+
+      <div class="ht-hero-image-wrapper">
+        <img
+          class="ht-hero-image-color"
+          src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/hydrogen-hero-color.png?v=5"
+          alt="Infographic showing how hydrogen inhalation therapy works at Odin Lab Calgary"
+        >
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — STATS STRIP
+  ═══════════════════════════════════════════ -->
+  <div class="ht-stats-strip">
+    <div class="ht-stats-inner">
+
+      <div class="ht-stat">
+        <span class="ht-stat__value">2,000+</span>
+        <span class="ht-stat__label">Peer-Reviewed Studies</span>
+      </div>
+
+      <div class="ht-stat">
+        <span class="ht-stat__value">81</span>
+        <span class="ht-stat__label">Clinical Trials Reviewed</span>
+      </div>
+
+      <div class="ht-stat">
+        <span class="ht-stat__value">Selective</span>
+        <span class="ht-stat__label">Targets Only Cytotoxic Radicals</span>
+      </div>
+
+      <div class="ht-stat">
+        <span class="ht-stat__value">~1 Min</span>
+        <span class="ht-stat__label">Time to Reach Mitochondria</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — BENEFITS GRID (icon + headline + 1-line)
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-benefits-section">
+    <div class="ht-container">
+
+      <div class="ht-badge">
+        <span class="ht-badge-text">Clinical Evidence · 8 Therapeutic Domains</span>
+      </div>
+      <h2 class="ht-section-heading">Why Hydrogen Therapy Works</h2>
+      <p class="ht-section-sub">One molecule. Eight documented mechanisms. Measurable outcomes across the body's most critical systems.</p>
+
+      <div class="ht-benefits-grid">
+
+        <div class="ht-benefit-card">
+          <div class="ht-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <h3 class="ht-benefit-card__title">Selective Free Radical Neutralization</h3>
+            <p class="ht-benefit-card__body">H₂ targets only hydroxyl radicals and peroxynitrite — the most destructive ROS — leaving beneficial immune signaling intact.</p>
+          </div>
+        </div>
+
+        <div class="ht-benefit-card">
+          <div class="ht-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="6"/><path d="M2 12c0 3.31 4.48 6 10 6s10-2.69 10-6"/></svg>
+          </div>
+          <div>
+            <h3 class="ht-benefit-card__title">Mitochondrial Protection</h3>
+            <p class="ht-benefit-card__body">Reaches mitochondria within ~1 minute, activating the Keap1-Nrf2 antioxidant pathway and upregulating SOD and glutathione peroxidase.</p>
+          </div>
+        </div>
+
+        <div class="ht-benefit-card">
+          <div class="ht-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <div>
+            <h3 class="ht-benefit-card__title">Systemic Anti-Inflammation</h3>
+            <p class="ht-benefit-card__body">Suppresses NF-κB signaling, reducing TNF-α, IL-1β, and IL-6 — key drivers of chronic low-grade inflammation.</p>
+          </div>
+        </div>
+
+        <div class="ht-benefit-card">
+          <div class="ht-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div>
+            <h3 class="ht-benefit-card__title">Athletic Recovery</h3>
+            <p class="ht-benefit-card__body">Reduces post-exercise lactate and oxidative markers while preserving the adaptive training stimulus — without blunting recovery signals.</p>
+          </div>
+        </div>
+
+        <div class="ht-benefit-card">
+          <div class="ht-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 1 9 9c0 3.18-4 9-9 11C8 20 3 14.18 3 11a9 9 0 0 1 9-9z"/></svg>
+          </div>
+          <div>
+            <h3 class="ht-benefit-card__title">Neurological Resilience</h3>
+            <p class="ht-benefit-card__body">Crosses the blood-brain barrier — reducing neuroinflammation, infarct size, and oxidative damage in Parkinson's and stroke research models.</p>
+          </div>
+        </div>
+
+        <div class="ht-benefit-card">
+          <div class="ht-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div>
+            <h3 class="ht-benefit-card__title">Cardiovascular Support</h3>
+            <p class="ht-benefit-card__body">A 24-week study in hypertensive adults showed improved blood pressure management and reduced inflammatory markers alongside H₂ therapy.</p>
+          </div>
+        </div>
+
+        <div class="ht-benefit-card">
+          <div class="ht-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3 class="ht-benefit-card__title">Respiratory &amp; Lung Protection</h3>
+            <p class="ht-benefit-card__body">COPD patients inhaling H₂ three times daily showed improvements in CAT scores and dyspnea scales within 30 days of treatment.</p>
+          </div>
+        </div>
+
+        <div class="ht-benefit-card">
+          <div class="ht-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div>
+            <h3 class="ht-benefit-card__title">Oncology Quality of Life</h3>
+            <p class="ht-benefit-card__body">Advanced lung cancer patients adding H₂ reported reduced drug adverse events, improved fatigue, sleep quality, and progression-free survival.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — MECHANISM (2-col split layout)
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-mechanism-section">
+    <div class="ht-container">
+
+      <div class="ht-mechanism-header">
+        <div>
+          <div class="ht-badge">
+            <span class="ht-badge-text">Pharmacodynamics · Cellular Biology</span>
+          </div>
+          <h2 class="ht-section-heading">How It Works at the<br>Cellular Level</h2>
+          <p class="ht-section-sub">Four converging mechanisms explain why H₂ produces clinical signal across such a diverse range of conditions.</p>
+        </div>
+        <div class="ht-mechanism-molecule">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="100" r="36" stroke="rgba(196,255,73,0.4)" stroke-width="2"/>
+            <circle cx="140" cy="100" r="36" stroke="rgba(196,255,73,0.4)" stroke-width="2"/>
+            <text x="60" y="106" text-anchor="middle" font-family="Poppins" font-size="22" font-weight="700" fill="rgba(196,255,73,0.9)">H</text>
+            <text x="140" y="106" text-anchor="middle" font-family="Poppins" font-size="22" font-weight="700" fill="rgba(196,255,73,0.9)">H</text>
+            <line x1="96" y1="100" x2="104" y2="100" stroke="rgba(196,255,73,0.6)" stroke-width="3"/>
+            <circle cx="60" cy="100" r="54" stroke="rgba(196,255,73,0.08)" stroke-width="1" stroke-dasharray="4 6"/>
+            <circle cx="140" cy="100" r="54" stroke="rgba(196,255,73,0.08)" stroke-width="1" stroke-dasharray="4 6"/>
+          </svg>
+          <p class="ht-mechanism-molecule__label">H₂ — Molecular Hydrogen</p>
+          <p class="ht-mechanism-molecule__sub">Smallest therapeutic molecule in existence</p>
+        </div>
+      </div>
+
+      <div class="ht-mechanism-grid">
+
+        <div class="ht-mechanism-card">
+          <span class="ht-mechanism-card__num">01</span>
+          <h3 class="ht-mechanism-card__title">Rapid Systemic Distribution</h3>
+          <p class="ht-mechanism-card__desc">Inhaled H₂ enters the bloodstream within seconds, permeating cell membranes and reaching mitochondria in ~1 minute. No carrier or receptor required.</p>
+        </div>
+
+        <div class="ht-mechanism-card">
+          <span class="ht-mechanism-card__num">02</span>
+          <h3 class="ht-mechanism-card__title">Selective Radical Scavenging</h3>
+          <p class="ht-mechanism-card__desc">H₂ reacts only with hydroxyl radicals (•OH) and peroxynitrite (ONOO⁻), converting them to water — leaving beneficial ROS signaling untouched.</p>
+        </div>
+
+        <div class="ht-mechanism-card">
+          <span class="ht-mechanism-card__num">03</span>
+          <h3 class="ht-mechanism-card__title">Nrf2 Pathway Activation</h3>
+          <p class="ht-mechanism-card__desc">H₂ triggers nuclear translocation of Nrf2, upregulating SOD, catalase, glutathione peroxidase, and heme oxygenase-1 — your endogenous defense network.</p>
+        </div>
+
+        <div class="ht-mechanism-card">
+          <span class="ht-mechanism-card__num">04</span>
+          <h3 class="ht-mechanism-card__title">Anti-Inflammatory Gene Expression</h3>
+          <p class="ht-mechanism-card__desc">Nrf2 activation simultaneously suppresses NF-κB — creating a coordinated cytoprotective response at the gene expression level.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5 — SECONDARY IMAGE BANNER
+  ═══════════════════════════════════════════ -->
+  <div class="ht-image-banner">
+    <img
+      src="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/hydrogen-section.jpg?v=2"
+      alt="Clinical-grade hydrogen inhalation equipment at Odin Lab Calgary"
+    >
+    <div class="ht-image-banner__overlay">
+      <p class="ht-image-banner__text"><em>Clinical-grade hydrogen inhalation</em> at Odin Lab Calgary</p>
+    </div>
+  </div>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 6 — CONDITIONS TAG CLOUD
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-conditions-section">
+    <div class="ht-container" style="text-align:center;">
+
+      <div class="ht-badge">
+        <span class="ht-badge-text">10 Therapeutic Applications</span>
+      </div>
+      <h2 class="ht-section-heading" style="margin-left:auto;margin-right:auto;max-width:700px;">Conditions Addressed</h2>
+      <p class="ht-section-sub" style="margin-left:auto;margin-right:auto;text-align:center;">Hydrogen's multi-mechanism action applies across conditions driven by oxidative stress, inflammation, and energy dysfunction.</p>
+
+      <div class="ht-conditions-grid">
+        <span class="ht-condition-pill">Chronic Inflammation</span>
+        <span class="ht-condition-pill">Oxidative Fatigue &amp; Burnout</span>
+        <span class="ht-condition-pill">COPD &amp; Asthma</span>
+        <span class="ht-condition-pill">Hypertension</span>
+        <span class="ht-condition-pill">Parkinson's &amp; Cognitive Decline</span>
+        <span class="ht-condition-pill">Stroke Recovery</span>
+        <span class="ht-condition-pill">Exercise-Induced Muscle Damage</span>
+        <span class="ht-condition-pill">Metabolic Syndrome</span>
+        <span class="ht-condition-pill">Cancer Treatment Support</span>
+        <span class="ht-condition-pill">Post-Viral Recovery</span>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 7 — SESSION WALKTHROUGH (horizontal timeline)
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-walkthrough-section">
+    <div class="ht-container">
+
+      <div class="ht-badge">
+        <span class="ht-badge-text">30–60 Minute Sessions · Non-Invasive</span>
+      </div>
+      <h2 class="ht-section-heading">What to Expect</h2>
+      <p class="ht-section-sub">A quiet, passive protocol. The molecular work happens below perception.</p>
+
+      <div class="ht-timeline">
+
+        <div class="ht-timeline-item">
+          <div class="ht-timeline-dot"></div>
+          <div class="ht-timeline-card">
+            <span class="ht-timeline-num">01</span>
+            <h3 class="ht-timeline-title">Intake Review</h3>
+            <p class="ht-timeline-desc">Your practitioner reviews health history and goals. H₂ is integrated into your broader protocol — not administered in isolation.</p>
+          </div>
+        </div>
+
+        <div class="ht-timeline-item">
+          <div class="ht-timeline-dot"></div>
+          <div class="ht-timeline-card">
+            <span class="ht-timeline-num">02</span>
+            <h3 class="ht-timeline-title">Setup</h3>
+            <p class="ht-timeline-desc">Seated comfortably. A nasal cannula delivers a steady low-flow stream of pure H₂. No mask. No confinement. No discomfort.</p>
+          </div>
+        </div>
+
+        <div class="ht-timeline-item">
+          <div class="ht-timeline-dot"></div>
+          <div class="ht-timeline-card">
+            <span class="ht-timeline-num">03</span>
+            <h3 class="ht-timeline-title">The Session</h3>
+            <p class="ht-timeline-desc">30–60 minutes of normal breathing. No taste. No odour. Most clients report stillness. Cellular work is happening beneath perception.</p>
+          </div>
+        </div>
+
+        <div class="ht-timeline-item">
+          <div class="ht-timeline-dot"></div>
+          <div class="ht-timeline-card">
+            <span class="ht-timeline-num">04</span>
+            <h3 class="ht-timeline-title">Monitoring</h3>
+            <p class="ht-timeline-desc">Concentration and delivery are monitored throughout. First sessions are calibrated conservatively before building up.</p>
+          </div>
+        </div>
+
+        <div class="ht-timeline-item">
+          <div class="ht-timeline-dot"></div>
+          <div class="ht-timeline-card">
+            <span class="ht-timeline-num">05</span>
+            <h3 class="ht-timeline-title">Integration</h3>
+            <p class="ht-timeline-desc">Hydrate. Rest briefly. Many clients report improved clarity and reduced tension in the hours after. Results accumulate over a regular protocol.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 8 — CITATIONS (compact)
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-citations-section">
+    <div class="ht-container">
+
+      <div class="ht-badge">
+        <span class="ht-badge-text">Peer-Reviewed Literature</span>
+      </div>
+      <h2 class="ht-section-heading">The Research</h2>
+      <p class="ht-section-sub">Two decades of hydrogen medicine — our protocols are built on it.</p>
+
+      <div class="ht-citations-grid">
+
+        <div class="ht-citation-block">
+          <div class="ht-citation-block__year">2007</div>
+          <div class="ht-citation-block__body">
+            <p class="ht-citation-block__authors">Ohsawa et al.</p>
+            <p class="ht-citation-block__journal">Nature Medicine, 13(6): 688–694</p>
+            <p class="ht-citation-block__finding">Landmark study: H₂ selectively neutralizes hydroxyl radicals and peroxynitrite while leaving beneficial ROS intact.</p>
+          </div>
+        </div>
+
+        <div class="ht-citation-block">
+          <div class="ht-citation-block__year">2016</div>
+          <div class="ht-citation-block__body">
+            <p class="ht-citation-block__authors">Tamura et al.</p>
+            <p class="ht-citation-block__journal">Circulation Journal, 80(8): 1870–1873</p>
+            <p class="ht-citation-block__finding">First-in-human pilot: inhaled 2% H₂ feasible and safe in post-cardiac arrest patients with measurable antioxidant effects.</p>
+          </div>
+        </div>
+
+        <div class="ht-citation-block">
+          <div class="ht-citation-block__year">2020</div>
+          <div class="ht-citation-block__body">
+            <p class="ht-citation-block__authors">Chen et al.</p>
+            <p class="ht-citation-block__journal">Medical Gas Research, 10(2): 75–80</p>
+            <p class="ht-citation-block__finding">Advanced NSCLC patients adding H₂ showed reduced adverse events, improved fatigue and pain, and extended progression-free survival.</p>
+          </div>
+        </div>
+
+        <div class="ht-citation-block">
+          <div class="ht-citation-block__year">2023</div>
+          <div class="ht-citation-block__body">
+            <p class="ht-citation-block__authors">Diao et al.</p>
+            <p class="ht-citation-block__journal">Molecules, 28(23): 7785</p>
+            <p class="ht-citation-block__finding">Systematic review of 81 clinical trials: positive outcomes across cardiovascular, respiratory, neurological, oncological, and metabolic categories.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ht-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="ht-section ht-booking-cta">
+    <div class="ht-container">
+
+      <h2>Start Your First Hydrogen Session</h2>
+      <p class="ht-booking-cta__sub">Available as part of a structured functional health protocol. Book a discovery session and we will assess whether it belongs in your plan.</p>
+      <a href="#" class="ht-booking-btn booking-trigger">Book a Consultation</a>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- BOOKING MODAL -->
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="booking-modal-title">
+  <div class="booking-modal">
+    <button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+    <h3 id="booking-modal-title">Book an Appointment</h3>
+    <div class="booking-modal-buttons">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time" class="btn-first-time" target="_blank" rel="noopener">First Time Client</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" class="btn-follow-up" target="_blank" rel="noopener">Follow-Up Appointment</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var bookingOverlay = document.getElementById('booking-modal-overlay');
+  var bookingClose = document.getElementById('booking-modal-close');
+  function openBookingModal() {
+    if (bookingOverlay) { bookingOverlay.classList.add('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+  }
+  function closeBookingModal() {
+    if (bookingOverlay) { bookingOverlay.classList.remove('is-visible'); bookingOverlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('click', function(e) { var btn = e.target.closest('.booking-trigger'); if (btn) { e.preventDefault(); openBookingModal(); } });
+  if (bookingClose) bookingClose.addEventListener('click', closeBookingModal);
+  if (bookingOverlay) bookingOverlay.addEventListener('click', function(e) { if (e.target === bookingOverlay) closeBookingModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && bookingOverlay && bookingOverlay.classList.contains('is-visible')) closeBookingModal(); });
+})();
+</script>
+</body>
+</html>

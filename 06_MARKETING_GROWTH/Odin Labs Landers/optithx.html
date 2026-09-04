@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thank You | Optimal Health Lab Workup</title>
+<meta name="description" content="Thank you for ordering your Optimal Health Lab Workup. Here's exactly what happens next and how to get the most from your results."/>
+<style>
+    :root {
+        --dark-green: #1a3a1a;
+        --dark-green-light: #2a4a2a;
+        --dark-green-lighter: #3a5a3a;
+        --lime-green: #c4ff49;
+        --lime-green-dark: #a8e64a;
+        --lime-green-light: #d4ff69;
+        --white: #ffffff;
+        --black: #000000;
+        --light-grey: #f0f0f0;
+        --dark-grey-text: #333;
+        --card-bg: #142e14;
+        --card-bg-hover: #1a3a1a;
+        --text-muted: #aaa;
+        --text-secondary: #ccc;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+        --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.4);
+        --shadow-glow: 0 0 20px rgba(196, 255, 73, 0.3);
+        --gradient-primary: linear-gradient(135deg, var(--lime-green) 0%, var(--lime-green-dark) 100%);
+        --transition-base: 0.3s ease;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        background-color: var(--dark-green);
+        background-image:
+            radial-gradient(circle at 20% 50%, rgba(196, 255, 73, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(196, 255, 73, 0.03) 0%, transparent 50%);
+        color: var(--white);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+
+    /* All images are black and white by default */
+    img {
+        filter: grayscale(100%) !important;
+        transition: filter var(--transition-base), transform var(--transition-base);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .section {
+        padding: 80px 0;
+        position: relative;
+    }
+
+    header#top.section {
+        padding-top: 0;
+    }
+
+    .section:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        transition: all var(--transition-base);
+        cursor: pointer;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    .btn-primary {
+        background: var(--gradient-primary);
+        color: var(--dark-green);
+        border: none;
+        font-size: 1.1rem;
+        padding: 16px 32px;
+        box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-xl), 0 0 30px rgba(196, 255, 73, 0.5);
+        filter: brightness(1.1);
+    }
+
+    .btn-outline {
+        border: 2px solid var(--white);
+        color: var(--white);
+        background-color: transparent;
+    }
+
+    .btn-outline:hover {
+        background-color: var(--white);
+        color: var(--dark-green);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    /* Button text visibility - show desktop by default, mobile on small screens */
+    .btn-text-mobile {
+        display: none;
+    }
+
+    .btn-text-desktop {
+        display: inline;
+    }
+
+    @media (max-width: 768px) {
+        .btn-text-mobile {
+            display: inline;
+        }
+
+        .btn-text-desktop {
+            display: none;
+        }
+    }
+
+    .large-heading {
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin: 0;
+        letter-spacing: -0.02em;
+        color: var(--white);
+    }
+
+    .medium-heading {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 30px;
+        letter-spacing: -0.01em;
+        color: var(--white);
+        text-align: center;
+    }
+
+    .small-heading {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        color: var(--white);
+    }
+
+    .sub-text {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.7;
+        max-width: 800px;
+        margin: 20px auto 0;
+        color: var(--text-secondary);
+        text-align: center;
+    }
+
+    .hero-two-column {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        gap: 40px;
+        align-items: center;
+    }
+
+    .check-list {
+        list-style: none;
+        padding: 0;
+        margin: 25px 0;
+    }
+
+    .check-list li {
+        font-size: 1.05rem;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: flex-start;
+        padding: 10px;
+        border-radius: 8px;
+        transition: all var(--transition-base);
+    }
+
+    .check-list li:hover {
+        background-color: rgba(196, 255, 73, 0.05);
+        transform: translateX(4px);
+    }
+
+    .check-list .emoji {
+        color: var(--lime-green);
+        margin-right: 12px;
+        font-size: 1.1rem;
+        line-height: 1.4;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .check-list .emoji svg {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .test-kit-mockup {
+        max-width: 400px;
+        margin: 30px auto;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        border: 2px solid rgba(196, 255, 73, 0.1);
+        transition: all var(--transition-base);
+    }
+
+    .test-kit-mockup:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-xl);
+        border-color: rgba(196, 255, 73, 0.3);
+    }
+
+    /* Remove grayscale only when hovering directly over the image */
+    img:hover {
+        filter: grayscale(0%) !important;
+    }
+
+    .test-kit-mockup img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .test-kit-mockup img:hover {
+        transform: scale(1.02);
+    }
+
+    .trust-icons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .trust-icon {
+        font-size: 0.9rem;
+        color: #ccc;
+        text-align: center;
+        transition: all var(--transition-base);
+    }
+
+    .trust-icon strong {
+        display: block;
+        color: var(--lime-green);
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .trust-icon svg {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 6px;
+        vertical-align: middle;
+    }
+
+    .feelings-comparison {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin: 25px 0;
+    }
+
+    .feeling-item {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        padding: 20px;
+        border: 2px solid rgba(196, 255, 73, 0.2);
+        font-size: 0.98rem;
+        transition: all var(--transition-base);
+        box-shadow: var(--shadow-sm);
+        min-width: 150px;
+    }
+
+    .feeling-item:hover {
+        transform: translateY(-4px);
+        border-color: var(--lime-green);
+        box-shadow: var(--shadow-md);
+    }
+
+    .feeling-arrow {
+        font-size: 2rem;
+        color: var(--lime-green);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .feeling-arrow svg {
+        width: 2rem;
+        height: 2rem;
+        transform: rotate(90deg);
+    }
+
+    .white-box {
+        background-color: var(--white);
+        color: var(--dark-grey-text);
+        padding: 18px 24px;
+        border-radius: 12px;
+        margin: 12px auto;
+        max-width: 100%;
+        font-size: 1.1rem;
+        font-weight: 600;
+        box-shadow: var(--shadow-md);
+        transition: all var(--transition-base);
+    }
+
+    .white-box:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    /* WHAT YOU GET grid */
+    .what-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+        margin-top: 40px;
+    }
+
+    .what-card {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: var(--shadow-md);
+        border: 2px solid rgba(196, 255, 73, 0.2);
+        text-align: left;
+        transition: all var(--transition-base);
+    }
+
+    .what-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(196, 255, 73, 0.4);
+        box-shadow: var(--shadow-lg), 0 0 20px rgba(196, 255, 73, 0.15);
+        background-color: var(--card-bg-hover);
+    }
+
+    .what-card h3 {
+        margin: 0 0 10px;
+        color: var(--lime-green);
+        font-size: 1.2rem;
+    }
+
+    .what-card p {
+        font-size: 0.96rem;
+        color: var(--text-secondary);
+        margin-bottom: 10px;
+    }
+
+    .rating-badge {
+        display: block;
+        background: linear-gradient(135deg, rgba(196, 255, 73, 0.15) 0%, rgba(196, 255, 73, 0.05) 100%);
+        border: 2px solid var(--lime-green);
+        border-radius: 16px;
+        padding: 14px 28px;
+        margin: 20px auto;
+        font-size: 1.2rem;
+        color: var(--lime-green);
+        font-weight: 700;
+        box-shadow: var(--shadow-md), var(--shadow-glow);
+        transition: all var(--transition-base);
+        text-align: center;
+        width: fit-content;
+    }
+
+    .rating-badge:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-lg), 0 0 25px rgba(196, 255, 73, 0.4);
+    }
+
+    /* Order confirmation badge */
+    .confirmation-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, rgba(196, 255, 73, 0.15) 0%, rgba(196, 255, 73, 0.05) 100%);
+        border: 2px solid var(--lime-green);
+        border-radius: 12px;
+        padding: 12px 24px;
+        margin: 0 auto 30px;
+        font-size: 1rem;
+        color: var(--lime-green);
+        font-weight: 700;
+        box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+
+    .confirmation-badge svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+
+    /* Numbered step badge */
+    .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--lime-green);
+        color: var(--dark-green);
+        font-size: 1.5rem;
+        font-weight: 800;
+        flex-shrink: 0;
+        margin-bottom: 16px;
+    }
+
+    /* Rupa Health callout bar */
+    .callout-bar {
+        background-color: var(--card-bg);
+        border-left: 4px solid var(--lime-green);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 40px 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .callout-bar-icon {
+        font-size: 2rem;
+        flex-shrink: 0;
+    }
+
+    .callout-bar-content h3 {
+        margin: 0 0 12px;
+        color: var(--lime-green);
+        font-size: 1.3rem;
+    }
+
+    .callout-bar-content p {
+        margin: 0;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
+    .callout-bar-content a {
+        color: var(--lime-green);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .callout-bar-content a:hover {
+        text-decoration: underline;
+    }
+
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+        margin-top: 30px;
+    }
+
+    .testimonial-card {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        padding: 24px;
+        border: 2px solid rgba(196, 255, 73, 0.15);
+        box-shadow: var(--shadow-sm);
+        transition: all var(--transition-base);
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--lime-green);
+        box-shadow: var(--shadow-md), 0 0 20px rgba(196, 255, 73, 0.2);
+        background-color: var(--card-bg-hover);
+    }
+
+    .testimonial-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(255,255,255,0.6);
+        display: block;
+        margin: 0 auto 10px;
+    }
+
+    .testimonial-card img:hover {
+        transform: scale(1.1);
+        border-color: var(--lime-green);
+        box-shadow: var(--shadow-lg), 0 0 25px rgba(196, 255, 73, 0.3);
+    }
+
+    .testimonial-card p {
+        font-size: 0.98rem;
+    }
+
+    .comparison-table {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        max-width: 900px;
+        margin: 40px auto;
+        text-align: left;
+    }
+
+    .comparison-column {
+        background-color: var(--card-bg);
+        padding: 30px;
+        border-radius: 16px;
+        border: 2px solid rgba(196, 255, 73, 0.2);
+        box-shadow: var(--shadow-sm);
+        transition: all var(--transition-base);
+    }
+
+    .comparison-column:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: rgba(196, 255, 73, 0.4);
+    }
+
+    .comparison-column.our-column {
+        border-color: var(--lime-green);
+        background: linear-gradient(135deg, var(--card-bg) 0%, rgba(196, 255, 73, 0.05) 100%);
+        box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+
+    .comparison-column.our-column:hover {
+        box-shadow: var(--shadow-lg), 0 0 25px rgba(196, 255, 73, 0.3);
+    }
+
+    .comparison-column h4 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        color: var(--lime-green);
+    }
+
+    .comparison-column.their-column h4 {
+        color: #aaa;
+    }
+
+    .comparison-item {
+        display: flex;
+        gap: 10px;
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+        align-items: flex-start;
+    }
+
+    .comparison-item .check {
+        color: var(--lime-green);
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .comparison-item .check svg {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .comparison-item .dash {
+        color: #999;
+        flex-shrink: 0;
+    }
+
+    /* FAQ */
+    .faq-item {
+        margin-bottom: 15px;
+    }
+
+    .faq-question {
+        background-color: var(--card-bg);
+        padding: 24px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        border: 2px solid transparent;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all var(--transition-base);
+        box-shadow: var(--shadow-sm);
+        user-select: none;
+    }
+
+    .faq-question:hover {
+        background-color: var(--card-bg-hover);
+        border-color: rgba(196, 255, 73, 0.3);
+        transform: translateX(4px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .faq-item.active .faq-question {
+        background-color: var(--card-bg-hover);
+        border-color: rgba(196, 255, 73, 0.5);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        transform: translateX(4px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .faq-icon {
+        font-size: 1.5rem;
+        color: var(--lime-green);
+        transition: all 0.3s ease;
+        font-weight: 300;
+        line-height: 1;
+        display: inline-block;
+        width: 24px;
+        text-align: center;
+    }
+
+    .faq-icon::before {
+        content: '+';
+    }
+
+    .faq-item.active .faq-icon::before {
+        content: '–';
+    }
+
+    .faq-answer {
+        max-height: 0 !important;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                    opacity 0.4s ease 0.1s,
+                    padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: #112711;
+        border-radius: 0 0 12px 12px;
+        padding: 0 24px !important;
+        font-size: 0.95rem;
+        opacity: 0;
+        display: block;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px !important;
+        opacity: 1 !important;
+        padding: 20px 24px !important;
+    }
+
+    .faq-answer p {
+        padding: 0;
+        margin: 0;
+        color: var(--white);
+        line-height: 1.7;
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 40px 0;
+        background-color: rgba(0,0,0,0.25);
+        border-top: 1px solid rgba(196, 255, 73, 0.15);
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+
+    footer a {
+        color: var(--lime-green);
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--dark-green);
+        z-index: 10000;
+        overflow-y: auto;
+    }
+
+    .modal-overlay.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-container {
+        background-color: var(--dark-green);
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid rgba(196, 255, 73, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--card-bg);
+        flex-shrink: 0;
+    }
+
+    .modal-header h3 {
+        margin: 0;
+        color: var(--lime-green);
+        font-size: 1.3rem;
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        transition: all var(--transition-base);
+        line-height: 1;
+    }
+
+    .modal-close:hover {
+        background-color: rgba(196, 255, 73, 0.2);
+        color: var(--lime-green);
+        transform: rotate(90deg);
+    }
+
+    .modal-body {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+        min-height: 0;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 20px;
+        height: 100%;
+    }
+
+    .modal-iframe {
+        width: 100%;
+        height: 100%;
+        min-height: calc(100vh - 100px);
+        border: none;
+        display: block;
+        transition: height 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .modal-header {
+            padding: 16px 20px;
+        }
+
+        .modal-header h3 {
+            font-size: 1.1rem;
+        }
+
+        .modal-iframe {
+            min-height: calc(100vh - 80px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .section { 
+            padding: 50px 0; 
+        }
+        header#top.section {
+            padding-top: 0;
+        }
+        .hero-two-column {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .large-heading {
+            font-size: clamp(2.4rem, 8vw, 3.4rem);
+            text-align: center !important;
+        }
+        .hero-two-column > div[style*="text-align:left"] {
+            text-align: center !important;
+        }
+        .hero-two-column > div[style*="text-align:left"] .large-heading {
+            text-align: center !important;
+        }
+        .sub-text { 
+            text-align: left; 
+        }
+        .comparison-table {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .what-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .testimonial-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .feelings-comparison {
+            flex-direction: column;
+            gap: 15px;
+        }
+        .feeling-arrow svg {
+            transform: rotate(90deg);
+        }
+        .trust-icons {
+            gap: 20px;
+        }
+        .check-list li {
+            margin-bottom: 15px;
+            padding: 8px;
+        }
+        .what-card {
+            padding: 20px;
+        }
+        .testimonial-card {
+            padding: 20px;
+        }
+        .comparison-column {
+            padding: 20px;
+        }
+        .faq-question {
+            padding: 18px;
+            font-size: 1rem;
+        }
+        .rating-badge {
+            padding: 12px 20px;
+            font-size: 1rem;
+        }
+        .callout-bar {
+            flex-direction: column;
+            text-align: center;
+        }
+        .callout-bar-icon {
+            font-size: 1.5rem;
+        }
+        .confirmation-badge {
+            flex-direction: column;
+            gap: 8px;
+            padding: 16px 20px;
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header style="padding: 18px 0; position: fixed; top: 0; left: 0; right: 0; background-color: rgba(26, 58, 26, 0.95); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border-bottom: 1px solid rgba(196, 255, 73, 0.1);">
+  <div class="container" style="display: flex; justify-content: center; align-items: center;">
+    <div class="logo" style="display: flex; align-items: center;">
+      <img alt="OdinLab Logo" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zJaxLUStVkljpkn9qddd/media/69feb24f-b3d0-45e6-b747-20dc1d2eb84d.svg+xml" style="height: 40px; width: auto;"/>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top: 80px;">
+<section class="section" id="hero">
+  <div class="container" style="text-align: center;">
+    <div class="confirmation-badge">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Order Confirmed</span>
+    </div>
+    <h1 class="large-heading" style="margin-bottom: 24px; text-align: center;">
+      Your Optimal Health Lab Requisition Is Being Prepared
+    </h1>
+    <p class="sub-text" style="max-width: 900px; margin: 0 auto 20px;">
+      You'll receive your lab requisition and next-step instructions by email within 1 business day, often sooner. We'll also send SMS updates if you provided a mobile number.
+    </p>
+    <p style="font-size: clamp(0.9rem, 1.5vw, 1rem); color: var(--text-secondary); margin: 20px auto 0; max-width: 800px;">
+      Please check your email folders—including Promotions, Updates, and Spam—for messages from our lab partner Rupa Health.
+    </p>
+    <p style="margin-top: 30px; font-size: clamp(1rem, 1.8vw, 1.2rem); color: var(--lime-green); font-weight: 600;">
+      Need help? Call us at <a href="tel:+13072094488" style="color: var(--lime-green); text-decoration: none; font-weight: 700;">+1 307-209-4488</a>
+    </p>
+  </div>
+</section>
+
+<section class="section" id="timeline">
+  <div class="container">
+    <h2 class="medium-heading">What Happens Next</h2>
+    <p class="sub-text">
+      Here's your 3-step journey from requisition to Lab Decode Session.
+    </p>
+
+    <div class="what-grid">
+      <div class="what-card">
+        <div class="step-number">1</div>
+        <h3>Lab Requisition Sent to Your Inbox</h3>
+        <p>Within 1 business day (often same-day), you'll receive a secure email with your lab requisition and simple instructions. We'll also text you when it's ready.</p>
+        <p style="font-size:0.9rem; color:var(--lime-green); margin-top:12px; font-weight:600;">
+          Your requisition comes from our lab partner Rupa Health.
+        </p>
+      </div>
+
+      <div class="what-card">
+        <div class="step-number">2</div>
+        <h3>Get Your Labs Drawn</h3>
+        <p>Take your requisition to the specified lab draw site. The visit is quick and straightforward; the lab processes your sample and sends results back to our system.</p>
+      </div>
+
+      <div class="what-card">
+        <div class="step-number">3</div>
+        <h3>Schedule Your Lab Decode Session</h3>
+        <p>When your results are ready (typically 2–3 weeks after your draw), we'll email and text you a secure link to book your 30-minute Lab Decode Session online.</p>
+      </div>
+    </div>
+
+    <p style="text-align: center; margin-top: 40px; font-size: 1rem; color: var(--text-secondary); max-width: 800px; margin-left: auto; margin-right: auto;">
+      All updates will come via email and SMS — if you're not receiving messages, please reach out to support at <a href="tel:+13072094488" style="color: var(--lime-green); text-decoration: none; font-weight: 600;">+1 307-209-4488</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="prepare">
+  <div class="container">
+    <h2 class="medium-heading">Prepare for Your Session</h2>
+    <p class="sub-text">
+      While you wait for your results, here's how to get maximum value from your Lab Decode Session.
+    </p>
+
+    <div class="what-grid">
+      <div class="what-card">
+        <h3 style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.5rem;">📝</span>
+          <span>Start a Symptoms Snapshot</span>
+        </h3>
+        <p>Over the next 7–10 days, jot down your energy patterns, sleep, cravings, mood shifts, and digestive changes.</p>
+      </div>
+
+      <div class="what-card">
+        <h3 style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.5rem;">💊</span>
+          <span>List Meds & Supplements</span>
+        </h3>
+        <p>Make a simple list of current medications and supplements (name + dose), so your practitioner can put your labs in context.</p>
+      </div>
+
+      <div class="what-card">
+        <h3 style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.5rem;">❓</span>
+          <span>Note Your Top 3 Questions</span>
+        </h3>
+        <p>Write down the three biggest things you want answered (e.g. fatigue, weight, mood, sleep) so we can prioritise them together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="rupa-callout">
+  <div class="container">
+    <div class="callout-bar">
+      <div class="callout-bar-icon">📧</div>
+      <div class="callout-bar-content">
+        <h3>Your requisition comes from Rupa Health</h3>
+        <p>All updates about your lab requisition will be sent by our lab partner Rupa Health. If you don't see the email, search for 'Rupa Health' in your inbox and check Promotions, Updates, and Spam. For help, call us at <a href="tel:+13072094488" style="color: var(--lime-green); text-decoration: none; font-weight: 600;">+1 307-209-4488</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="medium-heading">Frequently Asked Questions</h2>
+    <p class="sub-text">
+      Common questions about your lab requisition and next steps.
+    </p>
+
+    <div style="max-width: 800px; margin: 40px auto 0;">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>When will I get my lab requisition?</span>
+          <span class="faq-icon"></span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            We generate your lab requisition within 1 business day, and often much sooner. You'll receive it via secure email, and we'll send an SMS notification when it's ready.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>I don't see my requisition email. What should I do?</span>
+          <span class="faq-icon"></span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Your lab requisition will be sent by our lab partner Rupa Health. Please search your inbox for "Rupa Health." If you still don't see it, check your Promotions, Updates, and Spam folders. If you need help, call our support line at <a href="tel:+13072094488" style="color: var(--lime-green); text-decoration: none; font-weight: 600;">+1 307-209-4488</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do I make sure I get your SMS updates?</span>
+          <span class="faq-icon"></span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            If you provided a mobile number at checkout, you'll receive important status texts. Please ensure your phone isn't blocking unknown numbers. If you need to update your number, call <a href="tel:+13072094488" style="color: var(--lime-green); text-decoration: none; font-weight: 600;">+1 307-209-4488</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I reschedule my Lab Decode Session?</span>
+          <span class="faq-icon"></span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Yes. You can reschedule up to 24 hours before your appointment using the reschedule link in your confirmation email or by contacting support at <a href="tel:+13072094488" style="color: var(--lime-green); text-decoration: none; font-weight: 600;">+1 307-209-4488</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<footer style="padding: 60px 0; background-color: rgba(0, 0, 0, 0.2); border-top: 1px solid rgba(196, 255, 73, 0.1);">
+  <div class="container" style="text-align: center;">
+    <div class="logo" style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+      <img alt="OdinLab Logo" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zJaxLUStVkljpkn9qddd/media/69feb24f-b3d0-45e6-b747-20dc1d2eb84d.svg+xml" style="height: 60px; width: auto; transition: all var(--transition-base); cursor: pointer;" onmouseover="this.style.filter='brightness(1.2) drop-shadow(0 0 10px rgba(196, 255, 73, 0.3))'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter=''; this.style.transform='';"/>
+    </div>
+    <div style="margin-top: 20px;">
+      <a href="https://official.bluehatgeeks.com/terms-of-service" style="color: var(--lime-green); text-decoration: none; margin: 0 15px; font-weight: 600; transition: all var(--transition-base); padding: 8px 12px; border-radius: 8px;" onmouseover="this.style.color='var(--lime-green-light)'; this.style.backgroundColor='rgba(196, 255, 73, 0.1)';" onmouseout="this.style.color='var(--lime-green)'; this.style.backgroundColor='transparent';">Terms</a>
+      <a href="https://official.bluehatgeeks.com/privacy-page" style="color: var(--lime-green); text-decoration: none; margin: 0 15px; font-weight: 600; transition: all var(--transition-base); padding: 8px 12px; border-radius: 8px;" onmouseover="this.style.color='var(--lime-green-light)'; this.style.backgroundColor='rgba(196, 255, 73, 0.1)';" onmouseout="this.style.color='var(--lime-green)'; this.style.backgroundColor='transparent';">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+  // FAQ accordion functionality
+  (function() {
+    function initFAQ() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      console.log('FAQ items found:', faqItems.length);
+      
+      faqItems.forEach(function(item, index) {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+        
+        if (!question || !answer) {
+          console.warn('FAQ item', index, 'missing question or answer');
+          return;
+        }
+        
+        // Ensure question is clickable
+        question.style.cursor = 'pointer';
+        question.setAttribute('role', 'button');
+        question.setAttribute('aria-expanded', 'false');
+        question.setAttribute('tabindex', '0');
+        
+        // Handle click
+        const handleClick = function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const isActive = item.classList.contains('active');
+          console.log('FAQ clicked, index:', index, 'isActive:', isActive);
+          
+          // Close all other FAQ items
+          faqItems.forEach(function(otherItem) {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+              const otherQuestion = otherItem.querySelector('.faq-question');
+              if (otherQuestion) {
+                otherQuestion.setAttribute('aria-expanded', 'false');
+              }
+            }
+          });
+          
+          // Toggle current item
+          if (isActive) {
+            item.classList.remove('active');
+            question.setAttribute('aria-expanded', 'false');
+            console.log('Closed FAQ', index);
+          } else {
+            item.classList.add('active');
+            question.setAttribute('aria-expanded', 'true');
+            console.log('Opened FAQ', index);
+          }
+        };
+        
+        question.addEventListener('click', handleClick);
+        question.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleClick(e);
+          }
+        });
+      });
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFAQ);
+    } else {
+      initFAQ();
+    }
+  })();
+</script>
+
+</body>
+</html>
+

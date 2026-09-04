@@ -1,0 +1,1401 @@
+/* ── Odin Health Labs — Main Calgary Page Styles ── */
+/* Page-specific CSS for odinlabcalgary page */
+
+html {
+  scroll-behavior: smooth;
+}
+
+#metabolic-assessment-trigger {
+  scroll-margin-top: 100px;
+}
+
+#about-us-section {
+  scroll-margin-top: 100px;
+}
+
+.about-us-section--hidden {
+  display: none !important;
+}
+
+.about-us-trigger {
+  display: block;
+  margin-top: 20px;
+  color: var(--lime-green);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.about-us-trigger:hover {
+  color: var(--white);
+}
+
+.about-us-section .container {
+  max-width: 900px;
+}
+
+.about-us-modalities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 12px;
+  margin: 20px 0 28px;
+}
+
+.about-us-modalities span {
+  background: rgba(196, 255, 73, 0.15);
+  border: 1px solid rgba(196, 255, 73, 0.4);
+  color: var(--white);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.about-us-founder-card {
+  scroll-margin-top: 100px;
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%);
+  border: 1px solid rgba(196, 255, 73, 0.25);
+  border-radius: 16px;
+  padding: 32px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.about-us-competencies-block {
+  position: relative;
+  margin-top: 20px;
+}
+
+.about-us-competencies-content {
+  margin-left: 268px;
+}
+
+.about-us-competencies-content-inner {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.about-us-competencies-block .competencies-list {
+  display: inline-block;
+  text-align: left;
+  margin: 12px auto 0;
+}
+
+.about-us-founder-card-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 240px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.about-us-founder-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(20, 46, 20, 0.5) 100%);
+  pointer-events: none;
+}
+
+.about-us-founder-card-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+  display: block;
+}
+
+.about-us-founder-card h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--lime-green);
+  margin: 0 0 8px 0;
+}
+
+.about-us-founder-card h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 16px 0;
+}
+
+.about-us-founder-card .competencies-list,
+.about-us-founder-card .philosophy-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+}
+
+.about-us-founder-card .competencies-list li,
+.about-us-founder-card .philosophy-list li {
+  padding: 8px 0 8px 28px;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.about-us-founder-card .competencies-list li::before,
+.about-us-founder-card .philosophy-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--lime-green);
+  font-weight: 700;
+}
+
+.about-us-founder-card .block-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--lime-green);
+  margin: 20px 0 8px 0;
+}
+
+.about-us-founder-card .block-label:first-of-type {
+  margin-top: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--dark-green);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+body .container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.content-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.highlight {
+  color: var(--lime-green);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+
+.btn-outline:hover {
+  background-color: var(--white);
+  color: var(--dark-green);
+}
+
+.btn-light {
+  background-color: var(--light-grey);
+  color: var(--dark-grey-text);
+  border: 1px solid #ccc;
+}
+
+.btn-dark {
+  background-color: var(--dark-green);
+  color: var(--white);
+  border: 1px solid var(--white);
+}
+
+.btn-dark-outline {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  border-radius: 8px;
+}
+
+.large-heading {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+  text-align: center;
+}
+
+.medium-heading {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.small-heading {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.sub-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 100%;
+  margin: 20px auto 0;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 25px auto;
+  text-align: left;
+  display: inline-block;
+}
+
+.check-list li {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.check-list li i, .check-list li span.emoji, .check-list .check-icon {
+  color: var(--lime-green);
+  margin-right: 15px;
+  font-size: 1.2rem;
+}
+
+.check-list-block li {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid var(--lime-green);
+  padding: 10px 15px 10px 15px;
+}
+
+.check-list-compact {
+  margin-top: 15px;
+}
+
+.check-list-compact li {
+  margin-bottom: 10px;
+}
+
+.client-journey-section {
+  padding: 60px 0;
+}
+
+.client-journey-section .container {
+  max-width: 900px;
+}
+
+.client-journey-section .medium-heading {
+  margin-bottom: 16px;
+}
+
+.client-journey-section .journey-intro {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 36px;
+  opacity: 0.95;
+}
+
+.client-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 0 auto 32px;
+  max-width: 700px;
+}
+
+.client-journey-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.08) 0%, rgba(196, 255, 73, 0.02) 100%);
+  border: 1px solid rgba(196, 255, 73, 0.25);
+  border-radius: 12px;
+  padding: 18px 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.client-journey-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.client-journey-item .check-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(196, 255, 73, 0.2);
+  border-radius: 8px;
+  color: var(--lime-green);
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.client-journey-item span:not(.check-icon) {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.client-journey-disclaimer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 4px solid var(--lime-green);
+  border-radius: 0 10px 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+  .client-journey-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.therapy-card {
+  background-color: #142e14;
+  border: 2px solid rgba(196, 255, 73, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.therapy-grid--profiles {
+  align-items: stretch;
+  gap: 28px;
+}
+
+.therapy-grid--profiles .therapy-card {
+  min-height: 100%;
+  background: linear-gradient(180deg, rgba(196, 255, 73, 0.06) 0%, rgba(20, 46, 20, 1) 35%);
+  border: 1px solid rgba(196, 255, 73, 0.25);
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.therapy-grid--profiles .therapy-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(196, 255, 73, 0.15);
+}
+
+.therapy-grid--profiles .therapy-card .profile-card__image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.therapy-grid--profiles .therapy-card .profile-card__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(20, 46, 20, 0.4) 100%);
+  pointer-events: none;
+}
+
+.therapy-grid--profiles .therapy-card .profile-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.therapy-grid--profiles .therapy-card:hover .profile-card__image img {
+  filter: grayscale(80%);
+}
+
+.therapy-grid--profiles .therapy-card .profile-card__content {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.therapy-grid--profiles .therapy-card h4 {
+  min-height: 2.8em;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px 0;
+  color: var(--lime-green);
+  line-height: 1.3;
+}
+
+.therapy-grid--profiles .therapy-card p {
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 500;
+}
+
+.therapy-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  object-position: top center;
+  border-radius: 10px;
+  filter: grayscale(100%);
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
+  color: var(--dark-green);
+  padding: 15px 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.hero-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 0 0 25px 0;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.hero-image-bw {
+  filter: grayscale(100%);
+}
+
+.hero-image-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
+  mask-image: linear-gradient(to right, black 0%, black 50%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, transparent 100%);
+  -webkit-mask-size: 200% 100%;
+  mask-size: 200% 100%;
+  -webkit-mask-position: -100% 0;
+  mask-position: -100% 0;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  transition: mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1), -webkit-mask-position 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-image-wrapper:hover .hero-image-color {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+
+.hero-slogan {
+  color: var(--lime-green);
+  opacity: 0.5;
+  font-size: clamp(1.25rem, 3vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin: 0 0 15px 0;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.hero-tagline {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.authority-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.authority-bar-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(196, 255, 73, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.authority-bar-item .icon {
+  width: 36px;
+  height: 36px;
+  color: var(--lime-green);
+}
+
+.authority-bar-item span {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.faq-section .container {
+  max-width: 800px;
+}
+
+.faq-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.04) 0%, rgba(0, 0, 0, 0.2) 100%);
+  border: 1px solid rgba(196, 255, 73, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(196, 255, 73, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.faq-item[open] {
+  border-color: rgba(196, 255, 73, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--lime-green);
+  transition: background-color 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:hover {
+  background-color: rgba(196, 255, 73, 0.06);
+}
+
+.faq-item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(196, 255, 73, 0.15);
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--lime-green);
+  transition: transform 0.3s ease, background-color 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+.faq-question {
+  margin: 0;
+  flex: 1;
+}
+
+.faq-answer {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.65;
+  padding: 8px 24px 20px 24px;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.faq-item[open] .faq-answer {
+  animation: faqReveal 0.3s ease;
+}
+
+@keyframes faqReveal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  background-color: var(--dark-green);
+}
+
+.white-box {
+  background-color: var(--white);
+  color: var(--dark-grey-text);
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin: 12px auto;
+  max-width: 100%;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.metabolism-section .container {
+  max-width: 900px;
+}
+
+.metabolism-intro {
+  margin-bottom: 35px;
+}
+
+.metabolism-intro .lead {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--lime-green);
+  margin: 0 0 15px 0;
+  line-height: 1.4;
+}
+
+.metabolism-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 12px;
+  margin: 0 0 20px 0;
+}
+
+.metabolism-pills span {
+  background: rgba(196, 255, 73, 0.15);
+  border: 1px solid rgba(196, 255, 73, 0.4);
+  color: var(--white);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.metabolism-intro .statement {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.metabolism-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin: 35px 0;
+  text-align: left;
+  align-items: stretch;
+}
+
+.metabolism-card {
+  border-radius: 12px;
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+}
+
+.metabolism-card--stable {
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.1) 0%, rgba(196, 255, 73, 0.03) 100%);
+  border-color: rgba(196, 255, 73, 0.35);
+}
+
+.metabolism-card--unstable {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255, 0.02) 100%);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.metabolism-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  min-height: 2.8em;
+}
+
+.metabolism-card--stable h3 {
+  color: var(--lime-green);
+}
+
+.metabolism-card--unstable h3 {
+  color: rgba(255,255,255,0.85);
+}
+
+.metabolism-card-sub {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  min-height: 1.5em;
+}
+
+.metabolism-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.metabolism-tags li {
+  list-style: none;
+  margin: 0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.metabolism-card--stable .metabolism-tags li {
+  background: rgba(196, 255, 73, 0.2);
+  color: var(--white);
+  border: 1px solid rgba(196, 255, 73, 0.3);
+}
+
+.metabolism-card--unstable .metabolism-tags li {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.metabolism-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.metabolism-card p:last-child {
+  margin-bottom: 0;
+}
+
+.metabolism-closing {
+  margin-top: 35px;
+  padding: 22px 28px;
+  background: rgba(0,0,0,0.25);
+  border-left: 4px solid var(--lime-green);
+  border-radius: 0 10px 10px 0;
+  text-align: left;
+}
+
+.metabolism-closing p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.metabolism-closing p + p {
+  margin-top: 8px;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.symptoms-section .container {
+  max-width: 950px;
+}
+
+.symptoms-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin: 35px 0;
+  align-items: stretch;
+}
+
+.symptoms-card {
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.06) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(196, 255, 73, 0.25);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+
+.symptoms-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.symptoms-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.symptoms-tags li {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: rgba(196, 255, 73, 0.15);
+  border: 1px solid rgba(196, 255, 73, 0.3);
+  color: var(--white);
+}
+
+.symptoms-closing {
+  margin-top: 35px;
+  padding: 22px 28px;
+  background: rgba(0,0,0,0.25);
+  border-left: 4px solid var(--lime-green);
+  border-radius: 0 10px 10px 0;
+  text-align: left;
+}
+
+.symptoms-closing p {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Metabolic Survey */
+.metabolic-survey-panel {
+  max-width: 600px;
+  margin: 20px auto 0 auto;
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.06) 0%, rgba(0, 0, 0, 0.2) 100%);
+  border: 1px solid rgba(196, 255, 73, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-12px) scale(0.98);
+  transform-origin: top center;
+  transition: max-height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), margin 0.35s ease;
+}
+.metabolic-survey-panel.is-open {
+  max-height: 90vh;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  overflow-y: auto;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(196, 255, 73, 0.1);
+}
+.metabolic-survey-panel.is-open.is-outcome {
+  max-height: none;
+  overflow: visible;
+}
+.metabolic-survey-inner {
+  padding: 24px 28px 28px;
+}
+.metabolic-survey-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.metabolic-survey-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--lime-green);
+  margin: 0;
+}
+.metabolic-survey-close {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.metabolic-survey-close:hover {
+  opacity: 1;
+}
+.metabolic-survey-progress {
+  margin-bottom: 24px;
+}
+.metabolic-survey-progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.metabolic-survey-progress-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--lime-green) 0%, #a8e64a 100%);
+  border-radius: 2px;
+  width: 16.67%;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 12px rgba(196, 255, 73, 0.4);
+}
+.metabolic-survey-panel[data-progress="2"] .metabolic-survey-progress-bar::before { width: 33.33%; }
+.metabolic-survey-panel[data-progress="3"] .metabolic-survey-progress-bar::before { width: 50%; }
+.metabolic-survey-panel[data-progress="4"] .metabolic-survey-progress-bar::before { width: 66.67%; }
+.metabolic-survey-panel[data-progress="5"] .metabolic-survey-progress-bar::before { width: 83.33%; }
+.metabolic-survey-panel[data-progress="6"] .metabolic-survey-progress-bar::before { width: 100%; }
+.metabolic-survey-progress-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.metabolic-survey-content {
+  min-height: 200px;
+  position: relative;
+}
+.metabolic-survey-questions {
+  position: relative;
+}
+.metabolic-survey-question {
+  display: none;
+  opacity: 0;
+}
+.metabolic-survey-question.active {
+  display: block;
+  animation: metabolicQuestionIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.metabolic-survey-question.leaving {
+  animation: metabolicQuestionOut 0.35s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+}
+@keyframes metabolicQuestionIn {
+  from { opacity: 0; transform: translateX(30px) scale(0.98); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes metabolicQuestionOut {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to { opacity: 0; transform: translateX(-30px) scale(0.98); }
+}
+.metabolic-survey-question.leaving-back {
+  animation: metabolicQuestionOutBack 0.35s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+}
+@keyframes metabolicQuestionOutBack {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to { opacity: 0; transform: translateX(30px) scale(0.98); }
+}
+.metabolic-survey-question h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+.metabolic-survey-sub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 16px 0;
+}
+.metabolic-survey-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.metabolic-survey-question.active .metabolic-survey-option {
+  animation: metabolicOptionIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(1) { animation-delay: 0.1s; }
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(2) { animation-delay: 0.12s; }
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(3) { animation-delay: 0.14s; }
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(4) { animation-delay: 0.16s; }
+.metabolic-survey-question.active .metabolic-survey-option:nth-child(5) { animation-delay: 0.18s; }
+@keyframes metabolicOptionIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.metabolic-survey-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(196, 255, 73, 0.2);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+.metabolic-survey-option:hover {
+  background: rgba(196, 255, 73, 0.08);
+  border-color: rgba(196, 255, 73, 0.4);
+  transform: translateX(4px);
+}
+.metabolic-survey-option.selected,
+.metabolic-survey-option[aria-checked="true"] {
+  background: rgba(196, 255, 73, 0.15);
+  border-color: var(--lime-green);
+  color: var(--lime-green);
+  box-shadow: 0 0 20px rgba(196, 255, 73, 0.2);
+}
+.metabolic-survey-outcome {
+  display: none;
+}
+.metabolic-survey-outcome.visible {
+  display: block;
+  animation: metabolicOutcomeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes metabolicOutcomeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-badge {
+  animation: metabolicFadeIn 0.4s ease 0.1s backwards;
+}
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-title {
+  animation: metabolicFadeIn 0.4s ease 0.15s backwards;
+}
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-intro {
+  animation: metabolicFadeIn 0.4s ease 0.2s backwards;
+}
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li {
+  animation: metabolicFadeIn 0.4s ease backwards;
+}
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(1) { animation-delay: 0.25s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(2) { animation-delay: 0.3s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(3) { animation-delay: 0.35s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(4) { animation-delay: 0.4s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-patterns li:nth-child(5) { animation-delay: 0.45s; }
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-blocks .metabolic-survey-outcome-block:nth-child(1) {
+  animation: metabolicFadeIn 0.4s ease 0.35s backwards;
+}
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-blocks .metabolic-survey-outcome-block:nth-child(2) {
+  animation: metabolicFadeIn 0.4s ease 0.4s backwards;
+}
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-blocks .metabolic-survey-outcome-block:nth-child(3) {
+  animation: metabolicFadeIn 0.4s ease 0.45s backwards;
+}
+.metabolic-survey-outcome.visible .metabolic-survey-outcome-cta-section {
+  animation: metabolicFadeIn 0.5s ease 0.5s backwards;
+}
+@keyframes metabolicFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.metabolic-survey-outcome-content {
+  padding: 0;
+}
+.metabolic-survey-outcome-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--lime-green);
+  background: rgba(196, 255, 73, 0.12);
+  border: 1px solid rgba(196, 255, 73, 0.35);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.metabolic-survey-outcome-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.metabolic-survey-outcome-intro {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  margin: 0 0 20px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+.metabolic-survey-outcome-patterns {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: grid;
+  gap: 8px;
+}
+.metabolic-survey-outcome-patterns li {
+  padding: 12px 16px 12px 44px;
+  position: relative;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(196, 255, 73, 0.15);
+  border-radius: 8px;
+}
+.metabolic-survey-outcome-patterns li::before {
+  content: '✓';
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--lime-green);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.metabolic-survey-outcome-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.metabolic-survey-outcome-block {
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.06) 0%, rgba(0, 0, 0, 0.15) 100%);
+  border-left: 4px solid var(--lime-green);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+}
+.metabolic-survey-outcome-age-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.metabolic-survey-outcome-age-list li {
+  padding: 4px 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+.metabolic-survey-outcome-block-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--lime-green);
+  margin: 0 0 6px 0;
+}
+.metabolic-survey-outcome-meaning,
+.metabolic-survey-outcome-next {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--white);
+}
+.metabolic-survey-outcome-meaning-text,
+.metabolic-survey-outcome-next-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+.metabolic-survey-outcome-cta-section {
+  text-align: center;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.metabolic-survey-outcome-cta-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: var(--white);
+  line-height: 1.5;
+}
+.metabolic-survey-cta-btn {
+  display: inline-block;
+  font-size: 1.1rem;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(196, 255, 73, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.metabolic-survey-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(196, 255, 73, 0.35);
+}
+.metabolic-survey-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.metabolic-survey-back,
+.metabolic-survey-next {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+}
+.metabolic-survey-back:hover:not(:disabled),
+.metabolic-survey-next:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+.metabolic-survey-nav.hidden {
+  display: none;
+}
+.metabolic-survey-back:disabled,
+.metabolic-survey-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Booking modal */
+.booking-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.booking-modal-overlay.is-visible {
+  display: flex;
+  opacity: 1;
+}
+.booking-modal {
+  background: linear-gradient(135deg, rgba(196, 255, 73, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+  border: 1px solid rgba(196, 255, 73, 0.35);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.booking-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.booking-modal-close:hover {
+  opacity: 1;
+}
+.booking-modal h3 {
+  margin: 0 0 24px 0;
+  font-size: 1.25rem;
+  color: var(--lime-green);
+  text-align: center;
+}
+.booking-modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.booking-modal-buttons a {
+  display: block;
+  text-align: center;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.booking-modal-buttons a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(196, 255, 73, 0.25);
+}
+.booking-modal-buttons .btn-first-time {
+  background: linear-gradient(135deg, var(--lime-green) 0%, #a8e64a 100%);
+  color: var(--dark-green);
+}
+.booking-modal-buttons .btn-follow-up {
+  background: transparent;
+  border: 2px solid var(--lime-green);
+  color: var(--lime-green);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  body .container { padding: 0 15px; }
+  .content-wrapper { padding: 0 15px; }
+  .hero-slogan { white-space: normal; font-size: clamp(1rem, 4vw, 2rem); }
+  .large-heading { font-size: 2.8rem; text-align: center; line-height: 1.2; margin-bottom: 20px; }
+  .medium-heading { font-size: 2.2rem; margin-bottom: 25px; }
+  .small-heading { font-size: 1.8rem; }
+  .sub-text { font-size: 1.1rem; line-height: 1.5; margin: 15px auto 0; }
+  .section { padding: 30px 0; }
+  .testimonial-grid { grid-template-columns: 1fr !important; gap: 20px; }
+  .therapy-grid { grid-template-columns: 1fr !important; }
+  .hero-images-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .authority-bar { grid-template-columns: repeat(2, 1fr); }
+  .metabolism-cards { grid-template-columns: 1fr; }
+  .metabolism-pills { justify-content: flex-start; }
+  .symptoms-cards { grid-template-columns: 1fr; }
+  .about-us-modalities { justify-content: flex-start; }
+  .about-us-founder-card { padding: 24px 20px; }
+  .about-us-competencies-content { margin-left: 0; }
+  .about-us-founder-card-image { position: static; width: 100%; height: 280px; margin-bottom: 20px; }
+  .about-us-founder-card-image img { object-position: top center; }
+  .check-list li { font-size: 1rem; margin-bottom: 15px; }
+  .white-box { font-size: 1rem; padding: 12px 15px; margin: 10px auto; }
+  p[style*="font-size: 1.5rem"] { font-size: 1.2rem !important; }
+  p[style*="font-size: 1.4rem"] { font-size: 1.1rem !important; }
+  p[style*="font-size: 1.3rem"] { font-size: 1rem !important; }
+  li[style*="font-size: 1.3rem"] { font-size: 1rem !important; }
+  li[style*="font-size: 1.4rem"] { font-size: 1.1rem !important; }
+  h3[style*="font-size: 2.2rem"] { font-size: 1.8rem !important; }
+  h4[style*="font-size: 1.8rem"] { font-size: 1.5rem !important; }
+  h4[style*="font-size: 1.6rem"] { font-size: 1.3rem !important; }
+  .metabolic-survey-inner { padding: 20px 18px 24px; }
+  .metabolic-survey-panel.is-open { max-height: 85vh; }
+}
