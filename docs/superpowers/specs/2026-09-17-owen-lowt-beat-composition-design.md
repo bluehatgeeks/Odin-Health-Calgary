@@ -58,6 +58,24 @@ deliberately, they don't invent new timing per element.
   easing — only *what* appears, not *how* it appears.
 - Renders full-screen (`AbsoluteFill`), replacing the speaker video
   for its duration.
+- `Beat` wraps `children` in a Remotion `<Sequence from={startFrame}
+  durationInFrames={durationInFrames} layout="none">`. This means
+  `useCurrentFrame()` called by any descendant of a Beat (e.g.
+  `NodeGraph`) returns a **Beat-relative** frame that starts at `0`
+  when the Beat starts — not the raw composition/global frame. (Beat's
+  *own* enter/exit motion math still reads `useCurrentFrame()` before
+  this Sequence boundary, so its animation stays anchored to the real,
+  un-shifted timeline regardless of what its children do.)
+  - Practical consequence: any prop that a descendant uses to convert
+    its own Beat-relative frame back into an absolute VSL second (e.g.
+    `NodeGraph`'s `absStartSeconds`) must be passed the absolute VSL
+    second at which **the Beat itself starts** — not the enclosing
+    section's `ABS_START` constant, and not some pre-offset formula
+    like `ABS_START + rel(startSecond)/fps`. Concretely, for a call
+    like `<Beat startFrame={rel(224)} ...><NodeGraph
+    absStartSeconds={224} .../></Beat>`, the `224` is correct because
+    it is the absolute-VSL-second equivalent of that Beat's own
+    `startFrame`.
 
 ### `<FocusStep>` (internal choreography)
 
