@@ -25,8 +25,13 @@ const CORTISOL_SPEC: NodeGraphSpec = {
   nodes: [
     { id: "raw", icon: "raw-material", label: "Raw material", xPct: 50, yPct: 22 },
     { id: "valve", icon: "valve", label: "One path", xPct: 50, yPct: 48 },
-    { id: "cortisol", icon: "cortisol", label: "Cortisol", xPct: 26, yPct: 76 },
-    { id: "testosterone", icon: "testosterone", label: "Testosterone", xPct: 74, yPct: 76 },
+    // xPct swapped (was 26/74) so left/right screen position matches
+    // RiseFallBars' fixed layout: falling renders left, rising renders
+    // right. rising=Cortisol/falling=Testosterone (semantically correct,
+    // unchanged below) means Cortisol must be on the right and
+    // Testosterone on the left to avoid the viewer's eye crossing over.
+    { id: "cortisol", icon: "cortisol", label: "Cortisol", xPct: 74, yPct: 76 },
+    { id: "testosterone", icon: "testosterone", label: "Testosterone", xPct: 26, yPct: 76 },
   ],
   edges: [
     { from: "raw", to: "valve" },
