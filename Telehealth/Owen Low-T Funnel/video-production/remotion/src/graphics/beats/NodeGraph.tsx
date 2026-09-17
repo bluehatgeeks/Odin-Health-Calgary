@@ -5,6 +5,9 @@ import { getActiveTarget } from "./FocusStep";
 import type { NodeGraphSpec, GraphNode } from "./nodeGraphTypes";
 
 const NODE_ICON_SIZE = 110;
+const MAX_ACTIVE_SCALE = 1.18; // top of the global 1.08–1.18 active-scale range
+const NODE_BOX_WIDTH = NODE_ICON_SIZE * MAX_ACTIVE_SCALE; // ~130
+const NODE_BOX_HEIGHT = (NODE_ICON_SIZE + 36) * MAX_ACTIVE_SCALE; // ~172
 
 function nodeCenter(node: GraphNode, width: number, height: number) {
   return { x: (node.xPct / 100) * width, y: (node.yPct / 100) * height };
@@ -51,14 +54,15 @@ export const NodeGraph: React.FC<{
         return (
           <foreignObject
             key={node.id}
-            x={center.x - NODE_ICON_SIZE / 2}
+            x={center.x - NODE_BOX_WIDTH / 2}
             y={center.y - NODE_ICON_SIZE / 2}
-            width={NODE_ICON_SIZE}
-            height={NODE_ICON_SIZE + 36}
+            width={NODE_BOX_WIDTH}
+            height={NODE_BOX_HEIGHT}
           >
             <div
               style={{
                 width: NODE_ICON_SIZE,
+                margin: "0 auto",
                 transform: `scale(${scale})`,
                 transformOrigin: "center top",
                 filter,
