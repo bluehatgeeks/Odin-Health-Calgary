@@ -30,7 +30,8 @@ export const NodeGraph: React.FC<{
         if (!fromNode || !toNode) return null;
         const a = nodeCenter(fromNode, width, height);
         const b = nodeCenter(toNode, width, height);
-        const edgeActive = activeId === edge.from || activeId === edge.to;
+        const edgeActive =
+          activeId === "__all__" || activeId === edge.from || activeId === edge.to;
         return (
           <line
             key={`${edge.from}-${edge.to}`}
@@ -46,7 +47,7 @@ export const NodeGraph: React.FC<{
       })}
       {spec.nodes.map((node) => {
         const center = nodeCenter(node, width, height);
-        const isActive = activeId === null || activeId === node.id;
+        const isActive = activeId === null || activeId === "__all__" || activeId === node.id;
         const scale = activeId === null ? 1 : isActive ? 1.14 : 0.92;
         const filter = !isActive
           ? "grayscale(1) brightness(0.32)"
