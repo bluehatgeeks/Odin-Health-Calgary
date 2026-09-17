@@ -22,3 +22,15 @@ export function matchesTarget(
   if (Array.isArray(activeTarget)) return activeTarget.includes(id);
   return activeTarget === id;
 }
+
+/**
+ * Order-independent set equality for two string arrays: same length, and
+ * every element of one appears in the other. Used to check whether the
+ * currently-active (possibly multi-node) focus target is exactly a given
+ * target set — e.g. "is the bars overlay's activeWhenTarget currently
+ * active?" — and to locate the specific FocusStep that activates it.
+ */
+export function sameTargetSet(a: string[], b: string[]): boolean {
+  if (a.length !== b.length) return false;
+  return a.every((id) => b.includes(id));
+}

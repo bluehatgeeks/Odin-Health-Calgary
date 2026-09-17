@@ -1,11 +1,24 @@
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import { C } from "../../brand";
 import { IconGlyph } from "./IconGlyph";
-import { getActiveTarget, matchesTarget } from "./FocusStep";
+import { getActiveTarget, matchesTarget, sameTargetSet } from "./FocusStep";
 import type { NodeGraphSpec, GraphNode } from "./nodeGraphTypes";
 import { RiseFallBars } from "../RiseFallBars";
 
 const NODE_ICON_SIZE = 110;
+// Bars overlay: kept as an explicit named constant (not a bare magic
+// number) so it's easy to find and re-tune. Bumped from the original
+// 0.7 — at 0.7 the bars read as a tiny afterthought at 1920x1080; this
+// size makes them a clearly legible focal element without colliding
+// with the node icons above or the frame's bottom edge.
+const BARS_SCALE = 1.2;
+// Generously oversized relative to RiseFallBars' actual rendered
+// footprint at BARS_SCALE (two ~64px-wide bars up to 180px tall, plus
+// labels, gap, and arrows) so nothing is hard-clipped by the
+// foreignObject's own box — the same class of bug already fixed once
+// for node labels by moving them to real SVG <text>.
+const BARS_BOX_WIDTH = 500;
+const BARS_BOX_HEIGHT = 400;
 const MAX_ACTIVE_SCALE = 1.18; // top of the global 1.08–1.18 active-scale range
 const NODE_ICON_BOX = NODE_ICON_SIZE * MAX_ACTIVE_SCALE; // ~130, icon-only foreignObject
 const LABEL_FONT_SIZE = 20;
@@ -42,6 +55,28 @@ export const NodeGraph: React.FC<{
   const { fps, width, height } = useVideoConfig();
   const absSeconds = absStartSeconds + frame / fps;
   const activeId = getActiveTarget(spec.focusSteps, absSeconds);
+
+  // Find the specific FocusStep that activates the bars (its `target`
+  // set-equals spec.bars.activeWhenTarget), so we know the absolute-VSL
+  // second at which the bars themselves should start animating from —
+  // NOT the Beat's own start. Without this, RiseFallBars' internal
+  // rise/fall + fade-in animation is already long past frame 50 by the
+  // time the bars first become visible (they only appear partway
+  // through the Beat), so they'd hard-pop in fully formed.
+  const barsFocusStep = spec.bars
+    ? spec.focusSteps.find(
+        (step) =>
+          Array.isArray(step.target) &&
+          sameTargetSet(step.target, spec.bars!.activeWhenTarget),
+      )
+    : undefined;
+  const barsVisible =
+    spec.bars &&
+    Array.isArray(activeId) &&
+    sameTargetSet(activeId, spec.bars.activeWhenTarget);
+  const barsStartFrame = barsFocusStep
+    ? (barsFocusStep.at - absStartSeconds) * fps
+    : 0;
 
   return (
     <svg width="100%" height="100%" viewBox={`0 0 ${width} ${height}`}>
@@ -116,27 +151,31 @@ export const NodeGraph: React.FC<{
           </g>
         );
       })}
-      {spec.bars &&
-        Array.isArray(activeId) &&
-        activeId.length === spec.bars.activeWhenTarget.length &&
-        activeId.every((id) => spec.bars!.activeWhenTarget.includes(id)) && (
-          <foreignObject
-            x={(spec.bars.xPct / 100) * width - 150}
-            y={(spec.bars.yPct / 100) * height - 120}
-            width={300}
-            height={240}
+      {barsVisible && spec.bars && (
+        <foreignObject
+          x={(spec.bars.xPct / 100) * width - BARS_BOX_WIDTH / 2}
+          y={(spec.bars.yPct / 100) * height - BARS_BOX_HEIGHT / 2}
+          width={BARS_BOX_WIDTH}
+          height={BARS_BOX_HEIGHT}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              overflow: "visible",
+            }}
           >
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <RiseFallBars
-                frame={frame}
-                startFrame={0}
-                falling={spec.bars.falling}
-                rising={spec.bars.rising}
-                scale={0.7}
-              />
-            </div>
-          </foreignObject>
-        )}
+            <RiseFallBars
+              frame={frame}
+              startFrame={barsStartFrame}
+              falling={spec.bars.falling}
+              rising={spec.bars.rising}
+              scale={BARS_SCALE}
+              showLabels={false}
+            />
+          </div>
+        </foreignObject>
+      )}
     </svg>
   );
 };
