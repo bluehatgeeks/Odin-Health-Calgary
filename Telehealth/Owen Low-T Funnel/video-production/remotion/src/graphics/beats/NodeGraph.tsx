@@ -6,11 +6,31 @@ import type { NodeGraphSpec, GraphNode } from "./nodeGraphTypes";
 
 const NODE_ICON_SIZE = 110;
 const MAX_ACTIVE_SCALE = 1.18; // top of the global 1.08–1.18 active-scale range
-const NODE_BOX_WIDTH = NODE_ICON_SIZE * MAX_ACTIVE_SCALE; // ~130
+const NODE_ICON_BOX = NODE_ICON_SIZE * MAX_ACTIVE_SCALE; // ~130, icon-only foreignObject
+const LABEL_FONT_SIZE = 20;
+const LABEL_OFFSET_Y = NODE_ICON_SIZE / 2 + 26; // label baseline below icon center
+// Approximate on-screen footprint of the whole icon+label unit (at max
+// active scale) used only for the frame-edge safety clamp below.
+const NODE_BOX_WIDTH = NODE_ICON_BOX;
 const NODE_BOX_HEIGHT = (NODE_ICON_SIZE + 36) * MAX_ACTIVE_SCALE; // ~172
+const SAFE_MARGIN = 40;
 
-function nodeCenter(node: GraphNode, width: number, height: number) {
-  return { x: (node.xPct / 100) * width, y: (node.yPct / 100) * height };
+function nodeCenter(
+  node: GraphNode,
+  width: number,
+  height: number,
+): { x: number; y: number } {
+  const rawX = (node.xPct / 100) * width;
+  const rawY = (node.yPct / 100) * height;
+  const x = Math.min(
+    Math.max(rawX, SAFE_MARGIN + NODE_BOX_WIDTH / 2),
+    width - SAFE_MARGIN - NODE_BOX_WIDTH / 2,
+  );
+  const y = Math.min(
+    Math.max(rawY, SAFE_MARGIN + NODE_BOX_HEIGHT / 2),
+    height - SAFE_MARGIN - NODE_BOX_HEIGHT / 2,
+  );
+  return { x, y };
 }
 
 export const NodeGraph: React.FC<{
@@ -53,40 +73,47 @@ export const NodeGraph: React.FC<{
           ? "grayscale(1) brightness(0.32)"
           : "none";
         return (
-          <foreignObject
-            key={node.id}
-            x={center.x - NODE_BOX_WIDTH / 2}
-            y={center.y - NODE_ICON_SIZE / 2}
-            width={NODE_BOX_WIDTH}
-            height={NODE_BOX_HEIGHT}
-          >
-            <div
-              style={{
-                width: NODE_ICON_SIZE,
-                margin: "0 auto",
-                transform: `scale(${scale})`,
-                transformOrigin: "center top",
-                filter,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 8,
-              }}
+          <g key={node.id}>
+            <foreignObject
+              x={center.x - NODE_ICON_BOX / 2}
+              y={center.y - NODE_ICON_BOX / 2}
+              width={NODE_ICON_BOX}
+              height={NODE_ICON_BOX}
             >
-              <IconGlyph name={node.icon} size={NODE_ICON_SIZE} />
               <div
                 style={{
-                  color: C.offWhite,
-                  fontSize: 20,
-                  fontWeight: 600,
-                  textAlign: "center",
-                  whiteSpace: "nowrap",
+                  width: NODE_ICON_SIZE,
+                  margin: "0 auto",
+                  transform: `scale(${scale})`,
+                  transformOrigin: "center center",
+                  filter,
                 }}
               >
-                {node.label}
+                <IconGlyph name={node.icon} size={NODE_ICON_SIZE} />
               </div>
-            </div>
-          </foreignObject>
+            </foreignObject>
+            {/* Label is a real SVG <text>, not HTML-in-foreignObject: SVG
+                text is never clipped by a foreignObject's box regardless
+                of string length, and textAnchor="middle" centers it
+                correctly for any label. The same scale/desaturation
+                treatment as the icon is mirrored here so the label stays
+                in sync with its node's active/inactive state. */}
+            <text
+              x={center.x}
+              y={center.y + LABEL_OFFSET_Y}
+              textAnchor="middle"
+              style={{
+                fill: C.offWhite,
+                fontSize: LABEL_FONT_SIZE,
+                fontWeight: 600,
+                transform: `scale(${scale})`,
+                transformOrigin: `${center.x}px ${center.y + LABEL_OFFSET_Y}px`,
+                filter,
+              }}
+            >
+              {node.label}
+            </text>
+          </g>
         );
       })}
     </svg>
