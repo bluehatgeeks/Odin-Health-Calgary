@@ -6,7 +6,11 @@ export type IconName =
   | "molecule"
   | "taxi"
   | "pituitary"
-  | "lab-report";
+  | "lab-report"
+  | "raw-material"
+  | "valve"
+  | "cortisol"
+  | "testosterone";
 
 export const IconGlyph: React.FC<{
   name: IconName;

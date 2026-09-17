@@ -1,8 +1,9 @@
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import { C } from "../../brand";
 import { IconGlyph } from "./IconGlyph";
-import { getActiveTarget } from "./FocusStep";
+import { getActiveTarget, matchesTarget } from "./FocusStep";
 import type { NodeGraphSpec, GraphNode } from "./nodeGraphTypes";
+import { RiseFallBars } from "../RiseFallBars";
 
 const NODE_ICON_SIZE = 110;
 const MAX_ACTIVE_SCALE = 1.18; // top of the global 1.08–1.18 active-scale range
@@ -50,8 +51,7 @@ export const NodeGraph: React.FC<{
         if (!fromNode || !toNode) return null;
         const a = nodeCenter(fromNode, width, height);
         const b = nodeCenter(toNode, width, height);
-        const edgeActive =
-          activeId === "__all__" || activeId === edge.from || activeId === edge.to;
+        const edgeActive = matchesTarget(activeId, edge.from) || matchesTarget(activeId, edge.to);
         return (
           <line
             key={`${edge.from}-${edge.to}`}
@@ -67,7 +67,7 @@ export const NodeGraph: React.FC<{
       })}
       {spec.nodes.map((node) => {
         const center = nodeCenter(node, width, height);
-        const isActive = activeId === null || activeId === "__all__" || activeId === node.id;
+        const isActive = matchesTarget(activeId, node.id);
         const scale = activeId === null ? 1 : isActive ? 1.14 : 0.92;
         const filter = !isActive
           ? "grayscale(1) brightness(0.32)"
@@ -116,6 +116,27 @@ export const NodeGraph: React.FC<{
           </g>
         );
       })}
+      {spec.bars &&
+        Array.isArray(activeId) &&
+        activeId.length === spec.bars.activeWhenTarget.length &&
+        activeId.every((id) => spec.bars!.activeWhenTarget.includes(id)) && (
+          <foreignObject
+            x={(spec.bars.xPct / 100) * width - 150}
+            y={(spec.bars.yPct / 100) * height - 120}
+            width={300}
+            height={240}
+          >
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <RiseFallBars
+                frame={frame}
+                startFrame={0}
+                falling={spec.bars.falling}
+                rising={spec.bars.rising}
+                scale={0.7}
+              />
+            </div>
+          </foreignObject>
+        )}
     </svg>
   );
 };
