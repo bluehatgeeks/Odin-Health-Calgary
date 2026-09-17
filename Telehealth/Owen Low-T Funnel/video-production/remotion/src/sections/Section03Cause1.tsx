@@ -58,10 +58,14 @@ export const Section03Cause1: React.FC = () => {
       {/* 3:29-3:35 — age contrast chip */}
       <LabelChip frame={frame} startFrame={rel(209)} duration={rel(215) - rel(209)} text="30s → 40s/50s" />
 
-      {/* 3:44-4:29 — Aromatase loop Beat, internal focus-step choreography */}
+      {/* 3:44-4:29 — Aromatase loop Beat, internal focus-step choreography.
+          Beat now wraps its children in a <Sequence from={startFrame}>, so
+          useCurrentFrame() inside NodeGraph is Beat-relative (0 at Beat
+          start) — absStartSeconds must be the absolute VSL-second at which
+          THIS BEAT starts (224), not the section's ABS_START. */}
       <Beat startFrame={rel(224)} durationInFrames={rel(269) - rel(224)}>
         <BeatBackground>
-          <NodeGraph spec={AROMATASE_SPEC} absStartSeconds={ABS_START} />
+          <NodeGraph spec={AROMATASE_SPEC} absStartSeconds={224} />
         </BeatBackground>
       </Beat>
 

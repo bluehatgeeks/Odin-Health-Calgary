@@ -1,5 +1,5 @@
 // src/graphics/beats/Beat.tsx
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Sequence, useCurrentFrame } from "remotion";
 import { C, ci } from "../../brand";
 
 const ENTER_DUR = 14;
@@ -38,7 +38,9 @@ export const Beat: React.FC<{
           opacity,
         }}
       >
-        {children}
+        <Sequence from={startFrame} durationInFrames={durationInFrames} layout="none">
+          {children}
+        </Sequence>
       </div>
     </AbsoluteFill>
   );
