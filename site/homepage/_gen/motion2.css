@@ -1,0 +1,183 @@
+
+/* ═══ Section motion graphics (v3) ═══
+   One distinct inline-SVG/CSS graphic per section. Same rules as the motion system above:
+   transform / opacity / stroke-dashoffset only, ease-out, loops pause off-screen ([data-live].is-paused),
+   default CSS = final static state (no JS, or prefers-reduced-motion: nothing moves, nothing is hidden). */
+.home-v2 .mg { margin: 0 auto 30px; max-width: 720px; position: relative; contain: layout paint; border: 1px solid var(--lime-line); border-radius: 18px; padding: 14px 14px 10px; text-align: left;
+  background: radial-gradient(110% 90% at 85% 0%, rgba(196, 255, 73, 0.09), transparent 60%), var(--card-bg); }
+.home-v2 .mg svg.mg-svg { display: block; width: 100%; height: auto; aspect-ratio: var(--ar); }
+.home-v2 .mg--cmp, .home-v2 .mg--cau, .home-v2 .mg--abt, .home-v2 .mg--fin { max-width: 600px; }
+.home-v2 .mg--cau { margin-top: 26px; }
+.home-v2 .mg--fin { margin: 34px auto 0; }
+.home-v2 .mg .t { transform-box: fill-box; transform-origin: center; }
+.home-v2 .mg-leg { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 22px; padding: 8px 6px 0; font-size: 0.85rem; font-weight: 600; color: var(--white-800); }
+.home-v2 .mg-leg span { display: inline-flex; align-items: center; gap: 8px; }
+.home-v2 .mg-cap { margin: 6px 6px 2px; font-size: 0.8rem; line-height: 1.4; color: var(--white-800); text-align: center; }
+.home-v2 .sw { display: inline-block; width: 22px; height: 0; border-top: 3px solid var(--lime-green); border-radius: 2px; }
+.home-v2 .sw--andro { border-top-color: #fff; border-top-width: 2px; }
+.home-v2 .sw--age { border-top-color: #9db39d; }
+.home-v2 .sw--phys { border-top: 2px dashed rgba(255, 255, 255, 0.6); }
+/* static (final-state) defaults for things that only exist while animating */
+.home-v2 .sy-dot, .home-v2 .cm-dot, .home-v2 .wh-pk, .home-v2 .fi-dot { opacity: 0; }
+.home-v2 .cau-glow, .home-v2 .cau-hi, .home-v2 .cau-spoke { opacity: 0; }
+.home-v2 .cau-hring, .home-v2 .wh-ring, .home-v2 .wh-hring, .home-v2 .ab-ring, .home-v2 .sy-ring, .home-v2 .fi-ring { opacity: 0; }
+.home-v2 .wh-link2 { opacity: 0; }
+.home-v2 .sy-moon { opacity: 0.55; }
+.home-v2 .mg-fl, .home-v2 .fq-fl { opacity: 0.4; }
+.home-v2 .cm-ov { opacity: 0.6; }
+.home-v2 .ab-pane { opacity: 0.5; }
+.home-v2 .ab-glow { opacity: 0.7; }
+
+/* cause cards: icon chip matches its node in the diagram */
+.home-v2 .ci { display: block; width: 44px; height: 44px; padding: 9px; box-sizing: border-box; border-radius: 12px; background: rgba(196, 255, 73, 0.1); color: var(--lime-green); margin-bottom: 12px; }
+.home-v2 .therapy-card--physician .ci { color: #e8efe8; background: rgba(255, 255, 255, 0.08); }
+
+/* how-it-works: step head holds the label and an animated icon */
+.home-v2 .therapy-card .step-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.home-v2 .therapy-card .step-head .step-num { margin: 0; }
+.home-v2 .hi { flex: 0 0 auto; display: block; width: 64px; height: 64px; padding: 9px; box-sizing: border-box; border-radius: 16px; background: rgba(196, 255, 73, 0.1); overflow: visible; }
+.home-v2 .hi-bar, .home-v2 .hi-rot { transform-box: fill-box; transform-origin: center bottom; }
+.home-v2 .hi-rot { transform-origin: center; }
+
+/* FAQ: motif beside the heading */
+.home-v2 .faq-head { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 0 0 28px; }
+.home-v2 .faq-head .medium-heading { margin: 0; text-align: left; }
+.home-v2 .fq-motif { flex: 0 0 auto; width: 132px; height: 110px; display: block; overflow: visible; }
+.home-v2 .fq-orb { transform-origin: 60px 50px; }
+.home-v2 .fq-fl { transform-box: fill-box; transform-origin: center; }
+.home-v2 .ab-bar { transform-box: fill-box; transform-origin: center; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* shared: stage fades in/out around a looping draw so resets are never seen */
+  @keyframes mg-stage { 0% { opacity: 0; } 4%, 90% { opacity: 1; } 98%, 100% { opacity: 0; } }
+  @keyframes mg-flow { to { stroke-dashoffset: -12; } }
+  @keyframes mg-up { 0%, 100% { transform: translateY(0); opacity: 0.15; } 50% { transform: translateY(-10px); opacity: 0.55; } }
+  .js-reveal .home-v2 .mg-fl { animation: mg-up 7s ease-in-out infinite; animation-delay: calc(var(--d, 0) * -1.2s); }
+
+  /* 1 · SYMPTOMS: a day of energy. Curve draws, sun fades to moon, battery cells drop */
+  .js-reveal .home-v2 .sy-stage { animation: mg-stage 10s linear infinite; }
+  .js-reveal .home-v2 .sy-draw { stroke-dasharray: 1 2; stroke-dashoffset: 1; animation: sy-draw 10s linear infinite; }
+  @keyframes sy-draw { 0%, 6% { stroke-dashoffset: 1; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 62%, 100% { stroke-dashoffset: 0; } }
+  .js-reveal .home-v2 .sy-dot { offset-path: path("M20 52 C90 40 150 34 210 44 C280 58 320 100 380 112 C450 124 520 120 620 118"); offset-rotate: 0deg; animation: sy-dot 10s linear infinite; }
+  @keyframes sy-dot { 0%, 6% { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 7% { opacity: 1; } 62% { offset-distance: 100%; opacity: 1; } 66%, 100% { offset-distance: 100%; opacity: 0; } }
+  .js-reveal .home-v2 .sy-area { opacity: 0; animation: sy-area 10s ease-out infinite; }
+  @keyframes sy-area { 0%, 30% { opacity: 0; } 66%, 100% { opacity: 1; } }
+  .js-reveal .home-v2 .sy-sun { animation: sy-sun 10s ease-out infinite; }
+  @keyframes sy-sun { 0%, 25% { opacity: 1; } 62%, 100% { opacity: 0.25; } }
+  .js-reveal .home-v2 .sy-moon { animation: sy-moon 10s ease-out infinite; }
+  @keyframes sy-moon { 0%, 35% { opacity: 0.15; } 66%, 100% { opacity: 1; } }
+  .js-reveal .home-v2 .sy-rays { transform-origin: 50px 34px; animation: mg-spin 18s linear infinite; }
+  @keyframes mg-spin { to { transform: rotate(360deg); } }
+  .js-reveal .home-v2 .sy-c3 { animation: sy-c3 10s ease-out infinite; } .js-reveal .home-v2 .sy-c2 { animation: sy-c2 10s ease-out infinite; } .js-reveal .home-v2 .sy-c1 { animation: sy-c1 10s ease-out infinite; }
+  @keyframes sy-c3 { 0%, 24% { opacity: 1; } 30%, 100% { opacity: 0.12; } }
+  @keyframes sy-c2 { 0%, 38% { opacity: 1; } 44%, 100% { opacity: 0.12; } }
+  @keyframes sy-c1 { 0%, 50% { opacity: 1; } 56%, 100% { opacity: 0.3; } }
+  .js-reveal .home-v2 .sy-ring { animation: sy-ring 10s ease-out infinite; }
+  @keyframes sy-ring { 0%, 36% { opacity: 0; transform: scale(0.7); } 40% { opacity: 0.8; transform: scale(1); } 62%, 100% { opacity: 0; transform: scale(2.4); } }
+
+  /* 2 · EXPLAIN: three lines drawn on one axis; the overlap zone breathes */
+  .js-reveal .home-v2 .cm-axis { stroke-dasharray: 1 2; animation: cm-axis 10s linear infinite; }
+  @keyframes cm-axis { 0%, 2% { stroke-dashoffset: 1; animation-timing-function: cubic-bezier(0.22, 0.8, 0.3, 1); } 14%, 100% { stroke-dashoffset: 0; } }
+  .js-reveal .home-v2 .cm-stage { animation: mg-stage 10s linear infinite; }
+  .js-reveal .home-v2 .cm-line { stroke-dasharray: 1 2; stroke-dashoffset: 1; }
+  .js-reveal .home-v2 .cm-age { animation: cm-l1 10s linear infinite; } .js-reveal .home-v2 .cm-andro { animation: cm-l2 10s linear infinite; } .js-reveal .home-v2 .cm-low { animation: cm-l3 10s linear infinite; }
+  @keyframes cm-l1 { 0%, 8% { stroke-dashoffset: 1; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 52%, 100% { stroke-dashoffset: 0; } }
+  @keyframes cm-l2 { 0%, 12% { stroke-dashoffset: 1; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 56%, 100% { stroke-dashoffset: 0; } }
+  @keyframes cm-l3 { 0%, 16% { stroke-dashoffset: 1; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 60%, 100% { stroke-dashoffset: 0; } }
+  .js-reveal .home-v2 .cm-dot-age { offset-path: path("M40 90 C160 96 300 120 530 150"); animation: cm-d1 10s linear infinite; }
+  .js-reveal .home-v2 .cm-dot-andro { offset-path: path("M40 88 C90 80 130 100 180 96 S250 120 290 126 S380 150 430 152 S500 170 530 174"); animation: cm-d2 10s linear infinite; }
+  .js-reveal .home-v2 .cm-dot-low { offset-path: path("M40 92 C130 92 210 100 270 140 S420 196 530 200"); animation: cm-d3 10s linear infinite; }
+  .js-reveal .home-v2 .cm-dot { offset-rotate: 0deg; }
+  @keyframes cm-d1 { 0%, 8% { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 9% { opacity: 1; } 52% { offset-distance: 100%; opacity: 1; } 56%, 100% { offset-distance: 100%; opacity: 0; } }
+  @keyframes cm-d2 { 0%, 12% { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 13% { opacity: 1; } 56% { offset-distance: 100%; opacity: 1; } 60%, 100% { offset-distance: 100%; opacity: 0; } }
+  @keyframes cm-d3 { 0%, 16% { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 17% { opacity: 1; } 60% { offset-distance: 100%; opacity: 1; } 64%, 100% { offset-distance: 100%; opacity: 0; } }
+  .js-reveal .home-v2 .cm-sym circle { animation: cm-sym 10s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  .js-reveal .home-v2 .cm-sym circle:nth-child(2) { animation-delay: 0.5s; } .js-reveal .home-v2 .cm-sym circle:nth-child(3) { animation-delay: 1s; }
+  @keyframes cm-sym { 0%, 20% { opacity: 0; transform: scale(0.6); } 28%, 100% { opacity: 1; transform: none; } }
+  .js-reveal .home-v2 .cm-ov { animation: cm-ov 3.6s ease-in-out infinite alternate; }
+  @keyframes cm-ov { from { opacity: 0.35; transform: scale(0.94); } to { opacity: 0.85; transform: scale(1.05); } }
+  .js-reveal .home-v2 .cm-ov { transform-box: fill-box; transform-origin: center; }
+
+  /* 3 · WHO: people connected to one video-call hub; links flow, packets travel, nodes pulse */
+  .js-reveal .home-v2 .wh-link2 { opacity: 1; stroke-dasharray: 3 9; animation: mg-flow 1.6s linear infinite; }
+  .js-reveal .home-v2 .wh-pk { offset-rotate: 0deg; animation: wh-pk 3.6s linear infinite; animation-delay: calc(var(--k) * -0.45s); }
+  @keyframes wh-pk { 0% { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 6% { opacity: 1; } 70% { offset-distance: 100%; opacity: 1; } 80%, 100% { offset-distance: 100%; opacity: 0; } }
+  .js-reveal .home-v2 .wh-ring { animation: wh-ring 3.6s ease-out infinite; animation-delay: calc(var(--k) * -0.45s + 2.4s); }
+  @keyframes wh-ring { 0% { opacity: 0; transform: scale(1); } 6% { opacity: 0.6; } 40%, 100% { opacity: 0; transform: scale(1.7); } }
+  .js-reveal .home-v2 .wh-hring { animation: wh-ring 2.8s ease-out infinite; }
+  .js-reveal .home-v2 .wh-live { animation: ab-blink 2s ease-in-out infinite; }
+  @keyframes ab-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  /* 4 · CAUSES: seven nodes light up in turn; spokes draw from the hub; card icon chips pulse in step */
+  .js-reveal .home-v2 .cau-orbit { animation: mg-flow 5s linear infinite; }
+  .js-reveal .home-v2 .cau-hring { animation: cau-hub 3.2s ease-out infinite; }
+  @keyframes cau-hub { 0% { opacity: 0.6; transform: scale(1); } 100% { opacity: 0; transform: scale(1.9); } }
+  .js-reveal .home-v2 .cau-spoke { stroke-dasharray: 1 2; animation: cau-spoke 14s ease-out infinite; animation-delay: calc(var(--k) * 2s - 14s); }
+  @keyframes cau-spoke { 0% { stroke-dashoffset: 1; opacity: 1; } 7%, 16% { stroke-dashoffset: 0; opacity: 1; } 28%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+  .js-reveal .home-v2 .cau-n .cau-body { animation: cau-pop 14s ease-out infinite; animation-delay: calc(var(--k) * 2s - 14s); }
+  @keyframes cau-pop { 0%, 14%, 100% { transform: scale(1); } 5% { transform: scale(1.12); } }
+  .js-reveal .home-v2 .cau-n .cau-hi, .js-reveal .home-v2 .cau-n .cau-glow { animation: cau-lit 14s ease-out infinite; animation-delay: calc(var(--k) * 2s - 14s); }
+  @keyframes cau-lit { 0% { opacity: 0; } 4%, 12% { opacity: 1; } 24%, 100% { opacity: 0; } }
+  .js-reveal .home-v2 .ci { animation: ci-pulse 14s ease-out infinite; animation-delay: calc(var(--k) * 2s - 14s); }
+  @keyframes ci-pulse { 0%, 14%, 100% { opacity: 0.72; transform: scale(1); } 5% { opacity: 1; transform: scale(1.12); } }
+
+  /* 5 · HOW IT WORKS: each step icon animates once its step is switched on by scroll */
+  .js-reveal .home-v2 .timeline-list > li.is-on .hi-check { stroke-dasharray: 1 2; animation: hi-check 4.5s ease-out infinite; }
+  @keyframes hi-check { 0%, 8% { stroke-dashoffset: 1; } 26%, 84% { stroke-dashoffset: 0; } 94%, 100% { stroke-dashoffset: 1; } }
+  .js-reveal .home-v2 .timeline-list > li.is-on .hi-w { animation: hi-w 1.8s ease-out infinite; }
+  .js-reveal .home-v2 .timeline-list > li.is-on .hi-w2 { animation-delay: 0.3s; }
+  @keyframes hi-w { 0% { opacity: 0.15; } 40% { opacity: 1; } 100% { opacity: 0.15; } }
+  .js-reveal .home-v2 .timeline-list > li.is-on .hi-bar { animation: hi-bar 1.8s ease-out infinite alternate; animation-delay: calc(var(--k, 0) * 0.25s); }
+  .js-reveal .home-v2 .timeline-list > li.is-on .hi-b2 { --k: 1; } .js-reveal .home-v2 .timeline-list > li.is-on .hi-b3 { --k: 2; }
+  @keyframes hi-bar { from { transform: scaleY(0.45); } to { transform: scaleY(1); } }
+  .js-reveal .home-v2 .timeline-list > li.is-on .hi-flag { animation: hi-w 1.8s ease-out infinite alternate; }
+  .js-reveal .home-v2 .timeline-list > li.is-on .hi-rot { animation: mg-spin 9s linear infinite; }
+
+  /* 6 · ABOUT: video call. Speakers alternate, bubbles float in, live dot pulses */
+  .js-reveal .home-v2 .ab-glow { animation: ab-glow 6s ease-in-out infinite alternate; }
+  @keyframes ab-glow { from { opacity: 0.4; } to { opacity: 0.85; } }
+  .js-reveal .home-v2 .ab-ring { animation: wh-ring 2s ease-out infinite; }
+  .js-reveal .home-v2 .ab-pane-l { animation: ab-pane 6s ease-in-out infinite; }
+  .js-reveal .home-v2 .ab-pane-r { animation: ab-pane 6s ease-in-out infinite; animation-delay: -3s; }
+  @keyframes ab-pane { 0%, 100% { opacity: 0.1; } 20%, 40% { opacity: 1; } 55% { opacity: 0.1; } }
+  .js-reveal .home-v2 .ab-bar { animation: ab-talk 6s ease-out infinite; animation-delay: calc(var(--k) * 0.1s); }
+  .js-reveal .home-v2 .ab-bar-r { animation-delay: calc(var(--k) * 0.1s - 3s); }
+  @keyframes ab-talk { 0%, 52%, 100% { transform: scaleY(0.2); } 8% { transform: scaleY(var(--h)); } 16% { transform: scaleY(0.35); } 24% { transform: scaleY(var(--h)); } 32% { transform: scaleY(0.4); } 40% { transform: scaleY(0.9); } }
+  .js-reveal .home-v2 .ab-b { animation: ab-b 9s ease-out infinite; animation-delay: calc(var(--k) * 3s - 9s); }
+  @keyframes ab-b { 0%, 4% { opacity: 0; transform: translateY(14px); } 12%, 66% { opacity: 1; transform: none; } 78%, 100% { opacity: 0; transform: translateY(-6px); } }
+  .js-reveal .home-v2 .ab-td { transform-box: fill-box; animation: ab-td 1.2s ease-out infinite; animation-delay: calc(var(--k) * 0.15s); }
+  @keyframes ab-td { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
+
+  /* 7 · FAQ: question mark draws, three dots orbit it, small marks drift up */
+  .js-reveal .home-v2 .fq-orb { animation: mg-spin 14s linear infinite; }
+  .js-reveal .home-v2 .fq-stage { animation: mg-stage 6s linear infinite; }
+  .js-reveal .home-v2 .fq-q { stroke-dasharray: 1 2; animation: fq-q 6s linear infinite; }
+  @keyframes fq-q { 0%, 8% { stroke-dashoffset: 1; animation-timing-function: cubic-bezier(0.22, 0.8, 0.3, 1); } 40%, 100% { stroke-dashoffset: 0; } }
+  .js-reveal .home-v2 .fq-qd { animation: fq-qd 6s ease-out infinite; }
+  @keyframes fq-qd { 0%, 38% { opacity: 0; transform: scale(0.5); } 46%, 100% { opacity: 1; transform: none; } }
+  .js-reveal .home-v2 .fq-fl { animation: fq-fl 5s ease-out infinite; animation-delay: calc(var(--k) * -2.5s); }
+  @keyframes fq-fl { 0% { opacity: 0; transform: translateY(10px); } 30% { opacity: 0.8; } 100% { opacity: 0; transform: translateY(-30px); } }
+
+  /* 8 · FINAL CTA: the hero's flat-to-rising curve returns, ending in a glowing sun */
+  .js-reveal .home-v2 .fi-stage { animation: mg-stage 9s linear infinite; }
+  .js-reveal .home-v2 .fi-draw { stroke-dasharray: 1 2; stroke-dashoffset: 1; animation: fi-draw 9s linear infinite; }
+  @keyframes fi-draw { 0%, 6% { stroke-dashoffset: 1; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 58%, 100% { stroke-dashoffset: 0; } }
+  .js-reveal .home-v2 .fi-dot { offset-path: path("M20 142 H150 C230 142 262 130 322 100 C392 66 462 36 576 28"); offset-rotate: 0deg; animation: fi-dot 9s linear infinite; }
+  @keyframes fi-dot { 0%, 6% { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 7% { opacity: 1; } 58% { offset-distance: 100%; opacity: 1; } 62%, 100% { offset-distance: 100%; opacity: 0; } }
+  .js-reveal .home-v2 .fi-area { opacity: 0; animation: sy-area 9s ease-out infinite; }
+  .js-reveal .home-v2 .fi-m1 { animation: fi-m1 9s var(--ease-out) infinite; } .js-reveal .home-v2 .fi-m2 { animation: fi-m2 9s var(--ease-out) infinite; }
+  @keyframes fi-m1 { 0%, 14% { opacity: 0; transform: scale(0.7); } 20%, 100% { opacity: 1; transform: none; } }
+  @keyframes fi-m2 { 0%, 34% { opacity: 0; transform: scale(0.7); } 40%, 100% { opacity: 1; transform: none; } }
+  .js-reveal .home-v2 .fi-end { animation: fi-end 9s var(--ease-out) infinite; }
+  @keyframes fi-end { 0%, 54% { opacity: 0; transform: scale(0.7); } 62%, 100% { opacity: 1; transform: none; } }
+  .js-reveal .home-v2 .fi-rays { transform-box: fill-box; transform-origin: center; animation: mg-spin 20s linear infinite; }
+  .js-reveal .home-v2 .fi-ring { animation: hv-ring 2.4s ease-out infinite; }
+}
+@media (max-width: 768px) {
+  .home-v2 .mg { padding: 10px 10px 8px; border-radius: 16px; margin-bottom: 24px; }
+  .home-v2 .mg-leg { font-size: 0.8rem; }
+  .home-v2 .faq-head { flex-direction: column; gap: 6px; }
+  .home-v2 .faq-head .medium-heading { text-align: center; }
+  .home-v2 .fq-motif { width: 108px; height: 90px; }
+  .home-v2 .hi { width: 56px; height: 56px; padding: 8px; }
+}

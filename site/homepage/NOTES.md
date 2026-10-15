@@ -1,0 +1,42 @@
+# Homepage rewrite: notes
+
+Files: `home.html` (paste into the HighLevel custom-code block), `llms.txt`, `robots.txt`, `sitemap.xml` (live one is empty), `seo-meta.md` (10 pages), `og-home.png`, `build.py` + `home.template.html` (source; FAQ HTML and FAQPage JSON-LD are generated from one list so they stay identical).
+
+## Before pasting
+1. Commit `og-home.png` to the repo as `img/og-home.png` (og:image points to its jsDelivr URL).
+2. Mixpanel init and the "Page View" event are NOT in the repo. They live in the site-level tracking code in GHL and stay untouched. `home.html` only adds `mixpanel.track('CTA Click', {cta, page:'home'})` (guarded, no-ops if Mixpanel is absent). `cta` values: hero_free_assessment, hero_how_it_works, symptoms_free_assessment, how_free_assessment, final_free_assessment, final_book_call, modal_first_time, modal_follow_up, nav_book_online.
+3. Removed the `YOUR_PIXEL_ID` fbq block and its noscript twin. A real pixel (705890611034328) is already injected site-level, so Meta PageView still fires.
+4. Shared nav/footer are NOT changed and still say "Calgary" (footer: "Functional Health Calgary", "Made in Calgary"). Nav "Take The Assessment" points to `/#metabolic-assessment-trigger`; the home page keeps that id on the final CTA so it still works. Better: point it to /owen-lowt.
+5. The booking modal and its script are kept because the nav "Book Online" button depends on them. The old metabolic quiz panel and its JS were removed (replaced by the link to /owen-lowt). The About section is now visible in the HTML, no longer hidden behind a toggle. FAQ hover-open behaviour removed (native click/keyboard only).
+
+## Compliance flags: human/legal review
+- **"Clinician" vs "we do not practice medicine".** I dropped the slogan and the "Do you practice medicine? No" FAQ, since they contradict the strategy notes' "clinician call". The page now says "a clinician from the Odin Health Labs team". Confirm who staffs the calls, their licences and title (also "Clinical Director & Founder" on the founder card, "Hormone and Functional Lab Interpretation").
+- **Cross-border licensing/scope:** "serves men across Canada and the USA" needs a licence/scope check per province and US state. The pivot note records the owner's view that this is fine; I have not verified it.
+- **Hormone therapy wording (FAQ 5):** says medical treatment "including hormone therapy" is handled by the physician who provides it, and does not state whether Odin prescribes. Confirm that is true.
+- **Medical-claim language:** page avoids diagnose/treat/cure and has no efficacy numbers, urgency or scarcity (removed "14–30 days", "Limited spots"). "Total vs free testosterone" and "cause list" content comes from your taxonomy notes and is unsourced on-page; add citations if desired. The "40% of men over 45" stat in the notes was left out (no source link).
+- **Disclaimer + 988/911 line** at the bottom: review wording. Privacy policy still says "Calgary, AB" and needs PIPEDA/PHIPA/HIPAA-style review for Canada+USA health data (assessment answers).
+- **Testimonials removed:** the three "Calgary ..." quotes were unattributed and Calgary-framed. Add real, consented ones later.
+- **Schema:** Organization uses the phone (+1 587 324 8710) and email from the footer. No address, no sameAs (add social profiles if you want them). Typed `Organization`, not `MedicalBusiness`, until licensing is confirmed.
+- **Linked pages not yet rewritten:** /pemf, /hydrogen-inhalation, /marma-therapy, /shift, /privacy and others still describe in-clinic or Calgary services. They are linked for internal linking only; each needs a telehealth/andropause pass (see `seo-meta.md` notes). The old hero image (Calgary skyline, women, new mother) and "New Mothers" profile were removed; a men-focused hero photo is still needed.
+- The nav links to /owen-lowt were not changed. That page is only linked, never modified.
+
+## Motion graphics (v3, 2026-10-15): one graphic per section
+Source: `home.template.html` (edit this, then `python3 build.py` -> `home.html`). `_gen/gen_graphics.py` + `_gen/motion2.css` are the generator that produced v3 from `home.template.v2.html` (they hold the SVG/CSS in readable form; re-running them overwrites the template). Previous versions: `home.v2.html` / `home.template.v2.html` (single hero graphic + icons + timeline), `home.v1.html`. Screenshots and test runs: `shots2/`.
+
+| Section | Motion graphic (all inline SVG + CSS, `aria-hidden`, no text, no numbers) |
+|---|---|
+| Hero | (v2) flat line draws into a rising curve, pen dot, pulsing end node, floating particles; authority-bar icons draw on |
+| Symptoms | "A day of energy": a curve draws from a high morning to a low evening while a dot rides it, the sun fades to a moon, battery cells drop out one by one, a ring marks the afternoon dip. Plus the 11 draw-on icons (v2) |
+| Explain (low T / andropause / older) | Three-way comparison: an axis draws on, then three differently styled lines (lime, white with symptom dots, grey) draw with riding dots; the zone where they overlap breathes |
+| Who we work with | Network: eight people nodes (Canada left, USA right) joined to a video-call hub by flowing dashed links, packets travelling along them and staggered pulse rings |
+| Seven reasons | Radial diagram: seven icon nodes orbit a hub; each lights up in turn (14s cycle) while its spoke draws from the hub. Four solid nodes (plan) and three dashed (physician) match the two card groups. Each card has the same icon chip, pulsing in step with its node |
+| How it works | (v2) scroll-filled timeline plus a new animated icon per step: clipboard with check drawing, video call with signal arcs, rising bars with flag, looping arrows. Icons animate only once their step is switched on |
+| Your health partner | Video-call scene: laptop with two split panes, speakers alternate (highlighted pane + voice bars), chat bubbles float in and out, typing dots, live dot pulses |
+| FAQ | Question mark draws beside the heading, three dots orbit it, small question marks drift up |
+| Final CTA | The hero curve returns (flat to rising) with milestone nodes, ending in a glowing sun with slowly turning rays; the halo rings behind the button remain |
+
+**Rules followed**: transform / opacity / stroke-dashoffset only (plus `offset-distance` on a few tiny dots riding a path; main-thread but trivial); ease-out curves (`cubic-bezier(.23,1,.32,1)` for pops, gentle ease-out for long draws, linear only for continuous flows and orbits); no `transition: all`, no filters/blur; `contain: layout paint` on each figure; loops pause off-screen via the existing IntersectionObserver (`[data-live].is-paused`); every figure has a fixed `aspect-ratio` (CLS 0).
+**Reduced motion / no JS**: every loop is gated by `@media (prefers-reduced-motion: no-preference)` AND the `.js-reveal` class that JS adds, so with either off the SVGs render their complete final state and nothing is hidden or moving.
+**Compliance**: graphics carry no medical claims, statistics or efficacy numbers. "Illustration only. Not real data." captions on the two data-like graphics (symptoms, comparison). The comparison lines are schematic, not measurements: legal/clinical may want to confirm the wording of the three legend labels.
+**Unchanged**: SEO head, JSON-LD (byte-identical to v2), FAQ text, nav loader, booking modal, all `data-cta` events, all page copy (only icon chips, figures and a heading wrapper were added; FAQ `h2` keeps its id).
+**Tested** (headless Chrome 154 via puppeteer-core, file:// build of `home.html`, 1280 and 390 wide): console errors/warnings 0, failed requests 0, CLS 0, no horizontal overflow, JSON-LD byte-identical to v2. Scrolled each section into view and screenshotted two moments of every loop (`shots2/<section>-<width>-a|b.png`). `prefers-reduced-motion: reduce`: 0 running animations, nothing hidden (`shots2/reduced-*`). JavaScript disabled: all graphics render their complete static state (`shots2/nojs-*`). With the page scrolled to the top, 0 figure animations were running (off-screen pause works). Not checked: real-device FPS, Lighthouse inside GHL, Safari/Firefox (offset-path and `::details-content` are progressive enhancements).
