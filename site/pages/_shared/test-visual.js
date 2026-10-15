@@ -56,7 +56,7 @@ const SEL = '.mg, .faq-head, [data-timeline]';
     res[w].reduced = await p2.evaluate(() => ({
       running: document.getAnimations().filter(a => a.playState === 'running').map(a => (a.animationName || a.transitionProperty || '?')).slice(0, 10),
       hidden: [...document.querySelectorAll('.mg, .faq-head, .ci, .hi, .reveal')].filter(e => { const c = getComputedStyle(e); return c.opacity === '0' || c.visibility === 'hidden'; }).length,
-      hiddenSvg: [...document.querySelectorAll('.mg svg [class]')].filter(e => getComputedStyle(e).opacity === '0' && !/(hs-lit|sy-ember|hb-sweep|br-ring|pz-ring|sp-flash|qs-ring|so-ring|cl-a|cl-b|cl-burst|cl-dot|ly-lit|sb-pol|sc-bar|sc-ring)/.test(e.getAttribute('class'))).map(e => e.getAttribute('class')).slice(0, 10),
+      hiddenSvg: [...document.querySelectorAll('.mg svg [class]')].filter(e => getComputedStyle(e).opacity === '0' && !/(hs-lit|sy-ember|hb-sweep|br-ring|pz-ring|sp-flash|qs-ring|so-ring|cl-a|cl-b|cl-burst|cl-dot|ly-lit|sb-pol|sc-bar|sc-ring|\bfx\b)/.test(e.getAttribute('class'))).map(e => e.getAttribute('class')).slice(0, 10),
       sw: document.documentElement.scrollWidth, iw: innerWidth }));
     await p2.screenshot({ path: `${out}reduced-${w}-full.png`, fullPage: true });
     await p2.close();

@@ -1,0 +1,62 @@
+
+/* ═══ /low-testosterone-labs-to-ask-for graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
+.pg .rk-liq { transform-origin: 50% 100%; }
+.pg .rk-d, .pg .tm-lit, .pg .rl-lit, .pg .fm-tick { transform-box: fill-box; transform-origin: center; }
+.pg .rk-d, .pg .tm-lit, .pg .rl-lit { opacity: 0; }
+.pg .bd-car, .pg .bd-f, .pg .bd-b, .pg .fq-b { transform-box: fill-box; transform-origin: center; }
+.pg .ds-n { transform: rotate(var(--r, 0deg)); }
+.pg .rg-b { transform-box: fill-box; transform-origin: center; }
+.pg .sr-ray { transform-box: view-box; transform-origin: 0 0; }
+.pg .sr-ring { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.pg .fq-b { opacity: 0.9; }
+/*@GEN_STATIC*/
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* 1 · rack: liquid levels breathe, a drop falls into each tube in turn */
+  .js-reveal .pg .rk-liq { animation: rk-liq 6s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.3s); }
+  @keyframes rk-liq { from { transform: scaleY(0.62); } to { transform: scaleY(1); } }
+  .js-reveal .pg .rk-d { animation: rk-fall 10s linear infinite; animation-delay: calc(var(--k, 0) * 1.8s - 10s); }
+  @keyframes rk-fall { 0%, 100% { opacity: 0; transform: translateY(0); } 2% { opacity: 1; transform: translateY(0); } 11% { opacity: 1; transform: translateY(calc(var(--h, 100) * 1px)); } 12% { opacity: 0; transform: translateY(calc(var(--h, 100) * 1px)); } }
+
+  /* 2 · timing: the second tube lights after the first */
+  .js-reveal .pg .tm-lit { animation: tm-lit 8s ease-out infinite; animation-delay: calc(var(--k, 0) * 4s - 8s); }
+  @keyframes tm-lit { 0% { opacity: 0; transform: scale(1); } 2% { opacity: 1; transform: scale(1.08); } 14%, 100% { opacity: 0; transform: scale(1); } }
+
+  /* 3 · bound/free: carriers bob, free dots drift, bound dots pulse */
+  .js-reveal .pg .bd-car { animation: pg-bob 4s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.3s); }
+  .js-reveal .pg .bd-f { animation: bd-drift 6.5s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.4s); }
+  @keyframes bd-drift { from { transform: translate(0, 0); } to { transform: translate(var(--dx), var(--dy)); } }
+  .js-reveal .pg .bd-b { animation: bd-b 3s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1s); }
+  @keyframes bd-b { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.22); } }
+
+  /* 4 · relay: prolactin node lights now and then */
+  .js-reveal .pg .rl-lit { animation: tm-lit 7s ease-out infinite; }
+
+  /* 6 · dashboard: needles sweep */
+  .js-reveal .pg .ds-n { animation: ds-sw var(--p, 4s) ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.1s); }
+  @keyframes ds-sw { from { transform: rotate(-58deg); } to { transform: rotate(58deg); } }
+
+  /* 7 · form: ticks pop as the pen passes */
+  .js-reveal .pg .fm-tick { animation: fm-tk 9s var(--ease-out) infinite; animation-delay: var(--dl, 0s); }
+  @keyframes fm-tk { 0% { opacity: 0; transform: scale(0.75); } 2% { opacity: 0; transform: scale(0.75); } 6%, 88% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; transform: none; } }
+
+  /* 8 · rulers: each lab's band drifts a little */
+  .js-reveal .pg .rg-b { animation: rg-b var(--p, 5s) ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.7s); }
+  @keyframes rg-b { from { transform: translateX(-13px); } to { transform: translateX(13px); } }
+
+  /* FAQ: bubbles rise in the tube */
+  .js-reveal .pg .fq-b { animation: fq-b 3s ease-out infinite; animation-delay: calc(var(--k, 0) * -1s); }
+  @keyframes fq-b { 0% { opacity: 0; transform: translateY(8px); } 25% { opacity: 1; } 100% { opacity: 0; transform: translateY(-34px); } }
+
+  /* Final: the sun rises once, rays turn slowly */
+  .js-reveal .pg .is-in .sr-sun { animation: sr-rise 1.8s var(--ease-out) both; }
+  @keyframes sr-rise { from { transform: translateY(52px); } to { transform: none; } }
+  .js-reveal .pg .sr-ray { animation: sr-ray 3.2s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -0.45s); }
+  @keyframes sr-ray { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+  .js-reveal .pg .sr-ring { animation: sr-ring 5.4s ease-out infinite; animation-delay: calc(var(--k, 0) * -1.8s); }
+  @keyframes sr-ring { 0% { opacity: 0.5; transform: scale(0.9); } 100% { opacity: 0; transform: scale(2); } }
+/*@GEN_MOTION*/
+}

@@ -1,0 +1,43 @@
+
+/* ═══ Answer pages: shared (answer box, sources, hub, step icons). Static block = FINAL state. ═══ */
+.pg .answer-box { max-width: 760px; margin: 26px auto 0; padding: 20px 22px; border: 1px solid var(--lime-line); border-left: 4px solid var(--lime-green); border-radius: 14px; background: rgba(196, 255, 73, 0.06); text-align: left; }
+.pg .answer-box .answer-tag { display: block; margin: 0 0 6px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime-green); }
+.pg .answer-box p { margin: 0; font-size: 1.12rem; line-height: 1.6; color: var(--white); }
+.pg .hero-copy .answer-box { margin-left: 0; margin-right: 0; }
+.pg .src-list { list-style: none; margin: 14px 0 0; padding: 0; text-align: left; }
+.pg .src-list li { margin: 0 0 12px; padding: 0 0 0 26px; position: relative; font-size: 1rem; line-height: 1.5; color: var(--white-800); }
+.pg .src-list li::before { content: ""; position: absolute; left: 4px; top: 0.6em; width: 9px; height: 9px; border-radius: 2px; background: var(--lime-green); }
+.pg .src-list a { color: var(--lime-green); text-underline-offset: 3px; }
+.pg .src-list a:hover { color: var(--white); }
+.pg .q-list { margin: 12px 0 0; padding: 0; list-style: none; counter-reset: q; }
+.pg .q-list li { counter-increment: q; position: relative; margin: 10px 0 0; padding: 0 0 0 38px; font-size: 1.04rem; line-height: 1.5; color: var(--white); }
+.pg .q-list li::before { content: counter(q); position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 0.85rem; font-weight: 800; background: rgba(196, 255, 73, 0.14); color: var(--lime-green); }
+.pg .mg--wide { max-width: 760px; }
+.pg .mg--sm2 { max-width: 420px; }
+.pg .mg svg text { font-family: inherit; font-weight: 800; }
+.pg .xh-ring, .pg .xh-p0, .pg .xh-p1, .pg .xh-p2, .pg .xh-p3 { transform-box: view-box; }
+.pg .xh-ring { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.pg .so-card { transform-box: fill-box; transform-origin: 50% 100%; }
+.pg .so-card { transform: translateX(var(--dx)) rotate(var(--rot)); }
+.pg .hi-pu, .pg .hi-sl, .pg .hi-bl, .pg .hi-sw, .pg .hi-gr, .pg .hi-ck { transform-box: fill-box; transform-origin: center; }
+.pg .hi-gr { transform-origin: 50% 100%; }
+.pg .hi-sw { transform-origin: 50% 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .pg .xh-ring { animation: xh-ring 4s ease-out infinite; }
+  @keyframes xh-ring { 0% { opacity: 0.55; transform: scale(1); } 40%, 100% { opacity: 0; transform: scale(1.6); } }
+  .js-reveal .pg .so-card { animation: so-fan 7s var(--ease-out) infinite; }
+  @keyframes so-fan { 0%, 18% { transform: translateX(0) rotate(0deg); } 34%, 72% { transform: translateX(var(--dx)) rotate(var(--rot)); } 90%, 100% { transform: translateX(0) rotate(0deg); } }
+  /* step icons (animate only once their step is on) */
+  .js-reveal .pg .timeline-list > li.is-on .hi-pu { animation: ans-pu 2.4s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  @keyframes ans-pu { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+  .js-reveal .pg .timeline-list > li.is-on .hi-sl { animation: ans-sl 3.2s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.8s); }
+  @keyframes ans-sl { from { transform: translateX(-7px); } to { transform: translateX(7px); } }
+  .js-reveal .pg .timeline-list > li.is-on .hi-bl { animation: ans-bl 2.6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 0.5s); }
+  @keyframes ans-bl { 0%, 100% { opacity: 0.25; } 40%, 60% { opacity: 1; } }
+  .js-reveal .pg .timeline-list > li.is-on .hi-sw { animation: ans-sw 3s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.7s); }
+  @keyframes ans-sw { from { transform: rotate(-8deg); } to { transform: rotate(8deg); } }
+  .js-reveal .pg .timeline-list > li.is-on .hi-gr { animation: ans-gr 3.4s var(--ease-out) infinite alternate; animation-delay: calc(var(--k, 0) * -0.9s); }
+  @keyframes ans-gr { from { transform: scaleY(0.45); } to { transform: scaleY(1); } }
+  .js-reveal .pg .timeline-list > li.is-on .hi-ck { animation: ans-ck 4.2s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.5s); }
+  @keyframes ans-ck { 0%, 8% { opacity: 0; transform: scale(0.75); } 18%, 80% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: none; } }
+}
