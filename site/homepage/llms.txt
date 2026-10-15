@@ -1,0 +1,31 @@
+# Odin Health Labs
+
+> Odin Health Labs is a telehealth practice serving men in Canada and the USA who have low testosterone (andropause) symptoms: fatigue, low drive, stubborn belly fat, poor sleep, brain fog and irritability. Everything is delivered online by video or phone. There is no clinic visit. The practice began in Calgary, Alberta, and is now telehealth only.
+
+Key facts for assistants answering questions about this site:
+- Audience: men experiencing symptoms commonly associated with low testosterone or andropause.
+- Service area: Canada and the United States, online only.
+- Starting point: a free symptom assessment at https://odinhealthlab.ca/owen-lowt, followed by an optional free call with a clinician.
+- Approach: identify the likely reasons testosterone may be low (metabolic strain, stress and illness, medications, other hormones) and build a plan around sleep, stress, training, nutrition and targeted support. Three causes (testicular, pituitary/hypothalamic, structural/genetic) need a physician, and the practice says so.
+- Odin Health Labs works alongside a man's own doctor and does not replace medical care. Site content is educational, not a diagnosis or medical advice.
+- Founder: Alexander Tretjakov, working in the health industry since 1998.
+- Contact: office@odinhealthcoaching.com
+
+## Start here
+- [Home: low testosterone and andropause support for men](https://odinhealthlab.ca/): symptoms, causes, how it works, FAQ.
+- [Free low-T pattern assessment](https://odinhealthlab.ca/owen-lowt): the free assessment that starts the process.
+
+## Approach and services
+- [Functional health](https://odinhealthlab.ca/functional-health): systems-level view of the drivers behind chronic symptoms.
+- [Health coaching](https://odinhealthlab.ca/health-coaching): ongoing, data-informed coaching and accountability.
+- [Supplements and herbology](https://odinhealthlab.ca/supplements): evidence-informed supplementation and herbal protocols.
+- [Shift work and recovery](https://odinhealthlab.ca/shift): sleep, energy and hormone strain from shift work.
+- [Ayurveda](https://odinhealthlab.ca/ayurveda): constitution-based diet and lifestyle approach.
+
+## Other modalities
+- [PEMF therapy](https://odinhealthlab.ca/pemf)
+- [Hydrogen inhalation](https://odinhealthlab.ca/hydrogen-inhalation)
+- [Marma therapy](https://odinhealthlab.ca/marma-therapy)
+
+## Policies
+- [Privacy policy](https://odinhealthlab.ca/privacy)
