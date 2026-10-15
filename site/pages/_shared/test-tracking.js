@@ -67,8 +67,8 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   if (noAssess) ok('NO link to /owen-lowt (paid page) anywhere in the page, no assessment CTAs', !/owen-lowt/.test(src) && meta.assessHrefs.length === 0, meta.assessHrefs.join(','));
   else ok('assessment CTAs all -> /owen-lowt', meta.assessHrefs.length >= 4 && meta.assessHrefs.every(h => h === 'https://odinhealthlab.ca/owen-lowt'), meta.assessHrefs.length);
   ok('no Calgary in-clinic wording in body', !/calgary/i.test(src.replace(/Odin-Health-Calgary|odinlabcalgary/g, '')));
-  if (noAssess) ok('NO disclaimer paragraph / educational-only note / 911 / 988 / "Illustration only" caption (per Alex)', !/class="disclaimer"|call 911|\b988\b|illustration only|educational (information|only)|isn(&rsquo;|’|')t a diagnosis/i.test(src));
-  else ok('disclaimer has 911 and 988', /call 911/.test(src) && /988/.test(src));
+  // Alex (2026-10-15): no disclaimer paragraphs or "Illustration only" captions on ANY page, so this check always runs
+  ok('NO disclaimer paragraph / educational-only note / 911 / 988 / "Illustration only" caption (per Alex)', !/class="disclaimer"|call 911|\b988\b|illustration only|educational (information|only)|isn(&rsquo;|’|')t a diagnosis/i.test(src));
   ok('no pageerror', errs.length === 0, errs.join('|'));
   const banned = [/\bcure[sd]?\b/i, /\breverse/i, /\bguarantee/i, /\b\d+\s*(weeks?|months?|days?)\b/i, /\b\d+\s*%(?!\s*telehealth)/, /\bboost(s|ing)?\s+testosterone/i, /clinically proven|proven to/i];
   const text = src.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');

@@ -1,0 +1,52 @@
+{
+ "390": {
+  "cls": 0,
+  "sw": 390,
+  "iw": 390,
+  "bsw": 390,
+  "running": 7,
+  "total": 142,
+  "paused": 9,
+  "figs": 7,
+  "overflowEls": [],
+  "errs": [],
+  "runningOffscreen": 0,
+  "liveBlocks": 10,
+  "reduced": {
+   "running": [],
+   "hidden": 0,
+   "hiddenSvg": [],
+   "sw": 390,
+   "iw": 390
+  },
+  "nojs": {
+   "hidden": 0,
+   "running": 8
+  }
+ },
+ "1280": {
+  "cls": 0,
+  "sw": 1280,
+  "iw": 1280,
+  "bsw": 1280,
+  "running": 7,
+  "total": 142,
+  "paused": 9,
+  "figs": 7,
+  "overflowEls": [],
+  "errs": [],
+  "runningOffscreen": 0,
+  "liveBlocks": 10,
+  "reduced": {
+   "running": [],
+   "hidden": 0,
+   "hiddenSvg": [],
+   "sw": 1280,
+   "iw": 1280
+  },
+  "nojs": {
+   "hidden": 0,
+   "running": 8
+  }
+ }
+}
