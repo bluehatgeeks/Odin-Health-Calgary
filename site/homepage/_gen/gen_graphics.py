@@ -54,7 +54,6 @@ def sym():
 </g>
 </svg>
 <div class="mg-leg mg-leg--spread"><span>Morning</span><span>Afternoon</span><span>Night</span></div>
-<figcaption class="mg-cap">Illustration only. Not real data.</figcaption>
 </figure>''' % dict(L=L, G=G, P=SY_PATH, R=rays, cells=cells))
 
 # ---------- EXPLAIN: three-way comparison ----------
@@ -82,7 +81,6 @@ def cmp_():
 </g>
 </svg>
 <div class="mg-leg" style="justify-content:center"><span><i class="sw sw--low"></i>Low testosterone</span><span><i class="sw sw--andro"></i>Andropause</span><span><i class="sw sw--age"></i>Getting older</span></div>
-<figcaption class="mg-cap">Illustration only. Not real data.</figcaption>
 </figure>''' % dict(L=L, G=G, ticks=ticks, **CM))
 
 # ---------- WHO: network ----------
@@ -256,7 +254,7 @@ def patch(t):
     rep('<h2 id="faq-title" class="medium-heading reveal">Frequently asked questions</h2>', '<div class="faq-head reveal" data-live>' + faq() + '<h2 id="faq-title" class="medium-heading">Frequently asked questions</h2></div>')
     # final
     rep('<p class="cta-note reveal">Prefer to talk first?', '<p class="cta-note reveal">Prefer to talk first?')
-    rep('</p>\n</div>\n</section>\n\n<p class="disclaimer">', '</p>\n' + final() + '\n</div>\n</section>\n\n<p class="disclaimer">')
+    rep('</p>\n</div>\n</section>\n\n\n' + final() + '\n</div>\n</section>\n\n<p class="disclaimer">')
     return t
 
 if __name__ == '__main__':

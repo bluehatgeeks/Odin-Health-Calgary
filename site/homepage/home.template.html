@@ -540,7 +540,6 @@ body .faq-section .container { max-width: 800px !important; }
 </g>
 </svg>
 <div class="hv-legend" aria-hidden="true"><span>Flat and drained</span><span>The goal: steady</span></div>
-<figcaption class="hv-cap">Illustration only. Not a measurement, and not a promise of results.</figcaption>
 </figure>
 </div>
 <ul class="authority-bar reveal">
@@ -589,7 +588,6 @@ body .faq-section .container { max-width: 800px !important; }
 </g>
 </svg>
 <div class="mg-leg mg-leg--spread"><span>Morning</span><span>Afternoon</span><span>Night</span></div>
-<figcaption class="mg-cap">Illustration only. Not real data.</figcaption>
 </figure>
 <div class="symptoms-cards reveal">
 <div class="symptoms-card">
@@ -648,7 +646,6 @@ body .faq-section .container { max-width: 800px !important; }
 </g>
 </svg>
 <div class="mg-leg" style="justify-content:center"><span><i class="sw sw--low"></i>Low testosterone</span><span><i class="sw sw--andro"></i>Andropause</span><span><i class="sw sw--age"></i>Getting older</span></div>
-<figcaption class="mg-cap">Illustration only. Not real data.</figcaption>
 </figure>
 <div class="metabolism-cards">
 <div class="metabolism-card metabolism-card--stable reveal" style="--i:0">
@@ -865,7 +862,6 @@ body .faq-section .container { max-width: 800px !important; }
 </div>
 </section>
 
-<p class="disclaimer">Odin Health Labs offers telehealth consultations and wellness programs to men in Canada and the USA. Content on this page is educational. It isn&rsquo;t a diagnosis or medical advice, and it doesn&rsquo;t replace your physician. In an emergency, call 911. If you&rsquo;re thinking about harming yourself, call or text 988 in Canada or the USA.</p>
 </main>
 
 <!-- Booking modal: kept because the shared nav "Book Online" button opens it -->
@@ -922,7 +918,7 @@ body .faq-section .container { max-width: 800px !important; }
   });
 
   /* ── CTA click tracking (Mixpanel). Properties: cta, page ── */
-  function track(cta) {
+  function trackCta(cta) {
     try {
       if (window.mixpanel && typeof window.mixpanel.track === 'function') {
         window.mixpanel.track('CTA Click', { cta: cta, page: 'home' }, { transport: 'sendBeacon' });
@@ -934,7 +930,7 @@ body .faq-section .container { max-width: 800px !important; }
     if (!el) return;
     var cta = el.getAttribute('data-cta');
     if (!cta) cta = el.closest('#odin-nav-root') ? 'nav_book_online' : 'book_online';
-    track(cta);
+    trackCta(cta);
   }, true);
 
   /* ── Motion: reveal, draw-on icons, timeline, off-screen pause (progressive enhancement; content is visible without JS) ── */

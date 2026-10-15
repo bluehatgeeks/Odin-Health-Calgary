@@ -1,0 +1,387 @@
+<body>
+<script>
+/* ── Odin Health Labs — Component Loader (inline, same as the homepage) ── */
+(function () {
+  var CDN = 'https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master';
+  function execScripts(container) {
+    container.querySelectorAll('script').forEach(function (oldScript) {
+      var newScript = document.createElement('script');
+      Array.from(oldScript.attributes).forEach(function (attr) { newScript.setAttribute(attr.name, attr.value); });
+      newScript.textContent = oldScript.textContent;
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+  }
+  var navRoot = document.createElement('div');
+  navRoot.id = 'odin-nav-root';
+  document.body.insertBefore(navRoot, document.body.firstChild);
+  fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinnav.html', { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (html) { navRoot.innerHTML = html; execScripts(navRoot); })
+    .catch(function (err) { console.error('[odin-loader] Nav fetch failed:', err); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var footerRoot = document.createElement('div');
+    footerRoot.id = 'odin-footer-root';
+    document.body.appendChild(footerRoot);
+    fetch('https://raw.githubusercontent.com/bluehatgeeks/Odin-Health-Calgary/master/odinfooter.html?v=2', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (html) { footerRoot.innerHTML = html; execScripts(footerRoot); })
+      .catch(function (err) { console.error('[odin-loader] Footer fetch failed:', err); });
+  });
+})();
+</script>
+
+<main id="main" class="fh" style="padding-top: 80px;">
+{{ICONS}}
+
+<nav class="crumbs" aria-label="Breadcrumb"><a href="{{SITE}}/" data-cta="crumb_home">Home</a><span aria-hidden="true">/</span><span aria-current="page">Functional health</span></nav>
+
+<!-- HERO -->
+<section class="section hero-section" style="padding-top: 20px;" aria-labelledby="hero-title" data-live>
+<div class="content-wrapper">
+<div class="hero-grid">
+<div class="hero-copy">
+<p class="hero-slogan hero-eyebrow hero-in" style="--i:0">Functional health &middot; Telehealth for men &middot; Canada &amp; USA</p>
+<h1 id="hero-title" class="large-heading">Energy, drive and sleep dropped? Start with the root cause.</h1>
+<p class="hero-lede hero-in" style="--i:1">Functional health is how we work out <strong>why</strong>. We look at your sleep, stress, nutrition, training and weight together, and bring in labs and a physician when they&rsquo;re needed. It all happens online, wherever you are in Canada or the USA. It builds on our <a class="text-link" href="{{SITE}}/" data-cta="hero_home_link">low testosterone and andropause</a> approach.</p>
+<div class="cta-row hero-in" style="--i:2">
+<a href="{{ASSESS}}" class="btn-primary" data-cta="hero_free_assessment">Take the free assessment</a>
+<a href="#approach" class="btn btn-outline" data-cta="hero_our_approach">See our approach</a>
+</div>
+<p class="cta-note hero-in" style="--i:3">Free and private. No obligation to book a call.</p>
+</div>
+<figure class="mg mg--hero hero-in is-in" style="--i:2" data-live data-draw role="img" aria-label="Illustration: below the surface, five roots lead from your symptoms to possible causes, and a magnifying glass sweeps across them.">
+<svg class="mg-svg" viewBox="0 0 480 320" aria-hidden="true" focusable="false" style="--ar:480/320">
+<defs>
+<linearGradient id="hr-soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c4ff49" stop-opacity="0.08"/><stop offset="1" stop-color="#c4ff49" stop-opacity="0"/></linearGradient>
+<radialGradient id="hr-g"><stop offset="0" stop-color="#c4ff49" stop-opacity="0.6"/><stop offset="1" stop-color="#c4ff49" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="20" y="110" width="440" height="196" fill="url(#hr-soil)"/>
+<path d="M20 110H460" stroke="rgba(196,255,73,0.4)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+<path d="M130 80V110M240 80V110M350 80V110" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+<g fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+<g class="hr-sym" style="--k:0"><circle cx="130" cy="56" r="22" fill="#0f240f" stroke="rgba(255,255,255,0.4)" stroke-width="2"/><use href="#fi-batt" x="118" y="44" width="24" height="24"/></g>
+<g class="hr-sym" style="--k:1"><circle cx="240" cy="56" r="22" fill="#0f240f" stroke="rgba(255,255,255,0.4)" stroke-width="2"/><use href="#fi-flame" x="228" y="44" width="24" height="24"/></g>
+<g class="hr-sym" style="--k:2"><circle cx="350" cy="56" r="22" fill="#0f240f" stroke="rgba(255,255,255,0.4)" stroke-width="2"/><use href="#fi-mood" x="338" y="44" width="24" height="24"/></g>
+</g>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g stroke="rgba(196,255,73,0.2)" stroke-width="4"><path d="M240 112V140C240 165 120 160 70 238"/><path d="M240 112V150C240 185 175 190 160 250"/><path d="M240 112V256"/><path d="M240 112V150C240 185 305 190 320 250"/><path d="M240 112V140C240 165 360 160 410 238"/></g>
+<g stroke="#c4ff49" stroke-width="4">
+<path class="dr" pathLength="1" style="--d:0.0" d="M240 112V140C240 165 120 160 70 238"/>
+<path class="dr" pathLength="1" style="--d:0.15" d="M240 112V150C240 185 175 190 160 250"/>
+<path class="dr" pathLength="1" style="--d:0.3" d="M240 112V256"/>
+<path class="dr" pathLength="1" style="--d:0.45" d="M240 112V150C240 185 305 190 320 250"/>
+<path class="dr" pathLength="1" style="--d:0.6" d="M240 112V140C240 165 360 160 410 238"/>
+</g>
+<g stroke="rgba(196,255,73,0.35)" stroke-width="2"><path class="dr" pathLength="1" style="--d:1.0" d="M150 160l-14 14M118 190l-16 4M300 178l16 12M370 168l16 10M240 200l-14 12M240 215l14 10"/></g>
+</g>
+<g class="hr-n pop t" style="--d:1.0"><circle cx="70" cy="238" r="20" fill="#0f240f" stroke="#c4ff49" stroke-width="2.5"/><circle class="hr-glow" cx="70" cy="238" r="30" fill="url(#hr-g)" style="--gd:1.7"/><g fill="none" stroke="#c4ff49" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#fi-sleep" x="58" y="226" width="24" height="24"/></g></g>
+<g class="hr-n pop t" style="--d:1.15"><circle cx="160" cy="250" r="20" fill="#0f240f" stroke="#c4ff49" stroke-width="2.5"/><circle class="hr-glow" cx="160" cy="250" r="30" fill="url(#hr-g)" style="--gd:3.55"/><g fill="none" stroke="#c4ff49" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#fi-stress" x="148" y="238" width="24" height="24"/></g></g>
+<g class="hr-n pop t" style="--d:1.3"><circle cx="240" cy="256" r="20" fill="#0f240f" stroke="#c4ff49" stroke-width="2.5"/><circle class="hr-glow" cx="240" cy="256" r="30" fill="url(#hr-g)" style="--gd:5.2"/><g fill="none" stroke="#c4ff49" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#fi-food" x="228" y="244" width="24" height="24"/></g></g>
+<g class="hr-n pop t" style="--d:1.45"><circle cx="320" cy="250" r="20" fill="#0f240f" stroke="#c4ff49" stroke-width="2.5"/><circle class="hr-glow" cx="320" cy="250" r="30" fill="url(#hr-g)" style="--gd:6.85"/><g fill="none" stroke="#c4ff49" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#fi-train" x="308" y="238" width="24" height="24"/></g></g>
+<g class="hr-n pop t" style="--d:1.6"><circle cx="410" cy="238" r="20" fill="#0f240f" stroke="#c4ff49" stroke-width="2.5"/><circle class="hr-glow" cx="410" cy="238" r="30" fill="url(#hr-g)" style="--gd:8.7"/><g fill="none" stroke="#c4ff49" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#fi-body" x="398" y="226" width="24" height="24"/></g></g>
+<g class="hr-lens"><circle r="30" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="3"/><path d="M22 22L40 40" stroke="#fff" stroke-width="5" stroke-linecap="round"/></g>
+</svg>
+<div class="mg-leg" aria-hidden="true"><span>What you notice</span><span>What may sit underneath</span></div>
+</figure>
+</div>
+<ul class="authority-bar reveal">
+<li class="authority-bar-item" style="--i:0"><svg class="icon draw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg><span>100% telehealth, Canada and USA</span></li>
+<li class="authority-bar-item" style="--i:1"><svg class="icon draw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="6" width="14" height="12" rx="3"/><path d="M16 10l6-3v10l-6-3"/></svg><span>One-on-one calls with a clinician</span></li>
+<li class="authority-bar-item" style="--i:2"><svg class="icon draw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg><span>A physician involved when needed</span></li>
+<li class="authority-bar-item" style="--i:3"><svg class="icon draw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Private and confidential</span></li>
+</ul>
+</div>
+</section>
+
+<!-- APPROACH: symptoms vs root cause -->
+<section id="approach" class="section" aria-labelledby="approach-title" style="scroll-margin-top: 100px;">
+<div class="container" style="max-width: 1000px !important;">
+<h2 id="approach-title" class="medium-heading reveal">Symptoms are the signal. The cause is the work.</h2>
+<p class="lead-p reveal">Feeling tired, flat or short-tempered doesn&rsquo;t tell you why. The same symptoms can come from poor sleep, a heavy stress load, how you eat and train, extra weight, a medication, or low testosterone, and often from several at once. That&rsquo;s why we start by looking for what connects them, rather than treating each one on its own.</p>
+<figure class="mg mg--cmp reveal" aria-hidden="true" data-live style="--ar:560/250">
+<svg class="mg-svg" viewBox="0 0 560 250" focusable="false">
+<path d="M280 24V226" stroke="rgba(255,255,255,0.14)" stroke-width="2" stroke-dasharray="3 8" stroke-linecap="round"/>
+<circle cx="145" cy="125" r="72" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+<circle class="cm-orbit" cx="145" cy="125" r="72" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/>
+<g class="cm-patch" fill="none" stroke="#9db39d" stroke-width="2.5" stroke-linecap="round"><path d="M145 80v10M140 85h10"/><path d="M180 140v10M175 145h10"/><path d="M110 140v10M105 145h10"/></g>
+<circle cx="145" cy="125" r="10" fill="none" stroke="#9db39d" stroke-width="2.5" stroke-dasharray="2 5" stroke-linecap="round"/>
+<g class="cm-circ"><circle cx="145" cy="53" r="6" fill="#9db39d"/></g>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M415 36V196" stroke="rgba(196,255,73,0.2)" stroke-width="4"/>
+<path class="dr" pathLength="1" style="--d:0" stroke="#c4ff49" stroke-width="4" d="M415 36V196"/>
+<g stroke="#c4ff49" stroke-width="3.5"><path class="dr" pathLength="1" style="--d:0.9" d="M415 206C380 206 352 192 342 164"/><path class="dr" pathLength="1" style="--d:1.05" d="M415 206C450 206 478 192 488 164"/></g>
+</g>
+<circle cx="415" cy="36" r="9" fill="#0f240f" stroke="#fff" stroke-width="2.5"/>
+<g fill="#142e14" stroke="#c4ff49" stroke-width="2.5"><circle class="cm-nd" style="--k:0" cx="415" cy="76" r="7"/><circle class="cm-nd" style="--k:1" cx="415" cy="116" r="7"/><circle class="cm-nd" style="--k:2" cx="415" cy="156" r="7"/></g>
+<g class="pop t" style="--d:1.2"><circle cx="342" cy="164" r="6" fill="#142e14" stroke="#c4ff49" stroke-width="2.5"/></g>
+<g class="pop t" style="--d:1.35"><circle cx="488" cy="164" r="6" fill="#142e14" stroke="#c4ff49" stroke-width="2.5"/></g>
+<g class="pop t" style="--d:0.8"><circle class="cm-ring" cx="415" cy="206" r="14" fill="none" stroke="#c4ff49" stroke-width="2"/><circle cx="415" cy="206" r="14" fill="#0f240f" stroke="#c4ff49" stroke-width="3"/><circle cx="415" cy="206" r="5" fill="#c4ff49"/></g>
+<circle class="cm-dot" cx="415" cy="36" r="5" fill="#fff"/>
+</svg>
+<div class="mg-leg"><span><i class="sw sw--grey"></i>Chasing each symptom</span><span><i class="sw"></i>Following them to the cause</span></div>
+</figure>
+<div class="cmp-cards">
+<div class="therapy-card therapy-card--soft reveal" style="--i:0"><h3>One fix per symptom</h3><p>A sleep aid for the nights, a supplement for the afternoons, a new training plan next month. It&rsquo;s easy to end up busy and no clearer on what is actually going on.</p></div>
+<div class="therapy-card reveal" style="--i:1"><h3>One picture of the whole</h3><p>We go through your history, your routine and what you&rsquo;ve already tried, then work out what is most likely driving it and in what order to act. If a physician is needed, we&rsquo;ll say so early.</p></div>
+</div>
+</div>
+</section>
+
+<!-- FIVE AREAS -->
+<section id="areas" class="section" aria-labelledby="areas-title" data-live style="scroll-margin-top: 100px;">
+<div class="container" style="max-width: 1000px !important;">
+<h2 id="areas-title" class="medium-heading reveal">Five areas we look at first</h2>
+<p class="lead-p reveal" style="text-align:center;">Most of the time the answer is a mix of these. We go through them in the order most likely to matter for you.</p>
+<figure class="mg mg--lev reveal" aria-hidden="true" style="--ar:560/230">
+<svg class="mg-svg" viewBox="0 0 560 230" focusable="false">
+<g stroke="rgba(255,255,255,0.07)" stroke-width="1"><path d="M30 30H530M30 90H530M30 150H530"/></g>
+{{LEVERS}}
+</svg>
+</figure>
+<ul class="cards therapy-grid grid-6">
+<li class="therapy-card reveal" style="--i:0;--k:0"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#fi-sleep"/></svg><h3>Sleep</h3><p>How long, how well and how regularly you sleep. Short, broken or irregular sleep is one of the first things we check. If loud snoring or heavy daytime sleepiness are part of the picture, we&rsquo;ll suggest you ask a physician about it.</p></li>
+<li class="therapy-card reveal" style="--i:1;--k:1"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#fi-stress"/></svg><h3>Stress and recovery</h3><p>Long-running pressure, shift work and too little downtime can leave your body with little room to recover. We look at your load and where some of it can come down.</p></li>
+<li class="therapy-card reveal" style="--i:2;--k:2"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#fi-food"/></svg><h3>Nutrition</h3><p>Whether you&rsquo;re eating enough, how much protein you get, how regular your meals are and how much alcohol is in the mix. Not a crash diet, just what&rsquo;s realistic for your week.</p></li>
+<li class="therapy-card reveal" style="--i:3;--k:3"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#fi-train"/></svg><h3>Training</h3><p>Too little, or a lot without enough recovery. We help you find an amount and a mix you can keep up, instead of another all-or-nothing plan.</p></li>
+<li class="therapy-card reveal" style="--i:4;--k:4"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#fi-body"/></svg><h3>Weight and body composition</h3><p>Extra weight around the middle can be linked with lower testosterone, and the link can run both ways. We look at your trend and where small, steady changes fit.</p></li>
+</ul>
+</div>
+</section>
+
+<!-- CONNECTED -->
+<section id="together" class="section" aria-labelledby="together-title" data-live style="scroll-margin-top: 100px;">
+<div class="container" style="max-width: 1000px !important;">
+<h2 id="together-title" class="medium-heading reveal">Why we look at them together</h2>
+<p class="lead-p reveal">These areas rarely act alone. Poor sleep can make stress harder to handle. Stress can change how you eat and train. Extra weight can make sleep worse. And each of them can pull testosterone down. Fixing one thing in isolation can leave the loop running, which is why we look at the whole pattern first.</p>
+<figure class="mg mg--loop reveal" aria-hidden="true" style="--ar:440/300">
+<svg class="mg-svg" viewBox="0 0 440 300" focusable="false">
+{{LOOP}}
+</svg>
+</figure>
+</div>
+</section>
+
+<!-- LABS + PHYSICIAN -->
+<section id="labs" class="section" aria-labelledby="labs-title" data-live style="scroll-margin-top: 100px;">
+<div class="container" style="max-width: 1000px !important;">
+<h2 id="labs-title" class="medium-heading reveal">When labs and a physician come in</h2>
+<p class="lead-p reveal">Some things can be worked out from your history and routine. Others need a blood test or a physician&rsquo;s judgement. We&rsquo;ll tell you honestly which is which.</p>
+<figure class="mg mg--lab reveal" aria-hidden="true" style="--ar:560/260">
+<svg class="mg-svg" viewBox="0 0 560 260" focusable="false">
+{{LABS}}
+</svg>
+<div class="mg-leg" style="justify-content:center"><span><i class="sw"></i>A plan we build with you</span><span><i class="sw sw--phys"></i>A physician&rsquo;s call</span></div>
+</figure>
+<div class="grid-2">
+<div class="therapy-card reveal" style="--i:0"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#fi-labs"/></svg><h3>Labs, when they&rsquo;re worth it</h3><p>A blood test, usually taken in the morning, can look at total and free testosterone and other markers that overlap with how you feel. We&rsquo;ll explain which tests are worth asking about and help you read the results. Tests are ordered and reviewed by a physician where required.</p></div>
+<div class="therapy-card therapy-card--physician reveal" style="--i:1"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#fi-heart"/></svg><h3>What needs a physician</h3><ul class="tick"><li>Results that are unclear or outside the reference range.</li><li>Symptoms that could have another medical cause.</li><li>Medications that may affect how you feel. Never change a prescription on your own.</li><li>Any medical treatment, including hormone therapy. If you plan to have children, say so early.</li></ul></div>
+</div>
+<div class="cta-row reveal"><a href="{{ASSESS}}" class="btn-primary" data-cta="labs_free_assessment">Find out where to start, free</a></div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="section" aria-labelledby="how-title" style="scroll-margin-top: 100px;">
+<div class="container" style="max-width: 900px !important;">
+<h2 id="how-title" class="medium-heading reveal">How it works</h2>
+<p class="lead-p reveal" style="text-align:center;">Four steps, all online. You decide at each one whether to continue.</p>
+<div class="timeline" data-timeline data-live>
+<div class="tl-track" aria-hidden="true"><span class="tl-fill"></span><span class="tl-head"></span></div>
+<ol class="steps therapy-grid timeline-list">
+<li class="therapy-card" style="--i:0"><span class="tl-dot" aria-hidden="true">1</span><span class="step-head"><span class="step-num">Step 1</span><svg class="hi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="34" rx="5"/><path d="M18 8V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/><path class="hi-ln" pathLength="1" style="--k:0" d="M17 19h14" stroke="#fff"/><path class="hi-ln" pathLength="1" style="--k:1" d="M17 26h9" stroke="#fff"/><path class="hi-ln" pathLength="1" style="--k:2" d="M17 33h14" stroke="#fff"/></svg></span><h3>Take the free assessment</h3><p>Answer a few questions about your symptoms and routine. You&rsquo;ll see which pattern they most resemble. It&rsquo;s a starting point, not a diagnosis.</p></li>
+<li class="therapy-card" style="--i:1"><span class="tl-dot" aria-hidden="true">2</span><span class="step-head"><span class="step-num">Step 2</span><svg class="hi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><g class="hi-bub hi-bub1 t"><path d="M5 4h22a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H14l-6 5v-5H5a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"/></g><g class="hi-bub hi-bub2 t"><path d="M21 26h22a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-3v5l-6-5H21a4 4 0 0 1-4-4v-8a4 4 0 0 1 4-4z" stroke="#fff"/></g></svg></span><h3>Talk it through on a call</h3><p>A private video or phone call with a clinician to go over your history, your routine and what you&rsquo;ve already tried.</p></li>
+<li class="therapy-card" style="--i:2"><span class="tl-dot" aria-hidden="true">3</span><span class="step-head"><span class="step-num">Step 3</span><svg class="hi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 43c7 0 8-8 15-8s9 8 23 0" stroke-dasharray="2 5"/><g class="hi-pin t"><path d="M24 4c-5 0-9 4-9 9 0 7 9 15 9 15s9-8 9-15c0-5-4-9-9-9z" stroke="#fff"/><circle cx="24" cy="13" r="3" fill="#c4ff49" stroke="none"/></g></svg></span><h3>Map the likely causes and make a plan</h3><p>We put sleep, stress, nutrition, training and weight in order for you. If labs would help, we explain which to ask about. Day-to-day support comes through <a class="text-link" href="{{SITE}}/health-coaching" data-cta="how_health_coaching">health coaching</a>, and <a class="text-link" href="{{SITE}}/supplements" data-cta="how_supplements">supplements</a> where they fit.</p></li>
+<li class="therapy-card" style="--i:3"><span class="tl-dot" aria-hidden="true">4</span><span class="step-head"><span class="step-num">Step 4</span><svg class="hi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="10" width="36" height="32" rx="5"/><path d="M6 20h36M15 5v8M33 5v8"/><g fill="#c4ff49" stroke="none" opacity="0.4"><rect x="13" y="29" width="6" height="6" rx="1.5"/><rect x="24" y="29" width="6" height="6" rx="1.5"/><rect x="35" y="29" width="6" height="6" rx="1.5"/></g><rect class="hi-day" x="12" y="28" width="8" height="8" rx="2" fill="#fff" stroke="none"/></svg></span><h3>Check in and adjust</h3><p>Regular follow-ups to see what is working and change what isn&rsquo;t. If you need a physician, we&rsquo;ll say so and work alongside them.</p></li>
+</ol>
+</div>
+<div class="cta-row reveal"><a href="{{ASSESS}}" class="btn-primary" data-cta="how_free_assessment">Start with the free assessment</a></div>
+</div>
+</section>
+
+<!-- RELATED -->
+<section id="related" class="section" aria-labelledby="related-title" data-live>
+<div class="container" style="max-width: 1000px !important;">
+<h2 id="related-title" class="medium-heading reveal">Support that fits around the root-cause work</h2>
+<p class="lead-p reveal" style="text-align:center;">Finding the cause is step one. These pages cover the day-to-day support alongside it.</p>
+<figure class="mg mg--rel reveal" aria-hidden="true" style="--ar:560/190">
+<svg class="mg-svg" viewBox="0 0 560 190" focusable="false">
+{{REL}}
+</svg>
+</figure>
+<ul class="cards therapy-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;text-align:left;">
+<li class="therapy-card reveal" style="--i:0"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:0"><use href="#fi-coach"/></svg><h3>Health coaching</h3><p>Steady, practical guidance on sleep, stress, training and eating habits, with someone in your corner between check-ins.</p><a class="card-link" href="{{SITE}}/health-coaching" data-cta="related_health_coaching">Explore health coaching <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+<li class="therapy-card reveal" style="--i:1"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:1"><use href="#fi-caps"/></svg><h3>Supplements</h3><p>Targeted support where it fits your situation. It&rsquo;s never a substitute for medical care or a physician&rsquo;s advice.</p><a class="card-link" href="{{SITE}}/supplements" data-cta="related_supplements">See our supplements <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+<li class="therapy-card reveal" style="--i:2"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:2"><use href="#fi-home"/></svg><h3>The bigger picture</h3><p>Low testosterone and andropause: what they are, the symptoms men describe, and how our telehealth service works.</p><a class="card-link" href="{{SITE}}/" data-cta="related_home">Low testosterone overview <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+</ul>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section faq-section" aria-labelledby="faq-title">
+<div class="container">
+<div class="faq-head reveal" data-live><svg class="fq-motif" viewBox="0 0 120 100" fill="none" aria-hidden="true" focusable="false">
+{{FAQMOTIF}}
+</svg><h2 id="faq-title" class="medium-heading">Frequently asked questions</h2></div>
+<div class="faq-panel">
+{{FAQ}}
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section final-cta" aria-labelledby="final-title" data-live>
+<div class="cta-halo" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i></div>
+<div class="container">
+<h2 id="final-title" class="medium-heading reveal">Not sure what&rsquo;s behind it? Start with the free assessment.</h2>
+<p class="sub-text reveal" style="max-width: 600px; margin: 0 auto 25px;">It shows which pattern your symptoms resemble, so you know where to look first and what to ask about next.</p>
+<div class="cta-row reveal">
+<a id="metabolic-assessment-trigger" href="{{ASSESS}}" class="btn-primary" data-cta="final_free_assessment">Take the free assessment</a>
+</div>
+<p class="cta-note reveal">Prefer to talk first? <a href="#" class="booking-trigger text-link" data-cta="final_book_call">Book a free call</a>.</p>
+<figure class="mg mg--fin reveal" aria-hidden="true" style="--ar:360/200">
+<svg class="mg-svg" viewBox="0 0 360 200" focusable="false">
+{{COMPASS}}
+</svg>
+</figure>
+</div>
+</section>
+
+</main>
+
+<!-- Booking modal: kept because the shared nav "Book Online" button opens it -->
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true">
+<div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+<button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+<h3 id="booking-modal-title">Book an Appointment</h3>
+<div class="booking-modal-buttons">
+<a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time" target="_blank" rel="noopener noreferrer" class="btn-first-time" data-cta="modal_first_time">Book Free First Time Intake</a>
+<a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" target="_blank" rel="noopener noreferrer" class="btn-follow-up" data-cta="modal_follow_up">Book A Follow Up Appointment</a>
+</div>
+</div>
+</div>
+
+<script>
+/* Page behaviour: booking modal (used by nav), CTA tracking, scroll reveal, draw-on, loop pausing.
+   Mixpanel init and the "Page View" event stay in the existing site-level tracking code. */
+(function () {
+  var PAGE = 'functional-health';
+  /* ── Booking modal ── */
+  var overlay = document.getElementById('booking-modal-overlay');
+  var closeBtn = document.getElementById('booking-modal-close');
+  var lastFocus = null;
+  function openModal() {
+    if (!overlay) return;
+    var nav = document.getElementById('header-nav');
+    if (nav && nav.classList.contains('is-open')) {
+      var tg = document.querySelector('.nav-toggle');
+      if (tg) tg.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-open');
+      var no = document.getElementById('nav-overlay');
+      if (no) { no.classList.remove('is-visible'); no.setAttribute('aria-hidden', 'true'); }
+    }
+    lastFocus = document.activeElement;
+    overlay.classList.add('is-visible');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  }
+  function closeModal() {
+    if (!overlay) return;
+    overlay.classList.remove('is-visible');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.booking-trigger');
+    if (b) { e.preventDefault(); openModal(); }
+  });
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (overlay) overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay && overlay.classList.contains('is-visible')) closeModal();
+  });
+
+  /* ── CTA click tracking (Mixpanel, guarded). Properties: cta, page ── */
+  function trackCta(cta) {
+    try {
+      if (window.mixpanel && typeof window.mixpanel.track === 'function') {
+        window.mixpanel.track('CTA Click', { cta: cta, page: PAGE }, { transport: 'sendBeacon' });
+      }
+    } catch (err) { /* never block navigation */ }
+  }
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-cta], .booking-trigger');
+    if (!el) return;
+    var cta = el.getAttribute('data-cta');
+    if (!cta) cta = el.closest('#odin-nav-root') ? 'nav_book_online' : 'book_online';
+    trackCta(cta);
+  }, true);
+
+  /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  /* Loops pause when their block is off-screen */
+  if (hasIO && !reduce) {
+    var pauser = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle('is-paused', !en.isIntersecting); });
+    }, { rootMargin: '80px 0px' });
+    document.querySelectorAll('[data-live]').forEach(function (el) { pauser.observe(el); });
+  }
+
+  if (!reduce && hasIO) {
+    /* Normalise stroke lengths so every .draw icon can draw on */
+    document.querySelectorAll('.fh .draw').forEach(function (svg) {
+      svg.querySelectorAll('path, circle, rect, line').forEach(function (s) { s.setAttribute('pathLength', '1'); });
+    });
+    var els = document.querySelectorAll('.fh .reveal');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    document.documentElement.classList.add('js-reveal');
+    els.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < (window.innerHeight || 800)) el.classList.add('is-in'); else io.observe(el);
+    });
+
+    /* How-it-works timeline: the line fills with scroll, steps switch on as it reaches them */
+    var tl = document.querySelector('[data-timeline]');
+    if (tl) {
+      var track = tl.querySelector('.tl-track'), fill = tl.querySelector('.tl-fill'), head = tl.querySelector('.tl-head');
+      var steps = Array.prototype.slice.call(tl.querySelectorAll('.timeline-list > li'));
+      var centers = [], span = 1, raf = 0, active = false;
+      var measure = function () {
+        var half = tl.querySelector('.tl-dot').offsetHeight / 2;
+        centers = steps.map(function (li) { return li.offsetTop + 14 + half; });
+        span = Math.max(1, centers[centers.length - 1] - centers[0]);
+        track.style.top = centers[0] + 'px';
+        track.style.bottom = 'auto';
+        track.style.height = span + 'px';
+      };
+      var update = function () {
+        raf = 0;
+        var y = (window.innerHeight || 800) * 0.62 - tl.getBoundingClientRect().top;
+        var p = Math.min(1, Math.max(0, (y - centers[0]) / span));
+        fill.style.transform = 'scaleY(' + p + ')';
+        head.style.transform = 'translateY(' + (p * span) + 'px)';
+        steps.forEach(function (li, i) { li.classList.toggle('is-on', y >= centers[i] - 6); });
+      };
+      var onScroll = function () { if (!raf) raf = requestAnimationFrame(update); };
+      measure(); update();
+      window.addEventListener('resize', function () { measure(); onScroll(); });
+      window.addEventListener('load', function () { measure(); onScroll(); });
+      new IntersectionObserver(function (entries) {
+        var on = entries[0].isIntersecting;
+        if (on && !active) { window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
+        if (!on && active) { window.removeEventListener('scroll', onScroll); }
+        active = on;
+      }, { rootMargin: '200px 0px' }).observe(tl);
+    }
+  }
+})();
+</script>
+</body>
+</html>
