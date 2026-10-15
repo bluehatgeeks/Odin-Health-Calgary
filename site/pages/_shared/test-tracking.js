@@ -41,7 +41,7 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   // no mixpanel at all must not throw
   const p2 = await b.newPage(); const e2 = []; p2.on('pageerror', e => e2.push(e.message));
   await p2.goto('file://' + file, { waitUntil: 'networkidle0' });
-  await p2.evaluate(() => { document.addEventListener('click', e => { const a = e.target.closest('a'); if (a) e.preventDefault(); }, false); document.querySelector('[data-cta="hero_free_assessment"]').click(); });
+  await p2.evaluate(() => { document.addEventListener('click', e => { const a = e.target.closest('a'); if (a) e.preventDefault(); }, false); document.querySelector('[data-cta="hero_free_assessment"], [data-cta="hero_book_call"]').click(); });
   ok('click with no mixpanel does not throw', e2.length === 0, e2.join('|'));
   const meta = await p.evaluate(() => { const q = (s, a) => (document.querySelector(s) || {}).getAttribute ? document.querySelector(s).getAttribute(a) : null;
     const j = JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent); const g = j['@graph']; const faq = g.find(x => x['@type'] === 'FAQPage');
@@ -63,9 +63,12 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   ok('no duplicate ids', meta.ids.length === 0, meta.ids.join(','));
   const need = ['https://odinhealthlab.ca/', 'https://odinhealthlab.ca/functional-health', 'https://odinhealthlab.ca/health-coaching', 'https://odinhealthlab.ca/supplements', 'https://odinhealthlab.ca/privacy'].filter(u => u !== 'https://odinhealthlab.ca/' + slug);
   ok('internal links present (home + siblings + privacy)', need.every(u => meta.links.includes(u)), need.filter(u => !meta.links.includes(u)).join(','));
-  ok('assessment CTAs all -> /owen-lowt', meta.assessHrefs.length >= 4 && meta.assessHrefs.every(h => h === 'https://odinhealthlab.ca/owen-lowt'), meta.assessHrefs.length);
+  const noAssess = process.env.NO_ASSESS === '1';
+  if (noAssess) ok('NO link to /owen-lowt (paid page) anywhere in the page, no assessment CTAs', !/owen-lowt/.test(src) && meta.assessHrefs.length === 0, meta.assessHrefs.join(','));
+  else ok('assessment CTAs all -> /owen-lowt', meta.assessHrefs.length >= 4 && meta.assessHrefs.every(h => h === 'https://odinhealthlab.ca/owen-lowt'), meta.assessHrefs.length);
   ok('no Calgary in-clinic wording in body', !/calgary/i.test(src.replace(/Odin-Health-Calgary|odinlabcalgary/g, '')));
-  ok('disclaimer has 911 and 988', /call 911/.test(src) && /988/.test(src));
+  if (noAssess) ok('NO disclaimer paragraph / educational-only note / 911 / 988 / "Illustration only" caption (per Alex)', !/class="disclaimer"|call 911|\b988\b|illustration only|educational (information|only)|isn(&rsquo;|’|')t a diagnosis/i.test(src));
+  else ok('disclaimer has 911 and 988', /call 911/.test(src) && /988/.test(src));
   ok('no pageerror', errs.length === 0, errs.join('|'));
   const banned = [/\bcure[sd]?\b/i, /\breverse/i, /\bguarantee/i, /\b\d+\s*(weeks?|months?|days?)\b/i, /\b\d+\s*%(?!\s*telehealth)/, /\bboost(s|ing)?\s+testosterone/i, /clinically proven|proven to/i];
   const text = src.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');

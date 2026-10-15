@@ -1,0 +1,68 @@
+
+/* ═══ /trt-or-fix-causes-first graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
+.pg .mg--sc { max-width: 640px; }
+.pg .hf-arr { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.pg .lp-sigw { opacity: 0.35; }
+.pg .mo-spin { transform-origin: 280px 120px; }
+.pg .mo-lit, .pg .fl-lit { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.pg .sc-beam { transform-origin: 280px 62px; }
+.pg .cc-sp { opacity: 0.8; }
+.pg .cc-tick, .pg .cc-live { transform-box: fill-box; transform-origin: center; }
+.pg .cp-needle { transform-origin: 180px 100px; }
+.pg .cp-star { transform-box: fill-box; transform-origin: center; }
+.pg .fq-mag { transform-box: view-box; }
+.pg .mx-k { transform-box: fill-box; transform-origin: center; }
+/*@GEN_STATIC*/
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* 1 · hero fork: the arrival ring pulses when the two routes meet */
+  .js-reveal .pg .hf-arr { animation: hf-arr 9s ease-out infinite; }
+  @keyframes hf-arr { 0%, 68% { opacity: 0; transform: scale(1); } 70% { opacity: 0.7; transform: scale(1); } 84%, 100% { opacity: 0; transform: scale(1.7); } }
+
+  /* 2 · feedback loop: the signal dots fade once testosterone is added from outside */
+  .js-reveal .pg .lp-sigw { animation: lp-sig 12s ease-in-out infinite; }
+  @keyframes lp-sig { 0%, 38% { opacity: 1; } 55%, 90% { opacity: 0.12; } 100% { opacity: 1; } }
+  .js-reveal .pg .lp-xw { animation: lp-ext 12s ease-in-out infinite; }
+  @keyframes lp-ext { 0%, 36% { opacity: 0; } 50%, 90% { opacity: 1; } 100% { opacity: 0; } }
+
+  /* 3 · monitoring ring: a pulse circles, each check point lights as it passes */
+  .js-reveal .pg .mo-spin { animation: pg-spin 14s linear infinite; }
+  .js-reveal .pg .mo-lit { animation: mo-lit 14s ease-out infinite; animation-delay: calc(var(--k, 0) * 3.5s - 14s); }
+  @keyframes mo-lit { 0% { opacity: 0; transform: scale(1); } 1.5% { opacity: 1; transform: scale(1.08); } 12%, 100% { opacity: 0; transform: scale(1); } }
+
+  /* 4 · scale sways */
+  .js-reveal .pg .sc-beam { animation: sc-sway 6s ease-in-out infinite alternate; }
+  @keyframes sc-sway { from { transform: rotate(-2.6deg); } to { transform: rotate(2.6deg); } }
+
+  /* 5 · mixing desk: knobs slide up and down at different paces */
+  .js-reveal .pg .mx-k { animation: mx-k var(--p, 5s) ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.9s); }
+  @keyframes mx-k { from { transform: translateY(calc(var(--a, 24) * -1px)); } to { transform: translateY(calc(var(--a, 24) * 1px)); } }
+
+  /* 6 · flow chart: each node lights as the walking dot arrives */
+  .js-reveal .pg .fl-lit { animation: fl-lit 12s ease-out infinite; animation-delay: var(--dl, 0s); }
+  @keyframes fl-lit { 0% { opacity: 0; transform: scale(1); } 1.5% { opacity: 1; transform: scale(1.1); } 9%, 100% { opacity: 0; transform: scale(1); } }
+
+  /* 7 · call and checklist: speakers alternate, rows slide in and get ticked */
+  .js-reveal .pg .cc-sp { animation: cc-sp 6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -3s); }
+  @keyframes cc-sp { 0%, 50%, 100% { opacity: 0.2; } 12%, 38% { opacity: 1; } }
+  .js-reveal .pg .cc-live { animation: sy-fl 1.6s ease-in-out infinite; }
+  @keyframes sy-fl { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .js-reveal .pg .cc-row { animation: cc-in 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.6s - 9s); }
+  @keyframes cc-in { 0% { opacity: 0; transform: translateX(-24px); } 6%, 86% { opacity: 1; transform: none; } 94%, 100% { opacity: 0; transform: none; } }
+  .js-reveal .pg .cc-tick { animation: cc-tk 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.6s - 9s); }
+  @keyframes cc-tk { 0%, 10% { opacity: 0; transform: scale(0.75); } 17%, 86% { opacity: 1; transform: none; } 94%, 100% { opacity: 0; transform: none; } }
+
+  /* FAQ: magnifier drifts */
+  .js-reveal .pg .fq-mag { animation: fq-mag 4.4s ease-in-out infinite alternate; }
+  @keyframes fq-mag { from { transform: translate(-6px, 2px); } to { transform: translate(6px, -3px); } }
+
+  /* Final: the compass needle swings and settles, the north star twinkles */
+  .js-reveal .pg .cp-needle { animation: cp-swing 8s ease-out infinite; }
+  @keyframes cp-swing { 0%, 56% { transform: rotate(0deg); } 66% { transform: rotate(-68deg); } 76% { transform: rotate(26deg); } 84% { transform: rotate(-10deg); } 91% { transform: rotate(4deg); } 100% { transform: rotate(0deg); } }
+  .js-reveal .pg .cp-star { animation: cp-star 2.8s ease-in-out infinite; }
+  @keyframes cp-star { 0%, 100% { opacity: 0.35; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.3); } }
+/*@GEN_MOTION*/
+}

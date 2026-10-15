@@ -47,3 +47,13 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (63): Supplements & Herbology for Energy and Drive | Odin Health Labs
 - Description (144): Why most supplement stacks fail, and how a structured, evidence-informed plan differs. Supplements and herbs for low energy, drive and recovery.
 - Note: Review supplement claims for Health Canada NHP / FDA DSHEA wording.
+
+## TRT or Fix Causes First  `/trt-or-fix-causes-first`
+- Title (56): TRT or Fix the Causes of Low T First? | Odin Health Labs
+- Description (154): Should you start TRT or fix the causes of low testosterone first? The trade-offs, TRAVERSE findings, reversible causes and how to decide with a physician.
+- Note: NEW answer-style page (not yet published). Target query: "Should I start TRT or fix the causes of low testosterone first?" No /owen-lowt links by design (paid page); CTAs use the booking modal.
+
+## Low T Labs to Ask For  `/low-testosterone-labs-to-ask-for`
+- Title (57): Low Testosterone Labs: What to Ask For | Odin Health Labs
+- Description (152): What labs should you ask for besides total testosterone? Free T, SHBG, LH, FSH, estradiol, prolactin, hematocrit, PSA, thyroid, A1c and what each shows.
+- Note: NEW answer-style page (not yet published). Target query: "What labs should I ask for besides total testosterone?" No /owen-lowt links by design; CTAs use the booking modal.
