@@ -1,0 +1,16 @@
+.pg .hs-dot { transform: translate(382px,82px); }
+/*@motion*/
+@keyframes hs-move {
+  0% { transform: translate(62px,218px); opacity: 0; }
+  4% { transform: translate(62px,218px); opacity: 1; }
+  14% { transform: translate(62px,218px); }
+  20% { transform: translate(142px,184px); }
+  34% { transform: translate(142px,184px); }
+  40% { transform: translate(222px,150px); }
+  54% { transform: translate(222px,150px); }
+  60% { transform: translate(302px,116px); }
+  74% { transform: translate(302px,116px); }
+  80% { transform: translate(382px,82px); }
+  94% { transform: translate(382px,82px); opacity: 1; }
+  100% { transform: translate(382px,82px); opacity: 0; }
+}

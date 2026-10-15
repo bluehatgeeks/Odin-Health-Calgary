@@ -11,3 +11,9 @@
 Every change: commit to GitHub (bluehatgeeks/Odin-Health-Calgary) via cloud agent PR and merge if additive/safe.
 
 10. IN PROGRESS 2026-10-15: homepage tracking bug fix (function track overwritten by var track; renamed trackCta) publishing; then publish rewritten /functional-health (/workspace/pages/functional-health/page.html, built, tested, flags in its NOTES.md); then push both to GitHub; then verify Mixpanel CTA Click events arrive; then rewrite next pages (health-coaching, supplements, ayurveda, pemf, hydrogen, marma, shift, privacy) same way, removing old duplicate Calgary head tags.
+
+## Update 2026-10-15 13:20
+- DONE & LIVE: /functional-health (disclaimer paragraph removed per Alex), /health-coaching, /supplements.
+- GitHub: PR #3 merged (homepage trackCta, functional-health). Health-coaching/supplements sync PR in progress.
+- Shared info with Odin X Marketer (X agent): live URLs sent; he has 0 followers, no data until Oct 18 report. His question list = answer-page candidates: TRT vs fixing causes, TRT & fertility, labs to ask for (free T, SHBG, LH/FSH, estradiol), low T aging vs weight, weight-loss drugs & testosterone, peptides status CA/US (Health Canada Apr 2026 advisory).
+- NEXT: rewrite remaining non-paid pages (ayurveda, pemf, hydrogen, marma, shift, privacy); new answer pages; Search Console/Bing access needed from Alex; verify Mixpanel CTA Click events.

@@ -1,0 +1,137 @@
+<!-- Booking modal: kept because the shared nav "Book Online" button opens it -->
+<div class="booking-modal-overlay" id="booking-modal-overlay" aria-hidden="true">
+<div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+<button type="button" class="booking-modal-close" id="booking-modal-close" aria-label="Close">&times;</button>
+<h3 id="booking-modal-title">Book an Appointment</h3>
+<div class="booking-modal-buttons">
+<a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-first-time" target="_blank" rel="noopener noreferrer" class="btn-first-time" data-cta="modal_first_time">Book Free First Time Intake</a>
+<a href="https://api.leadconnectorhq.com/widget/bookings/odin-labs-follow-up" target="_blank" rel="noopener noreferrer" class="btn-follow-up" data-cta="modal_follow_up">Book A Follow Up Appointment</a>
+</div>
+</div>
+</div>
+
+<script>
+/* Page behaviour: booking modal (used by nav), CTA tracking, scroll reveal, draw-on, loop pausing.
+   Mixpanel init and the "Page View" event stay in the existing site-level tracking code. */
+(function () {
+  var PAGE = '{{SLUG}}';
+  /* ── Booking modal ── */
+  var overlay = document.getElementById('booking-modal-overlay');
+  var closeBtn = document.getElementById('booking-modal-close');
+  var lastFocus = null;
+  function openModal() {
+    if (!overlay) return;
+    var nav = document.getElementById('header-nav');
+    if (nav && nav.classList.contains('is-open')) {
+      var tg = document.querySelector('.nav-toggle');
+      if (tg) tg.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-open');
+      var no = document.getElementById('nav-overlay');
+      if (no) { no.classList.remove('is-visible'); no.setAttribute('aria-hidden', 'true'); }
+    }
+    lastFocus = document.activeElement;
+    overlay.classList.add('is-visible');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  }
+  function closeModal() {
+    if (!overlay) return;
+    overlay.classList.remove('is-visible');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.booking-trigger');
+    if (b) { e.preventDefault(); openModal(); }
+  });
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (overlay) overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay && overlay.classList.contains('is-visible')) closeModal();
+  });
+
+  /* ── CTA click tracking (Mixpanel, guarded). Properties: cta, page ── */
+  function trackCta(cta) {
+    try {
+      if (window.mixpanel && typeof window.mixpanel.track === 'function') {
+        window.mixpanel.track('CTA Click', { cta: cta, page: PAGE }, { transport: 'sendBeacon' });
+      }
+    } catch (err) { /* never block navigation */ }
+  }
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-cta], .booking-trigger');
+    if (!el) return;
+    var cta = el.getAttribute('data-cta');
+    if (!cta) cta = el.closest('#odin-nav-root') ? 'nav_book_online' : 'book_online';
+    trackCta(cta);
+  }, true);
+
+  /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  /* Loops pause when their block is off-screen */
+  if (hasIO && !reduce) {
+    var pauser = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle('is-paused', !en.isIntersecting); });
+    }, { rootMargin: '80px 0px' });
+    document.querySelectorAll('[data-live]').forEach(function (el) { pauser.observe(el); });
+  }
+
+  if (!reduce && hasIO) {
+    /* Normalise stroke lengths so every .draw icon can draw on */
+    document.querySelectorAll('.pg .draw').forEach(function (svg) {
+      svg.querySelectorAll('path, circle, rect, line').forEach(function (s) { s.setAttribute('pathLength', '1'); });
+    });
+    var els = document.querySelectorAll('.pg .reveal');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    document.documentElement.classList.add('js-reveal');
+    els.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < (window.innerHeight || 800)) el.classList.add('is-in'); else io.observe(el);
+    });
+
+    /* How-it-works timeline: the line fills with scroll, steps switch on as it reaches them */
+    var tl = document.querySelector('[data-timeline]');
+    if (tl) {
+      var tlTrack = tl.querySelector('.tl-track'), fill = tl.querySelector('.tl-fill'), head = tl.querySelector('.tl-head');
+      var steps = Array.prototype.slice.call(tl.querySelectorAll('.timeline-list > li'));
+      var centers = [], span = 1, raf = 0, active = false;
+      var measure = function () {
+        var half = tl.querySelector('.tl-dot').offsetHeight / 2;
+        centers = steps.map(function (li) { return li.offsetTop + 14 + half; });
+        span = Math.max(1, centers[centers.length - 1] - centers[0]);
+        tlTrack.style.top = centers[0] + 'px';
+        tlTrack.style.bottom = 'auto';
+        tlTrack.style.height = span + 'px';
+      };
+      var update = function () {
+        raf = 0;
+        var y = (window.innerHeight || 800) * 0.62 - tl.getBoundingClientRect().top;
+        var p = Math.min(1, Math.max(0, (y - centers[0]) / span));
+        fill.style.transform = 'scaleY(' + p + ')';
+        head.style.transform = 'translateY(' + (p * span) + 'px)';
+        steps.forEach(function (li, i) { li.classList.toggle('is-on', y >= centers[i] - 6); });
+      };
+      var onScroll = function () { if (!raf) raf = requestAnimationFrame(update); };
+      measure(); update();
+      window.addEventListener('resize', function () { measure(); onScroll(); });
+      window.addEventListener('load', function () { measure(); onScroll(); });
+      new IntersectionObserver(function (entries) {
+        var on = entries[0].isIntersecting;
+        if (on && !active) { window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
+        if (!on && active) { window.removeEventListener('scroll', onScroll); }
+        active = on;
+      }, { rootMargin: '200px 0px' }).observe(tl);
+    }
+  }
+})();
+</script>
+</body>
+</html>
