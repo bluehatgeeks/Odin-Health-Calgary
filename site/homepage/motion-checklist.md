@@ -9,3 +9,4 @@
 8. Default CSS = final state. Gate motion behind `prefers-reduced-motion: no-preference`; content must be fully visible with JS off.
 9. Reserve space (width/height or aspect-ratio) for every animated graphic: CLS must stay 0. Never animate the H1/LCP element's opacity.
 10. No statistics or efficacy claims in animated graphics; label illustrations; test at 1280 and 390, console clean, screenshots saved to `shots/`.
+11. Every section gets its own distinct graphic concept (diagram, network, radial, scene), not a reused hero pattern; label data-like graphics "Illustration only".
