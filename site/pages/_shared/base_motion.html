@@ -1,0 +1,36 @@
+
+/* ═══ Motion enabled ═══ every loop is gated by prefers-reduced-motion: no-preference AND .js-reveal (set by JS) */
+@media (prefers-reduced-motion: no-preference) {
+  .pg .hero-in { animation: hv-up 560ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 70ms); }
+  @keyframes hv-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .pg .hero-section::before { animation: hv-breathe 9s ease-in-out infinite alternate; }
+  @keyframes hv-breathe { from { opacity: 0.55; } to { opacity: 1; } }
+  .pg .cta-halo i { animation: halo 5.4s ease-out infinite; animation-delay: calc(var(--k, 0) * 1.8s); }
+  @keyframes halo { 0% { transform: scale(0.35); opacity: 0.55; } 100% { transform: scale(1); opacity: 0; } }
+
+  /* shared keyframes */
+  @keyframes pg-draw { to { stroke-dashoffset: 0; } }
+  @keyframes pg-pop { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: none; } }
+  @keyframes pg-ring { 0% { opacity: 0.55; transform: scale(1); } 100% { opacity: 0; transform: scale(2.4); } }
+  @keyframes pg-spin { to { transform: rotate(360deg); } }
+  @keyframes pg-spin-r { to { transform: rotate(-360deg); } }
+  @keyframes pg-bob { from { transform: translateY(0); } to { transform: translateY(-4px); } }
+
+  /* draw-on + pop-in run ONCE when the figure scrolls into view (JS adds .is-in) */
+  .js-reveal .pg .dr { stroke-dasharray: 1 2; stroke-dashoffset: 1; }
+  .js-reveal .pg .is-in .dr { animation: pg-draw var(--dur, 1.4s) cubic-bezier(0.3, 0.6, 0.3, 1) both; animation-delay: calc(var(--d, 0) * 1s); }
+  .js-reveal .pg .pop { opacity: 0; }
+  .js-reveal .pg .is-in .pop { animation: pg-pop 480ms var(--ease-out) both; animation-delay: calc(var(--d, 0) * 1s); }
+
+  /* Off-screen loops pause (class toggled by IntersectionObserver) */
+  [data-live].is-paused, [data-live].is-paused *, [data-live].is-paused::before { animation-play-state: paused !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js-reveal .pg .reveal { opacity: 1; transform: none; transition: none; }
+  .pg .btn-primary, .pg .btn-outline, .pg .therapy-card, .pg .authority-bar-item, .pg .card-link .arr { transition: none; }
+  .pg .btn-primary:hover, .pg .therapy-card:hover, .pg .authority-bar-item:hover, .pg .card-link:hover .arr { transform: none; }
+  .pg .btn-primary:active, .pg .btn-outline:active { transform: none; }
+  .pg .faq-item[open] .faq-answer { animation: none; }
+  .pg .faq-item summary::before, .pg .faq-item::details-content { transition: none; }
+}

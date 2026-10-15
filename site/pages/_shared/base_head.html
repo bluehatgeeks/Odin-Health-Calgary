@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESC}}"/>
+<link rel="canonical" href="{{PAGE_URL}}"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="theme-color" content="#1a3a1a"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Odin Health Labs"/>
+<meta property="og:locale" content="en_CA"/>
+<meta property="og:url" content="{{PAGE_URL}}"/>
+<meta property="og:title" content="{{TITLE}}"/>
+<meta property="og:description" content="{{DESC}}"/>
+<meta property="og:image" content="{{OG_IMG}}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="{{OG_ALT}}"/>
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="{{TITLE}}"/>
+<meta name="twitter:description" content="{{DESC}}"/>
+<meta name="twitter:image" content="{{OG_IMG}}"/>
+<meta name="twitter:image:alt" content="{{OG_ALT}}"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odinlabcalgary.css?v=4"/>
+<style>
+/* Inline override: prevents Chrome extensions from narrowing layout wrappers */
+body .container { max-width: 1300px !important; margin: 0 auto !important; padding: 0 20px !important; }
+body .content-wrapper { max-width: 1300px !important; margin: 0 auto !important; padding: 0 20px !important; }
+body .faq-section .container { max-width: 800px !important; }
+
+/* ── Page scope (pg) — additive only, uses existing design tokens ── */
+.pg {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --card-bg: #142e14;
+  --lime-line: rgba(196, 255, 73, 0.25);
+}
+.pg :where(a, button, summary):focus-visible { outline: 3px solid var(--lime-green); outline-offset: 3px; border-radius: 8px; }
+.pg .hero-slogan.hero-eyebrow { opacity: 1; white-space: normal; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.4; }
+.pg .large-heading { font-size: clamp(2.1rem, 5.2vw, 3.3rem); line-height: 1.12; text-wrap: balance; }
+.pg .medium-heading { font-size: clamp(1.8rem, 4.2vw, 2.6rem); line-height: 1.18; margin-bottom: 24px; text-align: center; text-wrap: balance; }
+.pg .hero-lede { font-size: 1.2rem; line-height: 1.6; max-width: 680px; margin: 22px auto 0; color: var(--white-800); }
+.pg .hero-lede strong { color: var(--white); }
+.pg .lead-p { font-size: 1.12rem; line-height: 1.65; max-width: 720px; margin: 0 auto 26px; color: var(--white-800); text-align: left; }
+.pg .lead-p strong { color: var(--white); }
+.pg .cta-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px; margin-top: 30px; }
+.pg .cta-note { font-size: 0.95rem; color: var(--white-800); margin: 14px 0 0; }
+.pg .text-link, .pg .lead-p a, .pg .sub-text a:not(.btn-primary):not(.btn), .pg .faq-answer a { color: var(--lime-green); text-underline-offset: 3px; }
+.pg .text-link:hover, .pg .lead-p a:hover, .pg .faq-answer a:hover { color: var(--white); }
+.pg .btn-primary, .pg .btn-outline { min-height: 48px; transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background-color 160ms var(--ease-out), color 160ms var(--ease-out); }
+.pg .btn-primary:hover { transform: none; }
+@media (hover: hover) and (pointer: fine) { .pg .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196, 255, 73, 0.22); } }
+.pg .btn-primary:active, .pg .btn-outline:active { transform: scale(0.97); }
+.pg ul.authority-bar { list-style: none; padding: 0; margin: 36px 0 0; }
+.pg ul.authority-bar li span { color: var(--white); }
+.pg .authority-bar-item .icon { overflow: visible; }
+.pg ul.cards, .pg ol.steps { list-style: none; padding: 0; margin: 0 auto; }
+.pg .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: left; margin: 0 auto; }
+.pg .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; text-align: left; margin: 0 auto; }
+.pg .grid-6 > li { grid-column: span 2; }
+.pg .grid-6 > li:nth-child(4) { grid-column: 2 / span 2; }
+.pg .grid-6 > li:nth-child(5) { grid-column: 4 / span 2; }
+.pg .therapy-card h3, .pg .therapy-card h4 { font-size: 1.3rem; margin: 0 0 10px 0; color: var(--lime-green); line-height: 1.3; }
+.pg .therapy-card p { font-size: 1.05rem; line-height: 1.55; color: var(--white); margin: 0; }
+.pg .therapy-card p + p { margin-top: 10px; }
+.pg .therapy-card ul.tick { list-style: none; margin: 10px 0 0; padding: 0; }
+.pg .therapy-card ul.tick li { position: relative; padding: 0 0 0 24px; margin: 8px 0 0; font-size: 1.02rem; line-height: 1.5; color: var(--white); }
+.pg .therapy-card ul.tick li::before { content: ""; position: absolute; left: 3px; top: 0.55em; width: 8px; height: 8px; border-radius: 50%; background: var(--lime-green); }
+.pg .therapy-card .step-num { display: block; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-800); margin-bottom: 6px; }
+.pg .therapy-card--physician { border-style: dashed; background: transparent; }
+.pg .card-link { display: inline-block; margin-top: 12px; color: var(--lime-green); font-weight: 700; text-underline-offset: 3px; padding: 6px 0; }
+.pg .card-link:hover { color: var(--white); }
+.pg .card-link .arr { display: inline-block; margin-left: 4px; }
+.pg .group-label { font-size: 1.15rem; font-weight: 700; color: var(--white); margin: 30px 0 14px; text-align: left; }
+.pg .disclaimer { max-width: 760px; margin: 0 auto; padding: 0 20px 50px; font-size: 0.9rem; line-height: 1.55; color: var(--white-800); text-align: center; }
+.pg .crumbs { max-width: 1300px; margin: 0 auto; padding: 0 20px 6px; font-size: 0.9rem; color: var(--white-800); }
+.pg .crumbs a { color: var(--lime-green); text-underline-offset: 3px; padding: 6px 0; display: inline-block; }
+.pg .crumbs span[aria-hidden] { margin: 0 8px; opacity: 0.6; }
+
+/* ═══ Motion system (rules in motion-checklist.md) ═══
+   transform / opacity first; SVG stroke draw-on is the one exception (small paths, runs once);
+   ease-out for UI, custom curves; hover gated to fine pointers; loops pause off-screen;
+   default CSS = FINAL static state, so no-JS and prefers-reduced-motion see everything. */
+@media (hover: hover) and (pointer: fine) {
+  .pg .therapy-card { transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out); }
+  .pg .therapy-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+  .pg .authority-bar-item { transition: transform 200ms var(--ease-out), border-color 200ms ease; }
+  .pg .authority-bar-item:hover { transform: translateY(-3px); border-color: rgba(196, 255, 73, 0.6); }
+  .pg .card-link .arr { transition: transform 180ms var(--ease-out); }
+  .pg .card-link:hover .arr { transform: translateX(4px); }
+}
+.js-reveal .pg .reveal { opacity: 0; transform: translateY(12px); transition: opacity 320ms var(--ease-out), transform 320ms var(--ease-out); transition-delay: calc(var(--i, 0) * 50ms); }
+.js-reveal .pg .reveal.is-in { opacity: 1; transform: none; }
+.js-reveal .pg .draw :is(path, circle, rect, line) { stroke-dasharray: 1 2; stroke-dashoffset: 1; transition: stroke-dashoffset 700ms var(--ease-out); transition-delay: calc(var(--i, 0) * 60ms + 120ms); }
+.js-reveal .pg .is-in .draw :is(path, circle, rect, line), .js-reveal .pg .draw.is-in :is(path, circle, rect, line) { stroke-dashoffset: 0; }
+
+/* Hero */
+.pg .hero-section { position: relative; isolation: isolate; }
+.pg .hero-section::before { content: ""; position: absolute; z-index: -1; inset: -10% 0 auto 0; height: 90%; background: radial-gradient(60% 55% at 78% 30%, rgba(196, 255, 73, 0.10), transparent 70%), radial-gradient(45% 45% at 15% 70%, rgba(196, 255, 73, 0.05), transparent 70%); pointer-events: none; }
+.pg .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: center; max-width: 800px; margin: 0 auto; }
+.pg .hero-copy { text-align: center; }
+@media (min-width: 960px) {
+  .pg .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; max-width: none; }
+  .pg .hero-copy, .pg .hero-copy .large-heading, .pg .hero-copy .hero-slogan.hero-eyebrow { text-align: left; }
+  .pg .hero-copy .hero-lede, .pg .hero-copy .cta-note { margin-left: 0; margin-right: 0; text-align: left; }
+  .pg .hero-copy .cta-row { justify-content: flex-start; }
+}
+
+/* Figure frame shared by every graphic */
+.pg .mg { margin: 0 auto 30px; max-width: 720px; position: relative; contain: layout paint; border: 1px solid var(--lime-line); border-radius: 18px; padding: 14px 14px 10px; text-align: left;
+  background: radial-gradient(110% 90% at 85% 0%, rgba(196, 255, 73, 0.09), transparent 60%), var(--card-bg); }
+.pg .mg svg.mg-svg { display: block; width: 100%; height: auto; aspect-ratio: var(--ar); }
+.pg .mg--hero { margin: 0; max-width: none; }
+.pg .mg--fin { max-width: 380px; margin: 30px auto 0; }
+.pg .mg .t { transform-box: fill-box; transform-origin: center; }
+.pg .mg-leg { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 22px; padding: 8px 6px 0; font-size: 0.85rem; font-weight: 600; color: var(--white-800); }
+.pg .mg-leg span { display: inline-flex; align-items: center; gap: 8px; }
+.pg .mg-cap { margin: 6px 6px 2px; font-size: 0.8rem; line-height: 1.4; color: var(--white-800); text-align: center; }
+.pg .sw { display: inline-block; width: 22px; height: 0; border-top: 3px solid var(--lime-green); border-radius: 2px; }
+.pg .sw--grey { border-top-color: #9db39d; border-top-style: dashed; }
+.pg .sw--phys { border-top: 2px dashed rgba(255, 255, 255, 0.6); }
+
+/* Final (static) states live in each page's own CSS */
+
+/* Icon chips on cards (same glyph as the node in the graphics) */
+.pg .ci { display: block; width: 44px; height: 44px; padding: 9px; box-sizing: border-box; border-radius: 12px; background: rgba(196, 255, 73, 0.1); color: var(--lime-green); margin: 0 0 12px; }
+.pg .therapy-card--physician .ci { color: #e8efe8; background: rgba(255, 255, 255, 0.08); }
+.pg .sym-ico { flex: 0 0 26px; width: 26px; height: 26px; color: var(--lime-green); }
+
+/* Compare cards (symptom-chasing vs root cause) */
+.pg .cmp-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 0 auto; text-align: left; }
+.pg .cmp-cards .therapy-card--soft { opacity: 1; background: rgba(255, 255, 255, 0.03); border-style: dashed; }
+
+/* How-it-works timeline (same mechanism as the homepage) */
+.pg .timeline { --d: 36px; --g: 60px; position: relative; max-width: 760px; margin: 0 auto 8px; }
+.pg ol.steps.timeline-list { display: flex; flex-direction: column; gap: 20px; padding: 0 0 0 var(--g); margin: 0; }
+.pg .tl-track { position: absolute; left: calc(var(--d) / 2 - 1px); top: 32px; bottom: 60px; width: 2px; border-radius: 2px; background: rgba(196, 255, 73, 0.18); }
+.pg .tl-fill { position: absolute; inset: 0; border-radius: 2px; background: var(--lime-green); transform-origin: top; }
+.pg .tl-head { display: none; position: absolute; left: -4px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--lime-green); box-shadow: 0 0 12px rgba(196, 255, 73, 0.7); }
+.pg .timeline-list > li { position: relative; }
+.pg .tl-dot { position: absolute; left: calc(var(--g) * -1); top: 14px; width: var(--d); height: var(--d); border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 0.95rem; line-height: 1; background: var(--lime-green); color: var(--dark-green); border: 2px solid var(--lime-green);
+  transition: transform 320ms var(--ease-out), background-color 240ms ease, color 240ms ease, border-color 240ms ease; }
+.pg .tl-dot::after { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--lime-green); opacity: 0; pointer-events: none; }
+.js-reveal .pg .tl-track .tl-fill { transform: scaleY(0); }
+.js-reveal .pg .tl-head { display: block; }
+.js-reveal .pg .timeline-list > li { opacity: 0.4; transition: opacity 360ms var(--ease-out); }
+.js-reveal .pg .timeline-list > li > :not(.tl-dot) { transform: translateX(10px); transition: transform 360ms var(--ease-out); }
+.js-reveal .pg .timeline-list > li.is-on { opacity: 1; }
+.js-reveal .pg .timeline-list > li.is-on > :not(.tl-dot) { transform: none; }
+.js-reveal .pg .timeline-list > li .tl-dot { transform: scale(0.88); background: var(--card-bg); color: var(--white-800); border-color: rgba(196, 255, 73, 0.4); }
+.js-reveal .pg .timeline-list > li.is-on .tl-dot { transform: none; background: var(--lime-green); color: var(--dark-green); border-color: var(--lime-green); }
+.js-reveal .pg .timeline-list > li.is-on .tl-dot::after { animation: tl-ring 700ms var(--ease-out) both; }
+@keyframes tl-ring { from { transform: scale(1); opacity: 0.7; } to { transform: scale(1.8); opacity: 0; } }
+.pg .therapy-card .step-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.pg .therapy-card .step-head .step-num { margin: 0; }
+.pg .hi { flex: 0 0 auto; display: block; width: 64px; height: 64px; padding: 9px; box-sizing: border-box; border-radius: 16px; background: rgba(196, 255, 73, 0.1); }
+.pg .hi .t { transform-box: fill-box; transform-origin: center; }
+@media (max-width: 768px) { .pg .timeline { --d: 32px; --g: 50px; } }
+
+/* FAQ: icon turns, answer fades/slides in, height eases where supported */
+.pg .faq-item summary { position: relative; }
+.pg .faq-item summary::after, .pg .faq-item[open] summary::after { content: ""; }
+.pg .faq-item summary::before { content: ""; position: absolute; z-index: 1; right: 24px; top: 50%; width: 28px; height: 28px; margin-top: -14px; pointer-events: none;
+  background: linear-gradient(var(--lime-green), var(--lime-green)) center / 12px 2px no-repeat, linear-gradient(var(--lime-green), var(--lime-green)) center / 2px 12px no-repeat;
+  transition: transform 240ms var(--ease-out); }
+.pg .faq-item[open] summary::before { transform: rotate(135deg); }
+.pg .faq-item[open] .faq-answer { animation: faq-in 280ms var(--ease-out) both; }
+@keyframes faq-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@supports selector(::details-content) {
+  .pg .faq-item { interpolate-size: allow-keywords; }
+  .pg .faq-item::details-content { block-size: 0; overflow: clip; transition: block-size 280ms var(--ease-out), content-visibility 280ms allow-discrete; }
+  .pg .faq-item[open]::details-content { block-size: auto; }
+}
+
+.pg .faq-head { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 0 0 28px; }
+.pg .faq-head .medium-heading { margin: 0; text-align: left; }
+.pg .fq-motif { flex: 0 0 auto; width: 132px; height: 110px; display: block; overflow: visible; }
+.pg .mg--md { max-width: 600px; }
+.pg .mg--sm { max-width: 460px; }
+
+/* Final CTA */
+.pg .final-cta { position: relative; overflow: hidden; }
+.pg .final-cta .container { position: relative; }
+.pg .cta-halo { position: absolute; left: 50%; top: 40%; width: 380px; height: 380px; margin: -190px 0 0 -190px; pointer-events: none; }
+.pg .cta-halo i { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid rgba(196, 255, 73, 0.35); opacity: 0.12; transform: scale(0.8); }
+
+@media (max-width: 768px) {
+  .pg .grid-2, .pg .cmp-cards { grid-template-columns: 1fr; }
+  .pg .grid-6 { grid-template-columns: 1fr; }
+  .pg .grid-6 > li, .pg .grid-6 > li:nth-child(4), .pg .grid-6 > li:nth-child(5) { grid-column: auto; }
+  .pg .cta-row .btn-primary, .pg .cta-row .btn-outline { width: 100%; box-sizing: border-box; text-align: center; }
+  .pg .hero-lede { font-size: 1.1rem; }
+  .pg .mg { padding: 10px 10px 8px; border-radius: 16px; margin-bottom: 24px; }
+  .pg .mg-leg { font-size: 0.8rem; }
+  .pg .faq-head { flex-direction: column; gap: 6px; }
+  .pg .faq-head .medium-heading { text-align: center; }
+  .pg .fq-motif { width: 108px; height: 90px; }
+  .pg .hi { width: 56px; height: 56px; padding: 8px; }
+  .pg .cta-halo { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
+}

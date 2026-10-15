@@ -5,3 +5,6 @@
 - Mixpanel access via UI done. Baseline 30d (Sep15-Oct14): 442 uniques/648 [Auto] Page Views; referrers: facebook ~330+, instagram 66, google 9 events; UTM fb 333, ig 86. Funnel: Quiz Reveal 55, Video Lead 18, Outcome Shown 19, Appt Booked 13 (Booking Link Clicked 0 = likely tracking gap). Organic is near zero -> priority is SEO/AI discoverability.
 - 2026-10-15 11:31 MDT: Published animated-motion homepage (home.html, 893 lines) live at / and /yyc. Old version in GHL version history. Next: sitemap, llms.txt, nav/footer Calgary wording, other pages with motion.
 - 2026-10-15 12:13 MDT: Published per-section motion graphics homepage (1190 lines) live; previous in home.v2.html. Pushed to GitHub.
+- 2026-10-15 12:37 MDT: llms.txt live (domain Edit dialog field); XML sitemap regenerated with 10 non-Paid pages (Paid pages unticked). Next: per-page SEO meta (item 3), functional-health rewrite (item 4, building).
+- 2026-10-15 12:45 MDT: SEO title+description set in GHL on 10 non-Paid pages and verified live; old duplicate Calgary title/description remain in custom HTML of 8 pages (fix in page rewrites, backlog 4).
+- 2026-10-15 12:50 MDT: Found CTA tracking bug on live homepage (var track shadowed function track); fixed in template (trackCta), publishing. functional-health rewrite built, next to publish.

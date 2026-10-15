@@ -1,0 +1,48 @@
+# /health-coaching rewrite (local only, NOT published)
+
+Files: `page.html` (self-contained; paste into the GHL custom-code "Main Content" element), `build.py` (content, FAQ list, SVG graphics generators), `page.body.html` (markup with `{{SLOTS}}`), `page.css` (graphics CSS: static final state first, then a `prefers-reduced-motion: no-preference` block), `gen.hero.css` / `gen.bridge.css` (keyframes generated from coordinates by `build.py`). Shared with /supplements: `../_shared/` (`base_head.html` head + base CSS, `base_motion.html` shared keyframes/pause rule/reduced-motion, `base_loader.html` nav/footer loaders, `base_tail.html` booking modal + `trackCta` + reveal/timeline JS, `common.py` icons + JSON-LD + assembler, `test-visual.js`, `test-tracking.js`, `sheet.py`). Regenerate: `python3 build.py`. Tests (from `/workspace/hp-test`, `NODE_PATH=/workspace/hp-test/node_modules`): `node ../pages/_shared/test-visual.js health-coaching`, `node ../pages/_shared/test-tracking.js health-coaching`. Screenshots in `shots/` (`NN-section-WIDTH-a/b.png` = two moments of each loop; `sheets/` = side-by-side contact sheets).
+
+Same architecture as /functional-health: inline CDN CSS, inline nav/footer loaders, booking modal kept (nav "Book Online"), motion rules from `/workspace/homepage/motion-checklist.md`. Differences: scope class is `.pg`, icon sprite ids are `pi-*`, and the tracking function is **`trackCta`** (nothing is called `track`; the timeline JS var that FH calls `track` is `tlTrack` here).
+
+## SEO
+- Title (62 chars) and description (148 chars) are **verbatim from `/workspace/homepage/seo-meta.md`**, used identically in `<title>`, meta description, og:title/description and twitter:title/description. **The title is 2 chars over the 60-char target** (seo-meta.md itself lists it as 62, and it is what is live now). Google may cut off "Odin Health Labs" to "Odin Health La…". A 58-char drop-in if you prefer: `Health Coaching for Men with Low-T Symptoms | Odin Labs` (change `TITLE` in `build.py` and the line in seo-meta.md, then rebuild; the tracking test compares against seo-meta.md).
+- Canonical `https://odinhealthlab.ca/health-coaching`, robots index/follow, OG + Twitter tags. og:image reuses `og-home.png` (needs `img/og-home.png` in the repo, same dependency as the homepage).
+- JSON-LD `@graph`: Organization (same `@id` as homepage), WebSite, WebPage (+breadcrumb, mainEntity FAQ), BreadcrumbList, FAQPage with 6 Q&As built from the same list as the on-page FAQ (test checks question and answer text match the DOM 1:1).
+- Internal links: homepage (hero, crumb, related), /functional-health and /supplements (related cards), /privacy (FAQ). Assessment CTAs all go to `https://odinhealthlab.ca/owen-lowt`.
+- `cta` values (all unique, all `data-cta`): crumb_home, hero_home_link, hero_free_assessment, hero_how_it_works, doctor_free_assessment, how_free_assessment, related_functional_health, related_supplements, related_home, final_free_assessment, final_book_call, modal_first_time, modal_follow_up; nav "Book Online" (no data-cta) reports `nav_book_online`, any other `.booking-trigger` reports `book_online`. Event: `mixpanel.track('CTA Click', {cta, page:'health-coaching'})`, guarded.
+
+## Motion graphics (each section its own; all inline SVG/CSS, `aria-hidden`, no text, no numbers)
+| Section | Graphic |
+|---|---|
+| Hero | Staircase of five steps (sleep, stress, training, nutrition, check-ins). The edge draws on, icon nodes pop in, a dot hops step to step and each node lights when it lands; flag on top |
+| Familiar symptoms | Three mini scenes: battery whose level drifts and bolt flickers (energy), flame that flickers with rising embers (drive), moon with twinkling stars and floating z's (sleep) |
+| Protocol, not tips | Split: left, six dashed "tip" chips drift with no order; right, six solid step rows slide into place in sequence and get ticked |
+| Five pillars | Habit-tracker grid (5 pillars x 7 days): dots fill in day by day while a highlight column sweeps across the week |
+| Weekly rhythm | Dial with a sweeping wedge hand; seven day dots light as it passes; two chat bubbles take turns |
+| Alongside your doctor | Arched bridge draws on; a shared note crosses it coach to physician and back, end nodes pulse on arrival; "you" node underneath |
+| How it works | Scroll-filled timeline (as FH/homepage) with four new icons: three sliders whose knobs move, video-call screen with live dot and sound arcs, checklist whose ticks pop in turn, two arrows cycling |
+| Related | Three tiles (functional health, coaching, supplements) slide together, lock, ring pulses, connector knobs appear |
+| FAQ | Speech bubble with a drawn question mark bobs; three typing dots bounce |
+| Final CTA | Door swings open once, light spills out and glows; footsteps lead in; existing button halo |
+
+Rules followed: transform and opacity for every loop; stroke-dashoffset only for one-shot draw-on; ease-out curves; nothing starts below scale .7; hover only on `(hover:hover) and (pointer:fine)`; `:active` scale .97; 48px buttons; loops 1.5-40s and pause off-screen through the `[data-live].is-paused` IntersectionObserver; default CSS is the final state and every animation is gated by `prefers-reduced-motion: no-preference` AND `.js-reveal`, so reduced-motion and no-JS users get complete static graphics. Each figure has a fixed `aspect-ratio` (CLS 0).
+
+## Tested (headless Chrome, puppeteer-core, file:// build, 1280 and 390 wide)
+See the report in the final message / `test-visual.out.json` / `test-tracking.out.txt`. Console errors and warnings 0, failed requests 0, CLS 0, no horizontal overflow, one h1, no duplicate ids, JSON-LD parses, FAQ parity, reduced motion: 0 running animations and nothing hidden, JS disabled: nothing hidden, 0 loop animations running while their block is >200px off-screen. Tracking: stubbed `window.mixpanel`, **every** `[data-cta]` element clicked (13/13 fire `CTA Click` with the right `cta` and `page`), the nav-style booking trigger fires and opens the modal, a click with no `mixpanel` present doesn't throw, static guard that nothing is named `track`. Not checked: real-device FPS, Safari/Firefox, Lighthouse inside GHL, the live nav/footer loaders inside GHL.
+
+## Compliance flags (human / legal review)
+1. **Title is 62 chars** (seo-meta.md verbatim, see SEO). Meta description is within limits.
+2. **What was removed from the old page** (all unverifiable or promissory): "We Do Not Practice Medicine", "104 randomized trials / 168K participants / 2023 meta-analysis" and every outcome claim derived from it (HbA1c, blood pressure, LDL, BMI, "lasting improvements ... chronic illness outcomes"), "Evidence-Based Practice", the 18-item condition list (thyroid dysfunction, metabolic syndrome, HPA axis dysregulation, post-viral fatigue, hormonal imbalances ...), "we test your actual cortisol pattern", "root cause" promises, the 90-minute consultation, written physiology summary, "executives / shift workers / chronic fatigue" client profiles with clinical symptom lists, and "Calgary" wording. Nothing is claimed about outcomes, timelines, labs we run or conditions coaching addresses.
+3. **Who "your coach" is.** Copy says "coach" and "one-on-one with your coach". Confirm who delivers coaching, their qualifications, and that the service is described accurately (the homepage and FH say "clinician"). Do not imply licensed clinical care.
+4. **Scope statement.** Coaching "can't diagnose or treat low testosterone". Hero and FAQ say symptoms "overlap with low testosterone and andropause". This is deliberately worded as association, not diagnosis. Confirm "andropause" is acceptable terminology for your reviewer (it is a lay term; "late-onset hypogonadism" is the clinical one).
+5. **Cross-border scope:** "serves men across Canada and the USA" needs the same licensing / corporate-practice check as the homepage (not verified).
+6. **General health statements, unsourced:** extra weight around the middle and sleep/stress affect how men feel (worded "can"); loud snoring plus daytime sleepiness should be raised with a physician. Add citations or get clinician sign-off.
+7. **Safety nudges (keep):** never change a prescription on your own; say early if you plan to have children; physician for any hormone therapy.
+8. **Tracking suggestions** ("what you might track") are examples, not a clinical protocol.
+9. **Graphics** all say "Illustration only"; none shows numbers, outcomes, before/after or a rising trend line. The staircase and tracker are about process (steps, habits), not results; the habit grid is a decorative pattern, not data.
+10. **Disclaimer** at the bottom adds that coaching "is not medical treatment and does not diagnose or treat low testosterone or any other condition", physician-only for medical items, 911 and 988 (988 works in the USA and Canada; confirm wording). No testimonials, statistics, urgency or scarcity.
+11. **Shared nav/footer** still carry Calgary wording where the owner kept it ("Made with ♥ in Calgary"). The page body has none.
+12. **Booking:** the "Book a free call" link and the nav button open the existing GHL booking modal (first-time and follow-up calendars). Same as FH.
+
+## Publishing checklist (when approved)
+Paste `page.html` into the page's custom-code element (Version History keeps the old one), confirm CDN nav/footer render, check `/health-coaching` live at 1280 and 390, then commit the folder (including `../_shared`) to the repo under `pages/`. Add `/health-coaching` to the custom sitemap and `llms.txt` if not already there.
