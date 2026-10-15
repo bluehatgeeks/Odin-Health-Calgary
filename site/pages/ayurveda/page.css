@@ -1,0 +1,85 @@
+
+/* ═══ Ayurveda: graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
+.pg .ay-pulse, .pg .ay-in { opacity: 0; }
+/*@GEN_STATIC*/
+.pg .ay-br, .pg .ay-lung, .pg .ay-who, .pg .ay-star, .pg .ay-fp, .pg .fq-fl, .pg .ay-pulse, .pg .ay-in, .pg .ay-ck, .pg .ay-cyc { transform-box: fill-box; transform-origin: center; }
+.pg .ay-orb { transform-box: view-box; transform-origin: 240px 160px; }
+.pg .ay-who { opacity: 0.5; }
+.pg .ay-mix { opacity: 1; }
+.pg .ay-steam { opacity: 0.75; }
+.pg .ay-arm { transform-box: view-box; transform-origin: 208px 126px; transform: rotate(-10deg); }
+.pg .ay-leaf { transform: none; }
+.pg .ay-sky { transform-box: view-box; transform-origin: 220px 196px; transform: rotate(52deg); }
+.pg .ay-mk { opacity: 1; }
+.pg .ay-star { opacity: 0.8; }
+.pg .ay-rays { transform-box: view-box; transform-origin: 180px 146px; }
+.pg .ay-rise { transform: none; }
+.pg .ay-fp { opacity: 0.7; }
+.pg .fq-pes { transform-box: view-box; transform-origin: 64px 52px; }
+.pg .fq-fl { opacity: 0.8; }
+.pg .ay-sp { transform-box: view-box; }
+.pg .ay-wv { opacity: 1; }
+.js-reveal .pg .ay-rise { transform: translateY(46px); }
+.js-reveal .pg .is-in .ay-rise { transform: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* 1 · HERO: the three dosha circles breathe in turn, the outer ring of dots turns, the centre pulses */
+  .js-reveal .pg .ay-br { animation: ay-breathe 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -3s); }
+  @keyframes ay-breathe { 0%, 100% { transform: scale(0.95); } 50% { transform: scale(1.05); } }
+  .js-reveal .pg .ay-orb { animation: pg-spin 36s linear infinite; }
+  .js-reveal .pg .ay-pulse { animation: pg-ring 4.5s ease-out infinite; }
+
+  /* 2 · CONSTITUTION: three mixes take turns in front, the matching person lights in sync */
+  .js-reveal .pg .ay-mix { animation: ay-mix 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 3s - 9s); }
+  @keyframes ay-mix { 0%, 30% { opacity: 1; } 38%, 92% { opacity: 0.18; } 100% { opacity: 1; } }
+  .js-reveal .pg .ay-who { animation: ay-who 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 3s - 9s); }
+  @keyframes ay-who { 0%, 30% { opacity: 1; transform: scale(1.06); } 38%, 92% { opacity: 0.15; transform: scale(1); } 100% { opacity: 1; transform: scale(1.06); } }
+
+  /* 3 · GEARS: four meshed gears turn together; neighbours turn the opposite way, speed set by tooth count */
+  .js-reveal .pg .ay-gear--n { animation: pg-spin var(--gd, 24s) linear infinite; }
+  .js-reveal .pg .ay-gear--r { animation: pg-spin-r var(--gd, 18s) linear infinite; }
+
+  /* 4 · PILLARS: steam rises from the bowl, the metronome swings, leaves sway, the breathing circle expands and settles */
+  .js-reveal .pg .ay-steam { animation: ay-steam 3.6s ease-out infinite; animation-delay: calc(var(--k, 0) * -1.2s); }
+  @keyframes ay-steam { 0% { opacity: 0; transform: translateY(8px); } 30% { opacity: 0.9; } 100% { opacity: 0; transform: translateY(-12px); } }
+  .js-reveal .pg .ay-arm { animation: ay-swing 2.4s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate; }
+  @keyframes ay-swing { from { transform: rotate(-18deg); } to { transform: rotate(18deg); } }
+  .js-reveal .pg .ay-leaf { animation: ay-sway 4s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.8s); }
+  @keyframes ay-sway { from { transform: rotate(-6deg); } to { transform: rotate(6deg); } }
+  .js-reveal .pg .ay-lung { animation: ay-lung 7s ease-in-out infinite; }
+  @keyframes ay-lung { 0%, 100% { transform: scale(0.92); } 45%, 55% { transform: scale(1.1); } }
+  .js-reveal .pg .ay-in { animation: ay-in 7s ease-out infinite; }
+  @keyframes ay-in { 0%, 40% { opacity: 0; transform: scale(0.95); } 50% { opacity: 0.6; transform: scale(1); } 80%, 100% { opacity: 0; transform: scale(1.25); } }
+
+  /* 5 · DAILY RHYTHM: the sky wheel turns (sun rises and sets, then the moon), each day marker lights as the sun passes it */
+  .js-reveal .pg .ay-sky { animation: ay-sky 18s linear infinite; }
+  @keyframes ay-sky { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .js-reveal .pg .ay-mk { animation: ay-mk 18s ease-out infinite; animation-delay: var(--dl, 0s); }
+  @keyframes ay-mk { 0% { opacity: 1; transform: scale(1.18); } 6% { opacity: 1; transform: scale(1); } 40%, 92% { opacity: 0.45; transform: scale(1); } 100% { opacity: 1; transform: scale(1.18); } }
+  .js-reveal .pg .ay-star { animation: ay-star 3s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -0.8s); }
+  @keyframes ay-star { 0%, 100% { opacity: 0.25; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.15); } }
+/*@GEN_MOTION*/
+
+  /* 7 · FAQ: the pestle rocks in the mortar, herb flecks rise */
+  .js-reveal .pg .fq-pes { animation: fq-pes 2.6s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate; }
+  @keyframes fq-pes { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+  .js-reveal .pg .fq-fl { animation: fq-fl 3s ease-out infinite; animation-delay: calc(var(--k, 0) * -1s); }
+  @keyframes fq-fl { 0% { opacity: 0; transform: translateY(8px); } 25% { opacity: 1; } 100% { opacity: 0; transform: translateY(-14px); } }
+
+  /* 8 · FINAL: the sun rises once when the block scrolls in, its rays then turn slowly; footsteps lead toward it */
+  .js-reveal .pg .is-in .ay-rise { transition: transform 1600ms cubic-bezier(0.23, 1, 0.32, 1) 200ms; }
+  .js-reveal .pg .ay-rays { animation: pg-spin 40s linear infinite; }
+  .js-reveal .pg .ay-fp { animation: ay-fp 4.8s ease-out infinite; animation-delay: calc(var(--k, 0) * 0.45s - 4.8s); }
+  @keyframes ay-fp { 0%, 4% { opacity: 0; transform: scale(0.9); } 18%, 50% { opacity: 1; transform: none; } 75%, 100% { opacity: 0; transform: none; } }
+
+  /* How-it-works step icons: animate once their step is switched on by scroll */
+  .js-reveal .pg .timeline-list > li.is-on .ay-ck { animation: ay-ck 4.2s cubic-bezier(0.23, 1, 0.32, 1) infinite; animation-delay: calc(var(--k, 0) * 0.5s); }
+  @keyframes ay-ck { 0%, 8% { opacity: 0; transform: scale(0.9); } 18%, 80% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: none; } }
+  .js-reveal .pg .timeline-list > li.is-on .ay-wv { animation: ay-wv 2.4s ease-out infinite; animation-delay: calc(var(--k, 0) * -1.2s); }
+  @keyframes ay-wv { 0%, 100% { opacity: 0.15; } 40% { opacity: 1; } }
+  .js-reveal .pg .timeline-list > li.is-on .ay-sp { animation: ay-sway 3s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.5s); }
+  .js-reveal .pg .timeline-list > li.is-on .ay-cyc { animation: pg-spin 8s linear infinite; }
+}

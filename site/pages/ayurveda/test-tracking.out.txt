@@ -1,0 +1,25 @@
+{
+ "no function/var/let/const named track": "PASS",
+ "has function trackCta": "PASS",
+ "every data-cta unique": "PASS",
+ "CTA clicks firing mixpanel.track (stub)": "18/18 PASS",
+ "booking-trigger without data-cta tracked + modal opens": "PASS",
+ "click with no mixpanel does not throw": "PASS",
+ "title == seo-meta.md verbatim": "PASS",
+ "meta description == seo-meta.md verbatim": "PASS",
+ "og/twitter title+desc identical to title/desc": "PASS",
+ "title length": "56 PASS",
+ "description <=160": "PASS",
+ "canonical + og:url": "PASS",
+ "JSON-LD has Organization, WebSite, WebPage, BreadcrumbList, FAQPage": "PASS",
+ "FAQ 5-6 Qs and DOM text == JSON-LD text": "PASS",
+ "one h1": "PASS",
+ "no duplicate ids": "PASS",
+ "internal links present (home + siblings + privacy)": "PASS",
+ "assessment CTAs all -> /owen-lowt": "PASS",
+ "no Calgary in-clinic wording in body": "PASS",
+ "NO disclaimer paragraph / educational-only note / 911 / 988 / \"Illustration only\" caption (per Alex)": "PASS",
+ "no pageerror": "PASS",
+ "banned-claim scan (cure/reverse/guarantee/N weeks/N%/boost testosterone/proven)": "PASS (0 hits)"
+}
+CTAs: crumb_home, hero_home_link, hero_free_assessment, hero_how_it_works, men_labs_page, men_trt_page, men_free_assessment, how_health_coaching, how_free_assessment, related_functional_health, related_health_coaching, related_supplements, related_shift, related_home, final_free_assessment, final_book_call, modal_first_time, modal_follow_up
