@@ -50,7 +50,7 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 
 ## TRT or Fix Causes First  `/trt-or-fix-causes-first`
 - Title (56): TRT or Fix the Causes of Low T First? | Odin Health Labs
-- Description (154): Should you start TRT or fix the causes of low testosterone first? The trade-offs, TRAVERSE findings, reversible causes and how to decide with a physician.
+- Description (154): Should you start TRT or fix the causes of low testosterone first? The trade-offs, TRAVERSE findings, reversible causes and how to decide what comes first.
 - Note: NEW answer-style page (not yet published). Target query: "Should I start TRT or fix the causes of low testosterone first?" No /owen-lowt links by design (paid page); CTAs use the booking modal.
 
 ## Low T Labs to Ask For  `/low-testosterone-labs-to-ask-for`

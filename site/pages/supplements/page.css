@@ -47,7 +47,7 @@
   .js-reveal .pg .sb-pol { animation: sb-pol 4.2s ease-out infinite; animation-delay: calc(var(--k, 0) * -0.9s); }
   @keyframes sb-pol { 0% { opacity: 0; transform: translateY(10px); } 25% { opacity: 0.9; } 100% { opacity: 0; transform: translateY(-44px); } }
 
-  /* 5 · MEDICATIONS: a scan bar passes down the list; each row is ticked as it passes, one row is passed to the physician */
+  /* 5 · MEDICATIONS: a scan bar passes down the list; each row is ticked as it passes, one row gets a closer look */
   .js-reveal .pg .sc-bar { animation: sc-bar 6s linear infinite; }
   @keyframes sc-bar { 0% { opacity: 0; transform: translateY(0); } 6% { opacity: 1; } 80% { opacity: 1; transform: translateY(150px); } 88%, 100% { opacity: 0; transform: translateY(150px); } }
   .js-reveal .pg .sc-ring { animation: sc-ring 6s ease-out infinite; }

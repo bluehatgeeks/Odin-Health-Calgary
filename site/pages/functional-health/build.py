@@ -11,22 +11,22 @@ OG_IMG = "https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/im
 LOGO = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zJaxLUStVkljpkn9qddd/media/69feb24f-b3d0-45e6-b747-20dc1d2eb84d.svg+xml"
 
 TITLE = "Functional Health for Men: Find the Root Cause | Odin Labs"
-DESC = ("Our functional health approach for men in Canada and the USA: find out why energy, drive, "
-        "sleep and mood dropped, from sleep and stress to labs and physicians.")
+DESC = ("Functional health for men in Canada and the USA: find out why energy, drive, "
+        "sleep and mood dropped, from sleep and stress to labs and your plan.")
 assert len(TITLE) <= 60, len(TITLE)
 assert len(DESC) <= 160, len(DESC)
 
 FAQ = [
  ("What is functional health, and is it medical care?",
-  "Functional health is how we describe our root-cause approach. We look at your sleep, stress, nutrition, training, weight and history together to understand why your energy, drive and mood dropped. It isn\u2019t a replacement for medical care. Diagnosis, prescriptions and any medical treatment, including hormone therapy, are handled by a physician, and we\u2019ll tell you plainly when that applies."),
+  "Functional health is how we describe our root-cause approach. We look at your sleep, stress, nutrition, training, weight and history together to understand why your energy, drive and mood dropped, and we build your plan around what we find. It works alongside your medical care: we can share your plan with your doctor and help you bring your results to appointments."),
  ("How is this different from a regular doctor\u2019s visit?",
-  "We spend our time on the day-to-day picture: your routine, stress load, sleep, training and what you\u2019ve already tried. We work alongside your family doctor, not instead of them. If something needs testing or treatment, we\u2019ll say so and point you to the right next step."),
+  "We spend our time on the day-to-day picture: your routine, stress load, sleep, training and what you\u2019ve already tried. We then turn it into a plan and check in on it with you. It sits alongside your family doctor, and we can share your plan with them."),
  ("Do I need blood tests?",
-  "Not necessarily at the start. The free assessment and your first call come first. If blood tests are worth doing, we\u2019ll explain which ones to ask about and help you understand the results. Tests are ordered and reviewed by a physician where required."),
- ("Can I stop my medication or change my prescription?",
-  "Not on your own. Some medications can affect how you feel, and if we think that\u2019s possible we\u2019ll suggest you raise it with the physician who prescribed it. Any change to a prescription is a decision for you and that physician."),
+  "Not necessarily at the start. The free assessment and your first call come first. If blood tests are worth doing, we\u2019ll explain which ones to ask about and help you understand the results."),
+ ("What if I take medication?",
+  "Tell us what you take on your first call and we factor it into your plan. We can also help you prepare questions to raise with your doctor about how it fits."),
  ("How quickly will I feel a difference?",
-  "It depends on what is driving your symptoms, so we won\u2019t promise a timeline or an outcome. Part of your first call is agreeing on what to track so you can see for yourself whether the plan is working."),
+  "It depends on what is driving your symptoms. Part of your first call is agreeing on what to track so you can see for yourself whether the plan is working."),
  ("Is it fully online, and where do you work with men?",
   'Yes. Odin Health Labs is telehealth only and serves men across Canada and the USA. Everything happens by secure video or phone, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
 ]
@@ -126,7 +126,7 @@ for i, nm in enumerate(["sleep", "stress", "body", "drop"]):
     loop.append('<g class="lp-n" style="--k:%d"><g class="lp-body"><circle cx="%.1f" cy="%.1f" r="30" fill="#0f240f" stroke="rgba(196,255,73,0.6)" stroke-width="2.2"/><circle class="lp-hi" cx="%.1f" cy="%.1f" r="30" fill="none" stroke="#c4ff49" stroke-width="3.5"/>%s</g></g>' % (i, x, y, x, y, ico(nm, x, y, 34, "#c4ff49", 1.6)))
 LOOP = "\n".join(loop)
 
-# ---------------- labs / physician ----------------
+# ---------------- labs ----------------
 LABS = '''<defs>
 <clipPath id="vl-clip"><path d="M272 88V114L256 150Q252 168 268 168H292Q308 168 304 150L288 114V88Z"/></clipPath>
 <radialGradient id="lb-g"><stop offset="0" stop-color="#c4ff49" stop-opacity="0.35"/><stop offset="1" stop-color="#c4ff49" stop-opacity="0"/></radialGradient>

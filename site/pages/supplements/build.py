@@ -10,20 +10,20 @@ SLUG = "supplements"
 # Verbatim from /workspace/homepage/seo-meta.md (title is 63 chars: see NOTES.md, SEO flag 1)
 TITLE = "Supplements & Herbology for Energy and Drive | Odin Health Labs"
 DESC = "Why most supplement stacks fail, and how a structured, evidence-informed plan differs. Supplements and herbs for low energy, drive and recovery."
-OG_ALT = "Odin Health Labs: structured, physician-aware supplement and herbology protocols for men, Canada and USA"
+OG_ALT = "Odin Health Labs: structured supplement and herbology protocols for men, Canada and USA"
 assert len(DESC) <= 160
 
 FAQ = [
- ("Can supplements or herbs treat or cure low testosterone?",
-  "No. Supplements and herbs aren\u2019t a treatment for low testosterone, and we don\u2019t claim they are. Low testosterone is diagnosed by a physician, usually after a review of your symptoms and blood tests, and any treatment is a medical decision. Supplements can only ever be support alongside medical care."),
- ("Which supplements will you recommend?",
-  "There is no standard stack. Anything we suggest depends on your history, diet, medications and conditions, and we ask about those first. Often the better next step is food, sleep or a conversation with your physician rather than another product."),
- ("Is it safe to take supplements with my medication?",
-  "Not always. Some supplements and herbs interact with prescription and over-the-counter medicines. Tell us everything you take, and check with your physician or pharmacist before starting anything new. Never stop or change a prescription on your own."),
- ("Do I need blood tests first?",
-  "Not to start a conversation. If blood tests would help, we\u2019ll suggest what to ask your physician about. Tests are ordered and reviewed by a physician where required, and a physician decides what the results mean."),
- ("How quickly will I notice a difference?",
-  "We won\u2019t promise a timeline or an outcome. People respond differently, and a product may make no noticeable difference at all. Part of your plan is agreeing how you\u2019ll judge whether something is worth continuing, and when to stop."),
+  ("What can a supplement and herbology plan do for me?",
+  "A structured plan supports energy, drive, sleep and recovery. It is built around your history, labs and goals, with clear dosing, quality sourcing, timing and regular check-ins, and it sits alongside the food, sleep and training habits that shape how you feel."),
+  ("Which supplements will you recommend?",
+  "Your plan is personal. Anything we suggest depends on your history, diet, medications and conditions, and we ask about those first. We start with food, sleep and training, then add one layer at a time with a reason for each."),
+  ("How do you check supplements against my medications?",
+  "Tell us everything you take, prescription and over-the-counter. We check each product against your list before it goes into your plan and add them one at a time. You can also share your plan with your doctor or pharmacist."),
+  ("Do I need blood tests first?",
+  "Not to start a conversation. If blood tests would help, we walk you through which ones to ask about and what the results mean for your plan."),
+  ("How quickly will I notice a difference?",
+  "People respond differently, so part of your plan is agreeing how you\u2019ll judge whether something is worth continuing. We review it with you at every check-in and keep what is worth keeping."),
  ("Is it fully online, and where do you work with men?",
   'Yes. Odin Health Labs is telehealth only and serves men across Canada and the USA. Everything happens by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
 ]
@@ -104,7 +104,7 @@ def sprig():
         s.append('<circle class="sb-pol" style="--k:%d" cx="%d" cy="%d" r="2.8" fill="#c4ff49"/>' % (k, x, y))
     return "\n".join(s)
 
-# ---------- 5 · MEDICATIONS: a scan bar checks each row of a list; one row says "ask your physician" ----------
+# ---------- 5 · MEDICATIONS: a scan bar checks each row of a list; one row gets a closer look ----------
 def scan():
     s = ['<defs><linearGradient id="sc-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c4ff49" stop-opacity="0"/><stop offset="1" stop-color="#c4ff49" stop-opacity="0.4"/></linearGradient></defs>',
          '<rect class="pop t" style="--d:0" x="70" y="30" width="260" height="200" rx="18" fill="#0f240f" stroke="rgba(196,255,73,0.5)" stroke-width="2.6"/>']
@@ -181,7 +181,7 @@ open(os.path.join(tmp, "page.body.html"), "w", encoding="utf-8").write(re.sub(r"
 TIMES = [0.9, 2.1, 3.3, 4.4]
 gen = "".join("  @keyframes sc-mk%d { 0%%, %.1f%% { opacity: 0; transform: scale(0.7); } %.1f%%, 88%% { opacity: 1; transform: none; } 94%%, 100%% { opacity: 0; transform: none; } }\n  .js-reveal .pg .sc-m%d { animation: sc-mk%d 6s var(--ease-out) infinite; }\n" % (k, TIMES[k] / 6 * 100 - 0.01, TIMES[k] / 6 * 100 + 3, k, k) for k in range(4))
 open(os.path.join(tmp, "page.css"), "w").write(open(os.path.join(HERE, "page.css"), encoding="utf-8").read().replace("/*@GEN_MOTION*/", gen))
-ld = jsonld(SLUG, TITLE, DESC, "Supplements and herbology for men with low energy and drive, alongside medical care", "Supplements", FAQ)
+ld = jsonld(SLUG, TITLE, DESC, "Supplements and herbology for men with low energy and drive", "Supplements", FAQ)
 assemble(tmp, SLUG, TITLE, DESC, OG_ALT, ld, slots)
 shutil.copy(os.path.join(tmp, "page.html"), os.path.join(HERE, "page.html"))
 shutil.rmtree(tmp)

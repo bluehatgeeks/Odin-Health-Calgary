@@ -8,7 +8,7 @@ from gfx import *
 
 SLUG = "trt-or-fix-causes-first"
 TITLE = "TRT or Fix the Causes of Low T First? | Odin Health Labs"
-DESC = "Should you start TRT or fix the causes of low testosterone first? The trade-offs, TRAVERSE findings, reversible causes and how to decide with a physician."
+DESC = "Should you start TRT or fix the causes of low testosterone first? The trade-offs, TRAVERSE findings, reversible causes and how to decide what comes first."
 OG_ALT = "Odin Health Labs: should you start TRT or fix the causes of low testosterone first? A step-by-step guide for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 

@@ -14,16 +14,16 @@ OG_ALT = "Odin Health Labs: one-on-one health coaching for men with low testoste
 assert len(DESC) <= 160
 
 FAQ = [
- ("Is health coaching medical care?",
-  "No. Coaching is practical, day-to-day support with sleep, stress, training and nutrition habits. It doesn\u2019t include a diagnosis, a prescription or medical treatment. Those are handled by a physician, and we\u2019ll tell you plainly when something needs one."),
- ("Can coaching treat or fix low testosterone?",
-  "No. Coaching can\u2019t diagnose or treat low testosterone, and we can\u2019t tell you whether you have it. Only a physician can do that, usually after a conversation about your symptoms and blood tests. What coaching can do is help with the habits that are part of how many men feel day to day: sleep, stress, training and eating."),
- ("Do I still need my own doctor?",
-  "Yes. Coaching works alongside your doctor, not instead of them. We can help you prepare for appointments and keep track of what you\u2019ve noticed. Never start, stop or change a medication because of something we discussed. That is a decision for you and the physician who prescribes it."),
+  ("Is health coaching medical care?",
+  "Coaching is practical, day-to-day support with sleep, stress, training and nutrition habits, and it works alongside your medical care. We can help you prepare questions for appointments, keep track of what you\u2019ve noticed and share your plan with your doctor if you choose."),
+  ("What can coaching do for low-T symptoms?",
+  "Coaching helps with the habits that are part of how many men feel day to day: sleep, stress, training and eating. Your coach builds a plan around your pattern, helps you track it and adjusts it at every check-in. To find out whether low testosterone is part of your picture, we can walk you through which blood tests are worth asking about."),
+  ("How does coaching work with my doctor?",
+  "Coaching works alongside your doctor. We can help you prepare for appointments, keep track of what you\u2019ve noticed and share your plan and tracking with your doctor if you choose. We also factor in anything your doctor changes along the way."),
  ("What happens on the first call?",
   "A private video or phone call to go through your symptoms, your routine, your sleep, training and eating, any medications and what you\u2019ve already tried. Together we pick the first one or two steps and agree what you will track, so you can see for yourself whether the plan is working."),
- ("How quickly will I notice a difference?",
-  "It depends on what is behind your symptoms and on how the steps fit your life, so we won\u2019t promise a timeline or an outcome. What we can promise is a clear plan, a way to track it and regular check-ins to adjust it."),
+  ("How quickly will I notice a difference?",
+  "It depends on what is behind your symptoms and on how the steps fit your life. What you get is a clear plan, a way to track it and regular check-ins to adjust it."),
  ("Is it fully online, and where do you work with men?",
   'Yes. Odin Health Labs is telehealth only and serves men across Canada and the USA. Everything happens by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
 ]
@@ -143,7 +143,7 @@ def checkin_dial():
     s.append('<g class="ck-bub t" style="--k:1"><path d="M340 142h70a8 8 0 0 1 8 8v26a8 8 0 0 1-8 8h-12v12l-14-12h-44a8 8 0 0 1-8-8v-26a8 8 0 0 1 8-8z" fill="#142e14" stroke="rgba(255,255,255,0.7)" stroke-width="2.4"/><path d="M350 158h50M350 170h32" stroke="rgba(196,255,73,0.8)" stroke-width="3" stroke-linecap="round"/></g>')
     return "\n".join(s)
 
-# ---------- 6 · ALONGSIDE YOUR DOCTOR: a bridge, a shared note crosses it both ways ----------
+# ---------- 6 · YOUR PROGRESS, SHARED: a bridge, a shared note crosses it both ways ----------
 def bridge():
     s = ['<ellipse cx="280" cy="170" rx="250" ry="60" fill="url(#br-g)" opacity="0.5"/>' ]
     s.insert(0, '<defs><radialGradient id="br-g"><stop offset="0" stop-color="#c4ff49" stop-opacity="0.18"/><stop offset="1" stop-color="#c4ff49" stop-opacity="0"/></radialGradient></defs>')

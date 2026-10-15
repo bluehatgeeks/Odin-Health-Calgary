@@ -69,7 +69,7 @@
   .js-reveal .pg .ck-bub { animation: ck-bub 7s ease-out infinite; animation-delay: calc(var(--k, 0) * -3.5s); }
   @keyframes ck-bub { 0%, 60%, 100% { opacity: 0.55; transform: none; } 8%, 40% { opacity: 1; transform: translateY(-4px); } }
 
-  /* 6 · ALONGSIDE YOUR DOCTOR: a shared note crosses the bridge both ways, end nodes pulse on arrival */
+  /* 6 · YOUR PROGRESS, SHARED: a shared note crosses the bridge both ways, end nodes pulse on arrival */
   .js-reveal .pg .br-note { animation: br-cross 10s linear infinite; }
   .js-reveal .pg .br-ring { animation: br-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * -5s - 1s); }
   @keyframes br-pulse { 0% { opacity: 0.6; transform: scale(1); } 12%, 100% { opacity: 0; transform: scale(1.7); } }

@@ -1,4 +1,8 @@
 ## 2026-10-15
+- 2026-10-15 14:42 MDT: /ayurveda rewrite LIVE (constitution/energy/sleep/stress + low-T framing, motion). /shift + /ayurveda both verified. PR #7 merged. llms.txt Answers section live earlier this run.
+- 2026-10-15 14:35 MDT: /shift rewrite LIVE (andropause/telehealth, motion). SEO title already correct. Leftover: page Navigation still points assessment to #metabolic-assessment-trigger. Ayurveda publish next; PR #7 open for sources.
+- 2026-10-15 14:30 MDT: llms.txt updated live (Answers men ask + 2 answer URLs). Answer pages GitHub PR #6 merged. /shift and /ayurveda rewrites built+tested locally; GHL publish of /shift in progress; GitHub sync PR launching.
+- 2026-10-15 14:15 MDT: Continuous loop. Verified answer pages live (/trt-or-fix-causes-first, /low-testosterone-labs-to-ask-for). Started /shift rewrite + GitHub sync for answer pages/_shared + llms.txt update (answer links). Remaining unrewritten non-Paid: ayurveda, pemf, hydrogen-inhalation, marma-therapy, shift, privacy.
 - robots.txt set live (Allow all + sitemap pointer) via GHL Domains > Connected Products > Funnel > Edit.
 - Home page replaced with andropause/telehealth Canada+USA rewrite (source /workspace/homepage/home.html). Old page = GHL Version History #30 (Apr 10 2026). Live at / and /yyc.
 - TODO: sitemap (GHL generator includes [Paid] pages; add non-paid pages as custom paths), commit og-home.png to repo img/og-home.png, llms.txt, rewrite nav/footer Calgary wording, per-page SEO meta (/workspace/homepage/seo-meta.md), Mixpanel access, newsletter signup form, legal flags in /workspace/homepage/NOTES.md.
@@ -8,3 +12,4 @@
 - 2026-10-15 12:37 MDT: llms.txt live (domain Edit dialog field); XML sitemap regenerated with 10 non-Paid pages (Paid pages unticked). Next: per-page SEO meta (item 3), functional-health rewrite (item 4, building).
 - 2026-10-15 12:45 MDT: SEO title+description set in GHL on 10 non-Paid pages and verified live; old duplicate Calgary title/description remain in custom HTML of 8 pages (fix in page rewrites, backlog 4).
 - 2026-10-15 12:50 MDT: Found CTA tracking bug on live homepage (var track shadowed function track); fixed in template (trackCta), publishing. functional-health rewrite built, next to publish.
+- 2026-10-15 14:30 MDT: Local copy pass on 6 pages (home, functional-health, health-coaching, supplements, trt-or-fix-causes-first, low-testosterone-labs-to-ask-for): removed physician-aware/limits wording outside FAQs, rewrote those sections as positive "what we do", supplements intro rephrased. NOT published yet. Renamed CTA ids doctor_free_assessment -> progress_free_assessment (health-coaching), physician_labs_page -> questions_labs_page (trt page).
