@@ -41,3 +41,11 @@ Every change: commit to GitHub (bluehatgeeks/Odin-Health-Calgary) via cloud agen
 - DONE locally (source + generated page.html rebuilt): homepage, functional-health, health-coaching, supplements, trt-or-fix-causes-first, low-testosterone-labs-to-ask-for. Backups of pre-edit files in /workspace/backups-nophys/ and homepage/*.bak-nophys.
 - TODO: re-publish all six pages in GHL (+ push to GitHub); the two answer pages need re-publish after their current publish finishes. Meta descriptions of /functional-health and /trt-or-fix-causes-first still contain "physicians" / "decide with a physician" (seo-meta.md values, left unchanged on purpose): ask Alex whether to reword.
 - Not mine, untouched: /shift has "do not diagnose disease or replace your physician" + "Do you practice medicine? No." FAQ; /pemf has a testimonial mentioning a doctor.
+
+
+## Update 2026-10-15 15:47 MDT
+- Alex: PEMF, Hydrogen Inhalation and Marma Therapy are NO LONGER OFFERED. Removed from backlog; do not rewrite or build those pages. Remaining page work: privacy, homepage Common questions row, more answer pages.
+
+## Update 2026-10-15 15:5x MDT
+- DONE locally (needs GHL republish of home + GitHub PR): homepage "Common questions" row linking trt-or-fix-causes-first, low-testosterone-labs-to-ask-for, shift, ayurveda. Source /workspace/homepage/home.template.html -> home.html (served http://127.0.0.1:8780/home.txt).
+- CHANGE (Alex): PEMF, Hydrogen Inhalation, Marma Therapy are no longer offered. DO NOT rewrite them. Remaining ideas: remove them from sitemap/llms.txt/nav/homepage links and decide on 301/410 or an "no longer offered" handling with Alex (nav is shared with [Paid] pages: deferred). Next: privacy rewrite, more answer pages, Mixpanel CTA check, Search Console/Bing.
