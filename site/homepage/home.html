@@ -1100,7 +1100,7 @@ body .faq-section .container { max-width: 800px !important; }
   });
 
   /* ── CTA click tracking (Mixpanel). Properties: cta, page ── */
-  function track(cta) {
+  function trackCta(cta) {
     try {
       if (window.mixpanel && typeof window.mixpanel.track === 'function') {
         window.mixpanel.track('CTA Click', { cta: cta, page: 'home' }, { transport: 'sendBeacon' });
@@ -1112,7 +1112,7 @@ body .faq-section .container { max-width: 800px !important; }
     if (!el) return;
     var cta = el.getAttribute('data-cta');
     if (!cta) cta = el.closest('#odin-nav-root') ? 'nav_book_online' : 'book_online';
-    track(cta);
+    trackCta(cta);
   }, true);
 
   /* ── Motion: reveal, draw-on icons, timeline, off-screen pause (progressive enhancement; content is visible without JS) ── */

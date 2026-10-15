@@ -1,0 +1,141 @@
+
+/* ═══ Motion enabled ═══ every loop is gated by prefers-reduced-motion: no-preference AND .js-reveal (set by JS) */
+@media (prefers-reduced-motion: no-preference) {
+  .fh .hero-in { animation: hv-up 560ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 70ms); }
+  @keyframes hv-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .fh .hero-section::before { animation: hv-breathe 9s ease-in-out infinite alternate; }
+  @keyframes hv-breathe { from { opacity: 0.55; } to { opacity: 1; } }
+  .fh .cta-halo i { animation: halo 5.4s ease-out infinite; animation-delay: calc(var(--k, 0) * 1.8s); }
+  @keyframes halo { 0% { transform: scale(0.35); opacity: 0.55; } 100% { transform: scale(1); opacity: 0; } }
+
+  /* shared keyframes */
+  @keyframes fh-draw { to { stroke-dashoffset: 0; } }
+  @keyframes fh-pop { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: none; } }
+  @keyframes fh-ring { 0% { opacity: 0.55; transform: scale(1); } 100% { opacity: 0; transform: scale(2.4); } }
+  @keyframes fh-spin { to { transform: rotate(360deg); } }
+  @keyframes fh-spin-r { to { transform: rotate(-360deg); } }
+  @keyframes fh-bob { from { transform: translateY(0); } to { transform: translateY(-4px); } }
+
+  /* draw-on + pop-in run ONCE when the figure scrolls into view (JS adds .is-in) */
+  .js-reveal .fh .dr { stroke-dasharray: 1 2; stroke-dashoffset: 1; }
+  .js-reveal .fh .is-in .dr { animation: fh-draw var(--dur, 1.4s) cubic-bezier(0.3, 0.6, 0.3, 1) both; animation-delay: calc(var(--d, 0) * 1s); }
+  .js-reveal .fh .pop { opacity: 0; }
+  .js-reveal .fh .is-in .pop { animation: fh-pop 480ms var(--ease-out) both; animation-delay: calc(var(--d, 0) * 1s); }
+
+  /* 1 · HERO "look below the surface": roots draw, a lens sweeps across and lights each cause */
+  .js-reveal .fh .hr-sym { animation: fh-bob 5s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.4s); }
+  .js-reveal .fh .hr-lens { animation: hr-lens 10s linear 1.6s infinite; }
+  @keyframes hr-lens {
+    0% { transform: translate(70px, 244px); opacity: 0; }
+    5% { transform: translate(70px, 244px); opacity: 1; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+    75% { transform: translate(410px, 244px); opacity: 1; }
+    82% { transform: translate(410px, 244px); opacity: 0; }
+    100% { transform: translate(70px, 244px); opacity: 0; }
+  }
+  .js-reveal .fh .hr-glow { animation: hr-glow 10s ease-out infinite; animation-delay: calc(var(--gd, 0) * 1s); }
+  @keyframes hr-glow { 0% { opacity: 0; } 4% { opacity: 1; } 14%, 100% { opacity: 0; } }
+
+  /* 2 · COMPARE: left a ring that goes round and round, right a line that goes straight to the root */
+  .js-reveal .fh .cm-orbit { transform-origin: 145px 125px; animation: fh-spin 26s linear infinite; }
+  .js-reveal .fh .cm-circ { transform-origin: 145px 125px; animation: fh-spin 6s linear infinite; }
+  .js-reveal .fh .cm-patch { transform-origin: 145px 125px; animation: fh-spin-r 16s linear infinite; }
+  .js-reveal .fh .cm-dot { animation: cm-fall 4.5s linear 1.4s infinite; }
+  @keyframes cm-fall {
+    0% { transform: translateY(0); opacity: 0; }
+    6% { opacity: 1; animation-timing-function: cubic-bezier(0.4, 0.1, 0.3, 1); }
+    60% { transform: translateY(176px); opacity: 1; }
+    66%, 100% { transform: translateY(176px); opacity: 0; }
+  }
+  .js-reveal .fh .cm-ring { transform-box: fill-box; transform-origin: center; animation: cm-ring 4.5s ease-out 1.4s infinite; }
+  @keyframes cm-ring { 0%, 56% { opacity: 0; transform: scale(1); } 60% { opacity: 0.6; transform: scale(1); } 100% { opacity: 0; transform: scale(2.6); } }
+  .js-reveal .fh .cm-nd { animation: cm-nd 4.5s ease-out infinite; animation-delay: calc(var(--k, 0) * 0.55s + 1.4s); }
+  @keyframes cm-nd { 0% { opacity: 0.35; } 6% { opacity: 1; } 24%, 100% { opacity: 0.35; } }
+
+  /* 3 · FIVE AREAS: five dials that move at their own pace */
+  .js-reveal .fh .lv-bar { animation: lv-bar var(--p, 7s) ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.3s); }
+  .js-reveal .fh .lv-knob { animation: lv-knob var(--p, 7s) ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.3s); }
+  @keyframes lv-bar { from { transform: scaleY(var(--f)); } to { transform: scaleY(var(--t)); } }
+  @keyframes lv-knob { from { transform: translateY(calc(var(--f) * -120px)); } to { transform: translateY(calc(var(--t) * -120px)); } }
+  .js-reveal .fh .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* 4 · CONNECTED LOOP: a dot travels round four linked nodes; each lights as it passes */
+  .js-reveal .fh .lp-orbit { animation: fh-spin-r 40s linear infinite; }
+  .js-reveal .fh .lp-dot { transform-origin: 220px 150px; animation: fh-spin 8s linear infinite; }
+  .js-reveal .fh .lp-ring { animation: fh-ring 3.2s ease-out infinite; }
+  .js-reveal .fh .lp-n .lp-body { animation: lp-pop 8s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  @keyframes lp-pop { 0%, 22%, 100% { transform: scale(1); } 4% { transform: scale(1.14); } }
+  .js-reveal .fh .lp-n .lp-hi { animation: lp-lit 8s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  @keyframes lp-lit { 0% { opacity: 0; } 3%, 10% { opacity: 1; } 24%, 100% { opacity: 0; } }
+
+  /* 5 · LABS + PHYSICIAN: vial fills, packets travel the plan lane and the physician lane in turn */
+  .js-reveal .fh .vl-liq { animation: vl-liq 8s ease-in-out infinite alternate; }
+  @keyframes vl-liq { from { transform: scaleY(0.25); } to { transform: scaleY(0.8); } }
+  .js-reveal .fh .vl-bub { animation: vl-bub 3.2s ease-out infinite; animation-delay: calc(var(--k, 0) * -1.6s); }
+  @keyframes vl-bub { 0% { opacity: 0; transform: translateY(8px); } 30% { opacity: 0.8; } 100% { opacity: 0; transform: translateY(-20px); } }
+  .js-reveal .fh .pk { animation: pk-run 8s linear infinite; animation-delay: calc(var(--k, 0) * -4s); }
+  @keyframes pk-run {
+    0% { transform: translateX(0); opacity: 0; }
+    4% { opacity: 1; animation-timing-function: cubic-bezier(0.4, 0.1, 0.3, 1); }
+    38% { transform: translateX(250px); opacity: 1; }
+    42%, 100% { transform: translateX(250px); opacity: 0; }
+  }
+  .js-reveal .fh .lb-end { animation: lb-end 8s ease-out infinite; animation-delay: calc(var(--k, 0) * -4s); }
+  @keyframes lb-end { 0%, 36% { opacity: 0.55; transform: scale(1); } 42% { opacity: 1; transform: scale(1.12); } 56%, 100% { opacity: 0.55; transform: scale(1); } }
+
+  /* 6 · HOW IT WORKS: step icons animate once their step is switched on by scroll */
+  .js-reveal .fh .timeline-list > li.is-on .hi-ln { stroke-dasharray: 1 2; animation: hi-ln 4.5s ease-out infinite; animation-delay: calc(var(--k, 0) * 0.35s); }
+  @keyframes hi-ln { 0%, 6% { stroke-dashoffset: 1; } 24%, 84% { stroke-dashoffset: 0; } 94%, 100% { stroke-dashoffset: 1; } }
+  .js-reveal .fh .timeline-list > li.is-on .hi-bub { animation: hi-bub 3.6s ease-out infinite; }
+  .js-reveal .fh .timeline-list > li.is-on .hi-bub2 { animation-delay: -1.8s; }
+  @keyframes hi-bub { 0%, 6% { opacity: 0.2; transform: translateY(3px); } 22%, 56% { opacity: 1; transform: none; } 78%, 100% { opacity: 0.2; transform: translateY(-2px); } }
+  .js-reveal .fh .timeline-list > li.is-on .hi-pin { animation: hi-pin 1.2s var(--ease-out) infinite alternate; }
+  @keyframes hi-pin { from { transform: translateY(0); } to { transform: translateY(-4px); } }
+  .js-reveal .fh .timeline-list > li.is-on .hi-day { animation: hi-day 4.5s var(--ease-out) infinite; }
+  @keyframes hi-day { 0%, 28% { transform: translateX(0); } 34%, 62% { transform: translateX(11px); } 68%, 94% { transform: translateX(22px); } 100% { transform: translateX(0); } }
+
+  /* 7 · RELATED SUPPORT: coach and supplements linked to you; packets flow, capsule sways */
+  .js-reveal .fh .rl-pk-l { animation: rl-l 3.6s linear infinite; }
+  .js-reveal .fh .rl-pk-r { animation: rl-r 3.6s linear infinite; animation-delay: -1.8s; }
+  @keyframes rl-l { 0% { transform: translateX(0); opacity: 0; } 10% { opacity: 1; } 80% { transform: translateX(-130px); opacity: 1; } 92%, 100% { transform: translateX(-130px); opacity: 0; } }
+  @keyframes rl-r { 0% { transform: translateX(0); opacity: 0; } 10% { opacity: 1; } 80% { transform: translateX(130px); opacity: 1; } 92%, 100% { transform: translateX(130px); opacity: 0; } }
+  .js-reveal .fh .rl-sway { animation: rl-sway 3.4s ease-in-out infinite alternate; }
+  @keyframes rl-sway { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+  .js-reveal .fh .rl-cap { animation: fh-ring 3.6s ease-out infinite; animation-delay: calc(var(--k, 0) * -1.2s); }
+
+  /* 8 · FAQ: a lens sways while a question mark draws inside it; sparkles blink */
+  .js-reveal .fh .fq-lens { transform-origin: 70px 70px; animation: fq-sway 3.6s ease-in-out infinite alternate; }
+  @keyframes fq-sway { from { transform: translateX(-6px) rotate(-5deg); } to { transform: translateX(6px) rotate(5deg); } }
+  .js-reveal .fh .fq-sp { animation: fq-sp 3s ease-out infinite; animation-delay: calc(var(--k, 0) * -1s); }
+  @keyframes fq-sp { 0%, 100% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; transform: none; } }
+
+  /* 9 · FINAL CTA: a compass needle swings once and settles on north, then wobbles very slightly */
+  .js-reveal .fh .cp-wob { transform-origin: 180px 100px; animation: cp-wob 5s ease-in-out 2.6s infinite alternate; }
+  @keyframes cp-wob { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+  .js-reveal .fh .is-in .cp-swing { transform-origin: 180px 100px; animation: cp-swing 2.6s cubic-bezier(0.23, 1, 0.32, 1) both; }
+  @keyframes cp-swing { 0% { transform: rotate(-110deg); } 22% { transform: rotate(32deg); } 40% { transform: rotate(-16deg); } 58% { transform: rotate(8deg); } 76% { transform: rotate(-3deg); } 100% { transform: rotate(0); } }
+  .js-reveal .fh .cp-halo { transform-origin: 180px 100px; animation: cp-halo 3.4s ease-out infinite; animation-delay: calc(var(--k, 0) * 1.7s); }
+  @keyframes cp-halo { 0% { opacity: 0.5; transform: scale(1); } 100% { opacity: 0; transform: scale(1.2); } }
+  .js-reveal .fh .cp-sun { animation: cp-sun 2.6s ease-in-out infinite alternate; }
+  @keyframes cp-sun { from { opacity: 0.55; transform: scale(0.85); } to { opacity: 1; transform: scale(1.15); } }
+
+  /* Off-screen loops pause (class toggled by IntersectionObserver) */
+  [data-live].is-paused, [data-live].is-paused *, [data-live].is-paused::before { animation-play-state: paused !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js-reveal .fh .reveal { opacity: 1; transform: none; transition: none; }
+  .fh .btn-primary, .fh .btn-outline, .fh .therapy-card, .fh .authority-bar-item, .fh .card-link .arr { transition: none; }
+  .fh .btn-primary:hover, .fh .therapy-card:hover, .fh .authority-bar-item:hover, .fh .card-link:hover .arr { transform: none; }
+  .fh .btn-primary:active, .fh .btn-outline:active { transform: none; }
+  .fh .faq-item[open] .faq-answer { animation: none; }
+  .fh .faq-item summary::before, .fh .faq-item::details-content { transition: none; }
+}
+.fh .cp-sun, .fh .fq-sp, .fh .lb-end, .fh .cm-ring { transform-box: fill-box; transform-origin: center; }
+.fh .lp-hi { opacity: 0; }
+</style>
+
+<script type="application/ld+json">
+{{JSONLD}}
+</script>
+</head>
