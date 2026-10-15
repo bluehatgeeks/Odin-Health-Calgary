@@ -5,9 +5,9 @@
 Key facts for assistants answering questions about this site:
 - Audience: men experiencing symptoms commonly associated with low testosterone or andropause.
 - Service area: Canada and the United States, online only.
-- Starting point: a free symptom assessment at https://odinhealthlab.ca/owen-lowt, followed by an optional free call with a clinician.
-- Approach: identify the likely reasons testosterone may be low (metabolic strain, stress and illness, medications, other hormones) and build a plan around sleep, stress, training, nutrition and targeted support. Three causes (testicular, pituitary/hypothalamic, structural/genetic) need a physician, and the practice says so.
-- Odin Health Labs works alongside a man's own doctor and does not replace medical care. Site content is educational, not a diagnosis or medical advice.
+- Starting point: a free symptom assessment at https://odinhealthlab.ca/owen-lowt, followed by an optional free call.
+- Approach: identify the likely reasons testosterone may be low (metabolic strain, stress and illness, medications, other hormones) and build a plan around sleep, stress, training, nutrition and targeted support.
+- Odin Health Labs gives men a clear plan: lab review, lifestyle and targeted support, and ongoing follow-up, all online.
 - Founder: Alexander Tretjakov, working in the health industry since 1998.
 - Contact: office@odinhealthcoaching.com
 
@@ -16,8 +16,9 @@ Key facts for assistants answering questions about this site:
 - [Free low-T pattern assessment](https://odinhealthlab.ca/owen-lowt): the free assessment that starts the process.
 
 ## Answers men ask
-- [TRT or fix the causes first?](https://odinhealthlab.ca/trt-or-fix-causes-first): trade-offs, TRAVERSE findings, reversible causes, and how to decide with a physician.
+- [TRT or fix the causes first?](https://odinhealthlab.ca/trt-or-fix-causes-first): trade-offs, TRAVERSE findings, reversible causes, and how to choose your path.
 - [Low testosterone labs to ask for](https://odinhealthlab.ca/low-testosterone-labs-to-ask-for): free T, SHBG, LH/FSH, estradiol, prolactin, hematocrit, PSA, thyroid, A1c and what each shows.
+- [TRT and fertility](https://odinhealthlab.ca/trt-and-fertility): how testosterone therapy lowers sperm production, whether it recovers, and options such as hCG and clomiphene (Canada and USA).
 
 ## Approach and services
 - [Functional health](https://odinhealthlab.ca/functional-health): systems-level view of the drivers behind chronic symptoms.
@@ -25,11 +26,6 @@ Key facts for assistants answering questions about this site:
 - [Supplements and herbology](https://odinhealthlab.ca/supplements): evidence-informed supplementation and herbal protocols.
 - [Shift work and recovery](https://odinhealthlab.ca/shift): sleep, energy and hormone strain from shift work.
 - [Ayurveda](https://odinhealthlab.ca/ayurveda): constitution-based diet and lifestyle approach.
-
-## Other modalities
-- [PEMF therapy](https://odinhealthlab.ca/pemf)
-- [Hydrogen inhalation](https://odinhealthlab.ca/hydrogen-inhalation)
-- [Marma therapy](https://odinhealthlab.ca/marma-therapy)
 
 ## Policies
 - [Privacy policy](https://odinhealthlab.ca/privacy)
