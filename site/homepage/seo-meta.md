@@ -82,3 +82,8 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (51): Low Testosterone Symptoms in Men | Odin Health Labs
 - Description (145): Low testosterone symptoms in men: low libido, fewer morning erections, fatigue, belly fat, low mood, what mimics them and how low T is confirmed.
 - Note: NEW answer-style page (not yet published). Target query: "low testosterone symptoms in men" / "signs of low T" / "andropause symptoms". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug.
+
+## Andropause vs Menopause  `/andropause-vs-menopause`
+- Title (59): Andropause vs Menopause: How They Differ | Odin Health Labs
+- Description (154): Andropause vs menopause: why testosterone drifts down slowly in men instead of stopping, who gets low T, how symptoms and labs differ and what men can do.
+- Note: NEW answer-style page (not yet published). Target query: "andropause vs menopause" / "is there a male menopause" / "male menopause vs female menopause". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug.
