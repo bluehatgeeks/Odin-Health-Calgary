@@ -1,0 +1,61 @@
+/* ═══ /low-testosterone-age-or-weight graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
+.pg .hv-nd, .pg .wt-dr, .pg .ls-bar, .pg .ls-up, .pg .sl-st, .pg .sl-win, .pg .st-zz, .pg .fk-ring, .pg .ag-band, .pg .sr-sun, .pg .sr-rays, .pg .sr-sp, .pg .fq-mn, .pg .fq-st { transform-box: fill-box; transform-origin: center; }
+.pg .hv-nd { transform-origin: 50% 100%; }
+.pg .wt-dr { transform: scale(var(--sc, 1)); }
+.pg .ls-bar { transform-origin: 50% 100%; transform: scaleY(var(--s, 1)); }
+.pg .st-zz { transform-origin: 50% 50%; }
+.pg .sl-win, .pg .fk-ring { opacity: 0; }
+.pg .sl-win { opacity: 0.5; }
+.pg .sr-sp, .pg .fq-st { opacity: 0.85; }
+/*@GEN_STATIC*/
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* 1 · hero: the gauge needle sways as the four drivers feed in */
+  .js-reveal .pg .hv-nd { animation: hv-nd 6s ease-in-out infinite alternate; }
+  @keyframes hv-nd { from { transform: rotate(-32deg); } to { transform: rotate(30deg); } }
+
+  /* 2 · age: the man-to-man band breathes */
+  .js-reveal .pg .ag-band { animation: ag-br 5s ease-in-out infinite alternate; }
+  @keyframes ag-br { from { transform: scaleY(0.92); } to { transform: scaleY(1.06); } }
+
+  /* 3 · weight: the drops swell and shrink to their step size */
+  .js-reveal .pg .wt-dr { animation: wt-dr 4.4s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -1.1s); }
+  @keyframes wt-dr { from { transform: scale(calc(var(--sc, 1) * 0.9)); } to { transform: scale(calc(var(--sc, 1) * 1.06)); } }
+
+  /* 4 · loss: bars rise from the floor, hold, and reset; arrows bob */
+  .js-reveal .pg .ls-bar { animation: ls-up 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.25s); }
+  @keyframes ls-up { 0%, 8% { transform: scaleY(0.06); } 40%, 82% { transform: scaleY(var(--s, 1)); } 100% { transform: scaleY(0.06); } }
+  .js-reveal .pg .ls-up { animation: ls-bob 1.8s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.7s); }
+  @keyframes ls-bob { from { transform: translateY(2px); } to { transform: translateY(-5px); } }
+
+  /* 5 · sleep: the evening window pulses, stars twinkle */
+  .js-reveal .pg .sl-win { animation: sl-win 5s ease-in-out infinite; }
+  @keyframes sl-win { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.9; } }
+  .js-reveal .pg .sl-st { animation: pl-sp 3.2s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.3s); }
+
+  /* 6 · stress: the load line swells and settles; the signal lane dims under load */
+  .js-reveal .pg .st-zz { animation: st-zz 6s ease-in-out infinite; }
+  @keyframes st-zz { 0%, 100% { transform: scaleY(0.35); } 40%, 60% { transform: scaleY(1.25); } }
+  .js-reveal .pg .st-sig { animation: st-sg 6s ease-in-out infinite; }
+  @keyframes st-sg { 0%, 100% { opacity: 1; } 40%, 60% { opacity: 0.25; } }
+
+  /* 7 · pattern: the result node rings out as each dot leaves */
+  .js-reveal .pg .fk-ring { animation: fk-r 5s ease-out infinite; }
+  @keyframes fk-r { 0% { opacity: 0.6; transform: scale(0.9); } 60%, 100% { opacity: 0; transform: scale(1.7); } }
+
+  /* FAQ: the moon floats, stars twinkle */
+  .js-reveal .pg .fq-mn { animation: fq-mn 3.6s ease-in-out infinite alternate; }
+  @keyframes fq-mn { from { transform: translateY(2px) rotate(-6deg); } to { transform: translateY(-4px) rotate(6deg); } }
+  .js-reveal .pg .fq-st { animation: pl-sp 3.2s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.4s); }
+
+  /* Final: the sun rises once, the rays turn, sparkles twinkle */
+  .js-reveal .pg .is-in .sr-sun { animation: sr-up 1.6s var(--ease-out) both; }
+  @keyframes sr-up { from { transform: translateY(50px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .js-reveal .pg .sr-rays { animation: pg-spin 40s linear infinite; transform-origin: 180px 150px; transform-box: view-box; }
+  .js-reveal .pg .sr-sp { animation: pl-sp 3.2s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.1s); }
+  @keyframes pl-sp { 0%, 100% { opacity: 0.2; transform: scale(0.7); } 50% { opacity: 1; transform: scale(1.15); } }
+/*@GEN_MOTION*/
+}

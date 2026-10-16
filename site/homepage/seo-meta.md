@@ -57,3 +57,18 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (57): Low Testosterone Labs: What to Ask For | Odin Health Labs
 - Description (152): What labs should you ask for besides total testosterone? Free T, SHBG, LH, FSH, estradiol, prolactin, hematocrit, PSA, thyroid, A1c and what each shows.
 - Note: NEW answer-style page (not yet published). Target query: "What labs should I ask for besides total testosterone?" No /owen-lowt links by design; CTAs use the booking modal.
+
+## TRT and Fertility  `/trt-and-fertility`
+- Title (57): TRT and Fertility: Effects and Options | Odin Health Labs
+- Description (150): Does testosterone therapy affect fertility? How TRT lowers sperm production, whether it recovers, and options like hCG and clomiphene. Canada and USA.
+- Note: NEW answer-style page (not yet published). Target query: "Does testosterone therapy affect fertility, and what are the options?" No /owen-lowt links by design; CTAs use the booking modal.
+
+## Low T: Age or Weight  `/low-testosterone-age-or-weight`
+- Title (60): Low T: Aging or Weight, Sleep and Stress? | Odin Health Labs
+- Description (152): Is low testosterone from aging or from weight, sleep and stress? What studies show, which labs tell them apart, and what you can change. Canada and USA.
+- Note: NEW answer-style page (not yet published). Target query: "Is my low testosterone from aging or from weight, sleep and stress?" No /owen-lowt links by design; CTAs use the booking modal.
+
+## GLP-1 Drugs and Testosterone  `/weight-loss-drugs-and-testosterone`
+- Title (54): GLP-1 Drugs and Testosterone in Men | Odin Health Labs
+- Description (156): Do GLP-1 drugs like semaglutide and tirzepatide raise or lower testosterone in men? What studies show, protecting muscle, and labs to track. Canada and USA.
+- Note: NEW answer-style page (not yet published). Target query: "Do GLP-1 weight-loss drugs (semaglutide, tirzepatide) raise or lower testosterone in men?" No /owen-lowt links by design; CTAs use the booking modal.
