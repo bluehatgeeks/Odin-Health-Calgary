@@ -269,70 +269,6 @@ body .faq-section .container { max-width: 800px !important; }
   .js-reveal .home-v2 .cq-ok, .js-reveal .home-v2 .cq-okp { animation: cq-ok 8s cubic-bezier(0.23, 1, 0.32, 1) infinite; }
   @keyframes cq-ok { 0%, 52% { transform: scale(0.7); opacity: 0; } 60%, 90% { transform: none; opacity: 1; } 97%, 100% { transform: scale(0.7); opacity: 0; } }
 
-  /* COMMON QUESTIONS · card icons, one concept each */
-  /* fork: a dot rides the stem, then each branch end takes a turn lighting up */
-  .js-reveal .home-v2 .cq-f-dot { offset-path: path("M24 42V28C24 20 14 20 14 11"); offset-rotate: 0deg; animation: cq-fd 6s linear infinite; }
-  @keyframes cq-fd { 0%, 4% { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.3, 0.6, 0.3, 1); } 6% { opacity: 1; } 40% { offset-distance: 100%; opacity: 1; } 44%, 100% { offset-distance: 100%; opacity: 0; } }
-  .js-reveal .home-v2 .cq-f-a { animation: cq-fa 6s ease-out infinite; }
-  .js-reveal .home-v2 .cq-f-b { animation: cq-fa 6s ease-out infinite; animation-delay: -3s; }
-  @keyframes cq-fa { 0%, 100% { fill: #0f240f; transform: scale(1); } 40% { fill: #c4ff49; transform: scale(1.3); } 60% { fill: #0f240f; transform: scale(1); } }
-  /* tube: sample fills from the bottom, tick pops, bubble rises */
-  .js-reveal .home-v2 .cq-t-fill { animation: cq-tf 5s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
-  @keyframes cq-tf { 0%, 8% { transform: scaleY(0.12); } 55%, 90% { transform: scaleY(1); } 100% { transform: scaleY(0.12); } }
-  .js-reveal .home-v2 .cq-t-tick { animation: cq-tt 5s cubic-bezier(0.23, 1, 0.32, 1) infinite; }
-  @keyframes cq-tt { 0%, 55% { transform: scale(0.7); opacity: 0; } 62%, 90% { transform: none; opacity: 1; } 97%, 100% { transform: scale(0.7); opacity: 0; } }
-  .js-reveal .home-v2 .cq-t-b { animation: cq-tb 2.4s ease-out infinite; }
-  @keyframes cq-tb { 0% { transform: translateY(6px); opacity: 0; } 30% { opacity: 0.9; } 100% { transform: translateY(-12px); opacity: 0; } }
-  /* shift: sun and moon circle a 24-hour dial */
-  .js-reveal .home-v2 .cq-s-rot { animation: mg-spin 14s linear infinite; }
-  /* leaf: sways from its base, vein glows, ring breathes out */
-  .js-reveal .home-v2 .cq-l-sway { animation: cq-ls 5s ease-in-out infinite alternate; }
-  @keyframes cq-ls { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
-  .js-reveal .home-v2 .cq-l-vein { animation: cq-lv 5s ease-out infinite; }
-  @keyframes cq-lv { 0%, 8% { stroke-dashoffset: 1; } 40%, 85% { stroke-dashoffset: 0; } 95%, 100% { stroke-dashoffset: 1; } }
-  .js-reveal .home-v2 .cq-l-ring { animation: cq-lr 3.6s ease-out infinite; }
-  @keyframes cq-lr { 0% { opacity: 0.6; transform: scale(0.8); } 100% { opacity: 0; transform: scale(1.35); } }
-  /* fertility: a signal dot swims the wave while the two linked rings take turns */
-  .js-reveal .home-v2 .cq-fe-dot { offset-path: path("M5 39c4-4 8 4 12 0s8 4 12 0 8 4 12 0"); offset-rotate: 0deg; animation: cq-fd 5.5s linear infinite; }
-  .js-reveal .home-v2 .cq-fe-a { animation: cq-fr 5.5s ease-in-out infinite; }
-  .js-reveal .home-v2 .cq-fe-b { animation: cq-fr 5.5s ease-in-out infinite; animation-delay: -2.75s; }
-  @keyframes cq-fr { 0%, 100% { transform: scale(1); opacity: 1; } 25% { transform: scale(1.1); opacity: 1; } 50% { transform: scale(1); opacity: 0.7; } }
-  /* scale: the beam tips between the two pans (age vs. weight, sleep, stress) and settles level; pans stay upright */
-  .js-reveal .home-v2 .cq-ag-beam { animation: cq-ab 6s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
-  .js-reveal .home-v2 .cq-ag-l, .js-reveal .home-v2 .cq-ag-r { animation: cq-ap 6s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
-  @keyframes cq-ab { 0%, 100% { transform: none; } 25% { transform: rotate(-9deg); } 50% { transform: none; } 75% { transform: rotate(9deg); } }
-  @keyframes cq-ap { 0%, 100% { transform: none; } 25% { transform: rotate(9deg); } 50% { transform: none; } 75% { transform: rotate(-9deg); } }
-  /* pen: dose window empties, a drop falls from the needle, then the up arrow lifts in */
-  .js-reveal .home-v2 .cq-gl-dose { animation: cq-gd 5s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
-  @keyframes cq-gd { 0%, 10% { transform: none; } 40%, 85% { transform: scaleY(0.25); } 100% { transform: none; } }
-  .js-reveal .home-v2 .cq-gl-drop { animation: cq-gp 5s ease-in infinite; }
-  @keyframes cq-gp { 0%, 30% { transform: translateY(-3px); opacity: 0; } 34% { opacity: 1; } 48% { transform: translateY(5px); opacity: 0; } 100% { transform: translateY(5px); opacity: 0; } }
-  .js-reveal .home-v2 .cq-gl-up { animation: cq-gu 5s cubic-bezier(0.23, 1, 0.32, 1) infinite; }
-  @keyframes cq-gu { 0%, 40% { transform: translateY(5px); opacity: 0; } 55%, 88% { transform: none; opacity: 1; } 97%, 100% { transform: translateY(5px); opacity: 0; } }
-  /* peptide chain: each bead pulses in turn along the chain inside the shield */
-  .js-reveal .home-v2 .cq-pe-b { animation: cq-pb 4s cubic-bezier(0.23, 1, 0.32, 1) infinite; animation-delay: calc(var(--k) * 0.35s); }
-  @keyframes cq-pb { 0%, 40%, 100% { transform: scale(1); opacity: 1; } 12% { transform: scale(1.45); opacity: 1; } 24% { transform: scale(0.9); opacity: 0.75; } }
-
-  /* card 9 · symptoms checklist: three ticks light in sequence */
-  .js-reveal .home-v2 .cq-sy-tick { animation: cq-sy 4.8s cubic-bezier(0.23, 1, 0.32, 1) infinite; animation-delay: calc(var(--k) * 0.45s); }
-  @keyframes cq-sy { 0%, 8% { opacity: 0.25; transform: scale(0.7); } 22%, 70% { opacity: 1; transform: none; } 88%, 100% { opacity: 0.25; transform: scale(0.7); } }
-  .js-reveal .home-v2 .cq-sy-row { animation: cq-syr 4.8s ease-out infinite; animation-delay: calc(var(--k) * 0.45s); }
-  @keyframes cq-syr { 0%, 8% { stroke-opacity: 0.35; } 22%, 70% { stroke-opacity: 1; } 88%, 100% { stroke-opacity: 0.35; } }
-
-  /* card 10 · andropause vs menopause: two bars taper differently */
-  .js-reveal .home-v2 .cq-av-m { animation: cq-avm 6s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
-  @keyframes cq-avm { 0%, 10% { transform: scaleY(1); } 55%, 85% { transform: scaleY(0.55); } 100% { transform: scaleY(1); } }
-  .js-reveal .home-v2 .cq-av-w { animation: cq-avw 6s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
-  @keyframes cq-avw { 0%, 18% { transform: scaleY(1); } 32%, 48% { transform: scaleY(0.22); } 70%, 100% { transform: scaleY(0.22); } }
-  .js-reveal .home-v2 .cq-av-dot { animation: cq-avd 6s ease-out infinite; }
-  @keyframes cq-avd { 0%, 20% { opacity: 0; transform: translateY(4px); } 40%, 75% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: translateY(-2px); } }
-
-  /* card 11 · when to get checked: compass needle settles toward check */
-  .js-reveal .home-v2 .cq-wc-nd { animation: cq-wcn 5.5s ease-in-out infinite; }
-  @keyframes cq-wcn { 0% { transform: rotate(-32deg); } 38%, 68% { transform: rotate(14deg); } 100% { transform: rotate(-32deg); } }
-  .js-reveal .home-v2 .cq-wc-ok { animation: cq-wco 5.5s cubic-bezier(0.23, 1, 0.32, 1) infinite; }
-  @keyframes cq-wco { 0%, 30% { transform: scale(0.7); opacity: 0; } 45%, 78% { transform: none; opacity: 1; } 92%, 100% { transform: scale(0.7); opacity: 0; } }
-
   /* Off-screen loops pause (class toggled by IntersectionObserver) */
   [data-live].is-paused, [data-live].is-paused *, [data-live].is-paused::before { animation-play-state: paused !important; }
 }
@@ -342,8 +278,6 @@ body .faq-section .container { max-width: 800px !important; }
   .home-v2 .btn-primary, .home-v2 .btn-outline, .home-v2 .therapy-card, .home-v2 .symptoms-tags li, .home-v2 .authority-bar-item { transition: none; }
   .home-v2 .btn-primary:hover, .home-v2 .therapy-card:hover, .home-v2 .authority-bar-item:hover, .home-v2 .symptoms-tags li:hover { transform: none; }
   .home-v2 .btn-primary:active, .home-v2 .btn-outline:active { transform: none; }
-  .home-v2 .cq-more svg { transition: none; }
-  .home-v2 .cq-link:active { transform: none; }
   .home-v2 .faq-item[open] .faq-answer { animation: none; }
   .home-v2 .faq-item summary::before, .home-v2 .faq-item::details-content { transition: none; }
 }
@@ -404,40 +338,31 @@ body .faq-section .container { max-width: 800px !important; }
 .home-v2 .ab-bar { transform-box: fill-box; transform-origin: center; }
 
 
-/* ═══ Common questions (v6): link cards, each with its own animated icon ═══ */
-.home-v2 .mg--cq { max-width: 600px; margin-top: 26px; }
-.home-v2 .cq-card { padding: 0; }
-.home-v2 .cq-link { display: block; height: 100%; box-sizing: border-box; padding: 24px; color: inherit; text-decoration: none; border-radius: inherit; }
-.home-v2 .cq-link:focus-visible { outline: 3px solid var(--lime-green); outline-offset: 3px; }
-.home-v2 .cqi { display: block; width: 56px; height: 56px; padding: 8px; box-sizing: border-box; border-radius: 14px; background: rgba(196, 255, 73, 0.1); margin-bottom: 14px; overflow: visible; }
-.home-v2 .cqi .t { transform-box: fill-box; transform-origin: center; }
-.home-v2 .cq-more { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; min-height: 24px; font-weight: 600; color: var(--lime-green); }
-.home-v2 .cq-more svg { transition: transform 200ms var(--ease-out); }
-@media (hover: hover) and (pointer: fine) { .home-v2 .cq-link:hover .cq-more svg { transform: translateX(4px); } }
-.home-v2 .cq-link:active { transform: scale(0.98); }
-.home-v2 .cq-q { transform-box: fill-box; transform-origin: left center; }
-.home-v2 .cq-ln { stroke-dasharray: 1 2; stroke-dashoffset: 0; }
-/* static final state: only things that exist while animating are hidden */
-.home-v2 .cq-pk, .home-v2 .cq-f-dot { opacity: 0; }
-.home-v2 .cq-l-ring { opacity: 0; }
-.home-v2 .cq-t-fill { transform-box: fill-box; transform-origin: center bottom; }
-.home-v2 .cq-l-sway { transform-box: fill-box; transform-origin: center bottom; }
-.home-v2 .cq-s-rot { transform-origin: 24px 24px; }
-.home-v2 .cq-l-vein { stroke-dasharray: 1 2; stroke-dashoffset: 0; }
-@media (max-width: 768px) { .home-v2 .cq-link { padding: 20px; } }
-/* 11 cards: 4-col on desktop (last row partial), 2-col on tablet (grid-2), 1 column <=768; links stack so the "more" row aligns per row */
-@media (min-width: 1024px) { .home-v2 .cq-grid--8 { grid-template-columns: repeat(4, 1fr); } .home-v2 .cq-grid--8 .cq-link { padding: 22px; } .home-v2 .cq-grid--8 h3 { font-size: 1.15rem; } .home-v2 .cq-grid--8 p { font-size: 0.98rem; } }
-.home-v2 .cq-grid--8 .cq-link { display: flex; flex-direction: column; }
-.home-v2 .cq-grid--8 .cq-more { margin-top: auto; padding-top: 14px; }
-.home-v2 .cq-fe-dot, .home-v2 .cq-gl-drop { opacity: 0; }
-.home-v2 .cq-ag-beam { transform-origin: 24px 12px; }
-.home-v2 .cq-ag-l { transform-origin: 10px 12px; }
-.home-v2 .cq-ag-r { transform-origin: 38px 12px; }
-.home-v2 .cq-gl-dose { transform-box: fill-box; transform-origin: center bottom; }
-.home-v2 .cq-sy-tick { transform-box: fill-box; transform-origin: center; }
-.home-v2 .cq-av-m, .home-v2 .cq-av-w { transform-box: fill-box; transform-origin: bottom center; }
-.home-v2 .cq-wc-nd { transform-origin: 18px 24px; }
-.home-v2 .cq-wc-ok { opacity: 0.85; }
+/* Common questions (v7): two-column accordion */
+.home-v2 .cq-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: start; text-align: left; }
+.home-v2 .cq-side .medium-heading { text-align: left; margin-bottom: 14px; }
+.home-v2 .cq-side .sub-text { margin: 0 0 22px; max-width: 460px; }
+.home-v2 .cq-all { cursor: pointer; font: inherit; font-weight: 700; padding: 0 28px; }
+.home-v2 .mg--cq { max-width: 460px; margin: 26px 0 0; }
+.home-v2 .cq-cat { margin: 0 0 8px; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white-800); }
+.home-v2 .cq-grp + .cq-grp { margin-top: 22px; }
+.home-v2 .cq-d { border: 1px solid var(--lime-line); border-radius: 14px; background: var(--card-bg); margin-bottom: 8px; overflow: hidden; transition: border-color 200ms var(--ease-out); }
+.home-v2 .cq-d[open] { border-color: rgba(196, 255, 73, .55); }
+.home-v2 .cq-d summary { position: relative; display: block; min-height: 48px; box-sizing: border-box; padding: 14px 52px 14px 18px; font-weight: 600; font-size: 1.05rem; line-height: 1.35; color: var(--white); cursor: pointer; list-style: none; }
+.home-v2 .cq-d summary::-webkit-details-marker { display: none; }
+.home-v2 .cq-d summary::after { content: ""; position: absolute; right: 20px; top: 50%; width: 8px; height: 8px; margin-top: -6px; border: solid var(--lime-green); border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform 240ms var(--ease-out); }
+.home-v2 .cq-d[open] summary::after { transform: translateY(4px) rotate(225deg); }
+.home-v2 .cq-d summary:focus-visible, .home-v2 .cq-read:focus-visible, .home-v2 .cq-all:focus-visible { outline: 3px solid var(--lime-green); outline-offset: 3px; }
+.home-v2 .cq-a { padding: 0 18px 16px; }
+.home-v2 .cq-a p { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--white-800); }
+.home-v2 .cq-read { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 6px; font-weight: 600; color: var(--lime-green); text-underline-offset: 3px; }
+.home-v2 .cq-read span { transition: transform 200ms var(--ease-out); }
+.home-v2 .cq-d[open] .cq-a { animation: cq-in 260ms var(--ease-out) both; }
+@keyframes cq-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (hover: hover) and (pointer: fine) { .home-v2 .cq-d:hover { border-color: rgba(196, 255, 73, .5); } .home-v2 .cq-read:hover span { transform: translateX(4px); } }
+@supports selector(::details-content) { .home-v2 .cq-d { interpolate-size: allow-keywords; } .home-v2 .cq-d::details-content { block-size: 0; overflow: clip; transition: block-size 260ms var(--ease-out), content-visibility 260ms allow-discrete; } .home-v2 .cq-d[open]::details-content { block-size: auto; } }
+@media (max-width: 900px) { .home-v2 .cq-wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; } .home-v2 .cq-side .sub-text, .home-v2 .mg--cq { max-width: none; } .home-v2 .cq-all { width: 100%; box-sizing: border-box; } }
+@media (prefers-reduced-motion: reduce) { .home-v2 .cq-d, .home-v2 .cq-d summary::after, .home-v2 .cq-read span, .home-v2 .cq-d::details-content { transition: none; } .home-v2 .cq-d[open] .cq-a { animation: none; } }
 
 
 @media (prefers-reduced-motion: no-preference) {
@@ -935,9 +860,12 @@ body .faq-section .container { max-width: 800px !important; }
 <!-- COMMON QUESTIONS -->
 <section id="common-questions" class="section cq-section" aria-labelledby="cq-title" data-live>
 <div class="container" style="max-width: 1180px !important;">
-<h2 id="cq-title" class="medium-heading reveal">Common questions men ask, answered</h2>
-<p class="sub-text reveal" style="max-width: 720px; margin: 0 auto 10px;">Plain answers to what we hear most, each with the full guide a click away.</p>
-<figure class="mg mg--cq reveal" aria-hidden="true" style="--ar:560/190">
+<div class="cq-wrap">
+<div class="cq-side reveal">
+<h2 id="cq-title" class="medium-heading">Common questions men ask, answered</h2>
+<p class="sub-text">Plain answers to what we hear most, each with the full guide a click away.</p>
+<button type="button" class="btn-primary cq-all" data-cta="common_browse_all">Browse all answers</button>
+<figure class="mg mg--cq" aria-hidden="true" style="--ar:560/190">
 <svg class="mg-svg" viewBox="0 0 560 190" focusable="false">
 <defs><radialGradient id="cq-glow"><stop offset="0" stop-color="#c4ff49" stop-opacity="0.35"/><stop offset="1" stop-color="#c4ff49" stop-opacity="0"/></radialGradient></defs>
 <ellipse cx="430" cy="95" rx="140" ry="85" fill="url(#cq-glow)"/>
@@ -949,19 +877,27 @@ body .faq-section .container { max-width: 800px !important; }
 <g class="cq-ans"><rect x="350" y="30" width="170" height="130" rx="16" fill="#0f240f" stroke="#c4ff49" stroke-width="3"/><g stroke="#c4ff49" stroke-width="4" stroke-linecap="round"><path class="cq-ln" pathLength="1" style="--k:0" d="M374 62H496"/><path class="cq-ln" pathLength="1" style="--k:1" d="M374 84H470" stroke-opacity="0.7"/><path class="cq-ln" pathLength="1" style="--k:2" d="M374 106H484" stroke-opacity="0.5"/></g><circle class="cq-ok t" cx="400" cy="136" r="11" fill="#c4ff49"/><path class="cq-okp t" d="M394 136l4 4 8-9" fill="none" stroke="#0f240f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
 </svg>
 </figure>
-<ul class="cards therapy-grid grid-2 cq-grid cq-grid--8">
-<li class="therapy-card cq-card reveal" style="--i:0"><a class="cq-link" href="{{SITE}}/trt-or-fix-causes-first" data-cta="common_trt_or_causes"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 42V28"/><path d="M24 28C24 20 14 20 14 11"/><path d="M24 28C24 20 34 20 34 11"/><circle class="cq-f-a t" cx="14" cy="9" r="3.4" fill="#0f240f"/><circle class="cq-f-b t" cx="34" cy="9" r="3.4" fill="#0f240f"/><circle class="cq-f-dot" cx="0" cy="0" r="2.6" fill="#fff" stroke="none"/></svg><h3>TRT, or fix the causes first?</h3><p>Sleep, weight, stress and training can all pull testosterone down. See what to sort out first, what therapy adds, and how to choose your starting point.</p><span class="cq-more">Read the guide<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:1"><a class="cq-link" href="{{SITE}}/low-testosterone-labs-to-ask-for" data-cta="common_labs"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><defs><clipPath id="cq-tc"><path d="M18 8h12v26a6 6 0 0 1-12 0z"/></clipPath></defs><rect class="cq-t-fill" x="16" y="8" width="16" height="38" fill="#c4ff49" fill-opacity="0.55" stroke="none" clip-path="url(#cq-tc)"/><path d="M18 8h12v26a6 6 0 0 1-12 0z"/><path d="M15 8h18"/><path class="cq-t-tick t" d="M38 14l3 3 5-6"/><circle class="cq-t-b t" cx="24" cy="30" r="1.6" fill="#fff" stroke="none"/></svg><h3>Which labs should I ask for?</h3><p>Total and free testosterone, SHBG, LH, FSH, estradiol and more: what each result shows and why the full set gives you a clearer picture.</p><span class="cq-more">See the lab list<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:2"><a class="cq-link" href="{{SITE}}/shift" data-cta="common_shift"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17" stroke-opacity="0.5" stroke-dasharray="2 5"/><g class="cq-s-rot"><circle cx="24" cy="7" r="4.2" fill="#c4ff49"/><path d="M24 41a5 5 0 1 1 4-8 4 4 0 0 0-4 8z" fill="#fff" stroke="none"/></g><path d="M24 17v7l5 3"/></svg><h3>Shift work and low energy</h3><p>Nights and rotating shifts change your sleep, drive and hormones. Here is how we build a plan around your rotation.</p><span class="cq-more">See the shift plan<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:3"><a class="cq-link" href="{{SITE}}/ayurveda" data-cta="common_ayurveda"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle class="cq-l-ring t" cx="24" cy="26" r="14"/><g class="cq-l-sway"><path d="M24 42C10 36 10 18 24 8c14 10 14 28 0 34z" fill="#0f240f"/><path class="cq-l-vein" pathLength="1" d="M24 40V16M24 28l-6-5M24 33l6-5"/></g></svg><h3>Ayurveda for energy, sleep and stress</h3><p>Use your constitution to shape food, daily rhythm and herbs that support steady energy and calmer evenings.</p><span class="cq-more">Explore Ayurveda<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:4"><a class="cq-link" href="{{SITE}}/trt-and-fertility" data-cta="common_trt_fertility"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 39c4-4 8 4 12 0s8 4 12 0 8 4 12 0" stroke-opacity="0.45" stroke-width="2"/><circle class="cq-fe-a t" cx="17" cy="19" r="9" fill="#0f240f"/><circle class="cq-fe-b t" cx="31" cy="19" r="9" fill="none" stroke="#fff"/><circle class="cq-fe-dot" cx="0" cy="0" r="2.6" fill="#c4ff49" stroke="none"/></svg><h3>TRT and fertility</h3><p>TRT can lower sperm production. See why, whether it tends to recover, and options like hCG and clomiphene we help you weigh against your family plans.</p><span class="cq-more">See the fertility options<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:5"><a class="cq-link" href="{{SITE}}/low-testosterone-age-or-weight" data-cta="common_age_or_weight"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 12v28M16 42h16"/><g class="cq-ag-beam"><path d="M8 12h32"/><g class="cq-ag-l"><path d="M10 12v7" stroke-width="1.8"/><path d="M4 20a6 4 0 0 0 12 0z" fill="#0f240f"/><circle cx="10" cy="17" r="2.2" fill="#fff" stroke="none"/></g><g class="cq-ag-r"><path d="M38 12v7" stroke-width="1.8"/><path d="M32 20a6 4 0 0 0 12 0z" fill="#0f240f"/><rect x="35.8" y="14.6" width="4.4" height="4.4" rx="1" fill="#c4ff49" stroke="none"/></g></g><circle cx="24" cy="12" r="2.6" fill="#c4ff49" stroke="none"/></svg><h3>Low T: aging or weight, sleep and stress?</h3><p>Age brings a gradual decline, but weight, sleep and stress can pull testosterone lower too. See which labs tell them apart and what you can change.</p><span class="cq-more">Find your pattern<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:6"><a class="cq-link" href="{{SITE}}/weight-loss-drugs-and-testosterone" data-cta="common_glp1"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><g transform="rotate(-30 22 22)"><rect x="17" y="6" width="10" height="26" rx="3" fill="#0f240f"/><path d="M19 6V3h6v3"/><rect class="cq-gl-dose" x="19.5" y="16" width="5" height="12" rx="1.5" fill="#c4ff49" fill-opacity="0.6" stroke="none"/><path d="M22 32v6" stroke-width="1.8"/><circle class="cq-gl-drop" cx="22" cy="41" r="1.8" fill="#fff" stroke="none"/></g><g class="cq-gl-up t"><path d="M40 34V20M35 25l5-5 5 5" stroke="#fff"/></g></svg><h3>GLP-1 drugs and testosterone</h3><p>What studies show about semaglutide, tirzepatide and testosterone in men, how to protect muscle as you lose weight, and the labs to track.</p><span class="cq-more">See what studies show<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:7"><a class="cq-link" href="{{SITE}}/peptides-canada-usa" data-cta="common_peptides"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 4l16 6v12c0 10-7 17-16 22C15 39 8 32 8 22V10z" stroke-opacity="0.45" stroke-width="2"/><path d="M15 19l6 8 6-8 6 8" stroke-width="1.8"/><circle class="cq-pe-b t" style="--k:0" cx="15" cy="19" r="3.2" fill="#c4ff49" stroke="none"/><circle class="cq-pe-b t" style="--k:1" cx="21" cy="27" r="3.2" fill="#fff" stroke="none"/><circle class="cq-pe-b t" style="--k:2" cx="27" cy="19" r="3.2" fill="#c4ff49" stroke="none"/><circle class="cq-pe-b t" style="--k:3" cx="33" cy="27" r="3.2" fill="#fff" stroke="none"/></svg><h3>Peptides in Canada and the&nbsp;USA</h3><p>Which peptides are approved medicines, which online injectables are not authorized, and how we help you review labs and build a plan online.</p><span class="cq-more">Check the rules<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:8"><a class="cq-link" href="{{SITE}}/low-testosterone-symptoms" data-cta="common_symptoms"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="6" width="32" height="36" rx="5" fill="#0f240f"/><g class="cq-sy-row" style="--k:0"><path class="cq-sy-tick t" style="--k:0" d="M13 16l3.2 3.2 6.5-7.2" stroke="#fff"/><path d="M26 17h12" stroke-opacity="0.55" stroke-width="2"/></g><g class="cq-sy-row" style="--k:1"><path class="cq-sy-tick t" style="--k:1" d="M13 26l3.2 3.2 6.5-7.2" stroke="#c4ff49"/><path d="M26 27h12" stroke-opacity="0.55" stroke-width="2"/></g><g class="cq-sy-row" style="--k:2"><path class="cq-sy-tick t" style="--k:2" d="M13 36l3.2 3.2 6.5-7.2" stroke="#fff"/><path d="M26 37h10" stroke-opacity="0.55" stroke-width="2"/></g></svg><h3>Low testosterone symptoms</h3><p>Sexual, energy, body and mood changes that track with low T — and which symptoms matter most for testing.</p><span class="cq-more">See the symptom guide<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:9"><a class="cq-link" href="{{SITE}}/andropause-vs-menopause" data-cta="common_andro"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 40h36" stroke-opacity="0.45" stroke-width="2"/><path d="M6 40V10" stroke-opacity="0.45" stroke-width="2"/><g class="cq-av-m"><rect x="12" y="14" width="8" height="26" rx="2" fill="#c4ff49" fill-opacity="0.55" stroke="none"/><path d="M12 14h8v26h-8z" fill="none"/></g><g class="cq-av-w"><rect x="28" y="14" width="8" height="26" rx="2" fill="#fff" fill-opacity="0.35" stroke="none"/><path d="M28 14h8v26h-8z" fill="none" stroke="#fff"/></g><circle class="cq-av-dot t" cx="16" cy="10" r="2.2" fill="#c4ff49" stroke="none"/><circle class="cq-av-dot t" cx="32" cy="10" r="2.2" fill="#fff" stroke="none" style="animation-delay:-1.2s"/></svg><h3>Andropause vs menopause</h3><p>How male hormone decline differs from menopause — pace, fertility, and what the evidence actually shows.</p><span class="cq-more">Compare the two<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-<li class="therapy-card cq-card reveal" style="--i:10"><a class="cq-link" href="{{SITE}}/when-to-get-checked-for-low-t" data-cta="common_when_checked"><svg class="cqi" viewBox="0 0 48 48" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="18" cy="24" r="14" stroke-opacity="0.55"/><circle cx="18" cy="24" r="5" stroke-opacity="0.4" stroke-width="1.8"/><g class="cq-wc-nd"><path d="M18 12 L21 24 L18 36 L15 24 Z" fill="#c4ff49" fill-opacity="0.9" stroke="none"/><circle cx="18" cy="24" r="3" fill="#0f240f" stroke="#c4ff49" stroke-width="2"/></g><g class="cq-wc-ok t"><circle cx="38" cy="24" r="7" fill="#0f240f"/><path d="M34.5 24l2.2 2.2 4.5-5" stroke="#fff" stroke-width="2.2"/></g></svg><h3>When to get checked for low T</h3><p>Which symptom clusters make testing useful, why two morning labs confirm low T, and what Odin telehealth does next.</p><span class="cq-more">See when to test<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></li>
-</ul>
+</div>
+<div class="cq-list">
+<div class="cq-grp reveal" style="--i:0" role="group" aria-label="Symptoms and testing"><h3 class="cq-cat">Symptoms &amp; testing</h3>
+<details class="cq-d"><summary>Low testosterone symptoms</summary><div class="cq-a"><p>Sexual, energy, body and mood changes that track with low T, and which ones matter most when deciding on testing.</p><a class="cq-read" href="{{SITE}}/low-testosterone-symptoms" data-cta="common_symptoms">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>When to get checked for low T</summary><div class="cq-a"><p>Certain symptom clusters make testing worthwhile. Two morning labs confirm low T, and Odin telehealth takes it from there.</p><a class="cq-read" href="{{SITE}}/when-to-get-checked-for-low-t" data-cta="common_when_checked">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Which labs should I ask for?</summary><div class="cq-a"><p>Total and free testosterone, SHBG, LH, FSH and estradiol: what each shows and why the full set gives a clearer picture.</p><a class="cq-read" href="{{SITE}}/low-testosterone-labs-to-ask-for" data-cta="common_labs">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Andropause vs menopause</summary><div class="cq-a"><p>How male hormone decline differs from menopause in pace and fertility, and what the evidence shows.</p><a class="cq-read" href="{{SITE}}/andropause-vs-menopause" data-cta="common_andro">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+</div>
+<div class="cq-grp reveal" style="--i:1" role="group" aria-label="Causes and lifestyle"><h3 class="cq-cat">Causes &amp; lifestyle</h3>
+<details class="cq-d"><summary>Low T: aging or weight, sleep and stress?</summary><div class="cq-a"><p>Age brings a gradual decline, but weight, sleep and stress can pull testosterone lower too. See which labs tell them apart.</p><a class="cq-read" href="{{SITE}}/low-testosterone-age-or-weight" data-cta="common_age_or_weight">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Shift work and low energy</summary><div class="cq-a"><p>Nights and rotating shifts change your sleep, drive and hormones. We build the plan around your rotation.</p><a class="cq-read" href="{{SITE}}/shift" data-cta="common_shift">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Ayurveda for energy, sleep and stress</summary><div class="cq-a"><p>Use your constitution to shape food, daily rhythm and herbs that support steady energy and calmer evenings.</p><a class="cq-read" href="{{SITE}}/ayurveda" data-cta="common_ayurveda">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+</div>
+<div class="cq-grp reveal" style="--i:2" role="group" aria-label="Treatment and medications"><h3 class="cq-cat">Treatment &amp; medications</h3>
+<details class="cq-d"><summary>TRT, or fix the causes first?</summary><div class="cq-a"><p>Sleep, weight, stress and training can all pull testosterone down. See what to sort out first and what therapy adds.</p><a class="cq-read" href="{{SITE}}/trt-or-fix-causes-first" data-cta="common_trt_or_causes">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>TRT and fertility</summary><div class="cq-a"><p>TRT can lower sperm production. See whether it tends to recover and the options we help you weigh against family plans.</p><a class="cq-read" href="{{SITE}}/trt-and-fertility" data-cta="common_trt_fertility">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>GLP-1 drugs and testosterone</summary><div class="cq-a"><p>What studies show about semaglutide, tirzepatide and testosterone, how to protect muscle, and the labs to track.</p><a class="cq-read" href="{{SITE}}/weight-loss-drugs-and-testosterone" data-cta="common_glp1">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Peptides in Canada and the&nbsp;USA</summary><div class="cq-a"><p>Which peptides are approved medicines and which online injectables are not authorized in Canada and the USA.</p><a class="cq-read" href="{{SITE}}/peptides-canada-usa" data-cta="common_peptides">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+</div>
+</div>
+</div>
 </div>
 </section>
 
@@ -1138,6 +1074,14 @@ body .faq-section .container { max-width: 800px !important; }
     trackCta(cta);
     trackBookingLink(el, cta);
   }, true);
+  /* Common questions: "Browse all answers" opens or closes every row */
+  var cqAll = document.querySelector('.cq-all');
+  if (cqAll) cqAll.addEventListener('click', function () {
+    var rows = document.querySelectorAll('.cq-d'), open = cqAll.getAttribute('data-open') !== '1';
+    Array.prototype.forEach.call(rows, function (d) { d.open = open; });
+    cqAll.setAttribute('data-open', open ? '1' : '0');
+    cqAll.textContent = open ? 'Hide all answers' : 'Browse all answers';
+  });
 
 
   /* ── Motion: reveal, draw-on icons, timeline, off-screen pause (progressive enhancement; content is visible without JS) ── */
