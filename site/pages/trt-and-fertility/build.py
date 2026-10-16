@@ -190,7 +190,7 @@ def step_icons():
      "{{STEP4}}": '<path d="M5 28h9l4-10 8 20 4-10h13"/><g class="hi-ck" style="--k:0"><path d="M30 12l5 5 9-11" stroke="#fff"/></g>',
     }
 
-HUB = hub(G, [(110, 52, 'labs'), (110, 148, 'coach'), (450, 52, 'scale'), (450, 148, 'caps'), (280, 32, 'tube')])
+HUB = hub(G, [(110, 52, 'labs'), (110, 148, 'coach'), (450, 52, 'scale'), (450, 148, 'caps'), (230, 28, 'tube'), (330, 172, 'sleep')])
 slots = {"{{HERO}}": hero_swim(), "{{MECH}}": mech(), "{{STAGES}}": stages(), "{{RECOVERY}}": recovery(), "{{BASELINE}}": baseline(),
          "{{OPTIONS}}": options(), "{{REGIONS}}": regions(), "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{SPROUT}}": SPROUT}
 slots.update(step_icons())

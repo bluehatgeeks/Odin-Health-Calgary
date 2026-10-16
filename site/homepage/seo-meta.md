@@ -62,3 +62,8 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (57): TRT and Fertility: Effects and Options | Odin Health Labs
 - Description (150): Does testosterone therapy affect fertility? How TRT lowers sperm production, whether it recovers, and options like hCG and clomiphene. Canada and USA.
 - Note: NEW answer-style page (not yet published). Target query: "Does testosterone therapy affect fertility, and what are the options?" No /owen-lowt links by design; CTAs use the booking modal.
+
+## Low T: Age or Weight  `/low-testosterone-age-or-weight`
+- Title (60): Low T: Aging or Weight, Sleep and Stress? | Odin Health Labs
+- Description (152): Is low testosterone from aging or from weight, sleep and stress? What studies show, which labs tell them apart, and what you can change. Canada and USA.
+- Note: NEW answer-style page (not yet published). Target query: "Is my low testosterone from aging or from weight, sleep and stress?" No /owen-lowt links by design; CTAs use the booking modal.
