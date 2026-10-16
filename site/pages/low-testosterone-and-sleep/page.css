@@ -1,0 +1,81 @@
+/* ═══ /low-testosterone-and-sleep graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
+.pg .hr-ring, .pg .hr-moon, .pg .hr-sun, .pg .sl-st, .pg .ov-rem, .pg .ss-bar, .pg .ss-vig, .pg .ap-ring, .pg .ap-pause, .pg .sh-arc, .pg .ts-sun, .pg .ts-ray, .pg .ts-win, .pg .ts-fill, .pg .hb-row, .pg .hb-ck, .pg .hp-bar, .pg .hp-i, .pg .fn-moon, .pg .fn-sun, .pg .fn-st, .pg .fq-moon, .pg .fq-z { transform-box: fill-box; transform-origin: center; }
+.pg .hr-ring, .pg .ap-ring { opacity: 0; }
+.pg .ss-bar, .pg .ss-vig, .pg .ts-fill, .pg .hp-bar { transform-origin: 50% 100%; }
+.pg .sh-hand { transform-box: view-box; transform-origin: 120px 135px; transform: rotate(150deg); }
+.pg .ts-hand { transform-box: view-box; transform-origin: 380px 120px; transform: rotate(270deg); }
+.pg .ov-scan { transform: translateX(240px); }
+.pg .fq-z { opacity: 0.85; }
+/*@GEN_STATIC*/
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* hero: peak ring, moon fades as sun brightens, stars twinkle */
+  .js-reveal .pg .hr-ring { animation: hr-r 4s ease-out infinite; }
+  @keyframes hr-r { 0% { opacity: 0.6; transform: scale(0.8); } 60%, 100% { opacity: 0; transform: scale(2.2); } }
+  .js-reveal .pg .hr-moon { animation: hr-m 10s ease-in-out infinite; }
+  @keyframes hr-m { 0%, 45% { opacity: 1; transform: none; } 60%, 90% { opacity: 0.45; transform: translateY(6px); } 100% { opacity: 1; transform: none; } }
+  .js-reveal .pg .hr-sun { animation: hr-s 10s ease-in-out infinite; }
+  @keyframes hr-s { 0%, 45% { opacity: 0.45; transform: translateY(6px); } 60%, 90% { opacity: 1; transform: none; } 100% { opacity: 0.45; transform: translateY(6px); } }
+  .js-reveal .pg .sl-st, .js-reveal .pg .fn-st { animation: sl-tw 3.2s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.1s); }
+  @keyframes sl-tw { 0%, 100% { opacity: 0.25; transform: scale(0.7); } 50% { opacity: 1; transform: scale(1.1); } }
+
+  /* overnight: scan sweeps the night, REM blocks glow in turn */
+  .js-reveal .pg .ov-scan { animation: ov-scan 9s linear infinite; }
+  @keyframes ov-scan { from { transform: translateX(0); } to { transform: translateX(480px); } }
+  .js-reveal .pg .ov-rem { animation: ov-rem 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2.6s + 2.8s); }
+  @keyframes ov-rem { 0%, 100% { opacity: 0.45; transform: scaleY(1); } 8%, 22% { opacity: 1; transform: scaleY(1.5); } 34% { opacity: 0.45; transform: scaleY(1); } }
+
+  /* short sleep: bars grow, vigour drains */
+  .js-reveal .pg .ss-bar { animation: ss-bar 7s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.5s); }
+  @keyframes ss-bar { 0%, 100% { transform: scaleY(0.94); opacity: 0.8; } 35%, 70% { transform: scaleY(1); opacity: 1; } }
+  .js-reveal .pg .ss-vig { animation: ss-vig 7s ease-in-out infinite; }
+  @keyframes ss-vig { 0%, 15% { transform: scaleY(1); } 60%, 80% { transform: scaleY(0.68); } 100% { transform: scaleY(1); } }
+
+  /* apnea: weight ring, breathing pause blinks, wave drifts */
+  .js-reveal .pg .ap-ring { animation: hr-r 4.4s ease-out infinite; }
+  .js-reveal .pg .ap-pause { animation: ap-p 3.6s ease-in-out infinite; }
+  @keyframes ap-p { 0%, 100% { opacity: 0.35; } 40%, 60% { opacity: 1; } }
+  .js-reveal .pg .ap-wave { animation: ap-w 3.6s ease-in-out infinite; }
+  @keyframes ap-w { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+
+  /* shift: hand sweeps the dial, day-sleep arc breathes */
+  .js-reveal .pg .sh-hand { animation: sh-h 12s linear infinite; }
+  @keyframes sh-h { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .js-reveal .pg .sh-arc { animation: sh-a 4s ease-in-out infinite; }
+  @keyframes sh-a { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+  /* testing: sun rises, rays flicker, hand swings through the window, tube fills */
+  .js-reveal .pg .ts-sun { animation: ts-sun 7s var(--ease-out) infinite; }
+  @keyframes ts-sun { 0% { transform: translateY(40px); } 40%, 85% { transform: translateY(0); } 100% { transform: translateY(40px); } }
+  .js-reveal .pg .ts-ray { animation: sl-tw 3s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.4s); }
+  .js-reveal .pg .ts-hand { animation: ts-h 7s ease-in-out infinite; }
+  @keyframes ts-h { 0%, 10% { transform: rotate(210deg); } 45%, 75% { transform: rotate(330deg); } 100% { transform: rotate(210deg); } }
+  .js-reveal .pg .ts-win { animation: sh-a 3.5s ease-in-out infinite; }
+  .js-reveal .pg .ts-fill { animation: ts-f 7s ease-in-out infinite; }
+  @keyframes ts-f { 0%, 20% { transform: scaleY(0.1); } 55%, 85% { transform: scaleY(1); } 100% { transform: scaleY(0.1); } }
+
+  /* habits: tiles light and tick in turn */
+  .js-reveal .pg .hb-row { animation: hb-r 12s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 12s); }
+  @keyframes hb-r { 0%, 20%, 100% { opacity: 0.6; transform: scale(1); } 5%, 14% { opacity: 1; transform: scale(1.03); } }
+  .js-reveal .pg .hb-ck { animation: hb-c 12s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 2s - 12s); }
+  @keyframes hb-c { 0%, 2% { transform: scale(0.6); opacity: 0.4; } 8%, 92% { transform: none; opacity: 1; } 100% { transform: scale(0.6); opacity: 0.4; } }
+
+  /* help: sleep-log bars grow, icons light */
+  .js-reveal .pg .hp-bar { animation: hp-bar 6s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.25s); }
+  @keyframes hp-bar { 0%, 5% { transform: scaleY(0.3); } 35%, 85% { transform: scaleY(1); } 100% { transform: scaleY(0.3); } }
+  .js-reveal .pg .hp-i { animation: hp-i 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s); }
+  @keyframes hp-i { 0%, 30%, 100% { opacity: 0.5; transform: scale(1); } 10% { opacity: 1; transform: scale(1.14); } }
+
+  /* FAQ + final: moon bobs, Zs drift, sun rises as moon sets */
+  .js-reveal .pg .fq-moon { animation: pg-bob 2.8s ease-in-out infinite alternate; }
+  .js-reveal .pg .fq-z { animation: fq-z 3.4s ease-out infinite; animation-delay: calc(var(--k, 0) * -1.7s); }
+  @keyframes fq-z { 0% { opacity: 0; transform: translate(0, 6px); } 30%, 70% { opacity: 1; } 100% { opacity: 0.2; transform: translate(4px, -6px); } }
+  .js-reveal .pg .fn-moon { animation: fn-m 9s ease-in-out infinite; }
+  @keyframes fn-m { 0%, 30% { opacity: 1; transform: none; } 55%, 85% { opacity: 0.35; transform: translateY(14px); } 100% { opacity: 1; transform: none; } }
+  .js-reveal .pg .fn-sun { animation: fn-s 9s ease-in-out infinite; }
+  @keyframes fn-s { 0%, 30% { transform: translateY(26px); } 55%, 85% { transform: translateY(0); } 100% { transform: translateY(26px); } }
+/*@GEN_MOTION*/
+}
