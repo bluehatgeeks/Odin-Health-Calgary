@@ -27,8 +27,8 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 
 ## Privacy  `/privacy`
 - Title (33): Privacy Policy | Odin Health Labs
-- Description (157): How Odin Health Labs collects, uses and protects your personal information, including assessment answers and call details, for clients in Canada and the USA.
-- Note: Policy text still says Calgary, AB: legal review needed (PIPEDA/PHIPA/HIPAA-style obligations).
+- Description (151): How Odin Health Labs collects, uses and protects personal and health information for telehealth clients in Canada and the USA, and your privacy rights.
+- Note: Refreshed locally 2026-10-15 (pages/privacy, not published). Legal text kept from the live policy (effective March 19, 2026; Last updated October 15, 2026) with factual updates only (telehealth Canada + USA, no therapy/PEMF wording, Mixpanel named as an analytics provider). Organization location stays "Calgary, Alberta, Canada". Custom HTML no longer carries the old duplicate Calgary <title>/meta. Legal review flags in pages/privacy/NOTES.md.
 
 ## Functional Health  `/functional-health`
 - Title (57): Functional Health for Men: Root Causes | Odin Health Labs

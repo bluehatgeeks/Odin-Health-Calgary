@@ -1,0 +1,93 @@
+Privacy Policy
+How Odin Health Labs collects, uses, and protects your personal information.
+Effective Date: March 19, 2026
+Organization: Odin Health Labs
+Location: Calgary, Alberta, Canada
+1. Introduction
+Odin Health Labs ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website or book therapy sessions with us.
+We operate in Calgary, Alberta, Canada and comply with the Personal Information Protection and Electronic Documents Act (PIPEDA) and Alberta's Personal Information Protection Act (PIPA).
+By using our website or services, you consent to the practices described in this policy. If you do not agree, please do not use our services.
+2. Information We Collect
+We collect personal information that you provide directly and information gathered automatically when you visit our website.
+Information You Provide
+Identity & contact: Full name, email address, phone number
+Health information: Health history, conditions, and goals relevant to your therapy sessions (collected at booking or intake)
+Payment details: Billing information processed securely through our payment provider (we do not store full card numbers)
+Appointment data: Session bookings, scheduling preferences, and service history
+Inquiry information: Messages or questions submitted through contact forms or email
+Information Collected Automatically
+Usage data: Pages visited, time on site, referring URLs, browser and device type
+IP address and approximate geographic location
+Cookies and tracking pixels (see Section 6)
+3. How We Use Your Information
+We use your personal information for the following purposes:
+To schedule, confirm, and manage your therapy appointments
+To provide safe and appropriate health coaching and PEMF therapy services
+To process payments for services rendered
+To communicate with you about your bookings, health progress, and service updates
+To send marketing communications (where you have consented)
+To improve our website and understand how visitors interact with our content
+To comply with legal obligations
+We will not use your health information for any purpose other than delivering and improving the care we provide to you.
+4. Legal Basis for Processing
+We collect and process your personal information on the following grounds:
+Consent: You have given clear consent for specific purposes (e.g. marketing emails, cookies)
+Contract: Processing is necessary to fulfill your booking or service agreement with us
+Legitimate interests: To operate, improve, and protect our business and services
+Legal obligation: Where we are required to retain or disclose information by applicable law
+5. Sharing Your Information
+We do not sell your personal information. We may share it with trusted third parties only as necessary:
+Service Providers
+GoHighLevel — our appointment booking and CRM platform. Your name, email, phone number, and booking details are stored and processed by GoHighLevel to manage scheduling and client communications.
+Payment processor — to securely handle payment transactions.
+Email and communication tools — to send appointment confirmations and follow-ups.
+Analytics & Advertising Partners
+Google Analytics — we use Google Analytics to understand website traffic and user behaviour. Google may collect and process data in accordance with Google's Privacy Policy.
+Meta (Facebook) Pixel — we use the Meta Pixel to measure the effectiveness of our advertising and to show relevant ads on Facebook and Instagram. Meta may collect data in accordance with Meta's Data Policy.
+Legal Disclosure
+We may disclose your information if required by law, court order, or government authority, or to protect the safety and rights of our clients and staff.
+All third-party service providers are contractually required to protect your information and use it only for the purposes we specify.
+6. Cookies & Tracking Technologies
+We use cookies and similar tracking technologies on our website. These include:
+Essential cookies: Required for the website to function properly
+Analytics cookies (Google Analytics): Help us understand how visitors use our site
+Marketing cookies (Meta Pixel): Used to measure ad performance and retarget visitors on social media
+You can control cookies through your browser settings. Disabling certain cookies may affect the functionality of our website. Most browsers allow you to refuse cookies or alert you when cookies are being sent.
+To opt out of Google Analytics tracking, you can use the Google Analytics Opt-out Browser Add-on.
+7. Health Information
+We treat health information with the highest level of care. Any health history, symptoms, or wellness goals you share with us are used solely for the purpose of providing appropriate and safe therapy services.
+Health information is stored securely within our booking system (GoHighLevel) and is accessible only to authorized Odin Health Labs staff involved in your care. We do not share your health information with any third party without your explicit consent, except where required by law.
+8. Data Retention
+We retain your personal information for as long as necessary to provide our services and comply with legal obligations:
+Client and appointment records: Retained for a minimum of 7 years to comply with Alberta health and business record-keeping requirements
+Payment records: Retained as required by tax and financial regulations
+Marketing contact lists: Retained until you withdraw consent or unsubscribe
+Website analytics data: Retained per the default retention periods set by Google Analytics (up to 26 months)
+When information is no longer needed, we securely delete or anonymize it.
+9. Your Rights
+Under PIPEDA and Alberta's PIPA, you have the following rights regarding your personal information:
+Access: Request a copy of the personal information we hold about you
+Correction: Ask us to correct inaccurate or incomplete information
+Withdrawal of consent: Withdraw consent for processing where consent is the legal basis (e.g. marketing emails)
+Deletion: Request deletion of your personal information, subject to our legal retention obligations
+Complaint: Lodge a complaint with the Office of the Privacy Commissioner of Canada or the Office of the Information and Privacy Commissioner of Alberta
+To exercise any of these rights, contact us at [email protected]. We will respond within 30 days.
+10. Data Security
+We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, loss, disclosure, or destruction. These include:
+Secure, encrypted connections (HTTPS) on our website
+Access controls limiting who can view client data
+Use of reputable, security-certified third-party platforms
+While we take all reasonable steps to protect your data, no method of transmission over the internet is 100% secure. We encourage you to contact us directly for sensitive communications.
+11. Links to Third-Party Websites
+Our website may contain links to external websites. We are not responsible for the privacy practices of those sites. We encourage you to review the privacy policies of any third-party sites you visit.
+12. Children's Privacy
+Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from minors. If you believe we have inadvertently collected such information, please contact us and we will delete it promptly.
+13. Changes to This Policy
+We may update this Privacy Policy from time to time. When we do, we will revise the "Effective Date" at the top of this page. We encourage you to review this policy periodically. Continued use of our services after changes are posted constitutes your acceptance of the updated policy.
+14. Contact Us
+If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your personal information, please contact us:
+Business: Odin Health Labs
+Location: Calgary, Alberta, Canada
+Email: [email protected]
+Phone: +1 587-324-8710
+You also have the right to contact the Office of the Information and Privacy Commissioner of Alberta at www.oipc.ab.ca if you have concerns about how we handle your personal information.
