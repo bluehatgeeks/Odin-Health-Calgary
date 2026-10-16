@@ -1,0 +1,91 @@
+/* ═══ /free-vs-total-testosterone graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
+.pg .hr-cl, .pg .me-cl, .pg .hr-al, .pg .hr-fs, .pg .hr-ring, .pg .sp-free, .pg .sb-it, .pg .cc-key, .pg .cc-scr, .pg .cc-out, .pg .me-row, .pg .un-pr, .pg .nr-band, .pg .qd-c, .pg .qd-ring, .pg .wh-t, .pg .hp-i, .pg .fn-dot, .pg .fq-cl, .pg .fq-fr { transform-box: fill-box; transform-origin: center; }
+.pg .hr-ring, .pg .qd-ring { opacity: 0; }
+.pg .sp-seg { transform-box: fill-box; transform-origin: 0 50%; }
+.pg .sb-nd { transform-box: view-box; transform-origin: 280px 170px; transform: rotate(40deg); }
+.pg .un-nd { transform-box: view-box; transform-origin: 160px 170px; transform: rotate(-42.7deg); }
+.pg .fn-la { transform-box: fill-box; transform-origin: 100% 100%; transform: rotate(-18deg); }
+.pg .fn-ra { transform-box: fill-box; transform-origin: 0 100%; transform: rotate(18deg); }
+.pg .fn-dot { transform: translateY(-46px); }
+.pg .mg-svg { text-anchor: middle; }
+/*@GEN_STATIC*/
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* hero: SHBG clamps squeeze, albumin holds loosely (wobble), free molecule bobs + ring */
+  .js-reveal .pg .hr-cl, .js-reveal .pg .me-cl { animation: hr-cl 4s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1s); }
+  @keyframes hr-cl { 0%, 100% { transform: scale(1); } 50% { transform: scale(0.92); } }
+  .js-reveal .pg .hr-al { animation: hr-al 2.6s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.9s); }
+  @keyframes hr-al { from { transform: translate(-4px, 1px); } to { transform: translate(5px, -3px); } }
+  .js-reveal .pg .hr-fs { animation: pg-bob 2.2s ease-in-out infinite alternate; }
+  .js-reveal .pg .hr-ring { animation: hr-r 3.6s ease-out infinite; }
+  @keyframes hr-r { 0% { opacity: 0.6; transform: scale(0.8); } 60%, 100% { opacity: 0; transform: scale(2.2); } }
+
+  /* split: segments grow from the left, free sliver glows */
+  .js-reveal .pg .sp-seg { animation: sp-seg 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  @keyframes sp-seg { 0% { transform: scaleX(0.2); opacity: 0.5; } 25%, 90% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(0.2); opacity: 0.5; } }
+  .js-reveal .pg .sp-free { animation: sp-fr 2.4s ease-in-out infinite; }
+  @keyframes sp-fr { 0%, 100% { opacity: 0.7; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.14); } }
+
+  /* SHBG: lowering factors light, needle swings low; raising factors light, needle swings high */
+  .js-reveal .pg .sb-it { animation: sb-it 16s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 16s); }
+  @keyframes sb-it { 0%, 14%, 100% { opacity: 0.5; transform: scale(1); } 3%, 10% { opacity: 1; transform: scale(1.04); } }
+  .js-reveal .pg .sb-nd { animation: sb-nd 16s ease-in-out infinite; }
+  @keyframes sb-nd { 0% { transform: rotate(0deg); } 6%, 44% { transform: rotate(-55deg); } 56%, 94% { transform: rotate(55deg); } 100% { transform: rotate(0deg); } }
+
+  /* calculator: keys blink, screen flashes, result pulses */
+  .js-reveal .pg .cc-key { animation: cc-k 3s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 0.33s); }
+  @keyframes cc-k { 0%, 30%, 100% { fill-opacity: 0.25; } 12% { fill-opacity: 0.9; } }
+  .js-reveal .pg .cc-scr { animation: cc-s 7s ease-in-out infinite; }
+  @keyframes cc-s { 0%, 35% { opacity: 0.3; } 45%, 90% { opacity: 1; } 100% { opacity: 0.3; } }
+  .js-reveal .pg .cc-out { animation: cc-o 7s var(--ease-out) infinite; }
+  @keyframes cc-o { 0%, 58% { transform: scale(1); } 66% { transform: scale(1.08); } 76%, 100% { transform: scale(1); } }
+
+  /* methods: membrane flows, rows light in turn */
+  .js-reveal .pg .me-mb path { animation: me-mb 1.6s linear infinite; }
+  @keyframes me-mb { to { stroke-dashoffset: -12; } }
+  .js-reveal .pg .me-row { animation: me-r 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 3s - 9s); }
+  @keyframes me-r { 0%, 30%, 100% { opacity: 0.55; transform: none; } 6%, 24% { opacity: 1; transform: translateX(4px); } }
+
+  /* units: needle moves to each conversion pair while it lights */
+  .js-reveal .pg .un-nd { animation: un-nd 12s ease-in-out infinite; }
+  @keyframes un-nd { 0%, 28% { transform: rotate(-42.7deg); } 34%, 62% { transform: rotate(-33.4deg); } 70%, 92% { transform: rotate(64deg); } 100% { transform: rotate(-42.7deg); } }
+  .js-reveal .pg .un-pr { animation: un-pr 12s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 4s - 12s); }
+  @keyframes un-pr { 0%, 33%, 100% { opacity: 0.5; transform: scale(1); } 4%, 28% { opacity: 1; transform: scale(1.03); } }
+
+  /* normal: total band breathes, lab-limit zone drifts */
+  .js-reveal .pg .nr-band { animation: nr-b 4s ease-in-out infinite; }
+  @keyframes nr-b { 0%, 100% { opacity: 0.75; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.12); } }
+  .js-reveal .pg .nr-fz { animation: nr-fz 5s ease-in-out infinite alternate; }
+  @keyframes nr-fz { from { transform: translateX(-22px); } to { transform: translateX(22px); } }
+
+  /* quadrants: cells light in turn, ring on normal total / low free */
+  .js-reveal .pg .qd-c { animation: qd-c 10s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2.5s - 10s); }
+  @keyframes qd-c { 0%, 25%, 100% { opacity: 0.6; } 6%, 20% { opacity: 1; } }
+  .js-reveal .pg .qd-ring { animation: qd-r 3.4s ease-out infinite; }
+  @keyframes qd-r { 0% { opacity: 0.7; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(1.08); } }
+
+  /* when: each branch tile lights as its dot arrives */
+  .js-reveal .pg .wh-t { animation: wh-t 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2.7s); }
+  @keyframes wh-t { 0%, 18%, 40%, 100% { opacity: 0.55; transform: scale(1); } 24%, 34% { opacity: 1; transform: scale(1.03); } }
+
+  /* help: highlighter steps down the lab rows, plan icons light */
+  .js-reveal .pg .hp-hl { animation: hp-hl 8s ease-in-out infinite; }
+  @keyframes hp-hl { 0%, 18% { transform: translateY(0); } 25%, 43% { transform: translateY(36px); } 50%, 68% { transform: translateY(72px); } 75%, 93% { transform: translateY(108px); } 100% { transform: translateY(0); } }
+  .js-reveal .pg .hp-i { animation: hp-i 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s); }
+  @keyframes hp-i { 0%, 30%, 100% { opacity: 0.5; transform: scale(1); } 10% { opacity: 1; transform: scale(1.14); } }
+
+  /* final: clamp opens and the free molecule rises; FAQ: clamp bobs, free dots float */
+  .js-reveal .pg .fn-la { animation: fn-la 6s ease-in-out infinite; }
+  @keyframes fn-la { 0%, 15% { transform: rotate(0deg); } 35%, 80% { transform: rotate(-18deg); } 100% { transform: rotate(0deg); } }
+  .js-reveal .pg .fn-ra { animation: fn-ra 6s ease-in-out infinite; }
+  @keyframes fn-ra { 0%, 15% { transform: rotate(0deg); } 35%, 80% { transform: rotate(18deg); } 100% { transform: rotate(0deg); } }
+  .js-reveal .pg .fn-dot { animation: fn-d 6s var(--ease-out) infinite; }
+  @keyframes fn-d { 0%, 20% { transform: translateY(0); } 45%, 80% { transform: translateY(-46px); } 100% { transform: translateY(0); } }
+  .js-reveal .pg .fq-cl { animation: pg-bob 2.8s ease-in-out infinite alternate; }
+  .js-reveal .pg .fq-fr { animation: fq-fr 3.4s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.7s); }
+  @keyframes fq-fr { 0%, 100% { opacity: 0.4; transform: translate(0, 4px); } 50% { opacity: 1; transform: translate(3px, -5px); } }
+/*@GEN_MOTION*/
+}
