@@ -28,3 +28,6 @@ Hero: rack of five test tubes, liquid levels breathe, a drop falls into each in 
 
 ## Tested
 Same suite and results format as the TRT page (see `test-visual.out.json`, `test-tracking.out.txt`): console clean, CLS 0, no overflow at 1280 and 390, reduced motion and JS-off clean, loops pause off-screen, every `data-cta` unique and tracked, no /owen-lowt, banned-claim scan 0 hits. Not checked: real-device FPS, Safari/Firefox, Lighthouse in GHL, live nav/footer loaders.
+
+## Update 2026-10-16 (local only, not published)
+Keep reading gained a 6th card "Free vs total testosterone" (data-cta related_freet -> /free-vs-total-testosterone) and a 6th hub node (drop icon at 280,170); hub aria-label now says six pages. Pre-edit backup: /workspace/backups-freet/low-testosterone-labs-to-ask-for/. Rebuilt (133,949 bytes, no minify needed); visual + tracking (NO_ASSESS) retested: all PASS, 19/19 CTAs, banned scan 0. Publish /free-vs-total-testosterone first.

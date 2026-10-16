@@ -97,3 +97,8 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (52): Low Testosterone and Sleep in Men | Odin Health Labs
 - Description (152): How short sleep, sleep apnea and night shifts affect testosterone, why T rises while you sleep, when to test, and what men in Canada and the USA can do.
 - Note: NEW answer-style page (not yet published). Target query: "low testosterone and sleep" / "does sleep affect testosterone" / "sleep apnea low testosterone" / "shift work testosterone". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
+
+## Free vs Total Testosterone  `/free-vs-total-testosterone`
+- Title (54): Free vs Total Testosterone and SHBG | Odin Health Labs
+- Description (150): Free vs total testosterone: how SHBG and albumin bind T, normal free T levels, calculated vs dialysis tests and what men in Canada and the USA can do.
+- Note: NEW answer-style page (not yet published). Target query: "free vs total testosterone" / "what is free testosterone" / "SHBG and testosterone" / "normal free testosterone men" / "total testosterone normal but symptoms". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
