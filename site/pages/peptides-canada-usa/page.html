@@ -299,6 +299,7 @@ body .faq-section .container { max-width: 800px !important; }
 .pg .xh-p4 { transform: translate(230px,28px); opacity: 0; }
 .pg .xh-p5 { transform: translate(330px,172px); opacity: 0; }
 .pg .xh-p6 { transform: translate(330px,28px); opacity: 0; }
+.pg .xh-p7 { transform: translate(230px,172px); opacity: 0; }
 .pg .ph-p0 { transform: translate(90px,150px); opacity: 0; }
 .pg .ph-p1 { transform: translate(390px,150px); opacity: 0; }
 .pg .ty-p0 { transform: translate(160px,90px); opacity: 0; }
@@ -415,6 +416,16 @@ body .faq-section .container { max-width: 800px !important; }
   0% { opacity: 0; transform: translate(330px,28px); }
   4% { opacity: 0; transform: translate(330px,28px); }
   6% { opacity: 1; transform: translate(330px,28px); }
+  40% { transform: translate(280px,100px); }
+  40% { opacity: 1; transform: translate(280px,100px); }
+  42% { opacity: 0; transform: translate(280px,100px); }
+  100% { opacity: 0; transform: translate(280px,100px); }
+}
+.js-reveal .pg .xh-p7 { animation: kf-xh-p7 8s linear infinite; animation-delay: -14s; }
+@keyframes kf-xh-p7 {
+  0% { opacity: 0; transform: translate(230px,172px); }
+  4% { opacity: 0; transform: translate(230px,172px); }
+  6% { opacity: 1; transform: translate(230px,172px); }
   40% { transform: translate(280px,100px); }
   40% { opacity: 1; transform: translate(280px,100px); }
   42% { opacity: 0; transform: translate(280px,100px); }
@@ -1064,7 +1075,7 @@ body .faq-section .container { max-width: 800px !important; }
 <section id="related" class="section" aria-labelledby="related-title" data-live>
 <div class="container" style="max-width: 1000px !important;">
 <h2 id="related-title" class="medium-heading reveal">Keep reading</h2>
-<figure class="mg mg--md reveal" role="img" aria-label="A hub with the low testosterone guide at the centre, joined to seven related pages. Small pulses flow in from each." style="--ar:560/200">
+<figure class="mg mg--md reveal" role="img" aria-label="A hub with the low testosterone guide at the centre, joined to eight related pages. Small pulses flow in from each." style="--ar:560/200">
 <svg class="mg-svg" viewBox="0 0 560 200" aria-hidden="true" focusable="false">
 <defs><radialGradient id="xh-g"><stop offset="0" stop-color="#c4ff49" stop-opacity="0.2"/><stop offset="1" stop-color="#c4ff49" stop-opacity="0"/></radialGradient></defs><circle cx="280" cy="100" r="92" fill="url(#xh-g)"/>
 <path d="M110 52 L280 100" stroke="rgba(196,255,73,0.18)" stroke-width="3" fill="none" stroke-linecap="round"/>
@@ -1088,6 +1099,9 @@ body .faq-section .container { max-width: 800px !important; }
 <path d="M330 28 L280 100" stroke="rgba(196,255,73,0.18)" stroke-width="3" fill="none" stroke-linecap="round"/>
 <path class="dr" pathLength="1" style="--d:1.12;--dur:1.0s" d="M330 28 L280 100" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 <g class="xh-p6 fx"><circle r="5" fill="#ffffff"/></g>
+<path d="M230 172 L280 100" stroke="rgba(196,255,73,0.18)" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path class="dr" pathLength="1" style="--d:1.24;--dur:1.0s" d="M230 172 L280 100" fill="none" stroke="#c4ff49" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="xh-p7 fx"><circle r="5" fill="#ffffff"/></g>
 <circle class="xh-ring fx" cx="280" cy="100" r="40" fill="none" stroke="#c4ff49" stroke-width="2"/>
 <g class="pop t " style="--d:0.1"><circle cx="280" cy="100" r="32" fill="#142e14" stroke="#c4ff49" stroke-width="2.6"/><g fill="none" stroke="#c4ff49" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#pi-home" x="263.0" y="83.0" width="34" height="34"/></g></g>
 <g class="pop t " style="--d:0.3"><circle cx="110" cy="52" r="26" fill="#0f240f" stroke="#c4ff49" stroke-width="2.6"/><g fill="none" stroke="#c4ff49" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#pi-tube" x="96.0" y="38.0" width="28" height="28"/></g></g>
@@ -1097,16 +1111,18 @@ body .faq-section .container { max-width: 800px !important; }
 <g class="pop t " style="--d:0.78"><circle cx="230" cy="28" r="26" fill="#0f240f" stroke="#c4ff49" stroke-width="2.6"/><g fill="none" stroke="#c4ff49" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#pi-caps" x="216.0" y="14.0" width="28" height="28"/></g></g>
 <g class="pop t " style="--d:0.8999999999999999"><circle cx="330" cy="172" r="26" fill="#0f240f" stroke="rgba(255,255,255,0.75)" stroke-width="2.6"/><g fill="none" stroke="#ffffff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#pi-labs" x="316.0" y="158.0" width="28" height="28"/></g></g>
 <g class="pop t " style="--d:1.02"><circle cx="330" cy="28" r="26" fill="#0f240f" stroke="#c4ff49" stroke-width="2.6"/><g fill="none" stroke="#c4ff49" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#pi-flame" x="316.0" y="14.0" width="28" height="28"/></g></g>
+<g class="pop t " style="--d:1.14"><circle cx="230" cy="172" r="26" fill="#0f240f" stroke="rgba(255,255,255,0.75)" stroke-width="2.6"/><g fill="none" stroke="#ffffff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#pi-pulse" x="216.0" y="158.0" width="28" height="28"/></g></g>
 </svg>
 </figure>
 <ul class="cards therapy-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;text-align:left;">
 <li class="therapy-card reveal" style="--i:0"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:0"><use href="#pi-flame"/></svg><h3>GLP-1 drugs and testosterone</h3><p>What studies show about semaglutide and tirzepatide, SHBG and protecting muscle.</p><a class="card-link" href="https://odinhealthlab.ca/weight-loss-drugs-and-testosterone" data-cta="related_glp1">Read the guide <span class="arr" aria-hidden="true">&rarr;</span></a></li>
-<li class="therapy-card reveal" style="--i:1"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:1"><use href="#pi-labs"/></svg><h3>Labs to ask for</h3><p>Free T, SHBG, LH, FSH, estradiol and what each result shows.</p><a class="card-link" href="https://odinhealthlab.ca/low-testosterone-labs-to-ask-for" data-cta="related_labs">See the lab list <span class="arr" aria-hidden="true">&rarr;</span></a></li>
-<li class="therapy-card reveal" style="--i:2"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:2"><use href="#pi-scale"/></svg><h3>TRT or fix the causes first?</h3><p>The trade-offs, the TRAVERSE findings and a step-by-step way to decide.</p><a class="card-link" href="https://odinhealthlab.ca/trt-or-fix-causes-first" data-cta="related_trt">Read the guide <span class="arr" aria-hidden="true">&rarr;</span></a></li>
-<li class="therapy-card reveal" style="--i:3"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:3"><use href="#pi-calendar"/></svg><h3>Low T: age or weight?</h3><p>What aging, weight, sleep and stress each do to testosterone.</p><a class="card-link" href="https://odinhealthlab.ca/low-testosterone-age-or-weight" data-cta="related_age_weight">Read the guide <span class="arr" aria-hidden="true">&rarr;</span></a></li>
-<li class="therapy-card reveal" style="--i:4"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:4"><use href="#pi-coach"/></svg><h3>Health coaching</h3><p>Sleep, stress, training and nutrition steps you can track.</p><a class="card-link" href="https://odinhealthlab.ca/health-coaching" data-cta="related_health_coaching">See coaching <span class="arr" aria-hidden="true">&rarr;</span></a></li>
-<li class="therapy-card reveal" style="--i:5"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:5"><use href="#pi-caps"/></svg><h3>Supplements</h3><p>A structured, personalized plan to support energy, drive, sleep and recovery.</p><a class="card-link" href="https://odinhealthlab.ca/supplements" data-cta="related_supplements">See supplements <span class="arr" aria-hidden="true">&rarr;</span></a></li>
-<li class="therapy-card reveal" style="--i:6"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:6"><use href="#pi-body"/></svg><h3>Functional health</h3><p>Looking for the root causes of low energy, drive and sleep.</p><a class="card-link" href="https://odinhealthlab.ca/functional-health" data-cta="related_functional_health">Explore <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+<li class="therapy-card reveal" style="--i:1"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:1"><use href="#pi-pulse"/></svg><h3>Low T symptoms</h3><p>The sexual, physical and mood signs of low testosterone, what mimics them and how low T is confirmed.</p><a class="card-link" href="https://odinhealthlab.ca/low-testosterone-symptoms" data-cta="related_symptoms">Read the guide <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+<li class="therapy-card reveal" style="--i:2"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:2"><use href="#pi-labs"/></svg><h3>Labs to ask for</h3><p>Free T, SHBG, LH, FSH, estradiol and what each result shows.</p><a class="card-link" href="https://odinhealthlab.ca/low-testosterone-labs-to-ask-for" data-cta="related_labs">See the lab list <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+<li class="therapy-card reveal" style="--i:3"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:3"><use href="#pi-scale"/></svg><h3>TRT or fix the causes first?</h3><p>The trade-offs, the TRAVERSE findings and a step-by-step way to decide.</p><a class="card-link" href="https://odinhealthlab.ca/trt-or-fix-causes-first" data-cta="related_trt">Read the guide <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+<li class="therapy-card reveal" style="--i:4"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:4"><use href="#pi-calendar"/></svg><h3>Low T: age or weight?</h3><p>What aging, weight, sleep and stress each do to testosterone.</p><a class="card-link" href="https://odinhealthlab.ca/low-testosterone-age-or-weight" data-cta="related_age_weight">Read the guide <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+<li class="therapy-card reveal" style="--i:5"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:5"><use href="#pi-coach"/></svg><h3>Health coaching</h3><p>Sleep, stress, training and nutrition steps you can track.</p><a class="card-link" href="https://odinhealthlab.ca/health-coaching" data-cta="related_health_coaching">See coaching <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+<li class="therapy-card reveal" style="--i:6"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:6"><use href="#pi-caps"/></svg><h3>Supplements</h3><p>A structured, personalized plan to support energy, drive, sleep and recovery.</p><a class="card-link" href="https://odinhealthlab.ca/supplements" data-cta="related_supplements">See supplements <span class="arr" aria-hidden="true">&rarr;</span></a></li>
+<li class="therapy-card reveal" style="--i:7"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:7"><use href="#pi-body"/></svg><h3>Functional health</h3><p>Looking for the root causes of low energy, drive and sleep.</p><a class="card-link" href="https://odinhealthlab.ca/functional-health" data-cta="related_functional_health">Explore <span class="arr" aria-hidden="true">&rarr;</span></a></li>
 </ul>
 <div class="cta-row reveal"><a href="https://odinhealthlab.ca/" class="btn btn-outline" data-cta="related_home">Low testosterone and andropause: the overview</a></div>
 </div>
@@ -1230,11 +1246,64 @@ body .faq-section .container { max-width: 800px !important; }
     if (e.key === 'Escape' && overlay && overlay.classList.contains('is-visible')) closeModal();
   });
 
+  /* ── AI-referrer super-property (once per load; never throw / never block) ── */
+  try {
+    var aiLabel = null;
+    var AI_HOSTS = {
+      'chatgpt.com': 'chatgpt',
+      'chat.openai.com': 'chatgpt',
+      'perplexity.ai': 'perplexity',
+      'www.perplexity.ai': 'perplexity',
+      'claude.ai': 'claude',
+      'gemini.google.com': 'gemini',
+      'copilot.microsoft.com': 'copilot',
+      'you.com': 'you',
+      'www.you.com': 'you',
+      'phind.com': 'phind',
+      'www.phind.com': 'phind',
+      'poe.com': 'poe',
+      'www.poe.com': 'poe'
+    };
+    var AI_UTM = { chatgpt: 'chatgpt', openai: 'chatgpt', perplexity: 'perplexity', claude: 'claude', gemini: 'gemini', copilot: 'copilot', you: 'you', phind: 'phind', poe: 'poe' };
+    try {
+      var ref = document.referrer || '';
+      if (ref) {
+        var ru = new URL(ref);
+        var host = (ru.hostname || '').toLowerCase();
+        if (AI_HOSTS[host]) aiLabel = AI_HOSTS[host];
+        else if ((host === 'bing.com' || host === 'www.bing.com') && /\/chat/i.test(ru.pathname || '')) aiLabel = 'bing_chat';
+      }
+    } catch (e1) { /* ignore bad referrer */ }
+    try {
+      var us = new URLSearchParams(window.location.search || '').get('utm_source');
+      if (us) {
+        var uk = String(us).toLowerCase().replace(/\s+/g, '');
+        if (AI_UTM[uk]) aiLabel = AI_UTM[uk];
+      }
+    } catch (e2) { /* ignore */ }
+    if (aiLabel && window.mixpanel && typeof window.mixpanel.register === 'function') {
+      window.mixpanel.register({ ai_referrer: aiLabel });
+    }
+  } catch (errAi) { /* never block render */ }
+
   /* ── CTA click tracking (Mixpanel, guarded). Properties: cta, page ── */
   function trackCta(cta) {
     try {
       if (window.mixpanel && typeof window.mixpanel.track === 'function') {
         window.mixpanel.track('CTA Click', { cta: cta, page: PAGE }, { transport: 'sendBeacon' });
+      }
+    } catch (err) { /* never block navigation */ }
+  }
+  /* Also fire Booking Link Clicked when the modal booking widget links are clicked */
+  function trackBookingLink(el, cta) {
+    try {
+      var href = (el && el.getAttribute && el.getAttribute('href')) || '';
+      if (href.indexOf('leadconnectorhq.com/widget/bookings/') === -1) return;
+      var booking = 'other';
+      if (/first[-_]?time/i.test(href)) booking = 'first_time';
+      else if (/follow[-_]?up/i.test(href)) booking = 'follow_up';
+      if (window.mixpanel && typeof window.mixpanel.track === 'function') {
+        window.mixpanel.track('Booking Link Clicked', { page: PAGE, booking: booking, cta: cta || '' }, { transport: 'sendBeacon' });
       }
     } catch (err) { /* never block navigation */ }
   }
@@ -1244,7 +1313,9 @@ body .faq-section .container { max-width: 800px !important; }
     var cta = el.getAttribute('data-cta');
     if (!cta) cta = el.closest('#odin-nav-root') ? 'nav_book_online' : 'book_online';
     trackCta(cta);
+    trackBookingLink(el, cta);
   }, true);
+
 
   /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
