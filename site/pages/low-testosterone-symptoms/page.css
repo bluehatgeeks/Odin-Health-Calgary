@@ -1,0 +1,84 @@
+/* ═══ /low-testosterone-symptoms graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
+.pg .lh-ring, .pg .sx-c, .pg .py-bat, .pg .py-mu, .pg .py-bl, .pg .py-bn, .pg .md-dt, .pg .ov-s, .pg .dg-sun, .pg .dg-ring, .pg .ck-t, .pg .hp-b, .pg .hp-i, .pg .fn-bt, .pg .fq-bt, .pg .fq-st { transform-box: fill-box; transform-origin: center; }
+.pg .lh-ring, .pg .dg-ring { opacity: 0; }
+.pg .py-bat, .pg .fn-bt, .pg .fq-bt { transform-origin: 0 50%; }
+.pg .py-mu { transform-origin: 50% 100%; }
+.pg .fq-st { opacity: 0.85; }
+.pg .md-wv { transform-box: view-box; }
+
+/* checklist */
+.pg .ck-form { max-width: 920px; margin: 0 auto; text-align: left; }
+.pg .ck-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.pg .ck-group { border: 1px solid var(--lime-line); border-radius: 14px; padding: 12px 14px 8px; margin: 0; min-width: 0; }
+.pg .ck-group legend { display: flex; align-items: center; gap: 10px; padding: 0 6px; font-weight: 800; color: var(--lime-green); font-size: 0.95rem; letter-spacing: 0.02em; }
+.pg .ck-meter { display: inline-block; width: 56px; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
+.pg .ck-fill { display: block; width: 100%; height: 100%; background: var(--lime-green); transform: scaleX(0); transform-origin: 0 50%; }
+.pg .ck-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 2px; font-size: 1rem; line-height: 1.4; color: var(--white); cursor: pointer; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+.pg .ck-item:last-child { border-bottom: 0; }
+.pg .ck-item input { flex: 0 0 auto; width: 20px; height: 20px; margin: 1px 0 0; accent-color: #c4ff49; cursor: pointer; }
+.pg .ck-status { margin: 16px 0 4px; font-size: 1.05rem; line-height: 1.5; color: var(--white-800); }
+.pg .ck-status strong { color: var(--lime-green); }
+.pg .ck-reset { cursor: pointer; font: inherit; }
+@media (max-width: 900px) { .pg .ck-grid { grid-template-columns: 1fr; } }
+/*@GEN_STATIC*/
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+  .pg .ck-fill { transition: transform 360ms var(--ease-out); }
+
+  /* 1 · hero: you-node rings */
+  .js-reveal .pg .lh-ring { animation: lh-r 4.2s ease-out infinite; }
+  @keyframes lh-r { 0% { opacity: 0.55; transform: scale(0.92); } 55%, 100% { opacity: 0; transform: scale(1.65); } }
+
+  /* 2 · sexual: chips light in turn as the level falls */
+  .js-reveal .pg .sx-c { animation: sx-c 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 1.6s); }
+  @keyframes sx-c { 0%, 12% { opacity: 0.35; } 20%, 78% { opacity: 1; } 90%, 100% { opacity: 0.35; } }
+
+  /* 3 · physical: battery drains, muscle shrinks, waist widens, bone dots fade */
+  .js-reveal .pg .py-bat { animation: py-bat 5s ease-in-out infinite alternate; }
+  @keyframes py-bat { from { transform: scaleX(1); } to { transform: scaleX(0.3); } }
+  .js-reveal .pg .py-mu { animation: py-mu 5.4s ease-in-out infinite alternate; }
+  @keyframes py-mu { from { transform: scaleY(1); } to { transform: scaleY(0.55); } }
+  .js-reveal .pg .py-bl { animation: py-bl 4.8s ease-in-out infinite alternate; }
+  @keyframes py-bl { from { transform: scaleX(1); } to { transform: scaleX(1.32); } }
+  .js-reveal .pg .py-bn { animation: py-bn 4.4s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.37s); }
+  @keyframes py-bn { from { opacity: 1; } to { opacity: 0.2; } }
+
+  /* 4 · mood: wave rolls, focus dot drifts */
+  .js-reveal .pg .md-wv { animation: md-wv 4s linear infinite; }
+  @keyframes md-wv { from { transform: translateX(0); } to { transform: translateX(-160px); } }
+  .js-reveal .pg .md-dt { animation: md-dt 6s ease-in-out infinite; }
+  @keyframes md-dt { 0%, 100% { transform: translate(0, 0); } 20% { transform: translate(22px, -16px); } 40% { transform: translate(-18px, -26px); } 60% { transform: translate(-28px, 14px); } 80% { transform: translate(14px, 24px); } }
+
+  /* 5 · overlap: look-alike causes drift in and out */
+  .js-reveal .pg .ov-s { animation: ov-s 6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.2s); }
+  @keyframes ov-s { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(var(--dx), var(--dy)); } }
+
+  /* 6 · diagnosis: suns rise above each test, check rings */
+  .js-reveal .pg .dg-sun { animation: dg-sun 4.5s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -2.2s); }
+  @keyframes dg-sun { from { transform: translateY(10px); opacity: 0.45; } to { transform: translateY(-4px); opacity: 1; } }
+  .js-reveal .pg .dg-ring { animation: dg-r 4.5s ease-out infinite; }
+  @keyframes dg-r { 0%, 70% { opacity: 0; transform: scale(0.9); } 78% { opacity: 0.6; transform: scale(1); } 100% { opacity: 0; transform: scale(1.6); } }
+
+  /* 7 · checker: ticks pop into each row in turn */
+  .js-reveal .pg .ck-t { animation: ck-t 6s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.6s); }
+  @keyframes ck-t { 0%, 6% { opacity: 0; transform: scale(0.6); } 14%, 80% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: none; } }
+
+  /* 8 · help: chat bubbles pop, coaching icons light in turn */
+  .js-reveal .pg .hp-b { animation: hp-b 3.6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 1.8s); }
+  @keyframes hp-b { 0%, 100% { transform: scale(0.85); opacity: 0.5; } 30%, 60% { transform: scale(1); opacity: 1; } }
+  .js-reveal .pg .hp-i { animation: hp-i 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s); }
+  @keyframes hp-i { 0%, 30%, 100% { opacity: 0.5; transform: scale(1); } 10% { opacity: 1; transform: scale(1.14); } }
+
+  /* FAQ */
+  .js-reveal .pg .fq-bt { animation: fq-bt 3.4s ease-in-out infinite alternate; }
+  @keyframes fq-bt { from { transform: scaleX(0.25); } to { transform: scaleX(1); } }
+  .js-reveal .pg .fq-st { animation: pl-sp 3.2s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.4s); }
+  @keyframes pl-sp { 0%, 100% { opacity: 0.2; transform: scale(0.7); } 50% { opacity: 1; transform: scale(1.15); } }
+
+  /* Final: battery fills */
+  .js-reveal .pg .fn-bt { animation: fn-bt 8s ease-in-out infinite; }
+  @keyframes fn-bt { 0%, 10% { transform: scaleX(0.15); } 78%, 100% { transform: scaleX(1); } }
+/*@GEN_MOTION*/
+}
