@@ -31,3 +31,7 @@ Create page in GHL (slug andropause-vs-menopause), paste page.html (http://127.0
 
 ## Update 2026-10-16 (when-to-get-checked link, local only)
 Keep reading gained an 11th card "When to get checked for low T" (data-cta related_when_checked, icon `compass`) + 11th hub node; hub aria-label says "eleven related pages". Pre-edit backup /workspace/backups-when-checked/andropause-vs-menopause/. Republish AFTER /when-to-get-checked-for-low-t is live (http://127.0.0.1:8780/andropause-vs-menopause.txt).
+
+
+## 2026-10-16 publish note
+HighLevel failed to save the 178 KB build (Error while creating page!, net::ERR_HTTP2_PROTOCOL_ERROR). The published page.html is a minified copy (CSS comments/whitespace removed, line indentation stripped) at 167 KB; retested PASS (visual + tracking). Unminified build output kept locally as page.full.html. After rerunning build.py, minify again before pasting into HighLevel.
