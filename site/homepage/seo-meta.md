@@ -87,3 +87,8 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (59): Andropause vs Menopause: How They Differ | Odin Health Labs
 - Description (154): Andropause vs menopause: why testosterone drifts down slowly in men instead of stopping, who gets low T, how symptoms and labs differ and what men can do.
 - Note: NEW answer-style page (not yet published). Target query: "andropause vs menopause" / "is there a male menopause" / "male menopause vs female menopause". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug.
+
+## When to Get Checked for Low T  `/when-to-get-checked-for-low-t`
+- Title (48): When to Get Checked for Low T | Odin Health Labs
+- Description (143): When low-T symptoms warrant testing: two morning labs, what temporarily lowers T, free T when borderline, and next steps in Canada and the USA.
+- Note: NEW answer-style page (not yet published). Target query: "when to get checked for low T" / "should I get my testosterone checked" / "when to test for low testosterone". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
