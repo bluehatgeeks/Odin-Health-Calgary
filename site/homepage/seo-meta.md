@@ -67,8 +67,11 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (60): Low T: Aging or Weight, Sleep and Stress? | Odin Health Labs
 - Description (152): Is low testosterone from aging or from weight, sleep and stress? What studies show, which labs tell them apart, and what you can change. Canada and USA.
 - Note: NEW answer-style page (not yet published). Target query: "Is my low testosterone from aging or from weight, sleep and stress?" No /owen-lowt links by design; CTAs use the booking modal.
+<<<<<<< HEAD
 
 ## GLP-1 Drugs and Testosterone  `/weight-loss-drugs-and-testosterone`
 - Title (54): GLP-1 Drugs and Testosterone in Men | Odin Health Labs
 - Description (156): Do GLP-1 drugs like semaglutide and tirzepatide raise or lower testosterone in men? What studies show, protecting muscle, and labs to track. Canada and USA.
 - Note: NEW answer-style page (not yet published). Target query: "Do GLP-1 weight-loss drugs (semaglutide, tirzepatide) raise or lower testosterone in men?" No /owen-lowt links by design; CTAs use the booking modal.
+=======
+>>>>>>> origin/master

@@ -58,7 +58,10 @@ Every change: commit to GitHub (bluehatgeeks/Odin-Health-Calgary) via cloud agen
 ## Update 2026-10-15 17:5x MDT
 - BUILT LOCALLY (needs GHL publish + GitHub PR): answer page /low-testosterone-age-or-weight (item 7: 4/N answer pages built: TRT or causes, labs, TRT+fertility, age-or-weight). Served http://127.0.0.1:8780/low-testosterone-age-or-weight.txt. Also changed locally: /trt-and-fertility (6th Keep-reading card + hub node -> new page; republish after the new page is live), homepage/sitemap.xml, llms.txt (Answers), seo-meta.md. Order: publish new page, republish /trt-and-fertility, republish sitemap + llms.txt in GHL Domains, GitHub PR (pages/low-testosterone-age-or-weight, pages/trt-and-fertility, homepage files).
 - Remaining answer-page ideas: weight-loss drugs and testosterone, peptides in Canada/USA; add /low-testosterone-age-or-weight (and /trt-and-fertility) to the homepage "Common questions" row and to the two older answer pages' Keep reading once published.
+<<<<<<< HEAD
 
 ## Update 2026-10-15 18:3x MDT
 - BUILT LOCALLY (needs GHL publish + GitHub PR): answer page /weight-loss-drugs-and-testosterone (item 7: 5/N answer pages built: TRT or causes, labs, TRT+fertility, age-or-weight, GLP-1 drugs). Served http://127.0.0.1:8780/weight-loss-drugs-and-testosterone.txt. Also changed locally: /low-testosterone-age-or-weight (7th Keep-reading card + hub node -> new page; republish after the new page is live), homepage/sitemap.xml (12 URLs), llms.txt (Answers), seo-meta.md. Order: publish new page, republish /low-testosterone-age-or-weight, republish sitemap + llms.txt in GHL Domains, GitHub PR.
 - Remaining answer-page ideas: peptides in Canada/USA; add the newer answer pages (/trt-and-fertility, /low-testosterone-age-or-weight, /weight-loss-drugs-and-testosterone) to the homepage "Common questions" row and to the older answer pages' Keep reading.
+=======
+>>>>>>> origin/master
