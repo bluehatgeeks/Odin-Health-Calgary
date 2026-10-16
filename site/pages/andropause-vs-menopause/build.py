@@ -268,10 +268,10 @@ def step_icons():
     }
 
 def hub_nodes():
-    icons = ['list', 'tube', 'calendar', 'scale', 'link', 'flame', 'drop', 'coach', 'caps', 'body']
+    icons = ['list', 'tube', 'calendar', 'scale', 'link', 'flame', 'drop', 'coach', 'caps', 'body', 'compass']
     out = []
     for i, ic in enumerate(icons):
-        a = -math.pi / 2 + (i + 0.5) * 2 * math.pi / len(icons)  # half-step offset: 10 nodes, none stacked at the ends
+        a = -math.pi / 2 + (i + 0.5) * 2 * math.pi / len(icons)  # half-step offset: 11 nodes, none stacked at the ends
         out.append((round(280 + 240 * math.cos(a)), round(100 + 70 * math.sin(a)), ic))
     return out
 
