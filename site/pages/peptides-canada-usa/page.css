@@ -1,0 +1,49 @@
+/* ═══ /peptides-canada-usa graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
+.pg .ph-ring, .pg .ty-x, .pg .ca-ck, .pg .ca-x, .pg .us-gate, .pg .rk-d, .pg .hp-ring, .pg .fq-dr, .pg .fq-st, .pg .fn-fl { transform-box: fill-box; transform-origin: center; }
+.pg .ph-ring, .pg .hp-ring { opacity: 0; }
+.pg .fn-fl { transform-origin: 0 50%; }
+.pg .fq-st { opacity: 0.85; }
+.pg .ty-x { opacity: 0.85; }
+/*@GEN_STATIC*/
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* 1 · hero: question hub rings */
+  .js-reveal .pg .ph-ring { animation: ph-r 4.2s ease-out infinite; }
+  @keyframes ph-r { 0% { opacity: 0.55; transform: scale(0.92); } 55%, 100% { opacity: 0; transform: scale(1.65); } }
+
+  /* 2 · types: research-label cross pulses */
+  .js-reveal .pg .ty-x { animation: ty-x 2.8s ease-in-out infinite alternate; }
+  @keyframes ty-x { from { opacity: 0.45; transform: scale(0.92); } to { opacity: 1; transform: scale(1.06); } }
+
+  /* 3 · canada: check draws attention; cross ticks */
+  .js-reveal .pg .ca-ck { animation: ca-ck 3.2s ease-in-out infinite alternate; }
+  @keyframes ca-ck { from { opacity: 0.55; transform: translateY(2px); } to { opacity: 1; transform: translateY(-2px); } }
+  .js-reveal .pg .ca-x { animation: ca-x 2.6s ease-in-out infinite alternate; }
+  @keyframes ca-x { from { opacity: 0.4; } to { opacity: 1; } }
+
+  /* 4 · usa: gate tick */
+  .js-reveal .pg .us-gate { animation: us-g 2.4s ease-in-out infinite alternate; }
+  @keyframes us-g { from { transform: translateX(0); opacity: 0.6; } to { transform: translateX(3px); opacity: 1; } }
+
+  /* 5 · risks: contaminant dots drift */
+  .js-reveal .pg .rk-d { animation: rk-d 4.4s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.55s); }
+  @keyframes rk-d { from { transform: translate(0, 2px) scale(0.85); opacity: 0.35; } to { transform: translate(4px, -6px) scale(1.15); opacity: 0.95; } }
+
+  /* 6 · help: you-node rings */
+  .js-reveal .pg .hp-ring { animation: hp-r 4.6s ease-out infinite; }
+  @keyframes hp-r { 0% { opacity: 0.6; transform: scale(0.9); } 60%, 100% { opacity: 0; transform: scale(1.7); } }
+
+  /* FAQ */
+  .js-reveal .pg .fq-dr { animation: fq-dr 3.4s ease-in-out infinite alternate; }
+  @keyframes fq-dr { from { transform: translateY(3px); } to { transform: translateY(-4px); } }
+  .js-reveal .pg .fq-st { animation: pl-sp 3.2s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.4s); }
+
+  /* Final */
+  .js-reveal .pg .fn-fl { animation: fn-fl 2.4s ease-in-out infinite alternate; }
+  @keyframes fn-fl { from { transform: skewY(-6deg) scaleX(0.92); } to { transform: skewY(6deg) scaleX(1.04); } }
+  @keyframes pl-sp { 0%, 100% { opacity: 0.2; transform: scale(0.7); } 50% { opacity: 1; transform: scale(1.15); } }
+/*@GEN_MOTION*/
+}
