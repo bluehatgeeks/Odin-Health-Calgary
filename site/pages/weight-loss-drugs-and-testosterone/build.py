@@ -174,7 +174,7 @@ def step_icons():
      "{{STEP4}}": '<path d="M12 42V10"/><g class="hi-sw" style="--k:0"><path d="M12 10h22l6 6-6 6H12z" fill="rgba(196,255,73,0.22)"/></g><path d="M8 42h12"/>',
     }
 
-HUB = hub(G, [(110, 52, 'tube'), (110, 148, 'scale'), (450, 52, 'drop'), (450, 148, 'coach'), (230, 28, 'caps'), (330, 172, 'labs')])
+HUB = hub(G, [(110, 52, 'tube'), (110, 148, 'scale'), (450, 52, 'drop'), (450, 148, 'coach'), (230, 28, 'caps'), (330, 172, 'labs'), (330, 28, 'shield')])
 slots = {"{{HERO}}": hero_conv(), "{{RESEARCH}}": research(), "{{WHY}}": why(), "{{NUMBERS}}": numbers(), "{{MUSCLE}}": muscle(), "{{LABS}}": labs(),
          "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
