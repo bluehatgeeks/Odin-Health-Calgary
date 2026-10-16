@@ -18,6 +18,7 @@ common.ICONS.update({
  "bone": '<path d="M7 17l10-10"/><path d="M5.5 15.5a2.5 2.5 0 1 0 3 3"/><path d="M15.5 5.5a2.5 2.5 0 1 1 3 3"/><path d="M8.5 18.5a2.5 2.5 0 1 1-3-3"/><path d="M18.5 8.5a2.5 2.5 0 1 1-3-3"/>',
  "target": '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>',
  "video": '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
+ "split": '<path d="M4 7c4 0 8 2 16 6"/><path d="M4 7h7c2 0 2 10 4 10h5"/>',
 })
 
 FAQ = [
@@ -223,11 +224,11 @@ def step_icons():
     }
 
 def hub_nodes():
-    icons = ['scale', 'tube', 'link', 'calendar', 'flame', 'drop', 'coach', 'caps', 'body']
+    icons = ['scale', 'tube', 'link', 'calendar', 'flame', 'drop', 'coach', 'caps', 'body', 'split']
     out = []
     for i, ic in enumerate(icons):
-        a = -math.pi / 2 + i * 2 * math.pi / len(icons)
-        out.append((round(280 + 228 * math.cos(a)), round(100 + 70 * math.sin(a)), ic))
+        a = -math.pi / 2 + (i + 0.5) * 2 * math.pi / len(icons)  # half-step offset: 10 nodes, none stacked at the ends
+        out.append((round(280 + 240 * math.cos(a)), round(100 + 70 * math.sin(a)), ic))
     return out
 
 HUB = hub(G, hub_nodes())
