@@ -35,3 +35,11 @@
 - 2026-10-15 19:20 MDT IN PROGRESS: publishing peptides-canada-usa (new step) + republish weight-loss-drugs-and-testosterone + llms/sitemap
 
 - 2026-10-15 19:26 MDT DONE live: /peptides-canada-usa, weight-loss-drugs republished (peptides Keep-reading), llms+sitemap(13). GitHub sync launching.
+
+- 2026-10-15 19:27 MDT: GitHub sync agent bc-192b1f7c launched for peptides page (will merge when PR opens).
+
+- 2026-10-15 19:39 MDT: GitHub PR #13 merged (peptides). IN PROGRESS: homepage Common questions row add 4 newer answer pages (trt-and-fertility, age-or-weight, GLP-1, peptides).
+
+- 2026-10-15 19:49 MDT: homepage Common questions row extended to 8 cards LOCALLY (not published): added /trt-and-fertility, /low-testosterone-age-or-weight, /weight-loss-drugs-and-testosterone, /peptides-canada-usa cards (--i 4-7), each with own animated icon (linked rings + swimming dot, tipping balance scale, GLP-1 pen w/ dose+drop+up arrow, peptide bead chain in shield); data-cta common_trt_fertility/common_age_or_weight/common_glp1/common_peptides. Grid 4x2 at >=1024px (container 1000->1180px), 2x4 at 769-1023, 1 col <=768; card links flex so "more" rows align. Tests: visual (pages/_home) 0 errors/CLS 0/no overflow/0 loops offscreen/reduced-motion 0 running/no-JS 0 hidden at 1280+390; tracking 16/16 CTAs fire CTA Click page:home, all checks PASS, banned-claim 0 hits. home.html 1303 lines / 129258 bytes -> /tmp/srv2/home.txt (http://127.0.0.1:8780/home.txt). Backups: home.template.html.bak-cq2, home.html.bak-cq2. Needs GHL publish (homepage) + GitHub PR (site/homepage/home.template.html + home.html).
+- 2026-10-15 19:51 MDT IN PROGRESS: publishing homepage (Common questions 8 cards) via computerUse
+- 2026-10-15 19:53 MDT DONE live: homepage Common questions row now 8 cards (adds trt-and-fertility, age-or-weight, GLP-1, peptides); verified / and /yyc cache-busted. GitHub sync launching.
