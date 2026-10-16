@@ -161,7 +161,8 @@ body .faq-section .container { max-width: 800px !important; }
 .fh .tl-dot::after { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--lime-green); opacity: 0; pointer-events: none; }
 .js-reveal .fh .tl-track .tl-fill { transform: scaleY(0); }
 .js-reveal .fh .tl-head { display: block; }
-.js-reveal .fh .timeline-list > li { opacity: 0.4; transition: opacity 360ms var(--ease-out); }
+/* inactive steps dim to 0.7 (not 0.4) so text keeps WCAG AA contrast */
+.js-reveal .fh .timeline-list > li { opacity: 0.7; transition: opacity 360ms var(--ease-out); }
 .js-reveal .fh .timeline-list > li > :not(.tl-dot) { transform: translateX(10px); transition: transform 360ms var(--ease-out); }
 .js-reveal .fh .timeline-list > li.is-on { opacity: 1; }
 .js-reveal .fh .timeline-list > li.is-on > :not(.tl-dot) { transform: none; }
@@ -931,10 +932,12 @@ body .faq-section .container { max-width: 800px !important; }
         if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    /* Read every position first (one layout), then write classes: avoids a forced reflow per element */
+    var vh = window.innerHeight || 800;
+    var tops = Array.prototype.map.call(els, function (el) { return el.getBoundingClientRect().top; });
     document.documentElement.classList.add('js-reveal');
-    els.forEach(function (el) {
-      var r = el.getBoundingClientRect();
-      if (r.top < (window.innerHeight || 800)) el.classList.add('is-in'); else io.observe(el);
+    Array.prototype.forEach.call(els, function (el, i) {
+      if (tops[i] < vh) el.classList.add('is-in'); else io.observe(el);
     });
 
     /* How-it-works timeline: the line fills with scroll, steps switch on as it reaches them */
