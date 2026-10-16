@@ -15,10 +15,12 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
 (async () => {
   ok('no function/var/let/const named track', !/(function\s+track\s*\(|\b(var|let|const)\s+track\b|\btrack\s*=\s*function)/.test(src.replace(/mixpanel\.track/g, '')));
   ok('has function trackCta', /function trackCta\(/.test(src));
+  ok('has function trackBookingLink', /function trackBookingLink\(/.test(src));
+  ok('has ai_referrer register', /ai_referrer/.test(src) && /mixpanel\.register/.test(src));
   const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await b.newPage(); await p.setViewport({ width: 1280, height: 800 });
   const errs = []; p.on('pageerror', e => errs.push(e.message));
-  await p.evaluateOnNewDocument(() => { window.__ev = []; window.mixpanel = { track: (n, props) => window.__ev.push([n, props]) }; });
+  await p.evaluateOnNewDocument(() => { window.__ev = []; window.__reg = []; window.mixpanel = { track: (n, props) => window.__ev.push([n, props]), register: (props) => window.__reg.push(props) }; });
   await p.goto('file://' + file, { waitUntil: 'networkidle0' });
   await p.evaluate(() => { document.addEventListener('click', e => { const a = e.target.closest('a'); if (a && a.getAttribute('href') !== '#') e.preventDefault(); }, false); });
   const ctas = await p.evaluate(() => [...document.querySelectorAll('[data-cta]')].map(e => e.getAttribute('data-cta')));
@@ -28,12 +30,30 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
     await p.evaluate(() => { window.__ev.length = 0; });
     await p.evaluate(c => { const e = document.querySelector(`[data-cta="${c}"]`); e.click(); }, c);
     const ev = await p.evaluate(() => window.__ev.slice());
-    const good = ev.length === 1 && ev[0][0] === 'CTA Click' && ev[0][1].cta === c && ev[0][1].page === slug;
+    const ctaEv = ev.filter(e => e[0] === 'CTA Click');
+    const good = ctaEv.length === 1 && ctaEv[0][1].cta === c && ctaEv[0][1].page === slug;
     fired.push([c, good]);
     // close the modal if a booking trigger opened it
     await p.evaluate(() => { const o = document.getElementById('booking-modal-overlay'); if (o.classList.contains('is-visible')) document.getElementById('booking-modal-close').click(); });
   }
   results['CTA clicks firing mixpanel.track (stub)'] = fired.filter(f => f[1]).length + '/' + fired.length + (fired.every(f => f[1]) ? ' PASS' : ' FAIL ' + fired.filter(f => !f[1]).map(f => f[0]).join(','));
+  // Booking Link Clicked: modal first-time / follow-up links fire CTA Click AND Booking Link Clicked
+  const bookingChecks = [];
+  for (const [sel, expectBooking] of [
+    ['[data-cta="modal_first_time"]', 'first_time'],
+    ['[data-cta="modal_follow_up"]', 'follow_up'],
+  ]) {
+    await p.evaluate(() => { window.__ev.length = 0; });
+    await p.evaluate(sel => { const e = document.querySelector(sel); if (e) e.click(); }, sel);
+    const bev = await p.evaluate(() => window.__ev.slice());
+    const hasCta = bev.some(e => e[0] === 'CTA Click');
+    const bl = bev.find(e => e[0] === 'Booking Link Clicked');
+    const good = hasCta && bl && bl[1].booking === expectBooking && bl[1].page === slug && typeof bl[1].cta === 'string';
+    bookingChecks.push([expectBooking, good, JSON.stringify(bev)]);
+    await p.evaluate(() => { const o = document.getElementById('booking-modal-overlay'); if (o && o.classList.contains('is-visible')) document.getElementById('booking-modal-close').click(); });
+  }
+  results['Booking Link Clicked on modal booking links'] = bookingChecks.filter(f => f[1]).length + '/' + bookingChecks.length + (bookingChecks.every(f => f[1]) ? ' PASS' : ' FAIL ' + bookingChecks.filter(f => !f[1]).map(f => f[0] + ':' + f[2]).join(' | '));
+
   // nav "Book Online" style trigger with no data-cta
   await p.evaluate(() => { window.__ev.length = 0; const d = document.createElement('a'); d.href = '#'; d.className = 'booking-trigger'; d.id = 'fake-nav-trigger'; document.body.appendChild(d); d.click(); });
   const ev2 = await p.evaluate(() => ({ ev: window.__ev.slice(), modal: document.getElementById('booking-modal-overlay').classList.contains('is-visible') }));
@@ -80,6 +100,22 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   // Alex (2026-10-15): no disclaimer paragraphs or "Illustration only" captions on ANY page, so this check always runs
   ok('NO disclaimer paragraph / educational-only note / 911 / 988 / "Illustration only" caption (per Alex)', !/class="disclaimer"|call 911|\b988\b|illustration only|educational (information|only)|isn(&rsquo;|’|')t a diagnosis/i.test(src));
   ok('no pageerror', errs.length === 0, errs.join('|'));
+  // ai_referrer: stub register + simulate perplexity referrer / chatgpt utm
+  const pAi = await b.newPage();
+  await pAi.evaluateOnNewDocument(() => {
+    window.__reg = [];
+    window.__ev = [];
+    Object.defineProperty(document, 'referrer', { configurable: true, get: () => 'https://www.perplexity.ai/search?q=low+t' });
+    window.mixpanel = {
+      track: (n, props) => window.__ev.push([n, props]),
+      register: (props) => window.__reg.push(props)
+    };
+  });
+  await pAi.goto('file://' + file + '?utm_source=chatgpt', { waitUntil: 'networkidle0' });
+  const ai = await pAi.evaluate(() => ({ reg: window.__reg.slice() }));
+  ok('ai_referrer registered from utm_source or referrer', ai.reg.some(r => r && r.ai_referrer === 'chatgpt' || r && r.ai_referrer === 'perplexity'), JSON.stringify(ai.reg));
+  await pAi.close();
+
   const banned = [/\bcure[sd]?\b/i, /\breverse/i, /\bguarantee/i, /\b\d+\s*(weeks?|months?|days?)\b/i, /\b\d+\s*%(?!\s*telehealth)/, /\bboost(s|ing)?\s+testosterone/i, /clinically proven|proven to/i];
   const text = src.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');
   const hits = banned.map(r => { const m = text.match(r); return m ? m[0] : null; }).filter(Boolean);

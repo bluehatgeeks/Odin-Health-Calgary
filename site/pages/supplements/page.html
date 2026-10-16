@@ -899,11 +899,64 @@ body .faq-section .container { max-width: 800px !important; }
     if (e.key === 'Escape' && overlay && overlay.classList.contains('is-visible')) closeModal();
   });
 
+  /* ── AI-referrer super-property (once per load; never throw / never block) ── */
+  try {
+    var aiLabel = null;
+    var AI_HOSTS = {
+      'chatgpt.com': 'chatgpt',
+      'chat.openai.com': 'chatgpt',
+      'perplexity.ai': 'perplexity',
+      'www.perplexity.ai': 'perplexity',
+      'claude.ai': 'claude',
+      'gemini.google.com': 'gemini',
+      'copilot.microsoft.com': 'copilot',
+      'you.com': 'you',
+      'www.you.com': 'you',
+      'phind.com': 'phind',
+      'www.phind.com': 'phind',
+      'poe.com': 'poe',
+      'www.poe.com': 'poe'
+    };
+    var AI_UTM = { chatgpt: 'chatgpt', openai: 'chatgpt', perplexity: 'perplexity', claude: 'claude', gemini: 'gemini', copilot: 'copilot', you: 'you', phind: 'phind', poe: 'poe' };
+    try {
+      var ref = document.referrer || '';
+      if (ref) {
+        var ru = new URL(ref);
+        var host = (ru.hostname || '').toLowerCase();
+        if (AI_HOSTS[host]) aiLabel = AI_HOSTS[host];
+        else if ((host === 'bing.com' || host === 'www.bing.com') && /\/chat/i.test(ru.pathname || '')) aiLabel = 'bing_chat';
+      }
+    } catch (e1) { /* ignore bad referrer */ }
+    try {
+      var us = new URLSearchParams(window.location.search || '').get('utm_source');
+      if (us) {
+        var uk = String(us).toLowerCase().replace(/\s+/g, '');
+        if (AI_UTM[uk]) aiLabel = AI_UTM[uk];
+      }
+    } catch (e2) { /* ignore */ }
+    if (aiLabel && window.mixpanel && typeof window.mixpanel.register === 'function') {
+      window.mixpanel.register({ ai_referrer: aiLabel });
+    }
+  } catch (errAi) { /* never block render */ }
+
   /* ── CTA click tracking (Mixpanel, guarded). Properties: cta, page ── */
   function trackCta(cta) {
     try {
       if (window.mixpanel && typeof window.mixpanel.track === 'function') {
         window.mixpanel.track('CTA Click', { cta: cta, page: PAGE }, { transport: 'sendBeacon' });
+      }
+    } catch (err) { /* never block navigation */ }
+  }
+  /* Also fire Booking Link Clicked when the modal booking widget links are clicked */
+  function trackBookingLink(el, cta) {
+    try {
+      var href = (el && el.getAttribute && el.getAttribute('href')) || '';
+      if (href.indexOf('leadconnectorhq.com/widget/bookings/') === -1) return;
+      var booking = 'other';
+      if (/first[-_]?time/i.test(href)) booking = 'first_time';
+      else if (/follow[-_]?up/i.test(href)) booking = 'follow_up';
+      if (window.mixpanel && typeof window.mixpanel.track === 'function') {
+        window.mixpanel.track('Booking Link Clicked', { page: PAGE, booking: booking, cta: cta || '' }, { transport: 'sendBeacon' });
       }
     } catch (err) { /* never block navigation */ }
   }
@@ -913,7 +966,9 @@ body .faq-section .container { max-width: 800px !important; }
     var cta = el.getAttribute('data-cta');
     if (!cta) cta = el.closest('#odin-nav-root') ? 'nav_book_online' : 'book_online';
     trackCta(cta);
+    trackBookingLink(el, cta);
   }, true);
+
 
   /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
