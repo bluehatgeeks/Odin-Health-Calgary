@@ -41,7 +41,7 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   // no mixpanel at all must not throw
   const p2 = await b.newPage(); const e2 = []; p2.on('pageerror', e => e2.push(e.message));
   await p2.goto('file://' + file, { waitUntil: 'networkidle0' });
-  await p2.evaluate(() => { document.addEventListener('click', e => { const a = e.target.closest('a'); if (a) e.preventDefault(); }, false); document.querySelector('[data-cta="hero_free_assessment"], [data-cta="hero_book_call"]').click(); });
+  await p2.evaluate(() => { document.addEventListener('click', e => { const a = e.target.closest('a'); if (a) e.preventDefault(); }, false); (document.querySelector('[data-cta="hero_free_assessment"], [data-cta="hero_book_call"]') || document.querySelector('main [data-cta]')).click(); });
   ok('click with no mixpanel does not throw', e2.length === 0, e2.join('|'));
   const meta = await p.evaluate(() => { const q = (s, a) => (document.querySelector(s) || {}).getAttribute ? document.querySelector(s).getAttribute(a) : null;
     const j = JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent); const g = j['@graph']; const faq = g.find(x => x['@type'] === 'FAQPage');
@@ -49,7 +49,7 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
     const links = [...document.querySelectorAll('main a[href]')].map(a => a.getAttribute('href'));
     return { title: document.title, desc: q('meta[name=description]', 'content'), ogt: q('meta[property="og:title"]', 'content'), ogd: q('meta[property="og:description"]', 'content'),
       twt: q('meta[name="twitter:title"]', 'content'), twd: q('meta[name="twitter:description"]', 'content'), canon: q('link[rel=canonical]', 'href'), ogu: q('meta[property="og:url"]', 'content'),
-      types: g.map(x => x['@type']), nq: faq.mainEntity.length, same: JSON.stringify(dom.map(d => d[0])) === JSON.stringify(faq.mainEntity.map(m => m.name)) && JSON.stringify(dom.map(d => d[1])) === JSON.stringify(faq.mainEntity.map(m => m.acceptedAnswer.text)),
+      types: g.map(x => x['@type']), nq: faq ? faq.mainEntity.length : 0, same: !faq ? dom.length === 0 : JSON.stringify(dom.map(d => d[0])) === JSON.stringify(faq.mainEntity.map(m => m.name)) && JSON.stringify(dom.map(d => d[1])) === JSON.stringify(faq.mainEntity.map(m => m.acceptedAnswer.text)),
       h1: document.querySelectorAll('h1').length, ids: [...document.querySelectorAll('[id]')].map(e => e.id).filter((x, i, a) => a.indexOf(x) !== i), links, assessHrefs: [...document.querySelectorAll('[data-cta]')].filter(a => /assessment/.test(a.getAttribute('data-cta'))).map(a => a.getAttribute('href')) }; });
   ok('title == seo-meta.md verbatim', meta.title === wantTitle, meta.title);
   ok('meta description == seo-meta.md verbatim', meta.desc === wantDesc);
@@ -57,8 +57,17 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   ok('title length', true); results['title length'] = meta.title.length + (meta.title.length <= 60 ? ' PASS' : ' (>60, verbatim from seo-meta.md; see NOTES)');
   ok('description <=160', meta.desc.length <= 160, meta.desc.length);
   ok('canonical + og:url', meta.canon === 'https://odinhealthlab.ca/' + slug && meta.ogu === meta.canon);
+  // LEGAL=1 (e.g. /privacy): no FAQ by design, organization location "Calgary, Alberta, Canada" allowed, CTAs prefixed <slug>_
+  const legal = process.env.LEGAL === '1';
+  if (legal) {
+    ok('JSON-LD has Organization, WebSite, WebPage, BreadcrumbList (legal page, no FAQPage)', ['Organization', 'WebSite', 'WebPage', 'BreadcrumbList'].every(t => meta.types.includes(t)) && !meta.types.includes('FAQPage'), meta.types.join(','));
+    ok('legal page: no FAQ block (DOM and JSON-LD)', meta.nq === 0 && meta.same);
+    const bad = ctas.filter(c => !c.startsWith(slug + '_') && !/^modal_/.test(c));
+    ok('every page CTA id prefixed ' + slug + '_ (shared booking modal excepted)', bad.length === 0, bad.join(','));
+  } else {
   ok('JSON-LD has Organization, WebSite, WebPage, BreadcrumbList, FAQPage', ['Organization', 'WebSite', 'WebPage', 'BreadcrumbList', 'FAQPage'].every(t => meta.types.includes(t)));
   ok('FAQ 5-6 Qs and DOM text == JSON-LD text', meta.nq >= 5 && meta.nq <= 6 && meta.same, meta.nq);
+  }
   ok('one h1', meta.h1 === 1);
   ok('no duplicate ids', meta.ids.length === 0, meta.ids.join(','));
   const need = ['https://odinhealthlab.ca/', 'https://odinhealthlab.ca/functional-health', 'https://odinhealthlab.ca/health-coaching', 'https://odinhealthlab.ca/supplements', 'https://odinhealthlab.ca/privacy'].filter(u => u !== 'https://odinhealthlab.ca/' + slug);
@@ -66,14 +75,15 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   const noAssess = process.env.NO_ASSESS === '1';
   if (noAssess) ok('NO link to /owen-lowt (paid page) anywhere in the page, no assessment CTAs', !/owen-lowt/.test(src) && meta.assessHrefs.length === 0, meta.assessHrefs.join(','));
   else ok('assessment CTAs all -> /owen-lowt', meta.assessHrefs.length >= 4 && meta.assessHrefs.every(h => h === 'https://odinhealthlab.ca/owen-lowt'), meta.assessHrefs.length);
-  ok('no Calgary in-clinic wording in body', !/calgary/i.test(src.replace(/Odin-Health-Calgary|odinlabcalgary/g, '')));
+  if (legal) ok('Calgary only as the organization location ("Calgary, Alberta, Canada" / JSON-LD address)', !/calgary/i.test(src.replace(/Odin-Health-Calgary|odinlabcalgary|Calgary, Alberta, Canada|"addressLocality": "Calgary"/g, '')));
+  else ok('no Calgary in-clinic wording in body', !/calgary/i.test(src.replace(/Odin-Health-Calgary|odinlabcalgary/g, '')));
   // Alex (2026-10-15): no disclaimer paragraphs or "Illustration only" captions on ANY page, so this check always runs
   ok('NO disclaimer paragraph / educational-only note / 911 / 988 / "Illustration only" caption (per Alex)', !/class="disclaimer"|call 911|\b988\b|illustration only|educational (information|only)|isn(&rsquo;|’|')t a diagnosis/i.test(src));
   ok('no pageerror', errs.length === 0, errs.join('|'));
   const banned = [/\bcure[sd]?\b/i, /\breverse/i, /\bguarantee/i, /\b\d+\s*(weeks?|months?|days?)\b/i, /\b\d+\s*%(?!\s*telehealth)/, /\bboost(s|ing)?\s+testosterone/i, /clinically proven|proven to/i];
   const text = src.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');
   const hits = banned.map(r => { const m = text.match(r); return m ? m[0] : null; }).filter(Boolean);
-  results['banned-claim scan (cure/reverse/guarantee/N weeks/N%/boost testosterone/proven)'] = hits.length ? 'REVIEW: ' + hits.join(' | ') : 'PASS (0 hits)';
+  results['banned-claim scan (cure/reverse/guarantee/N weeks/N%/boost testosterone/proven)'] = hits.length ? (legal ? 'INFO (legal text kept verbatim from live policy): ' : 'REVIEW: ') + hits.join(' | ') : 'PASS (0 hits)';
   console.log(JSON.stringify(results, null, 1));
   console.log('CTAs:', ctas.join(', '));
   await b.close();
