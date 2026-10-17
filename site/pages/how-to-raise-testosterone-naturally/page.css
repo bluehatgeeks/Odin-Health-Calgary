@@ -1,0 +1,119 @@
+/* === /how-to-raise-testosterone-naturally graphics. Static block = FINAL state (no-JS and reduced-motion see this). === */
+.pg .hr-t, .pg .sl-n, .pg .wt-b, .pg .wt-w, .pg .tr-bb, .pg .tr-s, .pg .tr-r, .pg .al-bu, .pg .al-r, .pg .st-c, .pg .md-c, .pg .vz-b, .pg .bs-d, .pg .ex-m, .pg .en-n, .pg .hp-r, .pg .fn-ring, .pg .fn-sh, .pg .fq-dp, .pg .fq-fr { transform-box: fill-box; transform-origin: center; }
+.pg .hr-nd { transform-box: view-box; transform-origin: 240px 180px; transform: rotate(50.4deg); }
+.pg .hr-arc { stroke-dashoffset: 22; }
+.pg .sl-b, .pg .vz-b, .pg .al-l { transform-box: fill-box; transform-origin: 50% 100%; }
+.pg .wt-r, .pg .bs-b { transform-box: fill-box; transform-origin: 0 50%; }
+.pg .wt-b { transform: scaleX(0.88); }
+.pg .md-m { transform: translateY(120px); }
+.pg .fn-ring { opacity: 0; }
+.pg .mg-svg { text-anchor: middle; }
+/* levers table: four columns on desktop, stacked rows with labels on phones */
+.pg .cmp-card { max-width: 940px; margin: 0 auto; padding: 8px 10px; text-align: left; }
+.pg .cmp { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 1rem; line-height: 1.5; color: var(--white-800); }
+.pg .cmp-cap { caption-side: top; text-align: left; padding: 10px 12px 6px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime-green); }
+.pg .cmp th, .pg .cmp td { padding: 12px; vertical-align: top; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.08); overflow-wrap: break-word; }
+.pg .cmp thead th { font-size: 0.95rem; font-weight: 800; color: var(--lime-green); border-bottom: 1px solid var(--lime-line); }
+.pg .cmp thead th:first-child { width: 22%; }
+.pg .cmp tbody th { font-weight: 800; color: var(--white); }
+.pg .cmp tbody tr:last-child th, .pg .cmp tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 680px) {
+  .pg .cmp, .pg .cmp tbody, .pg .cmp tr, .pg .cmp th, .pg .cmp td { display: block; width: auto; }
+  .pg .cmp thead { display: none; }
+  .pg .cmp caption { display: block; }
+  .pg .cmp tbody tr { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .pg .cmp tbody tr:last-child { border-bottom: 0; }
+  .pg .cmp tbody th { padding: 4px 12px 2px; border: 0; color: var(--lime-green); }
+  .pg .cmp td { padding: 6px 12px; border: 0; }
+  .pg .cmp td::before { content: attr(data-label); display: block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); opacity: 0.7; }
+}
+/*@GEN_STATIC*/
+
+@media all {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* hero: lever chips light in turn; the needle and arc step up with each one, hold, then reset */
+  .js-reveal .pg .hr-t { animation: hr-t 10s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 1.4s); }
+  @keyframes hr-t { 0%, 100% { opacity: 0.5; transform: none; } 3%, 11% { opacity: 1; transform: translateY(-3px); } 15%, 86% { opacity: 0.9; transform: none; } 94% { opacity: 0.5; } }
+  .js-reveal .pg .hr-nd { animation: hr-nd 10s var(--ease-out) infinite; }
+  @keyframes hr-nd { 0%, 3% { transform: rotate(-75.6deg); } 8%, 17% { transform: rotate(-50.4deg); } 22%, 31% { transform: rotate(-25.2deg); } 36%, 45% { transform: rotate(0deg); } 50%, 59% { transform: rotate(25.2deg); } 64%, 90% { transform: rotate(50.4deg); } 100% { transform: rotate(-75.6deg); } }
+  .js-reveal .pg .hr-arc { animation: hr-arc 10s var(--ease-out) infinite; }
+  @keyframes hr-arc { 0%, 3% { stroke-dashoffset: 92; } 8%, 17% { stroke-dashoffset: 78; } 22%, 31% { stroke-dashoffset: 64; } 36%, 45% { stroke-dashoffset: 50; } 50%, 59% { stroke-dashoffset: 36; } 64%, 90% { stroke-dashoffset: 22; } 100% { stroke-dashoffset: 92; } }
+
+  /* sleep: bedtime bars grow night by night; the note glows */
+  .js-reveal .pg .sl-b { animation: sl-b 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.35s); }
+  @keyframes sl-b { 0% { transform: scaleY(0.04); } 10%, 88% { transform: scaleY(1); } 100% { transform: scaleY(0.04); } }
+  .js-reveal .pg .sl-n { animation: pg-glow 4s ease-in-out infinite; }
+  @keyframes pg-glow { 0%, 100% { opacity: 0.75; } 50% { opacity: 1; } }
+
+  /* weight: the torso slims, the scale needle settles, bars grow */
+  .js-reveal .pg .wt-b { animation: wt-b 8s ease-in-out infinite; }
+  @keyframes wt-b { 0%, 8% { transform: scaleX(1.14); } 45%, 85% { transform: scaleX(0.88); } 100% { transform: scaleX(1.14); } }
+  .js-reveal .pg .wt-w { animation: wt-w 8s ease-in-out infinite; }
+  @keyframes wt-w { 0%, 8% { transform: translateX(12px); } 45%, 85% { transform: translateX(-12px); } 100% { transform: translateX(12px); } }
+  .js-reveal .pg .wt-r { animation: wt-r 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.5s); }
+  @keyframes wt-r { 0%, 6% { transform: scaleX(0.03); } 40%, 88% { transform: scaleX(1); } 100% { transform: scaleX(0.03); } }
+
+  /* training: barbell lifts, footprints light, result rows light in turn */
+  .js-reveal .pg .tr-bb { animation: tr-bb 2.8s ease-in-out infinite; }
+  @keyframes tr-bb { 0%, 100% { transform: translateY(0); } 45%, 55% { transform: translateY(-30px); } }
+  .js-reveal .pg .tr-s { animation: tr-s 4.2s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 0.5s); }
+  @keyframes tr-s { 0%, 30%, 100% { opacity: 0.25; } 8%, 18% { opacity: 1; } }
+  .js-reveal .pg .tr-r { animation: tr-r 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 3s - 9s); }
+  @keyframes tr-r { 0%, 33%, 100% { opacity: 0.55; transform: none; } 6%, 27% { opacity: 1; transform: translateX(4px); } }
+
+  /* alcohol: the glass drains, bubbles rise, rows light */
+  .js-reveal .pg .al-l { animation: al-l 7s ease-in-out infinite; }
+  @keyframes al-l { 0%, 10% { transform: scaleY(1); } 70%, 82% { transform: scaleY(0.12); } 100% { transform: scaleY(1); } }
+  .js-reveal .pg .al-bu { animation: al-bu 3s ease-in infinite; animation-delay: calc(var(--k, 0) * -0.75s); }
+  @keyframes al-bu { 0% { opacity: 0; transform: translateY(0); } 20% { opacity: 0.9; } 80% { opacity: 0.6; } 100% { opacity: 0; transform: translateY(-60px); } }
+  .js-reveal .pg .al-r { animation: tr-r 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 4s - 8s); }
+
+  /* stress: chips light in turn */
+  .js-reveal .pg .st-c { animation: st-c 6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 6s); }
+  @keyframes st-c { 0%, 33%, 100% { opacity: 0.55; transform: none; } 6%, 27% { opacity: 1; transform: translateY(-3px); } }
+
+  /* medications: ticks appear row by row while the magnifier scans down */
+  .js-reveal .pg .md-c { animation: md-c 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 1.2s); }
+  @keyframes md-c { 0% { opacity: 0; transform: scale(0.6); } 6%, 80% { opacity: 1; transform: none; } 90%, 100% { opacity: 0; transform: none; } }
+  .js-reveal .pg .md-m { animation: md-m 9s ease-in-out infinite; }
+  @keyframes md-m { 0% { transform: translateY(0); } 13% { transform: translateY(30px); } 27% { transform: translateY(60px); } 40% { transform: translateY(90px); } 53%, 85% { transform: translateY(120px); } 100% { transform: translateY(0); } }
+
+  /* vitamin D and zinc: after-bars grow; rises only in the deficient panels */
+  .js-reveal .pg .vz-b { animation: vz-b 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  @keyframes vz-b { 0%, 6% { transform: scaleY(0.05); } 30%, 88% { transform: scaleY(1); } 100% { transform: scaleY(0.05); } }
+
+  /* boosters: dots float out of the bottle, bars grow */
+  .js-reveal .pg .bs-d { animation: bs-d 5s ease-out infinite; animation-delay: calc(var(--k, 0) * -1s); }
+  @keyframes bs-d { 0% { opacity: 0; transform: translate(0, 10px); } 15% { opacity: 1; } 85% { opacity: 0.8; } 100% { opacity: 0; transform: translate(var(--dx, 0), -38px); } }
+  .js-reveal .pg .bs-b { animation: wt-r 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.35s); }
+
+  /* expect: markers drop onto the ruler in turn */
+  .js-reveal .pg .ex-m { animation: ex-m 10s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.9s); }
+  @keyframes ex-m { 0% { opacity: 0; transform: translateY(-16px); } 7%, 86% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; transform: none; } }
+
+  /* enough: nodes light as the dot passes */
+  .js-reveal .pg .en-n { animation: en-n 10s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 1.55s); }
+  @keyframes en-n { 0%, 100% { opacity: 0.6; transform: none; } 4%, 14% { opacity: 1; transform: scale(1.04); } 22%, 96% { opacity: 0.85; transform: none; } }
+
+  /* help: plan rows light in turn */
+  .js-reveal .pg .hp-r { animation: hp-r 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  @keyframes hp-r { 0%, 25%, 100% { opacity: 0.55; transform: none; } 6%, 19% { opacity: 1; transform: translateX(4px); } }
+
+  /* final: shield breathes, ring pulses; FAQ: sun turns, dots float */
+  .js-reveal .pg .fn-sh { animation: fn-sh 4.4s ease-in-out infinite; }
+  @keyframes fn-sh { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  .js-reveal .pg .fn-ring { animation: fn-r 4.4s ease-out infinite; }
+  @keyframes fn-r { 0% { opacity: 0.6; transform: scale(0.9); } 70%, 100% { opacity: 0; transform: scale(1.5); } }
+  .js-reveal .pg .fq-dp { animation: fq-sp 12s linear infinite; }
+  @keyframes fq-sp { to { transform: rotate(360deg); } }
+  .js-reveal .pg .fq-fr { animation: fq-fr 3.4s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.7s); }
+  @keyframes fq-fr { 0%, 100% { opacity: 0.4; transform: translate(0, 4px); } 50% { opacity: 1; transform: translate(3px, -5px); } }
+/*@GEN_MOTION*/
+}
+
+/* long DOI links wrap on phones */
+.pg .src-list a { overflow-wrap: anywhere; word-break: break-word; }
+/* the hero figure's one-shot entrance must play even when the figure starts below the fold on phones (its loops stay paused) */
+.pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }

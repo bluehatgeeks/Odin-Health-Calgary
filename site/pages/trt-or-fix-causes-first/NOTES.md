@@ -39,3 +39,9 @@ Create/choose the page in GHL, paste `page.html` into its custom-code element, s
 - page.css: hero entrance fix from /trt-side-effects (`.pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }`); without it the live Safari-fixed build left the hero figure at opacity 0 under reduced motion at 390 (it sits below the fold, is-paused).
 - scan.py added (copy of ../trt-side-effects/scan.py; the reduced-motion check counts real @media queries only, because this unminified page keeps a CSS comment mentioning the phrase). Backups: *.bak-trtse. Tests: visual 1280/390 CLS 0, 0 errors, no overflow, reduced hidden 0, no-JS hidden 0; tracking 24/24 CTAs incl. related_trtse and source_fda_2026, Booking Link Clicked 2/2, no /owen-lowt; scan PASS; mojibake 0.
 - Publish AFTER /trt-side-effects is live (it is, per site log 19:41 MDT).
+
+## 2026-10-16 update (natural refresh; BUILT LOCALLY, not published)
+- Keep reading gained a 7th card "How to raise testosterone naturally" (data-cta related_natural -> /how-to-raise-testosterone-naturally, leaf icon) as a full-width featured card at the top of the grid (`.pg #related .card-feature { grid-column: 1 / -1; }` in page.css), so the other six stay a tidy 3x2 at desktop (one column on phones). Card --i / CI indexes shifted by one.
+- Hub: 7 nodes now sit on an ellipse (build.py `_hub7()`, centre 280,100, rx 220, ry 66; leaf at bottom centre 280,166) instead of six fixed spots; aria-label now says seven pages.
+- page.html 138,900 -> 140,905 B. Backups: *.bak-natural. Tests: visual 1280/390 CLS 0, 0 errors, no overflow, 0 off-screen loops, reduced hidden 0, no-JS hidden 0; tracking 25/25 CTAs incl. related_natural, Booking Link Clicked 2/2, no /owen-lowt; scan PASS; mojibake 0.
+- Publish AFTER /how-to-raise-testosterone-naturally is live.

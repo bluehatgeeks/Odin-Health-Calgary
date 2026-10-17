@@ -69,3 +69,5 @@
 
 /* the hero figure's one-shot entrance must play even when the figure starts below the fold on phones (its loops stay paused); same fix as /trt-side-effects */
 .pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }
+/* Keep reading: the featured natural-levers card spans the full row so the other six stay a tidy 3x2 at desktop */
+.pg #related .card-feature { grid-column: 1 / -1; }
