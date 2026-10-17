@@ -175,7 +175,11 @@ def step_icons():
      "{{STEP6}}": '<g class="hi-bl" style="--k:0"><path d="M6 8h22a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H16l-6 5v-5H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"/></g><g class="hi-bl" style="--k:3"><path d="M20 26h20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-4v5l-6-5H20a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z" stroke="#fff"/></g>',
     }
 
-HUB = hub(G, [(110, 50, 'labs'), (110, 150, 'coach'), (450, 50, 'caps'), (450, 150, 'tube'), (280, 32, 'heart'), (280, 170, 'shield')])
+def _hub7():
+    # 2026-10-16 natural refresh: seven pages on an ellipse (was six fixed spots); leaf = /how-to-raise-testosterone-naturally
+    icons = ['shield', 'caps', 'tube', 'leaf', 'heart', 'coach', 'labs']
+    return [(round(280 + 220 * math.cos(-math.pi / 2 + (i + 0.5) * 2 * math.pi / 7)), round(100 + 66 * math.sin(-math.pi / 2 + (i + 0.5) * 2 * math.pi / 7)), ic) for i, ic in enumerate(icons)]
+HUB = hub(G, _hub7())
 slots = {"{{HERO}}": hero_fork(), "{{LOOP}}": loop(), "{{ORBIT}}": orbit(), "{{SCALE}}": scale(), "{{MIXER}}": mixer(), "{{FLOW}}": flow(),
          "{{CALL}}": call(), "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{COMPASS}}": COMPASS}
 slots.update(step_icons())
