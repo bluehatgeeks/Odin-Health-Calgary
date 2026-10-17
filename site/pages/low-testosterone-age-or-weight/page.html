@@ -286,6 +286,16 @@ body .faq-section .container { max-width: 800px !important; }
   @keyframes ans-ck { 0%, 8% { opacity: 0; transform: scale(0.75); } 18%, 80% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: none; } }
 }
 
+/* ═══ X follow line (end of every answer page; footer twin lives in odinfooter.html) ═══ */
+.pg .x-follow { margin: 0; padding: 22px 20px 34px; text-align: center; }
+.pg .x-follow-link { display: inline-block; padding: 8px 12px; border-radius: 10px; font-size: 0.95rem; font-weight: 500; line-height: 1.4; text-align: center; text-wrap: balance; text-decoration: none; color: var(--white-800); transition: color 0.2s ease, background-color 0.2s ease; }
+.pg .x-follow-link b { font-weight: 700; color: var(--lime-green); }
+.pg .x-follow-link .x-ico { display: inline-block; vertical-align: -2px; margin-right: 9px; width: 16px; height: 16px; fill: var(--lime-green); transition: transform 0.25s var(--ease-out); }
+.pg .x-follow-link:hover { color: var(--white); background: rgba(196, 255, 73, 0.1); }
+.pg .x-follow-link:hover .x-ico { transform: scale(1.15); }
+.pg .x-follow-link:focus-visible { outline: 2px solid var(--lime-green); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .pg .x-follow-link, .pg .x-follow-link .x-ico { transition: none; } .pg .x-follow-link:hover .x-ico { transform: none; } }
+
 /* ═══ /low-testosterone-age-or-weight graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
 .pg .hv-nd, .pg .wt-dr, .pg .ls-bar, .pg .ls-up, .pg .sl-st, .pg .sl-win, .pg .st-zz, .pg .fk-ring, .pg .ag-band, .pg .sr-sun, .pg .sr-rays, .pg .sr-sp, .pg .fq-mn, .pg .fq-st { transform-box: fill-box; transform-origin: center; }
 .pg .hv-nd { transform-origin: 50% 100%; }
@@ -1326,6 +1336,7 @@ body .faq-section .container { max-width: 800px !important; }
 </figure>
 </div>
 </section>
+<p class="x-follow reveal"><a class="x-follow-link" href="https://x.com/intent/follow?screen_name=odinhealthlab" target="_blank" rel="noopener noreferrer" data-cta="x_follow_end"><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span><b>Follow Odin Labs on X</b> for the daily research breakdowns.</span></a></p>
 </main>
 
 <!-- Booking modal: kept because the shared nav "Book Online" button opens it -->

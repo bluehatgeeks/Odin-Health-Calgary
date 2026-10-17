@@ -41,3 +41,13 @@
   .js-reveal .pg .timeline-list > li.is-on .hi-ck { animation: ans-ck 4.2s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.5s); }
   @keyframes ans-ck { 0%, 8% { opacity: 0; transform: scale(0.75); } 18%, 80% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: none; } }
 }
+
+/* ═══ X follow line (end of every answer page; footer twin lives in odinfooter.html) ═══ */
+.pg .x-follow { margin: 0; padding: 22px 20px 34px; text-align: center; }
+.pg .x-follow-link { display: inline-block; padding: 8px 12px; border-radius: 10px; font-size: 0.95rem; font-weight: 500; line-height: 1.4; text-align: center; text-wrap: balance; text-decoration: none; color: var(--white-800); transition: color 0.2s ease, background-color 0.2s ease; }
+.pg .x-follow-link b { font-weight: 700; color: var(--lime-green); }
+.pg .x-follow-link .x-ico { display: inline-block; vertical-align: -2px; margin-right: 9px; width: 16px; height: 16px; fill: var(--lime-green); transition: transform 0.25s var(--ease-out); }
+.pg .x-follow-link:hover { color: var(--white); background: rgba(196, 255, 73, 0.1); }
+.pg .x-follow-link:hover .x-ico { transform: scale(1.15); }
+.pg .x-follow-link:focus-visible { outline: 2px solid var(--lime-green); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .pg .x-follow-link, .pg .x-follow-link .x-ico { transition: none; } .pg .x-follow-link:hover .x-ico { transform: none; } }

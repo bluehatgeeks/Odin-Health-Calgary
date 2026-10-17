@@ -2,6 +2,7 @@
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 const slug = process.argv[2];
+const xf = require('/workspace/pages/_shared/xfollow-footer.js');
 const path = `/workspace/pages/${slug}/page.html`;
 const out = `/workspace/pages/${slug}/shots/`;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -10,7 +11,7 @@ const SEL = '.mg, .faq-head, [data-timeline]';
   const browser = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const res = {};
   for (const w of [1280, 390]) {
-    const page = await browser.newPage();
+    const page = await browser.newPage(); await xf.serveFooter(page, slug);
     await page.setViewport({ width: w, height: w === 390 ? 844 : 800, deviceScaleFactor: 1 });
     const errs = [];
     page.on('console', m => { if (['error', 'warning'].includes(m.type())) errs.push(m.type() + ': ' + m.text()); });
@@ -39,6 +40,10 @@ const SEL = '.mg, .faq-head, [data-timeline]';
       overflowEls: [...document.querySelectorAll('main *')].filter(e => { const r = e.getBoundingClientRect(); return r.right > innerWidth + 1 && !e.closest('svg') && getComputedStyle(e).position !== 'fixed'; }).map(e => e.tagName + '.' + e.className).slice(0, 8),
     }));
     res[w] = { ...m, errs };
+    // X follow line: both placements fully inside the viewport width, calm single link (<= 3 lines at 390), screenshots of each
+    res[w].xfollow = await page.evaluate(() => [...document.querySelectorAll('a[data-cta^="x_follow_"]')].map(a => { const r = a.getBoundingClientRect(); const lh = parseFloat(getComputedStyle(a).lineHeight) || 20; const sp = a.querySelector('span').getBoundingClientRect();
+      return { cta: a.dataset.cta, left: Math.round(r.left), right: Math.round(r.right), w: Math.round(r.width), h: Math.round(r.height), lines: Math.round(sp.height / lh), inside: r.left >= 0 && r.right <= innerWidth, fontPx: getComputedStyle(a).fontSize }; }));
+    for (const c of ['x_follow_footer', 'x_follow_end']) { const h = await page.$(`a[data-cta="${c}"]`); if (h) { const box = await h.evaluate(a => { const e = a.closest('.footer-x, .x-follow'); e.scrollIntoView({ block: 'center' }); return true; }); await sleep(900); await (await page.$(`a[data-cta="${c}"]`)).evaluate(a => a.parentElement.scrollIntoView({ block: 'center' })); await sleep(700); const par = await (await page.$(`a[data-cta="${c}"]`)).evaluateHandle(a => a.closest('.odin-footer') || a.parentElement); await par.asElement().screenshot({ path: `${out}xfollow-${c === 'x_follow_end' ? 'end' : 'footer'}-${w}.png` }); } }
     await page.screenshot({ path: `${out}full-${w}.png`, fullPage: true });
     await page.evaluate(() => window.scrollTo(0, 0)); await sleep(1200);
     // loops must pause off-screen: any running animation whose nearest [data-live] is >200px outside the viewport is a failure
@@ -49,7 +54,7 @@ const SEL = '.mg, .faq-head, [data-timeline]';
     }).length);
     res[w].liveBlocks = await page.evaluate(() => document.querySelectorAll('[data-live]').length);
     await page.close();
-    const p2 = await browser.newPage();
+    const p2 = await browser.newPage(); await xf.serveFooter(p2, slug);
     await p2.setViewport({ width: w, height: 800 });
     await p2.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
     await p2.goto('file://' + path, { waitUntil: 'networkidle0' }); await sleep(800);
