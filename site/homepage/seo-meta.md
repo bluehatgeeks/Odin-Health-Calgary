@@ -102,3 +102,8 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (54): Free vs Total Testosterone and SHBG | Odin Health Labs
 - Description (150): Free vs total testosterone: how SHBG and albumin bind T, normal free T levels, calculated vs dialysis tests and what men in Canada and the USA can do.
 - Note: NEW answer-style page (not yet published). Target query: "free vs total testosterone" / "what is free testosterone" / "SHBG and testosterone" / "normal free testosterone men" / "total testosterone normal but symptoms". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
+
+## TRT Side Effects  `/trt-side-effects`
+- Title (57): TRT Side Effects: Risks and Monitoring | Odin Health Labs
+- Description (148): TRT side effects: hematocrit, acne, fertility, PSA and heart risk (TRAVERSE), how common each is and what to monitor. For men in Canada and the USA.
+- Note: NEW answer-style page (not yet published). Target query: "TRT side effects" / "testosterone replacement therapy side effects" / "risks of TRT" / "does TRT cause hair loss or acne" / "TRT hematocrit" / "TRT testicle size" / "TRT heart risk" / "TRT and prostate" / "monitoring on TRT". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
