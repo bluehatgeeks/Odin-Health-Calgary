@@ -4,10 +4,12 @@
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 const slug = process.argv[2];
+const xf = require('/workspace/pages/_shared/xfollow-footer.js');
+const PAGE = slug === '_home' ? 'home' : slug; // value of PAGE inside the page script (the home page is built as _home)
 const file = `/workspace/pages/${slug}/page.html`;
 const src = fs.readFileSync(file, 'utf8');
 const seo = fs.readFileSync('/workspace/homepage/seo-meta.md', 'utf8');
-const sec = seo.split(/\n## /).find(s => new RegExp('`/' + slug + '`').test(s));
+const sec = seo.split(/\n## /).find(s => slug === '_home' ? /`\/`/.test(s) : new RegExp('`/' + slug + '`').test(s));
 const wantTitle = sec.match(/- Title \(\d+\): (.*)/)[1].trim();
 const wantDesc = sec.match(/- Description \(\d+\): (.*)/)[1].trim();
 const results = {};
@@ -16,22 +18,35 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   ok('no function/var/let/const named track', !/(function\s+track\s*\(|\b(var|let|const)\s+track\b|\btrack\s*=\s*function)/.test(src.replace(/mixpanel\.track/g, '')));
   ok('has function trackCta', /function trackCta\(/.test(src));
   ok('has function trackBookingLink', /function trackBookingLink\(/.test(src));
+  ok('click handler is a capture-phase document listener (fires before navigation, incl. target=_blank links)', /document\.addEventListener\('click', function \(e\) \{[\s\S]*?\}, true\);/.test(src));
   ok('has ai_referrer register', /ai_referrer/.test(src) && /mixpanel\.register/.test(src));
   const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
-  const p = await b.newPage(); await p.setViewport({ width: 1280, height: 800 });
+  const p = await b.newPage(); await xf.serveFooter(p, slug); await p.setViewport({ width: 1280, height: 800 });
   const errs = []; p.on('pageerror', e => errs.push(e.message));
   await p.evaluateOnNewDocument(() => { window.__ev = []; window.__reg = []; window.mixpanel = { track: (n, props) => window.__ev.push([n, props]), register: (props) => window.__reg.push(props) }; });
   await p.goto('file://' + file, { waitUntil: 'networkidle0' });
   await p.evaluate(() => { document.addEventListener('click', e => { const a = e.target.closest('a'); if (a && a.getAttribute('href') !== '#') e.preventDefault(); }, false); });
   const ctas = await p.evaluate(() => [...document.querySelectorAll('[data-cta]')].map(e => e.getAttribute('data-cta')));
   ok('every data-cta unique', new Set(ctas).size === ctas.length);
+  // ── X follow line (Alex approved via Odin X Marketer): footer on EVERY maintained page, end-of-article line on the answer pages only ──
+  const XHREF = 'https://x.com/intent/follow?screen_name=odinhealthlab', XTEXT = 'Follow Odin Labs on X for the daily research breakdowns.';
+  const NO_END = ['_home', 'shift', 'privacy', 'functional-health', 'health-coaching', 'supplements', 'ayurveda'];
+  const xinfo = await p.evaluate(() => [...document.querySelectorAll('a[data-cta^="x_follow_"]')].map(a => { const r = a.getBoundingClientRect(); const cs = getComputedStyle(a);
+    return { cta: a.getAttribute('data-cta'), href: a.getAttribute('href'), target: a.getAttribute('target'), rel: a.getAttribute('rel'), text: a.textContent.trim(), w: r.width, h: r.height, vis: !!(a.offsetParent) && cs.visibility !== 'hidden' && r.width > 0,
+      inMain: !!a.closest('main'), inFooter: !!a.closest('.odin-footer'), lastInMain: a.closest('main') ? (a.closest('main').lastElementChild === a.parentElement || [...a.closest('main').children].slice(-2).includes(a.parentElement)) : null, hasSvg: !!a.querySelector('svg[aria-hidden="true"]') }; }));
+  const xf1 = xinfo.filter(x => x.cta === 'x_follow_footer'), xe = xinfo.filter(x => x.cta === 'x_follow_end');
+  const goodX = x => x.href === XHREF && x.target === '_blank' && x.rel === 'noopener noreferrer' && x.text === XTEXT && x.vis && x.hasSvg && !/owen-lowt/.test(x.href);
+  ok('X follow: exactly one footer link x_follow_footer (in .odin-footer), href/target/rel/text exact, visible, icon aria-hidden', xf1.length === 1 && xf1[0].inFooter && goodX(xf1[0]), JSON.stringify(xf1));
+  if (NO_END.includes(slug)) ok('X follow: NO end-of-article link on this page (footer only)', xe.length === 0, JSON.stringify(xe));
+  else ok('X follow: exactly one end link x_follow_end inside <main>, last block, href/target/rel/text exact, visible', xe.length === 1 && xe[0].inMain && xe[0].lastInMain && goodX(xe[0]), JSON.stringify(xe));
+  ok('X follow: no /owen-lowt in the X follow markup', !/owen-lowt/.test(JSON.stringify(xinfo)));
   const fired = [];
   for (const c of ctas) {
     await p.evaluate(() => { window.__ev.length = 0; });
     await p.evaluate(c => { const e = document.querySelector(`[data-cta="${c}"]`); e.click(); }, c);
     const ev = await p.evaluate(() => window.__ev.slice());
     const ctaEv = ev.filter(e => e[0] === 'CTA Click');
-    const good = ctaEv.length === 1 && ctaEv[0][1].cta === c && ctaEv[0][1].page === slug;
+    const good = ctaEv.length === 1 && ctaEv[0][1].cta === c && ctaEv[0][1].page === PAGE;
     fired.push([c, good]);
     // close the modal if a booking trigger opened it
     await p.evaluate(() => { const o = document.getElementById('booking-modal-overlay'); if (o.classList.contains('is-visible')) document.getElementById('booking-modal-close').click(); });
@@ -48,7 +63,7 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
     const bev = await p.evaluate(() => window.__ev.slice());
     const hasCta = bev.some(e => e[0] === 'CTA Click');
     const bl = bev.find(e => e[0] === 'Booking Link Clicked');
-    const good = hasCta && bl && bl[1].booking === expectBooking && bl[1].page === slug && typeof bl[1].cta === 'string';
+    const good = hasCta && bl && bl[1].booking === expectBooking && bl[1].page === PAGE && typeof bl[1].cta === 'string';
     bookingChecks.push([expectBooking, good, JSON.stringify(bev)]);
     await p.evaluate(() => { const o = document.getElementById('booking-modal-overlay'); if (o && o.classList.contains('is-visible')) document.getElementById('booking-modal-close').click(); });
   }
@@ -59,7 +74,7 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   const ev2 = await p.evaluate(() => ({ ev: window.__ev.slice(), modal: document.getElementById('booking-modal-overlay').classList.contains('is-visible') }));
   ok('booking-trigger without data-cta tracked + modal opens', ev2.ev.length === 1 && ev2.ev[0][1].cta === 'book_online' && ev2.modal);
   // no mixpanel at all must not throw
-  const p2 = await b.newPage(); const e2 = []; p2.on('pageerror', e => e2.push(e.message));
+  const p2 = await b.newPage(); await xf.serveFooter(p2, slug); const e2 = []; p2.on('pageerror', e => e2.push(e.message));
   await p2.goto('file://' + file, { waitUntil: 'networkidle0' });
   await p2.evaluate(() => { document.addEventListener('click', e => { const a = e.target.closest('a'); if (a) e.preventDefault(); }, false); (document.querySelector('[data-cta="hero_free_assessment"], [data-cta="hero_book_call"]') || document.querySelector('main [data-cta]')).click(); });
   ok('click with no mixpanel does not throw', e2.length === 0, e2.join('|'));
@@ -82,7 +97,7 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   if (legal) {
     ok('JSON-LD has Organization, WebSite, WebPage, BreadcrumbList (legal page, no FAQPage)', ['Organization', 'WebSite', 'WebPage', 'BreadcrumbList'].every(t => meta.types.includes(t)) && !meta.types.includes('FAQPage'), meta.types.join(','));
     ok('legal page: no FAQ block (DOM and JSON-LD)', meta.nq === 0 && meta.same);
-    const bad = ctas.filter(c => !c.startsWith(slug + '_') && !/^modal_/.test(c));
+    const bad = ctas.filter(c => !c.startsWith(slug + '_') && !/^modal_/.test(c) && !/^x_follow_(footer|end)$/.test(c)); // x_follow_footer comes from the shared footer
     ok('every page CTA id prefixed ' + slug + '_ (shared booking modal excepted)', bad.length === 0, bad.join(','));
   } else {
   ok('JSON-LD has Organization, WebSite, WebPage, BreadcrumbList, FAQPage', ['Organization', 'WebSite', 'WebPage', 'BreadcrumbList', 'FAQPage'].every(t => meta.types.includes(t)));
@@ -101,7 +116,7 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   ok('NO disclaimer paragraph / educational-only note / 911 / 988 / "Illustration only" caption (per Alex)', !/class="disclaimer"|call 911|\b988\b|illustration only|educational (information|only)|isn(&rsquo;|’|')t a diagnosis/i.test(src));
   ok('no pageerror', errs.length === 0, errs.join('|'));
   // ai_referrer: stub register + simulate perplexity referrer / chatgpt utm
-  const pAi = await b.newPage();
+  const pAi = await b.newPage(); await xf.serveFooter(pAi, slug);
   await pAi.evaluateOnNewDocument(() => {
     window.__reg = [];
     window.__ev = [];

@@ -282,3 +282,25 @@ slots = {"{{HERO}}": hero(), "{{TIMING}}": timing(), "{{WHO}}": prevalence(), "{
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Andropause (late-onset hypogonadism) compared with menopause",
       "Andropause vs menopause", "Andropause vs menopause: what is the difference?", slots, G, published="2026-10-16")
+
+# ---- minify for HighLevel (178 KB failed to save; ~167 KB saves). Keeps the unminified build as page.full.html. Same output as the published minified copy. ----
+import re as _re
+def _mini(src):
+    parts = _re.split(r'(<script\b[\s\S]*?</script>)', src); out = []
+    for i, part in enumerate(parts):
+        if i % 2 == 1:
+            out.append(part); continue
+        def css(m):
+            c = _re.sub(r'/\*[\s\S]*?\*/', '', m.group(0)); c = _re.sub(r'\n\s+', '\n', c); return _re.sub(r'\n{2,}', '\n', c)
+        part = _re.sub(r'<style\b[\s\S]*?</style>', css, part)
+        part = _re.sub(r'\n[ \t]+', '\n', part); part = _re.sub(r'\n{2,}', '\n', part); out.append(part)
+    return ''.join(out)
+def _tight(mm):
+    c = mm.group(0).strip(); c = _re.sub(r'\s*([{};,])\s*', r'\1', c); c = _re.sub(r':\s+', ':', c); return c.replace(';}', '}')
+_p = os.path.join(HERE, "page.html")
+_full = open(_p, encoding="utf-8").read()
+open(os.path.join(HERE, "page.full.html"), "w", encoding="utf-8").write(_full)
+_m = _re.sub(r'(?<=<style>)[\s\S]*?(?=</style>)', _tight, _mini(_full))
+_m = _re.sub(r'\n[ \t]+', '\n', _m); _m = _re.sub(r'\n{2,}', '\n', _m).rstrip('\n')
+open(_p, "w", encoding="utf-8").write(_m)
+print("minified", len(_full.encode()), "->", len(_m.encode()), "bytes")
