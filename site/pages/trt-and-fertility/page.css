@@ -58,3 +58,8 @@
   @keyframes pl-sp { 0%, 100% { opacity: 0.2; transform: scale(0.7); } 50% { opacity: 1; transform: scale(1.15); } }
 /*@GEN_MOTION*/
 }
+/* featured Keep-reading card spans the row (inbound link from /testosterone-and-hair-loss build, 2026-10-17) */
+.pg #related .card-feature { grid-column: 1 / -1; }
+.pg #related .therapy-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; }
+/* the hero figure's one-shot entrance must play even when the figure starts below the fold on phones (its loops stay paused); same fix as /trt-side-effects, /trt-or-fix-causes-first */
+.pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }
