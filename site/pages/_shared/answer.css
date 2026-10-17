@@ -22,7 +22,7 @@
 .pg .hi-pu, .pg .hi-sl, .pg .hi-bl, .pg .hi-sw, .pg .hi-gr, .pg .hi-ck { transform-box: fill-box; transform-origin: center; }
 .pg .hi-gr { transform-origin: 50% 100%; }
 .pg .hi-sw { transform-origin: 50% 100%; }
-@media (prefers-reduced-motion: no-preference) {
+@media all {
   .js-reveal .pg .xh-ring { animation: xh-ring 4s ease-out infinite; }
   @keyframes xh-ring { 0% { opacity: 0.55; transform: scale(1); } 40%, 100% { opacity: 0; transform: scale(1.6); } }
   .js-reveal .pg .so-card { animation: so-fan 7s var(--ease-out) infinite; }

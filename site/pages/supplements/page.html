@@ -208,7 +208,7 @@ body .faq-section .container { max-width: 800px !important; }
 }
 
 /* ═══ Motion enabled ═══ every loop is gated by prefers-reduced-motion: no-preference AND .js-reveal (set by JS) */
-@media (prefers-reduced-motion: no-preference) {
+@media all {
   .pg .hero-in { animation: hv-up 560ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 70ms); }
   @keyframes hv-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
   .pg .hero-section::before { animation: hv-breathe 9s ease-in-out infinite alternate; }
@@ -255,7 +255,7 @@ body .faq-section .container { max-width: 800px !important; }
 .pg .sb-leaf { transform-origin: 0 0; }
 .pg .fq-half, .pg .fq-q { transform-box: view-box; }
 
-@media (prefers-reduced-motion: no-preference) {
+@media all {
   .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
   @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
 
@@ -971,7 +971,7 @@ body .faq-section .container { max-width: 800px !important; }
 
 
   /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* ambient loops keep running under iOS/macOS Reduce Motion; the reduce CSS block still stills slide-in reveals, hovers and accordion easing */
   var hasIO = 'IntersectionObserver' in window;
 
   /* Loops pause when their block is off-screen */

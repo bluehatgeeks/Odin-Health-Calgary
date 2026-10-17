@@ -6,7 +6,7 @@
 .pg .fq-nd, .pg .fn-nd { transform-origin: center; }
 /*@GEN_STATIC*/
 
-@media (prefers-reduced-motion: no-preference) {
+@media all {
   .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
   @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
 
