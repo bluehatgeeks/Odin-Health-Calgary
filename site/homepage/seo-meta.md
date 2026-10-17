@@ -3,8 +3,9 @@
 Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 + real title) except where noted. Paste into each page's SEO settings in GoHighLevel. Canonical for each = its own URL.
 
 ## Home  `/`
-- Title (64): Low Testosterone & Andropause Support for Men | Odin Health Labs
-- Description (158): Telehealth for men in Canada and the USA with low testosterone (andropause) symptoms: fatigue, low drive, belly fat, poor sleep. Start with a free assessment.
+- Title (56): Low T & Andropause Telehealth for Men | Odin Health Labs
+- Description (152): Telehealth for men in Canada and the USA with low testosterone (andropause) symptoms: fatigue, low drive, belly fat, poor sleep. Take a free assessment.
+- Note: 2026-10-16 shortened (title was 64, desc 158; Bing flagged length). Set the same values in the GHL Home step SEO settings.
 
 ## PEMF  `/pemf`
 - Title (62): PEMF Therapy for Recovery, Sleep and Energy | Odin Health Labs
@@ -102,3 +103,13 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (54): Free vs Total Testosterone and SHBG | Odin Health Labs
 - Description (150): Free vs total testosterone: how SHBG and albumin bind T, normal free T levels, calculated vs dialysis tests and what men in Canada and the USA can do.
 - Note: NEW answer-style page (not yet published). Target query: "free vs total testosterone" / "what is free testosterone" / "SHBG and testosterone" / "normal free testosterone men" / "total testosterone normal but symptoms". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
+
+## TRT Side Effects  `/trt-side-effects`
+- Title (57): TRT Side Effects: Risks and Monitoring | Odin Health Labs
+- Description (148): TRT side effects: hematocrit, acne, fertility, PSA and heart risk (TRAVERSE), how common each is and what to monitor. For men in Canada and the USA.
+- Note: NEW answer-style page (not yet published). Target query: "TRT side effects" / "testosterone replacement therapy side effects" / "risks of TRT" / "does TRT cause hair loss or acne" / "TRT hematocrit" / "TRT testicle size" / "TRT heart risk" / "TRT and prostate" / "monitoring on TRT". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
+
+## TRT Cost in Canada vs the USA  `/trt-cost-canada-vs-usa`
+- Title (60): TRT Cost in Canada vs USA: Labs and Drugs | Odin Health Labs
+- Description (151): What TRT costs in Canada vs the USA: lab tests, provincial and insurance coverage, injection, gel and pellet prices, and monitoring. Sourced, Oct 2026.
+- Note: NEW answer-style page (not yet published). Target query: "TRT cost Canada" / "TRT cost USA" / "how much does TRT cost" / "testosterone test cost LifeLabs" / "does OHIP cover testosterone" / "is TRT covered in Canada" / "TRT price without insurance". Every price sourced (see /workspace/research-trtcost/SOURCES.md), dated October 2026; CAD for Canada, USD for USA. No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
