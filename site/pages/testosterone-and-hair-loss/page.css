@@ -1,0 +1,102 @@
+/* === /testosterone-and-hair-loss graphics. Static block = FINAL state (no-JS and reduced-motion see this). === */
+.pg .hr-gate, .pg .lt-h, .pg .gn-ar, .pg .gn-r, .pg .tt-l, .pg .tt-r, .pg .cb-r, .pg .cb-x, .pg .cs-a, .pg .lb-c, .pg .hp-r, .pg .fn-ring, .pg .fn-sh, .pg .fq-dp, .pg .fq-fr { transform-box: fill-box; transform-origin: center; }
+.pg .hr-h, .pg .fn-h { transform-box: fill-box; transform-origin: 50% 100%; }
+.pg .dh-b, .pg .dh-r, .pg .fn-b, .pg .sx-b { transform-box: fill-box; transform-origin: 0 50%; }
+.pg .lb-m { transform: translateY(145px); }
+.pg .fn-ring { opacity: 0; }
+.pg .mg-svg { text-anchor: middle; }
+/* levers table: four columns on desktop, stacked rows with labels on phones */
+.pg .cmp-card { max-width: 940px; margin: 0 auto; padding: 8px 10px; text-align: left; }
+.pg .cmp { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 1rem; line-height: 1.5; color: var(--white-800); }
+.pg .cmp-cap { caption-side: top; text-align: left; padding: 10px 12px 6px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime-green); }
+.pg .cmp th, .pg .cmp td { padding: 12px; vertical-align: top; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.08); overflow-wrap: break-word; }
+.pg .cmp thead th { font-size: 0.95rem; font-weight: 800; color: var(--lime-green); border-bottom: 1px solid var(--lime-line); }
+.pg .cmp thead th:first-child { width: 22%; }
+.pg .cmp tbody th { font-weight: 800; color: var(--white); }
+.pg .cmp tbody tr:last-child th, .pg .cmp tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 680px) {
+  .pg .cmp, .pg .cmp tbody, .pg .cmp tr, .pg .cmp th, .pg .cmp td { display: block; width: auto; }
+  .pg .cmp thead { display: none; }
+  .pg .cmp caption { display: block; }
+  .pg .cmp tbody tr { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .pg .cmp tbody tr:last-child { border-bottom: 0; }
+  .pg .cmp tbody th { padding: 4px 12px 2px; border: 0; color: var(--lime-green); }
+  .pg .cmp td { padding: 6px 12px; border: 0; }
+  .pg .cmp td::before { content: attr(data-label); display: block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); opacity: 0.7; }
+}
+/*@GEN_STATIC*/
+
+@media all {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+  @keyframes pg-glow { 0%, 100% { opacity: 0.75; } 50% { opacity: 1; } }
+  @keyframes hl-grow { 0%, 6% { transform: scaleX(0.03); } 40%, 88% { transform: scaleX(1); } 100% { transform: scaleX(0.03); } }
+  @keyframes hl-rise { 0%, 6% { transform: scaleY(0.05); } 35%, 88% { transform: scaleY(1); } 100% { transform: scaleY(0.05); } }
+  @keyframes hl-lit { 0%, 33%, 100% { opacity: 0.55; transform: none; } 6%, 27% { opacity: 1; transform: translateX(4px); } }
+
+  /* hero: the enzyme glows as T passes; strands regrow in turn, shorter each time */
+  .js-reveal .pg .hr-gate { animation: pg-glow 3s ease-in-out infinite; }
+  .js-reveal .pg .hr-h { animation: hr-h 7s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.3s); }
+  @keyframes hr-h { 0% { transform: scaleY(0.15); opacity: 0.5; } 25%, 92% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(0.15); opacity: 0.5; } }
+
+  /* DHT: growth bars stretch, then the rest bar appears */
+  .js-reveal .pg .dh-b { animation: hl-grow 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.5s); }
+  .js-reveal .pg .dh-r { animation: dh-r 8s ease-out infinite; animation-delay: calc(var(--k, 0) * 0.5s); }
+  @keyframes dh-r { 0%, 38% { opacity: 0; } 46%, 88% { opacity: 1; } 100% { opacity: 0; } }
+
+  /* low T: the thinning heads pulse group by group */
+  .js-reveal .pg .lt-h { animation: lt-h 6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 6s); }
+  @keyframes lt-h { 0%, 33%, 100% { opacity: 0.45; } 8%, 26% { opacity: 1; } }
+
+  /* genes: AR band glows; the 63 dots light row by row */
+  .js-reveal .pg .gn-ar { animation: pg-glow 2.6s ease-in-out infinite; }
+  .js-reveal .pg .gn-r { animation: gn-r 8s ease-out infinite; animation-delay: calc(var(--k, 0) * 0.45s); }
+  @keyframes gn-r { 0% { opacity: 0.1; } 8%, 80% { opacity: 1; } 92%, 100% { opacity: 0.1; } }
+
+  /* TRT: the level dot rises into the normal band; rows light in turn */
+  .js-reveal .pg .tt-l { animation: tt-l 9s var(--ease-out) infinite; }
+  @keyframes tt-l { 0%, 8% { transform: translateY(78px); } 35%, 88% { transform: none; } 100% { transform: translateY(78px); } }
+  .js-reveal .pg .tt-r { animation: hl-lit 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 3s - 9s); }
+
+  /* finasteride: DHT bars and hair-count bars grow */
+  .js-reveal .pg .fn-b { animation: hl-grow 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  .js-reveal .pg .fn-h { animation: hl-rise 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.6s + 1.2s); }
+
+  /* with TRT: outcome rows light in turn; the blocked gate pulses */
+  .js-reveal .pg .cb-r { animation: hl-lit 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  .js-reveal .pg .cb-x { animation: cb-x 2.4s ease-in-out infinite; }
+  @keyframes cb-x { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+  /* side effects: paired bars grow */
+  .js-reveal .pg .sx-b { animation: hl-grow 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.35s); }
+
+  /* causes: each scalp pattern fades in turn */
+  .js-reveal .pg .cs-a { animation: cs-a 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 3s - 9s); }
+  @keyframes cs-a { 0%, 36%, 100% { opacity: 0.2; } 10%, 28% { opacity: 1; } }
+
+  /* labs: ticks appear row by row while the magnifier scans down */
+  .js-reveal .pg .lb-c { animation: lb-c 10s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 1.1s); }
+  @keyframes lb-c { 0% { opacity: 0; transform: scale(0.6); } 6%, 80% { opacity: 1; transform: none; } 90%, 100% { opacity: 0; transform: none; } }
+  .js-reveal .pg .lb-m { animation: lb-m 10s ease-in-out infinite; }
+  @keyframes lb-m { 0% { transform: translateY(0); } 11% { transform: translateY(29px); } 22% { transform: translateY(58px); } 33% { transform: translateY(87px); } 44% { transform: translateY(116px); } 55%, 85% { transform: translateY(145px); } 100% { transform: translateY(0); } }
+
+  /* help: plan rows light in turn */
+  .js-reveal .pg .hp-r { animation: hp-r 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  @keyframes hp-r { 0%, 25%, 100% { opacity: 0.55; transform: none; } 6%, 19% { opacity: 1; transform: translateX(4px); } }
+
+  /* final: shield breathes, ring pulses; FAQ: sun turns, dots float */
+  .js-reveal .pg .fn-sh { animation: fn-sh 4.4s ease-in-out infinite; }
+  @keyframes fn-sh { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  .js-reveal .pg .fn-ring { animation: fn-r 4.4s ease-out infinite; }
+  @keyframes fn-r { 0% { opacity: 0.6; transform: scale(0.9); } 70%, 100% { opacity: 0; transform: scale(1.5); } }
+  .js-reveal .pg .fq-dp { animation: fq-sp 12s linear infinite; }
+  @keyframes fq-sp { to { transform: rotate(360deg); } }
+  .js-reveal .pg .fq-fr { animation: fq-fr 3.4s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.7s); }
+  @keyframes fq-fr { 0%, 100% { opacity: 0.4; transform: translate(0, 4px); } 50% { opacity: 1; transform: translate(3px, -5px); } }
+/*@GEN_MOTION*/
+}
+
+/* long DOI links wrap on phones */
+.pg .src-list a { overflow-wrap: anywhere; word-break: break-word; }
+/* the hero figure's one-shot entrance must play even when the figure starts below the fold on phones (its loops stay paused) */
+.pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }

@@ -118,3 +118,8 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (54): How to Raise Testosterone Naturally | Odin Health Labs
 - Description (151): What raises testosterone without TRT for men 35+: sleep, fat loss, training, alcohol, stress, vitamin D and zinc, and what boosters really do. Sourced.
 - Note: NEW answer-style page (not yet published). Target query: "how to raise testosterone naturally" / "increase testosterone naturally" / "natural ways to boost testosterone" / "do testosterone boosters work" / "vitamin D testosterone" / "zinc testosterone" / "alcohol and testosterone" / "does lifting raise testosterone". Every number sourced (see /workspace/research-natural/SOURCES.md). No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
+
+## Testosterone and Hair Loss  `/testosterone-and-hair-loss`
+- Title (58): Testosterone and Hair Loss: DHT and TRT | Odin Health Labs
+- Description (153): Does low T or TRT cause hair loss? How DHT and genes drive balding, finasteride and dutasteride on TRT, other causes, and labs for men in Canada and USA.
+- Note: NEW answer-style page (not yet published). Target query: "testosterone and hair loss" / "does testosterone cause hair loss" / "does low T cause hair loss" / "does TRT cause hair loss" / "DHT hair loss" / "finasteride and TRT" / "dutasteride TRT" / "finasteride fertility libido" / "male pattern baldness genetics". Every number sourced (see /workspace/research-hairloss/SOURCES.md). No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
