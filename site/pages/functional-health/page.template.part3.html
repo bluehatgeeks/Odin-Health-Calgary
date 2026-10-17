@@ -374,7 +374,7 @@
 
 
   /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* ambient loops keep running under iOS/macOS Reduce Motion; the reduce CSS block still stills slide-in reveals, hovers and accordion easing */
   var hasIO = 'IntersectionObserver' in window;
 
   /* Loops pause when their block is off-screen */

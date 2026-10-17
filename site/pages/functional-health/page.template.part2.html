@@ -1,6 +1,6 @@
 
 /* ═══ Motion enabled ═══ every loop is gated by prefers-reduced-motion: no-preference AND .js-reveal (set by JS) */
-@media (prefers-reduced-motion: no-preference) {
+@media all {
   .fh .hero-in { animation: hv-up 560ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 70ms); }
   @keyframes hv-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
   .fh .hero-section::before { animation: hv-breathe 9s ease-in-out infinite alternate; }
@@ -68,7 +68,7 @@
   .js-reveal .fh .lp-n .lp-hi { animation: lp-lit 8s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
   @keyframes lp-lit { 0% { opacity: 0; } 3%, 10% { opacity: 1; } 24%, 100% { opacity: 0; } }
 
-  /* 5 · LABS + PHYSICIAN: vial fills, packets travel the plan lane and the physician lane in turn */
+  /* 5 · LABS: vial fills, packets travel the plan lane and the results lane in turn */
   .js-reveal .fh .vl-liq { animation: vl-liq 8s ease-in-out infinite alternate; }
   @keyframes vl-liq { from { transform: scaleY(0.25); } to { transform: scaleY(0.8); } }
   .js-reveal .fh .vl-bub { animation: vl-bub 3.2s ease-out infinite; animation-delay: calc(var(--k, 0) * -1.6s); }

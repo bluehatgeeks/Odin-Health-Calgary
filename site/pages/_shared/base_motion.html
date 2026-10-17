@@ -1,6 +1,6 @@
 
 /* ═══ Motion enabled ═══ every loop is gated by prefers-reduced-motion: no-preference AND .js-reveal (set by JS) */
-@media (prefers-reduced-motion: no-preference) {
+@media all {
   .pg .hero-in { animation: hv-up 560ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 70ms); }
   @keyframes hv-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
   .pg .hero-section::before { animation: hv-breathe 9s ease-in-out infinite alternate; }

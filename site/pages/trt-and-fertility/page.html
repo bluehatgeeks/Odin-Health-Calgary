@@ -208,7 +208,7 @@ body .faq-section .container { max-width: 800px !important; }
 }
 
 /* ═══ Motion enabled ═══ every loop is gated by prefers-reduced-motion: no-preference AND .js-reveal (set by JS) */
-@media (prefers-reduced-motion: no-preference) {
+@media all {
   .pg .hero-in { animation: hv-up 560ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 70ms); }
   @keyframes hv-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
   .pg .hero-section::before { animation: hv-breathe 9s ease-in-out infinite alternate; }
@@ -266,7 +266,7 @@ body .faq-section .container { max-width: 800px !important; }
 .pg .hi-pu, .pg .hi-sl, .pg .hi-bl, .pg .hi-sw, .pg .hi-gr, .pg .hi-ck { transform-box: fill-box; transform-origin: center; }
 .pg .hi-gr { transform-origin: 50% 100%; }
 .pg .hi-sw { transform-origin: 50% 100%; }
-@media (prefers-reduced-motion: no-preference) {
+@media all {
   .js-reveal .pg .xh-ring { animation: xh-ring 4s ease-out infinite; }
   @keyframes xh-ring { 0% { opacity: 0.55; transform: scale(1); } 40%, 100% { opacity: 0; transform: scale(1.6); } }
   .js-reveal .pg .so-card { animation: so-fan 7s var(--ease-out) infinite; }
@@ -309,7 +309,7 @@ body .faq-section .container { max-width: 800px !important; }
 .pg .sa-p { transform: translate(398px,110px); opacity: 1; }
 .pg .ar-p { transform: translate(280px,55px); opacity: 1; }
 
-@media (prefers-reduced-motion: no-preference) {
+@media all {
   .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
   @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
 
@@ -1512,7 +1512,7 @@ body .faq-section .container { max-width: 800px !important; }
 
 
   /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* ambient loops keep running under iOS/macOS Reduce Motion; the reduce CSS block still stills slide-in reveals, hovers and accordion easing */
   var hasIO = 'IntersectionObserver' in window;
 
   /* Loops pause when their block is off-screen */
