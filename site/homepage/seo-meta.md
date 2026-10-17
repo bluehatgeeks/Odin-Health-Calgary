@@ -107,3 +107,8 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (57): TRT Side Effects: Risks and Monitoring | Odin Health Labs
 - Description (148): TRT side effects: hematocrit, acne, fertility, PSA and heart risk (TRAVERSE), how common each is and what to monitor. For men in Canada and the USA.
 - Note: NEW answer-style page (not yet published). Target query: "TRT side effects" / "testosterone replacement therapy side effects" / "risks of TRT" / "does TRT cause hair loss or acne" / "TRT hematocrit" / "TRT testicle size" / "TRT heart risk" / "TRT and prostate" / "monitoring on TRT". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
+
+## TRT Cost: Canada vs USA  `/trt-cost-canada-vs-usa`
+- Title (56): TRT Cost: Canada vs USA Prices | Odin Health Labs
+- Description (149): How much does TRT cost in Canada vs the USA? Lab tests, coverage, and injection, gel and pellet prices in CAD and USD, as of October 2026.
+- Note: NEW answer-style page (not yet published). Target query: "TRT cost Canada" / "how much does TRT cost" / "testosterone replacement therapy cost USA" / "TRT prices" / "testosterone cypionate cost Canada" / "TRT gel cost" / "TRT pellet cost" / "is TRT covered by insurance Canada" / "how much is TRT per month". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
