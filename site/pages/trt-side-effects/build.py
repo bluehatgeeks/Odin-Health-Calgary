@@ -15,6 +15,7 @@ OG_ALT = "Odin Health Labs: TRT side effects in men, hematocrit, fertility, PSA,
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
+ "coin": '<circle cx="12" cy="12" r="9"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1 1.6 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6.5V8M12 16v1.5"/>',
  "video": '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
  "swap": '<path d="M4 8h14l-3-3"/><path d="M20 16H6l3 3"/>',
  "up": '<path d="M12 19V5"/><path d="M6 11l6-6 6 6"/>',
@@ -283,7 +284,7 @@ def step_icons():
     }
 
 def hub_nodes():
-    icons = ['sperm', 'scale', 'tube', 'link', 'sleep', 'list', 'compass', 'coach', 'labs']
+    icons = ['sperm', 'scale', 'tube', 'link', 'sleep', 'list', 'compass', 'coach', 'labs', 'coin']
     out = []
     for i, ic in enumerate(icons):
         a = -math.pi / 2 + (i + 0.5) * 2 * math.pi / len(icons)
