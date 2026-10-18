@@ -91,3 +91,57 @@
     if (x && ok.indexOf(p) > -1) x.hidden = false;
   })();
 </script>
+<script>
+  /* UTM passthrough: first-touch attribution for HighLevel booking links (organic pages only) */
+  (function () {
+    var p = location.pathname.replace(/\/+$/, '') || '/';
+    var ok = ['/', '/shift', '/privacy', '/functional-health', '/health-coaching', '/supplements', '/ayurveda',
+      '/free-vs-total-testosterone', '/when-to-get-checked-for-low-t', '/low-testosterone-labs-to-ask-for', '/trt-or-fix-causes-first',
+      '/low-testosterone-and-sleep', '/low-testosterone-symptoms', '/low-testosterone-age-or-weight', '/trt-and-fertility',
+      '/weight-loss-drugs-and-testosterone', '/peptides-canada-usa', '/andropause-vs-menopause', '/trt-side-effects',
+      '/trt-cost-canada-vs-usa', '/how-to-raise-testosterone-naturally', '/testosterone-and-hair-loss'];
+    if (ok.indexOf(p) === -1) return;
+    var KEY = 'odin_ft', PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    function parseUtm(str) { var u = new URLSearchParams(str), o = {}; PARAMS.forEach(function (k) { var v = u.get(k); if (v) o[k] = v; }); return o; }
+    function inferUtm(ref) {
+      if (!ref) return null;
+      var h = (ref.match(/^https?:\/\/([^\/]+)/) || [])[1];
+      if (!h) return null;
+      if (/^(t\.co|x\.com|twitter\.com)$/i.test(h)) return { utm_source: 'x', utm_medium: 'social' };
+      if (/^(www\.)?(google|bing|duckduckgo|yahoo|brave\.search)\./i.test(h)) {
+        var s = h.replace(/^www\./, '').replace(/^brave\.search/, 'brave').split('.')[0];
+        return { utm_source: s, utm_medium: 'organic' };
+      }
+      if (/chatgpt\.com|openai\.com/i.test(h)) return { utm_source: 'chatgpt', utm_medium: 'ai' };
+      if (/perplexity\.ai/i.test(h)) return { utm_source: 'perplexity', utm_medium: 'ai' };
+      if (/gemini\.google\.com/i.test(h)) return { utm_source: 'gemini', utm_medium: 'ai' };
+      if (/copilot\.microsoft\.com/i.test(h)) return { utm_source: 'copilot', utm_medium: 'ai' };
+      if (/claude\.ai/i.test(h)) return { utm_source: 'claude', utm_medium: 'ai' };
+      return null;
+    }
+    function load() { try { var s = localStorage.getItem(KEY); return s ? JSON.parse(s) : null; } catch (e) { return null; } }
+    function save(o) { try { localStorage.setItem(KEY, JSON.stringify({ utm: o, ts: Date.now() })); } catch (e) {} }
+    function append(url, params) {
+      var u = new URL(url, location.href), existing = new Set(); u.searchParams.forEach(function (v, k) { existing.add(k); });
+      PARAMS.forEach(function (k) { if (params[k] && !existing.has(k)) u.searchParams.set(k, params[k]); });
+      return u.href;
+    }
+    var urlUtm = parseUtm(location.search), stored = load(), inferred = !Object.keys(urlUtm).length && !stored ? inferUtm(document.referrer) : null;
+    var toStore = urlUtm.utm_source ? urlUtm : (inferred && !stored ? inferred : null);
+    if (toStore && (!stored || (!stored.utm.utm_source && toStore.utm_source))) save(toStore);
+    var final = load();
+    if (!final || !final.utm.utm_source) return;
+    function updateLinks() {
+      document.querySelectorAll('a[href^="https://api.leadconnectorhq.com/widget/bookings/"]').forEach(function (a) {
+        if (!a.dataset.odinUtmDone) { a.href = append(a.href, final.utm); a.dataset.odinUtmDone = '1'; }
+      });
+    }
+    updateLinks();
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a');
+      if (a && a.href && a.href.indexOf('https://api.leadconnectorhq.com/widget/bookings/') === 0 && !a.dataset.odinUtmDone) {
+        a.href = append(a.href, final.utm); a.dataset.odinUtmDone = '1';
+      }
+    }, true);
+  })();
+</script>
