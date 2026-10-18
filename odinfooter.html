@@ -127,8 +127,8 @@
       return u.href;
     }
     var urlUtm = parseUtm(location.search), stored = load(), inferred = !Object.keys(urlUtm).length && !stored ? inferUtm(document.referrer) : null;
-    var toStore = urlUtm.utm_source ? urlUtm : (inferred && !stored ? inferred : null);
-    if (toStore && (!stored || (!stored.utm.utm_source && toStore.utm_source))) save(toStore);
+    if (urlUtm.utm_source) save(urlUtm);
+    else if (inferred && !stored) save(inferred);
     var final = load();
     if (!final || !final.utm.utm_source) return;
     function updateLinks() {
