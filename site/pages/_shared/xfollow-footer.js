@@ -1,8 +1,8 @@
-// Serves the STAGED footer (/workspace/pages/_shared/odinfooter.xfollow.html) instead of the live GitHub copy, so file:// page tests see the X follow line.
+// Serves the STAGED footer (/workspace/site/pages/_shared/odinfooter.xfollow.html) instead of the live GitHub copy, so file:// page tests see the X follow line.
 // The footer's allow-list script reads location.pathname; file:// pages have a filesystem path, so the harness substitutes the page's real URL path.
 // FOOTER_LIVE=1 -> test against the live (currently deployed) footer. FOOTER_PATH=/owen-lowt -> pretend the page lives at that path (negative test).
 const fs = require('fs');
-const FILE = process.env.FOOTER_FILE || '/workspace/pages/_shared/odinfooter.xfollow.html';
+const FILE = process.env.FOOTER_FILE || '/workspace/site/pages/_shared/odinfooter.xfollow.html';
 module.exports.urlPath = slug => process.env.FOOTER_PATH || ((slug === '_home' || slug === 'home') ? '/' : '/' + slug);
 module.exports.serveFooter = async (page, slug) => {
   if (process.env.FOOTER_LIVE === '1') return;
