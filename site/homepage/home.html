@@ -1008,6 +1008,7 @@ body .faq-section .container { max-width: 800px !important; }
 <details class="cq-d"><summary>When to get checked for low T</summary><div class="cq-a"><p>Certain symptom clusters make testing worthwhile. Two morning labs confirm low T, and Odin telehealth takes it from there.</p><a class="cq-read" href="https://odinhealthlab.ca/when-to-get-checked-for-low-t" data-cta="common_when_checked">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
 <details class="cq-d"><summary>Which labs should I ask for?</summary><div class="cq-a"><p>Total and free testosterone, SHBG, LH, FSH and estradiol: what each shows and why the full set gives a clearer picture.</p><a class="cq-read" href="https://odinhealthlab.ca/low-testosterone-labs-to-ask-for" data-cta="common_labs">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
 <details class="cq-d"><summary>Free vs total testosterone</summary><div class="cq-a"><p>Most testosterone is bound to SHBG and albumin. See what free T shows and how calculated and dialysis tests compare.</p><a class="cq-read" href="https://odinhealthlab.ca/free-vs-total-testosterone" data-cta="common_freet">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Testosterone unit converter and free&nbsp;T calculator</summary><div class="cq-a"><p>Convert total testosterone between ng/dL and nmol/L, and estimate free T from total testosterone, SHBG and albumin with the Vermeulen formula.</p><a class="cq-read" href="https://odinhealthlab.ca/testosterone-calculator" data-cta="common_calc">Open the calculator <span aria-hidden="true">&rarr;</span></a></div></details>
 <details class="cq-d"><summary>Andropause vs menopause</summary><div class="cq-a"><p>How male hormone decline differs from menopause in pace and fertility, and what the evidence shows.</p><a class="cq-read" href="https://odinhealthlab.ca/andropause-vs-menopause" data-cta="common_andro">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
 </div>
 <div class="cq-grp reveal" style="--i:1" role="group" aria-label="Causes and lifestyle"><h3 class="cq-cat">Causes &amp; lifestyle</h3>
@@ -1082,6 +1083,23 @@ body .faq-section .container { max-width: 800px !important; }
 </div>
 </section>
 
+<!-- X follow end line: scoped to the final CTA; body-level style so <head> stays unchanged -->
+<style>
+.home-v2 .final-cta .x-follow { margin: 18px auto 0; text-align: center; }
+.home-v2 .final-cta .x-follow-link { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; box-sizing: border-box; max-width: 100%; padding: 8px 16px; border: 1px solid rgba(196, 255, 73, 0.22); border-radius: 999px; background: rgba(196, 255, 73, 0.05); font-size: 0.95rem; font-weight: 500; line-height: 1.4; text-align: center; text-wrap: balance; text-decoration: none; color: var(--white-800); transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease; }
+.home-v2 .final-cta .x-follow-link b { font-weight: 700; color: var(--lime-green); }
+.home-v2 .final-cta .x-follow-link .x-ico { flex: 0 0 auto; width: 16px; height: 16px; fill: var(--lime-green); transition: transform 0.25s var(--ease-out); }
+.home-v2 .final-cta .x-follow-link:hover { color: var(--white); background: rgba(196, 255, 73, 0.1); border-color: rgba(196, 255, 73, 0.45); }
+.home-v2 .final-cta .x-follow-link:hover .x-ico { transform: scale(1.15); }
+.home-v2 .final-cta .x-follow-link:focus-visible { outline: 2px solid var(--lime-green); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .home-v2 .final-cta .x-follow.reveal .x-ico { transform: scale(0.6) rotate(-12deg); opacity: 0; transition: transform 420ms var(--ease-out) 260ms, opacity 320ms var(--ease-out) 260ms; }
+  .js-reveal .home-v2 .final-cta .x-follow.reveal.is-in .x-ico { transform: none; opacity: 1; }
+  .js-reveal .home-v2 .final-cta .x-follow.reveal.is-in .x-follow-link:hover .x-ico { transform: scale(1.15); transition-delay: 0s; }
+}
+@media (prefers-reduced-motion: reduce) { .home-v2 .final-cta .x-follow-link, .home-v2 .final-cta .x-follow-link .x-ico { transition: none; } .home-v2 .final-cta .x-follow-link:hover .x-ico { transform: none; } }
+@media (max-width: 480px) { .home-v2 .final-cta .x-follow-link { display: inline-block; border-radius: 14px; padding: 10px 16px; } .home-v2 .final-cta .x-follow-link .x-ico { display: inline-block; vertical-align: -2px; margin-right: 8px; } }
+</style>
 <!-- FINAL CTA -->
 <section class="section final-cta" aria-labelledby="final-title" data-live>
 <div class="cta-halo" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i></div>
@@ -1092,6 +1110,7 @@ body .faq-section .container { max-width: 800px !important; }
 <a id="metabolic-assessment-trigger" href="https://odinhealthlab.ca/owen-lowt" class="btn-primary" data-cta="final_free_assessment">Take the free assessment</a>
 </div>
 <p class="cta-note reveal">Prefer to talk first? <a href="#" class="booking-trigger text-link" data-cta="final_book_call">Book a free call</a>.</p>
+<p class="x-follow reveal" style="--i:1"><a class="x-follow-link" href="https://x.com/intent/follow?screen_name=odinhealthlab" target="_blank" rel="noopener noreferrer" data-cta="x_follow_end"><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span><b>Follow Odin Labs on X</b> for the daily research breakdowns.</span></a></p>
 <figure class="mg mg--fin reveal" aria-hidden="true" style="--ar:600/170">
 <svg class="mg-svg" viewBox="0 0 600 170" aria-hidden="true" focusable="false">
 <defs>
