@@ -133,6 +133,52 @@
 }
 .fh .cp-sun, .fh .fq-sp, .fh .lb-end, .fh .cm-ring { transform-box: fill-box; transform-origin: center; }
 .fh .lp-hi { opacity: 0; }
+/* ═══ Common questions (iklinks 2026-10-19: internal links to answer pages), same visual language as /health-coaching + homepage accordion.
+   Static block = final state; native <details> works with JS off; motion lives in @media all + .js-reveal. ═══ */
+.fh .cq-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: start; text-align: left; }
+.fh .cq-side .medium-heading { text-align: left; margin-bottom: 14px; }
+.fh .cq-side .sub-text { margin: 0 0 22px; max-width: 460px; text-align: left; }
+.fh .cq-all { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; padding: 0 28px; font-weight: 700; }
+.fh .mg--iq { max-width: 460px; margin: 26px 0 0; }
+.fh .cq-cat { margin: 0 0 8px; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white-800); }
+.fh .cq-grp + .cq-grp { margin-top: 22px; }
+.fh .cq-d { border: 1px solid var(--lime-line); border-radius: 14px; background: var(--card-bg); margin-bottom: 8px; overflow: hidden; transition: border-color 200ms var(--ease-out); }
+.fh .cq-d[open] { border-color: rgba(196, 255, 73, .55); }
+.fh .cq-d summary { position: relative; display: block; min-height: 48px; box-sizing: border-box; padding: 14px 52px 14px 18px; font-weight: 600; font-size: 1.05rem; line-height: 1.35; color: var(--white); cursor: pointer; list-style: none; }
+.fh .cq-d summary::-webkit-details-marker { display: none; }
+.fh .cq-d summary::after { content: ""; position: absolute; right: 20px; top: 50%; width: 8px; height: 8px; margin-top: -6px; border: solid var(--lime-green); border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform 240ms var(--ease-out); }
+.fh .cq-d[open] summary::after { transform: translateY(4px) rotate(225deg); }
+.fh .cq-d summary:focus-visible { outline-offset: -3px; border-radius: 14px; }
+.fh .cq-a { padding: 0 18px 16px; }
+.fh .cq-a p { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--white-800); text-align: left; }
+.fh .cq-read { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 6px; font-weight: 600; color: var(--lime-green); text-underline-offset: 3px; }
+.fh .cq-read span { transition: transform 200ms var(--ease-out); }
+.fh .cq-d[open] .cq-a { animation: cq-in 260ms var(--ease-out) both; }
+@keyframes cq-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (hover: hover) and (pointer: fine) { .fh .cq-d:hover { border-color: rgba(196, 255, 73, .5); } .fh .cq-read:hover span { transform: translateX(4px); } .fh .cq-read:hover { color: var(--white); } }
+@supports selector(::details-content) { .fh .cq-d { interpolate-size: allow-keywords; } .fh .cq-d::details-content { block-size: 0; overflow: clip; transition: block-size 260ms var(--ease-out), content-visibility 260ms allow-discrete; } .fh .cq-d[open]::details-content { block-size: auto; } }
+@media (max-width: 900px) { .fh .cq-wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; } .fh .cq-side .sub-text, .fh .mg--iq { max-width: none; } .fh .cq-all { width: 100%; } }
+/* accent static state: question bubble, three answer cards with ticks, packets resting at the bubble tail */
+.fh .iq-ok, .fh .iq-lit { transform-box: fill-box; transform-origin: center; }
+.fh .iq-lit { opacity: 0.35; }
+.fh .iq-pk { transform-box: view-box; transform-origin: 0 0; }
+
+@media all {
+  /* COMMON QUESTIONS accent: one question sends a packet to each of three answer cards; the card lights and its tick pops on arrival */
+  .js-reveal .fh .iq-bub { animation: fh-bob 3.6s ease-in-out infinite alternate; }
+  .js-reveal .fh .iq-pk { animation: iq-pk 7s linear infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  @keyframes iq-pk { 0%, 6% { transform: translate(0, 0); opacity: 0; animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1); } 30% { transform: translate(150px, var(--ty, 0px)); opacity: 1; } 34%, 100% { transform: translate(150px, var(--ty, 0px)); opacity: 0; } }
+  .js-reveal .fh .iq-ok { animation: iq-ok 7s cubic-bezier(0.23, 1, 0.32, 1) infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  @keyframes iq-ok { 0%, 29% { transform: scale(0.75); opacity: 0.35; } 36%, 88% { transform: none; opacity: 1; } 96%, 100% { transform: scale(0.75); opacity: 0.35; } }
+  .js-reveal .fh .iq-lit { animation: iq-lit 7s ease-out infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  @keyframes iq-lit { 0%, 29% { opacity: 0.35; } 33% { opacity: 1; } 60%, 100% { opacity: 0.35; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fh .cq-d, .fh .cq-d summary::after, .fh .cq-read span, .fh .cq-d::details-content { transition: none; }
+  .fh .cq-d[open] .cq-a { animation: none; }
+  /* gentler accent: no travel or bob, only a soft glow on the cards */
+  .js-reveal .fh .iq-bub, .js-reveal .fh .iq-pk, .js-reveal .fh .iq-ok { animation: none; }
+}
 </style>
 
 <script type="application/ld+json">

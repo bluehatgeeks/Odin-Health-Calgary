@@ -10,7 +10,7 @@ ASSESS = SITE + "/owen-lowt"
 OG_IMG = "https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/og-home.png"
 LOGO = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zJaxLUStVkljpkn9qddd/media/69feb24f-b3d0-45e6-b747-20dc1d2eb84d.svg+xml"
 
-TITLE = "Functional Health for Men: Find the Root Cause | Odin Labs"
+TITLE = "Functional Health for Men: Root Causes | Odin Health Labs"  # = GHL head title + seo-meta.md (iklinks 2026-10-19)
 DESC = ("Functional health for men in Canada and the USA: find out why energy, drive, "
         "sleep and mood dropped, from sleep and stress to labs and your plan.")
 assert len(TITLE) <= 60, len(TITLE)
