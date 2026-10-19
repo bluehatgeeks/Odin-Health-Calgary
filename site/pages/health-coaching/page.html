@@ -394,6 +394,53 @@ body .faq-section .container { max-width: 800px !important; }
   .js-reveal .pg .timeline-list > li.is-on .hi-cyc { animation: pg-spin 8s linear infinite; }
 }
 
+/* ═══ Common questions (internal links to answer pages): same visual language as the homepage accordion.
+   Static block = final state; native <details> works with JS off; motion lives in @media all + .js-reveal. ═══ */
+.pg .cq-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: start; text-align: left; }
+.pg .cq-side .medium-heading { text-align: left; margin-bottom: 14px; }
+.pg .cq-side .sub-text { margin: 0 0 22px; max-width: 460px; text-align: left; }
+.pg .cq-all { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; padding: 0 28px; font-weight: 700; }
+.pg .mg--hq { max-width: 460px; margin: 26px 0 0; }
+.pg .cq-cat { margin: 0 0 8px; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white-800); }
+.pg .cq-grp + .cq-grp { margin-top: 22px; }
+.pg .cq-d { border: 1px solid var(--lime-line); border-radius: 14px; background: var(--card-bg); margin-bottom: 8px; overflow: hidden; transition: border-color 200ms var(--ease-out); }
+.pg .cq-d[open] { border-color: rgba(196, 255, 73, .55); }
+.pg .cq-d summary { position: relative; display: block; min-height: 48px; box-sizing: border-box; padding: 14px 52px 14px 18px; font-weight: 600; font-size: 1.05rem; line-height: 1.35; color: var(--white); cursor: pointer; list-style: none; }
+.pg .cq-d summary::-webkit-details-marker { display: none; }
+.pg .cq-d summary::after { content: ""; position: absolute; right: 20px; top: 50%; width: 8px; height: 8px; margin-top: -6px; border: solid var(--lime-green); border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform 240ms var(--ease-out); }
+.pg .cq-d[open] summary::after { transform: translateY(4px) rotate(225deg); }
+.pg .cq-d summary:focus-visible { outline-offset: -3px; border-radius: 14px; }
+.pg .cq-a { padding: 0 18px 16px; }
+.pg .cq-a p { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--white-800); }
+.pg .cq-read { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 6px; font-weight: 600; color: var(--lime-green); text-underline-offset: 3px; }
+.pg .cq-read span { transition: transform 200ms var(--ease-out); }
+.pg .cq-d[open] .cq-a { animation: cq-in 260ms var(--ease-out) both; }
+@keyframes cq-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (hover: hover) and (pointer: fine) { .pg .cq-d:hover { border-color: rgba(196, 255, 73, .5); } .pg .cq-read:hover span { transform: translateX(4px); } .pg .cq-read:hover { color: var(--white); } }
+@supports selector(::details-content) { .pg .cq-d { interpolate-size: allow-keywords; } .pg .cq-d::details-content { block-size: 0; overflow: clip; transition: block-size 260ms var(--ease-out), content-visibility 260ms allow-discrete; } .pg .cq-d[open]::details-content { block-size: auto; } }
+@media (max-width: 900px) { .pg .cq-wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; } .pg .cq-side .sub-text, .pg .mg--hq { max-width: none; } .pg .cq-all { width: 100%; } }
+/* accent graphic static state: question bubble, three answer cards with ticks, packets resting at the bubble tail */
+.pg .hq-ok, .pg .hq-lit { transform-box: fill-box; transform-origin: center; }
+.pg .hq-lit { opacity: 0.35; }
+.pg .hq-pk { transform-box: view-box; transform-origin: 0 0; }
+
+@media all {
+  /* COMMON QUESTIONS accent: one question sends a packet to each of three answer cards; the card lights and its tick pops on arrival */
+  .js-reveal .pg .hq-bub { animation: pg-bob 3.6s ease-in-out infinite alternate; }
+  .js-reveal .pg .hq-pk { animation: hq-pk 7s linear infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  @keyframes hq-pk { 0%, 6% { transform: translate(0, 0); opacity: 0; animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1); } 30% { transform: translate(150px, var(--ty, 0px)); opacity: 1; } 34%, 100% { transform: translate(150px, var(--ty, 0px)); opacity: 0; } }
+  .js-reveal .pg .hq-ok { animation: hq-ok 7s cubic-bezier(0.23, 1, 0.32, 1) infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  @keyframes hq-ok { 0%, 29% { transform: scale(0.75); opacity: 0.35; } 36%, 88% { transform: none; opacity: 1; } 96%, 100% { transform: scale(0.75); opacity: 0.35; } }
+  .js-reveal .pg .hq-lit { animation: hq-lit 7s ease-out infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
+  @keyframes hq-lit { 0%, 29% { opacity: 0.35; } 33% { opacity: 1; } 60%, 100% { opacity: 0.35; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pg .cq-d, .pg .cq-d summary::after, .pg .cq-read span, .pg .cq-d::details-content { transition: none; }
+  .pg .cq-d[open] .cq-a { animation: none; }
+  /* gentler accent: no travel or bob, only a soft glow on the cards */
+  .js-reveal .pg .hq-bub, .js-reveal .pg .hq-pk, .js-reveal .pg .hq-ok { animation: none; }
+}
+
 </style>
 
 <script type="application/ld+json">
@@ -907,6 +954,47 @@ body .faq-section .container { max-width: 800px !important; }
 <li class="therapy-card reveal" style="--i:1"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:1"><use href="#pi-caps"/></svg><h3>Supplements and herbology</h3><p>A structured, personalized plan to support energy, drive, sleep and recovery.</p><a class="card-link" href="https://odinhealthlab.ca/supplements" data-cta="related_supplements">See our supplements <span class="arr" aria-hidden="true">&rarr;</span></a></li>
 <li class="therapy-card reveal" style="--i:2"><svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="--k:2"><use href="#pi-home"/></svg><h3>The bigger picture</h3><p>Low testosterone and andropause: what they are, the symptoms men describe and how our telehealth service works.</p><a class="card-link" href="https://odinhealthlab.ca/" data-cta="related_home">Low testosterone overview <span class="arr" aria-hidden="true">&rarr;</span></a></li>
 </ul>
+</div>
+</section>
+
+<!-- COMMON QUESTIONS (internal links to the answer pages; native details, no JS needed) -->
+<section id="common-questions" class="section cq-section" aria-labelledby="cq-title" data-live style="scroll-margin-top: 100px;">
+<div class="container" style="max-width: 1100px !important;">
+<div class="cq-wrap">
+<div class="cq-side reveal">
+<h2 id="cq-title" class="medium-heading">Common questions about low testosterone</h2>
+<p class="sub-text">Coaching works on the habits. These short answers cover the testing and treatment questions men often ask alongside it, each with a link to the full answer.</p>
+<a class="btn btn-outline cq-all" href="https://odinhealthlab.ca/#common-questions" data-cta="hc_q_home">See all common questions</a>
+<figure class="mg mg--hq" aria-hidden="true" style="--ar:460/150">
+<svg class="mg-svg" viewBox="0 0 460 150" focusable="false">
+<defs><radialGradient id="hq-glow"><stop offset="0" stop-color="#c4ff49" stop-opacity="0.3"/><stop offset="1" stop-color="#c4ff49" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="80" cy="75" rx="90" ry="70" fill="url(#hq-glow)"/>
+<g stroke="rgba(196,255,73,0.32)" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="3 9"><path d="M146 75L296 29"/><path d="M146 75H296"/><path d="M146 75L296 121"/></g>
+<g class="hq-bub"><path d="M32 44h92a12 12 0 0 1 12 12v30a12 12 0 0 1-12 12H62l-16 14v-14H32a12 12 0 0 1-12-12V56a12 12 0 0 1 12-12z" fill="#0f240f" stroke="#c4ff49" stroke-width="2.4" stroke-linejoin="round"/><path d="M68 63a10 10 0 1 1 14 9c-3 1.5-4 3.5-4 6.5" fill="none" stroke="#c4ff49" stroke-width="4" stroke-linecap="round"/><circle cx="78" cy="88" r="2.8" fill="#c4ff49"/></g>
+<g class="hq-card" style="--k:0"><rect x="300" y="14" width="140" height="30" rx="9" fill="#0f240f" stroke="#c4ff49" stroke-opacity="0.6" stroke-width="2"/><rect class="hq-lit" x="300" y="14" width="140" height="30" rx="9" fill="none" stroke="#c4ff49" stroke-width="2.4"/><path d="M314 29h74" stroke="rgba(255,255,255,0.55)" stroke-width="4" stroke-linecap="round"/><g class="hq-ok"><circle cx="420" cy="29" r="8" fill="#c4ff49"/><path d="M416 29l3 3 5-6" fill="none" stroke="#0f240f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<g class="hq-card" style="--k:1"><rect x="300" y="60" width="140" height="30" rx="9" fill="#0f240f" stroke="#c4ff49" stroke-opacity="0.6" stroke-width="2"/><rect class="hq-lit" x="300" y="60" width="140" height="30" rx="9" fill="none" stroke="#c4ff49" stroke-width="2.4"/><path d="M314 75h58" stroke="rgba(255,255,255,0.55)" stroke-width="4" stroke-linecap="round"/><g class="hq-ok"><circle cx="420" cy="75" r="8" fill="#c4ff49"/><path d="M416 75l3 3 5-6" fill="none" stroke="#0f240f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<g class="hq-card" style="--k:2"><rect x="300" y="106" width="140" height="30" rx="9" fill="#0f240f" stroke="#c4ff49" stroke-opacity="0.6" stroke-width="2"/><rect class="hq-lit" x="300" y="106" width="140" height="30" rx="9" fill="none" stroke="#c4ff49" stroke-width="2.4"/><path d="M314 121h66" stroke="rgba(255,255,255,0.55)" stroke-width="4" stroke-linecap="round"/><g class="hq-ok"><circle cx="420" cy="121" r="8" fill="#c4ff49"/><path d="M416 121l3 3 5-6" fill="none" stroke="#0f240f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<circle class="hq-pk" style="--k:0;--ty:-46px" cx="146" cy="75" r="4.5" fill="#c4ff49"/><circle class="hq-pk" style="--k:1;--ty:0px" cx="146" cy="75" r="4.5" fill="#fff"/><circle class="hq-pk" style="--k:2;--ty:46px" cx="146" cy="75" r="4.5" fill="#c4ff49"/>
+</svg>
+</figure>
+</div>
+<div class="cq-list">
+<div class="cq-grp reveal" style="--i:0" role="group" aria-label="Symptoms and testing"><h3 class="cq-cat">Symptoms &amp; testing</h3>
+<details class="cq-d"><summary>What are the symptoms of low testosterone?</summary><div class="cq-a"><p>The signs most tied to low T are sexual: lower drive, fewer morning erections and erectile dysfunction, often alongside fatigue, belly fat or low mood.</p><a class="cq-read" href="https://odinhealthlab.ca/low-testosterone-symptoms" data-cta="hc_q_symptoms">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>When should I get checked for low&nbsp;T?</summary><div class="cq-a"><p>When sexual symptoms show up with fatigue, body or mood changes. Low T is confirmed with two early-morning total testosterone tests.</p><a class="cq-read" href="https://odinhealthlab.ca/when-to-get-checked-for-low-t" data-cta="hc_q_when_checked">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Which labs should I ask for?</summary><div class="cq-a"><p>A morning total testosterone, repeated if it&rsquo;s low, then free T and SHBG, LH and FSH, and often estradiol, prolactin, hematocrit and PSA.</p><a class="cq-read" href="https://odinhealthlab.ca/low-testosterone-labs-to-ask-for" data-cta="hc_q_labs">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Free vs total testosterone: what&rsquo;s the difference?</summary><div class="cq-a"><p>Total T counts all the testosterone in your blood. Free T is the 2 to 4 percent that isn&rsquo;t bound to SHBG or albumin.</p><a class="cq-read" href="https://odinhealthlab.ca/free-vs-total-testosterone" data-cta="hc_q_freet">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>How do I convert ng/dL to nmol/L?</summary><div class="cq-a"><p>Divide ng/dL by 28.84 to get nmol/L. The calculator also estimates free T from total T, SHBG and albumin.</p><a class="cq-read" href="https://odinhealthlab.ca/testosterone-calculator" data-cta="hc_q_calc">Open the calculator <span aria-hidden="true">&rarr;</span></a></div></details>
+</div>
+<div class="cq-grp reveal" style="--i:1" role="group" aria-label="Habits, causes and treatment"><h3 class="cq-cat">Habits, causes &amp; treatment</h3>
+<details class="cq-d"><summary>Can I raise testosterone naturally?</summary><div class="cq-a"><p>The best evidence is for losing extra body fat, sleeping enough and staying active. Most &ldquo;booster&rdquo; ingredients have little human evidence.</p><a class="cq-read" href="https://odinhealthlab.ca/how-to-raise-testosterone-naturally" data-cta="hc_q_natural">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>How does sleep affect testosterone?</summary><div class="cq-a"><p>Testosterone rises while you sleep, so short, broken or badly timed sleep can pull it down.</p><a class="cq-read" href="https://odinhealthlab.ca/low-testosterone-and-sleep" data-cta="hc_q_sleep">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Is it aging, or weight, sleep and stress?</summary><div class="cq-a"><p>Usually a mix. Age brings a gradual decline, and extra weight, short sleep and stress can pull testosterone lower. Those are the parts you can work on.</p><a class="cq-read" href="https://odinhealthlab.ca/low-testosterone-age-or-weight" data-cta="hc_q_age_weight">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>Should I start TRT or fix the causes first?</summary><div class="cq-a"><p>Confirm the low result first, look for causes second, then decide about TRT. It often isn&rsquo;t either/or.</p><a class="cq-read" href="https://odinhealthlab.ca/trt-or-fix-causes-first" data-cta="hc_q_trt_or_fix">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+<details class="cq-d"><summary>What are the side effects of TRT?</summary><div class="cq-a"><p>The most common is a rise in red blood cells (hematocrit). Acne, a small PSA rise and lower sperm production are also linked.</p><a class="cq-read" href="https://odinhealthlab.ca/trt-side-effects" data-cta="hc_q_trtse">Read the full answer <span aria-hidden="true">&rarr;</span></a></div></details>
+</div>
+</div>
+</div>
 </div>
 </section>
 
