@@ -125,7 +125,7 @@ def step_icons(defs):
     return defs
 
 # ---------- build ----------
-def build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, about, crumb, headline, slots, gen, published="2026-10-15"):
+def build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, about, crumb, headline, slots, gen, published="2026-10-15", modified=None):
     rd = lambda *p: open(os.path.join(*p), encoding="utf-8").read()
     body = rd(HERE, "page.body.html")
     body = re.sub(r"\{\{CI:(\w+):(\d+)\}\}", lambda m: ci(m.group(1), int(m.group(2))), body)
@@ -139,7 +139,7 @@ def build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, about, crumb, headline, slots, g
     url = SITE + "/" + SLUG
     ld["@graph"].insert(3, {"@type": "Article", "@id": url + "#article", "headline": headline, "description": DESC, "inLanguage": "en",
         "mainEntityOfPage": {"@id": url + "#webpage"}, "author": {"@id": SITE + "/#organization"}, "publisher": {"@id": SITE + "/#organization"},
-        "datePublished": published, "dateModified": published, "image": OG_IMG})
+        "datePublished": published, "dateModified": modified or published, "image": OG_IMG})
     ldj = json.dumps(ld, ensure_ascii=False, indent=2).replace("</", "<\\/")
     all_slots = dict(slots); all_slots["{{FAQ}}"] = faq_html(FAQ)
     assemble(tmp, SLUG, TITLE, DESC, OG_ALT, ldj, all_slots)

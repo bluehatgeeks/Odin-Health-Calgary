@@ -70,8 +70,10 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Note: NEW answer-style page (not yet published). Target query: "Is my low testosterone from aging or from weight, sleep and stress?" No /owen-lowt links by design; CTAs use the booking modal.
 
 ## GLP-1 Drugs and Testosterone  `/weight-loss-drugs-and-testosterone`
-- Title (54): GLP-1 Drugs and Testosterone in Men | Odin Health Labs
-- Description (156): Do GLP-1 drugs like semaglutide and tirzepatide raise or lower testosterone in men? What studies show, protecting muscle, and labs to track. Canada and USA.
+- Title (60): Tirzepatide, Semaglutide and Testosterone | Odin Health Labs
+- Description (149): Do tirzepatide (Mounjaro, Zepbound) and semaglutide (Ozempic, Wegovy) raise or lower testosterone in men? What SURMOUNT, STEP and other trials found.
+- Previous (live until the 2026-10-21 deepen republish): Title (54) GLP-1 Drugs and Testosterone in Men | Odin Health Labs; Description (156) Do GLP-1 drugs like semaglutide and tirzepatide raise or lower testosterone in men? What studies show, protecting muscle, and labs to track. Canada and USA.
+- 2026-10-21 deepen: retuned to the tirzepatide/semaglutide trial queries seen in GSC (Surmount-trial search, pos 40). Enter both strings in the GHL builder 'SEO & AI search optimization' panel when republishing.
 - Note: NEW answer-style page (not yet published). Target query: "Do GLP-1 weight-loss drugs (semaglutide, tirzepatide) raise or lower testosterone in men?" No /owen-lowt links by design; CTAs use the booking modal.
 
 ## Peptides Canada and USA  `/peptides-canada-usa`
@@ -105,8 +107,10 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Note: NEW answer-style page (not yet published). Target query: "free vs total testosterone" / "what is free testosterone" / "SHBG and testosterone" / "normal free testosterone men" / "total testosterone normal but symptoms". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
 
 ## TRT Side Effects  `/trt-side-effects`
-- Title (57): TRT Side Effects: Risks and Monitoring | Odin Health Labs
-- Description (148): TRT side effects: hematocrit, acne, fertility, PSA and heart risk (TRAVERSE), how common each is and what to monitor. For men in Canada and the USA.
+- Title (60): TRT Side Effects: Full List and Lab Tests | Odin Health Labs
+- Description (151): TRT side effects in men: hematocrit, acne, PSA, estradiol, fertility, sleep apnea, fluid retention and heart risk, with the lab checks and limits used.
+- Previous (live until the 2026-10-21 deepen republish): Title (57) TRT Side Effects: Risks and Monitoring | Odin Health Labs; Description (148) TRT side effects: hematocrit, acne, fertility, PSA and heart risk (TRAVERSE), how common each is and what to monitor. For men in Canada and the USA.
+- 2026-10-21 deepen: retuned to the query "trt side effects" (GSC pos 84, page pos 24.5); H1 now "TRT side effects: the full list, and what gets monitored". Enter both strings in the GHL builder 'SEO & AI search optimization' panel when republishing.
 - Note: NEW answer-style page (not yet published). Target query: "TRT side effects" / "testosterone replacement therapy side effects" / "risks of TRT" / "does TRT cause hair loss or acne" / "TRT hematocrit" / "TRT testicle size" / "TRT heart risk" / "TRT and prostate" / "monitoring on TRT". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
 
 ## TRT Cost in Canada vs the USA  `/trt-cost-canada-vs-usa`
