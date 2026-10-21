@@ -1,0 +1,65 @@
+/* === /nofap-and-testosterone graphics. Static block = FINAL state (no-JS and reduced-motion see this). === */
+.pg .nf-pk, .pg .nf-st, .pg .st-r, .pg .rt-l, .pg .lv-r, .pg .hp-r, .pg .fn-ring, .pg .fn-sh, .pg .fq-dp, .pg .fq-fr { transform-box: fill-box; transform-origin: center; }
+.pg .pr-b { transform-box: fill-box; transform-origin: 0 50%; }
+.pg .fn-ring { opacity: 0; }
+.pg .mg-svg { text-anchor: middle; }
+.pg .cmp-card { max-width: 940px; margin: 0 auto; padding: 8px 10px; text-align: left; }
+.pg .cmp { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 1rem; line-height: 1.5; color: var(--white-800); }
+.pg .cmp-cap { caption-side: top; text-align: left; padding: 10px 12px 6px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime-green); }
+.pg .cmp th, .pg .cmp td { padding: 12px; vertical-align: top; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.08); overflow-wrap: break-word; }
+.pg .cmp thead th { font-size: 0.95rem; font-weight: 800; color: var(--lime-green); border-bottom: 1px solid var(--lime-line); }
+.pg .cmp thead th:first-child { width: 22%; }
+.pg .cmp tbody th { font-weight: 800; color: var(--white); }
+.pg .cmp tbody tr:last-child th, .pg .cmp tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 680px) {
+  .pg .cmp, .pg .cmp tbody, .pg .cmp tr, .pg .cmp th, .pg .cmp td { display: block; width: auto; }
+  .pg .cmp thead { display: none; }
+  .pg .cmp caption { display: block; }
+  .pg .cmp tbody tr { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .pg .cmp tbody tr:last-child { border-bottom: 0; }
+  .pg .cmp tbody th { padding: 4px 12px 2px; border: 0; color: var(--lime-green); }
+  .pg .cmp td { padding: 6px 12px; border: 0; }
+  .pg .cmp td::before { content: attr(data-label); display: block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); opacity: 0.7; }
+}
+/*@GEN_STATIC*/
+
+@media all {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+  @keyframes pg-glow { 0%, 100% { opacity: 0.75; } 50% { opacity: 1; } }
+  @keyframes hl-grow { 0%, 6% { transform: scaleX(0.03); } 40%, 88% { transform: scaleX(1); } 100% { transform: scaleX(0.03); } }
+  @keyframes hl-lit { 0%, 33%, 100% { opacity: 0.55; transform: none; } 6%, 27% { opacity: 1; transform: translateX(4px); } }
+
+  /* hero: the peak dot pulses as the tracer passes; the retracted stamp thumps down */
+  .js-reveal .pg .nf-pk { animation: nf-pk 7s ease-in-out infinite; }
+  @keyframes nf-pk { 0%, 50%, 100% { transform: scale(1); opacity: 0.8; } 58% { transform: scale(1.6); opacity: 1; } 66% { transform: scale(1); } }
+  .js-reveal .pg .nf-st { animation: nf-st 7s var(--ease-out) infinite; }
+  @keyframes nf-st { 0%, 60% { transform: scale(1.25); opacity: 0.25; } 68%, 94% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.25); opacity: 0.25; } }
+
+  /* study rows, retraction labels, levers: light in turn */
+  .js-reveal .pg .st-r { animation: hl-lit 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 3s - 9s); }
+  .js-reveal .pg .rt-l { animation: rt-l 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2.4s - 8s); }
+  @keyframes rt-l { 0%, 36%, 100% { opacity: 0.5; } 8%, 28% { opacity: 1; } }
+  .js-reveal .pg .lv-r { animation: hl-lit 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+
+  /* prostate: hazard ratio bars grow */
+  .js-reveal .pg .pr-b { animation: hl-grow 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.35s); }
+
+  /* help: plan rows light in turn */
+  .js-reveal .pg .hp-r { animation: hp-r 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  @keyframes hp-r { 0%, 25%, 100% { opacity: 0.55; transform: none; } 6%, 19% { opacity: 1; transform: translateX(4px); } }
+
+  /* final: shield breathes, ring pulses; FAQ: sun turns, dots float */
+  .js-reveal .pg .fn-sh { animation: fn-sh 4.4s ease-in-out infinite; }
+  @keyframes fn-sh { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  .js-reveal .pg .fn-ring { animation: fn-r 4.4s ease-out infinite; }
+  @keyframes fn-r { 0% { opacity: 0.6; transform: scale(0.9); } 70%, 100% { opacity: 0; transform: scale(1.5); } }
+  .js-reveal .pg .fq-dp { animation: fq-sp 12s linear infinite; }
+  @keyframes fq-sp { to { transform: rotate(360deg); } }
+  .js-reveal .pg .fq-fr { animation: fq-fr 3.4s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.7s); }
+  @keyframes fq-fr { 0%, 100% { opacity: 0.4; transform: translate(0, 4px); } 50% { opacity: 1; transform: translate(3px, -5px); } }
+/*@GEN_MOTION*/
+}
+
+.pg .src-list a { overflow-wrap: anywhere; word-break: break-word; }
+.pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }
