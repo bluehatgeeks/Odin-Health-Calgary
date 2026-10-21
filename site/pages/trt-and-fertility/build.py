@@ -12,6 +12,8 @@ DESC = "Does testosterone therapy affect fertility? How TRT lowers sperm product
 OG_ALT = "Odin Health Labs: how testosterone therapy affects fertility and the options for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
+common.ICONS.update({"pause": '<circle cx="12" cy="12" r="9"/><path d="M10 8.5v7M14 8.5v7"/>'})
+
 FAQ = [
  ("Does testosterone therapy cause infertility?",
   "It can lower fertility while you are on it. Testosterone from outside tells your brain to turn down LH and FSH, the signals your testes need to make sperm, and sperm counts can fall very low, in some men to none. The American Urological Association and Canadian Urological Association guidelines both describe this effect. For many men it eases after stopping, but how quickly varies from man to man. If children are part of your plans, we help you look at options that keep your own production going."),
@@ -192,7 +194,7 @@ def step_icons():
 
 import common
 common.ICONS.update({"hair": '<path d="M6 13a6 6 0 0 1 12 0v1.5a6 6 0 0 1-12 0z"/><path d="M6.5 10.5C8 6.5 10 5.5 12 5.5s4 1 5.5 5"/><path d="M9 6.5l1 2M15 6.5l-1 2"/>'})
-HUB = hub(G, [(110, 52, 'labs'), (110, 148, 'coach'), (450, 52, 'scale'), (450, 148, 'caps'), (230, 28, 'tube'), (330, 172, 'sleep'), (230, 172, 'hair')])
+HUB = hub(G, [(110, 52, 'labs'), (110, 148, 'coach'), (450, 52, 'scale'), (450, 148, 'caps'), (230, 28, 'tube'), (330, 172, 'sleep'), (230, 172, 'hair'), (330, 28, 'pause')])
 slots = {"{{HERO}}": hero_swim(), "{{MECH}}": mech(), "{{STAGES}}": stages(), "{{RECOVERY}}": recovery(), "{{BASELINE}}": baseline(),
          "{{OPTIONS}}": options(), "{{REGIONS}}": regions(), "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{SPROUT}}": SPROUT}
 slots.update(step_icons())

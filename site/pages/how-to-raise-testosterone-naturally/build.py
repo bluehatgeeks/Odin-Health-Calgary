@@ -18,6 +18,8 @@ common.ICONS.update({
  "video": '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
 })
 
+common.ICONS.update({"pause": '<circle cx="12" cy="12" r="9"/><path d="M10 8.5v7M14 8.5v7"/>'})
+
 FAQ = [
  ("What is the fastest way to raise testosterone naturally?",
   "There is no overnight fix, but three levers have the best evidence: losing extra body fat, sleeping enough and staying active. In a meta-analysis of 24 studies, low-calorie diets raised total testosterone by 2.87 nmol/L on average (about 83 ng/dL), and in a <em>JAMA</em> study a week of five-hour nights lowered young men&rsquo;s daytime testosterone by 10 to 15 percent. Cutting back heavy drinking and reviewing medications such as opioids also help."),
@@ -29,6 +31,8 @@ FAQ = [
   "Usually by a few nmol/L, not tens. Averages from the research: low-calorie diets about 2.9 nmol/L (about 83 ng/dL), bariatric surgery about 8.7 nmol/L (about 250 ng/dL), and the more weight lost, the bigger the rise. Sleep and alcohol work mostly by removing a drag: one week of five-hour nights cost about 10 to 15 percent of daytime testosterone. We test before and after so you can see your own change."),
  ("When is it time to think about TRT instead?",
   "When testosterone stays low on repeat morning tests after a fair try at the fixable causes and your symptoms persist, or when labs point to a problem in the pituitary or testes. The American Urological Association uses a total testosterone below 300 ng/dL on two early-morning tests, together with symptoms, as its definition of low testosterone."),
+ ("Does sauna raise testosterone?",
+  "Not in the research so far. In a Finnish study, 10 healthy men sat in an 80&deg;C sauna for one hour twice a day for seven days, and their testosterone, LH and FSH showed no significant change. Growth hormone rose about 16-fold, but that rise faded after the third day. It was a small study, so sauna is better seen as a way to relax and recover than as a testosterone lever."),
  ("How does Odin Health Labs work with my doctor?",
   'Odin Health Labs is an andropause and low testosterone telehealth service for men in Canada and the USA. We work alongside your own doctor: we go through your symptoms, history, medications and lab results with you, help you decide which tests to ask your doctor for, flag medications worth reviewing with whoever prescribes them, and build your sleep, weight, training, stress and nutrition plan. If TRT comes up, we help you prepare clear questions for your doctor. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
@@ -54,6 +58,7 @@ SRC = [
  ("source_prasad_1996", "Prasad AS, Mantzoros CS, Beck FW, et al. Zinc status and serum testosterone levels of healthy adults. <em>Nutrition</em> 1996;12(5):344&ndash;348.", "https://doi.org/10.1016/s0899-9007(96)80058-x", "doi.org/10.1016/s0899-9007(96)80058-x"),
  ("source_koehler_2009", "Koehler K, Parr MK, Geyer H, et al. Serum testosterone and urinary excretion of steroid hormone metabolites after administration of a high-dose zinc supplement. <em>Eur J Clin Nutr</em> 2009;63(1):65&ndash;70.", "https://doi.org/10.1038/sj.ejcn.1602899", "doi.org/10.1038/sj.ejcn.1602899"),
  ("source_nih_zinc", "NIH Office of Dietary Supplements. Zinc: Fact Sheet for Consumers (updated October 4, 2022).", "https://ods.od.nih.gov/factsheets/Zinc-Consumer/", "ods.od.nih.gov zinc fact sheet"),
+ ("source_leppaluoto_1986", "Lepp&auml;luoto J, Huttunen P, Hirvonen J, et al. Endocrine effects of repeated sauna bathing. <em>Acta Physiol Scand</em> 1986;128(3):467&ndash;470.", "https://doi.org/10.1111/j.1748-1716.1986.tb08000.x", "doi.org/10.1111/j.1748-1716.1986.tb08000.x"),
  ("source_clemesha_2020", "Clemesha CG, Thaker H, Samplaski MK. &lsquo;Testosterone Boosting&rsquo; Supplements Composition and Claims Are not Supported by the Academic Literature. <em>World J Mens Health</em> 2020;38(1):115&ndash;122.", "https://doi.org/10.5534/wjmh.190043", "doi.org/10.5534/wjmh.190043"),
  ("source_balasubramanian_2019", "Balasubramanian A, Thirumavalavan N, Srivatsav A, et al. Testosterone Imposters: An Analysis of Popular Online Testosterone Boosting Supplements. <em>J Sex Med</em> 2019;16(2):203&ndash;212.", "https://doi.org/10.1016/j.jsxm.2018.12.008", "doi.org/10.1016/j.jsxm.2018.12.008"),
  ("source_fornalik_2026", "Fornalik M, Malkiewicz A, Adamczak D, et al. Hormonal Modulation with Withania somnifera: Systematic Review and Meta-Analysis of Randomized-controlled Trials. <em>Planta Med</em> 2026;92(8):790&ndash;805.", "https://doi.org/10.1055/a-2802-8363", "doi.org/10.1055/a-2802-8363"),
@@ -314,7 +319,7 @@ def step_icons():
     }
 
 def hub_nodes():
-    icons = ['scale', 'sleep', 'calendar', 'pills', 'tube', 'caps']
+    icons = ['scale', 'sleep', 'calendar', 'pills', 'tube', 'caps', 'pause']
     out = []
     for i, ic in enumerate(icons):
         a = -math.pi / 2 + (i + 0.5) * 2 * math.pi / len(icons)

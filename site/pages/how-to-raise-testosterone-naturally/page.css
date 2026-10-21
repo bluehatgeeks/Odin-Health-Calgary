@@ -117,3 +117,5 @@
 .pg .src-list a { overflow-wrap: anywhere; word-break: break-word; }
 /* the hero figure's one-shot entrance must play even when the figure starts below the fold on phones (its loops stay paused) */
 .pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }
+
+.pg #related .card-feature { grid-column: 1 / -1; }
