@@ -2,20 +2,20 @@
 Edit page.body.html (markup), page.css (graphics CSS), this file (copy, FAQ, SVG generators) or ../_shared/*; then: python3 build.py
 FAQ HTML and FAQPage JSON-LD come from ONE list (FAQ), so they always match. build() output is minified at the end (HighLevel save limit).
 The shared templates already carry the Safari-motion fix (@media all + var reduce = false); /workspace/safari-fix/apply_fix.py is run on the output as a guard."""
-import sys, os, math, re, subprocess
+import sys, os, math, re, subprocess, json
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "_shared"))
 from gfx import *
 import common
 
 SLUG = "trt-side-effects"
-TITLE = "TRT Side Effects: Risks and Monitoring | Odin Health Labs"
-DESC = "TRT side effects: hematocrit, acne, fertility, PSA and heart risk (TRAVERSE), how common each is and what to monitor. For men in Canada and the USA."
-OG_ALT = "Odin Health Labs: TRT side effects in men, hematocrit, fertility, PSA, heart risk and monitoring"
+TITLE = "TRT Side Effects: Full List and Lab Tests | Odin Health Labs"
+DESC = "TRT side effects in men: hematocrit, acne, PSA, estradiol, fertility, sleep apnea, fluid retention and heart risk, with the lab checks and limits used."
+OG_ALT = "Odin Health Labs: TRT side effects in men, the full list with hematocrit, PSA, estradiol, fertility and heart risk, and the lab checks and limits used"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
- "coin": '<circle cx="12" cy="12" r="9"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1 1.6 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6.5V8M12 16v1.5"/>',
+ "coin": '<circle cx="12" cy="12" r="9"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1 1.6 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6.5V8M12 16v1.5"/>',  # same as /trt-cost-canada-vs-usa (related_trtcost card + hub node)
  "video": '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
  "swap": '<path d="M4 8h14l-3-3"/><path d="M20 16H6l3 3"/>',
  "up": '<path d="M12 19V5"/><path d="M6 11l6-6 6 6"/>',
@@ -35,6 +35,10 @@ FAQ = [
   "Acne and oily skin have a clear link with testosterone. Hair loss is less certain: the Endocrine Society lists male pattern balding as an uncommon side effect with weak evidence, mostly in men with a family tendency toward it. If acne or thinning shows up, your levels, the dose, its timing and the form you use are worth reviewing, and we go through them with you."),
  ("Is TRT bad for your heart or prostate?",
   "In the TRAVERSE trial of 5,246 men aged 45 to 80 with heart disease or high heart risk, a heart attack, stroke or cardiovascular death occurred in 7.0 percent of men on testosterone gel and 7.3 percent on placebo. Atrial fibrillation, acute kidney injury and pulmonary embolism were more common with testosterone, and the FDA added a blood pressure warning in 2025. High-grade prostate cancer occurred in 0.19 versus 0.12 percent, not a significant difference. Testosterone does raise PSA a little and can speed up an existing prostate cancer, so PSA is checked before starting and during the first year."),
+ ("What labs are checked on TRT, and how often?",
+  "The Endocrine Society&rsquo;s 2018 plan checks hematocrit before starting, at three to six months and then yearly, and testosterone at three to six months, aiming for the middle of the normal range; with cypionate or enanthate injections, the level is measured midway between doses and the dose adjusted if it is above 600 or below 350 ng/dL. Men 55 to 69, or 40 to 69 at higher risk, who choose prostate monitoring have PSA checked before starting and at three to twelve months, with a closer prostate work-up if PSA rises more than 1.4 ng/mL within the first year or is confirmed above 4.0. The Canadian Urological Association&rsquo;s 2021 guideline monitors at baseline, three months, six months and then yearly. We add estradiol, lipids and blood pressure, and go through every result with you."),
+ ("Can TRT cause water retention, swelling or mood swings?",
+  "It can. The Endocrine Society&rsquo;s 2018 guideline notes that testosterone can cause fluid retention and swelling (edema) and can make swelling from heart failure or other conditions worse, and in 2025 the FDA added a class-wide warning about blood pressure increases. Swings in mood or libido are listed as a side effect of injections, where levels peak after each dose and fall before the next. Steadier dosing, a different form and checking levels midway between injections help, and we track weight, swelling and blood pressure with you at check-ins."),
  ("How does Odin Health Labs work with my doctor?",
   'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms, history and lab results with you, help you prepare questions about TRT side effects and monitoring, build your nutrition, training, sleep and stress plan, and track hematocrit, PSA, estradiol, lipids and blood pressure with you at follow-up check-ins, using the Endocrine Society&rsquo;s monitoring plan as the checklist. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
@@ -67,6 +71,26 @@ def hero():
         s.append('<g class="hr-s" style="--k:%d"><circle cx="%s" cy="%s" r="22" fill="#0f240f" stroke="%s" stroke-width="2.4"/>%s</g>%s'
                  % (i, f(x), f(y), LIME if i % 2 == 0 else 'rgba(255,255,255,0.75)', ico(ic, x, y, 22, LIME if i % 2 == 0 else WHITE, 1.8), txt(x, ly, lab, 12, '#fff', 0.88)))
     s.append(node(240, 160, 32, 'tube', 0.1, LIME, fill='#142e14', isz=32))
+    return '\n'.join(s)
+
+# ---------- full list: a clipboard checklist, a highlight bar steps down the rows and each tick pops as it passes ----------
+def checklist():
+    s = ['<path d="M78 125H150" stroke="rgba(255,255,255,0.16)" stroke-width="2.4" stroke-dasharray="2 8" stroke-linecap="round" fill="none"/>']
+    s.append('<g class="pop t" style="--d:0.1"><rect x="150" y="18" width="270" height="220" rx="16" fill="#142e14" stroke="rgba(255,255,255,0.5)" stroke-width="2.4"/><rect x="245" y="8" width="80" height="22" rx="8" fill="#0f240f" stroke="#c4ff49" stroke-width="2.4"/></g>')
+    rows = [('Hematocrit', '54 percent'), ('PSA rise', '+1.4 ng/mL'), ('PSA level', '4.0 ng/mL'), ('Testosterone', '350 to 600'), ('Estradiol', 'if breast signs'), ('Blood pressure', 'each check-in')]
+    s.append('<g class="fl-hl"><rect x="162" y="44" width="246" height="28" rx="8" fill="#c4ff49" fill-opacity="0.14"/></g>')
+    for k, (lab, lim) in enumerate(rows):
+        y = 58 + k * 30
+        s.append('<rect x="170" y="%d" width="16" height="16" rx="4" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.8"/>' % (y - 8))
+        s.append('<g class="fl-tk" style="--k:%d"><path d="M173 %dl3.5 3.5 7-8" stroke="#c4ff49" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>' % (k, y))
+        s.append(txt(196, y + 5, lab, 13, '#fff', 0.92, anchor='start'))
+        s.append(txt(398, y + 5, lim, 12, '#c4ff49', 0.95, anchor='end'))
+    d, pts = path(('M', 78, 125), ('L', 150, 125), n=4)
+    s.append(dot('fl-p', 5, LIME)); G.travel('fl-p', pts, 10, 50, 4.5, rest=pts[-1], rest_opacity=0)
+    s.append(node(60, 125, 26, 'tube', 0.2, LIME, fill='#142e14', isz=28))
+    s.append(node(486, 125, 26, 'shield', 0.4, WHITE, isz=28))
+    s.append('<path d="M420 125H458" stroke="rgba(196,255,73,0.35)" stroke-width="2.4" stroke-dasharray="2 7" stroke-linecap="round" fill="none"/>')
+    s.append(txt(60, 172, 'Labs in', 12, '#fff', 0.8)); s.append(txt(486, 172, 'Caught early', 12, '#c4ff49', 0.9))
     return '\n'.join(s)
 
 # ---------- tiers: clear link / uncommon / depends on the form ----------
@@ -292,12 +316,12 @@ def hub_nodes():
     return out
 
 HUB = hub(G, hub_nodes())
-slots = {"{{HERO}}": hero(), "{{TIERS}}": tiers(), "{{HCT}}": hct(), "{{SKIN}}": skin(), "{{FERT}}": fert(), "{{HEART}}": heart(), "{{PSA}}": psa(),
+slots = {"{{HERO}}": hero(), "{{CHECKLIST}}": checklist(), "{{TIERS}}": tiers(), "{{HCT}}": hct(), "{{SKIN}}": skin(), "{{FERT}}": fert(), "{{HEART}}": heart(), "{{PSA}}": psa(),
          "{{SLEEPBP}}": sleepbp(), "{{MONITOR}}": monitor(), "{{MANAGE}}": manage(), "{{HELP}}": help_fig(), "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB,
          "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
-build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "TRT side effects in men: hematocrit, skin, fertility, PSA, heart risk and monitoring",
-      "TRT side effects", "What are the side effects of TRT?", slots, G, published="2026-10-16")
+build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "TRT side effects in men: the full list, hematocrit, PSA, estradiol, fertility, heart risk and monitoring",
+      "TRT side effects", "TRT side effects: the full list, and what gets monitored", slots, G, published="2026-10-16", modified="2026-10-21")
 
 # ---- minify for HighLevel (keeps page.full.html): strip CSS comments, line indentation and blank lines outside <script> ----
 p = os.path.join(HERE, "page.html")
@@ -326,6 +350,28 @@ def tight(mm):
     c = re.sub(r'\s*([{};])\s*', r'\1', c); c = re.sub(r':\s+', ':', c); c = re.sub(r',\s+', ',', c)
     return c
 m = re.sub(r'(?<=<style>)[\s\S]*?(?=</style>)', tight, m)
+# 2026-10-21 deepen (size budget, GHL save fails ~170 KB): compact JSON-LD, drop HTML comments outside scripts,
+# join SVG element lines, and drop CSS rules whose class selectors match nothing on this page (page-local, static check)
+def ld_compact(mm):
+    return mm.group(1) + json.dumps(json.loads(mm.group(2)), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + mm.group(3)
+m = re.sub(r'(<script type="application/ld\+json">\s*)([\s\S]*?)(\s*</script>)', ld_compact, m)
+_parts = re.split(r'(<script\b[\s\S]*?</script>)', m)
+m = ''.join(pp if i % 2 else re.sub(r'<!--[\s\S]*?-->\n?', '', pp) for i, pp in enumerate(_parts))
+m = re.sub(r'<svg\b[\s\S]*?</svg>', lambda x: re.sub(r'>\n<', '><', x.group(0)), m)
+_body = re.sub(r'<style>[\s\S]*?</style>', '', m)
+_cls = set(w for c in re.findall(r'class="([^"]*)"', _body) for w in c.split())
+_js = set(re.findall(r'[\w-]+', ' '.join(re.findall(r'<script(?![^>]*ld\+json)[^>]*>([\s\S]*?)</script>', m))))
+def _purge(css):
+    def rule(r):
+        sel = r.group(1)
+        if not sel.lstrip().startswith(('.', 'html', 'body')) or '.pg' not in sel and '.js-reveal' not in sel: return r.group(0)
+        live = any(all(t in _cls or t in _js for t in re.findall(r'\.([A-Za-z][\w-]*)', part)) for part in sel.split(','))
+        return r.group(0) if live else ''
+    return re.sub(r'([^{}@]+)\{([^{}]*)\}', rule, css)
+m = re.sub(r'(?<=<style>)[\s\S]*?(?=</style>)', lambda x: _purge(x.group(0)), m)
+_parts = re.split(r'(<script\b[\s\S]*?</script>|<style>[\s\S]*?</style>)', m)
+_blk = r'(?:/?(?:li|ul|ol|tr|td|th|thead|tbody|table|caption|div|section|p|figure|figcaption|h[1-6]|details|summary|main|nav|svg|g|defs|symbol|path|circle|rect|text|ellipse)\b)'
+m = ''.join(pp if i % 2 else re.sub(r'>\n(?=<' + _blk + ')', '>', pp) for i, pp in enumerate(_parts))
 open(p, "w", encoding="utf-8").write(m)
 # Safari-motion guard (templates already fixed; this is a no-op unless something regressed)
 print(subprocess.run([sys.executable, "/workspace/safari-fix/apply_fix.py", p], capture_output=True, text=True).stdout.strip())

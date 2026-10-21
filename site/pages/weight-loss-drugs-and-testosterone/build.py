@@ -7,14 +7,18 @@ sys.path.insert(0, os.path.join(HERE, "..", "_shared"))
 from gfx import *
 
 SLUG = "weight-loss-drugs-and-testosterone"
-TITLE = "GLP-1 Drugs and Testosterone in Men | Odin Health Labs"
-DESC = "Do GLP-1 drugs like semaglutide and tirzepatide raise or lower testosterone in men? What studies show, protecting muscle, and labs to track. Canada and USA."
-OG_ALT = "Odin Health Labs: do GLP-1 weight-loss drugs raise or lower testosterone in men? Guidance for men in Canada and the USA"
+TITLE = "Tirzepatide, Semaglutide and Testosterone | Odin Health Labs"
+DESC = "Do tirzepatide (Mounjaro, Zepbound) and semaglutide (Ozempic, Wegovy) raise or lower testosterone in men? What SURMOUNT, STEP and other trials found."
+OG_ALT = "Odin Health Labs: do tirzepatide and semaglutide raise or lower testosterone in men? What the SURMOUNT, STEP and other trials found, for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
 FAQ = [
  ("Do GLP-1 drugs like semaglutide and tirzepatide raise or lower testosterone in men?",
   "In men with overweight or obesity, the research points up. A 2026 meta-analysis in Andrology (8 studies, 375 men) found that GLP-1 drugs significantly raised total and calculated free testosterone along with LH and FSH. A 2025 Andrology meta-analysis (7 studies, 680 men) and a 2026 Journal of Sexual Medicine review (10 studies, 639 men) also found higher total testosterone. A chart review of 110 men presented at ENDO 2025 saw average total testosterone climb from 322 to 380 ng/dL on semaglutide, dulaglutide or tirzepatide. Most studies are small, short and in men with obesity or diabetes, so we measure your own numbers before and during treatment and track the change with you."),
+ ("Does tirzepatide (Mounjaro, Zepbound) raise testosterone?",
+  "In men with obesity, the studies so far point up, but the big SURMOUNT trials did not measure it. Testosterone is not among the registered outcomes of SURMOUNT-1 (2,539 adults without diabetes, a 72-week trial), which reported average weight loss of 15.0 to 20.9 percent across the three doses. In a two-month controlled pilot of 83 men with obesity and low testosterone (La Vignera and colleagues, 2025), the tirzepatide group had higher total, free and bioavailable testosterone, LH and FSH than men on diet and walking alone or on testosterone gel, and lower estradiol. A 2026 review of incretin drugs including tirzepatide reported average total testosterone rises of 2.5 to 5.2 nmol/L. We check your total and free testosterone, SHBG and LH before and during treatment."),
+ ("Does semaglutide (Ozempic, Wegovy) lower testosterone?",
+  "Measured testosterone went up, not down, in the controlled studies so far. In a 24-week randomized trial of 25 men with type 2 diabetes, obesity and low testosterone (Gregori&ccaron; and colleagues, 2025), semaglutide 1 mg raised median total testosterone from 6.1 to 7.8 nmol/L and left LH and FSH unchanged, while testosterone injections in the comparison group lowered sperm counts. The STEP 1 trial (1,961 adults) did not measure testosterone. A US health-records study of 3,094 men aged 18 to 50 on semaglutide found more new records of testosterone deficiency (1.53 versus 0.80 percent) and erectile dysfunction than in matched men, an association that does not show the drug caused it. Free testosterone can lag when SHBG rises, so we read total, free and SHBG together."),
  ("Is the testosterone rise from the drug itself or from the weight loss?",
   "Researchers read it two ways, and both agree on the direction. The 2026 Corona meta-analysis found that the testosterone rises were independent of the weight lost, which suggests a direct effect on the hypothalamus-pituitary-testis axis. A 2026 systematic review of incretin therapies (La Vignera and Condorelli) reported rises of 2.5 to 5.2 nmol/L and concluded they were largely mediated by weight loss and better insulin sensitivity. A 2025 Andrology meta-analysis found that larger percent weight loss went with a larger testosterone rise. Either way, the practical step is the same: check your baseline, then re-check as the weight comes off."),
  ("Can fast weight loss on a GLP-1 drug cost me muscle?",
@@ -64,6 +68,30 @@ def research():
         s.append('<text x="138" y="%d" font-size="15" fill="#fff" text-anchor="end">%s</text>' % (y + 22, lab))
         s.append('<text x="%s" y="%d" font-size="15" fill="#fff" fill-opacity="0.95">%d men</text>' % (f(150 + w + 10), y + 22, n))
         s.append('<g class="rs-up" style="--k:%d"><path d="M164 %d v-12M164 %d l-5 7M164 %d l5 7" transform="translate(0 0)" stroke="%s" stroke-width="2.6" stroke-linecap="round" fill="none"/></g>' % (k, y + 26, y + 14, y + 14, '#0f240f' if k % 2 else '#fff'))
+    return '\n'.join(s)
+
+# ---------- 2b · TRIALS: a lens checks the two big trials (testosterone not measured), then four smaller studies light up ----------
+def trials():
+    s = []
+    big = [(150, 'SURMOUNT-1', 'tirzepatide'), (410, 'STEP 1', 'semaglutide')]
+    for i, (x, lab, drug) in enumerate(big):
+        s.append('<g class="pop t" style="--d:%s"><rect x="%d" y="34" width="200" height="72" rx="14" fill="#142e14" stroke="rgba(255,255,255,0.45)" stroke-width="2"/></g>' % (f(0.1 + i * 0.12), x - 100))
+        s.append('<text x="%d" y="60" font-size="15" fill="#fff" text-anchor="middle">%s</text><text x="%d" y="80" font-size="12" fill="#fff" fill-opacity="0.7" text-anchor="middle">%s</text>' % (x - 24, lab, x - 24, drug))
+        s.append('<g class="tr-q" style="--k:%d"><circle cx="%d" cy="70" r="17" fill="none" stroke="#c4ff49" stroke-opacity="0.8" stroke-width="2" stroke-dasharray="4 4"/><text x="%d" y="76" font-size="16" fill="#c4ff49" text-anchor="middle">T?</text></g>' % (i, x + 62, x + 62))
+    s.append('<text x="280" y="128" font-size="12" fill="#fff" fill-opacity="0.75" text-anchor="middle">Big weight-loss trials: testosterone not measured</text>')
+    small = [(80, 'Tirzepatide', 'T up', True), (213, 'Semaglutide', 'T up', True), (347, 'Liraglutide', 'T up', True), (480, 'Dulaglutide', 'No change', False)]
+    for k, (x, lab, res, up) in enumerate(small):
+        s.append('<g class="tr-hit" style="--k:%d"><circle cx="%d" cy="178" r="22" fill="%s" stroke="%s" stroke-width="2.4"/></g>' % (k, x, '#142e14' if up else DARK, LIME if up else 'rgba(255,255,255,0.7)'))
+        if up:
+            s.append('<g class="tr-ar" style="--k:%d"><path d="M%d 188v-20M%d 168l-6 7M%d 168l6 7" stroke="#c4ff49" stroke-width="2.6" stroke-linecap="round" fill="none"/></g>' % (k, x, x, x))
+        else:
+            s.append('<path d="M%d 174h14M%d 182h14" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>' % (x - 7, x - 7))
+        s.append('<text x="%d" y="220" font-size="12" fill="#fff" fill-opacity="0.9" text-anchor="middle">%s</text><text x="%d" y="236" font-size="12" fill="%s" text-anchor="middle">%s</text>' % (x, lab, x, '#c4ff49' if up else '#fff', res))
+    d, pts = path(('M', 212, 70), ('L', 472, 70), ('C', 520, 110, 520, 150, 480, 178), ('L', 80, 178), n=10)
+    s.append('<path d="M212 70H472" stroke="rgba(255,255,255,0.12)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round" fill="none"/>')
+    s.append('<path d="M80 178H480" stroke="rgba(196,255,73,0.18)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round" fill="none"/>')
+    s.append('<g class="tr-lens fx"><circle r="13" fill="rgba(196,255,73,0.12)" stroke="#fff" stroke-width="2.4"/><path d="M9 9l9 9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>')
+    G.travel('tr-lens', pts, 4, 92, 12, rest=pts[-1], rest_opacity=0, fade=3, ease='ease-in-out')
     return '\n'.join(s)
 
 # ---------- 3 · WHY: two routes (weight loss, a possible direct signal) merge into one rising result ----------
@@ -175,8 +203,8 @@ def step_icons():
     }
 
 HUB = hub(G, [(110, 52, 'tube'), (110, 148, 'scale'), (450, 52, 'drop'), (450, 148, 'coach'), (230, 28, 'caps'), (330, 172, 'labs'), (330, 28, 'shield')])
-slots = {"{{HERO}}": hero_conv(), "{{RESEARCH}}": research(), "{{WHY}}": why(), "{{NUMBERS}}": numbers(), "{{MUSCLE}}": muscle(), "{{LABS}}": labs(),
+slots = {"{{HERO}}": hero_conv(), "{{RESEARCH}}": research(), "{{TRIALS}}": trials(), "{{WHY}}": why(), "{{NUMBERS}}": numbers(), "{{MUSCLE}}": muscle(), "{{LABS}}": labs(),
          "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
-build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "GLP-1 weight-loss drugs and testosterone in men",
-      "GLP-1 drugs and testosterone", "Do GLP-1 weight-loss drugs (semaglutide, tirzepatide) raise or lower testosterone in men?", slots, G)
+build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Tirzepatide, semaglutide and other GLP-1 drugs and testosterone in men",
+      "GLP-1 drugs and testosterone", "Do GLP-1 drugs like tirzepatide and semaglutide raise or lower testosterone in men?", slots, G, modified="2026-10-21")

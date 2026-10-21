@@ -5,6 +5,26 @@
 .pg .wy-ring { opacity: 0; }
 .pg .fn-fl { transform-origin: 0 50%; }
 .pg .fq-st { opacity: 0.85; }
+.pg .tr-q, .pg .tr-hit, .pg .tr-ar { transform-box: fill-box; transform-origin: center; }
+/* compact comparison table (same pattern as /nofap-and-testosterone), stacks into labelled rows on phones */
+.pg .cmp-card { max-width: 940px; margin: 0 auto 28px; padding: 8px 10px; text-align: left; }
+.pg .cmp { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 1rem; line-height: 1.5; color: var(--white-800); }
+.pg .cmp-cap { caption-side: top; text-align: left; padding: 10px 12px 6px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime-green); }
+.pg .cmp th, .pg .cmp td { padding: 12px; vertical-align: top; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.08); overflow-wrap: break-word; }
+.pg .cmp thead th { font-size: 0.95rem; font-weight: 800; color: var(--lime-green); border-bottom: 1px solid var(--lime-line); }
+.pg .cmp thead th:first-child { width: 28%; }
+.pg .cmp tbody th { font-weight: 800; color: var(--white); }
+.pg .cmp tbody tr:last-child th, .pg .cmp tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 680px) {
+  .pg .cmp, .pg .cmp tbody, .pg .cmp tr, .pg .cmp th, .pg .cmp td { display: block; width: auto; }
+  .pg .cmp thead { display: none; }
+  .pg .cmp caption { display: block; }
+  .pg .cmp tbody tr { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .pg .cmp tbody tr:last-child { border-bottom: 0; }
+  .pg .cmp tbody th { padding: 4px 12px 2px; border: 0; color: var(--lime-green); }
+  .pg .cmp td { padding: 6px 12px; border: 0; }
+  .pg .cmp td::before { content: attr(data-label); display: block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); opacity: 0.7; }
+}
 /*@GEN_STATIC*/
 
 @media all {
@@ -20,6 +40,14 @@
   @keyframes rs-gr { 0%, 8% { transform: scaleX(0.04); } 38%, 84% { transform: scaleX(1); } 100% { transform: scaleX(0.04); } }
   .js-reveal .pg .rs-up { animation: rs-bob 1.8s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.6s); }
   @keyframes rs-bob { from { transform: translateY(2px); } to { transform: translateY(-3px); } }
+
+  /* 2b · trials: the T? rings on the big trials blink (not measured), each smaller study lights in turn, its arrow lifts */
+  .js-reveal .pg .tr-q { animation: tr-q 3s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.5s); }
+  @keyframes tr-q { 0%, 100% { opacity: 0.45; transform: scale(0.94); } 50% { opacity: 1; transform: scale(1.06); } }
+  .js-reveal .pg .tr-hit { animation: tr-hit 12s ease-out infinite; animation-delay: calc(5.3s + (3 - var(--k, 0)) * 1.78s); }
+  @keyframes tr-hit { 0%, 16%, 100% { opacity: 0.55; transform: scale(1); } 4% { opacity: 1; transform: scale(1.14); } }
+  .js-reveal .pg .tr-ar { animation: tr-ar 1.6s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.5s); }
+  @keyframes tr-ar { from { transform: translateY(3px); } to { transform: translateY(-4px); } }
 
   /* 3 · why: the result node rings out as each route arrives */
   .js-reveal .pg .wy-ring { animation: wy-r 4.6s ease-out infinite; }
