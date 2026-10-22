@@ -39,3 +39,10 @@ Create page in GHL (slug free-vs-total-testosterone, suggested step name "Free v
 - Backups: *.bak-calc (page.body.html, page.html, build.py, page.css, page.full.html if present, NOTES.md, test outputs).
 - Retested: visual PASS at 1280 and 390 (CLS 0, 0 errors, no overflow, 0 offscreen loops; reduced/no-JS hidden counts identical to the pre-edit baseline). Tracking exit 0 with the new CTAs firing. Scan and nophys 0 hits. page.html 149944 B.
 - Publish only AFTER /testosterone-calculator is live (otherwise the new links 404).
+
+## 2026-10-22 tirz1022 anchor link (BUILT LOCALLY, not published)
+- One in-prose link added to the #shbg lead paragraph, after the Ding 2009 sentence: "Losing weight on a drug such as tirzepatide can shift SHBG and testosterone too; our answer to <a class="text-link" href="{{SITE}}/weight-loss-drugs-and-testosterone#trials" data-cta="tirz_wl_link">does tirzepatide affect testosterone levels</a> covers what the trials found." Exact-match anchor for the GSC query (pos 11 on the target page). No other copy/SEO change; rebuild also carries Organization sameAs from common.py (as other 10-21/10-22 rebuilds).
+- page.html 150,362 B minified (was 149,944). Tests: visual 1280+390 identical to pre-change (CLS 0, 0 errors, 0 overflow, 0 offscreen, reduced hidden 0/1, no-JS 0); tracking 43/43 (was 42, +tirz_wl_link) + Booking 2/2, all PASS (FAQ 6); scan.py PASS 0 hits; mojibake 0. Shots shots/tirz1022-link-{1280,390}.png. Backups *.bak-tirz1022.
+- Staged http://127.0.0.1:8780/free-vs-total-testosterone-tirz1022.txt. Marker: data-cta="tirz_wl_link".
+### GHL ids (live funnel step list)
+Step 'Free vs Total Testosterone': step id a54b1902-0f7a-428f-895b-3b26b5aaf3c8, page/builder id Gtmlhfduv5GF4ufTbEiY, sequence 26. Republish = paste :8780/free-vs-total-testosterone-tirz1022.txt into the Custom Code element; SEO panel unchanged.

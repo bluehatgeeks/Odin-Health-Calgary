@@ -8,15 +8,15 @@ from gfx import *
 
 SLUG = "weight-loss-drugs-and-testosterone"
 TITLE = "Tirzepatide, Semaglutide and Testosterone | Odin Health Labs"
-DESC = "Do tirzepatide (Mounjaro, Zepbound) and semaglutide (Ozempic, Wegovy) raise or lower testosterone in men? What SURMOUNT, STEP and other trials found."
+DESC = "Does tirzepatide (Mounjaro, Zepbound) or semaglutide (Ozempic, Wegovy) affect testosterone levels in men? What SURMOUNT, STEP and other trials found."
 OG_ALT = "Odin Health Labs: do tirzepatide and semaglutide raise or lower testosterone in men? What the SURMOUNT, STEP and other trials found, for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
 FAQ = [
  ("Do GLP-1 drugs like semaglutide and tirzepatide raise or lower testosterone in men?",
   "In men with overweight or obesity, the research points up. A 2026 meta-analysis in Andrology (8 studies, 375 men) found that GLP-1 drugs significantly raised total and calculated free testosterone along with LH and FSH. A 2025 Andrology meta-analysis (7 studies, 680 men) and a 2026 Journal of Sexual Medicine review (10 studies, 639 men) also found higher total testosterone. A chart review of 110 men presented at ENDO 2025 saw average total testosterone climb from 322 to 380 ng/dL on semaglutide, dulaglutide or tirzepatide. Most studies are small, short and in men with obesity or diabetes, so we measure your own numbers before and during treatment and track the change with you."),
- ("Does tirzepatide (Mounjaro, Zepbound) raise testosterone?",
-  "In men with obesity, the studies so far point up, but the big SURMOUNT trials did not measure it. Testosterone is not among the registered outcomes of SURMOUNT-1 (2,539 adults without diabetes, a 72-week trial), which reported average weight loss of 15.0 to 20.9 percent across the three doses. In a two-month controlled pilot of 83 men with obesity and low testosterone (La Vignera and colleagues, 2025), the tirzepatide group had higher total, free and bioavailable testosterone, LH and FSH than men on diet and walking alone or on testosterone gel, and lower estradiol. A 2026 review of incretin drugs including tirzepatide reported average total testosterone rises of 2.5 to 5.2 nmol/L. We check your total and free testosterone, SHBG and LH before and during treatment."),
+ ("Does tirzepatide affect testosterone levels?",
+  "In men with obesity, tirzepatide (Mounjaro, Zepbound) appears to raise testosterone levels, mostly alongside the weight lost, but the big SURMOUNT trials did not measure it. Testosterone is not among the registered outcomes of SURMOUNT-1 (2,539 adults without diabetes, a 72-week trial), which reported average weight loss of 15.0 to 20.9 percent across the three doses. In a two-month controlled pilot of 83 men with obesity and low testosterone (La Vignera and colleagues, 2025), the tirzepatide group had higher total, free and bioavailable testosterone, LH and FSH than men on diet and walking alone or on testosterone gel, and lower estradiol. A 2026 review of incretin drugs including tirzepatide reported average total testosterone rises of 2.5 to 5.2 nmol/L. We check your total and free testosterone, SHBG and LH before and during treatment."),
  ("Does semaglutide (Ozempic, Wegovy) lower testosterone?",
   "Measured testosterone went up, not down, in the controlled studies so far. In a 24-week randomized trial of 25 men with type 2 diabetes, obesity and low testosterone (Gregori&ccaron; and colleagues, 2025), semaglutide 1 mg raised median total testosterone from 6.1 to 7.8 nmol/L and left LH and FSH unchanged, while testosterone injections in the comparison group lowered sperm counts. The STEP 1 trial (1,961 adults) did not measure testosterone. A US health-records study of 3,094 men aged 18 to 50 on semaglutide found more new records of testosterone deficiency (1.53 versus 0.80 percent) and erectile dysfunction than in matched men, an association that does not show the drug caused it. Free testosterone can lag when SHBG rises, so we read total, free and SHBG together."),
  ("Is the testosterone rise from the drug itself or from the weight loss?",
@@ -207,4 +207,4 @@ slots = {"{{HERO}}": hero_conv(), "{{RESEARCH}}": research(), "{{TRIALS}}": tria
          "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Tirzepatide, semaglutide and other GLP-1 drugs and testosterone in men",
-      "GLP-1 drugs and testosterone", "Do GLP-1 drugs like tirzepatide and semaglutide raise or lower testosterone in men?", slots, G, modified="2026-10-21")
+      "GLP-1 drugs and testosterone", "Do GLP-1 drugs like tirzepatide and semaglutide raise or lower testosterone in men?", slots, G, modified="2026-10-22")
