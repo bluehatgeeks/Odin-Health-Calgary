@@ -9,8 +9,8 @@ from gfx import *
 import common
 
 SLUG = "trt-cost-canada-vs-usa"
-TITLE = "TRT Cost in Canada vs USA: Labs and Drugs | Odin Health Labs"
-DESC = "What TRT costs in Canada vs the USA: lab tests, provincial and insurance coverage, injection, gel and pellet prices, and monitoring. Sourced, Oct 2026."
+TITLE = "TRT and Testosterone Cost: Canada vs USA | Odin Health Labs"
+DESC = "TRT cost in Canada vs the USA (Oct 2026): testosterone cypionate, gel and pellet prices, lab test fees, and what provincial plans and insurance cover."
 OG_ALT = "Odin Health Labs: TRT cost in Canada vs the USA, lab tests, coverage, testosterone prices and monitoring"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
@@ -276,7 +276,7 @@ slots = {"{{HERO}}": hero(), "{{DRIVERS}}": drivers(), "{{CALABS}}": calabs(), "
          "{{SRC}}": src_html(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "TRT cost in Canada vs the USA: lab tests, coverage, testosterone prices and monitoring",
-      "TRT cost: Canada vs USA", "How much does TRT cost in Canada vs the USA?", slots, G, published="2026-10-16")
+      "TRT cost: Canada vs USA", "How much do TRT and testosterone cost in Canada vs the USA?", slots, G, published="2026-10-16", modified="2026-10-22")
 
 # ---- minify for HighLevel (keeps page.full.html): strip CSS comments, line indentation and blank lines outside <script> ----
 p = os.path.join(HERE, "page.html")

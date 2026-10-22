@@ -114,8 +114,9 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Note: NEW answer-style page (not yet published). Target query: "TRT side effects" / "testosterone replacement therapy side effects" / "risks of TRT" / "does TRT cause hair loss or acne" / "TRT hematocrit" / "TRT testicle size" / "TRT heart risk" / "TRT and prostate" / "monitoring on TRT". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
 
 ## TRT Cost in Canada vs the USA  `/trt-cost-canada-vs-usa`
-- Title (60): TRT Cost in Canada vs USA: Labs and Drugs | Odin Health Labs
-- Description (151): What TRT costs in Canada vs the USA: lab tests, provincial and insurance coverage, injection, gel and pellet prices, and monitoring. Sourced, Oct 2026.
+- Title (59): TRT and Testosterone Cost: Canada vs USA | Odin Health Labs
+- Description (150): TRT cost in Canada vs the USA (Oct 2026): testosterone cypionate, gel and pellet prices, lab test fees, and what provincial plans and insurance cover.
+- 2026-10-22 (fh1022, data-led): retitled from 'TRT Cost in Canada vs USA: Labs and Drugs | Odin Health Labs' / old desc 'What TRT costs in Canada vs the USA: lab tests, provincial and insurance coverage, injection, gel and pellet prices, and monitoring. Sourced, Oct 2026.' because GSC 28d (19 impr, pos 24.4) queries are price queries: trt cost canada (13), testosterone price (31), testosterone cypionate cost (39), testosterone gel canada price (42), testosterone from canada / canadian testosterone (52-53). H1 now 'How much do TRT and testosterone cost in Canada vs the USA?'.
 - Note: NEW answer-style page (not yet published). Target query: "TRT cost Canada" / "TRT cost USA" / "how much does TRT cost" / "testosterone test cost LifeLabs" / "does OHIP cover testosterone" / "is TRT covered in Canada" / "TRT price without insurance". Every price sourced (see /workspace/research-trtcost/SOURCES.md), dated October 2026; CAD for Canada, USD for USA. No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
 
 ## How to Raise Testosterone Naturally  `/how-to-raise-testosterone-naturally`

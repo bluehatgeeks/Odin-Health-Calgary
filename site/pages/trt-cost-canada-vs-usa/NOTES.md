@@ -1,7 +1,7 @@
 # /trt-cost-canada-vs-usa: answer page 13 (BUILT LOCALLY, not published)
 
-- Title (60): TRT Cost in Canada vs USA: Labs and Drugs | Odin Health Labs
-- Description (151): What TRT costs in Canada vs the USA: lab tests, provincial and insurance coverage, injection, gel and pellet prices, and monitoring. Sourced, Oct 2026.
+- Title (59): TRT and Testosterone Cost: Canada vs USA | Odin Health Labs
+- Description (150): TRT cost in Canada vs the USA (Oct 2026): testosterone cypionate, gel and pellet prices, lab test fees, and what provincial plans and insurance cover.
 - Build: `python3 build.py` (page.full.html readable, page.html minified ~141 KB). Template: /trt-side-effects (same pipeline, Safari fix guard).
 - Research and every figure: /workspace/research-trtcost/SOURCES.md (URLs + quoted snippets, fetched 2026-10-16). Raw pages in research-trtcost/raw/.
 - Currency: CAD for Canada, USD for USA. All prices dated "as of October 2026"; copy says prices vary by province/state/pharmacy.
@@ -33,3 +33,10 @@
 - Backups: *.bak-calc (page.body.html, page.html, build.py, page.css, page.full.html if present, NOTES.md, test outputs).
 - Retested: visual PASS at 1280 and 390 (CLS 0, 0 errors, no overflow, 0 offscreen loops; reduced/no-JS hidden counts identical to the pre-edit baseline). Tracking exit 0 with the new CTAs firing. Scan and nophys 0 hits. page.html 143187 B.
 - Publish only AFTER /testosterone-calculator is live (otherwise the new links 404).
+
+## 2026-10-22 data-led title/intro tweak (fh1022) - built locally, NOT published
+- Why: GSC 28d this page had 19 impressions at avg pos 24.4 (best non-brand page near page 2-3), all price queries: trt cost canada (pos 13), testosterone price (31), testosterone cypionate cost (39), testosterone gel canada price (42), testosterone from canada (52), canadian testosterone (53), canada testosterone (65). Chosen over /functional-health (10 impr, pos 53, queries 'functional health', 'functional health canada', 'holistic ayurveda' = off-topic for low T).
+- Old title 'TRT Cost in Canada vs USA: Labs and Drugs | Odin Health Labs'; old desc 'What TRT costs in Canada vs the USA: lab tests, provincial and insurance coverage, injection, gel and pellet prices, and monitoring. Sourced, Oct 2026.'
+- H1 + Article headline: 'How much do TRT and testosterone cost in Canada vs the USA?' (was 'How much does TRT cost in Canada vs the USA?').
+- Short answer: lead 'TRT has two price tags: the testosterone itself and the lab testing around it.'; 'Gels and pellets cost more, often much more.' -> gel prices already on the page (ON generic 1% gel ~$89 CAD/month = 30 x $2.9575; Drugs.com generic 1.62% 88 g pump $55.73-$77.13 USD cash) + 'pellets cost more.'
+- dateModified 2026-10-22. Rebuild also adds Organization sameAs (shared common.py). No new sections, no motion change, no new claims.
