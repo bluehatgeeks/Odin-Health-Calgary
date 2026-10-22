@@ -6,6 +6,28 @@
 .pg .ts-hand { transform-box: view-box; transform-origin: 380px 120px; transform: rotate(270deg); }
 .pg .ov-scan { transform: translateX(240px); }
 .pg .fq-z { opacity: 0.85; }
+/* insomnia: two-way loop + fragmented night */
+.pg .in-ring, .pg .in-wk, .pg .in-sl { transform-box: fill-box; transform-origin: center; }
+.pg .in-ring { opacity: 0; }
+/* compact comparison table (same pattern as /nofap-and-testosterone), stacks into labelled rows on phones */
+.pg .cmp-card { max-width: 980px; margin: 0 auto 28px; padding: 8px 10px; text-align: left; }
+.pg .cmp { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 0.98rem; line-height: 1.5; color: var(--white-800); }
+.pg .cmp-cap { caption-side: top; text-align: left; padding: 10px 12px 6px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime-green); }
+.pg .cmp th, .pg .cmp td { padding: 12px; vertical-align: top; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.08); overflow-wrap: break-word; }
+.pg .cmp thead th { font-size: 0.95rem; font-weight: 800; color: var(--lime-green); border-bottom: 1px solid var(--lime-line); }
+.pg .cmp thead th:first-child { width: 22%; }
+.pg .cmp tbody th { font-weight: 800; color: var(--white); }
+.pg .cmp tbody tr:last-child th, .pg .cmp tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 680px) {
+  .pg .cmp, .pg .cmp tbody, .pg .cmp tr, .pg .cmp th, .pg .cmp td { display: block; width: auto; }
+  .pg .cmp thead { display: none; }
+  .pg .cmp caption { display: block; }
+  .pg .cmp tbody tr { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .pg .cmp tbody tr:last-child { border-bottom: 0; }
+  .pg .cmp tbody th { padding: 4px 12px 2px; border: 0; color: var(--lime-green); }
+  .pg .cmp td { padding: 6px 12px; border: 0; }
+  .pg .cmp td::before { content: attr(data-label); display: block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); opacity: 0.7; }
+}
 /*@GEN_STATIC*/
 
 @media all {
@@ -77,5 +99,11 @@
   @keyframes fn-m { 0%, 30% { opacity: 1; transform: none; } 55%, 85% { opacity: 0.35; transform: translateY(14px); } 100% { opacity: 1; transform: none; } }
   .js-reveal .pg .fn-sun { animation: fn-s 9s ease-in-out infinite; }
   @keyframes fn-s { 0%, 30% { transform: translateY(26px); } 55%, 85% { transform: translateY(0); } 100% { transform: translateY(26px); } }
+  /* insomnia: weight ring pulses, wake-ups blink in turn, the sleep blocks dim as each wake-up hits */
+  .js-reveal .pg .in-ring { animation: hr-r 4s ease-out infinite; }
+  .js-reveal .pg .in-wk { animation: in-wk 6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s); }
+  @keyframes in-wk { 0%, 30%, 100% { opacity: 0.45; transform: scale(1); } 8%, 18% { opacity: 1; transform: scale(1.25); } }
+  .js-reveal .pg .in-sl { animation: in-sl 6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s); }
+  @keyframes in-sl { 0%, 40%, 100% { opacity: 1; } 12% { opacity: 0.55; } }
 /*@GEN_MOTION*/
 }

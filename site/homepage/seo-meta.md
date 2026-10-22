@@ -97,8 +97,9 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Note: NEW answer-style page (not yet published). Target query: "when to get checked for low T" / "should I get my testosterone checked" / "when to test for low testosterone". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
 
 ## Low Testosterone and Sleep  `/low-testosterone-and-sleep`
-- Title (52): Low Testosterone and Sleep in Men | Odin Health Labs
-- Description (152): How short sleep, sleep apnea and night shifts affect testosterone, why T rises while you sleep, when to test, and what men in Canada and the USA can do.
+- Title (60): Low Testosterone, Insomnia and Poor Sleep | Odin Health Labs
+- Description (149): Can low testosterone cause insomnia or poor sleep? What studies show on sleep, sleep apnea and testosterone, if TRT helps sleep, and what men can do.
+- 2026-10-22 retune (insomnia cluster from GSC: 'low testosterone insomnia', 'does low testosterone cause insomnia', 'low t insomnia', 'low testosterone poor sleep', 'low testosterone and sleep disorders', 'will testosterone therapy help me sleep'). Previous title (52) 'Low Testosterone and Sleep in Men | Odin Health Labs'.
 - Note: NEW answer-style page (not yet published). Target query: "low testosterone and sleep" / "does sleep affect testosterone" / "sleep apnea low testosterone" / "shift work testosterone". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
 
 ## Free vs Total Testosterone  `/free-vs-total-testosterone`

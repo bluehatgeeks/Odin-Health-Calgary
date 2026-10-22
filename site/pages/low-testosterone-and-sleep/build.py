@@ -1,16 +1,16 @@
 """Build /workspace/pages/low-testosterone-and-sleep/page.html (self-contained; paste into a GHL custom-code element when approved).
 Edit page.body.html (markup), page.css (graphics CSS), this file (copy, FAQ, SVG generators) or ../_shared/*; then: python3 build.py
 FAQ HTML and FAQPage JSON-LD come from ONE list (FAQ), so they always match. build() output is minified at the end (HighLevel save limit)."""
-import sys, os, math, re
+import sys, os, math, re, json, subprocess
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "_shared"))
 from gfx import *
 import common
 
 SLUG = "low-testosterone-and-sleep"
-TITLE = "Low Testosterone and Sleep in Men | Odin Health Labs"
-DESC = "How short sleep, sleep apnea and night shifts affect testosterone, why T rises while you sleep, when to test, and what men in Canada and the USA can do."
-OG_ALT = "Odin Health Labs: how sleep and low testosterone affect each other in men, sleep apnea, shift work and morning testing"
+TITLE = "Low Testosterone, Insomnia and Poor Sleep | Odin Health Labs"
+DESC = "Can low testosterone cause insomnia or poor sleep? What studies show on sleep, sleep apnea and testosterone, if TRT helps sleep, and what men can do."
+OG_ALT = "Odin Health Labs: low testosterone and insomnia, how sleep affects testosterone in men, sleep apnea, shift work and morning testing"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -22,6 +22,10 @@ common.ICONS.update({
 })
 
 FAQ = [
+ ("Does low testosterone cause insomnia?",
+  "Not on its own, as far as the research shows. In a 2008 study of 1,312 men aged 65 and older, men with lower testosterone slept less efficiently, woke more often in the night and had less deep sleep, but most of that link was explained by body fat. In a 2015 study of 1,274 men over 65, insomnia complaints and taking a long time to fall asleep were not linked with testosterone at all. A 2024 US health-records study found testosterone deficiency was more common in men with insomnia, which shows the two travel together, not which causes which. The better-proven direction runs the other way: short, broken sleep lowers testosterone. So we start with your sleep, your weight and the signs of sleep apnea, alongside two morning labs."),
+ ("Will testosterone therapy help me sleep?",
+  "The evidence is mixed, and it is not a proven fix for insomnia. In a Japanese trial of 48 men with low testosterone and sleep problems but no sleep apnea (the EARTH study, 2018), a year of testosterone therapy improved sleep-disturbance scores compared with no treatment. But in 17 healthy men over 60, short-term high-dose testosterone cut sleep by about an hour and made breathing during sleep worse (2003), and in 67 men with obesity and severe sleep apnea, testosterone worsened night-time oxygen drops early in treatment, an effect that faded by the end of the trial (2012). The Endocrine Society advises against starting testosterone therapy while severe sleep apnea is untreated. That is why checking for apnea and fixing the sleep itself come first; we build that plan with you and track it with repeat labs."),
  ("Does poor sleep lower testosterone?",
   "It can. In a University of Chicago study published in JAMA in 2011, 10 healthy young men spent about a week in bed only five hours a night. Their daytime testosterone fell from an average of 18.4 to 16.5 nmol/L, a drop of 10 to 15 percent, and their sense of vigour fell night by night. In older men, a 2007 study in the journal Sleep found that men who slept less at night had lower morning testosterone. The Canadian Urological Association (2021) notes that a structured sleep program may offset the effect of limited sleep. We build that sleep plan with you and re-check your labs to see the change."),
  ("Can sleep apnea cause low testosterone?",
@@ -57,6 +61,38 @@ def hero():
     s.append('<g class="hr-sun">%s</g>' % ico('sun', 404, 40, 34, WHITE, 1.8))
     s.append(stars(((130, 34), (176, 52), (210, 28))))
     s.append(txt(240, 286, 'Testosterone climbs in sleep, drifts down awake', 13, '#fff', 0.85))
+    return '\n'.join(s)
+
+def insomnia():
+    """Two-way loop: poor sleep -> lower T (lime arc) and lower T -> poorer sleep (white arc), extra weight pulsing at the centre;
+    below, one night (11 p.m. to 7 a.m.) broken by wake-ups that blink in turn."""
+    s = []
+    A, B, C = (90, 100), (470, 100), (280, 100)
+    d1, p1 = path(('M', 122, 86), ('C', 190, 18, 370, 18, 438, 86), n=18)
+    d2, p2 = path(('M', 438, 114), ('C', 370, 182, 190, 182, 122, 114), n=18)
+    s.append('<path d="%s" stroke="rgba(196,255,73,0.18)" stroke-width="3" fill="none" stroke-linecap="round"/>' % d1)
+    s.append(dr(d1, 0.3, 1.2, LIME, 3))
+    s.append('<path d="%s" stroke="rgba(255,255,255,0.22)" stroke-width="2.4" stroke-dasharray="4 7" fill="none" stroke-linecap="round"/>' % d2)
+    s.append('<path d="M430 74l10 12-15 3" stroke="#c4ff49" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')
+    s.append('<path d="M130 126l-10-12 15-3" stroke="#fff" stroke-opacity="0.6" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')
+    s.append(dot('in-a fx', 5.5, LIME, ring=True)); G.travel('in-a', p1, 4, 46, 8, rest=p1[-1], rest_opacity=0, fade=3)
+    s.append(dot('in-b fx', 4.5, WHITE)); G.travel('in-b', p2, 54, 92, 8, rest=p2[-1], rest_opacity=0, fade=3)
+    s.append(txt(280, 30, 'Short, broken sleep lowers T', 12, '#c4ff49', 0.95))
+    s.append(txt(280, 178, 'Low T: poorer sleep (link mostly via weight)', 12, '#fff', 0.75))
+    s.append('<circle class="in-ring fx" cx="280" cy="100" r="30" fill="none" stroke="#c4ff49" stroke-width="2"/>')
+    s.append(node(280, 100, 24, 'scale', 0.5, WHITE, dashed=True, isz=24))
+    s.append(node(A[0], A[1], 30, 'sleep', 0.2, LIME, fill='#142e14', isz=30)); s.append(txt(A[0], A[1] + 50, 'Poor sleep', 13, '#c4ff49', 0.95))
+    s.append(node(B[0], B[1], 30, 'gauge', 0.35, WHITE, isz=30)); s.append(txt(B[0], B[1] + 50, 'Lower T', 13))
+    # one night, fragmented
+    y = 214
+    s.append('<path d="M60 %dH500" stroke="rgba(255,255,255,0.18)" stroke-width="14" stroke-linecap="round"/>' % y)
+    segs = [(60, 150), (166, 262), (280, 360), (378, 500)]
+    for k, (x1, x2) in enumerate(segs):
+        s.append('<rect class="in-sl" style="--k:%d" x="%d" y="%d" width="%d" height="14" rx="7" fill="#c4ff49" fill-opacity="0.7"/>' % (k, x1, y - 7, x2 - x1))
+    for k, x in enumerate((158, 271, 369)):
+        s.append('<g class="in-wk" style="--k:%d"><circle cx="%d" cy="%d" r="9" fill="#0f240f" stroke="#fff" stroke-width="2"/><path d="M%d %dv-4" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>' % (k, x, y, x, y + 2))
+    s.append(txt(60, 246, '11 p.m.', 11, '#fff', 0.65, 'start')); s.append(txt(500, 246, '7 a.m.', 11, '#fff', 0.65, 'end'))
+    s.append(txt(280, 250, 'Wake-ups break up the night', 12, '#fff', 0.85))
     return '\n'.join(s)
 
 def overnight():
@@ -230,12 +266,12 @@ def hub_nodes():
     return out
 
 HUB = hub(G, hub_nodes())
-slots = {"{{HERO}}": hero(), "{{OVERNIGHT}}": overnight(), "{{SHORT}}": shortsleep(), "{{APNEA}}": apnea(), "{{SHIFT}}": shiftfig(),
+slots = {"{{HERO}}": hero(), "{{INSOMNIA}}": insomnia(), "{{OVERNIGHT}}": overnight(), "{{SHORT}}": shortsleep(), "{{APNEA}}": apnea(), "{{SHIFT}}": shiftfig(),
          "{{TESTING}}": testing(), "{{HABITS}}": habits(), "{{HELP}}": help_fig(), "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB,
          "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
-build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "How sleep and low testosterone affect each other in men",
-      "Low testosterone and sleep", "How do sleep and low testosterone affect each other?", slots, G, published="2026-10-16")
+build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Low testosterone, insomnia and poor sleep in men: how sleep and testosterone affect each other",
+      "Low testosterone and sleep", "Can low testosterone cause insomnia, and how does sleep affect T?", slots, G, published="2026-10-16", modified="2026-10-22")
 
 # ---- minify for HighLevel (keeps page.full.html): strip CSS comments, line indentation and blank lines outside <script> ----
 p = os.path.join(HERE, "page.html")
@@ -256,5 +292,38 @@ def mini(src):
         out.append(part)
     return ''.join(out)
 m = mini(full)
+# 2026-10-22 sleep deepen: same page-local compaction as /trt-side-effects (2026-10-21) to stay under the GHL save limit
+# page-local extra compaction (HighLevel save limit): drop unused icon symbols, tighten CSS punctuation inside <style>
+used = set(re.findall(r'#pi-([\w-]+)', m))
+m = re.sub(r'<symbol id="pi-([\w-]+)" viewBox="0 0 24 24">[\s\S]*?</symbol>', lambda x: x.group(0) if x.group(1) in used else '', m)
+def tight(mm):
+    c = mm.group(0)
+    c = re.sub(r'\s*([{};])\s*', r'\1', c); c = re.sub(r':\s+', ':', c); c = re.sub(r',\s+', ',', c)
+    return c
+m = re.sub(r'(?<=<style>)[\s\S]*?(?=</style>)', tight, m)
+# 2026-10-21 deepen (size budget, GHL save fails ~170 KB): compact JSON-LD, drop HTML comments outside scripts,
+# join SVG element lines, and drop CSS rules whose class selectors match nothing on this page (page-local, static check)
+def ld_compact(mm):
+    return mm.group(1) + json.dumps(json.loads(mm.group(2)), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + mm.group(3)
+m = re.sub(r'(<script type="application/ld\+json">\s*)([\s\S]*?)(\s*</script>)', ld_compact, m)
+_parts = re.split(r'(<script\b[\s\S]*?</script>)', m)
+m = ''.join(pp if i % 2 else re.sub(r'<!--[\s\S]*?-->\n?', '', pp) for i, pp in enumerate(_parts))
+m = re.sub(r'<svg\b[\s\S]*?</svg>', lambda x: re.sub(r'>\n<', '><', x.group(0)), m)
+_body = re.sub(r'<style>[\s\S]*?</style>', '', m)
+_cls = set(w for c in re.findall(r'class="([^"]*)"', _body) for w in c.split())
+_js = set(re.findall(r'[\w-]+', ' '.join(re.findall(r'<script(?![^>]*ld\+json)[^>]*>([\s\S]*?)</script>', m))))
+def _purge(css):
+    def rule(r):
+        sel = r.group(1)
+        if not sel.lstrip().startswith(('.', 'html', 'body')) or '.pg' not in sel and '.js-reveal' not in sel: return r.group(0)
+        live = any(all(t in _cls or t in _js for t in re.findall(r'\.([A-Za-z][\w-]*)', part)) for part in sel.split(','))
+        return r.group(0) if live else ''
+    return re.sub(r'([^{}@]+)\{([^{}]*)\}', rule, css)
+m = re.sub(r'(?<=<style>)[\s\S]*?(?=</style>)', lambda x: _purge(x.group(0)), m)
+_parts = re.split(r'(<script\b[\s\S]*?</script>|<style>[\s\S]*?</style>)', m)
+_blk = r'(?:/?(?:li|ul|ol|tr|td|th|thead|tbody|table|caption|div|section|p|figure|figcaption|h[1-6]|details|summary|main|nav|svg|g|defs|symbol|path|circle|rect|text|ellipse)\b)'
+m = ''.join(pp if i % 2 else re.sub(r'>\n(?=<' + _blk + ')', '>', pp) for i, pp in enumerate(_parts))
 open(p, "w", encoding="utf-8").write(m)
-print("minified", len(full.encode()), "->", len(m.encode()), "bytes")
+# Safari-motion guard (no-op unless something regressed)
+print(subprocess.run([sys.executable, "/workspace/safari-fix/apply_fix.py", p], capture_output=True, text=True).stdout.strip())
+print("minified", len(full.encode()), "->", len(open(p, encoding="utf-8").read().encode()), "bytes")
