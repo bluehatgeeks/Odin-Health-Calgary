@@ -10,7 +10,7 @@ import common
 
 SLUG = "trt-cost-canada-vs-usa"
 TITLE = "TRT and Testosterone Cost: Canada vs USA | Odin Health Labs"
-DESC = "TRT cost in Canada vs the USA (Oct 2026): testosterone cypionate, gel and pellet prices, lab test fees, and what provincial plans and insurance cover."
+DESC = "TRT cost per month in Canada vs the USA (Oct 2026): clinic fees, testosterone cypionate, gel and pellet prices, lab tests, and what insurance covers."
 OG_ALT = "Odin Health Labs: TRT cost in Canada vs the USA, lab tests, coverage, testosterone prices and monitoring"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
@@ -22,6 +22,8 @@ common.ICONS.update({
 FAQ = [
  ("How much does TRT cost per month in Canada?",
   "For the drug itself, often less than people expect. Ontario and Alberta list generic testosterone cypionate at $34.88 CAD per 10 mL vial. At 100 mg a week one vial lasts about ten weeks, which works out to about $15 a month before the pharmacy&rsquo;s dispensing fee. Generic 1 percent gel at Ontario&rsquo;s price ($2.96 per 5 g packet) is about $89 for a month&rsquo;s supply of 30 packets. Labs and visits come on top, and public drug plans pay only in narrow cases, so the usual routes are private insurance or paying at the pharmacy. Prices as of October 2026 and they vary by province and pharmacy."),
+ ("How much does TRT cost per month at a clinic?",
+  "Most TRT clinics charge about $100 to $300 a month for visits and monitoring, and the medication is extra. That is the range Odin Health Labs sees across clinics; where a clinic falls depends on how often you are seen and whether extra medication or supplement support is included. Generic testosterone cypionate adds about $15 CAD a month at Ontario&rsquo;s list price, so by our arithmetic a clinic in that range comes to roughly $115 to $315 a month before labs and the pharmacy&rsquo;s dispensing fee. Ask each clinic what the monthly fee covers and whether labs are billed separately."),
  ("How much does TRT cost in the USA without insurance?",
   "Cash prices on Drugs.com in October 2026: generic testosterone cypionate from $37.99 USD per 10 mL vial, generic 1.62 percent gel $55.73 to $77.13 per 88 g pump, brand AndroGel 1 percent $318.13 to $683.83 for 30 packets, and Testopel pellets about $1,065 for ten pellets before the insertion visit. Clinics add more: in a 2022 study, a year of injections through cash-pay telehealth platforms cost $1,586 to $4,200. Consumer lab tests run $35 to $75 each at Quest with fees."),
  ("Does OHIP or my provincial plan cover testosterone testing?",
@@ -242,6 +244,21 @@ def help_fig():
         s.append('<g class="hp-r" style="--k:%d">%s%s</g>' % (k, ico(ic, 402, y, 18, LIME, 2), txt(420, y + 4, lab, 12.5, '#fff', 0.92, 'start')))
     return '\n'.join(s)
 
+# ---------- clinic fees: monthly fee range, then with the drug added; what moves the fee lights in turn ----------
+def clinic():
+    X = lambda v: 40 + v * 480 / 350
+    s = []
+    for k, (y, lab, lo, hi, a, b, hot) in enumerate(((50, 'Clinic fee per month, medication not included', 100, 300, '$100', '$300', True),
+                                                       (120, 'With generic cypionate added (about $15 CAD a month)', 115, 315, '$115', '$315', False))):
+        s.append(txt(40, y - 14, lab, 12.5, '#c4ff49' if hot else '#fff', 0.95, 'start'))
+        s.append('<path d="M40 %dH520" stroke="rgba(255,255,255,0.14)" stroke-width="14" stroke-linecap="round"/>' % (y + 6))
+        s.append('<g class="cf-b" style="--k:%d"><rect x="%s" y="%d" width="%s" height="14" rx="7" fill="%s" fill-opacity="%s"/></g>' % (k, f(X(lo)), y - 1, f(X(hi) - X(lo)), LIME if hot else WHITE, 0.8 if hot else 0.6))
+        s.append(txt(X(lo), y + 32, a, 11.5, '#fff', 0.9) + txt(X(hi), y + 32, b, 11.5, '#fff', 0.9))
+    for k, (ic, lab) in enumerate((('calendar', 'Visit frequency'), ('pills', 'Extra medication'), ('leaf', 'Supplement support'))):
+        x = 40 + k * 164
+        s.append('<g class="cf-t" style="--k:%d"><rect x="%d" y="186" width="152" height="30" rx="15" fill="rgba(255,255,255,0.05)" stroke="rgba(196,255,73,0.55)" stroke-width="1.6"/>%s%s</g>' % (k, x, ico(ic, x + 20, 201, 16, LIME, 2), txt(x + 34, 206, lab, 12, '#fff', 0.92, 'start')))
+    return '\n'.join(s)
+
 def final():
     s = ['<defs><radialGradient id="fn-g"><stop offset="0" stop-color="#c4ff49" stop-opacity="0.3"/><stop offset="1" stop-color="#c4ff49" stop-opacity="0"/></radialGradient></defs><circle cx="180" cy="105" r="92" fill="url(#fn-g)"/>']
     s.append('<circle class="fn-ring fx" cx="180" cy="104" r="56" fill="none" stroke="#c4ff49" stroke-width="2"/>')
@@ -272,11 +289,11 @@ def hub_nodes():
 
 HUB = hub(G, hub_nodes())
 slots = {"{{HERO}}": hero(), "{{DRIVERS}}": drivers(), "{{CALABS}}": calabs(), "{{PROV}}": prov(), "{{FORMS}}": forms(), "{{PRICES}}": prices(),
-         "{{USLABS}}": uslabs(), "{{TELE}}": tele(), "{{MONITOR}}": monitor(), "{{YEAR}}": year(), "{{HELP}}": help_fig(), "{{SOURCES}}": sources_fig(),
+         "{{USLABS}}": uslabs(), "{{TELE}}": tele(), "{{MONITOR}}": monitor(), "{{YEAR}}": year(), "{{CLINIC}}": clinic(), "{{HELP}}": help_fig(), "{{SOURCES}}": sources_fig(),
          "{{SRC}}": src_html(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "TRT cost in Canada vs the USA: lab tests, coverage, testosterone prices and monitoring",
-      "TRT cost: Canada vs USA", "How much do TRT and testosterone cost in Canada vs the USA?", slots, G, published="2026-10-16", modified="2026-10-22")
+      "TRT cost: Canada vs USA", "How much do TRT and testosterone cost in Canada vs the USA?", slots, G, published="2026-10-16", modified="2026-10-23")
 
 # ---- minify for HighLevel (keeps page.full.html): strip CSS comments, line indentation and blank lines outside <script> ----
 p = os.path.join(HERE, "page.html")
