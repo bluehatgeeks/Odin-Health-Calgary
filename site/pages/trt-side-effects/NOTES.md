@@ -67,3 +67,11 @@ Why: GSC 28d query "trt side effects" (pos 84) and page pos 24.5, 0 clicks.
 - test-tracking (NO_ASSESS=1): 50/50 CTA clicks (incl. list_*), Booking Link Clicked 2/2, title/desc == seo-meta PASS, og/twitter PASS, banned-claim 0; only FAIL = harness "FAQ 5-6 Qs" (8 by design; DOM == JSON-LD checked 1:1).
 - Shots: shots/deepen-full-list-{1280,390}.png, deepen-full-list-fig-*.png, deepen-full-list-table-*.png. Backups *.bak-deepen. Staged http://127.0.0.1:8780/trt-side-effects-deepen.txt.
 - Live verify markers: `id="full-list"`, `data-cta="list_book_call"`, `TRT side effects: the full list`, title "TRT Side Effects: Full List and Lab Tests | Odin Health Labs".
+
+
+## 2026-10-23 ins1023 insomnia anchor link (BUILT LOCALLY, not published)
+- Backlog 0b. One in-prose link in the #sleep-bp lead paragraph (TRT, sleep apnea and blood pressure), after "one of the first things we look at.": "Trouble falling or staying asleep is a separate question, covered in <a class="text-link" href="{{SITE}}/low-testosterone-and-sleep#insomnia" data-cta="insomnia_link_trtse">low testosterone and insomnia</a>." -> /low-testosterone-and-sleep#insomnia. No other copy/SEO change. sameAs already present.
+- page.html 163,908 (was 163,684; under ~165 KB budget) B. Tests: visual 1280+390 identical to pre-change (CLS 0, 0 errors, 0 overflow, 0 offscreen, reduced/no-JS hidden unchanged); tracking 50 -> 51 CTAs incl. insomnia_link_trtse + Booking 2/2; mojibake 0. Backups *.bak-ins1023.
+- Staged http://127.0.0.1:8780/trt-side-effects-ins1023.txt. Marker: data-cta="insomnia_link_trtse".
+### GHL ids (live funnel step list)
+Step 'TRT Side Effects': step id 4c9a2b2a-c335-4c07-af80-8d108d2a8f9a, page/builder id NRUQX0Ceoi16Eboil9D2, sequence 27. Republish = paste :8780/trt-side-effects-ins1023.txt into the Custom Code only (SEO panel unchanged) element.
