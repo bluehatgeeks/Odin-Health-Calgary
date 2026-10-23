@@ -71,7 +71,9 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 
 ## GLP-1 Drugs and Testosterone  `/weight-loss-drugs-and-testosterone`
 - Title (60): Tirzepatide, Semaglutide and Testosterone | Odin Health Labs
-- Description (149): Does tirzepatide (Mounjaro, Zepbound) or semaglutide (Ozempic, Wegovy) affect testosterone levels in men? What SURMOUNT, STEP and other trials found.
+- Description (155): Does tirzepatide (Mounjaro, Zepbound) or semaglutide (Ozempic, Wegovy) affect testosterone levels in men? SURMOUNT, STEP and Saxenda (liraglutide) studies.
+- Previous (live until the 2026-10-23 sax1023 republish): Description (149) Does tirzepatide (Mounjaro, Zepbound) or semaglutide (Ozempic, Wegovy) affect testosterone levels in men? What SURMOUNT, STEP and other trials found.
+- 2026-10-23 sax1023: description retuned to add Saxenda (liraglutide) for the GSC query 'are there any male-specific considerations when evaluating saxenda for weight management?' (pos 7-8); title unchanged.
 - Previous (live until the 2026-10-22 tirz1022 republish): Description (149) Do tirzepatide (Mounjaro, Zepbound) and semaglutide (Ozempic, Wegovy) raise or lower testosterone in men? What SURMOUNT, STEP and other trials found.
 - 2026-10-22 tirz1022: description retuned for the GSC query 'does tirzepatide affect testosterone levels' (pos 11); title unchanged.
 - Previous (live until the 2026-10-21 deepen republish): Title (54) GLP-1 Drugs and Testosterone in Men | Odin Health Labs; Description (156) Do GLP-1 drugs like semaglutide and tirzepatide raise or lower testosterone in men? What studies show, protecting muscle, and labs to track. Canada and USA.
