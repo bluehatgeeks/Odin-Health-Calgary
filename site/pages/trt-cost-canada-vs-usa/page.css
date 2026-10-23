@@ -1,7 +1,7 @@
 /* === /trt-cost-canada-vs-usa graphics. Static block = FINAL state (no-JS and reduced-motion see this). === */
-.pg .hs-c, .pg .hs-t, .pg .dv-l, .pg .cl-x, .pg .pv-p, .pg .pv-n, .pg .fm-p, .pg .ul-l, .pg .ul-m, .pg .te-n, .pg .mo-n, .pg .mo-c, .pg .mo-t, .pg .yr-s, .pg .yr-r, .pg .hp-r, .pg .fn-ring, .pg .fn-sh, .pg .fq-dp, .pg .fq-fr { transform-box: fill-box; transform-origin: center; }
+.pg .hs-c, .pg .hs-t, .pg .dv-l, .pg .cl-x, .pg .pv-p, .pg .pv-n, .pg .fm-p, .pg .ul-l, .pg .ul-m, .pg .te-n, .pg .cf-t, .pg .mo-n, .pg .mo-c, .pg .mo-t, .pg .yr-s, .pg .yr-r, .pg .hp-r, .pg .fn-ring, .pg .fn-sh, .pg .fq-dp, .pg .fq-fr { transform-box: fill-box; transform-origin: center; }
 .pg .hs-bm { transform-box: view-box; transform-origin: 240px 80px; }
-.pg .pr-b, .pg .te-b { transform-box: fill-box; transform-origin: 0 50%; }
+.pg .pr-b, .pg .te-b, .pg .cf-b { transform-box: fill-box; transform-origin: 0 50%; }
 .pg .fm-ph { transform: translateX(410px); opacity: 0.5; }
 .pg .fn-ring { opacity: 0; }
 .pg .mg-svg { text-anchor: middle; }
@@ -82,6 +82,11 @@
   .js-reveal .pg .te-b { animation: te-b 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.6s); }
   @keyframes te-b { 0% { transform: scaleX(0.05); } 22%, 90% { transform: scaleX(1); } 100% { transform: scaleX(0.05); } }
   .js-reveal .pg .te-n { animation: pv-n 4s ease-in-out infinite; }
+
+  /* clinic fees: both ranges stretch out, the three fee drivers light in turn */
+  .js-reveal .pg .cf-b { animation: te-b 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.6s); }
+  .js-reveal .pg .cf-t { animation: cf-t 6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 6s); }
+  @keyframes cf-t { 0%, 33%, 100% { opacity: 0.55; transform: none; } 6%, 27% { opacity: 1; transform: translateY(-3px); } }
 
   /* monitoring: checkpoints and their costs light as the dot arrives */
   .js-reveal .pg .mo-n { animation: mo-n 8.5s ease-out infinite; animation-delay: calc(var(--k, 0) * 2.27s); }
