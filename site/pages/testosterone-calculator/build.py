@@ -9,10 +9,10 @@ from gfx import *
 import common
 
 SLUG = "testosterone-calculator"
-TITLE = "Testosterone Calculator: Free T and Units | Odin Health Labs"
-DESC = "Free testosterone calculator (Vermeulen) and ng/dL to nmol/L converter, with normal testosterone levels for men in Canada and the USA explained."
+TITLE = "ISSAM Calculator: Free and Bioavailable Testosterone | Odin Labs"  # issam1026 (was: Testosterone Calculator: Free T and Units | Odin Health Labs)
+DESC = "Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter."
 OG_ALT = "Odin Health Labs testosterone calculator: ng/dL to nmol/L converter and free testosterone calculator"
-assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
+assert len(TITLE) <= 65 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
  "calc": '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>',
@@ -247,7 +247,7 @@ slots = {"{{HERO}}": hero(), "{{METER}}": meter(N0), "{{CVOUT}}": total_html(N0)
          "{{FCOUT}}": fc_out, "{{FCBAR}}": fc_bar(N0, r0), "{{RANGES}}": ranges(), "{{WHY}}": why(), "{{HOW}}": how(), "{{HELP}}": help_fig(),
          "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final(), "{{CALCJS}}": calcjs}
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Testosterone unit conversion (ng/dL, nmol/L, pg/mL, pmol/L) and calculated free testosterone",
-      "Testosterone calculator", "Testosterone calculator: convert ng/dL to nmol/L and calculate free T", slots, G, published="2026-10-18")
+      "Testosterone calculator", "ISSAM calculator: free and bioavailable testosterone, plus ng/dL to nmol/L conversion", slots, G, published="2026-10-18", modified="2026-10-26")
 
 # ---- add WebApplication JSON-LD (the tool itself) next to the Article node ----
 p = os.path.join(HERE, "page.html")

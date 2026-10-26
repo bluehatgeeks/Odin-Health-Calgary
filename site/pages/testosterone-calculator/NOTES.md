@@ -83,3 +83,13 @@ Hub figures were not changed.
   - NO_ASSESS, banned-claim scan 0
 - scan.py PASS (0 hits). nophys pattern 0 hits. Mojibake none.
 - Size: page.html 126,827 B (page.full.html 138,629 B).
+
+## 2026-10-26 exact-query title/H1 lead (issam1026) - built locally, NOT published
+- Why: GSC 28d (weekly check run 3, 2026-10-26): 'issam calculator' at pos 10 for this page; page total 107 impressions, 0 clicks, avg pos 16.4. Put the query wording at the front of the title, H1 and description.
+- Method check: the tool IS the ISSAM/Vermeulen method: calc-core.js uses K_SHBG 1e9, K_alb 3.6e4, albumin MW 69,000 and the Vermeulen quadratic; test-calc.js reproduces the issam.ch/freetesuit.html worked example (N 23.43, 1.7388e-10 mol/L, 1.74 percent, 5.02 ng/dL, Bio T 118 ng/dL), 19/19 PASS. ISSAM is already cited in the sources (calc_source_issam) and the albumin default copy.
+- Title (64, was 60 'Testosterone Calculator: Free T and Units | Odin Health Labs'): 'ISSAM Calculator: Free and Bioavailable Testosterone | Odin Labs' (brand suffix shortened to 'Odin Labs' to stay under 65; build.py assert relaxed to <= 65). og:title, twitter:title, WebPage name follow.
+- Description (148, was 144 'Free testosterone calculator (Vermeulen) and ng/dL to nmol/L converter, with normal testosterone levels for men in Canada and the USA explained.'): 'Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter.' og/twitter desc follow.
+- H1 + Article headline (was 'Testosterone calculator: convert ng/dL to nmol/L and calculate free T'): 'ISSAM calculator: free and bioavailable testosterone, plus ng/dL to nmol/L conversion'. One H1. dateModified 2026-10-26 (was 2026-10-18). Rebuild also picks up the shared Organization sameAs (common.py, already live on other pages).
+- No other copy, tool, motion, link, CTA, ?ref= or footer change. seo-meta.md updated (old title/desc kept as Previous).
+- Tests: test-calc 19/19; calc-tool 50/50; visual 1280+390 identical to the pre-change run (CLS 0, 0 errors, 0 overflow, 0 offscreen loops, 9 figs, 14 live blocks, reduced/no-JS hidden 0); tracking 37/37 + Booking 2/2, title/desc == seo-meta PASS, og/twitter match, one h1, no /owen-lowt, banned 0 (title length shows 64 '>60' note, not a fail); scan.py PASS 0; mojibake 0. page.html 127,021 B (was 126,827). Backups *.bak-issam1026; pre-change test outputs *.pre-issam1026.
+- GHL: step cf860857-efd2-46e1-8f8c-de7e11cca52e, builder GyZTry1oWhJ2Pum5kIBM. Replace the Custom Code element with http://127.0.0.1:8780/testosterone-calculator-issam1026.txt AND enter the new title + desc in the 'SEO & AI search optimization' panel.
