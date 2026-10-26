@@ -209,4 +209,4 @@ slots = {"{{HERO}}": hero_conv(), "{{RESEARCH}}": research(), "{{TRIALS}}": tria
          "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Tirzepatide, semaglutide and other GLP-1 drugs and testosterone in men",
-      "GLP-1 drugs and testosterone", "Do GLP-1 drugs like tirzepatide and semaglutide raise or lower testosterone in men?", slots, G, modified="2026-10-23")
+      "GLP-1 drugs and testosterone", "Does tirzepatide affect testosterone levels? What semaglutide and other GLP-1 drugs do to testosterone in men", slots, G, modified="2026-10-26")
