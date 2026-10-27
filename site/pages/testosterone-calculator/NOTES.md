@@ -8,7 +8,7 @@ Tool code:
 The no-JS state is rendered server-side by Python mirrors in build.py, so the defaults show real results with JS off.
 
 ## SEO
-- Title (60): `Testosterone Calculator: Free T and Units | Odin Health Labs`
+- Title (60): `Testosterone Calculator: Free T and Units | Odin Health Lab`
 - Description (144): `Free testosterone calculator (Vermeulen) and ng/dL to nmol/L converter, with normal testosterone levels for men in Canada and the USA explained.`
 - H1: "Testosterone calculator: convert ng/dL to nmol/L and calculate free T". Canonical https://odinhealthlab.ca/testosterone-calculator.
 - JSON-LD: Organization, WebSite, WebPage, Article (datePublished 2026-10-18), BreadcrumbList, FAQPage (6 Q, 1:1 with the DOM), WebApplication (applicationCategory HealthApplication, free Offer in CAD, featureList, areaServed CA + US).
@@ -39,7 +39,7 @@ The no-JS state is rendered server-side by Python mirrors in build.py, so the de
 
 ## Rules followed
 - No disclaimers, no "physician-aware" / "talk to your doctor" / "we don't diagnose" wording.
-- Doctor words appear only in the FAQ "How does Odin Health Labs work with my doctor?". scan.py checks the DOM and JSON-LD.
+- Doctor words appear only in the FAQ "How does Odin Health Lab work with my doctor?". scan.py checks the DOM and JSON-LD.
 - No /owen-lowt (NO_ASSESS=1 tracking check). No PEMF, hydrogen, marma or Calgary.
 - No digit + % in prose. The tool shows "Percent free" with no % sign.
 - No "N weeks/months/days", and no Odin prescribing claims.
@@ -87,7 +87,7 @@ Hub figures were not changed.
 ## 2026-10-26 exact-query title/H1 lead (issam1026) - built locally, NOT published
 - Why: GSC 28d (weekly check run 3, 2026-10-26): 'issam calculator' at pos 10 for this page; page total 107 impressions, 0 clicks, avg pos 16.4. Put the query wording at the front of the title, H1 and description.
 - Method check: the tool IS the ISSAM/Vermeulen method: calc-core.js uses K_SHBG 1e9, K_alb 3.6e4, albumin MW 69,000 and the Vermeulen quadratic; test-calc.js reproduces the issam.ch/freetesuit.html worked example (N 23.43, 1.7388e-10 mol/L, 1.74 percent, 5.02 ng/dL, Bio T 118 ng/dL), 19/19 PASS. ISSAM is already cited in the sources (calc_source_issam) and the albumin default copy.
-- Title (64, was 60 'Testosterone Calculator: Free T and Units | Odin Health Labs'): 'ISSAM Calculator: Free and Bioavailable Testosterone | Odin Labs' (brand suffix shortened to 'Odin Labs' to stay under 65; build.py assert relaxed to <= 65). og:title, twitter:title, WebPage name follow.
+- Title (64, was 60 'Testosterone Calculator: Free T and Units | Odin Health Lab'): 'ISSAM Calculator: Free and Bioavailable Testosterone | Odin Labs' (brand suffix shortened to 'Odin Labs' to stay under 65; build.py assert relaxed to <= 65). og:title, twitter:title, WebPage name follow.
 - Description (148, was 144 'Free testosterone calculator (Vermeulen) and ng/dL to nmol/L converter, with normal testosterone levels for men in Canada and the USA explained.'): 'Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter.' og/twitter desc follow.
 - H1 + Article headline (was 'Testosterone calculator: convert ng/dL to nmol/L and calculate free T'): 'ISSAM calculator: free and bioavailable testosterone, plus ng/dL to nmol/L conversion'. One H1. dateModified 2026-10-26 (was 2026-10-18). Rebuild also picks up the shared Organization sameAs (common.py, already live on other pages).
 - No other copy, tool, motion, link, CTA, ?ref= or footer change. seo-meta.md updated (old title/desc kept as Previous).

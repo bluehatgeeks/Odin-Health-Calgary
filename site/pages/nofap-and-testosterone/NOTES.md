@@ -1,5 +1,5 @@
 # /nofap-and-testosterone: answer page (BUILT LOCALLY 2026-10-21, not published)
-- Title (57): NoFap and Testosterone: The Day 7 Myth | Odin Health Labs
+- Title (57): NoFap and Testosterone: The Day 7 Myth | Odin Health Lab
 - Description (151): Testosterone peaking after seven days of NoFap comes from a 28-man study retracted in 2021. What it found, and what ejaculation means for the prostate.
 - H1: Does NoFap raise testosterone? What the day 7 study really showed
 - Requested by Odin X Marketer (backlog #64/#71). Targets: nofap testosterone / does nofap increase testosterone / does masturbation lower testosterone / ejaculation frequency prostate.

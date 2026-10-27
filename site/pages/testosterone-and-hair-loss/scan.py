@@ -16,7 +16,7 @@ for k, r in banned.items():
     res[k] = [m.group(0) for m in re.finditer(r, re.sub(r'Odin-Health-Calgary|odinlabcalgary', '', text_all), re.I)]
 # doctor words: only allowed inside the doctor FAQ (DOM <details> and its JSON-LD Question)
 doc = r'\b(doctors?|physicians?|clinicians?|urologists?|endocrinologists?|GPs?|prescrib\w*|diagnos\w*|healthcare providers?|medical providers?)\b'
-dom = re.sub(r'<details class="faq-item">\s*<summary><span class="faq-question">How does Odin Health Labs work with my doctor\?</span>[\s\S]*?</details>', '', body)
+dom = re.sub(r'<details class="faq-item">\s*<summary><span class="faq-question">How does Odin Health Lab work with my doctor\?</span>[\s\S]*?</details>', '', body)
 dom = re.sub(r'<script type="application/ld\+json">[\s\S]*?</script>', '', dom)
 t = html.unescape(re.sub(r'<[^>]+>', ' ', dom))
 res['doctor words outside doctor FAQ (DOM)'] = [t[max(0, m.start()-50):m.end()+30] for m in re.finditer(doc, t, re.I)]

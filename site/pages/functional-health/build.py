@@ -10,7 +10,7 @@ ASSESS = SITE + "/owen-lowt"
 OG_IMG = "https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/og-home.png"
 LOGO = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zJaxLUStVkljpkn9qddd/media/69feb24f-b3d0-45e6-b747-20dc1d2eb84d.svg+xml"
 
-TITLE = "Functional Health for Men: Root Causes | Odin Health Labs"  # = GHL head title + seo-meta.md (iklinks 2026-10-19)
+TITLE = "Functional Health for Men: Root Causes | Odin Health Lab"  # = GHL head title + seo-meta.md (iklinks 2026-10-19)
 DESC = ("Functional health for men in Canada and the USA: find out why energy, drive, "
         "sleep and mood dropped, from sleep and stress to labs and your plan.")
 assert len(TITLE) <= 60, len(TITLE)
@@ -28,7 +28,7 @@ FAQ = [
  ("How quickly will I feel a difference?",
   "It depends on what is driving your symptoms. Part of your first call is agreeing on what to track so you can see for yourself whether the plan is working."),
  ("Is it fully online, and where do you work with men?",
-  'Yes. Odin Health Labs is telehealth only and serves men across Canada and the USA. Everything happens by secure video or phone, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
+  'Yes. Odin Health Lab is telehealth only and serves men across Canada and the USA. Everything happens by secure video or phone, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
 ]
 
 def plain(s):
@@ -38,10 +38,10 @@ def plain(s):
 ld = {
  "@context": "https://schema.org",
  "@graph": [
-  {"@type": "Organization", "@id": SITE + "/#organization", "name": "Odin Health Labs", "alternateName": "Odin Labs",
+  {"@type": "Organization", "@id": SITE + "/#organization", "name": "Odin Health Lab", "alternateName": "Odin Labs",
    "url": SITE + "/", "logo": LOGO,
    "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]},
-  {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Odin Health Labs", "inLanguage": "en",
+  {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Odin Health Lab", "inLanguage": "en",
    "publisher": {"@id": SITE + "/#organization"}},
   {"@type": "WebPage", "@id": PAGE_URL + "#webpage", "url": PAGE_URL, "name": TITLE, "description": DESC,
    "inLanguage": "en", "isPartOf": {"@id": SITE + "/#website"}, "publisher": {"@id": SITE + "/#organization"},

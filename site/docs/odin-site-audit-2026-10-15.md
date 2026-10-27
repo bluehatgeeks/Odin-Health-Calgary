@@ -1,4 +1,4 @@
-# Odin Health Labs — First Site Audit (SEO + chatbot/LLM readiness + source map)
+# Odin Health Lab — First Site Audit (SEO + chatbot/LLM readiness + source map)
 Date: 2026-10-15 (read-only audit; nothing changed on the site, repo or HighLevel)
 Scope: https://odinhealthlab.ca/ , /owen-lowt , robots.txt, sitemap.xml, llms.txt, repo bluehatgeeks/Odin-Health-Calgary, Mixpanel instrumentation in code.
 Raw fetches saved in /workspace/audit/.
@@ -46,7 +46,7 @@ Raw fetches saved in /workspace/audit/.
 - Canonical none; OG only og:type; no JSON-LD; 0 `<img>` (video thumbnail handled in JS); 2 forms; 4 links (booking widget, AHS, Health Canada, homepage).
 - Duplicate: `/owen` serves identical title/H1/description. No canonical -> two competing URLs. Paid-ad lander; consider noindex or canonical decision (see fixes).
 - Quiz/results/booking content is JS-gated by design (fine for ads), but it means little rankable content. Inline JS 154 KB, inline CSS 82 KB.
-- Brand/entity inconsistencies: "Odin Lab" (title), "Odin Labs", "Odin Health Labs", "Odin Lab Calgary", footer "Odin Labs Functional Health Calgary".
+- Brand/entity inconsistencies: "Odin Lab" (title), "Odin Labs", "Odin Health Lab", "Odin Lab Calgary", footer "Odin Labs Functional Health Calgary".
 
 ## 2. Source-code map
 Repo: github.com/bluehatgeeks/Odin-Health-Calgary (public). Default branch **master** (HEAD 3295f32, 2026-09-22 "remove PEMF, Hydrogen, Marma from Our Therapies menu"). Second branch **main** (3b3b31c) is a much larger monorepo snapshot (362 files incl. Calgary-Local ops, supabase, scripts, Telehealth docs).
@@ -99,10 +99,10 @@ Per owner doc (2026-09-03) compliance is considered in-scope, but these are wort
 (Impact H/M/L, Effort S/M/L; order = recommended execution order.)
 1. **Fill robots.txt + sitemap.xml** (H / S). Currently empty. Add `User-agent: *` Allow, `Sitemap:` line; populate sitemap with the 5–8 pages that should rank (/, /functional-health, /health-coaching, /supplements, /ayurveda, /privacy; exclude ad landers). In GHL: Settings > Business Profile/Domains > SEO or per-page "Include in sitemap". Submit to Google Search Console + Bing.
 2. **Add canonical tags + resolve /owen vs /owen-lowt (and /emma, /quiz) duplicates** (H / S). Canonical to self on all pages; noindex (or 301) the legacy ad landers and decide indexing for /owen-lowt.
-3. **Rewrite homepage title/H1/meta for telehealth Canada+USA + searchable intent** (H / S-M). e.g. title "Online Men's Health & Low-T Support (Canada & USA) | Odin Health Labs". Remove "Calgary"-only framing. H1 should state who/what/where. Needs owner decision on positioning (and compliance wording).
+3. **Rewrite homepage title/H1/meta for telehealth Canada+USA + searchable intent** (H / S-M). e.g. title "Online Men's Health & Low-T Support (Canada & USA) | Odin Health Lab". Remove "Calgary"-only framing. H1 should state who/what/where. Needs owner decision on positioning (and compliance wording).
 4. **Make nav/footer/internal links present in server HTML** (H / M). Inline the nav and footer links (or at minimum a crawlable `<nav>` with plain `<a href>` to /functional-health, /health-coaching, /supplements, /ayurveda, /privacy) rather than JS-only injection; add footer links, breadcrumbs on therapy pages.
 5. **Add JSON-LD structured data** (H / S-M): Organization + MedicalBusiness/ProfessionalService (telehealth, areaServed Canada/USA, sameAs, logo), WebSite, Person (Alexander Tretjakov, credentials as legally permitted), FAQPage on homepage FAQ and therapy pages. Validate with Rich Results Test.
-6. **OpenGraph/Twitter cards + favicon/brand name consistency** (M / S): og:title/description/image/url, `twitter:card=summary_large_image`; unify to one brand name ("Odin Health Labs"). Better social/AI link previews and click-through.
+6. **OpenGraph/Twitter cards + favicon/brand name consistency** (M / S): og:title/description/image/url, `twitter:card=summary_large_image`; unify to one brand name ("Odin Health Lab"). Better social/AI link previews and click-through.
 7. **Create content that can rank: SEO pages/blog** (H / L): keyword research already exists in repo (`07_TECH_STACK/keyword_data/*.json`). Build 6–10 answer-style pages ("Low testosterone symptoms in men over 40", "Andropause vs burnout", "TRT alternatives…", "How telehealth consults work in Canada") with FAQ, author, date, sources. /blog currently 301s to homepage. Needs compliance review first.
 8. **Fix image performance + alt text** (M / S-M): convert 1–1.3 MB homepage PNGs to WebP/AVIF ≤150 KB, add width/height, `loading="lazy"` below the fold, meaningful alt (duplicate hero image has alt=""), remove broken `YOUR_PIXEL_ID` tracking pixel/second fbq init.
 9. **Core Web Vitals pass** (M / M): move/trim 113–154 KB inline JS, defer Mixpanel session replay (lower `record_sessions_percent` and mask quiz inputs), avoid render-blocking jsDelivr CSS (inline critical CSS, or pin to commit SHA with long cache), preload hero. Measure with Lighthouse/PageSpeed first.
@@ -127,7 +127,7 @@ Newsletter
 
 ## 7. Blockers / missing access
 1. **Mixpanel**: no access (connector can't auth from here). Need a service account (username + secret) + project ID, or an exported report. Without it I can't measure traffic, sources, funnels, or baseline.
-2. **HighLevel editing**: logged in as the new user (Odin Health Labs Calgary account) but I have not yet verified what I can edit (Sites > Funnels/Websites > custom code, Settings > SEO/Domains, robots.txt/sitemap/llms.txt location) — this audit was read-only.
+2. **HighLevel editing**: logged in as the new user (Odin Health Lab Calgary account) but I have not yet verified what I can edit (Sites > Funnels/Websites > custom code, Settings > SEO/Domains, robots.txt/sitemap/llms.txt location) — this audit was read-only.
 3. **Google Search Console / Bing Webmaster / GA**: not connected — need ownership verification (DNS or HTML tag via GHL) to see impressions, indexed pages, queries, and submit sitemap. Unknown how many pages are indexed today.
 4. **Lighthouse/CrUX numbers**: not measured (no headless browser run); page-speed items above are static-analysis red flags only.
 5. **GitHub write path**: reading works through cursor-github (connected as @bluehatgeeks, admin on the repo). Any edit should go on a branch/PR; note CDN is pinned to `master` (cache) and live HTML is pasted into GHL manually, so repo changes alone do not change pages.

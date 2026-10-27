@@ -8,11 +8,11 @@ Paste copy: /tmp/srv2/privacy.txt (http://127.0.0.1:8780/privacy.txt). Source: l
 - `policy-text-live.txt`, `policy-text-new.txt`, `policy-text.diff` = text diff old vs new (header + sections 1-14).
 
 ## SEO
-- Title (33, unchanged): `Privacy Policy | Odin Health Labs`
-- Description (151): `How Odin Health Labs collects, uses and protects personal and health information for telehealth clients in Canada and the USA, and your privacy rights.` (also in /workspace/homepage/seo-meta.md)
+- Title (33, unchanged): `Privacy Policy | Odin Health Lab`
+- Description (151): `How Odin Health Lab collects, uses and protects personal and health information for telehealth clients in Canada and the USA, and your privacy rights.` (also in /workspace/homepage/seo-meta.md)
 - Canonical https://odinhealthlab.ca/privacy; og/twitter = title/desc; robots index,follow.
 - JSON-LD: Organization (+ PostalAddress Calgary/AB/CA, ContactPoint email+phone from the live policy, areaServed CA+US), WebSite, WebPage (datePublished 2026-03-19, dateModified 2026-10-15), BreadcrumbList. No FAQPage.
-- The live custom HTML carried a second `<title>` and an old meta description "Privacy Policy for Odin Health Labs — Calgary, AB…" plus og:title. The new page.html carries only the single new head (no Calgary, AB meta). The GHL page-level SEO settings should be set to the title/description above when publishing.
+- The live custom HTML carried a second `<title>` and an old meta description "Privacy Policy for Odin Health Lab — Calgary, AB…" plus og:title. The new page.html carries only the single new head (no Calgary, AB meta). The GHL page-level SEO settings should be set to the title/description above when publishing.
 - Sitemap: /privacy already in /workspace/homepage/sitemap.xml (yearly, 0.2). No file in the sitemap has <lastmod>, so none was added (kept consistent). llms.txt already lists the privacy policy.
 
 ## Policy wording changes (full list; everything else is verbatim)

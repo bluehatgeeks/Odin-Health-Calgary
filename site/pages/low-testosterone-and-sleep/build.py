@@ -8,9 +8,9 @@ from gfx import *
 import common
 
 SLUG = "low-testosterone-and-sleep"
-TITLE = "Low Testosterone, Insomnia and Poor Sleep | Odin Health Labs"
+TITLE = "Low Testosterone, Insomnia and Poor Sleep | Odin Health Lab"
 DESC = "Can low testosterone cause insomnia or poor sleep? What studies show on sleep, sleep apnea and testosterone, if TRT helps sleep, and what men can do."
-OG_ALT = "Odin Health Labs: low testosterone and insomnia, how sleep affects testosterone in men, sleep apnea, shift work and morning testing"
+OG_ALT = "Odin Health Lab: low testosterone and insomnia, how sleep affects testosterone in men, sleep apnea, shift work and morning testing"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -36,8 +36,8 @@ FAQ = [
   'Guidelines ask for an early-morning, fasting draw because testosterone peaks in the morning. In a 2005 study of seven young men, testosterone rose during sleep and fell while awake, and it rose during daytime sleep much as it did at night. So for shift workers, the timing of your main sleep matters for reading the result: tell whoever orders your labs about your rotation and test on a stable stretch. In a 2020 study of 2,571 men at an andrology clinic, shift workers with shift work sleep disorder had lower testosterone and more low-T symptoms. See our <a href="%s/shift">shift work page</a>.' % SITE),
  ("How much sleep should men aim for?",
   "The US National Heart, Lung, and Blood Institute says adults need 7 to 9 hours a night. Its tips: keep the same bed and wake times every day, use the hour before bed for quiet time away from bright screens, avoid heavy meals and alcohol close to bedtime, keep caffeine and nicotine away from the evening, get outside and be active during the day, and keep your bedroom quiet, cool and dark. We turn those into a routine that fits your work and family week."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your sleep, symptoms and lab results with you, build your sleep, training, nutrition and stress plan, and track your progress with follow-up check-ins and repeat labs. If your answers point to sleep apnea, we flag it so you can raise a sleep study with your doctor. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your sleep, symptoms and lab results with you, build your sleep, training, nutrition and stress plan, and track your progress with follow-up check-ins and repeat labs. If your answers point to sleep apnea, we flag it so you can raise a sleep study with your doctor. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

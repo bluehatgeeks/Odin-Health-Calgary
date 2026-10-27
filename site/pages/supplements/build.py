@@ -8,9 +8,9 @@ from common import *
 
 SLUG = "supplements"
 # Verbatim from /workspace/homepage/seo-meta.md (title is 63 chars: see NOTES.md, SEO flag 1)
-TITLE = "Supplements & Herbology for Energy and Drive | Odin Health Labs"
+TITLE = "Supplements & Herbology for Energy and Drive | Odin Health Lab"
 DESC = "Why most supplement stacks fail, and how a structured, evidence-informed plan differs. Supplements and herbs for low energy, drive and recovery."
-OG_ALT = "Odin Health Labs: structured supplement and herbology protocols for men, Canada and USA"
+OG_ALT = "Odin Health Lab: structured supplement and herbology protocols for men, Canada and USA"
 assert len(DESC) <= 160
 
 FAQ = [
@@ -25,7 +25,7 @@ FAQ = [
   ("How quickly will I notice a difference?",
   "People respond differently, so part of your plan is agreeing how you\u2019ll judge whether something is worth continuing. We review it with you at every check-in and keep what is worth keeping."),
  ("Is it fully online, and where do you work with men?",
-  'Yes. Odin Health Labs is telehealth only and serves men across Canada and the USA. Everything happens by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
+  'Yes. Odin Health Lab is telehealth only and serves men across Canada and the USA. Everything happens by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
 ]
 
 GEN_STATIC, GEN_MOTION = [], []

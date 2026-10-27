@@ -7,9 +7,9 @@ sys.path.insert(0, os.path.join(HERE, "..", "_shared"))
 from gfx import *
 
 SLUG = "low-testosterone-age-or-weight"
-TITLE = "Low T: Aging or Weight, Sleep and Stress? | Odin Health Labs"
+TITLE = "Low T: Aging or Weight, Sleep and Stress? | Odin Health Lab"
 DESC = "Is low testosterone from aging or from weight, sleep and stress? What studies show, which labs tell them apart, and what you can change. Canada and USA."
-OG_ALT = "Odin Health Labs: is low testosterone from aging, or from weight, sleep and stress? Guidance for men in Canada and the USA"
+OG_ALT = "Odin Health Lab: is low testosterone from aging, or from weight, sleep and stress? Guidance for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
 FAQ = [
@@ -23,8 +23,8 @@ FAQ = [
   "Sustained stress can. A 2026 review in the Journal of Clinical Endocrinology &amp; Metabolism pulled together military, endurance-athlete and competition studies and concluded that testosterone suppression under sustained stress is commonly a reversible, brain-driven adaptation rather than testicular failure. Severe energy deficit, disrupted sleep and uncontrollable psychological stress turn down the brain&rsquo;s LH signal and often raise SHBG, which lowers free testosterone. The same review found that heavy resistance training did not suppress baseline testosterone when energy intake was sufficient. We build stress, recovery and fueling habits you can keep."),
  ("Which labs show whether it is age or lifestyle?",
   'The AUA guideline defines low testosterone as total testosterone under 300 ng/dL on two early-morning measurements together with symptoms, and recommends measuring LH in every man with a low result. In the European Male Ageing Study, low testosterone with low or normal LH was far more common (11.8 percent of men) than low testosterone with high LH (2.0 percent), and obesity was strongly linked to the low-or-normal-LH pattern. SHBG and free testosterone add context, because obesity lowers SHBG and total testosterone together. We walk you through each result. See our <a href="%s/low-testosterone-labs-to-ask-for">lab guide</a>.' % SITE),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We review your labs with you, work out which levers matter most, build your plan and track your progress. We can share your plan and results with your own doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We review your labs with you, work out which levers matter most, build your plan and track your progress. We can share your plan and results with your own doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

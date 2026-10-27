@@ -7,9 +7,9 @@ sys.path.insert(0, os.path.join(HERE, "..", "_shared"))
 from gfx import *
 
 SLUG = "low-testosterone-labs-to-ask-for"
-TITLE = "Low Testosterone Labs: What to Ask For | Odin Health Labs"
+TITLE = "Low Testosterone Labs: What to Ask For | Odin Health Lab"
 DESC = "What labs should you ask for besides total testosterone? Free T, SHBG, LH, FSH, estradiol, prolactin, hematocrit, PSA, thyroid, A1c and what each shows."
-OG_ALT = "Odin Health Labs: which labs to ask for besides total testosterone, for men in Canada and the USA"
+OG_ALT = "Odin Health Lab: which labs to ask for besides total testosterone, for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
 FAQ = [
@@ -25,8 +25,8 @@ FAQ = [
   "Yes. Ranges depend on the assay, the equipment and the group of people used to set them, so the same result can be flagged differently at two labs. That is why the range printed on your own report is the one that counts, and we read it with you alongside your symptoms and any repeat result."),
  ("Why did my lab's normal testosterone range change?",
   "On July 17, 2017, LabCorp changed its adult male total testosterone range from 348&ndash;1197 ng/dL to 264&ndash;916 ng/dL, and its testing methods stayed the same. The new range comes from a 2017 study that harmonized testosterone results from four cohorts of men in the United States and Europe to a CDC reference method: 264 to 916 ng/dL is the 2.5th to 97.5th percentile in healthy nonobese men aged 19 to 39. So a result that was flagged low before 2017 may now sit inside the range, even though your level is the same. We read your number against the range on your own report and alongside your symptoms."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. A free call helps you work out which labs to ask for and what to do with the results. We review your labs with you, build your plan and track your progress, and we can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. A free call helps you work out which labs to ask for and what to do with the results. We review your labs with you, build your plan and track your progress, and we can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

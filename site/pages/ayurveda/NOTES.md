@@ -5,7 +5,7 @@ Files: `page.html` (self-contained; paste into the GHL custom-code "Main Content
 Same architecture as /health-coaching and /supplements: inline CDN CSS, nav/footer loaders, booking modal from `base_tail.html`, scope class `.pg`, sprite ids `pi-*`, tracking function **`trackCta`** (nothing named `track`). Mixpanel: `mixpanel.track('CTA Click', {cta, page:'ayurveda'})`, guarded; nav "Book Online" reports `nav_book_online`.
 
 ## SEO
-- Title (56): `Ayurveda for Energy, Sleep and Stress | Odin Health Labs`
+- Title (56): `Ayurveda for Energy, Sleep and Stress | Odin Health Lab`
 - Description (158): `Ayurveda uses your constitution to guide diet, daily rhythm and herbs. See how it can support energy, sleep and stress, including for men with low-T symptoms.`
 - Both verbatim from `/workspace/homepage/seo-meta.md`, used identically in `<title>`, meta description, og:* and twitter:*. (The live page already carries this title/description in its head; it also still carries a second, old Calgary meta description, which this page replaces.)
 - H1: "Ayurveda for energy, sleep and stress, built around your constitution". Canonical `https://odinhealthlab.ca/ayurveda`, robots index/follow, og:image `og-home.png`.

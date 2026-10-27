@@ -8,9 +8,9 @@ from common import *
 
 SLUG = "health-coaching"
 # Verbatim from /workspace/homepage/seo-meta.md (title is 62 chars: see NOTES.md, compliance/SEO flag 1)
-TITLE = "Health Coaching for Men with Low-T Symptoms | Odin Health Labs"
+TITLE = "Health Coaching for Men with Low-T Symptoms | Odin Health Lab"
 DESC = "One-on-one health coaching for men with fatigue, low drive and belly fat: sleep, stress, training and nutrition steps you can track. Canada and USA."
-OG_ALT = "Odin Health Labs: one-on-one health coaching for men with low testosterone symptoms, Canada and USA"
+OG_ALT = "Odin Health Lab: one-on-one health coaching for men with low testosterone symptoms, Canada and USA"
 assert len(DESC) <= 160
 
 FAQ = [
@@ -25,7 +25,7 @@ FAQ = [
   ("How quickly will I notice a difference?",
   "It depends on what is behind your symptoms and on how the steps fit your life. What you get is a clear plan, a way to track it and regular check-ins to adjust it."),
  ("Is it fully online, and where do you work with men?",
-  'Yes. Odin Health Labs is telehealth only and serves men across Canada and the USA. Everything happens by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
+  'Yes. Odin Health Lab is telehealth only and serves men across Canada and the USA. Everything happens by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
 ]
 
 # ---------- 1 · HERO: a staircase of five steps, a dot hops up step by step ----------

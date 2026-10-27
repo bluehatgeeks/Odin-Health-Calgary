@@ -1,6 +1,6 @@
 # /trt-cost-canada-vs-usa: answer page 13 (BUILT LOCALLY, not published)
 
-- Title (59): TRT and Testosterone Cost: Canada vs USA | Odin Health Labs
+- Title (59): TRT and Testosterone Cost: Canada vs USA | Odin Health Lab
 - Description (150): TRT cost in Canada vs the USA (Oct 2026): testosterone cypionate, gel and pellet prices, lab test fees, and what provincial plans and insurance cover.
 - Build: `python3 build.py` (page.full.html readable, page.html minified ~141 KB). Template: /trt-side-effects (same pipeline, Safari fix guard).
 - Research and every figure: /workspace/research-trtcost/SOURCES.md (URLs + quoted snippets, fetched 2026-10-16). Raw pages in research-trtcost/raw/.
@@ -36,13 +36,13 @@
 
 ## 2026-10-22 data-led title/intro tweak (fh1022) - built locally, NOT published
 - Why: GSC 28d this page had 19 impressions at avg pos 24.4 (best non-brand page near page 2-3), all price queries: trt cost canada (pos 13), testosterone price (31), testosterone cypionate cost (39), testosterone gel canada price (42), testosterone from canada (52), canadian testosterone (53), canada testosterone (65). Chosen over /functional-health (10 impr, pos 53, queries 'functional health', 'functional health canada', 'holistic ayurveda' = off-topic for low T).
-- Old title 'TRT Cost in Canada vs USA: Labs and Drugs | Odin Health Labs'; old desc 'What TRT costs in Canada vs the USA: lab tests, provincial and insurance coverage, injection, gel and pellet prices, and monitoring. Sourced, Oct 2026.'
+- Old title 'TRT Cost in Canada vs USA: Labs and Drugs | Odin Health Lab'; old desc 'What TRT costs in Canada vs the USA: lab tests, provincial and insurance coverage, injection, gel and pellet prices, and monitoring. Sourced, Oct 2026.'
 - H1 + Article headline: 'How much do TRT and testosterone cost in Canada vs the USA?' (was 'How much does TRT cost in Canada vs the USA?').
 - Short answer: lead 'TRT has two price tags: the testosterone itself and the lab testing around it.'; 'Gels and pellets cost more, often much more.' -> gel prices already on the page (ON generic 1% gel ~$89 CAD/month = 30 x $2.9575; Drugs.com generic 1.62% 88 g pump $55.73-$77.13 USD cash) + 'pellets cost more.'
 - dateModified 2026-10-22. Rebuild also adds Organization sameAs (shared common.py). No new sections, no motion change, no new claims.
 
 ## 2026-10-23 clinic price block (price1023) - built locally, NOT published
-- Source: Alex (owner, Alexander Tretjakov, Founder) on 2026-10-23: TRT clinic pricing is typically about $100-$300 per month, NOT including medication; varies by clinic (visit frequency, extra medication and supplement support). First-hand; attributed on page as the range Odin Health Labs sees across clinics (no outside source). Currency not specified by Alex; copy leaves the range in plain dollars and labels only the drug figure CAD.
+- Source: Alex (owner, Alexander Tretjakov, Founder) on 2026-10-23: TRT clinic pricing is typically about $100-$300 per month, NOT including medication; varies by clinic (visit frequency, extra medication and supplement support). First-hand; attributed on page as the range Odin Health Lab sees across clinics (no outside source). Currency not specified by Alex; copy leaves the range in plain dollars and labels only the drug figure CAD.
 - Hero short answer: + 'Most TRT clinics charge about $100 to $300 a month for visits and monitoring, not counting the medication; the fee varies with how often you're seen and what support is included.' (after the 2022 telehealth sentence).
 - New section id="clinic-fees" between #sample-year and #help: H2 'How much does a TRT clinic cost per month?'; worked example = range + ~$15 CAD/month cypionate (Ontario list, from #sample-year) -> roughly $115 to $315 a month all in, before labs and dispensing fee (labelled our arithmetic); gel line ~$89 CAD/month. Motion graphic (.mg, 560x230): two range bars stretch (cf-b, reuses te-b keyframes) + three tags light in turn (cf-t: visit frequency, extra medication, supplement support). CTA booking-trigger data-cta clinic_book_call (no /owen-lowt).
 - FAQ 6 -> 7: 'How much does TRT cost per month at a clinic?' (2nd), DOM == JSON-LD 1:1. Harness 'FAQ 5-6 Qs' FAIL 7 by design.
@@ -51,5 +51,5 @@
 
 ## 2026-10-26 currency wording + exact-query lead (cur1026) - built locally, NOT published
 - Alex 2026-10-23: the $100-$300/month clinic fee (medication not included) is roughly the same in CAD and USD. Hero short answer, #clinic-fees lead and FAQ 'How much does TRT cost per month at a clinic?' (DOM == JSON-LD) now say 'in either Canadian or US dollars'. Worked example now explicitly 'in our example a Canadian clinic in that range comes to roughly $115 to $315 CAD a month' (CAD + CAD, arithmetic honest); section line 'That is our own arithmetic, not a clinic quote.'; graphic labels 'Clinic fee per month (CAD or USD), medication not included' / 'Our example in CAD: generic cypionate added (about $15 a month)' + aria-label. Drug/lab prices unchanged.
-- GSC 'trt cost canada' pos ~13: title (60) 'TRT Cost in Canada vs USA: Monthly Prices | Odin Health Labs'; desc (149) 'TRT cost in Canada vs the USA per month (Oct 2026): clinic fees, testosterone cypionate, gel and pellet prices, lab tests, and what insurance covers.'; H1 + Article headline 'TRT cost in Canada vs the USA: how much do TRT and testosterone cost?'; dateModified 2026-10-26.
+- GSC 'trt cost canada' pos ~13: title (60) 'TRT Cost in Canada vs USA: Monthly Prices | Odin Health Lab'; desc (149) 'TRT cost in Canada vs the USA per month (Oct 2026): clinic fees, testosterone cypionate, gel and pellet prices, lab tests, and what insurance covers.'; H1 + Article headline 'TRT cost in Canada vs the USA: how much do TRT and testosterone cost?'; dateModified 2026-10-26.
 - Tests: visual 1280+390 identical to pre-change (CLS 0, 0 errors, 0 overflow, 0 offscreen loops, figs 15, anims 151, reduced/no-JS hidden 0); tracking all PASS except harness 'FAQ 5-6 Qs' (7 by design); scan.py PASS 0; mojibake 0. page.html 150,383 B. Backups *.bak-cur1026.

@@ -8,9 +8,9 @@ from gfx import *
 import common
 
 SLUG = "low-testosterone-symptoms"
-TITLE = "Low Testosterone Symptoms in Men | Odin Health Labs"
+TITLE = "Low Testosterone Symptoms in Men | Odin Health Lab"
 DESC = "Low testosterone symptoms in men: low libido, fewer morning erections, fatigue, belly fat, low mood, what mimics them and how low T is confirmed."
-OG_ALT = "Odin Health Labs: low testosterone symptoms in men, the sexual, physical and mood signs of low T and how it is confirmed"
+OG_ALT = "Odin Health Lab: low testosterone symptoms in men, the sexual, physical and mood signs of low T and how it is confirmed"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 158, (len(TITLE), len(DESC))
 
 # extra icons used only on this page (merged before icons_svg() runs inside build())
@@ -32,8 +32,8 @@ FAQ = [
   "Low testosterone is confirmed when consistent symptoms line up with low results on two separate early-morning total testosterone tests. Testosterone peaks in the morning and food lowers it, so the Endocrine Society recommends fasting morning tests and a repeat to confirm; in that guideline, about three in ten men whose first result looked low had a normal result on repeat. The American Urological Association uses a total testosterone below 300 ng/dL on two early-morning tests, and the Canadian Urological Association recommends a morning draw between 7 and 11 a.m. and suggests below 10 nmol/L as a reasonable threshold. LH, free testosterone, SHBG and other labs then help explain why it is low."),
  ("Is andropause the same as low testosterone?",
   "Andropause, or the &ldquo;male menopause,&rdquo; is a popular term rather than a diagnosis. The NHS points out that testosterone falls gradually with age rather than dropping suddenly, and that many midlife symptoms come from stress, sleep, alcohol, weight or mood rather than hormones. The medical term for low testosterone with symptoms later in life is late-onset hypogonadism, and it is identified from symptoms plus blood tests. We use &ldquo;andropause&rdquo; because it is the word many men search for."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, build your sleep, training, nutrition and stress plan, and track your progress over time. We can share your symptom list, plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, build your sleep, training, nutrition and stress plan, and track your progress over time. We can share your symptom list, plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

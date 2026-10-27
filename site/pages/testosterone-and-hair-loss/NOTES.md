@@ -1,12 +1,12 @@
 # /testosterone-and-hair-loss: answer page 15 (BUILT LOCALLY, not published)
 
-- Title (58): Testosterone and Hair Loss: DHT and TRT | Odin Health Labs
+- Title (58): Testosterone and Hair Loss: DHT and TRT | Odin Health Lab
 - Description (153): Does low T or TRT cause hair loss? How DHT and genes drive balding, finasteride and dutasteride on TRT, other causes, and labs for men in Canada and USA.
 - H1: Testosterone and hair loss: what DHT, genes and TRT really do
 - Canonical: https://odinhealthlab.ca/testosterone-and-hair-loss
 - Build: `python3 build.py` (page.full.html readable 159,794 B, page.html minified 149,236 B, under the ~165 KB working budget; GHL save fails ~170 KB). Template: /how-to-raise-testosterone-naturally (same pipeline, Safari fix guard, `var reduce = false`, 0 no-preference queries, hero-entrance `.mg--hero.hero-in.is-paused` running fix).
 - Research and every number: /workspace/research-hairloss/SOURCES.md (URLs + quoted snippets, fetched 2026-10-17). Raw abstracts, FDA label, FDA 2012 Q&A, Health Canada 2026 SSR and MedlinePlus text in research-hairloss/raw/.
-- 14 motion figures (.mg), 17 [data-live] blocks, 22 on-page sources (data-cta source_*), 6 FAQs (last = "How does Odin Health Labs work with my doctor?", the only place doctor words appear), 48 unique data-cta values.
+- 14 motion figures (.mg), 17 [data-live] blocks, 22 on-page sources (data-cta source_*), 6 FAQs (last = "How does Odin Health Lab work with my doctor?", the only place doctor words appear), 48 unique data-cta values.
 
 ## Target queries
 "testosterone and hair loss" / "does testosterone cause hair loss" / "does low T cause hair loss" / "does TRT cause hair loss" / "will TRT make me bald" / "DHT hair loss" / "finasteride and TRT" / "dutasteride with TRT" / "finasteride fertility libido" / "male pattern baldness genetics" / "hair loss labs for men" (Canada + USA).
@@ -24,7 +24,7 @@ Hero T-to-DHT gate + follicles shrinking; growth-phase bars (typical vs DHT-sens
 ## Compliance notes (Alex's standing rules)
 - Positioning: andropause/low-T telehealth for men in Canada and the USA; copy says what Odin does (free call, plan the right tests, read results in plain language, one written plan covering hormones and hair, hair-tracking photos, PSA/hematocrit tracking, coaching). Never claims Odin prescribes TRT, finasteride or dutasteride; medicines described factually.
 - No disclaimer block, no "educational only", no "illustration only", no 911/988 lines, no physician-aware/not-a-treatment wording.
-- Doctor words only in the FAQ "How does Odin Health Labs work with my doctor?" (DOM and JSON-LD). Two citation titles were shortened on page to keep that rule (S14 Walker 2026 shown as "Hair loss: a systematic approach to evaluation and management"; S15 Trost 2006 shown as "Iron deficiency, its treatment and its potential relationship to hair loss"); DOIs unchanged.
+- Doctor words only in the FAQ "How does Odin Health Lab work with my doctor?" (DOM and JSON-LD). Two citation titles were shortened on page to keep that rule (S14 Walker 2026 shown as "Hair loss: a systematic approach to evaluation and management"; S15 Trost 2006 shown as "Iron deficiency, its treatment and its potential relationship to hair loss"); DOIs unchanged.
 - No /owen-lowt links, no assessment CTAs; CTAs = booking modal + organic internal links; trackCta / trackBookingLink only.
 - No PEMF / hydrogen / marma; no Calgary in-clinic wording.
 - Scan rules: no % signs or digit+duration strings ("percent" and spelled-out durations used); no "reverse/reversible", "cure", "guarantee", "proven", "boost testosterone".
