@@ -4,7 +4,7 @@
 
 ## Goal
 
-Collect email (and optional first name) for an Odin Health Labs list about andropause / low testosterone telehealth for men in Canada and the USA, with **explicit consent** suitable for CASL (Canada) and CAN-SPAM (USA).
+Collect email (and optional first name) for an Odin Health Lab list about andropause / low testosterone telehealth for men in Canada and the USA, with **explicit consent** suitable for CASL (Canada) and CAN-SPAM (USA).
 
 ## Recommended GHL form fields
 
@@ -14,7 +14,7 @@ Collect email (and optional first name) for an Odin Health Labs list about andro
 
 ### Suggested checkbox label (plain language)
 
-> I agree to receive emails from Odin Health Labs about men’s low testosterone and andropause telehealth (Canada and USA), including tips, article updates, and occasional offers. I can unsubscribe anytime. Message frequency varies.
+> I agree to receive emails from Odin Health Lab about men’s low testosterone and andropause telehealth (Canada and USA), including tips, article updates, and occasional offers. I can unsubscribe anytime. Message frequency varies.
 
 Optional secondary line under the checkbox (still not a long legal disclaimer block):
 

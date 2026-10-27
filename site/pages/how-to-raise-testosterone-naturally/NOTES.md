@@ -1,10 +1,10 @@
 # /how-to-raise-testosterone-naturally: answer page 14 (BUILT LOCALLY, not published)
 
-- Title (54): How to Raise Testosterone Naturally | Odin Health Labs
+- Title (54): How to Raise Testosterone Naturally | Odin Health Lab
 - Description (151): What raises testosterone without TRT for men 35+: sleep, fat loss, training, alcohol, stress, vitamin D and zinc, and what boosters really do. Sourced.
 - Build: `python3 build.py` (page.full.html readable, page.html minified 148,243 B, under the ~150 KB GHL budget; GHL save fails ~170 KB). Template: /trt-cost-canada-vs-usa (same pipeline, Safari fix guard, `var reduce = false`, 0 no-preference queries).
 - Research and every number: /workspace/research-natural/SOURCES.md (URLs + quoted snippets, fetched 2026-10-16). Raw abstracts/PMC text in research-natural/raw/.
-- 15 motion figures (.mg), 18 [data-live] blocks, 25 on-page sources (data-cta source_*), 6 FAQs (last = "How does Odin Health Labs work with my doctor?", the only place doctor words appear), 51 unique data-cta values.
+- 15 motion figures (.mg), 18 [data-live] blocks, 25 on-page sources (data-cta source_*), 6 FAQs (last = "How does Odin Health Lab work with my doctor?", the only place doctor words appear), 51 unique data-cta values.
 
 ## Sections
 Hero (five-lever gauge) / #levers table (8 rows: lever, what research shows, what to do) / #sleep / #fat-loss / #training / #alcohol / #stress / #medications (incl. sleep apnea) / #vitamin-d-zinc / #boosters / #expect (ruler) / #when-lifestyle-is-not-enough (decision path + book call) / #help (2x2) / #plan (4-step timeline) / #sources / #related (3x2 + home) / #faq / final CTA.

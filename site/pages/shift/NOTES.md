@@ -7,7 +7,7 @@ Files: `page.html` (self-contained, paste into the GHL custom-code "Main Content
 `build.py` also asserts the body copy contains none of: "illustration only", "disclaimer", 911, 988, "physician-aware", "not a treatment", "metabolic", "calgary", "doctor", "physician" (doctor mentions live only in the FAQ, per Alex). `common.assemble()` additionally asserts no Calgary wording in the whole output (CDN repo names excepted).
 
 ## SEO (paste into GHL page settings)
-- **Title (62):** `Shift Work, Low Energy and Low Testosterone | Odin Health Labs`
+- **Title (62):** `Shift Work, Low Energy and Low Testosterone | Odin Health Lab`
 - **Description (151):** `Night and rotating shifts disrupt sleep, stress and hormones and can pull testosterone down. How men on shift work rebuild energy and recovery, online.`
 - Both verbatim from `/workspace/homepage/seo-meta.md`, used identically in `<title>`, meta description, og:* and twitter:*. Title is 2 chars over the 60-char target (seo-meta.md lists it as 62). 57-char drop-in if wanted: `Shift Work, Low Energy and Low Testosterone | Odin Labs`.
 - Canonical `https://odinhealthlab.ca/shift`, robots index/follow, og:image = `og-home.png` (needs `img/og-home.png` in the repo, already committed per PR #1).

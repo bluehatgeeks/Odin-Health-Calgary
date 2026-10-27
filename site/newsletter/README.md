@@ -1,4 +1,4 @@
-# Odin Health Labs — newsletter drafts
+# Odin Health Lab — newsletter drafts
 
 **DRAFTS ONLY.** Do not send any of these without Alex’s explicit approval.
 

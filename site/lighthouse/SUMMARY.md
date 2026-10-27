@@ -1,4 +1,4 @@
-# Lighthouse audit — Odin Health Labs live site (backlog item 8)
+# Lighthouse audit — Odin Health Lab live site (backlog item 8)
 
 Run: 2026-10-15 ~9:07–9:12 PM MDT, Lighthouse 13.5.0, headless Chrome, mobile default (simulated 4G + 4x CPU), categories perf/a11y/bp/seo, cache-buster ?lhcb=. Two runs in parallel, so perf numbers carry some CPU-contention noise. Raw JSON: /workspace/lighthouse/live/*.json
 
