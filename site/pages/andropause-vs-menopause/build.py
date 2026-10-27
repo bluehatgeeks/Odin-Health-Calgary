@@ -8,9 +8,9 @@ from gfx import *
 import common
 
 SLUG = "andropause-vs-menopause"
-TITLE = "Andropause vs Menopause: How They Differ | Odin Health Labs"
+TITLE = "Andropause vs Menopause: How They Differ | Odin Health Lab"
 DESC = "Andropause vs menopause: why testosterone drifts down slowly in men instead of stopping, who gets low T, how symptoms and labs differ and what men can do."
-OG_ALT = "Odin Health Labs: andropause vs menopause, a slow testosterone decline in men compared with the defined end point of menopause"
+OG_ALT = "Odin Health Lab: andropause vs menopause, a slow testosterone decline in men compared with the defined end point of menopause"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 158, (len(TITLE), len(DESC))
 
 # extra icons used only on this page (merged before icons_svg() runs inside build())
@@ -35,8 +35,8 @@ FAQ = [
   "For women aged 45 or over, NICE guidance says menopause is identified from symptoms and periods, usually without blood tests. For men it works the other way round: low testosterone is confirmed only when consistent symptoms line up with low results on two separate fasting, early-morning total testosterone tests. The American Urological Association uses a total testosterone below 300 ng/dL on two early-morning tests, and the Canadian Urological Association suggests below 10 nmol/L as a reasonable threshold. Free testosterone, SHBG and LH help explain borderline results and the cause. See <a href=\"%s/low-testosterone-labs-to-ask-for\">which labs to ask for</a>." % SITE),
  ("What can men do about andropause symptoms?",
   "Start with the things that move testosterone and symptoms. Guidelines name obesity, sleep apnea, acute illness, opioids, glucocorticoids, extreme dieting and extreme exercise as causes to address first, and in the European Male Ageing Study men who lost weight saw their testosterone rise in proportion. Short sleep, stress, heavy drinking and inactivity drive many of the same symptoms. The Endocrine Society suggests against routinely prescribing testosterone to all men 65 or older with low levels, so the first step is a clear picture of your symptoms, labs and habits. See <a href=\"%s/trt-or-fix-causes-first\">TRT or fix the causes first</a>." % SITE),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with andropause and low testosterone symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, build your sleep, training, nutrition and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your symptom list, plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with andropause and low testosterone symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, build your sleep, training, nutrition and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your symptom list, plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

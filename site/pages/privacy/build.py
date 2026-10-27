@@ -10,9 +10,9 @@ from gfx import *
 import common
 
 SLUG = "privacy"
-TITLE = "Privacy Policy | Odin Health Labs"
-DESC = "How Odin Health Labs collects, uses and protects personal and health information for telehealth clients in Canada and the USA, and your privacy rights."
-OG_ALT = "Odin Health Labs Privacy Policy: how we protect personal information for telehealth clients in Canada and the USA"
+TITLE = "Privacy Policy | Odin Health Lab"
+DESC = "How Odin Health Lab collects, uses and protects personal and health information for telehealth clients in Canada and the USA, and your privacy rights."
+OG_ALT = "Odin Health Lab Privacy Policy: how we protect personal information for telehealth clients in Canada and the USA"
 EFFECTIVE, UPDATED = "2026-03-19", "2026-10-15"
 EMAIL, PHONE = "office@odinhealthcoaching.com", "+1-587-324-8710"   # both copied from the live policy (Section 14)
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
@@ -76,7 +76,7 @@ def share():
     s.append(node(46, hy, 26, 'you', 0.1, WHITE, isz=26))
     s.append('<circle class="sh-ring fx" cx="%s" cy="%s" r="38" fill="none" stroke="#c4ff49" stroke-width="2"/>' % (hx, hy))
     s.append(node(hx, hy, 34, 'shield', 0.25, LIME, fill='#142e14', isz=34))
-    s.append('<text x="%s" y="%s" font-size="14" fill="#c4ff49" text-anchor="middle" class="pop" style="--d:0.35">Odin Health Labs</text>' % (hx, hy + 56))
+    s.append('<text x="%s" y="%s" font-size="14" fill="#c4ff49" text-anchor="middle" class="pop" style="--d:0.35">Odin Health Lab</text>' % (hx, hy + 56))
     # not sold
     s.append('<g class="pop t" style="--d:0.8"><circle cx="%s" cy="38" r="20" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" stroke-dasharray="4 5"/>%s</g>' % (hx, ico('tag', hx, 38, 20, 'rgba(255,255,255,0.75)', 1.7)))
     s.append('<g class="sh-x"><path d="M%s 24l28 28M%s 24l-28 28" stroke="#ff8a7a" stroke-width="3" stroke-linecap="round"/></g>' % (hx - 14, hx + 14))
@@ -113,11 +113,11 @@ ENV = ('<rect x="14" y="30" width="92" height="58" rx="8" fill="#142e14" stroke=
 def jsonld():
     url = SITE + "/" + SLUG
     g = [
-     {"@type": "Organization", "@id": SITE + "/#organization", "name": "Odin Health Labs", "alternateName": "Odin Labs", "url": SITE + "/", "logo": LOGO,
+     {"@type": "Organization", "@id": SITE + "/#organization", "name": "Odin Health Lab", "alternateName": "Odin Labs", "url": SITE + "/", "logo": LOGO,
       "address": {"@type": "PostalAddress", "addressLocality": "Calgary", "addressRegion": "AB", "addressCountry": "CA"},
       "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": EMAIL, "telephone": PHONE, "areaServed": ["CA", "US"]},
       "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]},
-     {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Odin Health Labs", "inLanguage": "en", "publisher": {"@id": SITE + "/#organization"}},
+     {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Odin Health Lab", "inLanguage": "en", "publisher": {"@id": SITE + "/#organization"}},
      {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": TITLE, "description": DESC, "inLanguage": "en",
       "isPartOf": {"@id": SITE + "/#website"}, "publisher": {"@id": SITE + "/#organization"}, "about": {"@id": SITE + "/#organization"},
       "breadcrumb": {"@id": url + "#breadcrumb"}, "datePublished": EFFECTIVE, "dateModified": UPDATED, "primaryImageOfPage": OG_IMG},

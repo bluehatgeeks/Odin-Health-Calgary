@@ -10,9 +10,9 @@ import common
 
 SLUG = "ayurveda"
 # Verbatim from /workspace/homepage/seo-meta.md
-TITLE = "Ayurveda for Energy, Sleep and Stress | Odin Health Labs"
+TITLE = "Ayurveda for Energy, Sleep and Stress | Odin Health Lab"
 DESC = "Ayurveda uses your constitution to guide diet, daily rhythm and herbs. See how it can support energy, sleep and stress, including for men with low-T symptoms."
-OG_ALT = "Odin Health Labs: Ayurveda online for energy, sleep and stress, for men in Canada and the USA"
+OG_ALT = "Odin Health Lab: Ayurveda online for energy, sleep and stress, for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -36,7 +36,7 @@ FAQ = [
  ("What happens in the first Ayurvedic session?",
   "A private video or phone call about your energy, sleep, digestion, stress, routine, any medications and what you have already tried. We look at your constitution and your current state, then agree the first one or two changes and what you will track, so you can see for yourself how the plan is working."),
  ("Is it fully online, and where do you work with men?",
-  'Yes. Odin Health Labs is telehealth only and serves men across Canada and the USA. Sessions happen by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
+  'Yes. Odin Health Lab is telehealth only and serves men across Canada and the USA. Sessions happen by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
 ]
 
 # ---------- 1 · HERO: three overlapping dosha circles breathe around you; an outer ring turns ----------

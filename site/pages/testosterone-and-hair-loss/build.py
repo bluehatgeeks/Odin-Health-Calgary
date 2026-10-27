@@ -9,9 +9,9 @@ from gfx import *
 import common
 
 SLUG = "testosterone-and-hair-loss"
-TITLE = "Testosterone and Hair Loss: DHT and TRT | Odin Health Labs"
+TITLE = "Testosterone and Hair Loss: DHT and TRT | Odin Health Lab"
 DESC = "Does low T or TRT cause hair loss? How DHT and genes drive balding, finasteride and dutasteride on TRT, other causes, and labs for men in Canada and USA."
-OG_ALT = "Odin Health Labs: testosterone, DHT and hair loss in men, TRT, finasteride and dutasteride, other causes and labs"
+OG_ALT = "Odin Health Lab: testosterone, DHT and hair loss in men, TRT, finasteride and dutasteride, other causes and labs"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -31,8 +31,8 @@ FAQ = [
   "Trials suggest the two can be combined. When DHT was blocked with dutasteride in 139 men, or with finasteride in 60 older men with low testosterone, testosterone still built muscle, strength and bone, and in the older men finasteride prevented testosterone-driven prostate growth. A 2014 review called the combination safe and effective so far but asked for longer studies. Finasteride lowers PSA, so your PSA baseline and its trend need to be read with that in mind."),
  ("Does finasteride affect fertility or libido?",
   "At the 1 mg hair-loss dose, a study of 181 young men found no significant change in sperm counts over almost a year. The higher 5 mg finasteride dose and dutasteride lowered total sperm counts by 29 to 34 percent at six months in healthy men, changes the authors called mild and likely to recover after stopping. In the main 1 mg trials, sexual side effects were reported by 3.8 percent of men on finasteride and 2.1 percent on placebo; the FDA label also lists sexual side effects that continued after stopping in some men, and both the FDA and Health Canada list mood changes, including suicidal thoughts. TRT itself lowers sperm production, so if children are in your plans, talk this through early."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is an andropause and low testosterone telehealth service for men in Canada and the USA. We work alongside your own doctor: we go through your symptoms, hair history, family history, medications and lab results with you, help you decide which tests to ask your doctor for (such as morning testosterone, thyroid, iron studies and PSA), and build your plan for hormones, sleep, weight and nutrition. Finasteride, dutasteride and TRT are prescription medicines, so we help you prepare clear questions for the doctor who prescribes them, and we can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is an andropause and low testosterone telehealth service for men in Canada and the USA. We work alongside your own doctor: we go through your symptoms, hair history, family history, medications and lab results with you, help you decide which tests to ask your doctor for (such as morning testosterone, thyroid, iron studies and PSA), and build your plan for hormones, sleep, weight and nutrition. Finasteride, dutasteride and TRT are prescription medicines, so we help you prepare clear questions for the doctor who prescribes them, and we can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 
 SRC = [

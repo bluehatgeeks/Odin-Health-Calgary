@@ -7,9 +7,9 @@ sys.path.insert(0, os.path.join(HERE, "..", "_shared"))
 from gfx import *
 
 SLUG = "trt-and-fertility"
-TITLE = "TRT and Fertility: Effects and Options | Odin Health Labs"
+TITLE = "TRT and Fertility: Effects and Options | Odin Health Lab"
 DESC = "Does testosterone therapy affect fertility? How TRT lowers sperm production, whether it recovers, and options like hCG and clomiphene. Canada and USA."
-OG_ALT = "Odin Health Labs: how testosterone therapy affects fertility and the options for men in Canada and the USA"
+OG_ALT = "Odin Health Lab: how testosterone therapy affects fertility and the options for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
 common.ICONS.update({"pause": '<circle cx="12" cy="12" r="9"/><path d="M10 8.5v7M14 8.5v7"/>'})
@@ -25,8 +25,8 @@ FAQ = [
   "hCG products are authorized in both countries: Health Canada lists chorionic gonadotropin products such as Pregnyl, and FDA-approved brands include Novarel and Pregnyl. In the USA, hCG has been regulated as a biologic since March 23, 2020, which ended the pharmacy-compounding exemptions for it. Clomiphene is authorized for women in both countries and used off-label in men. Enclomiphene is not an FDA-approved product, and Health Canada&rsquo;s Drug Product Database has no enclomiphene listing. Rules and stock change, so we check what is available to you where you live."),
  ("Do I need a semen analysis before starting treatment?",
   'If you may want children, it is a sensible baseline. The AUA guideline recommends a reproductive health evaluation before treatment for men with low testosterone who are interested in fertility, including a testicular exam, FSH and a semen analysis where indicated. A baseline also makes later results easier to read. We help you arrange the right tests and go through them with you. See our <a href="%s/low-testosterone-labs-to-ask-for">lab guide</a>.' % SITE),
- ("How does Odin Health Labs work with my doctor and fertility specialists?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We review your labs and semen results with you, map your options around your fertility goals, build your plan and track your progress. We can share your plan and results with your own doctor or a men&rsquo;s fertility specialist if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor and fertility specialists?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We review your labs and semen results with you, map your options around your fertility goals, build your plan and track your progress. We can share your plan and results with your own doctor or a men&rsquo;s fertility specialist if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

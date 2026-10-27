@@ -9,9 +9,9 @@ from gfx import *
 import common
 
 SLUG = "how-to-raise-testosterone-naturally"
-TITLE = "How to Raise Testosterone Naturally | Odin Health Labs"
+TITLE = "How to Raise Testosterone Naturally | Odin Health Lab"
 DESC = "What raises testosterone without TRT for men 35+: sleep, fat loss, training, alcohol, stress, vitamin D and zinc, and what boosters really do. Sourced."
-OG_ALT = "Odin Health Labs: how to raise testosterone naturally with sleep, fat loss, training, alcohol, stress, vitamin D and zinc"
+OG_ALT = "Odin Health Lab: how to raise testosterone naturally with sleep, fat loss, training, alcohol, stress, vitamin D and zinc"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -33,8 +33,8 @@ FAQ = [
   "When testosterone stays low on repeat morning tests after a fair try at the fixable causes and your symptoms persist, or when labs point to a problem in the pituitary or testes. The American Urological Association uses a total testosterone below 300 ng/dL on two early-morning tests, together with symptoms, as its definition of low testosterone."),
  ("Does sauna raise testosterone?",
   "Not in the research so far. In a Finnish study, 10 healthy men sat in an 80&deg;C sauna for one hour twice a day for seven days, and their testosterone, LH and FSH showed no significant change. Growth hormone rose about 16-fold, but that rise faded after the third day. It was a small study, so sauna is better seen as a way to relax and recover than as a testosterone lever."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is an andropause and low testosterone telehealth service for men in Canada and the USA. We work alongside your own doctor: we go through your symptoms, history, medications and lab results with you, help you decide which tests to ask your doctor for, flag medications worth reviewing with whoever prescribes them, and build your sleep, weight, training, stress and nutrition plan. If TRT comes up, we help you prepare clear questions for your doctor. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is an andropause and low testosterone telehealth service for men in Canada and the USA. We work alongside your own doctor: we go through your symptoms, history, medications and lab results with you, help you decide which tests to ask your doctor for, flag medications worth reviewing with whoever prescribes them, and build your sleep, weight, training, stress and nutrition plan. If TRT comes up, we help you prepare clear questions for your doctor. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 
 SRC = [

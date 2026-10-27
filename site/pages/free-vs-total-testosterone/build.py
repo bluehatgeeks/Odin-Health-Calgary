@@ -8,9 +8,9 @@ from gfx import *
 import common
 
 SLUG = "free-vs-total-testosterone"
-TITLE = "Free vs Total Testosterone and SHBG | Odin Health Labs"
+TITLE = "Free vs Total Testosterone and SHBG | Odin Health Lab"
 DESC = "Free vs total testosterone: how SHBG and albumin bind T, normal free T levels, calculated vs dialysis tests and what men in Canada and the USA can do."
-OG_ALT = "Odin Health Labs: free vs total testosterone in men, SHBG, albumin, calculated free T and units"
+OG_ALT = "Odin Health Lab: free vs total testosterone in men, SHBG, albumin, calculated free T and units"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -34,8 +34,8 @@ FAQ = [
   "Ask for SHBG and a calculated free testosterone from the same fasting, early-morning sample. In a 2016 European Male Ageing Study analysis, men with normal total T but low calculated free T had higher SHBG and more sexual and physical symptoms. The Canadian Urological Association (2021) also points to look-alike conditions such as depression, an underactive thyroid and sleep disorders. We go through your symptoms and labs together and plan the next tests and lifestyle steps with you."),
  ("Which free testosterone test is most accurate?",
   "Equilibrium dialysis is the reference method. A free T calculated from total T, SHBG and albumin was almost identical to dialysis in a 1999 study by Vermeulen and colleagues. Direct analog immunoassays gave values that were only a fraction of the dialysis result, and the Endocrine Society says they are inaccurate and should not be used. If your report says direct or analog, ask for a calculated free T or a dialysis test from a reference lab."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, including total T, SHBG, albumin and free T, help you prepare questions such as which free T method to ask for, build your nutrition, training, sleep and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, including total T, SHBG, albumin and free T, help you prepare questions such as which free T method to ask for, build your nutrition, training, sleep and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

@@ -8,9 +8,9 @@ from gfx import *
 import common
 
 SLUG = "when-to-get-checked-for-low-t"
-TITLE = "When to Get Checked for Low T | Odin Health Labs"
+TITLE = "When to Get Checked for Low T | Odin Health Lab"
 DESC = "When low-T symptoms warrant testing: two morning labs, what temporarily lowers T, free T when borderline, and next steps in Canada and the USA."
-OG_ALT = "Odin Health Labs: when to get checked for low testosterone, symptom clusters, two morning labs and next steps"
+OG_ALT = "Odin Health Lab: when to get checked for low testosterone, symptom clusters, two morning labs and next steps"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 158, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -32,8 +32,8 @@ FAQ = [
   "The Endocrine Society and the Canadian Urological Association list causes that suppress testosterone and should be checked alongside the labs: acute illness, opioids and glucocorticoids, nutritional deficiency, obesity, diabetes, sleep apnea and short or broken sleep. Extreme exercise and extreme dieting are also on the Canadian list. Sorting those out matters because a low result during illness or a short stretch of bad sleep may not reflect your usual baseline."),
  ("What happens after the labs?",
   'When total testosterone is borderline, or when something may change SHBG (the protein that carries testosterone), the Endocrine Society recommends checking free testosterone. LH helps classify whether the issue is in the testes (high LH) or the brain&rsquo;s signal (low or normal LH). We go through your symptoms and results with you by telehealth, then build a sleep, training, nutrition and stress plan with follow-up check-ins and repeat labs. See <a href="%s/low-testosterone-labs-to-ask-for">which labs to ask for</a>.' % SITE),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, build your sleep, training, nutrition and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your symptom list, plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, build your sleep, training, nutrition and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your symptom list, plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

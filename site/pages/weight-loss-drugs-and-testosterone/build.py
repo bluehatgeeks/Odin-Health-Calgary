@@ -7,9 +7,9 @@ sys.path.insert(0, os.path.join(HERE, "..", "_shared"))
 from gfx import *
 
 SLUG = "weight-loss-drugs-and-testosterone"
-TITLE = "Tirzepatide, Semaglutide and Testosterone | Odin Health Labs"
+TITLE = "Tirzepatide, Semaglutide and Testosterone | Odin Health Lab"
 DESC = "Does tirzepatide (Mounjaro, Zepbound) or semaglutide (Ozempic, Wegovy) affect testosterone levels in men? SURMOUNT, STEP and Saxenda (liraglutide) studies."
-OG_ALT = "Odin Health Labs: do tirzepatide and semaglutide raise or lower testosterone in men? What the SURMOUNT, STEP and other trials found, for men in Canada and the USA"
+OG_ALT = "Odin Health Lab: do tirzepatide and semaglutide raise or lower testosterone in men? What the SURMOUNT, STEP and other trials found, for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
 FAQ = [
@@ -29,8 +29,8 @@ FAQ = [
   "SHBG, the protein that carries testosterone in the blood, tends to rise as weight falls, and that pulls free testosterone down relative to total. In the 2026 Journal of Sexual Medicine review, free testosterone changes were inconsistent and often offset by rising SHBG. In the ENDO 2025 chart review, the authors stressed that free testosterone should be measured in men with obesity because SHBG moves with weight loss. We read total testosterone, free testosterone and SHBG together, so you see the whole picture."),
  ("Which labs should I get before and during GLP-1 treatment?",
   'A useful panel covers total and free testosterone, SHBG, LH, FSH and estradiol, along with metabolic markers such as A1c. LH and FSH show whether the brain&rsquo;s signal to the testes is staying on, and SHBG explains gaps between total and free testosterone. Many men repeat the panel after meaningful weight change. Our <a href="%s/low-testosterone-labs-to-ask-for">lab guide</a> explains each result in plain language, and we review your numbers with you.' % SITE),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside whoever prescribes your GLP-1 medication: we review your labs with you, build your muscle-protection, sleep and nutrition plan, and track your progress. We can share your plan and results with your own doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside whoever prescribes your GLP-1 medication: we review your labs with you, build your muscle-protection, sleep and nutrition plan, and track your progress. We can share your plan and results with your own doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 def drb(d, delay, dur, stroke, sw):

@@ -12,9 +12,9 @@ from gfx import f, dr, LIME, WHITE, DARK
 
 SLUG = "shift"
 # Verbatim from /workspace/homepage/seo-meta.md (title 62 chars: see NOTES.md, SEO flag 1)
-TITLE = "Shift Work, Low Energy and Low Testosterone | Odin Health Labs"
+TITLE = "Shift Work, Low Energy and Low Testosterone | Odin Health Lab"
 DESC = "Night and rotating shifts disrupt sleep, stress and hormones and can pull testosterone down. How men on shift work rebuild energy and recovery, online."
-OG_ALT = "Odin Health Labs: online support for men on night and rotating shifts with low energy and low-T symptoms, Canada and USA"
+OG_ALT = "Odin Health Lab: online support for men on night and rotating shifts with low energy and low-T symptoms, Canada and USA"
 assert len(DESC) <= 160
 
 BC_URL = "https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/bc-guidelines/testosterone-testing"
@@ -37,7 +37,7 @@ FAQ = [
   ("Will this fit around my schedule?",
    "Yes. Calls and messages are booked around your rotation, including before or after nights, and your plan is written for the schedule you work. When your rotation changes, your plan changes with it."),
   ("Is it fully online, and where do you work with men?",
-   'Yes. Odin Health Labs is telehealth only and serves men across Canada and the USA. Everything happens by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
+   'Yes. Odin Health Lab is telehealth only and serves men across Canada and the USA. Everything happens by secure video, phone and message, so there are no clinic visits. See our <a href="%s/">low testosterone and andropause overview</a> for how the service works, or read our <a href="%s/privacy">Privacy Policy</a> for how we protect your information.' % (SITE, SITE)),
 ]
 
 ST, MO = [], []   # generated static (final-state) and motion CSS

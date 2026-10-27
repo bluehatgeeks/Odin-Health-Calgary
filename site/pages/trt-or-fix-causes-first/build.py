@@ -7,9 +7,9 @@ sys.path.insert(0, os.path.join(HERE, "..", "_shared"))
 from gfx import *
 
 SLUG = "trt-or-fix-causes-first"
-TITLE = "TRT or Fix the Causes of Low T First? | Odin Health Labs"
+TITLE = "TRT or Fix the Causes of Low T First? | Odin Health Lab"
 DESC = "Should you start TRT or fix the causes of low testosterone first? The trade-offs, TRAVERSE findings, reversible causes and how to decide what comes first."
-OG_ALT = "Odin Health Labs: should you start TRT or fix the causes of low testosterone first? A step-by-step guide for men in Canada and the USA"
+OG_ALT = "Odin Health Lab: should you start TRT or fix the causes of low testosterone first? A step-by-step guide for men in Canada and the USA"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
 FAQ = [
@@ -23,8 +23,8 @@ FAQ = [
   "Sometimes they help. It depends on what is behind the low result: sleep, weight, alcohol, a medication or sleep apnea can all play a part, while some causes aren\u2019t lifestyle-related at all. We help you work on the causes that can be changed and recheck your levels afterwards, so you can see where you stand."),
   ("How long should I work on the causes before considering TRT?",
   "There isn\u2019t one right answer. It depends on your symptoms, how low your results are and what the cause turns out to be. We help you set a review date and a recheck, so the decision doesn\u2019t drift."),
-  ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. A free call helps you work out where to start and what to ask. We review your labs with you, build your plan and track your progress, and we can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+  ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. A free call helps you work out where to start and what to ask. We review your labs with you, build your plan and track your progress, and we can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

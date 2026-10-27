@@ -9,9 +9,9 @@ from gfx import *
 import common
 
 SLUG = "trt-side-effects"
-TITLE = "TRT Side Effects: Full List and Lab Tests | Odin Health Labs"
+TITLE = "TRT Side Effects: Full List and Lab Tests | Odin Health Lab"
 DESC = "TRT side effects in men: hematocrit, acne, PSA, estradiol, fertility, sleep apnea, fluid retention and heart risk, with the lab checks and limits used."
-OG_ALT = "Odin Health Labs: TRT side effects in men, the full list with hematocrit, PSA, estradiol, fertility and heart risk, and the lab checks and limits used"
+OG_ALT = "Odin Health Lab: TRT side effects in men, the full list with hematocrit, PSA, estradiol, fertility and heart risk, and the lab checks and limits used"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -39,8 +39,8 @@ FAQ = [
   "The Endocrine Society&rsquo;s 2018 plan checks hematocrit before starting, at three to six months and then yearly, and testosterone at three to six months, aiming for the middle of the normal range; with cypionate or enanthate injections, the level is measured midway between doses and the dose adjusted if it is above 600 or below 350 ng/dL. Men 55 to 69, or 40 to 69 at higher risk, who choose prostate monitoring have PSA checked before starting and at three to twelve months, with a closer prostate work-up if PSA rises more than 1.4 ng/mL within the first year or is confirmed above 4.0. The Canadian Urological Association&rsquo;s 2021 guideline monitors at baseline, three months, six months and then yearly. We add estradiol, lipids and blood pressure, and go through every result with you."),
  ("Can TRT cause water retention, swelling or mood swings?",
   "It can. The Endocrine Society&rsquo;s 2018 guideline notes that testosterone can cause fluid retention and swelling (edema) and can make swelling from heart failure or other conditions worse, and in 2025 the FDA added a class-wide warning about blood pressure increases. Swings in mood or libido are listed as a side effect of injections, where levels peak after each dose and fall before the next. Steadier dosing, a different form and checking levels midway between injections help, and we track weight, swelling and blood pressure with you at check-ins."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms, history and lab results with you, help you prepare questions about TRT side effects and monitoring, build your nutrition, training, sleep and stress plan, and track hematocrit, PSA, estradiol, lipids and blood pressure with you at follow-up check-ins, using the Endocrine Society&rsquo;s monitoring plan as the checklist. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms, history and lab results with you, help you prepare questions about TRT side effects and monitoring, build your nutrition, training, sleep and stress plan, and track hematocrit, PSA, estradiol, lipids and blood pressure with you at follow-up check-ins, using the Endocrine Society&rsquo;s monitoring plan as the checklist. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

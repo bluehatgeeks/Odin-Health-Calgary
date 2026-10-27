@@ -9,9 +9,9 @@ from gfx import *
 import common
 
 SLUG = "testosterone-calculator"
-TITLE = "ISSAM Calculator: Free and Bioavailable Testosterone | Odin Labs"  # issam1026 (was: Testosterone Calculator: Free T and Units | Odin Health Labs)
+TITLE = "ISSAM Calculator: Free and Bioavailable Testosterone | Odin Labs"  # issam1026 (was: Testosterone Calculator: Free T and Units | Odin Health Lab)
 DESC = "Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter."
-OG_ALT = "Odin Health Labs testosterone calculator: ng/dL to nmol/L converter and free testosterone calculator"
+OG_ALT = "Odin Health Lab testosterone calculator: ng/dL to nmol/L converter and free testosterone calculator"
 assert len(TITLE) <= 65 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -33,8 +33,8 @@ FAQ = [
   "There is no single harmonized range: the Endocrine Society notes that labs set their own limits and results depend on the method. The European Male Ageing Study (New England Journal of Medicine, 2010) used a free T below 220 pmol/L (64 pg/mL), with total T below 11 nmol/L and at least three sexual symptoms, to define late-onset hypogonadism. The LifeLabs reference laboratory in British Columbia lists a calculated free T range of 115 to 577 pmol/L for men. Check the unit and the method on your report before you compare."),
  ("Why do Canadian and US labs use different testosterone units?",
   "Canada moved health care lab reporting to SI units, which count molecules in moles per litre, in the early 1980s, so total testosterone is reported in nmol/L and free T in pmol/L. The United States kept conventional mass units, so its reports show ng/dL and pg/mL. It is the same hormone measured with a different ruler: 1 nmol/L equals 28.84 ng/dL. We line up results from both countries in one unit when we review your labs with you."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, put results from Canadian and US labs into one unit, check how your free T was measured or calculated, help you prepare questions for your next appointment, build your nutrition, training, sleep and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, put results from Canadian and US labs into one unit, check how your free T was measured or calculated, help you prepare questions for your next appointment, build your nutrition, training, sleep and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 F28, P3 = 28.84, 3.467

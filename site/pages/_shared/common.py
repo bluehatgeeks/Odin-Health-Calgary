@@ -60,9 +60,9 @@ def faq_html(faq):
 def jsonld(slug, title, desc, about, crumb, faq):
     url = SITE + "/" + slug
     g = [
-     {"@type": "Organization", "@id": SITE + "/#organization", "name": "Odin Health Labs", "alternateName": "Odin Labs",
+     {"@type": "Organization", "@id": SITE + "/#organization", "name": "Odin Health Lab", "alternateName": "Odin Labs",
       "url": SITE + "/", "sameAs": ["https://x.com/odinhealthlab", "https://www.linkedin.com/company/odin-health-lab/"], "logo": LOGO, "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]},
-     {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Odin Health Labs", "inLanguage": "en",
+     {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Odin Health Lab", "inLanguage": "en",
       "publisher": {"@id": SITE + "/#organization"}},
      {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": title, "description": desc, "inLanguage": "en",
       "isPartOf": {"@id": SITE + "/#website"}, "publisher": {"@id": SITE + "/#organization"},

@@ -1,13 +1,13 @@
-# Odin Health Labs
+# Odin Health Lab
 
-> Odin Health Labs is a telehealth practice serving men in Canada and the USA who have low testosterone (andropause) symptoms: fatigue, low drive, stubborn belly fat, poor sleep, brain fog and irritability. Everything is delivered online by video or phone. There is no clinic visit. The practice began in Calgary, Alberta, and is now telehealth only.
+> Odin Health Lab is a telehealth practice serving men in Canada and the USA who have low testosterone (andropause) symptoms: fatigue, low drive, stubborn belly fat, poor sleep, brain fog and irritability. Everything is delivered online by video or phone. There is no clinic visit. The practice began in Calgary, Alberta, and is now telehealth only.
 
 Key facts for assistants answering questions about this site:
 - Audience: men experiencing symptoms commonly associated with low testosterone or andropause.
 - Service area: Canada and the United States, online only.
 - Starting point: a free symptom assessment at https://odinhealthlab.ca/owen-lowt, followed by an optional free call.
 - Approach: identify the likely reasons testosterone may be low (metabolic strain, stress and illness, medications, other hormones) and build a plan around sleep, stress, training, nutrition and targeted support.
-- Odin Health Labs gives men a clear plan: lab review, lifestyle and targeted support, and ongoing follow-up, all online.
+- Odin Health Lab gives men a clear plan: lab review, lifestyle and targeted support, and ongoing follow-up, all online.
 - Founder: Alexander Tretjakov, working in the health industry since 1998.
 - Contact: office@odinhealthcoaching.com
 

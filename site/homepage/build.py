@@ -6,9 +6,11 @@ OG_IMG = "https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/im
 LOGO = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zJaxLUStVkljpkn9qddd/media/69feb24f-b3d0-45e6-b747-20dc1d2eb84d.svg+xml"
 FOUNDER_IMG = "https://assets.cdn.filesafe.space/Q6uTvwNHOg3F0JyLXiUV/media/69a742d5f183822a40a28166.png"
 
-TITLE = "Low T & Andropause Telehealth for Men | Odin Health Labs"
-DESC = ("Telehealth for men in Canada and the USA with low testosterone (andropause) symptoms: "
-        "fatigue, low drive, belly fat, poor sleep. Take a free assessment.")
+# 2026-10-27 brand1027: lead with the GBP brand "Odin Health Lab" (brand query 'odin' pos 3.9, 0 clicks)
+TITLE = "Odin Health Lab: Low Testosterone & Men's Health Telehealth"
+DESC = ("Odin Health Lab: telehealth for men in Canada and the USA with low testosterone (andropause) "
+        "symptoms: fatigue, low drive, poor sleep. Free assessment.")
+assert len(TITLE) <= 60 and len(DESC) <= 155, (len(TITLE), len(DESC))
 
 FAQ = [
  ("What is andropause, and is it the same as low testosterone?",
@@ -18,11 +20,11 @@ FAQ = [
  ("My labs came back \u201cnormal.\u201d Can low testosterone still be the problem?",
   "It can be worth a second look. Many standard panels report total testosterone only, while free testosterone, the portion your body can actually use, is a separate measurement. A number inside the reference range doesn't always settle the question. It helps to ask which test was run, and we can walk you through it on a call."),
  ("Who will I speak with, and how do you work with my doctor?",
-  "You'll speak privately, by video or phone, with a clinician from the Odin Health Labs team. We work alongside your family doctor: we can share your plan with them, help you prepare questions for appointments and bring your results to the conversation."),
+  "You'll speak privately, by video or phone, with a clinician from the Odin Health Lab team. We work alongside your family doctor: we can share your plan with them, help you prepare questions for appointments and bring your results to the conversation."),
  ("What do you actually do about low testosterone?",
   "We look for the reasons testosterone may be low, then build a plan around your pattern: sleep, stress load, training, nutrition and targeted support, adjusted as we learn what is working, with regular check-ins."),
  ("Where do you work with men, and is it fully online?",
-  "Odin Health Labs is telehealth only and serves men across Canada and the USA. Everything happens by secure video or phone, so there is no clinic visit."),
+  "Odin Health Lab is telehealth only and serves men across Canada and the USA. Everything happens by secure video or phone, so there is no clinic visit."),
  ("How quickly will I notice a change?",
   "It depends on what is driving your symptoms, so we won't promise a timeline. Part of your first call is agreeing on what to track so you can see for yourself whether the plan is working."),
  ("What if I'm not a good fit?",
@@ -38,7 +40,7 @@ ld = {
   {
    "@type": "Organization",
    "@id": SITE + "/#organization",
-   "name": "Odin Health Labs",
+   "name": "Odin Health Lab",
    "alternateName": "Odin Labs",
    "url": SITE + "/",
    "sameAs": ["https://x.com/odinhealthlab", "https://www.linkedin.com/company/odin-health-lab/"],
@@ -55,7 +57,7 @@ ld = {
    "@type": "WebSite",
    "@id": SITE + "/#website",
    "url": SITE + "/",
-   "name": "Odin Health Labs",
+   "name": "Odin Health Lab",
    "description": DESC,
    "inLanguage": "en",
    "publisher": {"@id": SITE + "/#organization"}

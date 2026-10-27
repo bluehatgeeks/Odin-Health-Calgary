@@ -7,9 +7,9 @@ sys.path.insert(0, os.path.join(HERE, "..", "_shared"))
 from gfx import *
 
 SLUG = "peptides-canada-usa"
-TITLE = "Peptides for Men in Canada and the USA | Odin Health Labs"
+TITLE = "Peptides for Men in Canada and the USA | Odin Health Lab"
 DESC = "Peptide status for men in Canada and the USA: Health Canada advisory, FDA compounding rules, quality risks, and how Odin helps with labs and plans."
-OG_ALT = "Odin Health Labs: are peptides legal and available for men in Canada and the USA? Regulatory status and what to ask"
+OG_ALT = "Odin Health Lab: are peptides legal and available for men in Canada and the USA? Regulatory status and what to ask"
 assert len(TITLE) <= 60 and len(DESC) <= 160, (len(TITLE), len(DESC))
 
 FAQ = [
@@ -21,10 +21,10 @@ FAQ = [
   "Health Canada&rsquo;s April 9, 2026 public advisory (identification number RA-81874) warned consumers not to buy or use unauthorized injectable peptide drugs marketed online for anti-aging, weight loss, bodybuilding, recovery, sleep, focus or wellness. Examples of unauthorized products Health Canada reported seizing include BPC-157, CJC-1295, Ipamorelin, Melanotan I and II, TB-500, MOTS-C, Epitalon and others. Risks named in the advisory include hormonal imbalance, blood sugar imbalance, liver or kidney damage, blood clots, infections, contaminants and unknown or unlisted ingredients. Health Canada is working with the Canada Border Services Agency to stop unauthorized shipments."),
  ("What about FDA compounding rules for peptides?",
   "FDA&rsquo;s January 2025 interim guidances describe when state-licensed pharmacies (503A) and outsourcing facilities (503B) may compound using bulk drug substances while FDA develops its bulks lists. Substances that present significant safety risks appear in Category 2 and are outside the compounding policy. FDA&rsquo;s public list includes several growth-hormone&ndash;related peptides among those concerns. In July 2026, FDA&rsquo;s Pharmacy Compounding Advisory Committee discussed several peptide bulk substances nominated for the 503A bulks list. A committee recommendation is advisory only; it does not by itself place a substance on the list or change the rules. FDA decides through formal rulemaking, and compounding status can drift as evaluations continue."),
- ("Does Odin Health Labs prescribe or sell peptides?",
-  "No. Odin Health Labs does not prescribe peptides or any drug, and we do not sell injectable research chemicals. We help men in Canada and the USA who have low testosterone (andropause) symptoms clarify what they are asking about, review their labs, and build a sleep, stress, training and nutrition plan online. If a man is considering an authorized prescription medicine with his own doctor or pharmacist, we can help him prepare questions and track labs around that decision."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we review your labs with you, build your sleep, stress, training and nutrition plan, and track your progress. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("Does Odin Health Lab prescribe or sell peptides?",
+  "No. Odin Health Lab does not prescribe peptides or any drug, and we do not sell injectable research chemicals. We help men in Canada and the USA who have low testosterone (andropause) symptoms clarify what they are asking about, review their labs, and build a sleep, stress, training and nutrition plan online. If a man is considering an authorized prescription medicine with his own doctor or pharmacist, we can help him prepare questions and track labs around that decision."),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we review your labs with you, build your sleep, stress, training and nutrition plan, and track your progress. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 

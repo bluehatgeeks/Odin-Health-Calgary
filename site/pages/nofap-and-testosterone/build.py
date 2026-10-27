@@ -8,9 +8,9 @@ from gfx import *
 import common
 
 SLUG = "nofap-and-testosterone"
-TITLE = "NoFap and Testosterone: The Day 7 Myth | Odin Health Labs"
+TITLE = "NoFap and Testosterone: The Day 7 Myth | Odin Health Lab"
 DESC = "Testosterone peaking after seven days of NoFap comes from a 28-man study retracted in 2021. What it found, and what ejaculation means for the prostate."
-OG_ALT = "Odin Health Labs: does NoFap raise testosterone, the retracted day 7 study, and ejaculation frequency and prostate cancer"
+OG_ALT = "Odin Health Lab: does NoFap raise testosterone, the retracted day 7 study, and ejaculation frequency and prostate cancer"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
 common.ICONS.update({
@@ -30,8 +30,8 @@ FAQ = [
   "The retraction notice does not say that. It gives one reason: the 2003 English paper significantly overlapped a 2002 paper published in Chinese by the lead author. Two of the four authors agreed to the retraction, and the editor could not reach the other two. The notice does not question the data, but a retracted paper is no longer part of the reliable record."),
  ("Is ejaculating often linked to lower prostate cancer risk?",
   "In one large study, yes. Among 31,925 US men in the Health Professionals Follow-up Study, followed from 1992 to 2010, men who reported 21 or more ejaculations a month had about a 20 percent lower risk of prostate cancer than men who reported 4 to 7 (hazard ratio 0.81 for frequency at ages 20 to 29, and 0.78 at ages 40 to 49). The link was driven by lower-risk cancers. The study is observational, so it shows a link, not proof that ejaculating more prevents cancer."),
- ("How does Odin Health Labs work with my doctor?",
-  'Odin Health Labs is an andropause and low testosterone telehealth service for men in Canada and the USA. We work alongside your own doctor: we go through your symptoms, sleep, weight, stress, medications and any lab results with you, help you decide which tests to ask your doctor for (such as two early-morning total testosterone tests, and PSA when it fits your age and history), and build your plan. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+ ("How does Odin Health Lab work with my doctor?",
+  'Odin Health Lab is an andropause and low testosterone telehealth service for men in Canada and the USA. We work alongside your own doctor: we go through your symptoms, sleep, weight, stress, medications and any lab results with you, help you decide which tests to ask your doctor for (such as two early-morning total testosterone tests, and PSA when it fits your age and history), and build your plan. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 
 SRC = [
