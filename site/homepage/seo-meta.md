@@ -3,8 +3,10 @@
 Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 + real title) except where noted. Paste into each page's SEO settings in GoHighLevel. Canonical for each = its own URL.
 
 ## Home  `/`
-- Title (56): Low T & Andropause Telehealth for Men | Odin Health Labs
-- Description (152): Telehealth for men in Canada and the USA with low testosterone (andropause) symptoms: fatigue, low drive, belly fat, poor sleep. Take a free assessment.
+- Title (59): Odin Health Lab: Low Testosterone & Men's Health Telehealth
+- Description (151): Odin Health Lab: telehealth for men in Canada and the USA with low testosterone (andropause) symptoms: fatigue, low drive, poor sleep. Free assessment.
+- Previous (live until the 2026-10-27 brand1027 republish): Title (56) Low T & Andropause Telehealth for Men | Odin Health Labs; Description (152) Telehealth for men in Canada and the USA with low testosterone (andropause) symptoms: fatigue, low drive, belly fat, poor sleep. Take a free assessment.
+- 2026-10-27 brand1027: brand-CTR lead (backlog Oct 26 decision; GSC brand query 'odin' ~31 impr at pos 3.9 with 0 clicks, 'odin labs testosterone' on several URLs). Title and description now start with the Google Business Profile name 'Odin Health Lab' (singular). No new claims ('belly fat' dropped for length). The homepage Custom Code carries its own <title>, meta description, og/twitter and JSON-LD WebPage name/description, so those are updated in home.html too (H1 and body copy unchanged). Enter the new title AND desc in the GHL Home step 'SEO & AI search optimization' panel when republishing.
 - Note: 2026-10-16 shortened (title was 64, desc 158; Bing flagged length). Set the same values in the GHL Home step SEO settings.
 
 ## PEMF  `/pemf`
