@@ -9,7 +9,7 @@ from gfx import *
 import common
 
 SLUG = "testosterone-calculator"
-TITLE = "ISSAM Calculator: Free and Bioavailable Testosterone | Odin Labs"  # issam1026 (was: Testosterone Calculator: Free T and Units | Odin Health Lab)
+TITLE = "ISSAM Calculator: Free and Bioavailable Testosterone"  # calc1027: brand suffix dropped ('| Odin Health Lab' = 70 chars / ~623px, truncates); was issam1026 '... | Odin Labs', before that 'Testosterone Calculator: Free T and Units | Odin Health Lab'
 DESC = "Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter."
 OG_ALT = "Odin Health Lab testosterone calculator: ng/dL to nmol/L converter and free testosterone calculator"
 assert len(TITLE) <= 65 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
@@ -264,6 +264,10 @@ ld["@graph"].insert(4, {"@type": "WebApplication", "@id": url + "#app", "name": 
 ldj = json.dumps(ld, ensure_ascii=False, indent=2).replace("</", "<\\/")
 full = full[:m.start(2)] + ldj + full[m.end(2):]
 open(p, "w", encoding="utf-8").write(full)
+
+# ---- calc1027: no in-body <title> on this page (the GHL SEO panel sets the one <head> title; og/twitter/meta desc/canonical stay in-body) ----
+full, ntitle = re.subn(r'<title>[^<]*</title>\n', '', full, count=1)
+assert ntitle == 1 and '<title' not in full, ntitle
 
 # ---- minify for HighLevel (keeps page.full.html): strip CSS comments, line indentation and blank lines outside <script> ----
 open(os.path.join(HERE, "page.full.html"), "w", encoding="utf-8").write(full)

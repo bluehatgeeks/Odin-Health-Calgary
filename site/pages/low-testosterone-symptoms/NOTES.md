@@ -39,3 +39,5 @@ Keep reading gained a 10th card "Andropause vs menopause" (data-cta related_andr
 - Staged http://127.0.0.1:8780/low-testosterone-symptoms-ins1023.txt. Marker: data-cta="insomnia_link_symptoms".
 ### GHL ids (live funnel step list)
 Step 'Low Testosterone Symptoms': step id 3d3af27c-b25e-4815-af50-eb2ef76b8c34, page/builder id u09dxOICeQmDprm4RXRy, sequence 22. Republish = paste :8780/low-testosterone-symptoms-ins1023.txt into the Custom Code only element.
+
+- 2026-10-27 calc1027: in-prose link to /testosterone-calculator, anchor "testosterone calculator", class text-link, data-cta diagnosis_calc_link. No other change.
