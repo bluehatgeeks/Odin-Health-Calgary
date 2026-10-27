@@ -6,9 +6,11 @@ OG_IMG = "https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/im
 LOGO = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zJaxLUStVkljpkn9qddd/media/69feb24f-b3d0-45e6-b747-20dc1d2eb84d.svg+xml"
 FOUNDER_IMG = "https://assets.cdn.filesafe.space/Q6uTvwNHOg3F0JyLXiUV/media/69a742d5f183822a40a28166.png"
 
-TITLE = "Low T & Andropause Telehealth for Men | Odin Health Labs"
-DESC = ("Telehealth for men in Canada and the USA with low testosterone (andropause) symptoms: "
-        "fatigue, low drive, belly fat, poor sleep. Take a free assessment.")
+# 2026-10-27 brand1027: lead with the GBP brand "Odin Health Lab" (brand query 'odin' pos 3.9, 0 clicks)
+TITLE = "Odin Health Lab: Low Testosterone & Men's Health Telehealth"
+DESC = ("Odin Health Lab: telehealth for men in Canada and the USA with low testosterone (andropause) "
+        "symptoms: fatigue, low drive, poor sleep. Free assessment.")
+assert len(TITLE) <= 60 and len(DESC) <= 155, (len(TITLE), len(DESC))
 
 FAQ = [
  ("What is andropause, and is it the same as low testosterone?",
