@@ -1,0 +1,133 @@
+/* === /trt-cost-canada-vs-usa graphics. Static block = FINAL state (no-JS and reduced-motion see this). === */
+.pg .hs-c, .pg .hs-t, .pg .dv-l, .pg .cl-x, .pg .pv-p, .pg .pv-n, .pg .fm-p, .pg .ul-l, .pg .ul-m, .pg .te-n, .pg .cf-t, .pg .mo-n, .pg .mo-c, .pg .mo-t, .pg .yr-s, .pg .yr-r, .pg .hp-r, .pg .fn-ring, .pg .fn-sh, .pg .fq-dp, .pg .fq-fr { transform-box: fill-box; transform-origin: center; }
+.pg .hs-bm { transform-box: view-box; transform-origin: 240px 80px; }
+.pg .pr-b, .pg .te-b, .pg .cf-b { transform-box: fill-box; transform-origin: 0 50%; }
+.pg .fm-ph { transform: translateX(410px); opacity: 0.5; }
+.pg .fn-ring { opacity: 0; }
+.pg .mg-svg { text-anchor: middle; }
+/* lab table: four columns on desktop, stacked rows with labels on phones */
+.pg .cmp-card { max-width: 940px; margin: 0 auto; padding: 8px 10px; text-align: left; }
+.pg .cmp { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 1rem; line-height: 1.5; color: var(--white-800); }
+.pg .cmp-cap { caption-side: top; text-align: left; padding: 10px 12px 6px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime-green); }
+.pg .cmp th, .pg .cmp td { padding: 12px; vertical-align: top; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.08); overflow-wrap: break-word; }
+.pg .cmp thead th { font-size: 0.95rem; font-weight: 800; color: var(--lime-green); border-bottom: 1px solid var(--lime-line); }
+.pg .cmp thead th:first-child { width: 20%; }
+.pg .cmp tbody th { font-weight: 800; color: var(--white); }
+.pg .cmp tbody tr:last-child th, .pg .cmp tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 680px) {
+  .pg .cmp, .pg .cmp tbody, .pg .cmp tr, .pg .cmp th, .pg .cmp td { display: block; width: auto; }
+  .pg .cmp thead { display: none; }
+  .pg .cmp caption { display: block; }
+  .pg .cmp tbody tr { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .pg .cmp tbody tr:last-child { border-bottom: 0; }
+  .pg .cmp tbody th { padding: 4px 12px 2px; border: 0; color: var(--lime-green); }
+  .pg .cmp td { padding: 6px 12px; border: 0; }
+  .pg .cmp td::before { content: attr(data-label); display: block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); opacity: 0.7; }
+}
+.pg .wc-ring { transform-box: fill-box; transform-origin: center; opacity: 0; }
+.pg .byline { margin: 10px 0 0; font-size: 0.95rem; color: rgba(255,255,255,0.75); }
+.pg .byline strong { color: var(--white); }
+/*@GEN_STATIC*/
+
+@media all {
+  .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
+  @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
+
+  /* hero: the beam rocks, pans ride with it, coins drop in, cost tags light in turn */
+  .js-reveal .pg .hs-bm { animation: hs-bm 6s ease-in-out infinite; }
+  @keyframes hs-bm { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+  .js-reveal .pg .hs-pl { animation: hs-pl 6s ease-in-out infinite; }
+  @keyframes hs-pl { 0%, 100% { transform: translateY(11px); } 50% { transform: translateY(-11px); } }
+  .js-reveal .pg .hs-pr { animation: hs-pr 6s ease-in-out infinite; }
+  @keyframes hs-pr { 0%, 100% { transform: translateY(-11px); } 50% { transform: translateY(11px); } }
+  .js-reveal .pg .hs-c { animation: hs-c 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 1.2s - 8s); }
+  @keyframes hs-c { 0% { opacity: 0; transform: translateY(-60px); } 8%, 84% { opacity: 1; transform: none; } 94%, 100% { opacity: 0; transform: translateY(4px); } }
+  .js-reveal .pg .hs-t { animation: hs-t 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  @keyframes hs-t { 0%, 25%, 100% { opacity: 0.55; transform: none; } 6%, 19% { opacity: 1; transform: translateY(-3px); } }
+
+  /* drivers: ring segments and their legend rows light in turn */
+  .js-reveal .pg .dv-a { animation: dv-a 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  @keyframes dv-a { 0%, 25%, 100% { opacity: 0.3; } 5%, 20% { opacity: 1; } }
+  .js-reveal .pg .dv-l { animation: dv-l 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  @keyframes dv-l { 0%, 25%, 100% { opacity: 0.55; transform: none; } 5%, 20% { opacity: 1; transform: translateX(4px); } }
+
+  /* Canada labs: each route box glows as its dot arrives */
+  .js-reveal .pg .cl-x { animation: cl-x 7s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 3.2s); }
+  @keyframes cl-x { 0%, 30%, 100% { opacity: 0.6; transform: none; } 38%, 60% { opacity: 1; transform: translateY(-3px); } }
+
+  /* provinces: panels light in turn, the exclusion note breathes */
+  .js-reveal .pg .pv-p { animation: pv-p 9s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 3s - 9s); }
+  @keyframes pv-p { 0%, 33%, 100% { opacity: 0.55; transform: none; } 6%, 27% { opacity: 1; transform: translateY(-4px); } }
+  .js-reveal .pg .pv-n { animation: pv-n 4s ease-in-out infinite; }
+  @keyframes pv-n { 0%, 100% { opacity: 0.75; } 50% { opacity: 1; } }
+
+  /* forms: a playhead sweeps the year, gel flows, pellets pop as the playhead reaches them */
+  .js-reveal .pg .fm-ph { animation: fm-ph 8s linear infinite; }
+  @keyframes fm-ph { 0% { transform: translateX(0); opacity: 0; } 4% { opacity: 1; } 96% { opacity: 1; } 100% { transform: translateX(410px); opacity: 0; } }
+  .js-reveal .pg .fm-g { animation: fm-g 1.2s linear infinite; }
+  @keyframes fm-g { to { stroke-dashoffset: -12; } }
+  .js-reveal .pg .fm-k { animation: fm-k 2s ease-in-out infinite; }
+  @keyframes fm-k { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+  .js-reveal .pg .fm-p { animation: fm-p 8s ease-out infinite; animation-delay: calc(var(--k, 0) * 3s); }
+  @keyframes fm-p { 0%, 2% { transform: scale(1); opacity: 0.7; } 6% { transform: scale(1.35); opacity: 1; } 16%, 100% { transform: scale(1); opacity: 0.7; } }
+
+  /* prices: bars grow in turn */
+  .js-reveal .pg .pr-b { animation: pr-b 10s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.25s); }
+  @keyframes pr-b { 0% { transform: scaleX(0.02); } 18%, 90% { transform: scaleX(1); } 100% { transform: scaleX(0.02); } }
+
+  /* US labs: receipt lines print, Medicare badge pulses */
+  .js-reveal .pg .ul-l { animation: ul-l 9s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.8s); }
+  @keyframes ul-l { 0% { opacity: 0; transform: translateY(-8px); } 8%, 86% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+  .js-reveal .pg .ul-m { animation: ul-m 3.6s ease-in-out infinite; }
+  @keyframes ul-m { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+  /* telehealth: ranges stretch out, the shopper note glows */
+  .js-reveal .pg .te-b { animation: te-b 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.6s); }
+  @keyframes te-b { 0% { transform: scaleX(0.05); } 22%, 90% { transform: scaleX(1); } 100% { transform: scaleX(0.05); } }
+  .js-reveal .pg .te-n { animation: pv-n 4s ease-in-out infinite; }
+
+  /* clinic fees: both ranges stretch out, the three fee drivers light in turn */
+  .js-reveal .pg .cf-b { animation: te-b 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.6s); }
+  .js-reveal .pg .cf-t { animation: cf-t 6s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 6s); }
+  @keyframes cf-t { 0%, 33%, 100% { opacity: 0.55; transform: none; } 6%, 27% { opacity: 1; transform: translateY(-3px); } }
+
+  /* monitoring: checkpoints and their costs light as the dot arrives */
+  .js-reveal .pg .mo-n { animation: mo-n 8.5s ease-out infinite; animation-delay: calc(var(--k, 0) * 2.27s); }
+  @keyframes mo-n { 0%, 4% { transform: scale(1); } 8% { transform: scale(1.35); } 16%, 100% { transform: scale(1); } }
+  .js-reveal .pg .mo-c { animation: mo-c 8.5s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2.27s); }
+  @keyframes mo-c { 0%, 4% { opacity: 0.45; transform: none; } 9%, 30% { opacity: 1; transform: translateY(-2px); } 42%, 100% { opacity: 0.45; transform: none; } }
+  .js-reveal .pg .mo-t { animation: mo-t 8.5s ease-in-out infinite; }
+  @keyframes mo-t { 0%, 75%, 100% { opacity: 0.7; transform: scale(1); } 85% { opacity: 1; transform: scale(1.03); } }
+
+  /* sample year: each step appears, then the two results */
+  .js-reveal .pg .yr-s { animation: yr-s 10s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 1s); }
+  @keyframes yr-s { 0% { opacity: 0; transform: translateX(-10px); } 8%, 88% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+  .js-reveal .pg .yr-r { animation: yr-r 10s var(--ease-out) infinite; animation-delay: calc(3.2s + var(--k, 0) * 0.6s); }
+  @keyframes yr-r { 0% { opacity: 0; transform: scale(0.9); } 8%, 70% { opacity: 1; transform: none; } 80%, 100% { opacity: 0; transform: scale(0.96); } }
+
+  /* help: plan rows light in turn */
+  .js-reveal .pg .hp-r { animation: hp-r 8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 2s - 8s); }
+  @keyframes hp-r { 0%, 25%, 100% { opacity: 0.55; transform: none; } 6%, 19% { opacity: 1; transform: translateX(4px); } }
+
+  /* final: shield breathes, ring pulses; FAQ: coin bobs, dots float */
+  .js-reveal .pg .fn-sh { animation: fn-sh 4.4s ease-in-out infinite; }
+  @keyframes fn-sh { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  .js-reveal .pg .fn-ring { animation: fn-r 4.4s ease-out infinite; }
+  @keyframes fn-r { 0% { opacity: 0.6; transform: scale(0.9); } 70%, 100% { opacity: 0; transform: scale(1.5); } }
+  .js-reveal .pg .fq-dp { animation: pg-bob 2.6s ease-in-out infinite alternate; }
+  .js-reveal .pg .fq-fr { animation: fq-fr 3.4s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.7s); }
+  @keyframes fq-fr { 0%, 100% { opacity: 0.4; transform: translate(0, 4px); } 50% { opacity: 1; transform: translate(3px, -5px); } }
+  .js-reveal .pg .wc-ring { animation: wc-r 4.2s ease-out infinite; }
+  @keyframes wc-r { 0% { opacity: 0.55; transform: scale(0.92); } 55%, 100% { opacity: 0; transform: scale(1.65); } }
+/*@GEN_MOTION*/
+}
+
+/* long DOI links wrap on phones */
+.pg .src-list a { overflow-wrap: anywhere; word-break: break-word; }
+/* the hero figure's one-shot entrance must play even when the figure starts below the fold on phones (its loops stay paused) */
+.pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }
+
+/* t2-1028 quick answer */
+.pg .quick-answer .qa-list { margin: 0; padding: 0 0 0 1.1em; }
+.pg .quick-answer .qa-list li { margin: 0 0 6px; font-size: 1.05rem; line-height: 1.55; color: var(--white); }
+.pg .quick-answer + .answer-box { margin-top: 14px; }

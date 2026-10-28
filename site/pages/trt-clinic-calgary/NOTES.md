@@ -1,0 +1,7 @@
+# /trt-clinic-calgary (t2-1028, BUILT LOCALLY 2026-10-28, not published)
+- Why: Odin X Marketer T2 item 5. Path was a soft 404 (200 + homepage title/canonical). treg Google CA volumes (2026-10-28): trt calgary 210, testosterone replacement therapy calgary 140, testosterone clinic calgary 50, trt alberta 30; 'trt clinic calgary' no data. SERP top: drbobby.ca, precisioncliniccalgary.ca, varsitymedical.ca, avovita.ca, gamedaymenshealth.ca (x2), vitalityatgloantiaging.com (raw: /workspace/t2-1028/kw.json, serp.json).
+- Title (57) 'TRT Calgary: Online Testosterone Clinic | Odin Health Lab'; desc (146); H1 'TRT clinic in Calgary: low testosterone care by telehealth'. Byline Alexander Tretjakov, Founder; Article author = Person #alexander-tretjakov; WebPage spatialCoverage Calgary/Alberta.
+- Sections: hero (loop motion), #how (3 panels), #alberta-labs (APL range bars), #cost (fee bars), Keep reading (4 cards, 2-col), FAQ 6 (DOM == JSON-LD), final CTA, x-follow end line.
+- Facts reused only from sourced pages: Alberta DBL cypionate $34.88/10 mL regular benefit, gels not a benefit, capsule criteria (/trt-cost SOURCES C9); APL LAB124 8.0-35.0 nmol/L (up to 25% lower later in day), LAB1756 175-700 pmol/L, 07:00-10:00 (lab1028); clinic fee $100-$300/month excl. medication (Alex 2026-10-23).
+- NOT stated (unverified): street address, hours, in-person visits, prescribing.
+- common.assemble Calgary guard skips this slug; other pages may say Calgary only as 'trt-clinic-calgary' / 'TRT clinic for Calgary and Alberta' / 'in or near Calgary'.
