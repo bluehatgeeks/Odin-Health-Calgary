@@ -33,6 +33,12 @@ FAQ = [
   "There is no single harmonized range: the Endocrine Society notes that labs set their own limits and results depend on the method. The European Male Ageing Study (New England Journal of Medicine, 2010) used a free T below 220 pmol/L (64 pg/mL), with total T below 11 nmol/L and at least three sexual symptoms, to define late-onset hypogonadism. The LifeLabs reference laboratory in British Columbia lists a calculated free T range of 115 to 577 pmol/L for men. Check the unit and the method on your report before you compare."),
  ("Why do Canadian and US labs use different testosterone units?",
   "Canada moved health care lab reporting to SI units, which count molecules in moles per litre, in the early 1980s, so total testosterone is reported in nmol/L and free T in pmol/L. The United States kept conventional mass units, so its reports show ng/dL and pg/mL. It is the same hormone measured with a different ruler: 1 nmol/L equals 28.84 ng/dL. We line up results from both countries in one unit when we review your labs with you."),
+ ("How do I read free testosterone on a LifeLabs report?",
+  "LifeLabs reports free testosterone in pmol/L as a calculated value: total testosterone and SHBG are measured by immunoassay, and free and bioavailable testosterone are calculated from those results. The LifeLabs reference laboratory in British Columbia lists 115 to 577 pmol/L for calculated free T in men, and 8.4 to 28.8 nmol/L for total testosterone in men over 18. To check the number, enter the total T, SHBG and albumin from your report in the free testosterone calculator on this page. If your report has no albumin, the calculator uses 43 g/L."),
+ ("Dynacare testosterone results: what do the units and ranges mean?",
+  "Dynacare reports total testosterone in nmol/L and free testosterone in pmol/L. Its Ontario test directory lists 7.6 to 31.4 nmol/L for total testosterone in males 15 and over. Free T is calculated with the Vermeulen equation, which Dynacare adopted in 2014 in place of a direct analog test, and the male ranges are 160 to 699 pmol/L at ages 18 to 49 and 155 to 558 pmol/L at 50 and over. Check which age band your report printed before you compare."),
+ ("What are the Alberta Precision Laboratories (APL) testosterone ranges in Alberta?",
+  "Alberta Precision Laboratories, the public lab system in Alberta, lists 8.0 to 35.0 nmol/L for total testosterone and 175 to 700 pmol/L for calculated free testosterone in males 18 and over. APL calculates free T from total testosterone, SHBG and albumin. Its test directory notes that testosterone is highest in the morning, with values up to 25 percent lower later in the day, and suggests collecting between 07:00 and 10:00."),
  ("How does Odin Health Lab work with my doctor?",
   'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, put results from Canadian and US labs into one unit, check how your free T was measured or calculated, help you prepare questions for your next appointment, build your nutrition, training, sleep and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
@@ -231,6 +237,34 @@ def final():
     s.append(node(48, 60, 20, 'calc', 0.3, WHITE, isz=22))
     return '\n'.join(s)
 
+# ---------- lab1028: Canadian lab report -> calculator ----------
+LR_ROWS = (('Testosterone, total', '15.0', 'nmol/L'), ('SHBG', '30', 'nmol/L'), ('Albumin', '43', 'g/L'), ('Free T, calculated', '326', 'pmol/L'))
+def labrep():
+    s = ['<g class="pop t" style="--d:0.1"><rect x="24" y="18" width="270" height="206" rx="14" fill="#142e14" stroke="rgba(255,255,255,0.65)" stroke-width="2"/></g>']
+    s.append(txt(44, 44, 'Lab report', 13, '#c4ff49', 0.95, 'start'))
+    s.append('<path d="M200 40H274M226 50H274" stroke="rgba(255,255,255,0.25)" stroke-width="4" stroke-linecap="round"/>')
+    s.append(txt(44, 72, 'Test', 10, '#fff', 0.6, 'start')); s.append(txt(206, 72, 'Result', 10, '#fff', 0.6, 'end')); s.append(txt(252, 72, 'Units', 10, '#fff', 0.6))
+    s.append('<g class="lr-hl"><rect x="32" y="82" width="254" height="28" rx="8" fill="#c4ff49" fill-opacity="0.13" stroke="#c4ff49" stroke-opacity="0.5" stroke-width="1.4"/></g>')
+    for k, (a, v, u) in enumerate(LR_ROWS):
+        y = 101 + k * 32
+        s.append(txt(44, y, a, 12, '#fff', 0.88, 'start')); s.append(txt(206, y, v, 14, '#fff', 0.97, 'end'))
+        s.append('<g class="lr-u" style="--k:%d"><rect x="222" y="%d" width="60" height="22" rx="11" fill="#0f240f" stroke="#c4ff49" stroke-width="1.6"/></g>' % (k, y - 15))
+        s.append(txt(252, y, u, 11, '#c4ff49', 0.97))
+    s.append('<path d="M300 124H366" stroke="rgba(196,255,73,0.22)" stroke-width="2" stroke-dasharray="2 6"/>')
+    s.append(dr('M300 124H364M364 124l-8-6M364 124l-8 6', 0.45, 0.8, LIME, 2.4))
+    s.append('<g class="pop t" style="--d:0.3"><rect x="376" y="30" width="164" height="184" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(196,255,73,0.45)" stroke-width="1.6"/></g>')
+    s.append(ico('calc', 398, 54, 18, LIME, 1.8)); s.append(txt(416, 59, 'Calculator', 12, '#fff', 0.9, 'start'))
+    for k, (lab, v) in enumerate((('Total T', '15.0'), ('SHBG', '30'), ('Albumin', '43'))):
+        y = 76 + k * 30
+        s.append('<rect x="392" y="%d" width="132" height="22" rx="6" fill="#0f240f" stroke="rgba(255,255,255,0.3)" stroke-width="1.4"/>' % y)
+        s.append(txt(400, y + 15, lab, 10, '#fff', 0.7, 'start')); s.append(txt(516, y + 15, v, 12, '#fff', 0.95, 'end'))
+        pd, pts = path(('M', 212, 101 + k * 32), ('C', 320, 101 + k * 32, 330, y + 11, 392, y + 11), n=8)
+        s.append(dot('lr-p%d fx' % k, 5, LIME if k == 0 else WHITE)); G.travel('lr-p%d' % k, pts, 4, 16, 12, delay='%ss' % f(k * 3), rest=pts[0], rest_opacity=0, fade=2, ease='ease-in-out')
+    s.append('<g class="lr-out"><rect x="392" y="170" width="132" height="32" rx="8" fill="#173617" stroke="#c4ff49" stroke-width="2"/></g>')
+    s.append(txt(400, 190, 'Free T', 10, '#fff', 0.75, 'start')); s.append(txt(516, 191, '326 pmol/L', 13, '#c4ff49', 0.97, 'end'))
+    s.append(txt(280, 246, 'Unit, method, then the range printed by your lab', 12, '#fff', 0.8))
+    return '\n'.join(s)
+
 FAQMOTIF = '''<g class="fq-cl"><rect x="12" y="22" width="34" height="46" rx="6" stroke="#c4ff49" stroke-width="3.4"/><path d="M19 32h20" stroke="#c4ff49" stroke-width="3" stroke-linecap="round"/><g class="fq-k" style="--k:0"><circle cx="21" cy="46" r="2.6" fill="#fff"/></g><g class="fq-k" style="--k:1"><circle cx="29" cy="46" r="2.6" fill="#fff"/></g><g class="fq-k" style="--k:2"><circle cx="37" cy="56" r="2.6" fill="#fff"/></g></g>
 <path class="dr" pathLength="1" style="--d:0.25;--dur:1.1s" d="M70 36c0-8 6-12 12-12s12 4 12 10c0 6-5 8-8 11-3 2-4 4-4 8" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="82" cy="64" r="3" fill="#fff"/>
 <g class="fq-fr" style="--k:0"><circle cx="104" cy="22" r="5" fill="#c4ff49"/></g><g class="fq-fr" style="--k:1"><circle cx="56" cy="16" r="4" fill="#c4ff49"/></g>'''
@@ -244,10 +278,10 @@ calcjs = open(os.path.join(HERE, "calc-core.js"), encoding="utf-8").read().strip
 HUB = hub(G, hub_nodes())
 slots = {"{{HERO}}": hero(), "{{METER}}": meter(N0), "{{CVOUT}}": total_html(N0),
          "{{CVOUTF}}": '<p class="rs-head"><b>%s pmol/L = %s pg/mL</b></p><ul class="rs-list">%s</ul>' % (fx(300, 0), fx(300 / P3, 1), free_html(300)),
-         "{{FCOUT}}": fc_out, "{{FCBAR}}": fc_bar(N0, r0), "{{RANGES}}": ranges(), "{{WHY}}": why(), "{{HOW}}": how(), "{{HELP}}": help_fig(),
+         "{{FCOUT}}": fc_out, "{{FCBAR}}": fc_bar(N0, r0), "{{RANGES}}": ranges(), "{{LABREP}}": labrep(), "{{WHY}}": why(), "{{HOW}}": how(), "{{HELP}}": help_fig(),
          "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final(), "{{CALCJS}}": calcjs}
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Testosterone unit conversion (ng/dL, nmol/L, pg/mL, pmol/L) and calculated free testosterone",
-      "Testosterone calculator", "ISSAM calculator: free and bioavailable testosterone, plus ng/dL to nmol/L conversion", slots, G, published="2026-10-18", modified="2026-10-26")
+      "Testosterone calculator", "ISSAM calculator: free and bioavailable testosterone, plus ng/dL to nmol/L conversion", slots, G, published="2026-10-18", modified="2026-10-28")
 
 # ---- add WebApplication JSON-LD (the tool itself) next to the Article node ----
 p = os.path.join(HERE, "page.html")
