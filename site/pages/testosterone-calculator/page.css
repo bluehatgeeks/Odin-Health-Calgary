@@ -7,6 +7,8 @@
 .pg .fn-nd { transform-box: view-box; transform-origin: 180px 160px; transform: rotate(-20deg); }
 .pg .mg-svg { text-anchor: middle; }
 .pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }
+.pg .lr-u, .pg .lr-out { transform-box: fill-box; transform-origin: center; }
+.pg .lr-hl { transform-box: view-box; }
 /*@GEN_STATIC*/
 
 /* ── tools ── */
@@ -125,6 +127,14 @@
   @keyframes fq-k { 0%, 100% { opacity: 0.35; } 40%, 60% { opacity: 1; } }
   .js-reveal .pg .fq-fr { animation: fq-fr 3.4s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.7s); }
   @keyframes fq-fr { 0%, 100% { opacity: 0.4; transform: translate(0, 4px); } 50% { opacity: 1; transform: translate(3px, -5px); } }
+
+  /* lab report (lab1028): highlight steps down the rows, each unit pill lights as it arrives, values ride into the calculator, result glows */
+  .js-reveal .pg .lr-hl { animation: lr-hl 12s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
+  @keyframes lr-hl { 0%, 18% { transform: translateY(0); } 25%, 43% { transform: translateY(32px); } 50%, 68% { transform: translateY(64px); } 75%, 93% { transform: translateY(96px); } 100% { transform: translateY(0); } }
+  .js-reveal .pg .lr-u { animation: lr-u 12s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 3s + 0.3s); }
+  @keyframes lr-u { 0%, 14%, 100% { opacity: 0.6; transform: scale(1); } 3%, 9% { opacity: 1; transform: scale(1.06); } }
+  .js-reveal .pg .lr-out { animation: lr-out 12s ease-in-out infinite; }
+  @keyframes lr-out { 0%, 64%, 100% { opacity: 0.6; transform: scale(1); } 74%, 90% { opacity: 1; transform: scale(1.03); } }
 /*@GEN_MOTION*/
 }
 @media (prefers-reduced-motion: reduce) {
