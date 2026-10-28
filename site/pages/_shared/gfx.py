@@ -125,7 +125,7 @@ def step_icons(defs):
     return defs
 
 # ---------- build ----------
-def build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, about, crumb, headline, slots, gen, published="2026-10-15", modified=None):
+def build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, about, crumb, headline, slots, gen, published="2026-10-15", modified=None, author=None, ld_extra=None):
     rd = lambda *p: open(os.path.join(*p), encoding="utf-8").read()
     body = rd(HERE, "page.body.html")
     body = re.sub(r"\{\{CI:(\w+):(\d+)\}\}", lambda m: ci(m.group(1), int(m.group(2))), body)
@@ -138,8 +138,9 @@ def build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, about, crumb, headline, slots, g
     ld = json.loads(jsonld(SLUG, TITLE, DESC, about, crumb, FAQ))
     url = SITE + "/" + SLUG
     ld["@graph"].insert(3, {"@type": "Article", "@id": url + "#article", "headline": headline, "description": DESC, "inLanguage": "en",
-        "mainEntityOfPage": {"@id": url + "#webpage"}, "author": {"@id": SITE + "/#organization"}, "publisher": {"@id": SITE + "/#organization"},
+        "mainEntityOfPage": {"@id": url + "#webpage"}, "author": author or {"@id": SITE + "/#organization"}, "publisher": {"@id": SITE + "/#organization"},
         "datePublished": published, "dateModified": modified or published, "image": OG_IMG})
+    if ld_extra: ld_extra(ld)
     ldj = json.dumps(ld, ensure_ascii=False, indent=2).replace("</", "<\\/")
     all_slots = dict(slots); all_slots["{{FAQ}}"] = faq_html(FAQ)
     assemble(tmp, SLUG, TITLE, DESC, OG_ALT, ldj, all_slots)

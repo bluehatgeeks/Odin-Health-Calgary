@@ -9,8 +9,8 @@ from gfx import *
 import common
 
 SLUG = "trt-cost-canada-vs-usa"
-TITLE = "TRT Cost in Canada vs USA: Monthly Prices | Odin Health Lab"
-DESC = "TRT cost in Canada vs the USA per month (Oct 2026): clinic fees, testosterone cypionate, gel and pellet prices, lab tests, and what insurance covers."
+TITLE = "TRT Cost Canada vs USA (2026): Per Month | Odin Health Lab"
+DESC = "TRT cost in Canada vs the USA per month (2026): clinic fees, testosterone cypionate, gel and pellet prices, lab tests, and what insurance covers."
 OG_ALT = "Odin Health Lab: TRT cost in Canada vs the USA, lab tests, coverage, testosterone prices and monitoring"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
 
@@ -24,6 +24,8 @@ FAQ = [
   "For the drug itself, often less than people expect. Ontario and Alberta list generic testosterone cypionate at $34.88 CAD per 10 mL vial. At 100 mg a week one vial lasts about ten weeks, which works out to about $15 a month before the pharmacy&rsquo;s dispensing fee. Generic 1 percent gel at Ontario&rsquo;s price ($2.96 per 5 g packet) is about $89 for a month&rsquo;s supply of 30 packets. Labs and visits come on top, and public drug plans pay only in narrow cases, so the usual routes are private insurance or paying at the pharmacy. Prices as of October 2026 and they vary by province and pharmacy."),
  ("How much does TRT cost per month at a clinic?",
   "Most TRT clinics charge about $100 to $300 a month for visits and monitoring, in either Canadian or US dollars, and the medication is extra. That is the range Odin Health Lab sees across clinics; where a clinic falls depends on how often you are seen and whether extra medication or supplement support is included. Generic testosterone cypionate adds about $15 CAD a month at Ontario&rsquo;s list price, so in our example a Canadian clinic in that range comes to roughly $115 to $315 CAD a month before labs and the pharmacy&rsquo;s dispensing fee. Ask each clinic what the monthly fee covers and whether labs are billed separately."),
+ ("How much does TRT cost in Alberta?",
+  "The drug is cheap on Alberta&rsquo;s list: the Alberta Drug Benefit List carries generic testosterone cypionate injection as a regular benefit at the same price per mL as Ontario, $34.88 CAD for a 10 mL vial, or about $15 a month at 100 mg a week before the pharmacy&rsquo;s dispensing fee. Gels are not a benefit, and the oral capsule&rsquo;s criteria rule out &ldquo;androgen decline in the aging male.&rdquo; Clinic fees are the bigger line: most TRT clinics charge about $100 to $300 a month, medication not included. Alberta Precision Laboratories reports total testosterone with an adult male range of 8.0 to 35.0 nmol/L and calculates free testosterone (175 to 700 pmol/L), and suggests a morning draw between 7 and 10 a.m."),
  ("How much does TRT cost in the USA without insurance?",
   "Cash prices on Drugs.com in October 2026: generic testosterone cypionate from $37.99 USD per 10 mL vial, generic 1.62 percent gel $55.73 to $77.13 per 88 g pump, brand AndroGel 1 percent $318.13 to $683.83 for 30 packets, and Testopel pellets about $1,065 for ten pellets before the insertion visit. Clinics add more: in a 2022 study, a year of injections through cash-pay telehealth platforms cost $1,586 to $4,200. Consumer lab tests run $35 to $75 each at Quest with fees."),
  ("Does OHIP or my provincial plan cover testosterone testing?",
@@ -44,6 +46,8 @@ SRC = [
  ("source_odb", "Government of Ontario. Ontario Drug Benefit program: who qualifies and what you pay (updated August 18, 2026).", "https://www.ontario.ca/page/get-coverage-prescription-drugs", "ontario.ca Ontario Drug Benefit"),
  ("source_odb_formulary", "Ontario Ministry of Health. ODB Formulary search: testosterone (checked October 16, 2026); Limited Use code 397 as shown on rxcoverage.ca.", "https://www.formulary.health.gov.on.ca/formulary/results.xhtml?q=testosterone&amp;type=1", "formulary.health.gov.on.ca"),
  ("source_alberta_dbl", "Alberta Health Drug Benefit List, androgens (Alberta Blue Cross, checked October 16, 2026).", "https://idbl.ab.bluecross.ca/idbl/drugsList?ptc=680800", "idbl.ab.bluecross.ca androgens"),
+ ("source_apl_total", "Alberta Precision Laboratories test directory: Testosterone, total (LAB124), adult male reference interval (checked October 28, 2026).", "https://td.albertaprecisionlabs.ca/TestView?testId=1230100028&amp;procedureCode=LAB124&amp;authLabId=CGY%20APL%20Diagnostic%20and%20Scientific%20Centre%20Laboratory", "td.albertaprecisionlabs.ca LAB124"),
+ ("source_apl_freet", "Alberta Precision Laboratories test directory: Testosterone, free, calculated (LAB1756) (checked October 28, 2026).", "https://td.albertaprecisionlabs.ca/TestView?testId=123777113&amp;procedureCode=LAB1756&amp;authLabId=CGY%20APL%20Diagnostic%20and%20Scientific%20Centre%20Laboratory", "td.albertaprecisionlabs.ca LAB1756"),
  ("source_lifelabs", "LifeLabs. Testosterone Lab Test ($98) and PSA Lab Test ($71), Ontario store (checked October 16, 2026).", "https://store.lifelabs.com/on/wellness/product/testosterone-test-on", "store.lifelabs.com testosterone test"),
  ("source_dynacare", "Dynacare Plus. Men&rsquo;s Testosterone Home Testing Kit (checked October 16, 2026).", "https://shop.dynacareplus.com/mens-testosterone-home-test-kit.html", "shop.dynacareplus.com"),
  ("source_clhia", "Canadian Life and Health Insurance Association. Canadian Life &amp; Health Insurance Facts, 2025 Edition.", "https://www.clhia.ca/", "clhia.ca"),
@@ -128,6 +132,21 @@ def prov():
             g.append(txt(x + 84, 84 + i * 28, l, 11.5, '#fff', 0.9))
         s.append('<g class="pv-p" style="--k:%d">%s</g>' % (k, ''.join(g)))
     s.append('<g class="pv-n">%s%s</g>' % (box(60, 182, 440, 34, True, 12), txt(280, 204, 'Age-related decline alone: excluded (ON note, AB capsules)', 12, '#fff', 0.92)))
+    return '\n'.join(s)
+
+def alberta():
+    s = []
+    cols = [('Drug list', 'check', ['Cypionate: regular benefit', '$34.88 CAD per 10 mL', 'about $15 a month']),
+            ('APL labs', 'doc', ['Total T 8.0 to 35.0 nmol/L', 'Free T 175 to 700 pmol/L', 'Morning draw, 7 to 10 a.m.']),
+            ('Clinic fee', 'shield', ['About $100 to $300', 'a month, CAD or USD', 'medication extra'])]
+    for k, (head, ic, lines) in enumerate(cols):
+        x = 16 + k * 180
+        g = [box(x, 16, 168, 152, k == 0, 14), '<rect x="%d" y="16" width="168" height="38" rx="14" fill="rgba(196,255,73,0.12)"/>' % x,
+             ico(ic, x + 22, 35, 18, LIME, 2), txt(x + 38, 40, head, 12.5, '#c4ff49', 0.95, 'start')]
+        for i, l in enumerate(lines):
+            g.append(txt(x + 84, 84 + i * 28, l, 11.5, '#fff', 0.9))
+        s.append('<g class="pv-p" style="--k:%d">%s</g>' % (k, ''.join(g)))
+    s.append('<g class="pv-n">%s%s</g>' % (box(60, 182, 440, 34, True, 12), txt(280, 204, 'Alberta: cheap generic shots, gels paid out of pocket', 12, '#fff', 0.92)))
     return '\n'.join(s)
 
 # ---------- forms: a playhead sweeps one year; shots tick, gel flows, pellets pop ----------
@@ -288,12 +307,12 @@ def hub_nodes():
     return out
 
 HUB = hub(G, hub_nodes())
-slots = {"{{HERO}}": hero(), "{{DRIVERS}}": drivers(), "{{CALABS}}": calabs(), "{{PROV}}": prov(), "{{FORMS}}": forms(), "{{PRICES}}": prices(),
+slots = {"{{HERO}}": hero(), "{{DRIVERS}}": drivers(), "{{CALABS}}": calabs(), "{{PROV}}": prov(), "{{ALBERTA}}": alberta(), "{{FORMS}}": forms(), "{{PRICES}}": prices(),
          "{{USLABS}}": uslabs(), "{{TELE}}": tele(), "{{MONITOR}}": monitor(), "{{YEAR}}": year(), "{{CLINIC}}": clinic(), "{{HELP}}": help_fig(), "{{SOURCES}}": sources_fig(),
          "{{SRC}}": src_html(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "TRT cost in Canada vs the USA: lab tests, coverage, testosterone prices and monitoring",
-      "TRT cost: Canada vs USA", "TRT cost in Canada vs the USA: how much do TRT and testosterone cost?", slots, G, published="2026-10-16", modified="2026-10-26")
+      "TRT cost: Canada vs USA", "TRT cost in Canada vs the USA: how much do TRT and testosterone cost?", slots, G, published="2026-10-16", modified="2026-10-28")
 
 # ---- minify for HighLevel (keeps page.full.html): strip CSS comments, line indentation and blank lines outside <script> ----
 p = os.path.join(HERE, "page.html")

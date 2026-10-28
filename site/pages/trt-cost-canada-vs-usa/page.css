@@ -121,3 +121,8 @@
 .pg .src-list a { overflow-wrap: anywhere; word-break: break-word; }
 /* the hero figure's one-shot entrance must play even when the figure starts below the fold on phones (its loops stay paused) */
 .pg .mg--hero.hero-in.is-paused { animation-play-state: running !important; }
+
+/* t2-1028 quick answer */
+.pg .quick-answer .qa-list { margin: 0; padding: 0 0 0 1.1em; }
+.pg .quick-answer .qa-list li { margin: 0 0 6px; font-size: 1.05rem; line-height: 1.55; color: var(--white); }
+.pg .quick-answer + .answer-box { margin-top: 14px; }

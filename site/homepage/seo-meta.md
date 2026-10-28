@@ -121,8 +121,10 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Note: NEW answer-style page (not yet published). Target query: "TRT side effects" / "testosterone replacement therapy side effects" / "risks of TRT" / "does TRT cause hair loss or acne" / "TRT hematocrit" / "TRT testicle size" / "TRT heart risk" / "TRT and prostate" / "monitoring on TRT". No /owen-lowt links by design; CTAs use the booking modal. Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
 
 ## TRT Cost in Canada vs the USA  `/trt-cost-canada-vs-usa`
-- Title (60): TRT Cost in Canada vs USA: Monthly Prices | Odin Health Lab
-- Description (149): TRT cost in Canada vs the USA per month (Oct 2026): clinic fees, testosterone cypionate, gel and pellet prices, lab tests, and what insurance covers.
+- Title (58): TRT Cost Canada vs USA (2026): Per Month | Odin Health Lab
+- Description (145): TRT cost in Canada vs the USA per month (2026): clinic fees, testosterone cypionate, gel and pellet prices, lab tests, and what insurance covers.
+- 2026-10-28 t2-1028 (Odin X Marketer T2 item 2): dated '(2026)' title, top Quick Answer box (#quick-answer), new #alberta section (Alberta drug list + APL ranges + link to /trt-clinic-calgary), FAQ 7 -> 8 ('How much does TRT cost in Alberta?'), APL sources. Enter the new title AND desc in the GHL SEO panel when republishing.
+- Previous (live 2026-10-26 cur1026 until t2-1028): Title (60) TRT Cost in Canada vs USA: Monthly Prices | Odin Health Lab; Description (149) TRT cost in Canada vs the USA per month (Oct 2026): clinic fees, testosterone cypionate, gel and pellet prices, lab tests, and what insurance covers.
 - Previous (live until the 2026-10-26 cur1026 republish): Title (59) TRT and Testosterone Cost: Canada vs USA | Odin Health Lab; Description (149) TRT cost per month in Canada vs the USA (Oct 2026): clinic fees, testosterone cypionate, gel and pellet prices, lab tests, and what insurance covers.
 - 2026-10-26 cur1026: exact-query lead for 'trt cost canada' (GSC pos ~13): title and description now start with 'TRT Cost in Canada'; H1 + Article headline 'TRT cost in Canada vs the USA: how much do TRT and testosterone cost?'; clinic fee $100-$300/month stated as applying in CAD or USD (Alex 2026-10-23). Enter the new title AND desc in the GHL builder 'SEO & AI search optimization' panel when republishing.
 - Previous (live until the 2026-10-23 price1023 republish): Description (150) TRT cost in Canada vs the USA (Oct 2026): testosterone cypionate, gel and pellet prices, lab test fees, and what provincial plans and insurance cover.
@@ -153,3 +155,9 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Title (57): NoFap and Testosterone: The Day 7 Myth | Odin Health Lab
 - Description (151): Testosterone peaking after seven days of NoFap comes from a 28-man study retracted in 2021. What it found, and what ejaculation means for the prostate.
 - Note: NEW answer-style page (not yet published). Target queries: "nofap testosterone" / "does nofap increase testosterone" / "does masturbation lower testosterone" / "ejaculation frequency prostate". Every number sourced (see /workspace/research-nofap/SOURCES.md). No /owen-lowt links; CTAs use the booking modal. Never claims Odin prescribes anything. Doctors only in the FAQ about working with your doctor.
+
+## TRT Clinic Calgary  `/trt-clinic-calgary`
+- Title (57): TRT Calgary: Online Testosterone Clinic | Odin Health Lab
+- Description (146): TRT clinic for Calgary and Alberta men, by telehealth: low-T assessment, APL lab ranges explained, costs in Alberta and a written plan. Free call.
+- Note: NEW local landing page (t2-1028; the path was a soft 404 serving the homepage). treg 2026-10-28 Google CA volumes: trt calgary 210, testosterone replacement therapy calgary 140, testosterone clinic calgary 50, trt alberta 30 ('trt clinic calgary' no data). Telehealth only: no street address, hours or in-person claims (NAP address/hours unverified). Author byline + Person schema Alexander Tretjakov (Founder). No /owen-lowt; CTAs use the booking modal. Doctors only in the doctor FAQ. Calgary wording allowed on this page only.
+
