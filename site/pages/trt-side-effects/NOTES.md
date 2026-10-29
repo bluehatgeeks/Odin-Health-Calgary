@@ -75,3 +75,4 @@ Why: GSC 28d query "trt side effects" (pos 84) and page pos 24.5, 0 clicks.
 - Staged http://127.0.0.1:8780/trt-side-effects-ins1023.txt. Marker: data-cta="insomnia_link_trtse".
 ### GHL ids (live funnel step list)
 Step 'TRT Side Effects': step id 4c9a2b2a-c335-4c07-af80-8d108d2a8f9a, page/builder id NRUQX0Ceoi16Eboil9D2, sequence 27. Republish = paste :8780/trt-side-effects-ins1023.txt into the Custom Code only (SEO panel unchanged) element.
+- 2026-10-29 cal1029: +1 in-prose sentence in #help lead linking /trt-clinic-calgary ('online TRT clinic for Calgary and Alberta', data-cta sidefx_calgary_link). _shared/common.py Calgary guard allows data-cta="*_calgary_link".

@@ -88,7 +88,7 @@ def assemble(page_dir, slug, title, desc, og_alt, ld, slots, extra_checks=()):
         out = out.replace(k, v)
     assert "{{" not in out, re.findall(r"\{\{\w+\}\}", out)
     if slug != "trt-clinic-calgary":  # the Calgary landing page is the one page allowed to say Calgary (t2-1028)
-        assert "calgary" not in re.sub(r"Odin-Health-Calgary|odinlabcalgary|trt-clinic-calgary|TRT clinic for Calgary and Alberta|in or near Calgary", "", out, flags=re.I).lower(), re.findall(r".{60}calgary.{30}", re.sub(r"Odin-Health-Calgary|odinlabcalgary|trt-clinic-calgary|TRT clinic for Calgary and Alberta|in or near Calgary", "", out, flags=re.I), re.I)
+        assert "calgary" not in re.sub(r"Odin-Health-Calgary|odinlabcalgary|trt-clinic-calgary|TRT clinic for Calgary and Alberta|in or near Calgary|data-cta=\"[a-z]+_calgary_link\"", "", out, flags=re.I).lower(), re.findall(r".{60}calgary.{30}", re.sub(r"Odin-Health-Calgary|odinlabcalgary|trt-clinic-calgary|TRT clinic for Calgary and Alberta|in or near Calgary|data-cta=\"[a-z]+_calgary_link\"", "", out, flags=re.I), re.I)
     # attribute-quote safety: title/desc used in attributes
     open(os.path.join(page_dir, "page.html"), "w", encoding="utf-8").write(out)
     print(slug, len(out.encode()), "bytes,", out.count("\n") + 1, "lines; title", len(title), "desc", len(desc))
