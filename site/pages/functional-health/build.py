@@ -183,6 +183,6 @@ for k, v in {"{{TITLE}}": html.escape(TITLE, quote=False), "{{DESC}}": html.esca
              "{{LEVERS}}": LEVERS, "{{LOOP}}": LOOP, "{{LABS}}": LABS, "{{REL}}": REL, "{{FAQMOTIF}}": FAQMOTIF, "{{COMPASS}}": COMPASS}.items():
     out = out.replace(k, v)
 assert "{{" not in out, re.findall(r"\{\{\w+\}\}", out)
-assert "calgary" not in re.sub(r"Odin-Health-Calgary|odinlabcalgary", "", out, flags=re.I).lower()  # only the repo/CDN names may contain it
+assert "calgary" not in re.sub(r"Odin-Health-Calgary|odinlabcalgary|trt-clinic-calgary|TRT clinic for Calgary and Alberta|data-cta=\"[a-z]+_calgary_link\"", "", out, flags=re.I).lower()  # only the repo/CDN names and the cal1029 Calgary-page link may contain it
 open(os.path.join(HERE, "page.html"), "w", encoding="utf-8").write(out)
 print(len(out.encode()), "bytes,", out.count("\n") + 1, "lines;", "title", len(TITLE), "desc", len(DESC))
