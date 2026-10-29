@@ -62,3 +62,17 @@
 - Facts re-checked 2026-10-29: ODB AndroGel 1% 5.0 g packet DIN 02245346 unit price 4.5117, Amount MOH Pays 2.9575, Limited Use, interchangeable; Taro-Testosterone Gel 1% 5.0 g DIN 02463806 2.9575; 2.5 g packets AndroGel 2.5514 / Taro 1.6726. Alberta DBL ptc 680800: AndroGel 2.5 g and 5 g packets NOT A BENEFIT (no price); Taro cypionate 3.4878/mL REGULAR BENEFIT (unchanged).
 - Our arithmetic: 30 x 4.5117 = $135.35; 30 x 2.9575 = $88.73; cypionate ~$15.11/month (5.2 vials x 34.88 / 12); 88.73/15.11 = 5.9, 135.35/15.11 = 9.0 -> 'about six to nine times'.
 - dateModified 2026-10-29. Title/desc/H1 unchanged.
+
+## Injection cost without insurance block (inj1029, 2026-10-29, built locally)
+- Target: GSC injection-cost / without-insurance queries; backlog TOP 2026-10-29 item 1. Page got its first organic click Oct 28.
+- New answer box id="injection-cost" (class answer-box ag-box reveal, same style as #androgel-cost) inside #prices, right after the price-chart figure and BEFORE #androgel-cost: tag 'Injections without insurance', H3 'How much do testosterone injections cost in Canada without insurance?'. No new CSS (reuses .ag-box/.ag-q); .reveal respects reduced motion (existing pipeline).
+- FAQ 9 -> 10, new #3 'How much is TRT without insurance?' (DOM == JSON-LD 1:1). Only reuses already-sourced page figures + today's ODB/AB per-mL prices.
+- Sources +3: source_bc_formulary (pharmacareformularysearch.gov.bc.ca), source_odb_taro_cyp (detail.xhtml?drugId=02496003), source_odb_enanthate (detail.xhtml?drugId=02536315); source_alberta_dbl 'checked' date -> October 29, 2026.
+- Facts fetched 2026-10-29 ~3:10 PM MDT (raw /workspace/inj1029/src): ODB search 'testosterone' + details: Taro-Testosterone Cypionate 100 mg/mL 10 mL DIN 02496003 unit price 34.8780 (MOH pays 34.8780, LU yes); Testosterone Enanthate Injection USP (Hikma) 1000 mg/5 mL 5 mL DIN 02536315 35.5943 (LU yes); Depo-Testosterone and Delatestryl Not a Benefit. Alberta DBL ptc 680800 (curl 403, WebFetch saved as abdbl-webfetch.md): Taro cypionate 3.4878/mL REGULAR BENEFIT; enanthate USP 200 mg/mL 7.1189/mL REGULAR BENEFIT (Delatestryl 11.8403/mL, LCA 7.1189). BC PharmaCare Formulary Search (form POST; bc-testosterone.html, bc-02496003.html, bc-02536315.html): Maximum PharmaCare Covers cypionate $3.8800/mL, enanthate $7.6884/mL, Special Authority yes.
+- Our arithmetic (dose assumption: a common 100 mg a week = 1 mL/week of 100 mg/mL cypionate, or 0.5 mL/week of 200 mg/mL enanthate; 52/12 = 4.333 weeks a month):
+  - Cypionate: 34.878/10 = $3.4878/mL (== AB) -> $3.49/mL; 3.4878 x 4.333 = $15.11/month (vial lasts 10 weeks; matches existing ~$15 page figure, no correction needed).
+  - Enanthate: 35.5943/5 = $7.1189/mL (== AB) -> $7.12/mL; 0.5 mL x 7.1189 = $3.559/week x 4.333 = $15.42/month (5 mL = 1000 mg, lasts 10 weeks). -> 'about $15 a month' for either.
+  - BC: 3.88 x 4.333 = $16.81/month; 0.5 x 7.6884 x 4.333 = $16.66/month -> 'a little higher' ($7.6884 shown as $7.69).
+  - Clinic: $100-$300/month (Alex, same in CAD and USD) + ~$15 = ~$115-$315 CAD (existing #clinic-fees arithmetic).
+- Dispensing fees, pharmacy markup, needles/syringes and clinic fee stated as extra; no needle price given (no source).
+- Title/desc/H1 unchanged; dateModified already 2026-10-29.
