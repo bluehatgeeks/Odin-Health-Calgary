@@ -126,3 +126,5 @@
 .pg .quick-answer .qa-list { margin: 0; padding: 0 0 0 1.1em; }
 .pg .quick-answer .qa-list li { margin: 0 0 6px; font-size: 1.05rem; line-height: 1.55; color: var(--white); }
 .pg .quick-answer + .answer-box { margin-top: 14px; }
+.pg .ag-box { margin-top: 22px; }
+.pg .ag-box .ag-q { margin: 0 0 8px; font-size: 1.22rem; line-height: 1.35; font-weight: 800; color: var(--white); }
