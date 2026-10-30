@@ -184,4 +184,4 @@ slots = {"{{HERO}}": hero_fork(), "{{LOOP}}": loop(), "{{ORBIT}}": orbit(), "{{S
          "{{CALL}}": call(), "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{COMPASS}}": COMPASS}
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Starting testosterone replacement therapy (TRT) versus addressing the causes of low testosterone first",
-      "TRT or fix the causes first", "Should I start TRT or fix the causes of low testosterone first?", slots, G)
+      "TRT or fix the causes first", "Should I start TRT or fix the causes of low testosterone first?", slots, G, modified="2026-10-30")

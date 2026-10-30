@@ -20,8 +20,8 @@ common.ICONS.update({
 })
 
 FAQ = [
- ("How much does TRT cost per month in Canada?",
-  "For the drug itself, often less than people expect. Ontario and Alberta list generic testosterone cypionate at $34.88 CAD per 10 mL vial. At 100 mg a week one vial lasts about ten weeks, which works out to about $15 a month before the pharmacy&rsquo;s dispensing fee. Generic 1 percent gel at Ontario&rsquo;s price ($2.96 per 5 g packet) is about $89 for a month&rsquo;s supply of 30 packets. Labs and visits come on top, and public drug plans pay only in narrow cases, so the usual routes are private insurance or paying at the pharmacy. Prices as of October 2026 and they vary by province and pharmacy."),
+ ("How much does TRT cost in Canada?",
+  "Per month, the drug itself often costs less than people expect. Ontario and Alberta list generic testosterone cypionate at $34.88 CAD per 10 mL vial. At 100 mg a week one vial lasts about ten weeks, which works out to about $15 a month before the pharmacy&rsquo;s dispensing fee. Generic 1 percent gel at Ontario&rsquo;s price ($2.96 per 5 g packet) is about $89 for a month&rsquo;s supply of 30 packets. Labs and visits come on top, and public drug plans pay only in narrow cases, so the usual routes are private insurance or paying at the pharmacy. Prices as of October 2026 and they vary by province and pharmacy."),
  ("How much does TRT cost per month at a clinic?",
   "Most TRT clinics charge about $100 to $300 a month for visits and monitoring, in either Canadian or US dollars, and the medication is extra. That is the range Odin Health Lab sees across clinics; where a clinic falls depends on how often you are seen and whether extra medication or supplement support is included. Generic testosterone cypionate adds about $15 CAD a month at Ontario&rsquo;s list price, so in our example a Canadian clinic in that range comes to roughly $115 to $315 CAD a month before labs and the pharmacy&rsquo;s dispensing fee. Ask each clinic what the monthly fee covers and whether labs are billed separately."),
  ("How much is TRT without insurance?",
@@ -321,7 +321,7 @@ slots = {"{{HERO}}": hero(), "{{DRIVERS}}": drivers(), "{{CALABS}}": calabs(), "
          "{{SRC}}": src_html(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "TRT cost in Canada vs the USA: lab tests, coverage, testosterone prices and monitoring",
-      "TRT cost: Canada vs USA", "TRT cost in Canada vs the USA: how much do TRT and testosterone cost?", slots, G, published="2026-10-16", modified="2026-10-29")
+      "TRT cost: Canada vs USA", "TRT cost in Canada vs the USA: how much do TRT and testosterone cost?", slots, G, published="2026-10-16", modified="2026-10-30")
 
 # ---- minify for HighLevel (keeps page.full.html): strip CSS comments, line indentation and blank lines outside <script> ----
 p = os.path.join(HERE, "page.html")

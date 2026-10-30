@@ -281,7 +281,7 @@ slots = {"{{HERO}}": hero(), "{{SPLIT}}": split(), "{{SHBG}}": shbg(), "{{CALC}}
          "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Free vs total testosterone in men: SHBG, albumin, calculated free testosterone and units",
-      "Free vs total testosterone", "What is the difference between free and total testosterone?", slots, G, published="2026-10-16")
+      "Free vs total testosterone", "What is the difference between free and total testosterone?", slots, G, published="2026-10-16", modified="2026-10-30")
 
 # ---- minify for HighLevel (keeps page.full.html): strip CSS comments, line indentation and blank lines outside <script> ----
 p = os.path.join(HERE, "page.html")

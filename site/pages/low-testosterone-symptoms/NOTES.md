@@ -41,3 +41,5 @@ Keep reading gained a 10th card "Andropause vs menopause" (data-cta related_andr
 Step 'Low Testosterone Symptoms': step id 3d3af27c-b25e-4815-af50-eb2ef76b8c34, page/builder id u09dxOICeQmDprm4RXRy, sequence 22. Republish = paste :8780/low-testosterone-symptoms-ins1023.txt into the Custom Code only element.
 
 - 2026-10-27 calc1027: in-prose link to /testosterone-calculator, anchor "testosterone calculator", class text-link, data-cta diagnosis_calc_link. No other change.
+
+- 2026-10-30 lnk1030: #help lead now "...read TRT or fix the causes first and <a ... data-cta="sym_cost_link">what TRT costs in Canada and the USA</a>, and see how our health coaching works." Calgary (related_yyc_clinic) and calculator (diagnosis_calc_link) already linked: no change. X follow text -> "Follow Odin Health Lab on X". dateModified 2026-10-30. Staged :8780/low-testosterone-symptoms-lnk1030.txt.

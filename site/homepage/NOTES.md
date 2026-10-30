@@ -57,3 +57,6 @@ GSC: brand query "odin" ~31 impressions at pos 3.9 with 0 clicks; "odin labs tes
 ## 2026-10-30 same1030
 - Organization JSON-LD sameAs: added Instagram, Threads, Bluesky and Medium (@odinhealthlab profiles, each checked live 2026-10-30) after X and LinkedIn.
 - End-of-page X follow link text: "Follow Odin Health Lab on X" (brand rule: Odin Health Lab everywhere).
+
+## 2026-10-30 lnk1030
+- sitemap.xml mirror: <lastmod>2026-10-30</lastmod> on /free-vs-total-testosterone, /low-testosterone-symptoms, /trt-or-fix-causes-first, /trt-cost-canada-vs-usa (live sitemap is GHL-generated; regenerate it there).
