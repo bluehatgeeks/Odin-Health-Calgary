@@ -29,13 +29,13 @@ const ok = (k, v, detail) => { results[k] = v ? 'PASS' : 'FAIL' + (detail ? ' ' 
   const ctas = await p.evaluate(() => [...document.querySelectorAll('[data-cta]')].map(e => e.getAttribute('data-cta')));
   ok('every data-cta unique', new Set(ctas).size === ctas.length);
   // ── X follow line (Alex approved via Odin X Marketer): footer on EVERY maintained page, end-of-article line on the answer pages only ──
-  const XHREF = 'https://x.com/intent/follow?screen_name=odinhealthlab', XTEXT = 'Follow Odin Labs on X for the daily research breakdowns.';
+  const XHREF = 'https://x.com/intent/follow?screen_name=odinhealthlab', XTEXT = 'Follow Odin Health Lab on X for the daily research breakdowns.', XTEXT_OLD = 'Follow Odin Labs on X for the daily research breakdowns.'; // lnk1030: brand rule 'Odin Health Lab'; old text accepted until all pages are migrated
   const NO_END = ['_home', 'shift', 'privacy', 'functional-health', 'health-coaching', 'supplements', 'ayurveda'];
   const xinfo = await p.evaluate(() => [...document.querySelectorAll('a[data-cta^="x_follow_"]')].map(a => { const r = a.getBoundingClientRect(); const cs = getComputedStyle(a);
     return { cta: a.getAttribute('data-cta'), href: a.getAttribute('href'), target: a.getAttribute('target'), rel: a.getAttribute('rel'), text: a.textContent.trim(), w: r.width, h: r.height, vis: !!(a.offsetParent) && cs.visibility !== 'hidden' && r.width > 0,
       inMain: !!a.closest('main'), inFooter: !!a.closest('.odin-footer'), lastInMain: a.closest('main') ? (a.closest('main').lastElementChild === a.parentElement || [...a.closest('main').children].slice(-2).includes(a.parentElement)) : null, hasSvg: !!a.querySelector('svg[aria-hidden="true"]') }; }));
   const xf1 = xinfo.filter(x => x.cta === 'x_follow_footer'), xe = xinfo.filter(x => x.cta === 'x_follow_end');
-  const goodX = x => x.href === XHREF && x.target === '_blank' && x.rel === 'noopener noreferrer' && x.text === XTEXT && x.vis && x.hasSvg && !/owen-lowt/.test(x.href);
+  const goodX = x => x.href === XHREF && x.target === '_blank' && x.rel === 'noopener noreferrer' && (x.text === XTEXT || x.text === XTEXT_OLD) && x.vis && x.hasSvg && !/owen-lowt/.test(x.href);
   ok('X follow: exactly one footer link x_follow_footer (in .odin-footer), href/target/rel/text exact, visible, icon aria-hidden', xf1.length === 1 && xf1[0].inFooter && goodX(xf1[0]), JSON.stringify(xf1));
   if (NO_END.includes(slug)) ok('X follow: NO end-of-article link on this page (footer only)', xe.length === 0, JSON.stringify(xe));
   else ok('X follow: exactly one end link x_follow_end inside <main>, last block, href/target/rel/text exact, visible', xe.length === 1 && xe[0].inMain && xe[0].lastInMain && goodX(xe[0]), JSON.stringify(xe));

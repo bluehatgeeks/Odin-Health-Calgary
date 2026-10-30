@@ -237,4 +237,4 @@ slots = {"{{HERO}}": hero(), "{{SEXUAL}}": sexual(), "{{PHYSICAL}}": physical(),
          "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 slots.update(step_icons())
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Low testosterone symptoms in men (late-onset hypogonadism, andropause)",
-      "Low testosterone symptoms", "What are the symptoms of low testosterone in men?", slots, G, published="2026-10-16")
+      "Low testosterone symptoms", "What are the symptoms of low testosterone in men?", slots, G, published="2026-10-16", modified="2026-10-30")
