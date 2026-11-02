@@ -5,3 +5,14 @@
 - Facts reused only from sourced pages: Alberta DBL cypionate $34.88/10 mL regular benefit, gels not a benefit, capsule criteria (/trt-cost SOURCES C9); APL LAB124 8.0-35.0 nmol/L (up to 25% lower later in day), LAB1756 175-700 pmol/L, 07:00-10:00 (lab1028); clinic fee $100-$300/month excl. medication (Alex 2026-10-23).
 - NOT stated (unverified): street address, hours, in-person visits, prescribing.
 - common.assemble Calgary guard skips this slug; other pages may say Calgary only as 'trt-clinic-calgary' / 'TRT clinic for Calgary and Alberta' / 'in or near Calgary'.
+
+# cal1102 (BUILT LOCALLY 2026-11-02 12:15 MDT, not published) - Calgary striking-distance edit
+- Base: live-equal /workspace/srv2/trt-clinic-calgary-enc1102.txt (md5 7b7538b916c8769d8c0a8d1fde81551e; all 599 non-blank lines present in live 2026-11-02 12:14 MDT). Output md5 23112512a024723340973a282861802c, 84,478 bytes, pure ASCII. Old page.html backed up as page.html.bak-cal1102 (it predated the Oct 31 positioning rewrite).
+- GSC targets: 'low testosterone clinic calgary' pos 16, 'online trt clinic canada' 14, 'online testosterone clinic' 13, 'online trt clinic' 20. treg CA volume: testosterone clinic calgary 50/mo (CPC $3.38, KD 24); low testosterone clinic calgary, online testosterone clinic canada, online trt clinic canada, natural alternative to trt = no data.
+- Answer box lead now: "Odin Health Lab is a low testosterone clinic in Calgary: a natural health clinic offering a natural alternative to TRT ... We do not provide TRT."
+- Answer box prose: "We work as an online testosterone clinic with natural protocols instead of TRT: no waiting room and no drive across the city."
+- New FAQ #1 "Is there a low testosterone clinic in Calgary?" (visible + FAQPage JSON-LD; 7 == 7).
+- Meta/og/twitter description + WebPage/Article JSON-LD description: "Low testosterone clinic in Calgary offering a natural alternative to TRT by video call: low-T assessment, Alberta labs explained, written plan. Free call." (154). Old 'TRT clinic for Calgary and Alberta men, by telehealth' removed. og/twitter image:alt -> natural alternative wording.
+- dateModified 2026-11-02; byline "Updated November 2, 2026". Title/H1 unchanged.
+- Tidy: removed stray leftover hero markup (</svg>, duplicate "Canada, in CAD / USA, in USD" legend that rendered under the hero, </figure>, extra </div>) and closed the authority-bar </ul>; <main> now tag-balanced. Links, booking triggers, scripts, CSS, motion graphics unchanged.
+- GHL: funnel cjRsrbdHz4azEp9PTvzh, page/builder id o0QMraiDMH0ZxioPl1UU (stepId 85303dce-d8a5-455e-8ea2-47fb6009ab83). Verify live: python3 /workspace/cal1102/verify.py
