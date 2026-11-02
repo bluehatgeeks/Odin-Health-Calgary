@@ -16,3 +16,6 @@
 - dateModified 2026-11-02; byline "Updated November 2, 2026". Title/H1 unchanged.
 - Tidy: removed stray leftover hero markup (</svg>, duplicate "Canada, in CAD / USA, in USD" legend that rendered under the hero, </figure>, extra </div>) and closed the authority-bar </ul>; <main> now tag-balanced. Links, booking triggers, scripts, CSS, motion graphics unchanged.
 - GHL: funnel cjRsrbdHz4azEp9PTvzh, page/builder id o0QMraiDMH0ZxioPl1UU (stepId 85303dce-d8a5-455e-8ea2-47fb6009ab83). Verify live: python3 /workspace/cal1102/verify.py
+
+## 2026-11-02 nat1102 (built locally, staged :8780/trt-clinic-calgary-nat1102.txt)
+- Base = live cal1102 (srv2/trt-clinic-calgary-cal1102.txt, md5 23112512...). One change: in the #how lead paragraph after "...ready for your next appointment." added "See how this compares with other <a class="text-link" href="https://odinhealthlab.ca/natural-alternative-to-trt" data-cta="how_natalt_link">TRT alternatives</a>." (2nd link to /natural-alternative-to-trt; treg US: 'trt alternatives' 590/mo). Title/desc/FAQ/dateModified unchanged (already 2026-11-02). GHL builder o0QMraiDMH0ZxioPl1UU, step 85303dce-d8a5-455e-8ea2-47fb6009ab83; Custom Code only, SEO panel untouched.

@@ -105,3 +105,6 @@ Hub figures were not changed.
 - Sources +6 data-cta: calc_source_apl_freet, calc_source_apl_bulletin_2024, calc_source_lifelabs_method, calc_source_dynacare_total, calc_source_dynacare_freet, calc_source_dynacare_2014. calc_source_apl href moved from the retired indexAPL.asp?id=8932 (now redirects to a search page) to td.albertaprecisionlabs.ca TestView LAB124.
 - Article dateModified 2026-10-28. Title/desc/H1 unchanged. page.html 143,731 B.
 - Local copies of every lab source: /workspace/lab1028/src/ (see SOURCES.md).
+
+## 2026-11-02 nat1102 (built locally, staged :8780/testosterone-calculator-nat1102.txt)
+- Base = live enc1102 (srv2/testosterone-calculator-enc1102.txt, md5 f9358557...). End of #ranges lead paragraph: "If your result is low or borderline and you would rather not start TRT, see our guide to natural <a ... data-cta="calc_ranges_natalt_link">TRT alternatives</a>." (2nd link to /natural-alternative-to-trt). dateModified 2026-10-28 -> 2026-11-02. Title/desc/FAQ/tool code unchanged. Live GHL ids (from __NUXT_DATA__ 2026-11-02): builder/page GyZTry1oWhJ2Pum5kIBM, step 9799d515-b50f-47f1-a71c-eda3ef3c4c4d (older note cf860857... is stale). Custom Code only, SEO panel untouched. Tests: test-calc 19/19, tracking 46/46 CTA, scan PASS, visual identical to pre.

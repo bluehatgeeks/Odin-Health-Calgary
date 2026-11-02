@@ -158,6 +158,13 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 
 ## TRT Clinic Calgary  `/trt-clinic-calgary`
 - Title (57): TRT Calgary: Online Testosterone Clinic | Odin Health Lab
-- Description (146): TRT clinic for Calgary and Alberta men, by telehealth: low-T assessment, APL lab ranges explained, costs in Alberta and a written plan. Free call.
+- Description (154): Low testosterone clinic in Calgary offering a natural alternative to TRT by video call: low-T assessment, Alberta labs explained, written plan. Free call.
+- Previous (live until the 2026-11-02 cal1102 republish): Description (146) TRT clinic for Calgary and Alberta men, by telehealth: low-T assessment, APL lab ranges explained, costs in Alberta and a written plan. Free call.
 - Note: NEW local landing page (t2-1028; the path was a soft 404 serving the homepage). treg 2026-10-28 Google CA volumes: trt calgary 210, testosterone replacement therapy calgary 140, testosterone clinic calgary 50, trt alberta 30 ('trt clinic calgary' no data). Telehealth only: no street address, hours or in-person claims (NAP address/hours unverified). Author byline + Person schema Alexander Tretjakov (Founder). No /owen-lowt; CTAs use the booking modal. Doctors only in the doctor FAQ. Calgary wording allowed on this page only.
 
+## Natural Alternative to TRT  `/natural-alternative-to-trt`
+- Title (60): Natural TRT Alternatives for Men in Canada | Odin Health Lab
+- Description (149): TRT alternatives for men in Canada and the USA: a natural plan for sleep, stress, training, nutrition, supplements and herbs, with regular check-ins.
+- Previous (live 2026-10-31/11-02 until the nat1102 republish): Title (67) Natural Alternative to TRT for Men (Canada & USA) | Odin Health Lab; Description (145) A natural alternative to TRT for men in Canada and the USA: sleep, stress, training, nutrition, supplements and herbs, built around your pattern.
+- 2026-11-02 nat1102: treg seranking volumes (US; CA no data): trt alternatives 590, alternatives to trt 390, natural alternatives to testosterone therapy 170; 'natural alternative to trt' no data. Title/desc lead with 'TRT alternatives' (title was 67 chars, truncated). Enter the new title AND desc in the GHL SEO panel when republishing.
+   170|
