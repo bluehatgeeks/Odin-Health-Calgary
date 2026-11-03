@@ -10,10 +10,10 @@ import common
 
 SLUG = "trt-clinic-calgary"
 TITLE = "TRT Calgary: Online Testosterone Clinic | Odin Health Lab"
-DESC = "TRT clinic for Calgary and Alberta men, by telehealth: low-T assessment, APL lab ranges explained, costs in Alberta and a written plan. Free call."
-OG_ALT = "Odin Health Lab: TRT and low testosterone care by telehealth for men in Calgary and Alberta"
+DESC = "Low testosterone clinic in Calgary offering a natural alternative to TRT by video call: low-T assessment, Alberta labs explained, written plan. Free call."
+OG_ALT = "Odin Health Lab: natural alternative to TRT and low testosterone care by telehealth for men in Calgary and Alberta"
 assert len(TITLE) <= 60 and 140 <= len(DESC) <= 158, (len(TITLE), len(DESC))
-H1 = "TRT clinic in Calgary: low testosterone care by telehealth"
+H1 = "A natural low testosterone clinic in Calgary: low-T support by video call"
 
 common.ICONS.update({
  "video": '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
@@ -22,12 +22,18 @@ common.ICONS.update({
 })
 
 FAQ = [
- ("Is there a TRT clinic in Calgary that works by telehealth?",
-  "Yes. Odin Health Lab is a low testosterone and andropause telehealth service built in Calgary for men in Calgary, across Alberta and elsewhere in Canada and the USA. Calls are by video or phone, so you do not need to travel to an office. We go through your symptoms and history, plan the right morning labs, explain your results and build a written sleep, weight, stress and nutrition plan with you."),
+ ("Is there a low testosterone clinic in Calgary?",
+  "Yes. Odin Health Lab is a low testosterone clinic in Calgary: a natural health clinic for men with low T that works online by video call across Canada and the USA. We offer natural protocols as an alternative to TRT, built around your symptoms, morning labs, sleep, weight, stress and nutrition. We do not prescribe or provide TRT. If you choose TRT, we support your health around it with what TRT misses or cannot remedy."),
+ ("What monitoring and support do I get with an online low-T program in Canada?",
+  "Our online low-T program is a natural protocol, not TRT, and everything happens by video or phone from home, for men across Canada and the USA. On your first call we agree what you will track, such as sleep, training, meals and alcohol, and your energy, mood and drive. You check in with your coach on a regular schedule, and each check-in looks at what is working, changes what isn't and adjusts your sleep, stress, training, nutrition and supplement plan. We plan your morning labs and repeat labs on schedule, help you decide which tests to ask your doctor for and go through your results with you in plain language. Between check-ins, health coaching keeps someone in your corner, and you get a clear summary of your tracking to share with anyone you choose. We do not provide or prescribe TRT. If you choose TRT, we support your health around it."),
+ ("Is there a natural alternative to a TRT clinic in Calgary?",
+  "Yes. Odin Health Lab is a natural health clinic for low testosterone and andropause built in Calgary for men in Calgary, across Alberta and elsewhere in Canada and the USA. Calls are by video or phone, so you do not need to travel to an office. We go through your symptoms and history, plan the right morning labs, explain your results and build a written sleep, weight, stress and nutrition plan with you."),
  ("How much does TRT cost in Calgary?",
   'Most TRT clinics charge about $100 to $300 a month for visits and monitoring, and the medication is extra. On Alberta&rsquo;s drug list generic testosterone cypionate is a regular benefit at $34.88 CAD for a 10 mL vial, about $15 a month at 100 mg a week before the pharmacy&rsquo;s dispensing fee. Gels are not a benefit on the list. See the full breakdown in <a href="%s/trt-cost-canada-vs-usa#alberta">TRT cost in Canada vs the USA</a>.' % SITE),
  ("What testosterone level is low on an Alberta lab report?",
   'Alberta Precision Laboratories lists an adult male range of 8.0 to 35.0 nmol/L for total testosterone and notes results can be up to a quarter lower later in the day, so a morning draw between 7 and 10 a.m. is suggested. APL calculates free testosterone from total T, SHBG and albumin, with an adult male range of 175 to 700 pmol/L. Our <a href="%s/testosterone-calculator">testosterone calculator</a> converts and explains your numbers.' % SITE),
+ ("How much time is between coaching sessions in an online program?",
+  "That depends on where you are. In the first few weeks you and your coach will likely talk every 10 days, and as your sleep, weight, stress and nutrition routines settle in you might stretch that to every two to three weeks. During months when you repeat labs or review your results, you will talk more often. The goal is a regular check-in schedule that keeps you on track without taking over your day."),
  ("Do I need to live in Calgary to work with Odin Health Lab?",
   "No. Everything happens by telehealth, so men anywhere in Alberta, the rest of Canada and the USA can book. Calgary is where we are built, and we know how Alberta lab reports and the Alberta drug list work."),
  ("What should I bring to the first call?",
@@ -126,7 +132,7 @@ def ld_extra(ld):
 
 slots = {"{{HERO}}": hero(), "{{HOW}}": how(), "{{LABS}}": labs(), "{{COST}}": cost(), "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final()}
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "TRT and low testosterone care by telehealth for men in Calgary and Alberta",
-      "TRT clinic Calgary", H1, slots, G, published="2026-10-28", modified="2026-10-28", author={"@id": SITE + "/#alexander-tretjakov"}, ld_extra=ld_extra)
+      "TRT clinic Calgary", H1, slots, G, published="2026-10-28", modified="2026-11-03", author={"@id": SITE + "/#alexander-tretjakov"}, ld_extra=ld_extra)
 # ---- minify for HighLevel (keeps page.full.html): strip CSS comments, line indentation and blank lines outside <script> ----
 p = os.path.join(HERE, "page.html")
 full = open(p, encoding="utf-8").read()
