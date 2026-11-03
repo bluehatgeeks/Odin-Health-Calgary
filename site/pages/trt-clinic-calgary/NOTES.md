@@ -19,3 +19,10 @@
 
 ## 2026-11-02 nat1102 (built locally, staged :8780/trt-clinic-calgary-nat1102.txt)
 - Base = live cal1102 (srv2/trt-clinic-calgary-cal1102.txt, md5 23112512...). One change: in the #how lead paragraph after "...ready for your next appointment." added "See how this compares with other <a class="text-link" href="https://odinhealthlab.ca/natural-alternative-to-trt" data-cta="how_natalt_link">TRT alternatives</a>." (2nd link to /natural-alternative-to-trt; treg US: 'trt alternatives' 590/mo). Title/desc/FAQ/dateModified unchanged (already 2026-11-02). GHL builder o0QMraiDMH0ZxioPl1UU, step 85303dce-d8a5-455e-8ea2-47fb6009ab83; Custom Code only, SEO panel untouched.
+
+## 2026-11-03 mon1103 (built locally, staged :8780/trt-clinic-calgary-mon1103.txt, md5 ba43ca406bce46d875725f51f8c695d9)
+- Base = live nat1102 (srv2/trt-clinic-calgary-nat1102.txt, md5 baa6d536...; all 608 non-blank lines live 2026-11-03 16:02 MDT).
+- H1 + Article headline: "A natural alternative to TRT in Calgary: low testosterone support by video call" -> "A natural low testosterone clinic in Calgary: low-T support by video call" (GSC 'low testosterone clinic calgary' pos 17). Short answer still opens with "...a natural health clinic offering a natural alternative to TRT...".
+- New FAQ #2 "What monitoring and support do I get with an online low-T program in Canada?" (wording from the nat1102 monitoring FAQ on /natural-alternative-to-trt; DOM 8 == JSON-LD 8). Targets GSC 'best online testosterone therapy with comprehensive monitoring and support in canada' / '...testing and treatment at home in canada'.
+- Hero authority bar 1 -> 4 cards (+ Natural protocols, not TRT / A written plan, adjusted as you go / Free first call; markup+icons from /natural-alternative-to-trt).
+- dateModified 2026-11-03, byline Updated November 3, 2026. Title, meta description, canonical, links, booking, scripts, CSS, motion unchanged.
