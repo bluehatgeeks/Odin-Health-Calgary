@@ -10,9 +10,9 @@ import common
 
 SLUG = "testosterone-calculator"
 TITLE = "ISSAM Calculator: Free and Bioavailable Testosterone"  # calc1027: brand suffix dropped ('| Odin Health Lab' = 70 chars / ~623px, truncates); was issam1026 '... | Odin Labs', before that 'Testosterone Calculator: Free T and Units | Odin Health Lab'
-DESC = "Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter."
-OG_ALT = "Odin Health Lab testosterone calculator: ng/dL to nmol/L converter and free testosterone calculator"
-assert len(TITLE) <= 65 and 140 <= len(DESC) <= 155, (len(TITLE), len(DESC))
+DESC = "Free ISSAM testosterone calculator: enter total T, SHBG and albumin to get free and bioavailable testosterone instantly, in nmol/L or ng/dL. No sign-up."
+OG_ALT = "Odin Health Lab ISSAM testosterone calculator: free testosterone calculator and ng/dL to nmol/L converter"
+assert len(TITLE) <= 65 and 140 <= len(DESC) <= 160, (len(TITLE), len(DESC))
 
 common.ICONS.update({
  "calc": '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>',
@@ -40,7 +40,7 @@ FAQ = [
  ("What are the Alberta Precision Laboratories (APL) testosterone ranges in Alberta?",
   "Alberta Precision Laboratories, the public lab system in Alberta, lists 8.0 to 35.0 nmol/L for total testosterone and 175 to 700 pmol/L for calculated free testosterone in males 18 and over. APL calculates free T from total testosterone, SHBG and albumin. Its test directory notes that testosterone is highest in the morning, with values up to 25 percent lower later in the day, and suggests collecting between 07:00 and 10:00."),
  ("How does Odin Health Lab work with my doctor?",
-  'Odin Health Lab is a telehealth service for men in Canada and the USA with low testosterone (andropause) symptoms. We work alongside your own doctor: we go through your symptoms and lab results with you, put results from Canadian and US labs into one unit, check how your free T was measured or calculated, help you prepare questions for your next appointment, build your nutrition, training, sleep and stress plan, and track your progress with follow-up check-ins and repeat labs. We can share your plan and results with your doctor if you choose. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
+  'Odin Health Lab is a natural health clinic offering natural alternatives to TRT, by video call, for men in Canada and the USA with low testosterone (andropause) symptoms. We do not provide TRT. We provide supportive services and do not work directly with your doctor. We go through your symptoms and lab results with you, put results from Canadian and US labs into one unit, check how your free T was measured or calculated, help you prepare questions for your next appointment, build your nutrition, training, sleep and stress plan, and track your progress with follow-up check-ins and repeat labs. If you choose TRT, we support your health around it to address what TRT misses or can\'t remedy. See our <a href="%s/">low testosterone overview</a> and our <a href="%s/privacy">Privacy Policy</a>.' % (SITE, SITE)),
 ]
 G = Gen()
 F28, P3 = 28.84, 3.467
@@ -281,7 +281,7 @@ slots = {"{{HERO}}": hero(), "{{METER}}": meter(N0), "{{CVOUT}}": total_html(N0)
          "{{FCOUT}}": fc_out, "{{FCBAR}}": fc_bar(N0, r0), "{{RANGES}}": ranges(), "{{LABREP}}": labrep(), "{{WHY}}": why(), "{{HOW}}": how(), "{{HELP}}": help_fig(),
          "{{SOURCES}}": sources_fig(), "{{HUB}}": HUB, "{{FAQMOTIF}}": FAQMOTIF, "{{FINAL}}": final(), "{{CALCJS}}": calcjs}
 build(HERE, SLUG, TITLE, DESC, OG_ALT, FAQ, "Testosterone unit conversion (ng/dL, nmol/L, pg/mL, pmol/L) and calculated free testosterone",
-      "Testosterone calculator", "ISSAM calculator: free and bioavailable testosterone, plus ng/dL to nmol/L conversion", slots, G, published="2026-10-18", modified="2026-10-28")
+      "Testosterone calculator", "ISSAM calculator: free and bioavailable testosterone, plus ng/dL to nmol/L conversion", slots, G, published="2026-10-18", modified="2026-11-03")
 
 # ---- add WebApplication JSON-LD (the tool itself) next to the Article node ----
 p = os.path.join(HERE, "page.html")

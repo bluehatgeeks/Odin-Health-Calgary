@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter."/>
+<meta name="description" content="Free ISSAM testosterone calculator: enter total T, SHBG and albumin to get free and bioavailable testosterone instantly, in nmol/L or ng/dL. No sign-up."/>
 <link rel="canonical" href="https://odinhealthlab.ca/testosterone-calculator"/>
 <meta name="robots" content="index, follow, max-image-preview:large"/>
 <meta name="theme-color" content="#1a3a1a"/>
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="en_CA"/>
 <meta property="og:url" content="https://odinhealthlab.ca/testosterone-calculator"/>
 <meta property="og:title" content="ISSAM Calculator: Free and Bioavailable Testosterone"/>
-<meta property="og:description" content="Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter."/>
+<meta property="og:description" content="Free ISSAM testosterone calculator: enter total T, SHBG and albumin to get free and bioavailable testosterone instantly, in nmol/L or ng/dL. No sign-up."/>
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/og-home.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -21,7 +21,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="ISSAM Calculator: Free and Bioavailable Testosterone"/>
-<meta name="twitter:description" content="Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter."/>
+<meta name="twitter:description" content="Free ISSAM testosterone calculator: enter total T, SHBG and albumin to get free and bioavailable testosterone instantly, in nmol/L or ng/dL. No sign-up."/>
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/og-home.png"/>
 <meta name="twitter:image:alt" content="Odin Health Lab ISSAM testosterone calculator: free testosterone calculator and ng/dL to nmol/L converter"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/odin-shared.css?v=6"/>
@@ -68,7 +68,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
       "@id": "https://odinhealthlab.ca/testosterone-calculator#webpage",
       "url": "https://odinhealthlab.ca/testosterone-calculator",
       "name": "ISSAM Calculator: Free and Bioavailable Testosterone",
-      "description": "Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter.",
+      "description": "Free ISSAM testosterone calculator: enter total T, SHBG and albumin to get free and bioavailable testosterone instantly, in nmol/L or ng/dL. No sign-up.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://odinhealthlab.ca/#website"
@@ -91,7 +91,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
       "@type": "Article",
       "@id": "https://odinhealthlab.ca/testosterone-calculator#article",
       "headline": "ISSAM calculator: free and bioavailable testosterone, plus ng/dL to nmol/L conversion",
-      "description": "Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter.",
+      "description": "Free ISSAM testosterone calculator: enter total T, SHBG and albumin to get free and bioavailable testosterone instantly, in nmol/L or ng/dL. No sign-up.",
       "inLanguage": "en",
       "mainEntityOfPage": {
         "@id": "https://odinhealthlab.ca/testosterone-calculator#webpage"
@@ -239,7 +239,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
 </head>
 <body>
 <script>
-/* \u2500\u2500 Odin Health Lab \u2014 Component Loader (inline, same as the homepage) \u2500\u2500 */
+/* ── Odin Health Lab — Component Loader (inline, same as the homepage) ── */
 (function () {
   var CDN = 'https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master';
   function execScripts(container) {
@@ -826,7 +826,7 @@ var ll = where(p, 115, 577);
 return '<li class="rs-' + (p < 220 ? 'below' : 'inside') + '">' + (p < 220 ? 'Below' : 'At or above') + ' the 220 pmol/L (64 pg/mL) free T cut-off used by the European Male Ageing Study</li>' +
 '<li class="rs-' + ll + '">' + (ll === 'inside' ? 'Inside' : ll === 'below' ? 'Below' : 'Above') + ' the LifeLabs calculated free T range for men (115 to 577 pmol/L)</li>';
 }
-/* \u2500\u2500 Unit converter \u2500\u2500 */
+/* ── Unit converter ── */
 var cv = $('cv'), pin = $('mt-pin'), pinT = $('mt-val');
 if (cv) {
 var pairs = [['cv-nmol', 'cv-ng', O.toNg, 0, 'total'], ['cv-ng', 'cv-nmol', O.toNmol, 2, 'total'], ['cv-pmol', 'cv-pg', O.toPg, 2, 'free'], ['cv-pg', 'cv-pmol', O.toPmol, 1, 'free']];
@@ -844,7 +844,7 @@ else { var p = pr[0] === 'cv-pmol' ? v : w; outF.innerHTML = '<p class="rs-head"
 });
 });
 }
-/* \u2500\u2500 Free T calculator (Vermeulen) \u2500\u2500 */
+/* ── Free T calculator (Vermeulen) ── */
 var fc = $('fc');
 if (fc) {
 var tt = $('fc-tt'), sh = $('fc-shbg'), al = $('fc-alb'), res = $('fc-out'), unitTxt = $('fc-tt-unit'), bar = $('fc-bar');
@@ -892,7 +892,7 @@ run();
    Mixpanel init and the "Page View" event stay in the existing site-level tracking code. */
 (function () {
   var PAGE = 'testosterone-calculator';
-  /* \u2500\u2500 Booking modal \u2500\u2500 */
+  /* ── Booking modal ── */
   var overlay = document.getElementById('booking-modal-overlay');
   var closeBtn = document.getElementById('booking-modal-close');
   var lastFocus = null;
@@ -929,7 +929,7 @@ run();
     if (e.key === 'Escape' && overlay && overlay.classList.contains('is-visible')) closeModal();
   });
 
-  /* \u2500\u2500 AI-referrer super-property (once per load; never throw / never block) \u2500\u2500 */
+  /* ── AI-referrer super-property (once per load; never throw / never block) ── */
   try {
     var aiLabel = null;
     var AI_HOSTS = {
@@ -969,7 +969,7 @@ run();
     }
   } catch (errAi) { /* never block render */ }
 
-  /* \u2500\u2500 CTA click tracking (Mixpanel, guarded). Properties: cta, page \u2500\u2500 */
+  /* ── CTA click tracking (Mixpanel, guarded). Properties: cta, page ── */
   function trackCta(cta) {
     try {
       if (window.mixpanel && typeof window.mixpanel.track === 'function') {
@@ -1000,7 +1000,7 @@ run();
   }, true);
 
 
-  /* \u2500\u2500 Motion (progressive enhancement; content is fully visible without JS) \u2500\u2500 */
+  /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
   var reduce = false; /* ambient loops keep running under iOS/macOS Reduce Motion; the reduce CSS block still stills slide-in reveals, hovers and accordion easing */
   var hasIO = 'IntersectionObserver' in window;
 
