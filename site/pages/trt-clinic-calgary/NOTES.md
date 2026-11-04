@@ -26,3 +26,9 @@
 - New FAQ #2 "What monitoring and support do I get with an online low-T program in Canada?" (wording from the nat1102 monitoring FAQ on /natural-alternative-to-trt; DOM 8 == JSON-LD 8). Targets GSC 'best online testosterone therapy with comprehensive monitoring and support in canada' / '...testing and treatment at home in canada'.
 - Hero authority bar 1 -> 4 cards (+ Natural protocols, not TRT / A written plan, adjusted as you go / Free first call; markup+icons from /natural-alternative-to-trt).
 - dateModified 2026-11-03, byline Updated November 3, 2026. Title, meta description, canonical, links, booking, scripts, CSS, motion unchanged.
+
+    30|## 2026-11-04 ahs1104 (built locally, staged :8780/trt-clinic-calgary-ahs1104.txt, md5 c5f71015e4a427ff9e3f41cbf8038ba1)
+- Base = live mon1103 (srv2/trt-clinic-calgary-mon1103.txt, md5 ba43ca40...; all 623 non-blank lines live 2026-11-04 08:4x MDT).
+- Idea #10: 2 new FAQs inserted as #3 and #4 (visible + FAQPage JSON-LD; DOM 10 == JSON-LD 10): "Is low testosterone care covered by AHS in Calgary, and how long is the wait?" and "Who do you see for low testosterone in Calgary?". No new links.
+- Sources: alberta.ca/ahcip-what-is-covered (AHCIP covers medically required physician services + medically required lab/diagnostic services; physician decides medical necessity); albertahealthservices.ca/info/Page14282.aspx + assets/info/ard/if-ard-faq.pdf (ARD = AHS official referral source, waits are routine estimates, not guaranteed, may change; most services need a healthcare-professional referral; family physician or Health Link 811); ARD profile 1139451 (Calgary endocrinology, Rockyview Health Centre Bldg II: routine within 6 months); ARD 1133084 (Calgary Zone urology FAST central access, estimate Not Available).
+- dateModified 2026-11-04, byline Updated November 4, 2026. Title, meta, canonical, H1, links, booking, scripts, CSS, motion unchanged.
