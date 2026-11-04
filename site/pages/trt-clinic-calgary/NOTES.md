@@ -27,8 +27,15 @@
 - Hero authority bar 1 -> 4 cards (+ Natural protocols, not TRT / A written plan, adjusted as you go / Free first call; markup+icons from /natural-alternative-to-trt).
 - dateModified 2026-11-03, byline Updated November 3, 2026. Title, meta description, canonical, links, booking, scripts, CSS, motion unchanged.
 
-    30|## 2026-11-04 ahs1104 (built locally, staged :8780/trt-clinic-calgary-ahs1104.txt, md5 c5f71015e4a427ff9e3f41cbf8038ba1)
+## 2026-11-04 ahs1104 (built locally, staged :8780/trt-clinic-calgary-ahs1104.txt, md5 c5f71015e4a427ff9e3f41cbf8038ba1)
 - Base = live mon1103 (srv2/trt-clinic-calgary-mon1103.txt, md5 ba43ca40...; all 623 non-blank lines live 2026-11-04 08:4x MDT).
 - Idea #10: 2 new FAQs inserted as #3 and #4 (visible + FAQPage JSON-LD; DOM 10 == JSON-LD 10): "Is low testosterone care covered by AHS in Calgary, and how long is the wait?" and "Who do you see for low testosterone in Calgary?". No new links.
 - Sources: alberta.ca/ahcip-what-is-covered (AHCIP covers medically required physician services + medically required lab/diagnostic services; physician decides medical necessity); albertahealthservices.ca/info/Page14282.aspx + assets/info/ard/if-ard-faq.pdf (ARD = AHS official referral source, waits are routine estimates, not guaranteed, may change; most services need a healthcare-professional referral; family physician or Health Link 811); ARD profile 1139451 (Calgary endocrinology, Rockyview Health Centre Bldg II: routine within 6 months); ARD 1133084 (Calgary Zone urology FAST central access, estimate Not Available).
 - dateModified 2026-11-04, byline Updated November 4, 2026. Title, meta, canonical, H1, links, booking, scripts, CSS, motion unchanged.
+
+## 2026-11-04 hrm1104 (built locally, staged :8780/trt-clinic-calgary-hrm1104.txt, md5 7150a35798f630f1eca715baa7b14966)
+- Base = live ahs1104 (ahs1104/trt-clinic-calgary-ahs1104.txt, md5 c5f71015...; all 647 non-blank lines live 2026-11-04 ~12:05 MDT).
+- Backlog 11-04 item 2 (Calgary synonym capture): 1 new FAQ inserted as #2 (visible + FAQPage JSON-LD; DOM 11 == JSON-LD 11): "Is there a male hormone clinic in Calgary for hormone testing?" Uses "male hormone clinic in Calgary", "hormone testing clinic", "hormone testing in Calgary". No new links, no H2.
+- Facts reused from the existing page only (family doctor orders labs, APL reports them, two early-morning total T tests + free T/SHBG when borderline, we help decide which tests to ask your doctor for). Page has no requisition/home-test wording, so none added.
+- treg CA volumes: hormone testing calgary 210, men's health clinic calgary 110, hormone clinic calgary 50, testosterone clinic calgary 50; male hormone clinic calgary / hormone testing clinic calgary / men's hormone therapy near me: no data.
+- dateModified/byline already 2026-11-04 (unchanged). Title, meta, canonical, H1, links, ?ref=, booking, scripts, CSS, motion unchanged.
