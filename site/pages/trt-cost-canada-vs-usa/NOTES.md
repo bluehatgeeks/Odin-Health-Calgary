@@ -77,6 +77,12 @@
 - Dispensing fees, pharmacy markup, needles/syringes and clinic fee stated as extra; no needle price given (no source).
 - Title/desc/H1 unchanged; dateModified already 2026-10-29.
 
+## 2026-11-05 g55/SEO-1105: Early H2 "How much does TRT cost in Canada?"
+- Added new section #cost-answer with H2 id="cost-answer-title" "How much does TRT cost in Canada?" between hero and #drivers sections.
+- Target: GSC query "How much does TRT cost in Canada" (pos ~13-19, treg CA volume 90/mo, KD 9) for early visible H2.
+- No other content changes. Page structure now: hero + quick/short answer boxes -> cost-answer H2 (empty section) -> drivers -> rest.
+- dateModified unchanged (already 2026-10-30 from lnk1030). Rebuild required: python3 build.py.
+
 ## 2026-10-30 lnk1030
 - FAQ 1 renamed "How much does TRT cost per month in Canada?" -> "How much does TRT cost in Canada?" (verbatim GSC query, pos ~19.5; seranking CA volume 90/mo, KD 9). Answer's first sentence now "Per month, the drug itself often costs less than people expect."; rest unchanged. FAQ count stays 10, DOM == JSON-LD.
 - X follow text -> "Follow Odin Health Lab on X". dateModified 2026-10-30. Title/desc/H1/SEO panel unchanged. Staged :8780/trt-cost-canada-vs-usa-lnk1030.txt.

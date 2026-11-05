@@ -47,6 +47,11 @@ The footer line "Follow Odin Labs on X for the daily research breakdowns." (`dat
 ## X follow end line (2026-10-19, requested by Odin X Marketer; homepage is the X bio link)
 `<p class="x-follow reveal">` in the FINAL CTA, right under "Prefer to talk first? Book a free call." and above the final graphic: "**Follow Odin Labs on X** for the daily research breakdowns." -> https://x.com/intent/follow?screen_name=odinhealthlab (new tab, rel noopener noreferrer), `data-cta="x_follow_end"` (existing delegated CTA Click handler). Same markup as the answer pages' end line. Placed in the CTA area (not right before the footer) because the footer's own `x_follow_footer` line sits ~250 px below and the two would read as a duplicate. CSS is a small body-level `<style>` just before the final CTA (keeps `<head>` byte-identical), every selector scoped `.home-v2 .final-cta .x-follow*`: outlined pill (44 px tap target), inline icon on <=480 px. Motion: the existing `.reveal` fade-up plus a gentle icon pop (transform/opacity, no-preference only); reduced motion / no JS = static, fully visible. Test: `hp-test/xend.js`. Backups `*.bak-xend`.
 
+## 2026-11-05 g55/SEO-1105: YouTube sameAs + cost anchor text
+- Organization JSON-LD sameAs array now includes YouTube channel: https://www.youtube.com/channel/UCpAhRuJtuzeMw0_O7uCUtqw (after Medium).
+- Common questions section: TRT cost FAQ anchor text changed from "Read the full answer" to "How much does TRT cost in Canada?" for better query alignment.
+- No rebuild needed (HTML files edited directly). dateModified unchanged.
+
 ## Brand title/description (2026-10-27, brand1027; backlog Oct 26 decision)
 GSC: brand query "odin" ~31 impressions at pos 3.9 with 0 clicks; "odin labs testosterone" across several URLs. TITLE/DESC in `build.py` now lead with the Google Business Profile name "Odin Health Lab" (singular):
 - Title (59): `Odin Health Lab: Low Testosterone & Men's Health Telehealth` (was `Low T & Andropause Telehealth for Men | Odin Health Lab`)
