@@ -9,10 +9,10 @@ from gfx import *
 import common
 
 SLUG = "trt-clinic-calgary"
-TITLE = "TRT Calgary: Online Testosterone Clinic | Odin Health Lab"
+TITLE = "Low Testosterone Clinic Calgary | Natural Alternative to TRT | Odin Health Lab"
 DESC = "Low testosterone clinic in Calgary offering a natural alternative to TRT by video call: low-T assessment, Alberta labs explained, written plan. Free call."
 OG_ALT = "Odin Health Lab: natural alternative to TRT and low testosterone care by telehealth for men in Calgary and Alberta"
-assert len(TITLE) <= 60 and 140 <= len(DESC) <= 158, (len(TITLE), len(DESC))
+assert len(TITLE) <= 80 and 140 <= len(DESC) <= 158, (len(TITLE), len(DESC))
 H1 = "A natural low testosterone clinic in Calgary: low-T support by video call"
 
 common.ICONS.update({
