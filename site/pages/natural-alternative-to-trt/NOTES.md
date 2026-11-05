@@ -9,3 +9,6 @@ NOTE: build.py / page.body.html in this dir date from Oct 31 and are NOT the liv
 - Short answer lead: 'Of all the TRT alternatives, the best natural one is a structured plan aimed at what is pulling your testosterone down:' (H1 unchanged).
 - New FAQ #2 'What monitoring and support does Odin Health Lab give on a natural protocol?' (DOM 7 == JSON-LD 7); facts only from /, /health-coaching, /functional-health, /trt-clinic-calgary and this page; ends 'We do not provide TRT.'; visible answer links /health-coaching (faq_monitoring_coaching_link).
 - Enter the new title AND description in the GHL SEO panel when republishing.
+
+## 2026-11-05 pep1105 (built locally, staged :8780/natural-alternative-to-trt-pep1105.txt, md5 0252152a3f7ab2d12c9b997d448824a8)
+- Base = live nat1102. One in-prose link after supportive-services lead: anchor "peptides are legal in Canada" -> /peptides-canada-usa, data-cta="natalt_peptides_link". dateModified + byline -> 2026-11-05. Title/meta/FAQ/booking unchanged.

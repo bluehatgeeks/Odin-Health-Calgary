@@ -39,3 +39,6 @@
 - Facts reused from the existing page only (family doctor orders labs, APL reports them, two early-morning total T tests + free T/SHBG when borderline, we help decide which tests to ask your doctor for). Page has no requisition/home-test wording, so none added.
 - treg CA volumes: hormone testing calgary 210, men's health clinic calgary 110, hormone clinic calgary 50, testosterone clinic calgary 50; male hormone clinic calgary / hormone testing clinic calgary / men's hormone therapy near me: no data.
 - dateModified/byline already 2026-11-04 (unchanged). Title, meta, canonical, H1, links, ?ref=, booking, scripts, CSS, motion unchanged.
+
+## 2026-11-05 pep1105 (built locally, staged :8780/trt-clinic-calgary-pep1105.txt, md5 e25c62b4d9ed9a0b8594977932ca7595)
+- Base = live hrm1104. One in-prose link in #how lead after how_natalt_link: anchor "are peptides legal in Canada" -> /peptides-canada-usa, data-cta="calgary_peptides_link". dateModified + byline -> 2026-11-05. Title/meta/FAQ/booking unchanged.
