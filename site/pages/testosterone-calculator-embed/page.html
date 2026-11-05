@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Embeddable ISSAM Free Testosterone Calculator</title>
+<meta name="description" content="Free embeddable ISSAM (Vermeulen) free testosterone calculator by Odin Health Lab. Enter total T, SHBG and albumin. Copy-paste iframe for your site."/>
+<link rel="canonical" href="https://odinhealthlab.ca/testosterone-calculator"/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#1a3a1a"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Odin Health Lab"/>
+<meta property="og:locale" content="en_CA"/>
+<meta property="og:url" content="https://odinhealthlab.ca/testosterone-calculator-embed"/>
+<meta property="og:title" content="Embeddable ISSAM Free Testosterone Calculator"/>
+<meta property="og:description" content="Free embeddable ISSAM (Vermeulen) free testosterone calculator by Odin Health Lab. Enter total T, SHBG and albumin. Copy-paste iframe for your site."/>
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/og-home.png"/>
+<meta property="og:image:alt" content="Odin Health Lab ISSAM free testosterone calculator embed"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Embeddable ISSAM Free Testosterone Calculator"/>
+<meta name="twitter:description" content="Free embeddable ISSAM (Vermeulen) free testosterone calculator by Odin Health Lab. Enter total T, SHBG and albumin. Copy-paste iframe for your site."/>
+<style>
+:root{--dark-green:#1a3a1a;--lime-green:#c4ff49;--white:#fff;--white-800:rgba(255,255,255,.8);--white-500:rgba(255,255,255,.5);--card-bg:#142e14;--lime-line:rgba(196,255,73,.25);--ease-out:cubic-bezier(.23,1,.32,1);--font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--dark-green);color:var(--white);font-family:var(--font-family);-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-y:auto}
+body{min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--lime-green);text-underline-offset:3px}
+a:hover{color:var(--white)}
+.emb{flex:1;display:flex;flex-direction:column;padding:16px 16px 0;max-width:720px;margin:0 auto;width:100%}
+.emb-top{display:flex;align-items:center;gap:12px;margin:0 0 14px}
+.emb-viz{flex:0 0 auto;width:44px;height:44px}
+.emb-viz svg{display:block;width:44px;height:44px}
+.emb-h{margin:0;font-size:1.15rem;line-height:1.25;font-weight:800;text-wrap:balance}
+.emb-sub{margin:2px 0 0;font-size:.85rem;color:var(--white-800)}
+.tool{padding:18px 18px 6px;border:1px solid var(--lime-line);border-radius:18px;background:var(--card-bg);text-align:left}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:14px;align-items:start}
+.tool-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.tool-lab{font-size:.92rem;font-weight:700;color:var(--white-800)}
+.tool input[type=text]{width:100%;min-height:48px;margin:0;padding:10px 14px;font:inherit;font-size:1.25rem;font-weight:800;color:var(--white);background:#0f240f;border:2px solid rgba(196,255,73,.45);border-radius:12px}
+.tool input[type=text]:focus{border-color:var(--lime-green);outline:3px solid var(--lime-green);outline-offset:2px}
+.tool-inunit{position:relative}
+.tool-inunit input[type=text]{padding-right:72px}
+.tool-u{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:.9rem;font-weight:700;color:var(--white-800);pointer-events:none}
+.seg{display:flex;gap:8px;margin-top:8px}
+.seg label{position:relative;flex:1}
+.seg input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:40px;border:2px solid rgba(255,255,255,.3);border-radius:10px;font-size:.9rem;font-weight:700;color:var(--white-800)}
+.seg input:checked+span{background:rgba(196,255,73,.16);border-color:var(--lime-green);color:var(--white)}
+.seg input:focus-visible+span{outline:3px solid var(--lime-green);outline-offset:2px}
+.fc-bar-wrap{margin:16px 0 0}
+.fc-bar{display:flex;height:18px;overflow:hidden;border-radius:9px;background:rgba(255,255,255,.06)}
+.fc-bar span{display:block;height:100%;transition:width .5s var(--ease-out)}
+.fc-bar .b1{background:rgba(196,255,73,.5)}.fc-bar .b2{background:rgba(255,255,255,.35)}.fc-bar .b3{background:var(--lime-green);box-shadow:0 0 10px rgba(196,255,73,.8)}
+.fc-bar-leg{display:flex;flex-wrap:wrap;gap:6px 14px;margin:8px 0 0;font-size:.82rem;font-weight:600;color:var(--white-800)}
+.fc-bar-leg i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border-radius:3px}
+.fc-bar-leg .k1{background:rgba(196,255,73,.5)}.fc-bar-leg .k2{background:rgba(255,255,255,.35)}.fc-bar-leg .k3{background:var(--lime-green)}
+.tool-out{margin:12px 0 16px;padding:12px 14px;border-left:4px solid var(--lime-green);border-radius:12px;background:rgba(196,255,73,.06)}
+.rs-head{margin:0 0 6px;font-size:1rem;line-height:1.45;color:var(--white)}.rs-head b{color:var(--lime-green)}
+.rs-note{margin:4px 0;font-size:.88rem;color:var(--white-800)}
+.rs-list{list-style:none;margin:0;padding:0}
+.rs-list li{position:relative;margin:6px 0 0;padding:0 0 0 22px;font-size:.92rem;line-height:1.45;color:var(--white-800)}
+.rs-list li::before{content:"";position:absolute;left:2px;top:.42em;width:9px;height:9px;border-radius:50%;border:2px solid var(--white);box-sizing:border-box}
+.rs-list li.rs-inside::before{background:var(--lime-green);border-color:var(--lime-green)}
+.rs-list li.rs-above::before{background:var(--white)}
+.fc-big{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.fc-k{flex-basis:100%;font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lime-green)}
+.fc-v{font-size:1.05rem;font-weight:700;color:var(--white)}.fc-v b{font-size:1.9rem;color:var(--lime-green)}
+.fc-v2{font-size:1rem;font-weight:700;color:var(--white-800)}
+.fc-dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:8px 12px;margin:10px 0 6px}
+.fc-dl dt{font-size:.8rem;color:var(--white-800)}.fc-dl dd{margin:2px 0 0;font-weight:800;color:var(--white)}
+.emb-credit{margin-top:auto;padding:12px 4px 14px;font-size:.88rem;color:var(--white-800);text-align:center;border-top:1px solid rgba(255,255,255,.08)}
+.emb-credit a{font-weight:700;text-decoration:none;border-bottom:1px solid rgba(196,255,73,.45)}
+.emb-credit a:hover{border-bottom-color:var(--white)}
+.pulse-ring{transform-box:fill-box;transform-origin:center;opacity:.55}
+.pulse-dot{transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion:no-preference){
+  .js-on .pulse-ring{animation:emb-ring 3.2s ease-out infinite}
+  .js-on .pulse-ring.r2{animation-delay:1.1s}
+  .js-on .pulse-dot{animation:emb-dot 2.4s ease-in-out infinite}
+  .js-on .fc-bar .b3{animation:emb-glow 2.4s ease-in-out infinite}
+}
+@keyframes emb-ring{0%{opacity:.7;transform:scale(.72)}70%,100%{opacity:0;transform:scale(1.85)}}
+@keyframes emb-dot{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes emb-glow{0%,100%{opacity:.75}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .fc-bar span{transition:none}
+}
+@media (max-width:420px){
+  .emb{padding:12px 12px 0}
+  .tool{padding:14px 12px 4px}
+  .tool input[type=text]{font-size:1.1rem;min-height:44px}
+  .fc-v b{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<main class="emb" id="main">
+<div class="emb-top">
+<svg class="emb-viz" viewBox="0 0 44 44" role="img" aria-label="Free testosterone fraction visual" focusable="false">
+  <circle class="pulse-ring" cx="22" cy="22" r="14" fill="none" stroke="#c4ff49" stroke-width="1.5" opacity="0.45"/>
+  <circle class="pulse-ring r2" cx="22" cy="22" r="14" fill="none" stroke="#c4ff49" stroke-width="1.2" opacity="0.3"/>
+  <circle class="pulse-dot" cx="22" cy="22" r="6" fill="#c4ff49"/>
+  <circle cx="22" cy="22" r="2.2" fill="#1a3a1a"/>
+</svg>
+<div>
+<h1 class="emb-h">ISSAM free testosterone calculator</h1>
+<p class="emb-sub">Vermeulen equation. Total T, SHBG and albumin.</p>
+</div>
+</div>
+<div id="fc" class="tool">
+<div class="tool-grid">
+<div class="tool-field tool-field--tt">
+<label class="tool-lab" for="fc-tt">Total testosterone</label>
+<div class="tool-inunit"><input id="fc-tt" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="15" aria-describedby="fc-tt-unit"/><span id="fc-tt-unit" class="tool-u">nmol/L</span></div>
+<div class="seg" role="radiogroup" aria-label="Total testosterone unit">
+<label><input type="radio" name="fc-unit" value="nmol" checked/><span>nmol/L</span></label>
+<label><input type="radio" name="fc-unit" value="ng"/><span>ng/dL</span></label>
+</div>
+</div>
+<div class="tool-field">
+<label class="tool-lab" for="fc-shbg">SHBG</label>
+<div class="tool-inunit"><input id="fc-shbg" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="30" aria-describedby="fc-shbg-u"/><span id="fc-shbg-u" class="tool-u">nmol/L</span></div>
+</div>
+<div class="tool-field">
+<label class="tool-lab" for="fc-alb">Albumin</label>
+<div class="tool-inunit"><input id="fc-alb" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="43" aria-describedby="fc-alb-u"/><span id="fc-alb-u" class="tool-u">g/L</span></div>
+</div>
+</div>
+<div class="fc-bar-wrap" aria-hidden="true">
+<div id="fc-bar" class="fc-bar"><span class="b1" style="width:48.3%"></span><span class="b2" style="width:48.7%"></span><span class="b3" style="width:3.0%"></span></div>
+<div class="fc-bar-leg"><span><i class="k1"></i>SHBG-bound</span><span><i class="k2"></i>Albumin-bound</span><span><i class="k3"></i>Free</span></div>
+</div>
+<div id="fc-out" class="tool-out" role="status" aria-live="polite"><div class="fc-big"><span class="fc-k">Free testosterone</span><span class="fc-v"><b>326</b> pmol/L</span><span class="fc-v2">93.9 pg/mL</span></div><dl class="fc-dl"><div><dt>Percent free</dt><dd>2.17</dd></div><div><dt>Bioavailable T</dt><dd>7.6 nmol/L (220 ng/dL)</dd></div><div><dt>Total T used</dt><dd>15.0 nmol/L (433 ng/dL)</dd></div></dl><ul class="rs-list"><li class="rs-inside">At or above the 220 pmol/L (64 pg/mL) free T cut-off used by the European Male Ageing Study</li><li class="rs-inside">Inside the LifeLabs calculated free T range for men (115 to 577 pmol/L)</li></ul></div>
+</div>
+<p class="emb-credit"><a href="https://odinhealthlab.ca/testosterone-calculator" target="_blank" rel="noopener noreferrer" data-cta="embed_credit_calc">Calculator by Odin Health Lab</a> &middot; natural health clinic for men &middot; <a href="https://odinhealthlab.ca/" target="_blank" rel="noopener noreferrer" data-cta="embed_credit_home">odinhealthlab.ca</a></p>
+</main>
+<script>
+/*CORE*/var OdinT=(function(){var F=28.84,P=3.467,KS=1e9,KA=3.6e4,MW=69000;
+function free(tt,shbg,alb){var T=tt*1e-9,S=shbg*1e-9,N=1+KA*alb/MW,a=N*KS,b=N+KS*(S-T),ft=(-b+Math.sqrt(b*b+4*a*T))/(2*a);
+return{pmol:ft*1e12,pg:ft*1e12/P,pct:100*ft/T,bat:ft*N*1e9,batNg:ft*N*1e9*F,alb:(N-1)*ft*1e9,shbgB:tt-ft*N*1e9,N:N};}
+return{F:F,P:P,free:free,toNg:function(n){return n*F;},toNmol:function(g){return g/F;},toPmol:function(g){return g*P;},toPg:function(p){return p/P;}};})();
+if(typeof module!=='undefined'&&module.exports)module.exports=OdinT;/*/CORE*/
+
+(function () {
+  var O = OdinT, PAGE = 'testosterone-calculator-embed', used = {};
+  var $ = function (id) { return document.getElementById(id); };
+  function mark(k) { if (used[k]) return; used[k] = 1; try { if (window.mixpanel && typeof window.mixpanel.track === 'function') window.mixpanel.track('CTA Click', { cta: k, page: PAGE }, { transport: 'sendBeacon' }); } catch (e) { } }
+  function num(el) { var v = String(el.value).trim().replace(/\s/g, '').replace(',', '.'); if (v === '' || !/^\d*\.?\d+$|^\d+\.$/.test(v)) return NaN; return parseFloat(v); }
+  function cut(x, d) { var s = x.toFixed(d); return s.indexOf('.') > -1 ? s.replace(/0+$/, '').replace(/\.$/, '') : s; }
+  function fx(x, d) { return x.toLocaleString('en-CA', { minimumFractionDigits: d, maximumFractionDigits: d }); }
+  function where(v, lo, hi) { return v < lo ? 'below' : (v > hi ? 'above' : 'inside'); }
+  function freeHTML(p) {
+    var ll = where(p, 115, 577);
+    return '<li class="rs-' + (p < 220 ? 'below' : 'inside') + '">' + (p < 220 ? 'Below' : 'At or above') + ' the 220 pmol/L (64 pg/mL) free T cut-off used by the European Male Ageing Study</li>' +
+      '<li class="rs-' + ll + '">' + (ll === 'inside' ? 'Inside' : ll === 'below' ? 'Below' : 'Above') + ' the LifeLabs calculated free T range for men (115 to 577 pmol/L)</li>';
+  }
+  var fc = $('fc');
+  if (!fc) return;
+  var tt = $('fc-tt'), sh = $('fc-shbg'), al = $('fc-alb'), res = $('fc-out'), unitTxt = $('fc-tt-unit'), bar = $('fc-bar');
+  var unit = function () { var r = fc.querySelector('input[name="fc-unit"]:checked'); return r ? r.value : 'nmol'; };
+  var run = function () {
+    mark('calc_use_freet');
+    var t = num(tt), s = num(sh), a = num(al), u = unit(), note = '';
+    if (!(t > 0) || !(s > 0) || !(a > 0)) { res.innerHTML = '<p class="rs-head">Enter total T, SHBG and albumin to see your free T.</p>'; return; }
+    var n = u === 'ng' ? O.toNmol(t) : t;
+    if (u === 'nmol' && t > 100) { res.innerHTML = '<p class="rs-head">' + t + ' nmol/L looks like an ng/dL result. Switch the unit to ng/dL above.</p>'; return; }
+    if (u === 'ng' && t < 20) { res.innerHTML = '<p class="rs-head">' + t + ' ng/dL looks like an nmol/L result. Switch the unit to nmol/L above.</p>'; return; }
+    if (a < 10) { note = '<p class="rs-note">Albumin read as ' + cut(a, 2) + ' g/dL (' + cut(a * 10, 1) + ' g/L).</p>'; a = a * 10; }
+    if (s > 400 || a > 80) { res.innerHTML = '<p class="rs-head">Check the SHBG (nmol/L) and albumin (g/L) values against your report.</p>'; return; }
+    var r = O.free(n, s, a);
+    res.innerHTML = '<div class="fc-big"><span class="fc-k">Free testosterone</span><span class="fc-v"><b>' + fx(r.pmol, 0) + '</b> pmol/L</span><span class="fc-v2">' + fx(r.pg, 1) + ' pg/mL</span></div>' +
+      '<dl class="fc-dl"><div><dt>Percent free</dt><dd>' + fx(r.pct, 2) + '</dd></div><div><dt>Bioavailable T</dt><dd>' + fx(r.bat, 1) + ' nmol/L (' + fx(r.batNg, 0) + ' ng/dL)</dd></div><div><dt>Total T used</dt><dd>' + fx(n, 1) + ' nmol/L (' + fx(O.toNg(n), 0) + ' ng/dL)</dd></div></dl>' +
+      note + '<ul class="rs-list">' + freeHTML(r.pmol) + '</ul>';
+    if (bar) { var fr = Math.max(r.pmol / 1e3 / n * 100, 3), al2 = r.alb / n * 100; var sb = Math.max(100 - fr - al2, 0);
+      bar.children[0].style.width = sb.toFixed(1) + '%'; bar.children[1].style.width = al2.toFixed(1) + '%'; bar.children[2].style.width = fr.toFixed(1) + '%'; }
+  };
+  [tt, sh, al].forEach(function (el) { el.addEventListener('input', run); });
+  Array.prototype.forEach.call(fc.querySelectorAll('input[name="fc-unit"]'), function (r) {
+    r.addEventListener('change', function () {
+      var t = num(tt); unitTxt.textContent = r.value === 'ng' ? 'ng/dL' : 'nmol/L';
+      if (t > 0) tt.value = r.value === 'ng' ? cut(O.toNg(t), 0) : cut(O.toNmol(t), 2);
+      run();
+    });
+  });
+})();
+
+document.documentElement.classList.add('js-on');
+</script>
+</body>
+</html>

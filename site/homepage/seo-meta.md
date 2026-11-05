@@ -144,12 +144,20 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 
 ## Testosterone Calculator  `/testosterone-calculator`
 - Title (52): ISSAM Calculator: Free and Bioavailable Testosterone
-- Description (148): Free ISSAM calculator: free and bioavailable testosterone from total T, SHBG and albumin (Vermeulen), plus a testosterone ng/dL to nmol/L converter.
+- Description (155): Free ISSAM testosterone calculator: enter total T, SHBG and albumin to get free and bioavailable testosterone instantly, in nmol/L or ng/dL. No sign-up.
+- 2026-11-03 cmd1103: meta description CTR rewrite (live in GHL SEO panel). Body Custom Code description/og/twitter/JSON-LD match. Title unchanged.
 - Previous (live 2026-10-26 issam1026 until the calc1027 republish): Title (64) ISSAM Calculator: Free and Bioavailable Testosterone | Odin Labs
 - 2026-10-27 calc1027: brand rule = "Odin Health Lab" singular; "... | Odin Health Lab" would be 70 chars (~623px, truncated in SERPs), so the brand suffix is dropped (og:site_name and Organization still carry Odin Health Lab). Description unchanged. The page's custom code no longer carries an in-body <title> (single <title> = GHL SEO panel). Enter the new title in the GHL builder SEO panel when republishing (desc unchanged).
 - Previous (live until the 2026-10-26 issam1026 republish): Title (60) Testosterone Calculator: Free T and Units | Odin Health Lab; Description (144) Free testosterone calculator (Vermeulen) and ng/dL to nmol/L converter, with normal testosterone levels for men in Canada and the USA explained.
 - 2026-10-26 issam1026: exact-query lead for 'issam calculator' (GSC pos 10, page 107 impr / 0 clicks in 28d): title and H1 start with 'ISSAM calculator: free and bioavailable testosterone'; desc leads with 'Free ISSAM calculator'; H1 + Article headline 'ISSAM calculator: free and bioavailable testosterone, plus ng/dL to nmol/L conversion'; dateModified 2026-10-26. Brand suffix shortened to 'Odin Labs' to keep the title at 64 chars. Method verified = ISSAM/Vermeulen (same constants; test-calc.js reproduces the issam.ch worked example). Enter the new title AND desc in the GHL builder 'SEO & AI search optimization' panel when republishing.
 - Note: NEW tool page (not yet published). Unit converter (total T ng/dL <-> nmol/L, free T pg/mL <-> pmol/L, live both ways) + Vermeulen free-T calculator (total T with nmol/L or ng/dL toggle, SHBG, albumin default 43 g/L; free T pmol/L + pg/mL, percent free, bioavailable T) + plain-words placement vs Endocrine Society 264-916 ng/dL, AUA 300 ng/dL, CUA 10 nmol/L, Alberta Precision Labs 8.0-35.0 and LifeLabs 8.4-28.8 nmol/L, EMAS 220 pmol/L. Target query: "testosterone ng/dL to nmol/L" / "testosterone nmol/L to ng/dL" / "free testosterone calculator" / "testosterone unit converter" / "normal testosterone levels Canada nmol/L" / "free testosterone pmol/L to pg/mL" / "Vermeulen calculator". Every number sourced (see /workspace/research-calculator/SOURCES.md). WebApplication + FAQPage JSON-LD. No /owen-lowt links by design; CTAs use the booking modal (data-cta calc_*). Never claims Odin prescribes TRT or any drug. Doctors only in FAQ about working with medical doctors.
+
+- 2026-11-05 emb1105: body Custom Code only - added id=embed "Add this calculator to your site" (iframe snippet + Copy button data-cta calc_embed_copy); dateModified 2026-11-05. Title and SEO panel meta unchanged.
+
+## Testosterone Calculator Embed  `/testosterone-calculator-embed`
+- Title (52): Embeddable ISSAM Free Testosterone Calculator
+- Description (155): Free embeddable ISSAM (Vermeulen) free testosterone calculator by Odin Health Lab. Enter total T, SHBG and albumin. Copy-paste iframe for your site.
+- 2026-11-05 emb1105: new lightweight iframe target for backlinks (goal-review idea #9). Canonical points to /testosterone-calculator (consolidate ranking; embed stays indexable and 200). No site nav/footer chrome. Visible credit: Calculator by Odin Health Lab. Create NEW GHL step; paste Custom Code; set SEO title+desc. Main /testosterone-calculator gained id=embed "Add this calculator to your site" box (Custom Code only; SEO panel untouched).
 
 ## NoFap and Testosterone  `/nofap-and-testosterone`
 - Title (57): NoFap and Testosterone: The Day 7 Myth | Odin Health Lab
@@ -167,4 +175,3 @@ Targets: title <= 60 chars, description <= 160 chars. Slugs verified live (200 +
 - Description (149): TRT alternatives for men in Canada and the USA: a natural plan for sleep, stress, training, nutrition, supplements and herbs, with regular check-ins.
 - Previous (live 2026-10-31/11-02 until the nat1102 republish): Title (67) Natural Alternative to TRT for Men (Canada & USA) | Odin Health Lab; Description (145) A natural alternative to TRT for men in Canada and the USA: sleep, stress, training, nutrition, supplements and herbs, built around your pattern.
 - 2026-11-02 nat1102: treg seranking volumes (US; CA no data): trt alternatives 590, alternatives to trt 390, natural alternatives to testosterone therapy 170; 'natural alternative to trt' no data. Title/desc lead with 'TRT alternatives' (title was 67 chars, truncated). Enter the new title AND desc in the GHL SEO panel when republishing.
-   170|
