@@ -114,3 +114,6 @@ Hub figures were not changed.
 - dateModified -> 2026-11-05. Title and meta description unchanged (cmd1103 already live).
 - FAQ count unchanged (9). New sibling page /testosterone-calculator-embed.
 - Staged page size 149084 bytes.
+
+## 2026-11-05 pep1105 (built locally, staged :8780/testosterone-calculator-pep1105.txt, md5 356b0218f9a388cff010cfb95b613e33)
+- Base = live emb1105. One in-prose link at end of #ranges lead after calc_ranges_natalt_link: anchor "peptides are legal in Canada" -> /peptides-canada-usa, data-cta="calc_peptides_link". dateModified already 2026-11-05. Title/meta/FAQ/booking/embed block unchanged.
