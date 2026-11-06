@@ -1,3 +1,9 @@
+CAL-PAA-1106 2026-11-06
+
+Brand: Odin Health Lab — natural alternative to TRT (does not provide/prescribe TRT). No booking changes.
+
+---
+
 # /testosterone-calculator (built locally 2026-10-18, NOT published). Backlog "Added 2026-10-18 #1"
 Linkable tool page: testosterone unit converter plus Vermeulen free T calculator, for men in Canada and the USA (andropause / low T telehealth).
 

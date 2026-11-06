@@ -1,3 +1,9 @@
+CAL-PAA-1106 2026-11-06
+
+Brand: Odin Health Lab — natural alternative to TRT (does not provide/prescribe TRT). No booking changes.
+
+---
+
 # /when-to-get-checked-for-low-t (local only, NOT published)
 Query: "when to get checked for low T" / "should I get my testosterone checked" / "when to test for low testosterone" (men, Canada + USA, telehealth, andropause / low-T audience). Built with the answer-page system (`../_shared/`): `python3 build.py`; tests from /workspace/hp-test (`NODE_PATH=/workspace/hp-test/node_modules`): `node ../pages/_shared/test-visual.js when-to-get-checked-for-low-t`, `NO_ASSESS=1 node ../pages/_shared/test-tracking.js when-to-get-checked-for-low-t`.
 SEO: title (48) `When to Get Checked for Low T | Odin Health Lab`; description (143) `When low-T symptoms warrant testing: two morning labs, what temporarily lowers T, free T when borderline, and next steps in Canada and the USA.` (both in `/workspace/homepage/seo-meta.md`). H1 "When should you get checked for low testosterone?". Canonical https://odinhealthlab.ca/when-to-get-checked-for-low-t. JSON-LD: Organization, WebSite, WebPage, Article (datePublished 2026-10-16), BreadcrumbList, FAQPage (6 Qs, 1:1 with page). In sitemap.xml (priority 0.8, 16 URLs) + llms.txt (Answers).
