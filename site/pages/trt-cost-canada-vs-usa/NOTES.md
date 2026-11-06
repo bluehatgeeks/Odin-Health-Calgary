@@ -86,3 +86,6 @@
 ## 2026-10-30 lnk1030
 - FAQ 1 renamed "How much does TRT cost per month in Canada?" -> "How much does TRT cost in Canada?" (verbatim GSC query, pos ~19.5; seranking CA volume 90/mo, KD 9). Answer's first sentence now "Per month, the drug itself often costs less than people expect."; rest unchanged. FAQ count stays 10, DOM == JSON-LD.
 - X follow text -> "Follow Odin Health Lab on X". dateModified 2026-10-30. Title/desc/H1/SEO panel unchanged. Staged :8780/trt-cost-canada-vs-usa-lnk1030.txt.
+
+## 2026-11-05 CAL-SERP-1105 + CAL-H2-1105
+- Mirrored live GHL Custom Code updates for CAL-SERP cost anchor text improvements.
