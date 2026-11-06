@@ -65,3 +65,6 @@ GSC: brand query "odin" ~31 impressions at pos 3.9 with 0 clicks; "odin labs tes
 
 ## 2026-10-30 lnk1030
 - sitemap.xml mirror: <lastmod>2026-10-30</lastmod> on /free-vs-total-testosterone, /low-testosterone-symptoms, /trt-or-fix-causes-first, /trt-cost-canada-vs-usa (live sitemap is GHL-generated; regenerate it there).
+
+## 2026-11-05 CAL-SERP-1105 + CAL-H2-1105
+- Mirrored live GHL Custom Code updates for CAL-SERP exact-phrase anchors (homepage updates).

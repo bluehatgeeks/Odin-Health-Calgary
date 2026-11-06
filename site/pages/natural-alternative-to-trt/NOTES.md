@@ -12,3 +12,6 @@ NOTE: build.py / page.body.html in this dir date from Oct 31 and are NOT the liv
 
 ## 2026-11-05 pep1105 (built locally, staged :8780/natural-alternative-to-trt-pep1105.txt, md5 0252152a3f7ab2d12c9b997d448824a8)
 - Base = live nat1102. One in-prose link after supportive-services lead: anchor "peptides are legal in Canada" -> /peptides-canada-usa, data-cta="natalt_peptides_link". dateModified + byline -> 2026-11-05. Title/meta/FAQ/booking unchanged.
+
+## 2026-11-05 CAL-SERP-1105 + CAL-H2-1105
+- Mirrored live GHL Custom Code updates for CAL-SERP natural alternative anchor text improvements.
