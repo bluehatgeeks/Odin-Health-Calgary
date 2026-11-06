@@ -1,3 +1,9 @@
+CAL-PAA-1106 2026-11-06
+
+Brand: Odin Health Lab — natural alternative to TRT (does not provide/prescribe TRT). No booking changes.
+
+---
+
 # /low-testosterone-symptoms (local only, NOT published)
 Query: "low testosterone symptoms in men" / "signs of low T" / "andropause symptoms" (men, Canada + USA, telehealth, andropause / low-T audience). Built with the answer-page system (`../_shared/`): `python3 build.py`; tests from /workspace/hp-test (`NODE_PATH=/workspace/hp-test/node_modules`): `node ../pages/_shared/test-visual.js low-testosterone-symptoms`, `NO_ASSESS=1 node ../pages/_shared/test-tracking.js low-testosterone-symptoms`.
 SEO: title (51) `Low Testosterone Symptoms in Men | Odin Health Lab`; description (145) `Low testosterone symptoms in men: low libido, fewer morning erections, fatigue, belly fat, low mood, what mimics them and how low T is confirmed.` (both in `/workspace/homepage/seo-meta.md`). H1 "What are the symptoms of low testosterone in men?". Canonical https://odinhealthlab.ca/low-testosterone-symptoms. JSON-LD: Organization, WebSite, WebPage, Article (datePublished 2026-10-16), BreadcrumbList, FAQPage (6 Qs, 1:1 with page). In sitemap.xml (priority 0.8, 14 URLs) + llms.txt (Answers, listed first as the entry-level topic).

@@ -1,3 +1,9 @@
+CAL-PAA-1106 2026-11-06
+
+Brand: Odin Health Lab — natural alternative to TRT (does not provide/prescribe TRT). No booking changes.
+
+---
+
 # /trt-cost-canada-vs-usa: answer page 13 (BUILT LOCALLY, not published)
 
 - Title (59): TRT and Testosterone Cost: Canada vs USA | Odin Health Lab
