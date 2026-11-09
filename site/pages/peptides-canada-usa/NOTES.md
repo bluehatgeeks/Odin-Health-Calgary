@@ -31,3 +31,15 @@ Create page in GHL (slug peptides-canada-usa), paste page.html (http://127.0.0.1
 - Base = live enc1102 (srv2/peptides-canada-usa-enc1102.txt, md5 ceb6f39d...; all 1347 non-blank lines live 2026-11-05 ~11:12 AM MDT). Local pages/ was stale (crawl1028).
 - Backlog TOP 2026-11-05 item 1 (peptides answer pass): FAQ "Are peptides legal for men in Canada?" -> exact query "Are peptides legal in Canada?" (visible + FAQPage JSON-LD 6==6); answer first sentence tightened to lead with legal status + Health Canada advisory RA-81874 (rest reused); meta/og/twitter + WebPage/Article description (152) now leads with "Are peptides legal in Canada?"; dateModified 2026-11-05 (no visible byline on this page). Title unchanged.
 - treg: CA volume are peptides legal in canada 10/mo, injectable peptides 160, peptides canada 3200, are peptides legal 40; US are peptides legal 8100, injectable peptides 8000, are peptides legal in canada 70, peptides canada 590. SERP CA "are peptides legal in canada": odinhealthlab.ca absent from returned top 6 (vitalitymd, cpsa.ca, mcmaster, farmaciasahumada, thispeptide, vialgrade).
+
+## 2026-11-06 pep1106 (built locally, staged :8780/peptides-canada-usa-pep1106.txt, md5 8e02a1dc7f734eda3bf52f727175bf48)
+- Base = live pep1105 (srv2/peptides-canada-usa-pep1105.txt md5 737a040e...; all non-blank lines live 2026-11-06).
+- Backlog TOP 2026-11-06 item 2: new FAQ #2 "What are injectable peptides, and are they legal in Canada?" (visible + FAQPage JSON-LD 7==7); H2 types retitled to include "injectable peptides"; dateModified 2026-11-06; title+meta unchanged.
+- treg $0.01820 (CA/US volume + SERP CA injectable peptides — odin #2).
+- NOT published yet; browser-queue /workspace/pep1106/browser-queue.md.
+
+## 2026-11-09 bpc1109 (built locally, staged :8780/peptides-canada-usa-bpc1109.txt)
+- Base = live calc-issam-w2 (srv2/peptides-canada-usa-calc-issam-w2.txt md5 790428a1...; exact contiguous substring of live 2026-11-09).
+- New FAQ #3 "Is BPC-157 legal in Canada?" (visible + FAQPage JSON-LD 8==8); dateModified 2026-11-09; title+meta unchanged.
+- Facts: Health Canada RA-81874 (BPC-157 listed among seized unauthorized injectable peptide drugs; unauthorized drugs illegal, not assessed; research-use-only labels not legal/exempt; authorized drugs carry 8-digit DIN). Health Canada Drug Product Database API 2026-11-09: no product with brand or active ingredient BPC-157 / BPC 157 / pentadecapeptide / body protection (semaglutide control query returned rows).
+- Context not used on page: CBC News Jul 24 2026 reports Health Canada says BPC-157 is not approved in any NHP but can still be compounded (oral/topical) by practitioners; so the page says "not authorized for sale" rather than "illegal to possess/obtain in any form".
