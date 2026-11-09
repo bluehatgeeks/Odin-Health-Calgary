@@ -1,9 +1,3 @@
-CAL-PAA-1106 2026-11-06
-
-Brand: Odin Health Lab — natural alternative to TRT (does not provide/prescribe TRT). No booking changes.
-
----
-
 # /low-testosterone-symptoms (local only, NOT published)
 Query: "low testosterone symptoms in men" / "signs of low T" / "andropause symptoms" (men, Canada + USA, telehealth, andropause / low-T audience). Built with the answer-page system (`../_shared/`): `python3 build.py`; tests from /workspace/hp-test (`NODE_PATH=/workspace/hp-test/node_modules`): `node ../pages/_shared/test-visual.js low-testosterone-symptoms`, `NO_ASSESS=1 node ../pages/_shared/test-tracking.js low-testosterone-symptoms`.
 SEO: title (51) `Low Testosterone Symptoms in Men | Odin Health Lab`; description (145) `Low testosterone symptoms in men: low libido, fewer morning erections, fatigue, belly fat, low mood, what mimics them and how low T is confirmed.` (both in `/workspace/homepage/seo-meta.md`). H1 "What are the symptoms of low testosterone in men?". Canonical https://odinhealthlab.ca/low-testosterone-symptoms. JSON-LD: Organization, WebSite, WebPage, Article (datePublished 2026-10-16), BreadcrumbList, FAQPage (6 Qs, 1:1 with page). In sitemap.xml (priority 0.8, 14 URLs) + llms.txt (Answers, listed first as the entry-level topic).
@@ -49,3 +43,5 @@ Step 'Low Testosterone Symptoms': step id 3d3af27c-b25e-4815-af50-eb2ef76b8c34, 
 - 2026-10-27 calc1027: in-prose link to /testosterone-calculator, anchor "testosterone calculator", class text-link, data-cta diagnosis_calc_link. No other change.
 
 - 2026-10-30 lnk1030: #help lead now "...read TRT or fix the causes first and <a ... data-cta="sym_cost_link">what TRT costs in Canada and the USA</a>, and see how our health coaching works." Calgary (related_yyc_clinic) and calculator (diagnosis_calc_link) already linked: no change. X follow text -> "Follow Odin Health Lab on X". dateModified 2026-10-30. Staged :8780/low-testosterone-symptoms-lnk1030.txt.
+
+- 2026-11-09 nofap1109 (STAGED, not published): base = calc-issam-w2 (contiguous in live 11-09). Added one in-prose link at end of the EMAS symptoms lead after 'so it is one clue rather than the whole picture.': ' If you have read that a NoFap streak will raise your testosterone, see <a class="text-link" href="https://odinhealthlab.ca/nofap-and-testosterone" data-cta="symptoms_nofap_link">what NoFap actually does to testosterone</a>: the day 7 peak most posts quote comes from one study of 28 men that the journal retracted in 2021.' Article dateModified 2026-10-30 -> 2026-11-09. No related card added (Keep reading hub graphic drawn for a fixed card count). Nothing else changed. Staged :8780/low-testosterone-symptoms-nofap1109.txt.
