@@ -36,7 +36,7 @@ body .container { max-width: 1300px !important; margin: 0 auto !important; paddi
 body .content-wrapper { max-width: 1300px !important; margin: 0 auto !important; padding: 0 20px !important; }
 body .faq-section .container { max-width: 800px !important; }
 
-/* ── Page scope (pg) — additive only, uses existing design tokens ── */
+/* \002500\002500 Page scope (pg) \002014 additive only, uses existing design tokens \002500\002500 */
 .pg {
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --card-bg: #142e14;
@@ -84,7 +84,7 @@ body .faq-section .container { max-width: 800px !important; }
 .pg .crumbs a { color: var(--lime-green); text-underline-offset: 3px; padding: 6px 0; display: inline-block; }
 .pg .crumbs span[aria-hidden] { margin: 0 8px; opacity: 0.6; }
 
-/* ═══ Motion system (rules in motion-checklist.md) ═══
+/* \002550\002550\002550 Motion system (rules in motion-checklist.md) \002550\002550\002550
    transform / opacity first; SVG stroke draw-on is the one exception (small paths, runs once);
    ease-out for UI, custom curves; hover gated to fine pointers; loops pause off-screen;
    default CSS = FINAL static state, so no-JS and prefers-reduced-motion see everything. */
@@ -207,7 +207,7 @@ body .faq-section .container { max-width: 800px !important; }
   .pg .cta-halo { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
 }
 
-/* ═══ Motion enabled ═══ every loop is gated by prefers-reduced-motion: no-preference AND .js-reveal (set by JS) */
+/* \002550\002550\002550 Motion enabled \002550\002550\002550 every loop is gated by prefers-reduced-motion: no-preference AND .js-reveal (set by JS) */
 @media all {
   .pg .hero-in { animation: hv-up 560ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 70ms); }
   @keyframes hv-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
@@ -243,7 +243,7 @@ body .faq-section .container { max-width: 800px !important; }
   .pg .faq-item summary::before, .pg .faq-item::details-content { transition: none; }
 }
 
-/* ═══ Answer pages: shared (answer box, sources, hub, step icons). Static block = FINAL state. ═══ */
+/* \002550\002550\002550 Answer pages: shared (answer box, sources, hub, step icons). Static block = FINAL state. \002550\002550\002550 */
 .pg .answer-box { max-width: 760px; margin: 26px auto 0; padding: 20px 22px; border: 1px solid var(--lime-line); border-left: 4px solid var(--lime-green); border-radius: 14px; background: rgba(196, 255, 73, 0.06); text-align: left; }
 .pg .answer-box .answer-tag { display: block; margin: 0 0 6px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime-green); }
 .pg .answer-box p { margin: 0; font-size: 1.12rem; line-height: 1.6; color: var(--white); }
@@ -286,7 +286,7 @@ body .faq-section .container { max-width: 800px !important; }
   @keyframes ans-ck { 0%, 8% { opacity: 0; transform: scale(0.75); } 18%, 80% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: none; } }
 }
 
-/* ═══ X follow line (end of every answer page; footer twin lives in odinfooter.html) ═══ */
+/* \002550\002550\002550 X follow line (end of every answer page; footer twin lives in odinfooter.html) \002550\002550\002550 */
 .pg .x-follow { margin: 0; padding: 22px 20px 34px; text-align: center; }
 .pg .x-follow-link { display: inline-block; padding: 8px 12px; border-radius: 10px; font-size: 0.95rem; font-weight: 500; line-height: 1.4; text-align: center; text-wrap: balance; text-decoration: none; color: var(--white-800); transition: color 0.2s ease, background-color 0.2s ease; }
 .pg .x-follow-link b { font-weight: 700; color: var(--lime-green); }
@@ -296,7 +296,7 @@ body .faq-section .container { max-width: 800px !important; }
 .pg .x-follow-link:focus-visible { outline: 2px solid var(--lime-green); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .pg .x-follow-link, .pg .x-follow-link .x-ico { transition: none; } .pg .x-follow-link:hover .x-ico { transform: none; } }
 
-/* ═══ /weight-loss-drugs-and-testosterone graphics. Static block = FINAL state (no-JS and reduced-motion see this). ═══ */
+/* \002550\002550\002550 /weight-loss-drugs-and-testosterone graphics. Static block = FINAL state (no-JS and reduced-motion see this). \002550\002550\002550 */
 .pg .hw-bm, .pg .rs-bar, .pg .rs-up, .pg .wy-ring, .pg .ms-lean, .pg .sb-x, .pg .fq-dr, .pg .fq-st, .pg .fn-fl { transform-box: fill-box; transform-origin: center; }
 .pg .hw-bm { transform-box: view-box; transform-origin: 240px 196px; transform: rotate(4deg); }
 .pg .rs-bar { transform-origin: 0 50%; transform: scaleX(var(--s, 1)); }
@@ -343,17 +343,17 @@ body .faq-section .container { max-width: 800px !important; }
   .js-reveal .pg .ci { animation: ci-pulse 10s ease-out infinite; animation-delay: calc(var(--k, 0) * 2s - 10s); }
   @keyframes ci-pulse { 0%, 20%, 100% { opacity: 0.75; transform: scale(1); } 6% { opacity: 1; transform: scale(1.12); } }
 
-  /* 1 · hero: the beam tips as weight falls and testosterone rises */
+  /* 1 \0000b7 hero: the beam tips as weight falls and testosterone rises */
   .js-reveal .pg .hw-bm { animation: hw-bm 6s ease-in-out infinite alternate; }
   @keyframes hw-bm { from { transform: rotate(-5deg); } to { transform: rotate(9deg); } }
 
-  /* 2 · research: bars grow from the left, hold, reset; arrows bob */
+  /* 2 \0000b7 research: bars grow from the left, hold, reset; arrows bob */
   .js-reveal .pg .rs-bar { animation: rs-gr 8s var(--ease-out) infinite; animation-delay: calc(var(--k, 0) * 0.2s); }
   @keyframes rs-gr { 0%, 8% { transform: scaleX(0.04); } 38%, 84% { transform: scaleX(1); } 100% { transform: scaleX(0.04); } }
   .js-reveal .pg .rs-up { animation: rs-bob 1.8s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.6s); }
   @keyframes rs-bob { from { transform: translateY(2px); } to { transform: translateY(-3px); } }
 
-  /* 2b · trials: the T? rings on the big trials blink (not measured), each smaller study lights in turn, its arrow lifts */
+  /* 2b \0000b7 trials: the T? rings on the big trials blink (not measured), each smaller study lights in turn, its arrow lifts */
   .js-reveal .pg .tr-q { animation: tr-q 3s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -1.5s); }
   @keyframes tr-q { 0%, 100% { opacity: 0.45; transform: scale(0.94); } 50% { opacity: 1; transform: scale(1.06); } }
   .js-reveal .pg .tr-hit { animation: tr-hit 12s ease-out infinite; animation-delay: calc(5.3s + (3 - var(--k, 0)) * 1.78s); }
@@ -361,15 +361,15 @@ body .faq-section .container { max-width: 800px !important; }
   .js-reveal .pg .tr-ar { animation: tr-ar 1.6s ease-in-out infinite alternate; animation-delay: calc(var(--k, 0) * -0.5s); }
   @keyframes tr-ar { from { transform: translateY(3px); } to { transform: translateY(-4px); } }
 
-  /* 3 · why: the result node rings out as each route arrives */
+  /* 3 \0000b7 why: the result node rings out as each route arrives */
   .js-reveal .pg .wy-ring { animation: wy-r 4.6s ease-out infinite; }
   @keyframes wy-r { 0% { opacity: 0.6; transform: scale(0.9); } 60%, 100% { opacity: 0; transform: scale(1.7); } }
 
-  /* 5 · muscle: the lean-mass quarter pulses */
+  /* 5 \0000b7 muscle: the lean-mass quarter pulses */
   .js-reveal .pg .ms-lean { animation: ms-ln 3.4s ease-in-out infinite; }
   @keyframes ms-ln { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
 
-  /* 6 · labs: extra total-testosterone circles come and go as SHBG holds a share */
+  /* 6 \0000b7 labs: extra total-testosterone circles come and go as SHBG holds a share */
   .js-reveal .pg .sb-x { animation: sb-x 4.2s ease-in-out infinite; animation-delay: calc(var(--k, 0) * 0.4s); }
   @keyframes sb-x { 0%, 100% { opacity: 0.2; transform: scale(0.7); } 40%, 70% { opacity: 1; transform: scale(1); } }
 
@@ -714,7 +714,7 @@ body .faq-section .container { max-width: 800px !important; }
         "@id": "https://odinhealthlab.ca/#organization"
       },
       "datePublished": "2026-10-15",
-      "dateModified": "2026-10-26",
+      "dateModified": "2026-11-10",
       "image": "https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/og-home.png"
     },
     {
@@ -759,10 +759,10 @@ body .faq-section .container { max-width: 800px !important; }
         },
         {
           "@type": "Question",
-          "name": "Does semaglutide (Ozempic, Wegovy) lower testosterone?",
+          "name": "Does Ozempic (semaglutide) lower testosterone in men?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Measured testosterone went up, not down, in the controlled studies so far. In a 24-week randomized trial of 25 men with type 2 diabetes, obesity and low testosterone (Gregorič and colleagues, 2025), semaglutide 1 mg raised median total testosterone from 6.1 to 7.8 nmol/L and left LH and FSH unchanged, while testosterone injections in the comparison group lowered sperm counts. The STEP 1 trial (1,961 adults) did not measure testosterone. A US health-records study of 3,094 men aged 18 to 50 on semaglutide found more new records of testosterone deficiency (1.53 versus 0.80 percent) and erectile dysfunction than in matched men, an association that does not show the drug caused it. Free testosterone can lag when SHBG rises, so we read total, free and SHBG together."
+            "text": "Ozempic has not been shown to lower testosterone in men. Ozempic and Wegovy are both semaglutide, and measured testosterone went up, not down, in the controlled studies so far. In a 24-week randomized trial of 25 men with type 2 diabetes, obesity and low testosterone (Gregori\u010d and colleagues, 2025), semaglutide 1 mg raised median total testosterone from 6.1 to 7.8 nmol/L and left LH and FSH unchanged, while testosterone injections in the comparison group lowered sperm counts. The STEP 1 trial (1,961 adults) did not measure testosterone. A US health-records study of 3,094 men aged 18 to 50 on semaglutide found more new records of testosterone deficiency (1.53 versus 0.80 percent) and erectile dysfunction than in matched men, an association that does not show the drug caused it. Free testosterone can lag when SHBG rises, so we read total, free and SHBG together."
           }
         },
         {
@@ -802,7 +802,7 @@ body .faq-section .container { max-width: 800px !important; }
           "name": "Which labs should I get before and during GLP-1 treatment?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A useful panel covers total and free testosterone, SHBG, LH, FSH and estradiol, along with metabolic markers such as A1c. LH and FSH show whether the brain’s signal to the testes is staying on, and SHBG explains gaps between total and free testosterone. Many men repeat the panel after meaningful weight change. Our lab guide explains each result in plain language, and we review your numbers with you."
+            "text": "A useful panel covers total and free testosterone, SHBG, LH, FSH and estradiol, along with metabolic markers such as A1c. LH and FSH show whether the brain\u2019s signal to the testes is staying on, and SHBG explains gaps between total and free testosterone. Many men repeat the panel after meaningful weight change. Our lab guide explains each result in plain language, and we review your numbers with you."
           }
         },
         {
@@ -810,7 +810,7 @@ body .faq-section .container { max-width: 800px !important; }
           "name": "How does Odin Health Lab work with my doctor?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Odin Health Lab is a natural health clinic offering natural alternatives to TRT, by video call, for men in Canada and the USA. We do not provide TRT. On low testosterone (andropause) symptoms. We work alongside whoever prescribes your GLP-1 medication: we review your labs with you, build your muscle-protection, sleep and nutrition plan, and track your progress. We can share your plan and results with your own doctor if you choose. See our low testosterone overview and our Privacy Policy."
+            "text": "Odin Health Lab is a natural health clinic offering natural alternatives to TRT, by video call, for men in Canada and the USA with low testosterone (andropause) symptoms. We do not provide TRT. We provide supportive services and do not work directly with whoever prescribes your GLP-1 medication. We review your labs with you, build your muscle-protection, sleep and nutrition plan, and track your progress. If you choose TRT, we support your health around it to address what TRT misses or can't remedy. See our low testosterone overview and our Privacy Policy."
           }
         }
       ]
@@ -822,7 +822,7 @@ body .faq-section .container { max-width: 800px !important; }
 
 <body>
 <script>
-/* ── Odin Health Lab — Component Loader (inline, same as the homepage) ── */
+/* \u2500\u2500 Odin Health Lab \u2014 Component Loader (inline, same as the homepage) \u2500\u2500 */
 (function () {
   var CDN = 'https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master';
   function execScripts(container) {
@@ -1155,7 +1155,7 @@ body .faq-section .container { max-width: 800px !important; }
 <section id="plan" class="section" aria-labelledby="plan-title" style="scroll-margin-top: 100px;">
 <div class="container" style="max-width: 900px !important;">
 <h2 id="plan-title" class="medium-heading reveal">How we help before, during and after GLP-1 treatment</h2>
-<p class="lead-p reveal" style="text-align:center;">Odin Health Lab is a natural health clinic offering natural alternatives to TRT, by video call, for men in Canada and the USA. We do not provide TRT. On low testosterone symptoms. Whether you are about to start a GLP-1 drug, partway through or finishing a course, we work on the labs, muscle, sleep and nutrition side. See also our guide on <a class="text-link" href="https://odinhealthlab.ca/trt-or-fix-causes-first" data-cta="plan_trt_link">TRT or fixing the causes first</a>. Here is how we work with you.</p>
+<p class="lead-p reveal" style="text-align:center;">Odin Health Lab is telehealth for men in Canada and the USA with low testosterone symptoms. Whether you are about to start a GLP-1 drug, partway through or finishing a course, we work on the labs, muscle, sleep and nutrition side. See also our guide on <a class="text-link" href="https://odinhealthlab.ca/trt-or-fix-causes-first" data-cta="plan_trt_link">TRT or fixing the causes first</a>. Here is how we work with you.</p>
 <div class="timeline" data-timeline data-live>
 <div class="tl-track" aria-hidden="true"><span class="tl-fill"></span><span class="tl-head"></span></div>
 <ol class="steps therapy-grid timeline-list">
@@ -1282,8 +1282,8 @@ body .faq-section .container { max-width: 800px !important; }
 <p class="faq-answer">In men with obesity, tirzepatide (Mounjaro, Zepbound) appears to raise testosterone levels, mostly alongside the weight lost, but the big SURMOUNT trials did not measure it. Testosterone is not among the registered outcomes of SURMOUNT-1 (2,539 adults without diabetes, a 72-week trial), which reported average weight loss of 15.0 to 20.9 percent across the three doses. In a two-month controlled pilot of 83 men with obesity and low testosterone (La Vignera and colleagues, 2025), the tirzepatide group had higher total, free and bioavailable testosterone, LH and FSH than men on diet and walking alone or on testosterone gel, and lower estradiol. A 2026 review of incretin drugs including tirzepatide reported average total testosterone rises of 2.5 to 5.2 nmol/L. We check your total and free testosterone, SHBG and LH before and during treatment.</p>
 </details>
 <details class="faq-item">
-<summary><span class="faq-question">Does semaglutide (Ozempic, Wegovy) lower testosterone?</span></summary>
-<p class="faq-answer">Measured testosterone went up, not down, in the controlled studies so far. In a 24-week randomized trial of 25 men with type 2 diabetes, obesity and low testosterone (Gregori&ccaron; and colleagues, 2025), semaglutide 1 mg raised median total testosterone from 6.1 to 7.8 nmol/L and left LH and FSH unchanged, while testosterone injections in the comparison group lowered sperm counts. The STEP 1 trial (1,961 adults) did not measure testosterone. A US health-records study of 3,094 men aged 18 to 50 on semaglutide found more new records of testosterone deficiency (1.53 versus 0.80 percent) and erectile dysfunction than in matched men, an association that does not show the drug caused it. Free testosterone can lag when SHBG rises, so we read total, free and SHBG together.</p>
+<summary><span class="faq-question">Does Ozempic (semaglutide) lower testosterone in men?</span></summary>
+<p class="faq-answer">Ozempic has not been shown to lower testosterone in men. Ozempic and Wegovy are both semaglutide, and measured testosterone went up, not down, in the controlled studies so far. In a 24-week randomized trial of 25 men with type 2 diabetes, obesity and low testosterone (Gregori&ccaron; and colleagues, 2025), semaglutide 1 mg raised median total testosterone from 6.1 to 7.8 nmol/L and left LH and FSH unchanged, while testosterone injections in the comparison group lowered sperm counts. The STEP 1 trial (1,961 adults) did not measure testosterone. A US health-records study of 3,094 men aged 18 to 50 on semaglutide found more new records of testosterone deficiency (1.53 versus 0.80 percent) and erectile dysfunction than in matched men, an association that does not show the drug caused it. Free testosterone can lag when SHBG rises, so we read total, free and SHBG together.</p>
 </details>
 <details class="faq-item">
 <summary><span class="faq-question">Are there male-specific considerations with Saxenda (liraglutide) for weight management?</span></summary>
@@ -1307,13 +1307,16 @@ body .faq-section .container { max-width: 800px !important; }
 </details>
 <details class="faq-item">
 <summary><span class="faq-question">How does Odin Health Lab work with my doctor?</span></summary>
-<p class="faq-answer">Odin Health Lab is a natural health clinic offering natural alternatives to TRT, by video call, for men in Canada and the USA. We do not provide TRT. On low testosterone (andropause) symptoms. We work alongside whoever prescribes your GLP-1 medication: we review your labs with you, build your muscle-protection, sleep and nutrition plan, and track your progress. We can share your plan and results with your own doctor if you choose. See our <a href="https://odinhealthlab.ca/">low testosterone overview</a> and our <a href="https://odinhealthlab.ca/privacy">Privacy Policy</a>.</p>
+<p class="faq-answer">Odin Health Lab is a natural health clinic offering natural alternatives to TRT, by video call, for men in Canada and the USA with low testosterone (andropause) symptoms. We do not provide TRT. We provide supportive services and do not work directly with whoever prescribes your GLP-1 medication. We review your labs with you, build your muscle-protection, sleep and nutrition plan, and track your progress. If you choose TRT, we support your health around it to address what TRT misses or can't remedy. See our <a href="https://odinhealthlab.ca/">low testosterone overview</a> and our <a href="https://odinhealthlab.ca/privacy">Privacy Policy</a>.</p>
 </details>
 </div>
 </div>
 </section>
 
 <!-- FINAL CTA -->
+<section class="section" aria-label="Natural alternative to TRT"><div class="container" style="max-width: 1000px !important;">
+<p class="nat-alt-line lead-p reveal">Odin Health Lab is a natural alternative to TRT: a natural health clinic that does not provide TRT. <a href="#" class="booking-trigger" data-cta="natalt_book_call">Book a free call</a> or <a href="https://odinhealthlab.ca/natural-alternative-to-trt">see how the natural alternative works</a>.</p>
+</div></section>
 <section class="section final-cta" aria-labelledby="final-title" data-live>
 <div class="cta-halo" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i></div>
 <div class="container">
@@ -1338,7 +1341,7 @@ body .faq-section .container { max-width: 800px !important; }
 </figure>
 </div>
 </section>
-<p class="x-follow reveal"><a class="x-follow-link" href="https://x.com/intent/follow?screen_name=odinhealthlab" target="_blank" rel="noopener noreferrer" data-cta="x_follow_end"><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span><b>Follow Odin Labs on X</b> for the daily research breakdowns.</span></a></p>
+<p class="x-follow reveal"><a class="x-follow-link" href="https://x.com/intent/follow?screen_name=odinhealthlab" target="_blank" rel="noopener noreferrer" data-cta="x_follow_end"><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span><b>Follow Odin Health Lab on X</b> for the daily research breakdowns.</span></a></p>
 </main>
 
 <!-- Booking modal: kept because the shared nav "Book Online" button opens it -->
@@ -1358,7 +1361,7 @@ body .faq-section .container { max-width: 800px !important; }
    Mixpanel init and the "Page View" event stay in the existing site-level tracking code. */
 (function () {
   var PAGE = 'weight-loss-drugs-and-testosterone';
-  /* ── Booking modal ── */
+  /* \u2500\u2500 Booking modal \u2500\u2500 */
   var overlay = document.getElementById('booking-modal-overlay');
   var closeBtn = document.getElementById('booking-modal-close');
   var lastFocus = null;
@@ -1395,7 +1398,7 @@ body .faq-section .container { max-width: 800px !important; }
     if (e.key === 'Escape' && overlay && overlay.classList.contains('is-visible')) closeModal();
   });
 
-  /* ── AI-referrer super-property (once per load; never throw / never block) ── */
+  /* \u2500\u2500 AI-referrer super-property (once per load; never throw / never block) \u2500\u2500 */
   try {
     var aiLabel = null;
     var AI_HOSTS = {
@@ -1435,7 +1438,7 @@ body .faq-section .container { max-width: 800px !important; }
     }
   } catch (errAi) { /* never block render */ }
 
-  /* ── CTA click tracking (Mixpanel, guarded). Properties: cta, page ── */
+  /* \u2500\u2500 CTA click tracking (Mixpanel, guarded). Properties: cta, page \u2500\u2500 */
   function trackCta(cta) {
     try {
       if (window.mixpanel && typeof window.mixpanel.track === 'function') {
@@ -1466,7 +1469,7 @@ body .faq-section .container { max-width: 800px !important; }
   }, true);
 
 
-  /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
+  /* \u2500\u2500 Motion (progressive enhancement; content is fully visible without JS) \u2500\u2500 */
   var reduce = false; /* ambient loops keep running under iOS/macOS Reduce Motion; the reduce CSS block still stills slide-in reveals, hovers and accordion easing */
   var hasIO = 'IntersectionObserver' in window;
 
