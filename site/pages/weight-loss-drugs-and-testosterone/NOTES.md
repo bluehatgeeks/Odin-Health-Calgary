@@ -97,3 +97,8 @@ Why: GSC 28d still shows 'does tirzepatide affect testosterone levels' at pos ~1
 - Backups *.bak-tirzh1026 (page dir incl. test outputs, homepage/seo-meta.md, odin-site-log.md). Staged http://127.0.0.1:8780/weight-loss-drugs-and-testosterone-tirzh1026.txt (srv2, curl|cmp OK, text/plain; charset=utf-8). Tarball /workspace/ghsync-tirzh1026.tar.gz.
 - Live verify markers: `<h1 id="hero-title" class="large-heading">Does tirzepatide affect testosterone levels? What semaglutide and other GLP-1 drugs do to testosterone in men</h1>`, `"headline": "Does tirzepatide affect testosterone levels?`, `"dateModified": "2026-10-26"`; old H1 'Do GLP-1 drugs like tirzepatide and semaglutide raise or lower' gone (the FAQ Q1 'Do GLP-1 drugs like semaglutide and tirzepatide ...' stays); title 'Tirzepatide, Semaglutide and Testosterone | Odin Health Lab' and desc unchanged.
 - Republish: GHL step 5bec5127-2124-4413-afe7-816f6ee1fa24 / builder UqnqqOcLcPzEohS9Feap: paste Custom Code ONLY (SEO panel title/desc unchanged, do not edit).
+
+## 2026-11-10 oz1110 (11am sprint)
+- Base = srv2/weight-loss-drugs-and-testosterone-enc1102.txt (md5 0bddefa9...; contiguous substring of live 2026-11-10).
+- FAQ #3 renamed 'Does semaglutide (Ozempic, Wegovy) lower testosterone?' -> 'Does Ozempic (semaglutide) lower testosterone in men?' (DOM + FAQPage JSON-LD, 9==9); answer lead added: 'Ozempic has not been shown to lower testosterone in men. Ozempic and Wegovy are both semaglutide, and ...' (rest unchanged). dateModified 2026-11-10. Title/meta/H1 unchanged (protect tirzepatide/Saxenda queries).
+- Why: GSC 28d 'does ozempic lower testosterone' 4 impr at pos 72; treg volume 'does ozempic lower testosterone' CA 20/mo, US 110/mo; 'ozempic and testosterone' CA 20, US 110.
