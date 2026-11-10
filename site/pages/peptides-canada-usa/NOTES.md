@@ -43,3 +43,9 @@ Create page in GHL (slug peptides-canada-usa), paste page.html (http://127.0.0.1
 - New FAQ #3 "Is BPC-157 legal in Canada?" (visible + FAQPage JSON-LD 8==8); dateModified 2026-11-09; title+meta unchanged.
 - Facts: Health Canada RA-81874 (BPC-157 listed among seized unauthorized injectable peptide drugs; unauthorized drugs illegal, not assessed; research-use-only labels not legal/exempt; authorized drugs carry 8-digit DIN). Health Canada Drug Product Database API 2026-11-09: no product with brand or active ingredient BPC-157 / BPC 157 / pentadecapeptide / body protection (semaglutide control query returned rows).
 - Context not used on page: CBC News Jul 24 2026 reports Health Canada says BPC-157 is not approved in any NHP but can still be compounded (oral/topical) by practitioners; so the page says "not authorized for sale" rather than "illegal to possess/obtain in any form".
+
+## 2026-11-10 rru1110 (built locally, staged :8780/peptides-canada-usa-rru1110.txt)
+- Base = bpc1109 staged file (srv2/peptides-canada-usa-bpc1109.txt md5 6c704313...; contiguous substring of live 2026-11-10, FAQ 8==8).
+- New FAQ #4 "Are \"research use only\" peptides legal in Canada?" after the BPC-157 FAQ (visible + FAQPage JSON-LD 9==9); dateModified 2026-11-10; title+meta unchanged.
+- Facts: Health Canada RA-81874 (re-fetched 2026-11-10): "For Research Use Only - Not for Human Consumption" labelling does not make products legal or exempt from regulatory requirements; Canadians advised not to buy/use; peptides generally regulated as prescription drugs; unauthorized drugs illegal + not assessed; authorized Rx drugs carry 8-digit DIN; check Drug Product Database.
+- Context not used on page: newer Health Canada advisory RA-82930 (Nov 6 2026, contaminated peptides from ERP Peptide, 11,400+ vials seized) repeats the research-use-only warning.
