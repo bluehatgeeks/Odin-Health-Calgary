@@ -57,6 +57,10 @@
       <a href="https://odinhealthlab.ca/privacy">Privacy</a>
     </div>
     <p class="footer-x" hidden><a class="footer-x-link" href="https://x.com/intent/follow?screen_name=odinhealthlab" target="_blank" rel="noopener noreferrer" data-cta="x_follow_footer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span><b>Follow Odin Health Lab on X</b> for the daily research breakdowns.</span></a></p>
+    <div class="footer-preferred" hidden>
+      <p class="footer-preferred-line">Get <b>Odin Health Lab</b> answers first on Google</p>
+      <div google-add-preferred-source-btn data-theme="dark"></div>
+    </div>
     <style>
       .odin-footer .footer-x { margin: 0 0 22px; }
       .odin-footer .footer-x-link { display: inline-block; padding: 8px 12px; border-radius: 8px; font-size: 0.95rem; font-weight: 500; line-height: 1.4; text-align: center; text-wrap: balance; text-decoration: none; color: rgba(255,255,255,0.78); transition: color 0.2s ease, background-color 0.2s ease; }
@@ -66,6 +70,10 @@
       .odin-footer .footer-x-link:hover svg { transform: scale(1.15); }
       .odin-footer .footer-x-link:focus-visible { outline: 2px solid var(--lime-green, #c4ff49); outline-offset: 2px; }
       @media (prefers-reduced-motion: reduce) { .odin-footer .footer-x-link, .odin-footer .footer-x-link svg { transition: none; } .odin-footer .footer-x-link:hover svg { transform: none; } }
+      .odin-footer .footer-preferred { margin: 0 0 22px; text-align: center; }
+      .odin-footer .footer-preferred-line { margin: 0 0 10px; padding: 0 12px; font-size: 0.95rem; font-weight: 500; line-height: 1.4; color: rgba(255,255,255,0.78); text-wrap: balance; }
+      .odin-footer .footer-preferred-line b { font-weight: 700; color: var(--lime-green, #c4ff49); }
+      .odin-footer .footer-preferred [google-add-preferred-source-btn] { display: inline-block; }
     </style>
     <p class="footer-copyright">Copyright 2026 &middot; Made with &hearts; in Calgary</p>
   </div>
@@ -89,7 +97,20 @@
       '/trt-cost-canada-vs-usa', '/how-to-raise-testosterone-naturally', '/testosterone-and-hair-loss',
       '/testosterone-calculator', '/nofap-and-testosterone', '/trt-clinic-calgary'];
     var x = document.querySelector('.odin-footer .footer-x');
-    if (x && ok.indexOf(p) > -1) x.hidden = false;
+    var pref = document.querySelector('.odin-footer .footer-preferred');
+    if (ok.indexOf(p) > -1) {
+      if (x) x.hidden = false;
+      if (pref) {
+        pref.hidden = false;
+        /* Official Preferred Sources library: load only on allow-listed pages so paid /owen-lowt stay clean */
+        if (!document.querySelector('script[src="https://news.google.com/swg/js/v1/publisher.js"]')) {
+          var s = document.createElement('script');
+          s.src = 'https://news.google.com/swg/js/v1/publisher.js';
+          s.async = true;
+          document.head.appendChild(s);
+        }
+      }
+    }
   })();
 </script>
 <script>
