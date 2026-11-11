@@ -102,3 +102,10 @@ Why: GSC 28d still shows 'does tirzepatide affect testosterone levels' at pos ~1
 - Base = srv2/weight-loss-drugs-and-testosterone-enc1102.txt (md5 0bddefa9...; contiguous substring of live 2026-11-10).
 - FAQ #3 renamed 'Does semaglutide (Ozempic, Wegovy) lower testosterone?' -> 'Does Ozempic (semaglutide) lower testosterone in men?' (DOM + FAQPage JSON-LD, 9==9); answer lead added: 'Ozempic has not been shown to lower testosterone in men. Ozempic and Wegovy are both semaglutide, and ...' (rest unchanged). dateModified 2026-11-10. Title/meta/H1 unchanged (protect tirzepatide/Saxenda queries).
 - Why: GSC 28d 'does ozempic lower testosterone' 4 impr at pos 72; treg volume 'does ozempic lower testosterone' CA 20/mo, US 110/mo; 'ozempic and testosterone' CA 20, US 110.
+
+- DONE LIVE 2026-11-10 ~11:27 AM America/Edmonton: Custom Code republished (builder UqnqqOcLcPzEohS9Feap); oz1110/verify.py ALL PASS; Indexing 200; IndexNow 202.
+
+## 2026-11-11 mj1111 (staged, not published)
+- Base = oz1110 staged file (md5 344d79b6...; live Custom Code, verified 0 missing of 1482 on 2026-11-11).
+- New FAQ #10 (last) 'Does Mounjaro lower testosterone in men?' (DOM + FAQPage JSON-LD, 10==10, visible answer == JSON text). Existing 'Does tirzepatide affect testosterone levels?' FAQ untouched. Answer uses only facts already on page (SURMOUNT-1 did not measure T; La Vignera 2025 pilot of 83 men; 2026 incretin review 2.5 to 5.2 nmol/L). dateModified 2026-11-11. Title/meta/H1/booking unchanged.
+- Why: treg volume (dataforseo) CA/US per month: does mounjaro lower testosterone 10/30; mounjaro testosterone 10/40; mounjaro and testosterone 10/70; does mounjaro increase testosterone 10/20; zepbound testosterone 10/50.
