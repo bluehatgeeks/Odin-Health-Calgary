@@ -60,3 +60,6 @@ Step 'Low Testosterone and Sleep' in 'Odin Health Lab Main Site': step id d27a80
 ## 2026-11-11 cyp1111
 - New FAQ #9 "Can TRT or testosterone cypionate cause insomnia?" (visible + FAQPage JSON-LD, 9 == 9). Sources: Health Canada Depo-Testosterone product monograph (Pfizer Canada, rev. 2018-07-12; post-marketing insomnia, sleep apnea warning, 200 mg q2w PK peak ~3x by day 2, back to baseline by day 14); Liu et al. 2003 (17 men over 60, high-dose T cut sleep ~1 h). Natural health clinic, does not provide TRT. dateModified 2026-11-11. Title/meta/booking unchanged.
 - Targets GSC "test cyp insomnia" (4 impr @43.5) and "trt insomnia" (US 90/mo, dataforseo).
+
+## 2026-11-12 FAQ "Does TRT affect sleep?" (live)
+Added as FAQ #10 (visible + FAQPage JSON-LD, 10 == 10), dateModified 2026-11-12. Answer-first summary of facts already sourced on the page: EARTH 2018 (48 men, improved sleep-disturbance scores), Liu 2003 (17 men >60, high-dose T cut sleep ~1 h, worse breathing), Hoyos 2012 (67 obese men with severe OSA, worse oxygen drops early), Endocrine Society 2018 rec 2.2 (no T start with untreated severe OSA). Natural health clinic, does not provide TRT. Target query "trt and sleep" (US 110/mo).
