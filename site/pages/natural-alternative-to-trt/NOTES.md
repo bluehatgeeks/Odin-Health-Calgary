@@ -13,5 +13,4 @@ NOTE: build.py / page.body.html in this dir date from Oct 31 and are NOT the liv
 ## 2026-11-05 pep1105 (built locally, staged :8780/natural-alternative-to-trt-pep1105.txt, md5 0252152a3f7ab2d12c9b997d448824a8)
 - Base = live nat1102. One in-prose link after supportive-services lead: anchor "peptides are legal in Canada" -> /peptides-canada-usa, data-cta="natalt_peptides_link". dateModified + byline -> 2026-11-05. Title/meta/FAQ/booking unchanged.
 
-## 2026-11-05 CAL-SERP-1105 + CAL-H2-1105
-- Mirrored live GHL Custom Code updates for CAL-SERP natural alternative anchor text improvements.
+- 2026-11-13 lnk1113 (STAGED, not published): base = srv2/natural-alternative-to-trt-cal-h2-1105.txt (md5 80ca7d71..., 1426/1426 contiguous in order with live 2026-11-13). Added one in-prose link in the 'TRT adds testosterone from outside' lead paragraph after '...many of the usual causes sit in daily life.':' Sleep is one of the first places to look; see <a class="text-link" href="https://odinhealthlab.ca/low-testosterone-and-sleep" data-cta="natalt_sleep_link">how sleep and testosterone are connected</a>.' Article dateModified 2026-11-05 -> 2026-11-13. Nothing else changed (title, meta, FAQ, booking untouched). Builder JAaXdbrTlDXX3WE2qIRF, step 5b13f44f-2a41-44fd-bc8a-f602120469cc. Staged :8780/natural-alternative-to-trt-lnk1113.txt.
