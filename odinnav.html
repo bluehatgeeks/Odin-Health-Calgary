@@ -246,11 +246,16 @@
   }
 })();
 
-/* ── Forward lander query string to outbound links (nav, modal, body CTAs) ──
-   Captures window.location.search once; merges into each link’s URL with
-   lander params overriding same keys on the target. Adds ref= from
+/* ── Forward lander query string to booking/assessment CTAs only ──
+   Captures window.location.search once; merges into each matching link’s URL
+   with lander params overriding same keys on the target. Adds ref= from
    document.referrer (host without www + path + query) when the lander did not
-   already pass ref=. Skips #, mailto, tel, javascript, and fragment-only hrefs.
+   already pass ref=. Ordinary same-site <a href> links are left unchanged.
+   Matches: .booking-trigger, .metabolic-survey-cta-btn, .btn-first-time,
+   .btn-follow-up; id or hash #metabolic-assessment-trigger; data-cta ending
+   in _book_call or _free_assessment, or modal_first_time / modal_follow_up;
+   api.leadconnectorhq.com/widget/bookings/*; same-site /book-now, /quiz,
+   /emma, /owen-lowt. Skips #, mailto, tel, javascript, and fragment-only hrefs.
    Idempotent if run twice. */
 (function () {
   var landerSearch = window.location.search || '';
@@ -267,6 +272,35 @@
 
   if (!landerHasQuery && !referrerRef) return;
 
+  function isSameSite(hostname) {
+    var here = (window.location.hostname || '').replace(/^www\./i, '').toLowerCase();
+    var host = (hostname || '').replace(/^www\./i, '').toLowerCase();
+    return host === here || host === 'odinhealthlab.ca';
+  }
+
+  function isBookingOrAssessmentCta(a) {
+    if (a.classList.contains('booking-trigger')) return true;
+    if (a.classList.contains('metabolic-survey-cta-btn')) return true;
+    if (a.classList.contains('btn-first-time')) return true;
+    if (a.classList.contains('btn-follow-up')) return true;
+    if (a.id === 'metabolic-assessment-trigger') return true;
+    var cta = a.getAttribute('data-cta') || '';
+    if (/(_book_call|_free_assessment)$/.test(cta)) return true;
+    if (cta === 'modal_first_time' || cta === 'modal_follow_up') return true;
+    try {
+      var u = new URL(a.href, window.location.href);
+      var path = (u.pathname || '/').replace(/\/+$/, '') || '/';
+      var hash = (u.hash || '').toLowerCase();
+      if (hash === '#metabolic-assessment-trigger') return true;
+      if (u.hostname.replace(/^www\./i, '').toLowerCase() === 'api.leadconnectorhq.com' &&
+          /^\/widget\/bookings(\/|$)/.test(u.pathname)) return true;
+      if (isSameSite(u.hostname) &&
+          (path === '/book-now' || path === '/quiz' || path === '/emma' || path === '/owen-lowt'))
+        return true;
+    } catch (err) { /* ignore unparseable href */ }
+    return false;
+  }
+
   function forwardLanderQueryToLinks() {
     var landerParams = new URLSearchParams(landerHasQuery ? landerSearch : '');
     var landerSetRef = landerParams.has('ref');
@@ -278,6 +312,7 @@
       if (!t || t === '#' || t.startsWith('javascript:') || t.startsWith('mailto:') || t.startsWith('tel:'))
         return;
       if (/^#[^:]*$/.test(t)) return;
+      if (!isBookingOrAssessmentCta(a)) return;
       try {
         var u = new URL(a.href);
         var merged = new URLSearchParams(u.search);
