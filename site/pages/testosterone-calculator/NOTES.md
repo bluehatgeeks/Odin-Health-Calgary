@@ -43,3 +43,5 @@ python3 /workspace/calc-howto-1106/verify.py --live   # expect FAIL on new marke
 - Edit x-ghl-daily.md
 - Message anyone / change booking / calendars / hours / [Paid] pages
 - Parent asks Alex before live
+
+- 2026-11-13 lnk1113 (STAGED, not published): base = srv2/testosterone-calculator-calc-howto-1106.txt (md5 14714a5f..., = previous local page.html; 1193/1193 contiguous in order with live 2026-11-13). Added one in-prose link in the 'How we help' lead paragraph after '...so you can see real change.':' If your sleep is also off, our guide to <a class="text-link" href="https://odinhealthlab.ca/low-testosterone-and-sleep" data-cta="calc_sleep_link">low testosterone and sleep</a> explains how the two are linked.' Article dateModified 2026-11-06 -> 2026-11-13. Nothing else changed (title, meta, FAQ, booking untouched). Builder GyZTry1oWhJ2Pum5kIBM, step 9799d515-b50f-47f1-a71c-eda3ef3c4c4d. Staged :8780/testosterone-calculator-lnk1113.txt.
