@@ -82,3 +82,5 @@
 - X follow text -> "Follow Odin Health Lab on X". dateModified 2026-10-30. Title/desc/H1/SEO panel unchanged. Staged :8780/trt-cost-canada-vs-usa-lnk1030.txt.
 
 - 2026-11-13 lnk1113 (STAGED, not published): base = srv2/trt-cost-canada-vs-usa-labc1112.txt (md5 c3907f26..., live-published 2026-11-12; 999/999 non-blank lines contiguous in order with live 2026-11-13). Added one in-prose link in the US cash labs/help lead paragraph after '...the right supplements</a>.':' Our guide to <a class="text-link" href="https://odinhealthlab.ca/low-testosterone-and-sleep" data-cta="cost_sleep_link">low testosterone and sleep</a> explains how sleep and testosterone are linked.' Article dateModified 2026-11-12 -> 2026-11-13. Nothing else changed (title, meta, FAQ, booking untouched). Builder pVNKIefQeQySu4afR9rk, step 9e476302-ad04-4818-84b4-fb83868adc6e. Staged :8780/trt-cost-canada-vs-usa-lnk1113.txt.
+
+GL-RECRAWL-1114: identical Custom Code re-save for sitemap lastmod. No content change versus live lnk1113 (md5 dee486da7a0663ed455d2c56c26586b8). Pre-existing visible Calgary mentions left as-is. Builder pVNKIefQeQySu4afR9rk.

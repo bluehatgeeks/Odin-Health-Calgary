@@ -64,3 +64,5 @@ Why: Search Console shows /health-coaching at avg position 2.0 while the 15 answ
 - Staged http://127.0.0.1:8780/health-coaching-ins1023.txt. Marker: data-cta="insomnia_link_coaching".
 ### GHL ids (live funnel step list)
 Step 'Health Coaching': step id 6fa62869-079e-4cbd-9719-7878c7e43b83, page/builder id 4WKtBwtwqSmlC5Wukbag, sequence 8. Republish = paste :8780/health-coaching-ins1023.txt into the Custom Code only element.
+
+GL-RECRAWL-1114: wrapped the existing FAQ #1 words "natural alternative to TRT" in <a class="text-link" href="https://odinhealthlab.ca/natural-alternative-to-trt" data-cta="hc_natalt_link">. Visible wording unchanged; FAQ JSON-LD still plain text. Title/meta/H1/SEO panel unchanged. Builder 4WKtBwtwqSmlC5Wukbag.
