@@ -49,3 +49,5 @@ Create page in GHL (slug peptides-canada-usa), paste page.html (http://127.0.0.1
 - New FAQ #4 "Are \"research use only\" peptides legal in Canada?" after the BPC-157 FAQ (visible + FAQPage JSON-LD 9==9); dateModified 2026-11-10; title+meta unchanged.
 - Facts: Health Canada RA-81874 (re-fetched 2026-11-10): "For Research Use Only - Not for Human Consumption" labelling does not make products legal or exempt from regulatory requirements; Canadians advised not to buy/use; peptides generally regulated as prescription drugs; unauthorized drugs illegal + not assessed; authorized Rx drugs carry 8-digit DIN; check Drug Product Database.
 - Context not used on page: newer Health Canada advisory RA-82930 (Nov 6 2026, contaminated peptides from ERP Peptide, 11,400+ vials seized) repeats the research-use-only warning.
+
+GL-RECRAWL-1114: same CTA reword; dateModified 2026-11-10 -> 2026-11-14. SEO panel untouched. Builder nHICplGoKajtzIpne13a.

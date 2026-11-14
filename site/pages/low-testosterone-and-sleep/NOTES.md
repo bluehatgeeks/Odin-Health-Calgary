@@ -63,3 +63,5 @@ Step 'Low Testosterone and Sleep' in 'Odin Health Lab Main Site': step id d27a80
 
 ## 2026-11-12 FAQ "Does TRT affect sleep?" (live)
 Added as FAQ #10 (visible + FAQPage JSON-LD, 10 == 10), dateModified 2026-11-12. Answer-first summary of facts already sourced on the page: EARTH 2018 (48 men, improved sleep-disturbance scores), Liu 2003 (17 men >60, high-dose T cut sleep ~1 h, worse breathing), Hoyos 2012 (67 obese men with severe OSA, worse oxygen drops early), Endocrine Society 2018 rec 2.2 (no T start with untreated severe OSA). Natural health clinic, does not provide TRT. Target query "trt and sleep" (US 110/mo).
+
+GL-RECRAWL-1114: same CTA reword; dateModified 2026-11-12 -> 2026-11-14 (compact JSON style kept). SEO panel untouched. Builder kK1JPjGxJ7vyylmUphtk.
