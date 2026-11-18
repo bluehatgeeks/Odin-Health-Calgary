@@ -104,7 +104,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
         "@id": "https://odinhealthlab.ca/#organization"
       },
       "datePublished": "2026-10-17",
-      "dateModified": "2026-11-16",
+      "dateModified": "2026-11-18",
       "image": "https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/og-home.png"
     },
     {
@@ -137,6 +137,14 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Not on its own. Pattern hair loss is driven by DHT, a stronger hormone your body makes from testosterone, acting on scalp follicles that are genetically sensitive to it. In a study of 373 men in Germany, blood testosterone and other sex hormones were not linked with hair loss, and the authors pointed to follicle sensitivity instead. Variation in the androgen receptor gene, which sits on the X chromosome you inherit from your mother, is the strongest single genetic factor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does testosterone cause male pattern baldness?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not directly. Male pattern baldness (androgenetic alopecia) happens when DHT, a stronger hormone your body makes from testosterone, shrinks scalp follicles that your genes make sensitive to it. The amount of testosterone in your blood does not decide it: in a German study of 373 men, testosterone and other sex hormone levels were not linked with balding. Genes do most of the work. The androgen receptor gene, inherited from your mother's side, is the strongest single factor, and a 2017 study of more than 22,000 men found 63 gene regions linked with male pattern baldness."
           }
         },
         {
@@ -187,7 +195,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
 </head>
 <body>
 <script>
-/* ── Odin Health Lab — Component Loader (inline, same as the homepage) ── */
+/* -- Odin Health Lab - Component Loader (inline, same as the homepage) -- */
 (function () {
   var CDN = 'https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master';
   function execScripts(container) {
@@ -226,7 +234,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
 <div class="hero-copy">
 <p class="hero-slogan hero-eyebrow hero-in" style="--i:0">Low testosterone &middot; Telehealth for men &middot; Canada &amp; USA</p>
 <h1 id="hero-title" class="large-heading">Testosterone and hair loss: what DHT, genes and TRT really do</h1>
-<div class="answer-box hero-in" style="--i:1"><span class="answer-tag">Short answer</span><p><strong>Pattern hair loss comes from DHT, a hormone made from testosterone, acting on scalp follicles that your genes make sensitive to it.</strong> In a study of 373 men, blood testosterone was not linked with hair loss, and low T thins body hair rather than causing balding. The Endocrine Society lists pattern balding in men with a family tendency as an uncommon side effect of TRT. Finasteride and dutasteride lower DHT; in trials, testosterone still built muscle and bone alongside them, but they can affect libido, semen and PSA. Diffuse or sudden shedding usually has another cause, such as thyroid, low iron, illness, stress or fast weight loss. We help men in Canada and the USA find the cause, plan the right labs and build one plan for their hormones and their hair.</p></div>
+<div class="answer-box hero-in" style="--i:1"><span class="answer-tag">Short answer</span><p><strong>Does testosterone cause male pattern baldness? Not by itself: pattern hair loss comes from DHT, a hormone made from testosterone, acting on scalp follicles that your genes make sensitive to it.</strong> In a study of 373 men, blood testosterone was not linked with hair loss, and low T thins body hair rather than causing balding. The Endocrine Society lists pattern balding in men with a family tendency as an uncommon side effect of TRT. Finasteride and dutasteride lower DHT; in trials, testosterone still built muscle and bone alongside them, but they can affect libido, semen and PSA. Diffuse or sudden shedding usually has another cause, such as thyroid, low iron, illness, stress or fast weight loss. We help men in Canada and the USA find the cause, plan the right labs and build one plan for their hormones and their hair.</p></div>
 <div class="cta-row hero-in" style="--i:2">
 <a href="#" class="btn-primary booking-trigger" data-cta="hero_book_call">Book a free call</a>
 <a href="#at-a-glance" class="btn btn-outline" data-cta="hero_see_facts">See the facts</a>
@@ -709,6 +717,10 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
 <p class="faq-answer">Not on its own. Pattern hair loss is driven by DHT, a stronger hormone your body makes from testosterone, acting on scalp follicles that are genetically sensitive to it. In a study of 373 men in Germany, blood testosterone and other sex hormones were not linked with hair loss, and the authors pointed to follicle sensitivity instead. Variation in the androgen receptor gene, which sits on the X chromosome you inherit from your mother, is the strongest single genetic factor.</p>
 </details>
 <details class="faq-item">
+<summary><span class="faq-question">Does testosterone cause male pattern baldness?</span></summary>
+<p class="faq-answer">Not directly. Male pattern baldness (androgenetic alopecia) happens when DHT, a stronger hormone your body makes from testosterone, shrinks scalp follicles that your genes make sensitive to it. The amount of testosterone in your blood does not decide it: in a German study of 373 men, testosterone and other sex hormone levels were not linked with balding. Genes do most of the work. The androgen receptor gene, inherited from your mother&rsquo;s side, is the strongest single factor, and a 2017 study of more than 22,000 men found 63 gene regions linked with male pattern baldness.</p>
+</details>
+<details class="faq-item">
 <summary><span class="faq-question">Does low testosterone cause hair loss?</span></summary>
 <p class="faq-answer">Low testosterone can thin body hair: the Endocrine Society lists loss of armpit and pubic hair as a specific sign of testosterone deficiency. Thinning at the temples and crown is a different process that follows your genes and DHT sensitivity. If your scalp hair is shedding all over, thyroid problems, low iron, a recent illness, stress or fast weight loss are more common causes, and simple labs can check most of them.</p>
 </details>
@@ -771,7 +783,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
    Mixpanel init and the "Page View" event stay in the existing site-level tracking code. */
 (function () {
   var PAGE = 'testosterone-and-hair-loss';
-  /* ── Booking modal ── */
+  /* -- Booking modal -- */
   var overlay = document.getElementById('booking-modal-overlay');
   var closeBtn = document.getElementById('booking-modal-close');
   var lastFocus = null;
@@ -808,7 +820,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
     if (e.key === 'Escape' && overlay && overlay.classList.contains('is-visible')) closeModal();
   });
 
-  /* ── AI-referrer super-property (once per load; never throw / never block) ── */
+  /* -- AI-referrer super-property (once per load; never throw / never block) -- */
   try {
     var aiLabel = null;
     var AI_HOSTS = {
@@ -848,7 +860,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
     }
   } catch (errAi) { /* never block render */ }
 
-  /* ── CTA click tracking (Mixpanel, guarded). Properties: cta, page ── */
+  /* -- CTA click tracking (Mixpanel, guarded). Properties: cta, page -- */
   function trackCta(cta) {
     try {
       if (window.mixpanel && typeof window.mixpanel.track === 'function') {
@@ -879,7 +891,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
   }, true);
 
 
-  /* ── Motion (progressive enhancement; content is fully visible without JS) ── */
+  /* -- Motion (progressive enhancement; content is fully visible without JS) -- */
   var reduce = false; /* ambient loops keep running under iOS/macOS Reduce Motion; the reduce CSS block still stills slide-in reveals, hovers and accordion easing */
   var hasIO = 'IntersectionObserver' in window;
 
