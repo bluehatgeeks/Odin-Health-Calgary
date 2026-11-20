@@ -103,7 +103,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
         "@id": "https://odinhealthlab.ca/#organization"
       },
       "datePublished": "2026-10-18",
-      "dateModified": "2026-11-18",
+      "dateModified": "2026-11-20",
       "image": "https://cdn.jsdelivr.net/gh/bluehatgeeks/Odin-Health-Calgary@master/img/og-home.png"
     },
     {
@@ -181,6 +181,14 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Divide ng/dL by 28.84. To go the other way, multiply nmol/L by 28.84. The factor comes from the molecular weight of testosterone, 288.4 grams per mole (PubChem). For example, 300 ng/dL is about 10.4 nmol/L, 500 ng/dL is about 17.3 nmol/L, and 15 nmol/L is about 433 ng/dL. For free testosterone, multiply pg/mL by 3.467 to get pmol/L, so 64 pg/mL is about 222 pmol/L, which the Endocrine Society rounds to 220."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate the free androgen index (FAI)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide total testosterone by SHBG, both in nmol/L, and multiply by 100. With total T of 15 nmol/L and SHBG of 30 nmol/L, the FAI is 50. If your total T is in ng/dL, divide it by 28.84 first. The calculator above shows your FAI under your free T result. In men, read calculated free testosterone first: Vermeulen and colleagues (1999) found the FAI is not a reliable index of bioavailable testosterone because it shifts with SHBG level, while free T calculated from total T and SHBG closely matched equilibrium dialysis."
           }
         },
         {
@@ -462,7 +470,7 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
 <div id="fc-bar" class="fc-bar"><span class="b1" style="width:48.3%"></span><span class="b2" style="width:48.7%"></span><span class="b3" style="width:3.0%"></span></div>
 <div class="fc-bar-leg"><span><i class="k1"></i>SHBG-bound</span><span><i class="k2"></i>Albumin-bound</span><span><i class="k3"></i>Free</span></div>
 </div>
-<div id="fc-out" class="tool-out" role="status" aria-live="polite"><div class="fc-big"><span class="fc-k">Free testosterone</span><span class="fc-v"><b>326</b> pmol/L</span><span class="fc-v2">93.9 pg/mL</span></div><dl class="fc-dl"><div><dt>Percent free</dt><dd>2.17</dd></div><div><dt>Bioavailable T</dt><dd>7.6 nmol/L (220 ng/dL)</dd></div><div><dt>Total T used</dt><dd>15.0 nmol/L (433 ng/dL)</dd></div></dl><ul class="rs-list"><li class="rs-inside">At or above the 220 pmol/L (64 pg/mL) free T cut-off used by the European Male Ageing Study</li><li class="rs-inside">Inside the LifeLabs calculated free T range for men (115 to 577 pmol/L)</li></ul><p class="rs-cta">Normal free T but still tired, foggy or gaining weight? Other causes often sit behind the symptoms. <a href="#" class="booking-trigger" data-cta="calc_result_book">Book a free TRT Decision Review</a> to go through your numbers with us.</p></div>
+<div id="fc-out" class="tool-out" role="status" aria-live="polite"><div class="fc-big"><span class="fc-k">Free testosterone</span><span class="fc-v"><b>326</b> pmol/L</span><span class="fc-v2">93.9 pg/mL</span></div><dl class="fc-dl"><div><dt>Percent free</dt><dd>2.17</dd></div><div><dt>Bioavailable T</dt><dd>7.6 nmol/L (220 ng/dL)</dd></div><div><dt>Total T used</dt><dd>15.0 nmol/L (433 ng/dL)</dd></div><div><dt>Free androgen index</dt><dd>50.0</dd></div></dl><ul class="rs-list"><li class="rs-inside">At or above the 220 pmol/L (64 pg/mL) free T cut-off used by the European Male Ageing Study</li><li class="rs-inside">Inside the LifeLabs calculated free T range for men (115 to 577 pmol/L)</li></ul><p class="rs-cta">Normal free T but still tired, foggy or gaining weight? Other causes often sit behind the symptoms. <a href="#" class="booking-trigger" data-cta="calc_result_book">Book a free TRT Decision Review</a> to go through your numbers with us.</p></div>
 </div>
 <div class="howto-issam reveal" id="howto-issam" aria-labelledby="howto-issam-title">
 <h2 class="group-label" id="howto-issam-title">How to use the ISSAM free testosterone calculator</h2>
@@ -879,6 +887,10 @@ body .container{max-width:1300px !important;margin:0 auto !important;padding:0 2
 <p class="faq-answer">Divide ng/dL by 28.84. To go the other way, multiply nmol/L by 28.84. The factor comes from the molecular weight of testosterone, 288.4 grams per mole (PubChem). For example, 300 ng/dL is about 10.4 nmol/L, 500 ng/dL is about 17.3 nmol/L, and 15 nmol/L is about 433 ng/dL. For free testosterone, multiply pg/mL by 3.467 to get pmol/L, so 64 pg/mL is about 222 pmol/L, which the Endocrine Society rounds to 220.</p>
 </details>
 <details class="faq-item">
+<summary><span class="faq-question">How do I calculate the free androgen index (FAI)?</span></summary>
+<p class="faq-answer">Divide total testosterone by SHBG, both in nmol/L, and multiply by 100. With total T of 15 nmol/L and SHBG of 30 nmol/L, the FAI is 50. If your total T is in ng/dL, divide it by 28.84 first. The calculator above shows your FAI under your free T result. In men, read calculated free testosterone first: <a href="#sources" data-cta="faq_fai_sources">Vermeulen and colleagues (1999)</a> found the FAI is not a reliable index of bioavailable testosterone because it shifts with SHBG level, while free T calculated from total T and SHBG closely matched equilibrium dialysis.</p>
+</details>
+<details class="faq-item">
 <summary><span class="faq-question">What is a normal testosterone level in nmol/L in Canada?</span></summary>
 <p class="faq-answer">Each lab sets its own range. Alberta Precision Laboratories lists 8.0 to 35.0 nmol/L for men 18 and over, and the LifeLabs reference laboratory in British Columbia lists 8.4 to 28.8 nmol/L for men over 18. The Endocrine Society harmonized range for healthy, non-obese men aged 19 to 39 is 9.2 to 31.8 nmol/L (264 to 916 ng/dL), and the Canadian Urological Association treats a total T below 10 nmol/L as a reasonable threshold for low T, alongside symptoms. Compare your result with the range printed on your own report first.</p>
 </details>
@@ -1007,7 +1019,7 @@ if (a < 10) { note = '<p class="rs-note">Albumin read as ' + cut(a, 2) + ' g/dL 
 if (s > 400 || a > 80) { res.innerHTML = '<p class="rs-head">Check the SHBG (nmol/L) and albumin (g/L) values against your report.</p>'; return; }
 var r = O.free(n, s, a);
 res.innerHTML = '<div class="fc-big"><span class="fc-k">Free testosterone</span><span class="fc-v"><b>' + fx(r.pmol, 0) + '</b> pmol/L</span><span class="fc-v2">' + fx(r.pg, 1) + ' pg/mL</span></div>' +
-'<dl class="fc-dl"><div><dt>Percent free</dt><dd>' + fx(r.pct, 2) + '</dd></div><div><dt>Bioavailable T</dt><dd>' + fx(r.bat, 1) + ' nmol/L (' + fx(r.batNg, 0) + ' ng/dL)</dd></div><div><dt>Total T used</dt><dd>' + fx(n, 1) + ' nmol/L (' + fx(O.toNg(n), 0) + ' ng/dL)</dd></div></dl>' +
+'<dl class="fc-dl"><div><dt>Percent free</dt><dd>' + fx(r.pct, 2) + '</dd></div><div><dt>Bioavailable T</dt><dd>' + fx(r.bat, 1) + ' nmol/L (' + fx(r.batNg, 0) + ' ng/dL)</dd></div><div><dt>Total T used</dt><dd>' + fx(n, 1) + ' nmol/L (' + fx(O.toNg(n), 0) + ' ng/dL)</dd></div><div><dt>Free androgen index</dt><dd>' + fx(n / s * 100, 1) + '</dd></div></dl>' +
 note + '<ul class="rs-list">' + freeHTML(r.pmol) + '</ul>' +
 '<p class="rs-cta">' + (r.pmol < 220 ? 'Your free T is under the 220 pmol/L cut-off. Want a plan to raise it naturally? ' : 'Normal free T but still tired, foggy or gaining weight? Other causes often sit behind the symptoms. ') + '<a href="#" class="booking-trigger" data-cta="calc_result_book">Book a free TRT Decision Review</a> to go through your numbers with us.</p>';
 if (bar) { var fr = Math.max(r.pmol / 1e3 / n * 100, 3), al2 = r.alb / n * 100; var sb = Math.max(100 - fr - al2, 0);
