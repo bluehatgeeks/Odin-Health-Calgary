@@ -51,3 +51,6 @@ Step 'Free vs Total Testosterone': step id a54b1902-0f7a-428f-895b-3b26b5aaf3c8,
 - #help lead: + "Men in Alberta can see how local lab ranges are read on our <a ... data-cta="fvt_calgary_link">online TRT clinic for Calgary and Alberta</a> page." (allow-listed Calgary wording).
 - #when lead: + "In Canada these tests are usually covered when medically necessary, and our <a ... data-cta="fvt_cost_link">TRT cost in Canada vs the USA</a> guide shows what labs and treatment cost in each country." (fact from the cost page quick answer).
 - Calculator already linked (units_calc_link, related_calc): no change. X follow text -> "Follow Odin Health Lab on X". dateModified 2026-10-30. Staged :8780/free-vs-total-testosterone-lnk1030.txt.
+
+## 2026-11-20 cal1120 (LIVE)
+Calgary wording cleanup (Option A). A4 sentence: link text now "Alberta lab ranges page", still to /trt-clinic-calgary, data-cta fvt_calgary_link unchanged. dateModified 2026-11-20. page.html = the live Custom Code paste (925 lines, md5 4317f26b). Backups *.bak-cal1120.

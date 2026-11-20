@@ -58,3 +58,6 @@ Create/choose the page in GHL, paste `page.html` into its custom-code element, s
 - #questions lead: "...Bring it to your free call and to any appointment, along with your lab results; our <a ... data-cta="fix_calc_link">testosterone calculator</a> converts them between nmol/L and ng/dL."
 - X follow text -> "Follow Odin Health Lab on X". dateModified 2026-10-30 (modified= added to build()).
 - GHL ids (live __NUXT_DATA__): step 31e2c06f-2e23-4bdf-87ca-0301712b35b4, builder 5zToEIRccVShJPmFpXXo. Staged :8780/trt-or-fix-causes-first-lnk1030.txt; Custom Code only.
+
+## 2026-11-20 cal1120 (LIVE)
+Calgary wording cleanup (Option A). "men in Alberta can start from our Calgary and Alberta natural alternative to TRT page" -> "men anywhere in Canada or the US can start from our natural alternative to TRT page", now to /natural-alternative-to-trt (data-cta fix_natalt_link). dateModified 2026-11-20. Varicocele inbound link not included (/varicocele-and-testosterone is not live). page.html = the live Custom Code paste (1556 lines, md5 b2a6022e). Backups *.bak-cal1120.

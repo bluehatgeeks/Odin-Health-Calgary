@@ -60,3 +60,6 @@ Why: Search Console reports /trt-or-fix-causes-first, /trt-and-fertility, /pepti
 - Tests: hp-test/ikq.js `functional-health fh` PASS 1280+390; shared test-visual PASS; tracking 26/26 (was 16) CTA Click, Booking Link Clicked 2/2; nophys/banned scan unchanged. Backups *.bak-iklinks.
 - In-body TITLE aligned to the GHL head title / seo-meta.md: 'Functional Health for Men: Root Causes | Odin Health Lab' (was '...Find the Root Cause | Odin Labs'); <title>, og:title, twitter:title, JSON-LD WebPage name. DESC unchanged (matches the live GHL head description; note seo-meta.md lists a different description).
 - 2026-10-29 cal1029: +1 in-prose link in #labs lead to /trt-clinic-calgary, anchor 'online TRT clinic for Calgary and Alberta', data-cta functional_calgary_link; build.py Calgary guard now also allows trt-clinic-calgary, 'TRT clinic for Calgary and Alberta' and data-cta="*_calgary_link".
+
+## 2026-11-20 cal1120 (LIVE)
+Calgary wording cleanup (Option A). A4 sentence: link text now "Alberta lab ranges page", still to /trt-clinic-calgary, data-cta functional_calgary_link unchanged. No dateModified on this page. page.html = the live Custom Code paste (1119 lines, md5 41a56812). Backups *.bak-cal1120.
