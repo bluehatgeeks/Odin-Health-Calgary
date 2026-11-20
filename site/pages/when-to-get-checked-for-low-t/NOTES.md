@@ -1,9 +1,3 @@
-CAL-PAA-1106 2026-11-06
-
-Brand: Odin Health Lab — natural alternative to TRT (does not provide/prescribe TRT). No booking changes.
-
----
-
 # /when-to-get-checked-for-low-t (local only, NOT published)
 Query: "when to get checked for low T" / "should I get my testosterone checked" / "when to test for low testosterone" (men, Canada + USA, telehealth, andropause / low-T audience). Built with the answer-page system (`../_shared/`): `python3 build.py`; tests from /workspace/hp-test (`NODE_PATH=/workspace/hp-test/node_modules`): `node ../pages/_shared/test-visual.js when-to-get-checked-for-low-t`, `NO_ASSESS=1 node ../pages/_shared/test-tracking.js when-to-get-checked-for-low-t`.
 SEO: title (48) `When to Get Checked for Low T | Odin Health Lab`; description (143) `When low-T symptoms warrant testing: two morning labs, what temporarily lowers T, free T when borderline, and next steps in Canada and the USA.` (both in `/workspace/homepage/seo-meta.md`). H1 "When should you get checked for low testosterone?". Canonical https://odinhealthlab.ca/when-to-get-checked-for-low-t. JSON-LD: Organization, WebSite, WebPage, Article (datePublished 2026-10-16), BreadcrumbList, FAQPage (6 Qs, 1:1 with page). In sitemap.xml (priority 0.8, 16 URLs) + llms.txt (Answers).
@@ -39,3 +33,6 @@ Why: Search Console reports /trt-or-fix-causes-first, /trt-and-fertility, /pepti
 - Links + data-cta: wc_q_home -> /#common-questions, wc_q_calc -> /testosterone-calculator, wc_q_freet -> /free-vs-total-testosterone, wc_q_natural -> /how-to-raise-testosterone-naturally, wc_q_sleep -> /low-testosterone-and-sleep, wc_q_trtse -> /trt-side-effects, wc_q_hairloss -> /testosterone-and-hair-loss.
 - Motion accent `.mg--iq`: question bubble (page glyph) sends a packet to each of three answer cards; card lights, tick pops; bubble bobs. transform/opacity only, 7s loop, paused off-screen via the section's `[data-live]`; static default = final state; reduced motion = soft card glow only (no travel/bob/pop, accordion easing off). Side column + groups use `.reveal`.
 - Tests: hp-test/ikq.js `when-to-get-checked-for-low-t wc` PASS 1280+390; shared test-visual PASS; tracking 43/43 (was 36) CTA Click, Booking Link Clicked 2/2; nophys/banned scan unchanged. Backups *.bak-iklinks.
+
+## 2026-11-20 cal1120 (LIVE)
+Calgary wording cleanup (Option A). Keep-reading card retitled to "Natural alternative to TRT, online in Canada and the US" (old title read "TRT in Calgary and Alberta Natural alternative to"); link to /natural-alternative-to-trt, data-cta related_natalt. dateModified 2026-11-20. page.html = the live Custom Code paste (1578 lines, md5 ad124ac2). Backups *.bak-cal1120.

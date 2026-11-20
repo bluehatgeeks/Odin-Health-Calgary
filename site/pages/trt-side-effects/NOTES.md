@@ -1,9 +1,3 @@
-CAL-PAA-1106 2026-11-06
-
-Brand: Odin Health Lab — natural alternative to TRT (does not provide/prescribe TRT). No booking changes.
-
----
-
 # /trt-side-effects (local only, NOT published) - answer page 12/N
 Query: "TRT side effects" / "testosterone replacement therapy side effects" / "risks of TRT" / "does TRT cause hair loss or acne" / "TRT hematocrit / red blood cells" / "TRT testicle size / fertility" / "TRT heart risk (TRAVERSE)" / "TRT and prostate" / "monitoring on TRT" (men 40+, Canada + USA, telehealth, andropause / low-T audience). Built with the answer-page system (`../_shared/`): `python3 build.py` (gfx.build() -> common.assemble(), then minified in build.py: CSS comments + indentation stripped outside <script>, unused `pi-*` icon symbols dropped, CSS punctuation tightened; unminified copy kept as page.full.html; build.py also runs /workspace/safari-fix/apply_fix.py on the output as a guard, which reported 0 media queries and 0 JS reduce lines left to fix). Tests from /workspace/hp-test (`NODE_PATH=/workspace/hp-test/node_modules`): `node ../pages/_shared/test-visual.js trt-side-effects`, `NO_ASSESS=1 node ../pages/_shared/test-tracking.js trt-side-effects`; plus `python3 scan.py` (banned words + doctor words outside the doctor FAQ + Safari-fix check + test-tracking claim regexes).
 SEO: title (57) `TRT Side Effects: Risks and Monitoring | Odin Health Lab`; description (148) `TRT side effects: hematocrit, acne, fertility, PSA and heart risk (TRAVERSE), how common each is and what to monitor. For men in Canada and the USA.` (both in `/workspace/homepage/seo-meta.md`). H1 "What are the side effects of TRT?". Canonical https://odinhealthlab.ca/trt-side-effects. JSON-LD: Organization, WebSite, WebPage, Article (datePublished 2026-10-16), BreadcrumbList, FAQPage (6 Qs, 1:1 with page). In sitemap.xml (priority 0.8, now 19 URLs) + llms.txt (Answers, after the free-vs-total line). Staged copies: /workspace/srv2/trt-side-effects.txt, /workspace/srv2/sitemap.txt, /workspace/srv2/llms.txt. Pre-edit backups of seo-meta.md, sitemap.xml, llms.txt: /workspace/backups-trtse/.
@@ -82,3 +76,6 @@ Why: GSC 28d query "trt side effects" (pos 84) and page pos 24.5, 0 clicks.
 ### GHL ids (live funnel step list)
 Step 'TRT Side Effects': step id 4c9a2b2a-c335-4c07-af80-8d108d2a8f9a, page/builder id NRUQX0Ceoi16Eboil9D2, sequence 27. Republish = paste :8780/trt-side-effects-ins1023.txt into the Custom Code only (SEO panel unchanged) element.
 - 2026-10-29 cal1029: +1 in-prose sentence in #help lead linking /trt-clinic-calgary ('online TRT clinic for Calgary and Alberta', data-cta sidefx_calgary_link). _shared/common.py Calgary guard allows data-cta="*_calgary_link".
+
+## 2026-11-20 cal1120 (LIVE)
+Calgary wording cleanup (Option A). A4 sentence: link text now "Alberta lab ranges page", still to /trt-clinic-calgary, data-cta sidefx_calgary_link unchanged. dateModified 2026-11-20. page.html = the live Custom Code paste (255 lines, md5 1b08e35b). Backups *.bak-cal1120.

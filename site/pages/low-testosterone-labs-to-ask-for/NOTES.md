@@ -43,3 +43,6 @@ Keep reading gained a 6th card "Free vs total testosterone" (data-cta related_fr
 - Backups: *.bak-calc (page.body.html, page.html, build.py, page.css, page.full.html if present, NOTES.md, test outputs).
 - Retested: visual PASS at 1280 and 390 (CLS 0, 0 errors, no overflow, 0 offscreen loops; reduced/no-JS hidden counts identical to the pre-edit baseline). Tracking exit 0 with the new CTAs firing. Scan and nophys 0 hits. page.html 136401 B.
 - Publish only AFTER /testosterone-calculator is live (otherwise the new links 404).
+
+## 2026-11-20 ustest1120 (LIVE)
+Added H2 section "How to get a testosterone test in the US" (Quest \$69 + \$6 physician fee, Labcorp OnDemand \$69 total / \$159 comprehensive, Everlywell \$69 home kit, doctor/telehealth order) after the Canada section, FAQ "How can I get my testosterone tested in the US without a doctor visit?" (visible + JSON-LD, 9 FAQs), 4 sources, dateModified 2026-11-20. page.html = the live Custom Code paste (1556 lines).
